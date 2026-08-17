@@ -8,14 +8,12 @@ The Packaging domain defines the core elements of Building Block and Container w
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
-{-# OPTIONS --cubical-compatible #-}
+module SysFEAT.UpperOntology.sysfeat-domain-f0fd779f65a18c5d where -- ========== Packaging
 
-module f0fd779f65a18c5d where -- ========== Packaging
+open import SysFEAT.UpperOntology.sysfeat-domain-e278fa2568f06541 public -- Reflexive Knowledge Graph
 
-open import Agda.Primitive
-open import Relation.Binary.PropositionalEquality
-open import 23d5c494685141b5 public -- Block Lexical Scope
-open import 0eb93b4268549a66 public -- Container
-open import 0eb947546854a13d public -- Container Package
-open import 23d5aa4868513f43 public -- Block Collection
-open import 23d5a9ea68513ced public -- Building Block
+open import SysFEAT.UpperOntology.23d5c494685141b5 public -- Block Lexical Scope
+open import SysFEAT.UpperOntology.0eb93b4268549a66 public -- Container
+open import SysFEAT.UpperOntology.0eb947546854a13d public -- Container Package
+open import SysFEAT.UpperOntology.23d5aa4868513f43 public -- Block Collection
+open import SysFEAT.UpperOntology.23d5a9ea68513ced public -- Building Block

@@ -8,14 +8,10 @@ The Predication Substrate defines the compositional system of Element, Class of 
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
-{-# OPTIONS --cubical-compatible #-}
+module SysFEAT.UpperOntology.sysfeat-domain-ae26f9c25acd52d4 where -- ========== Predication Substrate
 
-module ae26f9c25acd52d4 where -- ========== Predication Substrate
-
-open import Agda.Primitive
-open import Relation.Binary.PropositionalEquality
-open import 526b679569de63eb public -- Mixed-Order Element
-open import 526b6bd869de64e4 public -- Ordered Element
-open import 23d5249e68510ff9 public -- Element
-open import 20702b2568e9694d public -- Class of Element
-open import 0eb93b276855b2c1 public -- Linkage
+open import SysFEAT.UpperOntology.526b679569de63eb public -- Mixed-Order Element
+open import SysFEAT.UpperOntology.526b6bd869de64e4 public -- Ordered Element
+open import SysFEAT.UpperOntology.23d5249e68510ff9 public -- Element
+open import SysFEAT.UpperOntology.20702b2568e9694d public -- Class of Element
+open import SysFEAT.UpperOntology.0eb93b276855b2c1 public -- Linkage

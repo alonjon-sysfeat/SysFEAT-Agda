@@ -3,10 +3,17 @@
    This work is released under the MIT License.
    framework.sysfeat.com
 
-Legend: 
+Today: 
 
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
-module SysFEAT.UpperOntology.sysfeat-domain-a4a5af285558588a where -- ========== Legend
+
+module SysFEAT.UpperOntology.085717e35ed13f34 where -- ========== Today
+
+open import Agda.Primitive
+
+Today : ∀ (u : Level) → ClassOfMixedOrderEntity u
+Today u = MixedOrderEntity u
+
 

@@ -8,15 +8,13 @@ The purpose of the Compositionality family of concepts is to provide syntactic m
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
-{-# OPTIONS --cubical-compatible #-}
+module SysFEAT.UpperOntology.sysfeat-domain-36166b8c6157b6b4 where -- ========== Compositionality
 
-module 36166b8c6157b6b4 where -- ========== Compositionality
+open import SysFEAT.UpperOntology.sysfeat-domain-f0fd779f65a18c5d public -- Packaging
 
-open import Agda.Primitive
-open import Relation.Binary.PropositionalEquality
-open import 23d5c5ce68514283 public -- Aggregate Block
-open import 23d56d9868525869 public -- Aggregate Entity Block
-open import 8cfa942f68527849 public -- Unbounded Aggregate
-open import 8cfa941b6852781f public -- Bounded Aggregate
-open import 23d5eaba68515533 public -- Ordering Connection
-open import 23d5c5fc685142de public -- Elementary Block
+open import SysFEAT.UpperOntology.23d5c5ce68514283 public -- Aggregate Block
+open import SysFEAT.UpperOntology.23d56d9868525869 public -- Aggregate Entity Block
+open import SysFEAT.UpperOntology.8cfa942f68527849 public -- Unbounded Aggregate
+open import SysFEAT.UpperOntology.8cfa941b6852781f public -- Bounded Aggregate
+open import SysFEAT.UpperOntology.23d5eaba68515533 public -- Ordering Connection
+open import SysFEAT.UpperOntology.23d5c5fc685142de public -- Elementary Block
