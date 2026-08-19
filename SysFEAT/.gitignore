@@ -1,0 +1,17 @@
+# Agda build artifacts
+*.agai
+*.agdai
+# Agda cache
+_build/
+.agda/
+# Generated interface files
+**/.agda/
+# MAlonzo (Haskell backend) compilation
+MAlonzo/
+*.hi
+*.o
+*.dyn_o
+# Other build directories
+build/
+dist/
+.build/
