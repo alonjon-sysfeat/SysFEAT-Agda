@@ -32,9 +32,9 @@ open import SysFEAT.UpperOntology.308c3b3868e9141e public -- Mixed-Order Class
 MixedOrderEntity : (u : Level) → ClassOfMixedOrderEntity u
 MixedOrderEntity u = Entity u
 
---postulate -- MixedOrderEntity isSubTypeOf Entity
---edc1f4ad68f353db : ∀ {u v} → (MixedOrderEntity u) ⊏⋆ₑ (Entity v)
--- edc1f4ad68f353db {u} = ⊏⋆-refl
+-- MixedOrderEntity isSubTypeOf Entity
+edc1f4ad68f353db : ∀ {u v} → (MixedOrderEntity u) ⊏⋆ₑ (Entity v)
+edc1f4ad68f353db = any⊏⋆ₑ
 
 --postulate -- OrderedEntity isPowerInstanceOf ClassOfOrderedEntit
 --  6ef5732d68f1370c : ∀ {u v} → (MixedOrderEntity u) ∷ₚₑ (ClassOfMixedOrderEntity v)
