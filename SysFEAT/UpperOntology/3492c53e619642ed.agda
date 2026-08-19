@@ -96,6 +96,9 @@ An Aggregate Holonymy Type is a reified flavor of Poly Class of Holonymy whereby
 AggregateHolonymyType : ClassOfClassOfIndividual
 AggregateHolonymyType = ClassOfIndividual
 
+postulate -- AggregateHolonymyType is subTypeOf ClassOfIndividual
+  df63e0306a850ccf : AggregateHolonymyType ⊏ₑ ClassOfIndividual
+
 -- Membership relation
 membershipOfAggregateHolonymyType :  Linkage ClassOfBoundedIndividual AggregateHolonymyType
 membershipOfAggregateHolonymyType = membershipOfAggregateMember
