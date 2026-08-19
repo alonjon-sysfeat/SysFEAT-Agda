@@ -4,6 +4,7 @@
 # Agda cache
 _build/
 .agda/
+.claude/
 # Generated interface files
 **/.agda/
 # MAlonzo (Haskell backend) compilation
