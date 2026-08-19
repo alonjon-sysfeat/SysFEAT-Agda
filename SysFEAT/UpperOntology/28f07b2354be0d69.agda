@@ -53,9 +53,11 @@ postulate -- propertyOfIndividual is subTypeOf instanceOfEntity
 Aggregate Holonymy is a reified Holonymy Relation where the composed Bounded Individual becomes a Bounded Member of the whole Bounded Individual.
 -}
 -- Aggregate Member : Aggregate Holonymy
-AggregateHolonymy : ClassOfOrderedEntity (lsuc(lzero))
-AggregateHolonymy = AggregateMember (lsuc(lzero))
+AggregateHolonymy : ClassOfOrderedEntity lzero
+AggregateHolonymy = AggregateMember lzero
 
+postulate -- AggregateHolonymy is subTypeOf Individual
+  st-4299bbc86a853f54 : AggregateHolonymy ⊏ₑ Individual
 
 -- Membership relation
 membershipOfAggregateHolonymy :  Linkage BoundedIndividual AggregateHolonymy
