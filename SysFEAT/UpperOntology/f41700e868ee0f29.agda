@@ -31,14 +31,14 @@ FirstOrderEntity = OrderedEntity lzero
 78e37a6868ef0712  = ∷ₚₑ-fromMap (λ A → Lift _ A)
 
 -- ============================================================
--- II. Physical Relations (M0 level)
+-- II. Physical Relations (M1 level)
 -- ============================================================ 
 firstOrderRelation : Linkage FirstOrderEntity FirstOrderEntity
 firstOrderRelation = make_Relation "Root of First Order Relation" "Related FirstOrder Entity"
 
 -- firstOrderRelation isSubTypeOf Relation  [moved to SysFEAT.Ontology.Axioms]
 -- ============================================================
--- III. Physical Mereology (The Assemblies M0)
+-- III. Physical Mereology (The Assemblies M1)
 -- ============================================================ 
 {-
 Holonymy is a directional "whole-to-part" Relation (often called  Composition) between First Order Entities, where the source First Order Entity (the whole) incorporates the target First Order Entity as one of its constituent parts.
