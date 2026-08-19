@@ -36,6 +36,7 @@ MixedOrderEntity u = Entity u
 edc1f4ad68f353db : ∀ {u v} → (MixedOrderEntity u) ⊏⋆ₑ (Entity v)
 edc1f4ad68f353db = any⊏⋆ₑ
 
---postulate -- OrderedEntity isPowerInstanceOf ClassOfOrderedEntit
---  6ef5732d68f1370c : ∀ {u v} → (MixedOrderEntity u) ∷ₚₑ (ClassOfMixedOrderEntity v)
+-- Mixed-Order Entity isPowerInstanceOf ClassOfMixedOrderEntity
+6ef5732d68f1370c : ∀ {u v} → (MixedOrderEntity u) ∷ₚₑ (ClassOfMixedOrderEntity v)
+6ef5732d68f1370c = any∷ₚₑ
 
