@@ -18,8 +18,9 @@ open import SysFEAT.UpperOntology.23d5a9ea68513ced public -- Building Block
 Container : ∀ (u : Level) → ClassOfMixedOrderEntity u
 Container u = MixedOrderEntity u
 
-postulate --  Container is subTypeOf BlockLexicalScope
-  st-0eb9430568549edb : ∀ {u v} → (Container u) ⊏⋆ₑ (BlockLexicalScope v)
+--  Container is subTypeOf BlockLexicalScope
+st-0eb9430568549edb : ∀ {u v} → (Container u) ⊏⋆ₑ (BlockLexicalScope v)
+st-0eb9430568549edb = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================
 

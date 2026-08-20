@@ -25,4 +25,4 @@ FamilyOfClass u = ClassOfMixedOrderEntity u
 
 -- FamilyOfClass isSubTypeOf ClassOfMixedOrderEntity  [PROVED - was a postulate]
 8d1ceca968f75569 : ∀ {u} → (FamilyOfClass u) ⊏ₑ (ClassOfMixedOrderEntity u)
-8d1ceca968f75569 {u} = ⊏⋆-refl
+8d1ceca968f75569 {u} = polySubTypeOf-identity

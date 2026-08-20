@@ -18,10 +18,12 @@ open import SysFEAT.UpperOntology.23d5eaba68515533 public -- Ordering Connection
 TemporalBoundingType : ClassOfClassOfIndividual
 TemporalBoundingType = ClassOfIndividual
 
-postulate --  TemporalBoundingType is subTypeOf ClassOfIndividual
-  st-9429983566824027 : TemporalBoundingType ⊏ₑ ClassOfIndividual
+--  TemporalBoundingType is subTypeOf ClassOfIndividual
+st-9429983566824027 : TemporalBoundingType ⊏ₑ ClassOfIndividual
+st-9429983566824027 = polySubTypeOf-identity
 
-postulate --  TemporalBoundingType withAspect OrderingConnection
-  st-71587800672c423b : TemporalBoundingType ⊏ₐₑ (OrderingConnection (lsuc(lzero)))
+--  TemporalBoundingType withAspect OrderingConnection
+st-71587800672c423b : TemporalBoundingType ⊏ₐₑ (OrderingConnection (lsuc(lzero)))
+st-71587800672c423b = polySubTypeOf-identity
 
 -- == Relationships =======================

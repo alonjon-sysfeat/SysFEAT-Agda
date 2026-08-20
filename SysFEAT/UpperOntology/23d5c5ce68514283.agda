@@ -96,7 +96,7 @@ memberRelation {u} {v} = make_Relation "Local Relation" "Related Member"
 -- memberRelation is subType of Relation 
 st-23d5e92968515409 : ∀ {u v} → (memberRelation {u} {v}) ⊏⋆ᵣ (Relation {u} {v})
 st-23d5e92968515409 {u} {v} =
-  ⊏⋆ᵣ-fromExtMap {subRel = (memberRelation {u} {v})} {superRel = (Relation {u} {v})} (λ w → w)
+  polySubTypeOfRel-fromExtensionMap {subRel = (memberRelation {u} {v})} {superRel = (Relation {u} {v})} (λ w → w)
 
 -- ============================================================
 -- III. DYNAMIC LOCALITY (The "that" operator)
@@ -138,7 +138,7 @@ membershipOfBlockMember = membershipOfAggregateMember
 -- blockMembership is subType of membershipOfAggregateMember 
 215daf3e68b433ae : ∀ {u v} → (membershipOfBlockMember {u} {v}) ⊏⋆ᵣ (membershipOfAggregateMember {u} {v})
 215daf3e68b433ae {u} {v} =
-  ⊏⋆ᵣ-fromExtMap {subRel = (membershipOfBlockMember {u} {v})} {superRel = (membershipOfAggregateMember {u} {v})} (λ w → w)
+  polySubTypeOfRel-fromExtensionMap {subRel = (membershipOfBlockMember {u} {v})} {superRel = (membershipOfAggregateMember {u} {v})} (λ w → w)
 
 blockMemberAggregation : ∀ {u v} → Linkage (AggregateMember u) (BuildingBlock v)
 blockMemberAggregation = aggregationOfBuildingBlock
@@ -146,14 +146,14 @@ blockMemberAggregation = aggregationOfBuildingBlock
 -- blockMemberAggregation is subType of aggregationOfBuildingBlock
 fb6616a46869b1bc : ∀ {u v} → (blockMemberAggregation {u} {v}) ⊏⋆ᵣ (aggregationOfBuildingBlock {u} {v})
 fb6616a46869b1bc {u} {v} =
-  ⊏⋆ᵣ-fromExtMap {subRel = (blockMemberAggregation {u} {v})} {superRel = (aggregationOfBuildingBlock {u} {v})} (λ w → w)
+  polySubTypeOfRel-fromExtensionMap {subRel = (blockMemberAggregation {u} {v})} {superRel = (aggregationOfBuildingBlock {u} {v})} (λ w → w)
 blockMember : ∀ {u v w} → Linkage (AggregateBlock u) (BuildingBlock w)
 blockMember {u} {v} {w} = membershipOfBlockMember {u} {v} ∘ blockMemberAggregation {v} {w}
 
 -- blockMember is subType of aggregateMember 
 blockMember-isSubTypeOf-aggregateMember : ∀ {u w} → (blockMember {u} {u} {w}) ⊏⋆ᵣ (aggregateMember {u} {u} {w})
 blockMember-isSubTypeOf-aggregateMember {u} {w} =
-  ⊏⋆ᵣ-fromExtMap {subRel = (blockMember {u} {u} {w})} {superRel = (aggregateMember {u} {u} {w})} (λ w → w)
+  polySubTypeOfRel-fromExtensionMap {subRel = (blockMember {u} {u} {w})} {superRel = (aggregateMember {u} {u} {w})} (λ w → w)
 {- A Hierarchical Member is an Aggregate Member that is also a Block Lexical Scope for the Building Block it aggregates: 
    it relates its aggregated block by nesting (see Nesting Relation).
    Hierarchical Members are used to build hierarchical structures of Building Blocks, in constrast to Block Members which are used to build network structures of Building Blocks.
@@ -177,7 +177,7 @@ membershipOfHierarchicalMember = membershipOfAggregateMember
 -- hierarchicalMembership is subType of membershipOfAggregateMember  
 215daf8368b433e7 : ∀ {u v} → (membershipOfHierarchicalMember {u} {v}) ⊏⋆ᵣ (membershipOfAggregateMember {u} {v})
 215daf8368b433e7 {u} {v} =
-  ⊏⋆ᵣ-fromExtMap {subRel = (membershipOfHierarchicalMember {u} {v})} {superRel = (membershipOfAggregateMember {u} {v})} (λ w → w)
+  polySubTypeOfRel-fromExtensionMap {subRel = (membershipOfHierarchicalMember {u} {v})} {superRel = (membershipOfAggregateMember {u} {v})} (λ w → w)
 
 
 {- hierarchicalMemberAggregation : nesting relation from an Aggregate Member
@@ -191,7 +191,7 @@ hierarchicalMemberAggregation = nestingRelation
 -- hierarchicalMembership is subType of membershipOfAggregateMember 
 fb660df868699fa2 : ∀ {u v} → (hierarchicalMemberAggregation {u} {v}) ⊏⋆ᵣ (nestingRelation {u} {v})
 fb660df868699fa2 {u} {v} =
-  ⊏⋆ᵣ-fromExtMap {subRel = (hierarchicalMemberAggregation {u} {v})} {superRel = (nestingRelation {u} {v})} (λ w → w)
+  polySubTypeOfRel-fromExtensionMap {subRel = (hierarchicalMemberAggregation {u} {v})} {superRel = (nestingRelation {u} {v})} (λ w → w)
 {- hierarchicalMember : derived relation from an Aggregate Block to a Building Block
    via a Hierarchical Member. It composes hierarchical membership with
    hierarchical member aggregation, yielding a hierarchical (tree‑like) structure.

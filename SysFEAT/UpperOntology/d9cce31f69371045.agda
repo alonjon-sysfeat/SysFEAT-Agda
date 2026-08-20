@@ -22,4 +22,4 @@ MixedOrderMetaClass u = MetaClass u
 
 -- MixedOrderMetaClass isSubTypeOf MetaClass  [PROVED - was a postulate]
 d9cce33e693710ad : ∀ {u} →  (MixedOrderMetaClass u) ⊏⋆ₑ (MetaClass u)
-d9cce33e693710ad {u} = ⊏⋆-refl
+d9cce33e693710ad {u} = polySubTypeOf-identity

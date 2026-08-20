@@ -17,8 +17,9 @@ open import SysFEAT.UpperOntology.608767a668de7fb6 public -- Class of Class of I
 PropertyType : ThirdOrderClass
 PropertyType = ClassOfClassOfIndividual
 
-postulate --  PropertyType is subTypeOf ClassOfClassOfIndividual
-  st-87d3065d66e33a12 : PropertyType ⊏ₑ ClassOfClassOfIndividual
+--  PropertyType is subTypeOf ClassOfClassOfIndividual
+st-87d3065d66e33a12 : PropertyType ⊏ₑ ClassOfClassOfIndividual
+st-87d3065d66e33a12 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

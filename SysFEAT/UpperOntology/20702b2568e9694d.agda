@@ -69,12 +69,12 @@ idLinkage c = record
   ; ref         = λ t → t
   }
 
-⊏⋆-refl : ∀ {u} {c : ClassOfElement u} → c ⊏⋆ c
-⊏⋆-refl {u} {c} = (c , (idLinkage c , (λ e p → p))) , refl
+polySubTypeOf-identity : ∀ {u} {c : ClassOfElement u} → c ⊏⋆ c
+polySubTypeOf-identity {u} {c} = (c , (idLinkage c , (λ e p → p))) , refl
 
-⊏⋆-trans : ∀ {u v} {c d : ClassOfElement u} {f : ClassOfElement v}
+polySubTypeOf-transitive : ∀ {u v} {c d : ClassOfElement u} {f : ClassOfElement v}
          → c ⊏⋆ d → d ⊏⋆ f → c ⊏⋆ f
-⊏⋆-trans {u} {v} {c} {d} {f} ((t₁ , (l₁ , tr₁)) , eq₁) ((t₂ , (l₂ , tr₂)) , eq₂) =
+polySubTypeOf-transitive {u} {v} {c} {d} {f} ((t₁ , (l₁ , tr₁)) , eq₁) ((t₂ , (l₂ , tr₂)) , eq₂) =
   (f , (lc , tr)) , refl
   where
   -- M1-linkage component: composition of the two M1 linkages (transported along the equalities)
@@ -87,18 +87,18 @@ idLinkage c = record
   tr e p = subst (λ X → e ∷⋆ X) eq₂ (tr₂ e (subst (λ X → e ∷⋆ X) eq₁ (tr₁ e p)))
 
 -- Definitional aliases: the same proofs serve every subtyping linkage.
-⊏-refl : ∀ {u} {c : ClassOfElement u} → c ⊏ c
-⊏-refl = ⊏⋆-refl
+subTypeOf-identity : ∀ {u} {c : ClassOfElement u} → c ⊏ c
+subTypeOf-identity = polySubTypeOf-identity
 
-⊏-trans : ∀ {u} {c d f : ClassOfElement u} → c ⊏ d → d ⊏ f → c ⊏ f
-⊏-trans = ⊏⋆-trans
+subTypeOf-transitive : ∀ {u} {c d f : ClassOfElement u} → c ⊏ d → d ⊏ f → c ⊏ f
+subTypeOf-transitive = polySubTypeOf-transitive
 
-⊏ₘ-refl : ∀ {u} {c : ClassOfElement u} → c ⊏ₘ c
-⊏ₘ-refl = ⊏⋆-refl
+metaSubTypeOf-identity : ∀ {u} {c : ClassOfElement u} → c ⊏ₘ c
+metaSubTypeOf-identity = polySubTypeOf-identity
 
-⊏ₘ-transˡ : ∀ {u v} {c d : ClassOfElement u} {f : ClassOfElement v}
+metaSubTypeOf-transitive : ∀ {u v} {c d : ClassOfElement u} {f : ClassOfElement v}
           → c ⊏ₘ d → d ⊏ₘ f → c ⊏ₘ f
-⊏ₘ-transˡ = ⊏⋆-trans
+metaSubTypeOf-transitive = polySubTypeOf-transitive
 
 -- Polymorphic monotonicity of instantiation along subtyping
 ∷⋆-mono : ∀ {u v} {e : Element u} {c : ClassOfElement u} {d : ClassOfElement v}
@@ -142,29 +142,29 @@ reference of any instantiation witness with the coercion.
     }
 
 -- subtype witness from an element-level coercion (same universe level)
-⊏-fromMap : ∀ {u} {c d : ClassOfElement u} → (c → d) → c ⊏ d
-⊏-fromMap {u} {c} {d} f =
+subTypeOf-fromCoercion : ∀ {u} {c d : ClassOfElement u} → (c → d) → c ⊏ d
+subTypeOf-fromCoercion {u} {c} {d} f =
   (d , (functionLinkage f , (λ e w → ∷⋆-mapTarget f w))) , refl
 
-⊏⋆-fromMap : ∀ {u} {c d : ClassOfElement u} → (c → d) → c ⊏⋆ d
-⊏⋆-fromMap = ⊏-fromMap
+polySubTypeOf-fromCoercion : ∀ {u} {c d : ClassOfElement u} → (c → d) → c ⊏⋆ d
+polySubTypeOf-fromCoercion = subTypeOf-fromCoercion
 
-⊏ₘ-fromMap : ∀ {u} {c d : ClassOfElement u} → (c → d) → c ⊏ₘ d
-⊏ₘ-fromMap = ⊏-fromMap
+metaSubTypeOf-fromCoercion : ∀ {u} {c d : ClassOfElement u} → (c → d) → c ⊏ₘ d
+metaSubTypeOf-fromCoercion = subTypeOf-fromCoercion
 
 -- degenerate witnesses (satisfiability model only)
-any⊏⋆ : ∀ {u v} {c : ClassOfElement u} {d : ClassOfElement v} → c ⊏⋆ d
-any⊏⋆ {u} {v} {c} {d} =
-  (d , (liftLinkage {w = lsuc (u ⊔ v)} , (λ e _ → any∷⋆))) , refl
+degeneratePolySubTypeOf : ∀ {u v} {c : ClassOfElement u} {d : ClassOfElement v} → c ⊏⋆ d
+degeneratePolySubTypeOf {u} {v} {c} {d} =
+  (d , (liftLinkage {w = lsuc (u ⊔ v)} , (λ e _ → degeneratePolyInstanceOf))) , refl
 
-any⊏ : ∀ {u} {c d : ClassOfElement u} → c ⊏ d
-any⊏ = any⊏⋆
+degenerateSubTypeOf : ∀ {u} {c d : ClassOfElement u} → c ⊏ d
+degenerateSubTypeOf = degeneratePolySubTypeOf
 
-any⊏ₘ : ∀ {u v} {c : ClassOfElement u} {d : ClassOfElement v} → c ⊏ₘ d
-any⊏ₘ = any⊏⋆
+degenerateMetaSubTypeOf : ∀ {u v} {c : ClassOfElement u} {d : ClassOfElement v} → c ⊏ₘ d
+degenerateMetaSubTypeOf = degeneratePolySubTypeOf
 
-any∷ₘ : ∀ {u v} {e : Element u} {c : ClassOfElement v} → e ∷ₘ c
-any∷ₘ = any∷⋆
+degenerateMetaInstanceOf : ∀ {u v} {e : Element u} {c : ClassOfElement v} → e ∷ₘ c
+degenerateMetaInstanceOf = degeneratePolyInstanceOf
 
 -- ============================================================
 -- II. POWER TYPES
@@ -187,7 +187,7 @@ _∷ₚ_ : ∀ {u} (c : ClassOfElement u) (p : ClassOfElement (lsuc u)) → Set 
 _∷ₚ_ pi p = pi —⟨ powerInstanceOf ⟩→ p
 
 {-
-reflexive-powertype : PROVED (previously postulated).
+reflexive-powertype 
 NOTE (design report): the conclusion s ∷ₘ p is a bare cross-level instantiation
 witness, which the encoding makes derivable for ANY s and p; the law is
 therefore true but vacuously so. It is retained for interface stability.
@@ -198,7 +198,7 @@ reflexive-powertype :
   ∀ {v} (s : ClassOfElement v) →
   s ⊏ₘ c →
   s  ∷ₘ p
-reflexive-powertype c p _ s _ = any∷ₘ
+reflexive-powertype c p _ s _ = degenerateMetaInstanceOf
 
 -- ============================================================
 -- III. REFLEXIVITY THEOREMS (previously "reflexivity axioms")
@@ -212,8 +212,8 @@ classifies every member of a subclass s by (the type) s itself.
 Element-isPowerInstanceOf-ClassOfElement : ∀ {u} → (Element u) ∷ₚ (ClassOfElement u)
 Element-isPowerInstanceOf-ClassOfElement {u} =
   (ClassOfElement u ,
-    ( ∷-fromMap (λ A → Lift (lsuc u) A)
-    , (λ {s} _ → ∷-fromMap (λ _ → s)) )) , refl
+    ( instanceOf-fromCoercion (λ A → Lift (lsuc u) A)
+    , (λ {s} _ → instanceOf-fromCoercion (λ _ → s)) )) , refl
 
 {-
 ClassOfElement-isMetaSubTypeOf-Element.
@@ -222,7 +222,7 @@ Set u); no faithful element-level coercion exists, and the witness is the
 degenerate one. The statement is satisfiable, but carries no semantic force.
 -}
 ClassOfElement-isMetaSubTypeOf-Element : ∀ {u} → (ClassOfElement u) ⊏ₘ (Element u)
-ClassOfElement-isMetaSubTypeOf-Element = any⊏ₘ
+ClassOfElement-isMetaSubTypeOf-Element = degenerateMetaSubTypeOf
 
 {-
 ClassOfElement-isInstanceOf-itself : two proofs are provided.
@@ -242,7 +242,7 @@ ClassOfElement-isInstanceOf-itself {u} =
     ClassOfElement-isMetaSubTypeOf-Element
 
 ClassOfElement-isInstanceOf-itself′ : ∀ {u} → (ClassOfElement u) ∷ₘ (ClassOfElement u)
-ClassOfElement-isInstanceOf-itself′ = ∷ₘ-fromMap (λ A → A)
+ClassOfElement-isInstanceOf-itself′ = metaInstanceOf-fromCoercion (λ A → A)
 
 -- ============================================================
 -- IV. ONTOLOGICAL PARTITION between classes that have a fixed universe level and
@@ -263,24 +263,24 @@ _⊏ₐ_ : ∀ {u v} → ClassOfOrderedElement u → ClassOfMixedOrderElement v 
 _⊏ₐ_ c1 c2 = c1 —⟨ aspectOf ⟩→ c2
 
 -- Ordering laws for aspectOf : same HomSubType witnesses, same proofs.
-⊏ₐ-refl : ∀ {u} {c : ClassOfOrderedElement u} → c ⊏ₐ c
-⊏ₐ-refl = ⊏⋆-refl
+aspectOf-identity : ∀ {u} {c : ClassOfOrderedElement u} → c ⊏ₐ c
+aspectOf-identity = polySubTypeOf-identity
 
-⊏ₐ-transˡ : ∀ {u v} {c d : ClassOfOrderedElement u} {f : ClassOfMixedOrderElement v}
+aspectOf-transitive : ∀ {u v} {c d : ClassOfOrderedElement u} {f : ClassOfMixedOrderElement v}
           → c ⊏ₐ d → d ⊏ₐ f → c ⊏ₐ f
-⊏ₐ-transˡ = ⊏⋆-trans
+aspectOf-transitive = polySubTypeOf-transitive
 
-⊏ₐ-fromMap : ∀ {u} {c d : ClassOfElement u} → (c → d) → c ⊏ₐ d
-⊏ₐ-fromMap = ⊏-fromMap
+aspectOf-fromCoercion : ∀ {u} {c d : ClassOfElement u} → (c → d) → c ⊏ₐ d
+aspectOf-fromCoercion = subTypeOf-fromCoercion
 
-any⊏ₐ : ∀ {u v} {c : ClassOfOrderedElement u} {d : ClassOfMixedOrderElement v} → c ⊏ₐ d
-any⊏ₐ = any⊏⋆
+degenerateAspectOf : ∀ {u v} {c : ClassOfOrderedElement u} {d : ClassOfMixedOrderElement v} → c ⊏ₐ d
+degenerateAspectOf = degeneratePolySubTypeOf
 
 -- ============================================================
 -- V. SUBTYPING AS AN ORDERED LINKAGE
 -- ============================================================
 subTypeOrder : ∀ {u} → IsOrderLinkage (subTypeOf {u})
-subTypeOrder = record { ord-refl = ⊏-refl ; ord-trans = ⊏-trans }
+subTypeOrder = record { ord-refl = subTypeOf-identity ; ord-trans = subTypeOf-transitive }
 
 -- Classical subtyping preorder (truncated), inherited theorems included.
 module SubTypePreorder {u} = IsOrderLinkage (subTypeOrder {u})

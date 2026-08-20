@@ -17,7 +17,8 @@ open import SysFEAT.UpperOntology.608767a668de7fb6 public -- Class of Class of I
 ClassOfClassOfBoundedIndividual : ThirdOrderClass
 ClassOfClassOfBoundedIndividual = ClassOfClassOfIndividual
 
-postulate --  ClassOfClassOfBoundedIndividual is subTypeOf ClassOfClassOfIndividual
-  st-87d3223566e34385 : ClassOfClassOfBoundedIndividual ⊏ₑ ClassOfClassOfIndividual
+--  ClassOfClassOfBoundedIndividual is subTypeOf ClassOfClassOfIndividual
+st-87d3223566e34385 : ClassOfClassOfBoundedIndividual ⊏ₑ ClassOfClassOfIndividual
+st-87d3223566e34385 = polySubTypeOf-identity
 
 -- == Relationships =======================

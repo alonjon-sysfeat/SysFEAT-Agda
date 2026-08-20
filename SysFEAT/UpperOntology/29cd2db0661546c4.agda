@@ -18,7 +18,8 @@ open import SysFEAT.UpperOntology.342f43ae66156429 public -- State Class
 IndividualState : StateClass
 IndividualState = BoundedIndividual
 
-postulate --  IndividualState is subTypeOf BoundedIndividual
-  st-29cd2d90661546a1 : IndividualState ⊏ₑ BoundedIndividual
+--  IndividualState is subTypeOf BoundedIndividual
+st-29cd2d90661546a1 : IndividualState ⊏ₑ BoundedIndividual
+st-29cd2d90661546a1 = polySubTypeOf-identity
 
 -- == Relationships =======================

@@ -28,4 +28,4 @@ SecondOrderClass = MetaClass lzero
 -- ============================================================ 
 -- SecondOrderClass isSubTypeOf OrderedMetaClass  
 34a349a068f71f77 : SecondOrderClass ⊏ₑ (OrderedMetaClass lzero)
-34a349a068f71f77 = ⊏⋆-refl
+34a349a068f71f77 = polySubTypeOf-identity

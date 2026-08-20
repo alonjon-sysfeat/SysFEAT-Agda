@@ -40,7 +40,7 @@ LexicalScope u = MixedOrderEntity u
 
 -- LexicalScope is subTypeOf MixedOrderEntity 
 a39aaab8685e517d : ∀ {u} → (LexicalScope u) ⊏⋆ₑ (MixedOrderEntity u)
-a39aaab8685e517d {u} = ⊏⋆-refl
+a39aaab8685e517d {u} = polySubTypeOf-identity
 
 -- ── II. HomType de nesting ───────────────────────────────────────────
 -- Le nesting de scope vers target = posséder un Linkage scope→target.

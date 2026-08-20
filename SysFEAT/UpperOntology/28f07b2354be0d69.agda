@@ -21,11 +21,13 @@ open import SysFEAT.UpperOntology.267b6a126675a0b9 public -- Temporal Bounding
 BoundedIndividual : ClassOfBoundedIndividual
 BoundedIndividual = Individual
 
-postulate --  BoundedIndividual is subTypeOf Individual
-  st-4df951b166826ec8 : BoundedIndividual ⊏ₑ Individual
+--  BoundedIndividual is subTypeOf Individual
+st-4df951b166826ec8 : BoundedIndividual ⊏ₑ Individual
+st-4df951b166826ec8 = polySubTypeOf-identity
 
-postulate --  BoundedIndividual withAspect BoundedAggregate
-  st-6483b18b66723a1f : BoundedIndividual ⊏ₐₑ (BoundedAggregate lzero)
+--  BoundedIndividual withAspect BoundedAggregate
+st-6483b18b66723a1f : BoundedIndividual ⊏ₐₑ (BoundedAggregate lzero)
+st-6483b18b66723a1f = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -41,7 +43,7 @@ postulate -- elementaryHolonymy is subTypeOf referenceRelation
   st-9653a95669701e02-23d5398f68511bc1  : elementaryHolonymy   ⊏⋆ᵣ  referenceRelation {lzero} {lzero}
 
 {- Property of Individual: 
-A instance of Entity from a Bounded Individual to a Class of Property that asserts the Bounded Individual  has  the Class of Property.
+An instance of Entity from a Bounded Individual to a Class of Property that asserts the Bounded Individual  has  the Class of Property.
 -}
 propertyOfIndividual :  Linkage BoundedIndividual ClassOfProperty
 propertyOfIndividual = make_instanceOf "Property of Individual" "propertyOfIndividual"
@@ -53,11 +55,9 @@ postulate -- propertyOfIndividual is subTypeOf instanceOfEntity
 Aggregate Holonymy is a reified Holonymy Relation where the composed Bounded Individual becomes a Bounded Member of the whole Bounded Individual.
 -}
 -- Aggregate Member : Aggregate Holonymy
-AggregateHolonymy : ClassOfOrderedEntity lzero
-AggregateHolonymy = AggregateMember lzero
+AggregateHolonymy : ClassOfOrderedEntity (lsuc(lzero))
+AggregateHolonymy = AggregateMember (lsuc(lzero))
 
-postulate -- AggregateHolonymy is subTypeOf Individual
-  st-4299bbc86a853f54 : AggregateHolonymy ⊏ₑ Individual
 
 -- Membership relation
 membershipOfAggregateHolonymy :  Linkage BoundedIndividual AggregateHolonymy

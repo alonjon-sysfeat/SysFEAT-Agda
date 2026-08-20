@@ -19,11 +19,13 @@ ContainerPackage : FirstOrderClass
 ContainerPackage = FirstOrderEntity
 
 
-postulate --  ContainerPackage withAspect Container
-  st-0eb947626854a167 : ContainerPackage ⊏ₐₑ (Container lzero)
+--  ContainerPackage withAspect Container
+st-0eb947626854a167 : ContainerPackage ⊏ₐₑ (Container lzero)
+st-0eb947626854a167 = polySubTypeOf-identity
 
-postulate --  ContainerPackage is subTypeOf FirstOrderEntity
-  st-e2780fbf68f17d72 : ContainerPackage ⊏ₑ FirstOrderEntity
+--  ContainerPackage is subTypeOf FirstOrderEntity
+st-e2780fbf68f17d72 : ContainerPackage ⊏ₑ FirstOrderEntity
+st-e2780fbf68f17d72 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

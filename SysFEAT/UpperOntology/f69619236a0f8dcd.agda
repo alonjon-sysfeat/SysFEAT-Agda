@@ -19,14 +19,17 @@ open import SysFEAT.UpperOntology.23d5c5fc685142de public -- Elementary Block
 Category : (u : Level) → Set (lsuc (lsuc (lsuc u)))
 Category u = MetaClass u
 
-postulate --  Category is subTypeOf MetaFamilyOfClass
-  st-f69619306a0f8e3e : ∀ {u v} → (Category u) ⊏⋆ₑ (MetaFamilyOfClass v)
+--  Category is subTypeOf MetaFamilyOfClass
+st-f69619306a0f8e3e : ∀ {u v} → (Category u) ⊏⋆ₑ (MetaFamilyOfClass v)
+st-f69619306a0f8e3e = trivialPolySubTypeOfEntity
 
-postulate --  Category is subTypeOf ClassOfEntity
-  st-2818ae7a6a168d8a : ∀ {u v} → (Category u) ⊏⋆ₑ (ClassOfEntity v)
+--  Category is subTypeOf ClassOfEntity
+st-2818ae7a6a168d8a : ∀ {u v} → (Category u) ⊏⋆ₑ (ClassOfEntity v)
+st-2818ae7a6a168d8a = trivialPolySubTypeOfEntity
 
-postulate --  Category is subTypeOf ElementaryBlock
-  st-afe2c475681b7b09 : ∀ {u v} → (Category u) ⊏⋆ₑ (ElementaryBlock v)
+--  Category is subTypeOf ElementaryBlock
+st-afe2c475681b7b09 : ∀ {u v} → (Category u) ⊏⋆ₑ (ElementaryBlock v)
+st-afe2c475681b7b09 = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================
 

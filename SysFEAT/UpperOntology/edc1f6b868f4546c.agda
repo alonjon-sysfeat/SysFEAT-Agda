@@ -17,7 +17,8 @@ open import SysFEAT.UpperOntology.308c3b3868e9141e public -- Class of Mixed-Orde
 PowerClass : ∀ (u : Level) → MixedOrderMetaClass u
 PowerClass u = ClassOfMixedOrderEntity u
 
-postulate --  PowerClass is subTypeOf ClassOfMixedOrderEntity
-  st-edc1079368f554e6 : ∀ {u v} → (PowerClass u) ⊏⋆ₑ (ClassOfMixedOrderEntity v)
+--  PowerClass is subTypeOf ClassOfMixedOrderEntity
+st-edc1079368f554e6 : ∀ {u v} → (PowerClass u) ⊏⋆ₑ (ClassOfMixedOrderEntity v)
+st-edc1079368f554e6 = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

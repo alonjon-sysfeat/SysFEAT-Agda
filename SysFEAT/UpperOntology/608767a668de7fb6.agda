@@ -17,8 +17,9 @@ open import SysFEAT.UpperOntology.78e382a768ef0daa public -- Second Order Class
 ClassOfClassOfIndividual : ThirdOrderClass
 ClassOfClassOfIndividual = MetaClass lzero
 
-postulate --  ClassOfClassOfIndividual is subTypeOf SecondOrderClass
-  st-87d309d966e33aa3 : ClassOfClassOfIndividual ⊏ₑ SecondOrderClass
+--  ClassOfClassOfIndividual is subTypeOf SecondOrderClass
+st-87d309d966e33aa3 : ClassOfClassOfIndividual ⊏ₑ SecondOrderClass
+st-87d309d966e33aa3 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

@@ -21,7 +21,7 @@ ClassOfEntity u = ClassOfElement u
 
 -- ClassOfEntity isSubTypeOf ClassOfElement : definitional alias, proved
 4de914586a2956a1 : ∀ {u} →  (ClassOfEntity u) ⊏ (ClassOfElement u)
-4de914586a2956a1 = ⊏-refl
+4de914586a2956a1 = subTypeOf-identity
 
 -- ============================================================
 -- II ClassOfRelation hom type
@@ -100,13 +100,13 @@ semantic content is the extension map:
     contains a super-side witness;
   * a constant map to a chosen point - the degenerate model-only case.
 -}
-⊏⋆ᵣ-fromExtMap : ∀ {u1 v1 u2 v2}
+polySubTypeOfRel-fromExtensionMap : ∀ {u1 v1 u2 v2}
     {cs1 : ClassOfEntity u1} {ct1 : ClassOfEntity v1}
     {cs2 : ClassOfEntity u2} {ct2 : ClassOfEntity v2}
     {subRel : HomClassOfRelation cs1 ct1} {superRel : HomClassOfRelation cs2 ct2}
   → (LinkageExt subRel → LinkageExt superRel)
   → subRel ⊏⋆ᵣ superRel
-⊏⋆ᵣ-fromExtMap {u1}{v1}{u2}{v2} {cs1 = cs1} {ct1} {cs2} {ct2} {superRel = sup} f =
+polySubTypeOfRel-fromExtensionMap {u1}{v1}{u2}{v2} {cs1 = cs1} {ct1} {cs2} {ct2} {superRel = sup} f =
   (sup , (admin , f)) , refl
   where
   admin : Linkage {lsuc (lsuc (u1 ⊔ v1))} {lsuc (lsuc (u2 ⊔ v2))} {lsuc (lsuc (u1 ⊔ v1 ⊔ u2 ⊔ v2))}
@@ -141,7 +141,7 @@ c1 ⊏⋆ₑ c2 = c1 —⟨ polySubTypeOfEntity ⟩→ c2
 -- structurally CONTAINS a classOfRelation witness (target , M1-linkage).
 ed2d64e169483a86 : ∀ {u v} → polySubTypeOfEntity {u} {v} ⊏⋆ᵣ classOfRelation {u} {v}
 ed2d64e169483a86 {u} {v} =
-  ⊏⋆ᵣ-fromExtMap {subRel = polySubTypeOfEntity {u} {v}} {superRel = classOfRelation {u} {v}}
+  polySubTypeOfRel-fromExtensionMap {subRel = polySubTypeOfEntity {u} {v}} {superRel = classOfRelation {u} {v}}
     (λ (c , (t , (lnk , _))) → (c , (t , lnk)))
 
 -- 2. Strict SubTyping
@@ -162,7 +162,7 @@ c1 ⊏ₑ c2 = c1 —⟨ subTypeOfEntity ⟩→ c2
 -- the extensions coincide definitionally and the identity map witnesses it.
 S-ed2d64e169483a86 : ∀ {u} → subTypeOfEntity {u} ⊏⋆ᵣ polySubTypeOfEntity {u} {u}
 S-ed2d64e169483a86 {u} =
-  ⊏⋆ᵣ-fromExtMap {subRel = subTypeOfEntity {u}} {superRel = polySubTypeOfEntity {u} {u}} (λ w → w)
+  polySubTypeOfRel-fromExtensionMap {subRel = subTypeOfEntity {u}} {superRel = polySubTypeOfEntity {u} {u}} (λ w → w)
 
 -- metaSubTypeOfEntity is a subTyping used to define reflexive powertypes
 metaSubTypeOfEntity : ∀ {u v} → Linkage (ClassOfEntity u) (ClassOfEntity v)
@@ -175,7 +175,7 @@ c1 ⊏ₘₑ c2 = c1 —⟨ metaSubTypeOfEntity ⟩→ c2
 -- metaSubTypeOfEntity is sub-type of polySubTypeOfEntity : PROVED (same Hom family).
 M-ed2d64e169483a86 : ∀ {u v} → metaSubTypeOfEntity {u} {v} ⊏⋆ᵣ polySubTypeOfEntity {u} {v}
 M-ed2d64e169483a86 {u} {v} =
-  ⊏⋆ᵣ-fromExtMap {subRel = metaSubTypeOfEntity {u} {v}} {superRel = polySubTypeOfEntity {u} {v}} (λ w → w)
+  polySubTypeOfRel-fromExtensionMap {subRel = metaSubTypeOfEntity {u} {v}} {superRel = polySubTypeOfEntity {u} {v}} (λ w → w)
 
 -- Honest contraction (replaces the unprovable ⊏ₘₑ-≅-Linkage postulate).
 ⊏ₘₑ-asHomSubType : ∀ {u v} {c1 : ClassOfEntity u} {c2 : ClassOfEntity v}
@@ -183,26 +183,26 @@ M-ed2d64e169483a86 {u} {v} =
 ⊏ₘₑ-asHomSubType {c1 = c1} = witness-≃ (HomSubType c1)
 
 -- entity-level spellings of the coercion-based / degenerate subtype witnesses
-⊏ₑ-fromMap : ∀ {u} {c d : ClassOfEntity u} → (c → d) → c ⊏ₑ d
-⊏ₑ-fromMap = ⊏-fromMap
+subTypeOfEntity-fromCoercion : ∀ {u} {c d : ClassOfEntity u} → (c → d) → c ⊏ₑ d
+subTypeOfEntity-fromCoercion = subTypeOf-fromCoercion
 
-⊏ₑ-refl : ∀ {u} {c : ClassOfEntity u} → c ⊏ₑ c
-⊏ₑ-refl = ⊏-refl
+subTypeOfEntity-identity : ∀ {u} {c : ClassOfEntity u} → c ⊏ₑ c
+subTypeOfEntity-identity = subTypeOf-identity
 
-⊏⋆ₑ-refl : ∀ {u} {c : ClassOfEntity u} → c ⊏⋆ₑ c
-⊏⋆ₑ-refl = ⊏⋆-refl
+polySubTypeOfEntity-identity : ∀ {u} {c : ClassOfEntity u} → c ⊏⋆ₑ c
+polySubTypeOfEntity-identity = polySubTypeOf-identity
 
-⊏ₘₑ-refl : ∀ {u} {c : ClassOfEntity u} → c ⊏ₘₑ c
-⊏ₘₑ-refl = ⊏⋆-refl
+metaSubTypeOfEntity-identity : ∀ {u} {c : ClassOfEntity u} → c ⊏ₘₑ c
+metaSubTypeOfEntity-identity = polySubTypeOf-identity
 
-any⊏ₑ : ∀ {u} {c d : ClassOfEntity u} → c ⊏ₑ d
-any⊏ₑ = any⊏⋆
+trivialSubTypeOfEntity : ∀ {u} {c d : ClassOfEntity u} → c ⊏ₑ d
+trivialSubTypeOfEntity = degeneratePolySubTypeOf
 
-any⊏⋆ₑ : ∀ {u v} {c : ClassOfEntity u} {d : ClassOfEntity v} → c ⊏⋆ₑ d
-any⊏⋆ₑ = any⊏⋆
+trivialPolySubTypeOfEntity : ∀ {u v} {c : ClassOfEntity u} {d : ClassOfEntity v} → c ⊏⋆ₑ d
+trivialPolySubTypeOfEntity = degeneratePolySubTypeOf
 
-any⊏ₘₑ : ∀ {u v} {c : ClassOfEntity u} {d : ClassOfEntity v} → c ⊏ₘₑ d
-any⊏ₘₑ = any⊏⋆
+trivialMetaSubTypeOfEntity : ∀ {u v} {c : ClassOfEntity u} {d : ClassOfEntity v} → c ⊏ₘₑ d
+trivialMetaSubTypeOfEntity = degeneratePolySubTypeOf
 
 -- ============================================================
 -- V. MEREOLOGICAL APEX AT CLASS LEVEL - universe-polymorphic
