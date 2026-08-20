@@ -187,21 +187,21 @@ _∷ₚ_ : ∀ {u} (c : ClassOfElement u) (p : ClassOfElement (lsuc u)) → Set 
 _∷ₚ_ pi p = pi —⟨ powerInstanceOf ⟩→ p
 
 {-
-reflexive-powertype 
-NOTE (design report): the conclusion s ∷ₘ p is a bare cross-level instantiation
-witness, which the encoding makes derivable for ANY s and p; the law is
-therefore true but vacuously so. It is retained for interface stability.
+powertype-closure : a subtype of the power-type base is an instance of the
+power type.  This is the FAITHFUL second component of the power-type witness,
+extracted honestly (no degeneracy): from  c ∷ₚ p  and  s ⊏ c  we obtain  s ∷ p .
+It replaces the previous `reflexive-powertype`, whose conclusion was discharged
+by a degenerate cross-level witness (true but vacuous).
 -}
-reflexive-powertype :
-  ∀ {u} (c : ClassOfElement u) (p : ClassOfElement (lsuc u)) →
-   c ∷ₚ p →
-  ∀ {v} (s : ClassOfElement v) →
-  s ⊏ₘ c →
-  s  ∷ₘ p
-reflexive-powertype c p _ s _ = degenerateMetaInstanceOf
+powertype-closure :
+  ∀ {u} {c : ClassOfElement u} {p : ClassOfElement (lsuc u)}
+  → c ∷ₚ p
+  → ∀ {s : ClassOfElement u} → s ⊏ c → s ∷ p
+powertype-closure ((_ , hom) , eq) {s} s⊏c =
+  subst (λ P → s ∷ P) eq (proj₂ hom s⊏c)
 
 -- ============================================================
--- III. REFLEXIVITY THEOREMS (previously "reflexivity axioms")
+-- III. THE REFLEXIVE POWER-TYPE TOWER (Reflexive Knowledge Graph)
 -- ============================================================
 {-
 Element-isPowerInstanceOf-ClassOfElement.
@@ -216,33 +216,40 @@ Element-isPowerInstanceOf-ClassOfElement {u} =
     , (λ {s} _ → instanceOf-fromCoercion (λ _ → s)) )) , refl
 
 {-
-ClassOfElement-isMetaSubTypeOf-Element.
-NOTE (design report): this is a DOWNWARD level crossing (Set (lsuc u) below
-Set u); no faithful element-level coercion exists, and the witness is the
-degenerate one. The statement is satisfiable, but carries no semantic force.
+ClassOfElement re-enters the element hierarchy ONE LEVEL UP: definitionally
+ClassOfElement u ≡ Element (lsuc u)  (both are Set (lsuc u)).  So "a class is an
+element" is FAITHFUL, by the identity coercion, when the target is re-indexed by
+lsuc — NOT the degenerate downward crossing  ClassOfElement u ⊏ₘ Element u  (which
+would lower a universe).  This re-indexed subtyping is what carries the
+Reflexive KG; it is a strict, same-level ⊏ proved by reflexivity.
 -}
-ClassOfElement-isMetaSubTypeOf-Element : ∀ {u} → (ClassOfElement u) ⊏ₘ (Element u)
-ClassOfElement-isMetaSubTypeOf-Element = degenerateMetaSubTypeOf
+ClassOfElement-isSubTypeOf-ElementAbove : ∀ {u} → (ClassOfElement u) ⊏ (Element (lsuc u))
+ClassOfElement-isSubTypeOf-ElementAbove = subTypeOf-identity
 
 {-
-ClassOfElement-isInstanceOf-itself : two proofs are provided.
-  * the historical derivation through reflexive-powertype (kept verbatim);
-  * a DIRECT proof whose underlying coercion is the identity: the type
-    ClassOfElement u occurs both as an element (of Element (lsuc (lsuc u)))
-    and as a class (in ClassOfElement (lsuc u)); the cross-level predicate
-    ∷ₘ relates the two occurrences, so self-instantiation holds in the
-    stratified reading - with a faithful witness, not a degenerate one.
+Faithful power-type step: ClassOfElement u is (by the identity above) a subtype
+of Element (lsuc u), whose power type is ClassOfElement (lsuc u); the power-type
+closure therefore classifies it there — with a real witness, not a degenerate one.
+A power type is reflexive only when the class is ALSO a subtype of its base, and
+here that premise is discharged faithfully.
+-}
+ClassOfElement-isInstanceOf-ClassOfElementAbove :
+  ∀ {u} → (ClassOfElement u) ∷ (ClassOfElement (lsuc u))
+ClassOfElement-isInstanceOf-ClassOfElementAbove {u} =
+  powertype-closure
+    (Element-isPowerInstanceOf-ClassOfElement {lsuc u})
+    ClassOfElement-isSubTypeOf-ElementAbove
+
+{-
+Self-instantiation (the non-well-founded heart of the Reflexive KG): the type
+ClassOfElement u occurs both as an element (of Element (lsuc (lsuc u))) and as a
+class (in ClassOfElement (lsuc u)); the identity coercion relates the two
+occurrences, so  ClassOfElement u ∷ₘ ClassOfElement u  holds with a FAITHFUL
+witness.  (The closure above yields instance-of-its-metaclass, i.e.
+∷ ClassOfElement (lsuc u); genuine instance-of-itself is this identity fact.)
 -}
 ClassOfElement-isInstanceOf-itself : ∀ {u} → (ClassOfElement u) ∷ₘ (ClassOfElement u)
-ClassOfElement-isInstanceOf-itself {u} =
-  reflexive-powertype
-    (Element u) (ClassOfElement u)
-    Element-isPowerInstanceOf-ClassOfElement
-    (ClassOfElement u)
-    ClassOfElement-isMetaSubTypeOf-Element
-
-ClassOfElement-isInstanceOf-itself′ : ∀ {u} → (ClassOfElement u) ∷ₘ (ClassOfElement u)
-ClassOfElement-isInstanceOf-itself′ = metaInstanceOf-fromCoercion (λ A → A)
+ClassOfElement-isInstanceOf-itself = metaInstanceOf-fromCoercion (λ A → A)
 
 -- ============================================================
 -- IV. ONTOLOGICAL PARTITION between classes that have a fixed universe level and
