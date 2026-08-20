@@ -19,9 +19,16 @@ open import SysFEAT.UpperOntology.20702bc568e969f4 public -- Class of Element
 Entity : (u : Level) → Set (lsuc u)
 Entity u = Element u
 
--- Entity isSubTypeOf Element : definitional alias, proved (bucket 1)
+-- Entity isSubTypeOf Element 
 23d5276468511162 : ∀ {u} → (Entity u) ⊏⋆ (Element u)
 23d5276468511162 = polySubTypeOf-identity
+
+-- ClassOfEntity re-enters the entity hierarchy ONE LEVEL UP: definitionally
+-- ClassOfEntity u ≡ Entity (lsuc u) (both are Set (lsuc u)).  So "a class of
+-- entity is an entity" is FAITHFUL by identity when the target is re-indexed by
+-- lsuc — the Reflexive-KG subtyping, symmetric to MetaClass-isSubTypeOf-ClassOfEntity.
+ClassOfEntity-isSubTypeOf-Entity : ∀ {u} → (ClassOfEntity u) ⊏ₑ (Entity (lsuc u))
+ClassOfEntity-isSubTypeOf-Entity = subTypeOfEntity-identity
 
 -- ============================================================
 -- II. RELATION (Physical Links M0)
