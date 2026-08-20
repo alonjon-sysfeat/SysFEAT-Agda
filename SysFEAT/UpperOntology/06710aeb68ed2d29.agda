@@ -19,5 +19,5 @@ MetaFamilyOfClass u = MixedOrderMetaClass u
 
 -- MetaFamilyOfClass isSubTypeOf MixedOrderMetaClass 
 06710b0268ed2d8f : ∀ {u} → (MetaFamilyOfClass u) ⊏ₘₑ (MixedOrderMetaClass u)
-06710b0268ed2d8f {u} = ⊏⋆-refl
+06710b0268ed2d8f {u} = polySubTypeOf-identity
 

@@ -12,7 +12,6 @@ A Class of Individual is a First Order Class of Entitys that exist in space and 
 module SysFEAT.UpperOntology.6aa8cbcb65b32971 where -- ========== Class of Individual
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.23d5a9ea68513ced public -- Building Block
 open import SysFEAT.UpperOntology.b148d6d568ec7bf1 public -- First Order Class
 open import SysFEAT.UpperOntology.608767a668de7fb6 public -- Class of Class of Individual
 open import SysFEAT.UpperOntology.f69619236a0f8dcd public -- Category
@@ -20,11 +19,9 @@ open import SysFEAT.UpperOntology.f69619236a0f8dcd public -- Category
 ClassOfIndividual : ClassOfClassOfIndividual
 ClassOfIndividual = FirstOrderClass
 
-postulate --  ClassOfIndividual withAspect BuildingBlock
-  st-96581db06993059e : ClassOfIndividual ⊏ₐₑ (BuildingBlock (lsuc(lzero)))
-
-postulate --  ClassOfIndividual is subTypeOf FirstOrderClass
-  st-f4f7f59c68f71c71 : ClassOfIndividual ⊏ₑ FirstOrderClass
+--  ClassOfIndividual is subTypeOf FirstOrderClass
+st-f4f7f59c68f71c71 : ClassOfIndividual ⊏ₑ FirstOrderClass
+st-f4f7f59c68f71c71 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

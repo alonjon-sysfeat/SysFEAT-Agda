@@ -17,7 +17,8 @@ open import SysFEAT.UpperOntology.3492c53e619642ed public -- Class of Bounded In
 WholeLifeClass : ClassOfClassOfBoundedIndividual
 WholeLifeClass = ClassOfBoundedIndividual
 
-postulate --  WholeLifeClass is subTypeOf ClassOfBoundedIndividual
-  st-00ae5d94667039a8 : WholeLifeClass ⊏ₑ ClassOfBoundedIndividual
+--  WholeLifeClass is subTypeOf ClassOfBoundedIndividual
+st-00ae5d94667039a8 : WholeLifeClass ⊏ₑ ClassOfBoundedIndividual
+st-00ae5d94667039a8 = polySubTypeOf-identity
 
 -- == Relationships =======================

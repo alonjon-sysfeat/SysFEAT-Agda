@@ -25,10 +25,10 @@ MetaClass : (u : Level) → Set (lsuc (lsuc (lsuc u)))
 MetaClass u = ClassOfEntity (lsuc u)
 
 MetaClass-isSubTypeOf-ClassOfEntity : ∀ {u} → (MetaClass u) ⊏⋆ₑ (ClassOfEntity (lsuc u))
-MetaClass-isSubTypeOf-ClassOfEntity {u} = ⊏⋆-refl
+MetaClass-isSubTypeOf-ClassOfEntity {u} = polySubTypeOf-identity
 
 ClassOfEntity-isInstanceOf-MetaClass : ∀ {u} →  (ClassOfEntity u) ∷ₘ (MetaClass u)
-ClassOfEntity-isInstanceOf-MetaClass {u} = ∷ₘ-fromMap (λ A → Lift _ A)
+ClassOfEntity-isInstanceOf-MetaClass {u} = metaInstanceOf-fromCoercion (λ A → Lift _ A)
 -- ============================================================
 -- II. Meta Relations (Meta-Level)
 -- ============================================================

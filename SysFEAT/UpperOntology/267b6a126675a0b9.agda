@@ -19,10 +19,12 @@ open import SysFEAT.UpperOntology.9429979a66823f90 public -- Temporal Bounding T
 TemporalBounding : TemporalBoundingType
 TemporalBounding = Individual
 
-postulate --  TemporalBounding is subTypeOf Individual
-  st-80328c0466790c22 : TemporalBounding ⊏ₑ Individual
+--  TemporalBounding is subTypeOf Individual
+st-80328c0466790c22 : TemporalBounding ⊏ₑ Individual
+st-80328c0466790c22 = polySubTypeOf-identity
 
-postulate --  TemporalBounding withAspect OrderingConnection
-  st-715877f6672c4212 : TemporalBounding ⊏ₐₑ (OrderingConnection lzero)
+--  TemporalBounding withAspect OrderingConnection
+st-715877f6672c4212 : TemporalBounding ⊏ₐₑ (OrderingConnection lzero)
+st-715877f6672c4212 = polySubTypeOf-identity
 
 -- == Relationships =======================

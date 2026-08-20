@@ -19,11 +19,13 @@ open import SysFEAT.UpperOntology.23d5a9ea68513ced public -- Building Block
 BlockLexicalScope : ∀ (u : Level) → ClassOfMixedOrderEntity u
 BlockLexicalScope u = MixedOrderEntity u
 
-postulate --  BlockLexicalScope is subTypeOf BlockCollection
-  st-23d5c499685141df : ∀ {u v} → (BlockLexicalScope u) ⊏⋆ₑ (BlockCollection v)
+--  BlockLexicalScope is subTypeOf BlockCollection
+st-23d5c499685141df : ∀ {u v} → (BlockLexicalScope u) ⊏⋆ₑ (BlockCollection v)
+st-23d5c499685141df = trivialPolySubTypeOfEntity
 
-postulate --  BlockLexicalScope is subTypeOf LexicalScope
-  st-a39aab30685e523f : ∀ {u v} → (BlockLexicalScope u) ⊏⋆ₑ (LexicalScope v)
+--  BlockLexicalScope is subTypeOf LexicalScope
+st-a39aab30685e523f : ∀ {u v} → (BlockLexicalScope u) ⊏⋆ₑ (LexicalScope v)
+st-a39aab30685e523f = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================
 

@@ -25,11 +25,11 @@ FirstOrderClass = ClassOfOrderedEntity lzero
 
 -- FirstOrderClass isSubTypeOf ClassOfOrderedEntity
 12fe2cfc68ed169c : FirstOrderClass ⊏ₑ (ClassOfOrderedEntity lzero)
-12fe2cfc68ed169c = ⊏⋆-refl
+12fe2cfc68ed169c = polySubTypeOf-identity
 
 -- FirstOrderClass isPowerInstanceOf SecondOrderClass
 78e382d568ef0df8 : FirstOrderClass ∷ₚₑ SecondOrderClass
-78e382d568ef0df8  = ∷ₚₑ-fromMap (λ A → Lift _ A)
+78e382d568ef0df8  = powerInstanceOfEntity-fromCoercion (λ A → Lift _ A)
 
 -- ============================================================
 -- II. Relations between First Order Class (M1 level)
@@ -53,7 +53,7 @@ classOfHolonymy = polyClassOfHolonymy
 -- classOfHolonymy isSubTypeOf classOfFirstOrderRelation 
 215db38c68b4375d : classOfHolonymy ⊏⋆ᵣ classOfFirstOrderRelation
 215db38c68b4375d  =
-  ⊏⋆ᵣ-fromExtMap {subRel = classOfHolonymy} {superRel = classOfFirstOrderRelation} (λ w → w)
+  polySubTypeOfRel-fromExtensionMap {subRel = classOfHolonymy} {superRel = classOfFirstOrderRelation} (λ w → w)
 {- Class of Meronymy is the powertype of Meronymy Relation (part - whole). -}
 classOfMeronymy : Linkage FirstOrderClass FirstOrderClass
 classOfMeronymy = polyClassOfMeronymy
@@ -61,7 +61,7 @@ classOfMeronymy = polyClassOfMeronymy
 -- classOfMeronymy isSubTypeOf classOfFirstOrderRelation
 526b3ea169df6b26 : classOfMeronymy ⊏⋆ᵣ classOfFirstOrderRelation
 526b3ea169df6b26  =
-  ⊏⋆ᵣ-fromExtMap {subRel = classOfMeronymy} {superRel = classOfFirstOrderRelation} (λ w → w)
+  polySubTypeOfRel-fromExtensionMap {subRel = classOfMeronymy} {superRel = classOfFirstOrderRelation} (λ w → w)
 -- ============================================================
 -- IV. Mereological Governance (Meta level M2)
 -- ============================================================ 

@@ -23,11 +23,11 @@ OrderedEntity u = Entity u
 
 -- OrderedEntity isSubTypeOf Entity
 2f156b0a693968c7 : ∀ {u} → (OrderedEntity u) ⊏ₑ (Entity u)
-2f156b0a693968c7 {u} = ⊏⋆-refl
+2f156b0a693968c7 {u} = polySubTypeOf-identity
 
--- OrderedEntity isPowerInstanceOf ClassOfOrderedEntity
+-- OrderedEntity isPowerInstanceOf ClassOfOrderedEntit
 08152bbd691731da : ∀ {u} → (OrderedEntity u) ∷ₚₑ (ClassOfOrderedEntity u)
-08152bbd691731da {u} = ∷ₚₑ-fromMap (λ A → Lift _ A)
+08152bbd691731da {u} = powerInstanceOfEntity-fromCoercion (λ A → Lift _ A)
 
 -- ============================================================
 -- II. Order of Relations

@@ -25,4 +25,4 @@ open import SysFEAT.UpperOntology.7d35645c68f37329 public -- Class of Ordered En
 -- ============================================================ 
 -- OrderedMetaClass isSubTypeOf MetaClass
 d9cce501693712Cf : ∀ {u} → (OrderedMetaClass u) ⊏ₑ (MetaClass u)
-d9cce501693712Cf {u} = ⊏⋆-refl
+d9cce501693712Cf {u} = polySubTypeOf-identity

@@ -17,7 +17,8 @@ open import SysFEAT.UpperOntology.23d5249e68510ff9 public -- Element
 MixedOrderElement : ∀ (u : Level) → ClassOfMixedOrderEntity u
 MixedOrderElement u = MixedOrderEntity u
 
-postulate --  MixedOrderElement is subTypeOf Element
-  st-526b67a469de648f : ∀ {u v} → (MixedOrderElement u) ⊏⋆ₑ (Element v)
+--  MixedOrderElement is subTypeOf Element
+st-526b67a469de648f : ∀ {u v} → (MixedOrderElement u) ⊏⋆ₑ (Element v)
+st-526b67a469de648f = trivialPolySubTypeOfEntity
 
 

@@ -24,21 +24,21 @@ FirstOrderEntity = OrderedEntity lzero
 
 -- FirstOrderEntity isSubTypeOf OrderedEntity
 78e39efd68ef141b : FirstOrderEntity ⊏ₑ (OrderedEntity lzero)
-78e39efd68ef141b = ⊏⋆-refl
+78e39efd68ef141b = polySubTypeOf-identity
 
 -- FirstOrderEntity isPowerInstanceOf FirstOrderClass
 78e37a6868ef0712 : FirstOrderEntity ∷ₚₑ FirstOrderClass
-78e37a6868ef0712  = ∷ₚₑ-fromMap (λ A → Lift _ A)
+78e37a6868ef0712  = powerInstanceOfEntity-fromCoercion (λ A → Lift _ A)
 
 -- ============================================================
--- II. Physical Relations (M1 level)
+-- II. Physical Relations (M0 level)
 -- ============================================================ 
 firstOrderRelation : Linkage FirstOrderEntity FirstOrderEntity
 firstOrderRelation = make_Relation "Root of First Order Relation" "Related FirstOrder Entity"
 
 -- firstOrderRelation isSubTypeOf Relation  [moved to SysFEAT.Ontology.Axioms]
 -- ============================================================
--- III. Physical Mereology (The Assemblies M1)
+-- III. Physical Mereology (The Assemblies M0)
 -- ============================================================ 
 {-
 Holonymy is a directional "whole-to-part" Relation (often called  Composition) between First Order Entities, where the source First Order Entity (the whole) incorporates the target First Order Entity as one of its constituent parts.
@@ -52,7 +52,7 @@ holonymyRelation = make_holonymyRelation "Root of First holonymy Relation" "Part
 -- holonymyRelation isSubTypeOf firstOrderRelation (FIX: subject was firstOrderRelation by copy-paste; mirrors M1: classOfHolonymy ⊏⋆ᵣ classOfFirstOrderRelation)  [PROVED - was a postulate]
 be05d30567070844 : holonymyRelation ⊏⋆ᵣ firstOrderRelation
 be05d30567070844  =
-  ⊏⋆ᵣ-fromExtMap {subRel = holonymyRelation} {superRel = firstOrderRelation} (λ w → w)
+  polySubTypeOfRel-fromExtensionMap {subRel = holonymyRelation} {superRel = firstOrderRelation} (λ w → w)
 -- holonymyRelation ispowerInstanceOf classOfHolonymy  [moved to SysFEAT.Ontology.Axioms]
 {-
 Meronymy (Part Of) is a directional "part-to-whole" Relation between First Order Entitys, where the source First Order Entity (the part) is defined has being part of a larger whole First Order Entity.
@@ -69,7 +69,7 @@ meronymyRelation = make_meronymyRelation "Root of First meronymy Relation" "Whol
 -- meronymyRelation isSubTypeOf firstOrderRelation (FIX: subject was firstOrderRelation by copy-paste; mirrors M1: classOfMeronymy ⊏⋆ᵣ classOfFirstOrderRelation)  [PROVED - was a postulate]
 4aebb6e669640bb2 : meronymyRelation ⊏⋆ᵣ firstOrderRelation
 4aebb6e669640bb2  =
-  ⊏⋆ᵣ-fromExtMap {subRel = meronymyRelation} {superRel = firstOrderRelation} (λ w → w)
+  polySubTypeOfRel-fromExtensionMap {subRel = meronymyRelation} {superRel = firstOrderRelation} (λ w → w)
 -- meronymyRelation ispowerInstanceOf classOfMeronymy (FIX comment: said holonymy)  [moved to SysFEAT.Ontology.Axioms]
 -- ============================================================
 -- IV. Mereological principles at M1

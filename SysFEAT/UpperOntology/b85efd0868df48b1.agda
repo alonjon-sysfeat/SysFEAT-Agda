@@ -13,12 +13,18 @@ module SysFEAT.UpperOntology.b85efd0868df48b1 where -- ========== Property
 
 open import Agda.Primitive
 open import SysFEAT.UpperOntology.4df9512266826e23 public -- Individual
+open import SysFEAT.UpperOntology.23d5a9ea68513ced public -- Building Block
 open import SysFEAT.UpperOntology.746ac18368905aa2 public -- Class of Property
 
 Property : ClassOfProperty
 Property = Individual
 
-postulate --  Property is subTypeOf Individual
-  st-d67ee75b68e436d1 : Property ⊏ₑ Individual
+--  Property is subTypeOf Individual
+st-d67ee75b68e436d1 : Property ⊏ₑ Individual
+st-d67ee75b68e436d1 = polySubTypeOf-identity
+
+--  Property withAspect BuildingBlock
+st-96581db06993059e : Property ⊏ₐₑ (BuildingBlock lzero)
+st-96581db06993059e = polySubTypeOf-identity
 
 -- == Relationships =======================

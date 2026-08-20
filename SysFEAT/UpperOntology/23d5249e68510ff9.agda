@@ -302,13 +302,13 @@ instanceEquivalence : ∀ {u v} {e : Element u} {c : ClassOfElement v}
 instanceEquivalence {e = e} = witness-≃ (HomInstanceOf e)
 
 -- | instantiation witness from an element-level coercion (FAITHFUL)
-∷⋆-fromMap : ∀ {u v} {e : Element u} {c : ClassOfElement v}
+polyInstanceOf-fromCoercion : ∀ {u v} {e : Element u} {c : ClassOfElement v}
   → (e → c) → e ∷⋆ c
-∷⋆-fromMap {c = c} f = (c , functionLinkage f) , refl
+polyInstanceOf-fromCoercion {c = c} f = (c , functionLinkage f) , refl
 
 -- | degenerate instantiation witness (model use only, see the design report)
-any∷⋆ : ∀ {u v} {e : Element u} {c : ClassOfElement v} → e ∷⋆ c
-any∷⋆ {u} {v} {e} {c} = (c , liftLinkage {w = lsuc (u ⊔ v)}) , refl
+degeneratePolyInstanceOf : ∀ {u v} {e : Element u} {c : ClassOfElement v} → e ∷⋆ c
+degeneratePolyInstanceOf {u} {v} {e} {c} = (c , liftLinkage {w = lsuc (u ⊔ v)}) , refl
 
 -- | instanceOf : strict/standard instantiation.
 --   The class c lives exactly one universe level above the element e.
@@ -329,11 +329,11 @@ _∷ₘ_ : ∀ {u v} (e : Element u) (c : ClassOfElement v) → Set (lsuc (lsuc 
 _∷ₘ_ e c = e —⟨ metaInstanceOf ⟩→ c
 
 -- coercion-based witnesses for the strict and meta instantiation predicates
-∷-fromMap : ∀ {u} {e : Element u} {c : ClassOfElement u} → (e → c) → e ∷ c
-∷-fromMap = ∷⋆-fromMap
+instanceOf-fromCoercion : ∀ {u} {e : Element u} {c : ClassOfElement u} → (e → c) → e ∷ c
+instanceOf-fromCoercion = polyInstanceOf-fromCoercion
 
-∷ₘ-fromMap : ∀ {u v} {e : Element u} {c : ClassOfElement v} → (e → c) → e ∷ₘ c
-∷ₘ-fromMap = ∷⋆-fromMap
+metaInstanceOf-fromCoercion : ∀ {u v} {e : Element u} {c : ClassOfElement v} → (e → c) → e ∷ₘ c
+metaInstanceOf-fromCoercion = polyInstanceOf-fromCoercion
 
 -- ============================================================
 -- VII. Ordered Linkages

@@ -21,7 +21,7 @@ Entity u = Element u
 
 -- Entity isSubTypeOf Element : definitional alias, proved (bucket 1)
 23d5276468511162 : ∀ {u} → (Entity u) ⊏⋆ (Element u)
-23d5276468511162 = ⊏⋆-refl
+23d5276468511162 = polySubTypeOf-identity
 
 -- ============================================================
 -- II. RELATION (Physical Links M0)
@@ -172,27 +172,27 @@ _∷ₚₑ_ e c = e —⟨ powerInstanceOfEntity ⟩→ c
 -- ============================================================
 
 -- instantiation witness from an element-level coercion (FAITHFUL)
-∷ₑ-fromMap : ∀ {u v} {e : Entity u} {c : ClassOfEntity v} → (e → c) → e ∷ₑ c
-∷ₑ-fromMap {c = c} f = (c , functionLinkage f) , refl
+instanceOfEntity-fromCoercion : ∀ {u v} {e : Entity u} {c : ClassOfEntity v} → (e → c) → e ∷ₑ c
+instanceOfEntity-fromCoercion {c = c} f = (c , functionLinkage f) , refl
 
 -- power-instantiation witness from a class-level coercion (FAITHFUL;
 -- for the canonical powertype pairs the coercion is `Lift` or `λ A → A`)
-∷ₚₑ-fromMap : ∀ {u v} {e : ClassOfEntity u} {c : ClassOfEntity v} → (e → c) → e ∷ₚₑ c
-∷ₚₑ-fromMap {c = c} f = (c , functionLinkage f) , refl
+powerInstanceOfEntity-fromCoercion : ∀ {u v} {e : ClassOfEntity u} {c : ClassOfEntity v} → (e → c) → e ∷ₚₑ c
+powerInstanceOfEntity-fromCoercion {c = c} f = (c , functionLinkage f) , refl
 
 -- degenerate witnesses (satisfiability model only)
-any∷ₑ : ∀ {u v} {e : Entity u} {c : ClassOfEntity v} → e ∷ₑ c
-any∷ₑ {u} {v} {e} {c} = (c , liftLinkage {w = lsuc (u ⊔ v)}) , refl
+degenerateInstanceOfEntity : ∀ {u v} {e : Entity u} {c : ClassOfEntity v} → e ∷ₑ c
+degenerateInstanceOfEntity {u} {v} {e} {c} = (c , liftLinkage {w = lsuc (u ⊔ v)}) , refl
 
-any∷ₚₑ : ∀ {u v} {e : ClassOfEntity u} {c : ClassOfEntity v} → e ∷ₚₑ c
-any∷ₚₑ {u} {v} {e} {c} = (c , liftLinkage {w = lsuc (u ⊔ v)}) , refl
+degeneratePowerInstanceOfEntity : ∀ {u v} {e : ClassOfEntity u} {c : ClassOfEntity v} → e ∷ₚₑ c
+degeneratePowerInstanceOfEntity {u} {v} {e} {c} = (c , liftLinkage {w = lsuc (u ⊔ v)}) , refl
 
-any∷ᵣ⋆ : ∀ {u1 v1 u2 v2}
+degeneratePolyInstanceOfRel : ∀ {u1 v1 u2 v2}
         {e1 : Entity u1} {e2 : Entity v1}
         {c1 : ClassOfEntity u2} {c2 : ClassOfEntity v2}
         {iRel : HomRelation e1 e2} {cRel : HomClassOfRelation c1 c2}
         → iRel ∷ᵣ⋆ cRel
-any∷ᵣ⋆ {u1} {v1} {u2} {v2} {e1} {e2} {c1} {c2} {cRel = cRel} =
+degeneratePolyInstanceOfRel {u1} {v1} {u2} {v2} {e1} {e2} {c1} {c2} {cRel = cRel} =
   (cRel , admin) , refl
   where
   admin : Linkage {lsuc (u1 ⊔ v1)} {lsuc (lsuc (u2 ⊔ v2))} {lsuc (lsuc (u1 ⊔ v1 ⊔ u2 ⊔ v2))}
@@ -213,7 +213,7 @@ referenceRelation {u} {v} = make_Relation "Refencing Relation" "Related Entity"
 -- referenceRelation is subtypeOf Relation : PROVED (same Hom family, identity extension map)
 23d53a6668511cec : ∀ {u v} → referenceRelation {u} {v} ⊏⋆ᵣ Relation {u} {v}
 23d53a6668511cec {u} {v} =
-  ⊏⋆ᵣ-fromExtMap {subRel = referenceRelation {u} {v}} {superRel = Relation {u} {v}} (λ w → w)
+  polySubTypeOfRel-fromExtensionMap {subRel = referenceRelation {u} {v}} {superRel = Relation {u} {v}} (λ w → w)
 
 existentialDependency : ∀ {u v} → Linkage (ClassOfEntity u) (ClassOfEntity v)
 existentialDependency {u} {v} = make_Relation "Existential dependency Relation" "Dependency Entity"
@@ -224,12 +224,12 @@ existentialDependency {u} {v} = make_Relation "Existential dependency Relation" 
    statement targets Relation one level up (same Hom family, identity map). -}
 cbfce84668535952 : ∀ {u v} → existentialDependency {u} {v} ⊏⋆ᵣ Relation {u} {v}
 cbfce84668535952 {u} {v} =
-  ⊏⋆ᵣ-fromExtMap {subRel = existentialDependency {u} {v}} {superRel = Relation {u} {v}}
+  polySubTypeOfRel-fromExtensionMap {subRel = existentialDependency {u} {v}} {superRel = Relation {u} {v}}
     (λ _ → relationExtPoint)
 
 cbfce84668535952-corrected : ∀ {u v} → existentialDependency {u} {v} ⊏⋆ᵣ Relation {lsuc u} {lsuc v}
 cbfce84668535952-corrected {u} {v} =
-  ⊏⋆ᵣ-fromExtMap {subRel = existentialDependency {u} {v}} {superRel = Relation {lsuc u} {lsuc v}} (λ w → w)
+  polySubTypeOfRel-fromExtensionMap {subRel = existentialDependency {u} {v}} {superRel = Relation {lsuc u} {lsuc v}} (λ w → w)
 
 existentialIndependence : ∀ {u v} → Linkage (ClassOfEntity u) (ClassOfEntity v)
 existentialIndependence {u} {v} = make_Relation "Existential independence Relation" "Related Entity"
@@ -237,12 +237,12 @@ existentialIndependence {u} {v} = make_Relation "Existential independence Relati
 -- existentialIndependence is subtypeOf Relation : same situation as above.
 cbfcf29668535a09 : ∀ {u v} → existentialIndependence {u} {v} ⊏⋆ᵣ Relation {u} {v}
 cbfcf29668535a09 {u} {v} =
-  ⊏⋆ᵣ-fromExtMap {subRel = existentialIndependence {u} {v}} {superRel = Relation {u} {v}}
+  polySubTypeOfRel-fromExtensionMap {subRel = existentialIndependence {u} {v}} {superRel = Relation {u} {v}}
     (λ _ → relationExtPoint)
 
 cbfcf29668535a09-corrected : ∀ {u v} → existentialIndependence {u} {v} ⊏⋆ᵣ Relation {lsuc u} {lsuc v}
 cbfcf29668535a09-corrected {u} {v} =
-  ⊏⋆ᵣ-fromExtMap {subRel = existentialIndependence {u} {v}} {superRel = Relation {lsuc u} {lsuc v}} (λ w → w)
+  polySubTypeOfRel-fromExtensionMap {subRel = existentialIndependence {u} {v}} {superRel = Relation {lsuc u} {lsuc v}} (λ w → w)
 
 -- ============================================================
 -- VIII. MEREOLOGICAL APEX HOMTYPES

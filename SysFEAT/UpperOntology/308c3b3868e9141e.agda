@@ -12,6 +12,7 @@ A Class of Mixed-Order Entity is a Class of Entity which instances can belong to
 module SysFEAT.UpperOntology.308c3b3868e9141e where -- ================= Class of Mixed-Order Entity
 
 open import Agda.Primitive
+open import SysFEAT.UpperOntology.e8b2f7c7673d36d1 public -- Entity and Relation
 open import SysFEAT.UpperOntology.d9cce31f69371045 public -- Mixed-Order MetaClass
 
 -- ============================================================
@@ -21,11 +22,12 @@ ClassOfMixedOrderEntity : (u : Level) → MixedOrderMetaClass u
 ClassOfMixedOrderEntity u = ClassOfEntity u
 
 -- ClassOfMixedOrderEntity isSubTypeOf ClassOfEntity
-12fe2cf368ED1674 : ∀ {u} → (ClassOfMixedOrderEntity u) ⊏ₑ (ClassOfEntity u)
-12fe2cf368ED1674 {u} = ⊏⋆-refl
+12fe2cf368ED1674 : ∀ {u v} → (ClassOfMixedOrderEntity u) ⊏⋆ₑ (ClassOfEntity v)
+12fe2cf368ED1674 = trivialPolySubTypeOfEntity
 
 --postulate -- ClassOfMixedOrderEntity isPowerInstanceOf MixedOrderMetaClass
---  d9cce43b693711e2 : ∀ {u} → (ClassOfMixedOrderEntity u) ∷ₚₑ (MixedOrderMetaClass u)
+d9cce43b693711e2 : ∀ {u v} → (ClassOfMixedOrderEntity u) ∷ₚₑ (MixedOrderMetaClass v)
+d9cce43b693711e2 = degeneratePowerInstanceOfEntity
 
 -- ============================================================
 -- II. MixedOrderMetaclass is declared as a metaSubType of ClassOfMixedOrderEntity

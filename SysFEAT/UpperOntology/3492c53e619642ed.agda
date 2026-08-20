@@ -21,11 +21,13 @@ open import SysFEAT.UpperOntology.9429979a66823f90 public -- Temporal Bounding T
 ClassOfBoundedIndividual : ClassOfClassOfBoundedIndividual
 ClassOfBoundedIndividual = ClassOfIndividual
 
-postulate --  ClassOfBoundedIndividual is subTypeOf ClassOfIndividual
-  st-3492c54761964345 : ClassOfBoundedIndividual ⊏ₑ ClassOfIndividual
+--  ClassOfBoundedIndividual is subTypeOf ClassOfIndividual
+st-3492c54761964345 : ClassOfBoundedIndividual ⊏ₑ ClassOfIndividual
+st-3492c54761964345 = polySubTypeOf-identity
 
-postulate --  ClassOfBoundedIndividual withAspect BoundedAggregate
-  st-6483b19466723a48 : ClassOfBoundedIndividual ⊏ₐₑ (BoundedAggregate (lsuc(lzero)))
+--  ClassOfBoundedIndividual withAspect BoundedAggregate
+st-6483b19466723a48 : ClassOfBoundedIndividual ⊏ₐₑ (BoundedAggregate (lsuc(lzero)))
+st-6483b19466723a48 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -95,9 +97,6 @@ An Aggregate Holonymy Type is a reified flavor of Poly Class of Holonymy whereby
 -- Aggregate Member : Aggregate Holonymy Type
 AggregateHolonymyType : ClassOfClassOfIndividual
 AggregateHolonymyType = ClassOfIndividual
-
-postulate -- AggregateHolonymyType is subTypeOf ClassOfIndividual
-  df63e0306a850ccf : AggregateHolonymyType ⊏ₑ ClassOfIndividual
 
 -- Membership relation
 membershipOfAggregateHolonymyType :  Linkage ClassOfBoundedIndividual AggregateHolonymyType

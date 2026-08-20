@@ -17,7 +17,8 @@ open import SysFEAT.UpperOntology.23d56d9868525869 public -- Aggregate Entity Bl
 UnboundedAggregate : ∀ (u : Level) → ClassOfMixedOrderEntity u
 UnboundedAggregate u = MixedOrderEntity u
 
-postulate --  UnboundedAggregate is subTypeOf AggregateEntityBlock
-  st-8cfaf3836852ac6f : ∀ {u v} → (UnboundedAggregate u) ⊏⋆ₑ (AggregateEntityBlock v)
+--  UnboundedAggregate is subTypeOf AggregateEntityBlock
+st-8cfaf3836852ac6f : ∀ {u v} → (UnboundedAggregate u) ⊏⋆ₑ (AggregateEntityBlock v)
+st-8cfaf3836852ac6f = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================
