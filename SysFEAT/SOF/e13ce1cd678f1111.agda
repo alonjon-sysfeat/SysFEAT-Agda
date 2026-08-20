@@ -18,10 +18,12 @@ open import SysFEAT.UpperOntology.00ae5d3b667038fc public -- Whole Life Class
 WholeLifeAssetType : ClassOfClassOfBoundedIndividual
 WholeLifeAssetType = ClassOfBoundedIndividual
 
-postulate --  WholeLifeAssetType is subTypeOf AssetType
-  st-e13ce3b4678f1471 : WholeLifeAssetType ⊏ₑ AssetType
+--  WholeLifeAssetType is subTypeOf AssetType
+st-e13ce3b4678f1471 : WholeLifeAssetType ⊏ₑ AssetType
+st-e13ce3b4678f1471 = polySubTypeOf-identity
 
-postulate --  WholeLifeAssetType is subTypeOf WholeLifeClass
-  st-e13ce24c678f11ba : WholeLifeAssetType ⊏ₑ WholeLifeClass
+--  WholeLifeAssetType is subTypeOf WholeLifeClass
+st-e13ce24c678f11ba : WholeLifeAssetType ⊏ₑ WholeLifeClass
+st-e13ce24c678f11ba = polySubTypeOf-identity
 
 -- == Relationships =======================

@@ -18,11 +18,13 @@ open import SysFEAT.SOF.9397c3d86877842f public -- Policy Asset
 PolicyCategory : ThirdOrderClass
 PolicyCategory = SecondOrderClass
 
-postulate --  PolicyCategory is subTypeOf AssetPropertyType
-  st-744b90425fbfd317 : PolicyCategory ⊏ₑ AssetPropertyType
+--  PolicyCategory is subTypeOf AssetPropertyType
+st-744b90425fbfd317 : PolicyCategory ⊏ₑ AssetPropertyType
+st-744b90425fbfd317 = polySubTypeOf-identity
 
-postulate --  PolicyCategory withAspect PolicyAsset
-  st-9397c68b68778c56 : PolicyCategory ⊏ₐₑ (PolicyAsset (lsuc(lsuc(lzero))))
+--  PolicyCategory withAspect PolicyAsset
+st-9397c68b68778c56 : PolicyCategory ⊏ₐₑ (PolicyAsset (lsuc(lsuc(lzero))))
+st-9397c68b68778c56 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

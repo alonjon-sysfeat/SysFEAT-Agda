@@ -19,11 +19,13 @@ open import SysFEAT.SOF.e6f250185f772ee1 public -- Information Asset
 Capability : PropertyType
 Capability = ClassOfProperty
 
-postulate --  Capability is subTypeOf AssetProperty
-  st-dd2656da689f5c92 : Capability ⊏ₑ AssetProperty
+--  Capability is subTypeOf AssetProperty
+st-dd2656da689f5c92 : Capability ⊏ₑ AssetProperty
+st-dd2656da689f5c92 = polySubTypeOf-identity
 
-postulate --  Capability withAspect AssetBlock
-  st-9397ddd56877cbda : Capability ⊏ₐₑ (AssetBlock (lsuc(lzero)))
+--  Capability withAspect AssetBlock
+st-9397ddd56877cbda : Capability ⊏ₐₑ (AssetBlock (lsuc(lzero)))
+st-9397ddd56877cbda = polySubTypeOf-identity
 
 -- == Relationships =======================
 

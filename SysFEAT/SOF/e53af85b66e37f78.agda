@@ -18,8 +18,9 @@ open import SysFEAT.SOF.6f9c78916a0f34e5 public -- Environmental Condition Type
 EnvironmentalPropertyType : ThirdOrderClass
 EnvironmentalPropertyType = SecondOrderClass
 
-postulate --  EnvironmentalPropertyType is subTypeOf ConditionPropertyType
-  st-e53af86866e37fa2 : EnvironmentalPropertyType ⊏ₑ ConditionPropertyType
+--  EnvironmentalPropertyType is subTypeOf ConditionPropertyType
+st-e53af86866e37fa2 : EnvironmentalPropertyType ⊏ₑ ConditionPropertyType
+st-e53af86866e37fa2 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

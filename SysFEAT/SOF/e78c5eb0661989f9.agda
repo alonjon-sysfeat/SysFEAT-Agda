@@ -20,11 +20,13 @@ InitiativeStage : StateClass
 InitiativeStage = StateConcept
 
 
-postulate --  InitiativeStage is subTypeOf IndividualState
-  st-e78c5f3066198b69 : InitiativeStage ⊏ₑ IndividualState
+--  InitiativeStage is subTypeOf IndividualState
+st-e78c5f3066198b69 : InitiativeStage ⊏ₑ IndividualState
+st-e78c5f3066198b69 = polySubTypeOf-identity
 
-postulate --  InitiativeStage is subTypeOf Initiative
-  st-e78c5e90661989d5 : InitiativeStage ⊏ₑ Initiative
+--  InitiativeStage is subTypeOf Initiative
+st-e78c5e90661989d5 : InitiativeStage ⊏ₑ Initiative
+st-e78c5e90661989d5 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

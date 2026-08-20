@@ -18,8 +18,9 @@ open import SysFEAT.SOF.362ff9085b3c4933 public -- Period Type
 TimeEvent : ClassOfClassOfIndividual
 TimeEvent = ClassOfIndividual
 
-postulate --  TimeEvent is subTypeOf BehavioralEvent
-  st-e0e9b22e65786534 : TimeEvent ⊏ₑ BehavioralEvent
+--  TimeEvent is subTypeOf BehavioralEvent
+st-e0e9b22e65786534 : TimeEvent ⊏ₑ BehavioralEvent
+st-e0e9b22e65786534 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

@@ -18,8 +18,9 @@ open import SysFEAT.SOF.9397b45268777e3b public -- Architecture Block
 ArchitectureLexicalScope : ∀ (u : Level) → ClassOfMixedOrderEntity u
 ArchitectureLexicalScope u = MixedOrderEntity u
 
-postulate --  ArchitectureLexicalScope is subTypeOf ModelLexicalScope
-  st-0eb95f556855c00f : ∀ {u v} → (ArchitectureLexicalScope u) ⊏⋆ₑ (ModelLexicalScope v)
+--  ArchitectureLexicalScope is subTypeOf ModelLexicalScope
+st-0eb95f556855c00f : ∀ {u v} → (ArchitectureLexicalScope u) ⊏⋆ₑ (ModelLexicalScope v)
+st-0eb95f556855c00f = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================
 

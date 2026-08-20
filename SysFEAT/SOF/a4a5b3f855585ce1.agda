@@ -21,13 +21,24 @@ open import SysFEAT.SOF.f69620466a0f9c2f public -- Asset Category
 AssetType : ClassOfClassOfBoundedIndividual
 AssetType = ClassOfBoundedIndividual
 
-postulate --  AssetType withAspect AssetBlock
-  st-d342da165b121507 : AssetType ⊏ₐₑ (AssetBlock (lsuc(lzero)))
+--  AssetType withAspect AssetBlock
+st-d342da165b121507 : AssetType ⊏ₐₑ (AssetBlock (lsuc(lzero)))
+st-d342da165b121507 = polySubTypeOf-identity
 
-postulate --  AssetType is subTypeOf ClassOfBoundedIndividual
-  st-0861325b665787e0 : AssetType ⊏ₑ ClassOfBoundedIndividual
+--  AssetType is subTypeOf ClassOfBoundedIndividual
+st-0861325b665787e0 : AssetType ⊏ₑ ClassOfBoundedIndividual
+st-0861325b665787e0 = polySubTypeOf-identity
 
 -- == Relationships =======================
+
+{- Specialized Asset: 
+A specialization of Asset Types.
+-}
+specializedAsset :  Linkage AssetType AssetType
+specializedAsset = make_subTypeOf "Specialized Asset" "specializedAsset"
+
+postulate -- specializedAsset is subTypeOf specializedClassOfBoundedIndividual
+  st-12b0287266e936d5-e53a627766e4b4cd  : specializedAsset   ⊏⋆ᵣ  specializedClassOfBoundedIndividual 
 
 {- Applicable Condition Type: 
 Set of Condition Property Types that can be applied to an Asset Type.

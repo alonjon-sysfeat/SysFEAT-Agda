@@ -18,8 +18,9 @@ open import SysFEAT.SOF.366c4627675c1aad public -- Resolution Type
 ResolutionOutcome : PropertyType
 ResolutionOutcome = ClassOfProperty
 
-postulate --  ResolutionOutcome is subTypeOf AppraisalOption
-  st-e073fecb61d21a06 : ResolutionOutcome ⊏ₑ AppraisalOption
+--  ResolutionOutcome is subTypeOf AppraisalOption
+st-e073fecb61d21a06 : ResolutionOutcome ⊏ₑ AppraisalOption
+st-e073fecb61d21a06 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

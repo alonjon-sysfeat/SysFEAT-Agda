@@ -18,10 +18,12 @@ open import SysFEAT.UpperOntology.87d3062666e33965 public -- Property Type
 GovernancePropertyType : ThirdOrderClass
 GovernancePropertyType = SecondOrderClass
 
-postulate --  GovernancePropertyType withAspect GovernanceInstrument
-  st-366c4927675c1dc9 : GovernancePropertyType ⊏ₐₑ (GovernanceInstrument (lsuc(lsuc(lzero))))
+--  GovernancePropertyType withAspect GovernanceInstrument
+st-366c4927675c1dc9 : GovernancePropertyType ⊏ₐₑ (GovernanceInstrument (lsuc(lsuc(lzero))))
+st-366c4927675c1dc9 = polySubTypeOf-identity
 
-postulate --  GovernancePropertyType is subTypeOf PropertyType
-  st-83f8934e6740725b : GovernancePropertyType ⊏ₑ PropertyType
+--  GovernancePropertyType is subTypeOf PropertyType
+st-83f8934e6740725b : GovernancePropertyType ⊏ₑ PropertyType
+st-83f8934e6740725b = polySubTypeOf-identity
 
 -- == Relationships =======================

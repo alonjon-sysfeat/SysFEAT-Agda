@@ -17,7 +17,8 @@ open import SysFEAT.SOF.0c450e776a031ff0 public -- Systemic Level
 MacroOperatingAsset : ∀ (u : Level) → MixedOrderMetaClass u
 MacroOperatingAsset u = ClassOfMixedOrderEntity u
 
-postulate --  MacroOperatingAsset is subTypeOf SystemicLevel
-  st-0c450faa6a032221 : ∀ {u v} → (MacroOperatingAsset u) ⊏⋆ₑ (SystemicLevel v)
+--  MacroOperatingAsset is subTypeOf SystemicLevel
+st-0c450faa6a032221 : ∀ {u v} → (MacroOperatingAsset u) ⊏⋆ₑ (SystemicLevel v)
+st-0c450faa6a032221 = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

@@ -17,7 +17,8 @@ open import SysFEAT.SOF.6cfb6ef26a0f15e4 public -- Condition Category
 EnvironmentalConditionType : ∀ (u : Level) → Set (lsuc (lsuc (lsuc u)))
 EnvironmentalConditionType u = Category u
 
-postulate --  EnvironmentalConditionType is subTypeOf ConditionCategory
-  st-c2f29bad66ea2947 : ∀ {u v} → (EnvironmentalConditionType u) ⊏⋆ₑ (ConditionCategory v)
+--  EnvironmentalConditionType is subTypeOf ConditionCategory
+st-c2f29bad66ea2947 : ∀ {u v} → (EnvironmentalConditionType u) ⊏⋆ₑ (ConditionCategory v)
+st-c2f29bad66ea2947 = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

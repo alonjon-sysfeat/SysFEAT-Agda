@@ -17,7 +17,8 @@ open import SysFEAT.SOF.1737b50b5fe27cba public -- Governance Event
 ReviewNote : ClassOfBoundedIndividual
 ReviewNote = BoundedIndividual
 
-postulate --  ReviewNote is subTypeOf GovernanceEvent
-  st-4993655963907d7a : ReviewNote ⊏ₑ GovernanceEvent
+--  ReviewNote is subTypeOf GovernanceEvent
+st-4993655963907d7a : ReviewNote ⊏ₑ GovernanceEvent
+st-4993655963907d7a = polySubTypeOf-identity
 
 -- == Relationships =======================

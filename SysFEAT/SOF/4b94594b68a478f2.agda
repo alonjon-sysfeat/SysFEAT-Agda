@@ -19,8 +19,9 @@ PolicyFramework : FirstOrderClass
 PolicyFramework = FirstOrderEntity
 
 
-postulate --  PolicyFramework is subTypeOf ReferenceDictionary
-  st-a67dcb5e5f8eb5a9 : PolicyFramework ⊏ₑ ReferenceDictionary
+--  PolicyFramework is subTypeOf ReferenceDictionary
+st-a67dcb5e5f8eb5a9 : PolicyFramework ⊏ₑ ReferenceDictionary
+st-a67dcb5e5f8eb5a9 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

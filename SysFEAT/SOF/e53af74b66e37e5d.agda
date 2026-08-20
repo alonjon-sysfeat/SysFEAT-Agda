@@ -18,8 +18,9 @@ open import SysFEAT.SOF.6f9c701b6a0f2d87 public -- Measurement Type
 MeasurePropertyType : ThirdOrderClass
 MeasurePropertyType = SecondOrderClass
 
-postulate --  MeasurePropertyType is subTypeOf ConditionPropertyType
-  st-e53af77e66e37eb5 : MeasurePropertyType ⊏ₑ ConditionPropertyType
+--  MeasurePropertyType is subTypeOf ConditionPropertyType
+st-e53af77e66e37eb5 : MeasurePropertyType ⊏ₑ ConditionPropertyType
+st-e53af77e66e37eb5 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

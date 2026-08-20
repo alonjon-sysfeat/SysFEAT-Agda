@@ -18,8 +18,9 @@ open import SysFEAT.SOF.a4a5b3f855585ce1 public -- Asset Type
 OutcomeEvent : ClassOfClassOfIndividual
 OutcomeEvent = ClassOfIndividual
 
-postulate --  OutcomeEvent is subTypeOf BehavioralEvent
-  st-24ae322b5ed1c8cb : OutcomeEvent ⊏ₑ BehavioralEvent
+--  OutcomeEvent is subTypeOf BehavioralEvent
+st-24ae322b5ed1c8cb : OutcomeEvent ⊏ₑ BehavioralEvent
+st-24ae322b5ed1c8cb = polySubTypeOf-identity
 
 -- == Relationships =======================
 

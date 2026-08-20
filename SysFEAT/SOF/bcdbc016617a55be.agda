@@ -19,8 +19,9 @@ open import SysFEAT.SOF.66628b5668dd5a25 public -- Appraisal Option
 Appraisal : ClassOfBoundedIndividual
 Appraisal = BoundedIndividual
 
-postulate --  Appraisal is subTypeOf GovernanceEvent
-  st-bcdbc028617a561c : Appraisal ⊏ₑ GovernanceEvent
+--  Appraisal is subTypeOf GovernanceEvent
+st-bcdbc028617a561c : Appraisal ⊏ₑ GovernanceEvent
+st-bcdbc028617a561c = polySubTypeOf-identity
 
 -- == Relationships =======================
 

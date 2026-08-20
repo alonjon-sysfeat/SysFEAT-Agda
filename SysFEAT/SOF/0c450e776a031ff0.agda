@@ -18,7 +18,8 @@ open import SysFEAT.SOF.0c450e8c6a032050 public -- Class of Systemic Level
 SystemicLevel : ∀ (u : Level) → MixedOrderMetaClass u
 SystemicLevel u = ClassOfMixedOrderEntity u
 
-postulate --  SystemicLevel is subTypeOf ClassPartition
-  st-0c450f2f6a03216d : ∀ {u v} → (SystemicLevel u) ⊏⋆ₑ (ClassPartition v)
+--  SystemicLevel is subTypeOf ClassPartition
+st-0c450f2f6a03216d : ∀ {u v} → (SystemicLevel u) ⊏⋆ₑ (ClassPartition v)
+st-0c450f2f6a03216d = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

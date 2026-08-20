@@ -22,11 +22,13 @@ open import SysFEAT.SOF.3346c3266878522f public -- Tag
 ModelContainer : ∀ (u : Level) → ClassOfMixedOrderEntity u
 ModelContainer u = MixedOrderEntity u
 
-postulate --  ModelContainer is subTypeOf ModelLexicalScope
-  st-0eb96a976855c898 : ∀ {u v} → (ModelContainer u) ⊏⋆ₑ (ModelLexicalScope v)
+--  ModelContainer is subTypeOf ModelLexicalScope
+st-0eb96a976855c898 : ∀ {u v} → (ModelContainer u) ⊏⋆ₑ (ModelLexicalScope v)
+st-0eb96a976855c898 = trivialPolySubTypeOfEntity
 
-postulate --  ModelContainer is subTypeOf Container
-  st-0eb97c486855cebd : ∀ {u v} → (ModelContainer u) ⊏⋆ₑ (Container v)
+--  ModelContainer is subTypeOf Container
+st-0eb97c486855cebd : ∀ {u v} → (ModelContainer u) ⊏⋆ₑ (Container v)
+st-0eb97c486855cebd = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================
 

@@ -19,8 +19,9 @@ open import SysFEAT.SOF.79368381561716a6 public -- Agent Type
 EnvironmentInteractionProcessType : ClassOfClassOfBoundedIndividual
 EnvironmentInteractionProcessType = ClassOfBoundedIndividual
 
-postulate --  EnvironmentInteractionProcessType is subTypeOf OperatingEcoSystem
-  st-ca3513df5fc594e3 : EnvironmentInteractionProcessType ⊏ₑ OperatingEcoSystem
+--  EnvironmentInteractionProcessType is subTypeOf OperatingEcoSystem
+st-ca3513df5fc594e3 : EnvironmentInteractionProcessType ⊏ₑ OperatingEcoSystem
+st-ca3513df5fc594e3 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

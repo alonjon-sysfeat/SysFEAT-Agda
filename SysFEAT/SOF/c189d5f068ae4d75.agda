@@ -18,11 +18,13 @@ open import SysFEAT.UpperOntology.746ac18368905aa2 public -- Class of Property
 InformationProperty : PropertyType
 InformationProperty = ClassOfProperty
 
-postulate --  InformationProperty is subTypeOf InformationAsset
-  st-e6f24eb45f772e1c : InformationProperty ⊏ₑ InformationAsset
+--  InformationProperty is subTypeOf InformationAsset
+st-e6f24eb45f772e1c : InformationProperty ⊏ₑ InformationAsset
+st-e6f24eb45f772e1c = polySubTypeOf-identity
 
-postulate --  InformationProperty is subTypeOf ClassOfProperty
-  st-9397a25d6877759b : InformationProperty ⊏ₑ ClassOfProperty
+--  InformationProperty is subTypeOf ClassOfProperty
+st-9397a25d6877759b : InformationProperty ⊏ₑ ClassOfProperty
+st-9397a25d6877759b = polySubTypeOf-identity
 
 -- == Relationships =======================
 

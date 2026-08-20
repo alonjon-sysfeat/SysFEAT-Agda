@@ -8,15 +8,15 @@ The Systemic Levels domain defines the different granularities in which a comple
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
-{-# OPTIONS --cubical-compatible #-}
+module SysFEAT.SOF.sysfeat-domain-0c450d696a031e95 where -- ========== Systemic Levels
 
-module 0c450d696a031e95 where -- ========== Systemic Levels
+open import SysFEAT.SOF.sysfeat-domain-52b059ab6a104e9b public -- Conceptualization Level
+open import SysFEAT.UpperOntology.sysfeat-domain-e278fa2568f06541 public -- Reflexive Knowledge Graph
+open import SysFEAT.SOF.sysfeat-domain-ab6f7f85681a69f1 public -- Architecture Packages
 
-open import Agda.Primitive
-open import Relation.Binary.PropositionalEquality
-open import 0c450e8c6a032050 public -- Class of Systemic Level
-open import 0c450f906a0321d4 public -- Macro Operating Asset
-open import 0c45104d6a032286 public -- Mezzo Operating Asset
-open import 0c4510f76a032396 public -- Micro Operating Asset
-open import 0c450e776a031ff0 public -- Systemic Level
-open import 0c4559c86a033792 public -- Operating Asset
+open import SysFEAT.SOF.0c450e8c6a032050 public -- Class of Systemic Level
+open import SysFEAT.SOF.0c450f906a0321d4 public -- Macro Operating Asset
+open import SysFEAT.SOF.0c45104d6a032286 public -- Mezzo Operating Asset
+open import SysFEAT.SOF.0c4510f76a032396 public -- Micro Operating Asset
+open import SysFEAT.SOF.0c450e776a031ff0 public -- Systemic Level
+open import SysFEAT.SOF.0c4559c86a033792 public -- Operating Asset

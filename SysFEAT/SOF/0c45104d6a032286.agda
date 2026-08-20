@@ -17,7 +17,8 @@ open import SysFEAT.SOF.0c450e776a031ff0 public -- Systemic Level
 MezzoOperatingAsset : ∀ (u : Level) → MixedOrderMetaClass u
 MezzoOperatingAsset u = ClassOfMixedOrderEntity u
 
-postulate --  MezzoOperatingAsset is subTypeOf SystemicLevel
-  st-0c45105e6a0322cf : ∀ {u v} → (MezzoOperatingAsset u) ⊏⋆ₑ (SystemicLevel v)
+--  MezzoOperatingAsset is subTypeOf SystemicLevel
+st-0c45105e6a0322cf : ∀ {u v} → (MezzoOperatingAsset u) ⊏⋆ₑ (SystemicLevel v)
+st-0c45105e6a0322cf = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

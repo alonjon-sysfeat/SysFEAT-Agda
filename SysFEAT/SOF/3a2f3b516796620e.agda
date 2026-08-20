@@ -19,10 +19,12 @@ open import SysFEAT.SOF.e13ce1cd678f1111 public -- Whole Life Asset Type
 WholeLifeAsset : ClassOfBoundedIndividual
 WholeLifeAsset = BoundedIndividual
 
-postulate --  WholeLifeAsset is subTypeOf IndividualAsset
-  st-3a2f3b5967966256 : WholeLifeAsset ⊏ₑ IndividualAsset
+--  WholeLifeAsset is subTypeOf IndividualAsset
+st-3a2f3b5967966256 : WholeLifeAsset ⊏ₑ IndividualAsset
+st-3a2f3b5967966256 = polySubTypeOf-identity
 
-postulate --  WholeLifeAsset is subTypeOf WholeLifeIndividual
-  st-3a2f3b76679663c2 : WholeLifeAsset ⊏ₑ WholeLifeIndividual
+--  WholeLifeAsset is subTypeOf WholeLifeIndividual
+st-3a2f3b76679663c2 : WholeLifeAsset ⊏ₑ WholeLifeIndividual
+st-3a2f3b76679663c2 = polySubTypeOf-identity
 
 -- == Relationships =======================

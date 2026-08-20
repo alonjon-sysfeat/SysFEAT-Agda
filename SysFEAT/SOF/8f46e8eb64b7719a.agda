@@ -19,8 +19,9 @@ open import SysFEAT.SOF.3b1bc7e968cdac60 public -- Measurement Value
 KeyIndicator : ClassOfBoundedIndividual
 KeyIndicator = BoundedIndividual
 
-postulate --  KeyIndicator is subTypeOf MeasurementInstrument
-  st-8f46e90164b771f3 : KeyIndicator ⊏ₑ MeasurementInstrument
+--  KeyIndicator is subTypeOf MeasurementInstrument
+st-8f46e90164b771f3 : KeyIndicator ⊏ₑ MeasurementInstrument
+st-8f46e90164b771f3 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

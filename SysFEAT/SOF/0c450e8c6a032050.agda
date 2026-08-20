@@ -17,7 +17,8 @@ open import SysFEAT.UpperOntology.8d1cf23968f75847 public -- Meta-Class Partitio
 ClassOfSystemicLevel : ∀ (u : Level) → Set (lsuc (lsuc (lsuc u)))
 ClassOfSystemicLevel u = MetaClass u
 
-postulate --  ClassOfSystemicLevel is subTypeOf MetaClassPartition
-  st-0c450f126a032125 : ∀ {u v} → (ClassOfSystemicLevel u) ⊏⋆ₑ (MetaClassPartition v)
+--  ClassOfSystemicLevel is subTypeOf MetaClassPartition
+st-0c450f126a032125 : ∀ {u v} → (ClassOfSystemicLevel u) ⊏⋆ₑ (MetaClassPartition v)
+st-0c450f126a032125 = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

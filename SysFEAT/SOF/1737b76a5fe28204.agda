@@ -18,11 +18,13 @@ open import SysFEAT.UpperOntology.342f74b166156e02 public -- Whole Life Individu
 GovernanceActivity : ClassOfBoundedIndividual
 GovernanceActivity = BoundedIndividual
 
-postulate --  GovernanceActivity withAspect GovernanceInstrument
-  st-a66fa9d865a9853f : GovernanceActivity ⊏ₐₑ (GovernanceInstrument lzero)
+--  GovernanceActivity withAspect GovernanceInstrument
+st-a66fa9d865a9853f : GovernanceActivity ⊏ₐₑ (GovernanceInstrument lzero)
+st-a66fa9d865a9853f = polySubTypeOf-identity
 
-postulate --  GovernanceActivity is subTypeOf WholeLifeIndividual
-  st-366c3c82675c11e3 : GovernanceActivity ⊏ₑ WholeLifeIndividual
+--  GovernanceActivity is subTypeOf WholeLifeIndividual
+st-366c3c82675c11e3 : GovernanceActivity ⊏ₑ WholeLifeIndividual
+st-366c3c82675c11e3 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

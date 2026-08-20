@@ -18,8 +18,9 @@ open import SysFEAT.SOF.0f641043685975c9 public -- Governance Building Block
 GovernanceContainer : ∀ (u : Level) → ClassOfMixedOrderEntity u
 GovernanceContainer u = MixedOrderEntity u
 
-postulate --  GovernanceContainer is subTypeOf ModelContainer
-  st-0f64119b68597a81 : ∀ {u v} → (GovernanceContainer u) ⊏⋆ₑ (ModelContainer v)
+--  GovernanceContainer is subTypeOf ModelContainer
+st-0f64119b68597a81 : ∀ {u v} → (GovernanceContainer u) ⊏⋆ₑ (ModelContainer v)
+st-0f64119b68597a81 = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================
 

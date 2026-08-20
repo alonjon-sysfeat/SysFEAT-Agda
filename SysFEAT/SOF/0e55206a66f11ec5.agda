@@ -17,8 +17,9 @@ open import SysFEAT.UpperOntology.87d3062666e33965 public -- Property Type
 RiskType : ThirdOrderClass
 RiskType = SecondOrderClass
 
-postulate --  RiskType is subTypeOf PropertyType
-  st-427c1ca364b5d50a : RiskType ⊏ₑ PropertyType
+--  RiskType is subTypeOf PropertyType
+st-427c1ca364b5d50a : RiskType ⊏ₑ PropertyType
+st-427c1ca364b5d50a = polySubTypeOf-identity
 
 -- == Relationships =======================
 

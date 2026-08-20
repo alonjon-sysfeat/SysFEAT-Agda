@@ -20,11 +20,13 @@ open import SysFEAT.SOF.0c450e776a031ff0 public -- Systemic Level
 OperatingAsset : ∀ (u : Level) → ClassOfMixedOrderEntity u
 OperatingAsset u = MixedOrderEntity u
 
-postulate --  OperatingAsset is subTypeOf AssetBlock
-  st-0c455d016a033cf0 : ∀ {u v} → (OperatingAsset u) ⊏⋆ₑ (AssetBlock v)
+--  OperatingAsset is subTypeOf AssetBlock
+st-0c455d016a033cf0 : ∀ {u v} → (OperatingAsset u) ⊏⋆ₑ (AssetBlock v)
+st-0c455d016a033cf0 = trivialPolySubTypeOfEntity
 
-postulate --  OperatingAsset is subTypeOf MixedOrderEntity
-  st-0212cb0e6a7a0385 : ∀ {u v} → (OperatingAsset u) ⊏⋆ₑ (MixedOrderEntity v)
+--  OperatingAsset is subTypeOf MixedOrderEntity
+st-0212cb0e6a7a0385 : ∀ {u v} → (OperatingAsset u) ⊏⋆ₑ (MixedOrderEntity v)
+st-0212cb0e6a7a0385 = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================
 

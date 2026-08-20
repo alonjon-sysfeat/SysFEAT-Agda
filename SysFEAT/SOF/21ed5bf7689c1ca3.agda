@@ -19,11 +19,13 @@ open import SysFEAT.SOF.e53af87666e37fcd public -- Set of Environmental Conditio
 SetOfConditionProperties : PropertyType
 SetOfConditionProperties = ClassOfProperty
 
-postulate --  SetOfConditionProperties is subTypeOf ConditionProperty
-  st-dd26497d689f4774 : SetOfConditionProperties ⊏ₑ ConditionProperty
+--  SetOfConditionProperties is subTypeOf ConditionProperty
+st-dd26497d689f4774 : SetOfConditionProperties ⊏ₑ ConditionProperty
+st-dd26497d689f4774 = polySubTypeOf-identity
 
-postulate --  SetOfConditionProperties withAspect UnboundedAggregate
-  st-fee30ea2695d17bd : SetOfConditionProperties ⊏ₐₑ (UnboundedAggregate (lsuc(lzero)))
+--  SetOfConditionProperties withAspect UnboundedAggregate
+st-fee30ea2695d17bd : SetOfConditionProperties ⊏ₐₑ (UnboundedAggregate (lsuc(lzero)))
+st-fee30ea2695d17bd = polySubTypeOf-identity
 
 -- == Relationships =======================
 

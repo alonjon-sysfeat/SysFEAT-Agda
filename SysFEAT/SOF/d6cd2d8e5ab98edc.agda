@@ -19,11 +19,13 @@ open import SysFEAT.SOF.d6cd116d5ab97525 public -- Information Domain
 InformationMap : ClassOfClassOfBoundedIndividual
 InformationMap = ClassOfBoundedIndividual
 
-postulate --  InformationMap withAspect MetaFamilyOfClass
-  st-299e32f268486286 : InformationMap ⊏ₐₑ (MetaFamilyOfClass (lsuc(lzero)))
+--  InformationMap withAspect MetaFamilyOfClass
+st-299e32f268486286 : InformationMap ⊏ₐₑ (MetaFamilyOfClass (lsuc(lzero)))
+st-299e32f268486286 = polySubTypeOf-identity
 
-postulate --  InformationMap withAspect InformationBlock
-  st-8f1c9aa668ca8d67 : InformationMap ⊏ₐₑ (InformationBlock (lsuc(lzero)))
+--  InformationMap withAspect InformationBlock
+st-8f1c9aa668ca8d67 : InformationMap ⊏ₐₑ (InformationBlock (lsuc(lzero)))
+st-8f1c9aa668ca8d67 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

@@ -19,11 +19,13 @@ open import SysFEAT.SOF.e6f250185f772ee1 public -- Information Asset
 InformationDomain : ClassOfClassOfBoundedIndividual
 InformationDomain = ClassOfBoundedIndividual
 
-postulate --  InformationDomain withAspect ClassPartition
-  st-297f2d5f665f5975 : InformationDomain ⊏ₐₑ (ClassPartition (lsuc(lzero)))
+--  InformationDomain withAspect ClassPartition
+st-297f2d5f665f5975 : InformationDomain ⊏ₐₑ (ClassPartition (lsuc(lzero)))
+st-297f2d5f665f5975 = polySubTypeOf-identity
 
-postulate --  InformationDomain withAspect InformationBlock
-  st-8f1c9a9c68ca8d3a : InformationDomain ⊏ₐₑ (InformationBlock (lsuc(lzero)))
+--  InformationDomain withAspect InformationBlock
+st-8f1c9a9c68ca8d3a : InformationDomain ⊏ₐₑ (InformationBlock (lsuc(lzero)))
+st-8f1c9a9c68ca8d3a = polySubTypeOf-identity
 
 -- == Relationships =======================
 

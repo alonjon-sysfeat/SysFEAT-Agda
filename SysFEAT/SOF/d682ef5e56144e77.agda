@@ -21,8 +21,9 @@ open import SysFEAT.SOF.79368381561716a6 public -- Agent Type
 ActionProcessType : ClassOfClassOfBoundedIndividual
 ActionProcessType = ClassOfBoundedIndividual
 
-postulate --  ActionProcessType is subTypeOf BehaviorType
-  st-a371a5c65b86606b : ActionProcessType ⊏ₑ BehaviorType
+--  ActionProcessType is subTypeOf BehaviorType
+st-a371a5c65b86606b : ActionProcessType ⊏ₑ BehaviorType
+st-a371a5c65b86606b = polySubTypeOf-identity
 
 -- == Relationships =======================
 

@@ -20,8 +20,9 @@ open import SysFEAT.SOF.97e0a19a68dd71de public -- Policy applicability Status
 PolicyDecision : ClassOfBoundedIndividual
 PolicyDecision = BoundedIndividual
 
-postulate --  PolicyDecision is subTypeOf Decision
-  st-732799e06436446c : PolicyDecision ⊏ₑ Decision
+--  PolicyDecision is subTypeOf Decision
+st-732799e06436446c : PolicyDecision ⊏ₑ Decision
+st-732799e06436446c = polySubTypeOf-identity
 
 -- == Relationships =======================
 

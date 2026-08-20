@@ -20,11 +20,13 @@ DescriptionNote : FirstOrderClass
 DescriptionNote = FirstOrderEntity
 
 
-postulate --  DescriptionNote is subTypeOf AnnotationBlock
-  st-3346b2196878481d : DescriptionNote ⊏ₑ AnnotationBlock
+--  DescriptionNote is subTypeOf AnnotationBlock
+st-3346b2196878481d : DescriptionNote ⊏ₑ AnnotationBlock
+st-3346b2196878481d = polySubTypeOf-identity
 
-postulate --  DescriptionNote withAspect ElementaryBlock
-  st-3346b5a968784949 : DescriptionNote ⊏ₐₑ (ElementaryBlock lzero)
+--  DescriptionNote withAspect ElementaryBlock
+st-3346b5a968784949 : DescriptionNote ⊏ₐₑ (ElementaryBlock lzero)
+st-3346b5a968784949 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

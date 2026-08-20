@@ -19,11 +19,13 @@ open import SysFEAT.SOF.6f9c71356a0f3116 public -- Family of Measurement
 ConditionCategory : ∀ (u : Level) → Set (lsuc (lsuc (lsuc u)))
 ConditionCategory u = Category u
 
-postulate --  ConditionCategory is subTypeOf Category
-  st-6cfb6f166a0f166b : ∀ {u v} → (ConditionCategory u) ⊏⋆ₑ (Category v)
+--  ConditionCategory is subTypeOf Category
+st-6cfb6f166a0f166b : ∀ {u v} → (ConditionCategory u) ⊏⋆ₑ (Category v)
+st-6cfb6f166a0f166b = trivialPolySubTypeOfEntity
 
-postulate --  ConditionCategory is subTypeOf ModelPropertyBlock
-  st-c2f2a61c66ea3a14 : ∀ {u v} → (ConditionCategory u) ⊏⋆ₑ (ModelPropertyBlock v)
+--  ConditionCategory is subTypeOf ModelPropertyBlock
+st-c2f2a61c66ea3a14 : ∀ {u v} → (ConditionCategory u) ⊏⋆ₑ (ModelPropertyBlock v)
+st-c2f2a61c66ea3a14 = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================
 

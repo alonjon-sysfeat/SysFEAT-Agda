@@ -18,8 +18,9 @@ open import SysFEAT.SOF.e53af71366e37de2 public -- Condition Property Type
 ConditionProperty : PropertyType
 ConditionProperty = ClassOfProperty
 
-postulate --  ConditionProperty is subTypeOf AssetProperty
-  st-21ed234f689c06bb : ConditionProperty ⊏ₑ AssetProperty
+--  ConditionProperty is subTypeOf AssetProperty
+st-21ed234f689c06bb : ConditionProperty ⊏ₑ AssetProperty
+st-21ed234f689c06bb = polySubTypeOf-identity
 
 -- == Relationships =======================
 

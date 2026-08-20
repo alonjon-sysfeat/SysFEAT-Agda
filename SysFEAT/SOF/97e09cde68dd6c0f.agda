@@ -18,8 +18,9 @@ open import SysFEAT.SOF.366c47e1675c1c07 public -- Decision Type
 DecisionOutcome : PropertyType
 DecisionOutcome = ClassOfProperty
 
-postulate --  DecisionOutcome is subTypeOf ResolutionOutcome
-  st-83bb9fa061923c3f : DecisionOutcome ⊏ₑ ResolutionOutcome
+--  DecisionOutcome is subTypeOf ResolutionOutcome
+st-83bb9fa061923c3f : DecisionOutcome ⊏ₑ ResolutionOutcome
+st-83bb9fa061923c3f = polySubTypeOf-identity
 
 -- == Relationships =======================
 

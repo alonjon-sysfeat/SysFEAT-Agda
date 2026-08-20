@@ -19,8 +19,9 @@ open import SysFEAT.SOF.97e09cde68dd6c0f public -- Decision Outcome
 Decision : ClassOfBoundedIndividual
 Decision = BoundedIndividual
 
-postulate --  Decision is subTypeOf Resolution
-  st-9afad5635f76d966 : Decision ⊏ₑ Resolution
+--  Decision is subTypeOf Resolution
+st-9afad5635f76d966 : Decision ⊏ₑ Resolution
+st-9afad5635f76d966 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

@@ -17,7 +17,8 @@ open import SysFEAT.SOF.f69620466a0f9c2f public -- Asset Category
 DataCategory : ∀ (u : Level) → Set (lsuc (lsuc (lsuc u)))
 DataCategory u = Category u
 
-postulate --  DataCategory is subTypeOf AssetCategory
-  st-f4be328f5ee1b3f7 : ∀ {u v} → (DataCategory u) ⊏⋆ₑ (AssetCategory v)
+--  DataCategory is subTypeOf AssetCategory
+st-f4be328f5ee1b3f7 : ∀ {u v} → (DataCategory u) ⊏⋆ₑ (AssetCategory v)
+st-f4be328f5ee1b3f7 = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

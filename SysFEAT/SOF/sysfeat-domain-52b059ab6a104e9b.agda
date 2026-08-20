@@ -8,12 +8,10 @@ Conceptualization Level:
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
-{-# OPTIONS --cubical-compatible #-}
+module SysFEAT.SOF.sysfeat-domain-52b059ab6a104e9b where -- ========== Conceptualization Level
 
-module 52b059ab6a104e9b where -- ========== Conceptualization Level
+open import SysFEAT.UpperOntology.sysfeat-domain-e278fa2568f06541 public -- Reflexive Knowledge Graph
 
-open import Agda.Primitive
-open import Relation.Binary.PropositionalEquality
-open import 52b05a616a104fab public -- Conceptualization Level
-open import 52b05b596a1050ba public -- Conceptual Level
-open import 52b05b806a10520f public -- Resource Level
+open import SysFEAT.SOF.52b05a616a104fab public -- Conceptualization Level
+open import SysFEAT.SOF.52b05b596a1050ba public -- Conceptual Level
+open import SysFEAT.EA.52b05b806a10520f public -- Resource Level

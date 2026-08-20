@@ -18,10 +18,12 @@ open import SysFEAT.SOF.0eb97aff6855cd23 public -- Model Property Block
 AssetPropertyType : ThirdOrderClass
 AssetPropertyType = SecondOrderClass
 
-postulate --  AssetPropertyType is subTypeOf PropertyType
-  st-83f8929767406f45 : AssetPropertyType ⊏ₑ PropertyType
+--  AssetPropertyType is subTypeOf PropertyType
+st-83f8929767406f45 : AssetPropertyType ⊏ₑ PropertyType
+st-83f8929767406f45 = polySubTypeOf-identity
 
-postulate --  AssetPropertyType withAspect ModelPropertyBlock
-  st-92a7e08f67ce4074 : AssetPropertyType ⊏ₐₑ (ModelPropertyBlock (lsuc(lsuc(lzero))))
+--  AssetPropertyType withAspect ModelPropertyBlock
+st-92a7e08f67ce4074 : AssetPropertyType ⊏ₐₑ (ModelPropertyBlock (lsuc(lsuc(lzero))))
+st-92a7e08f67ce4074 = polySubTypeOf-identity
 
 -- == Relationships =======================

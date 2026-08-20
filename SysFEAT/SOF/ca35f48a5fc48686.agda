@@ -19,11 +19,13 @@ open import SysFEAT.SOF.21c5276e655759fb public -- Operating Connection
 OperatingEcoSystem : ClassOfClassOfBoundedIndividual
 OperatingEcoSystem = ClassOfBoundedIndividual
 
-postulate --  OperatingEcoSystem is subTypeOf FunctionalAsset
-  st-299e3b026848733f : OperatingEcoSystem ⊏ₑ FunctionalAsset
+--  OperatingEcoSystem is subTypeOf FunctionalAsset
+st-299e3b026848733f : OperatingEcoSystem ⊏ₑ FunctionalAsset
+st-299e3b026848733f = polySubTypeOf-identity
 
-postulate --  OperatingEcoSystem withAspect AssetBlock
-  st-9397bd8e68778368 : OperatingEcoSystem ⊏ₐₑ (AssetBlock (lsuc(lzero)))
+--  OperatingEcoSystem withAspect AssetBlock
+st-9397bd8e68778368 : OperatingEcoSystem ⊏ₐₑ (AssetBlock (lsuc(lzero)))
+st-9397bd8e68778368 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

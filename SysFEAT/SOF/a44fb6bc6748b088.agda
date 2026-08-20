@@ -19,8 +19,9 @@ open import SysFEAT.SOF.0e55206a66f11ec5 public -- Risk Type
 FunctionalAsset : ClassOfClassOfBoundedIndividual
 FunctionalAsset = ClassOfBoundedIndividual
 
-postulate --  FunctionalAsset is subTypeOf AssetType
-  st-d059312e5ef2b09c : FunctionalAsset ⊏ₑ AssetType
+--  FunctionalAsset is subTypeOf AssetType
+st-d059312e5ef2b09c : FunctionalAsset ⊏ₑ AssetType
+st-d059312e5ef2b09c = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -29,7 +30,7 @@ specializedFunctionalAsset :  Linkage FunctionalAsset FunctionalAsset
 specializedFunctionalAsset = make_subTypeOf "Specialized Functional Asset" "specializedFunctionalAsset"
 
 postulate -- specializedFunctionalAsset is subTypeOf specializedAsset
-  st-6a7076d2678731e2-12b0287266e936d5  : specializedFunctionalAsset   ⊏⋆ᵣ  specializedAsset {lzero}
+  st-6a7076d2678731e2-12b0287266e936d5  : specializedFunctionalAsset   ⊏⋆ᵣ  specializedAsset 
 
 {- Realized Functional Asset: 
 A kind of specialization between an implementing Functional Asset and its abstract Realized Functional Asset.Realization relationships are the foundation to establish the mapping between Functional Assets that belong to different Conceptualization Levels.

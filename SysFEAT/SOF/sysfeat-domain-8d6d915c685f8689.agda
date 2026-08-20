@@ -8,12 +8,11 @@ Information Packaging:
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
-{-# OPTIONS --cubical-compatible #-}
+module SysFEAT.SOF.sysfeat-domain-8d6d915c685f8689 where -- ========== Information Packaging
 
-module 8d6d915c685f8689 where -- ========== Information Packaging
+open import SysFEAT.SOF.sysfeat-domain-ab6f7f85681a69f1 public -- Architecture Packages
+open import SysFEAT.SOF.sysfeat-domain-af4db12d62993434 public -- Model Block Packaging
 
-open import Agda.Primitive
-open import Relation.Binary.PropositionalEquality
-open import 6c5f80e468587f06 public -- Information Block
-open import 6c5f808b68587e49 public -- Information Lexical Scope
-open import 6c5f8352685881a1 public -- Information Dictionary
+open import SysFEAT.SOF.6c5f80e468587f06 public -- Information Block
+open import SysFEAT.SOF.6c5f808b68587e49 public -- Information Lexical Scope
+open import SysFEAT.SOF.6c5f8352685881a1 public -- Information Dictionary

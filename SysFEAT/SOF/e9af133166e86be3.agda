@@ -18,7 +18,8 @@ open import SysFEAT.SOF.24ae31d75ed1c747 public -- Behavioral Event
 IndividualEvent : ClassOfIndividual
 IndividualEvent = Individual
 
-postulate --  IndividualEvent is subTypeOf TemporalBounding
-  st-e9af144a66e86d00 : IndividualEvent ⊏ₑ TemporalBounding
+--  IndividualEvent is subTypeOf TemporalBounding
+st-e9af144a66e86d00 : IndividualEvent ⊏ₑ TemporalBounding
+st-e9af144a66e86d00 = polySubTypeOf-identity
 
 -- == Relationships =======================

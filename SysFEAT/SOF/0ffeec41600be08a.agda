@@ -22,14 +22,17 @@ open import SysFEAT.SOF.0eb95f356855bf94 public -- Asset Block
 Initiative : ClassOfBoundedIndividual
 Initiative = BoundedIndividual
 
-postulate --  Initiative withAspect InitiativeBlock
-  st-918cbd6861e6fb1b : Initiative ⊏ₐₑ (InitiativeBlock lzero)
+--  Initiative withAspect InitiativeBlock
+st-918cbd6861e6fb1b : Initiative ⊏ₐₑ (InitiativeBlock lzero)
+st-918cbd6861e6fb1b = polySubTypeOf-identity
 
-postulate --  Initiative is subTypeOf BoundedIndividual
-  st-366c3d63675c135d : Initiative ⊏ₑ BoundedIndividual
+--  Initiative is subTypeOf BoundedIndividual
+st-366c3d63675c135d : Initiative ⊏ₑ BoundedIndividual
+st-366c3d63675c135d = polySubTypeOf-identity
 
-postulate --  Initiative withAspect BlockCollection
-  st-b07be2aa67626977 : Initiative ⊏ₐₑ (BlockCollection lzero)
+--  Initiative withAspect BlockCollection
+st-b07be2aa67626977 : Initiative ⊏ₐₑ (BlockCollection lzero)
+st-b07be2aa67626977 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

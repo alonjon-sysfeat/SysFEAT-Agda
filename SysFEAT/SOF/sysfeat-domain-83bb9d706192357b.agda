@@ -8,15 +8,14 @@ The Appraisal Pattern domain defines constructs used by stakeholders to assess a
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
-{-# OPTIONS --cubical-compatible #-}
+module SysFEAT.SOF.sysfeat-domain-83bb9d706192357b where -- ========== Appraisal Pattern
 
-module 83bb9d706192357b where -- ========== Appraisal Pattern
+open import SysFEAT.SOF.sysfeat-domain-ab6f7f85681a69f1 public -- Architecture Packages
+open import SysFEAT.SOF.sysfeat-domain-dc0bed9d5ae95bc0 public -- Teams Pattern
 
-open import Agda.Primitive
-open import Relation.Binary.PropositionalEquality
-open import 366c3ea8675c13e2 public -- Appraisal Type
-open import 366c4033675c1636 public -- Assessment Type
-open import 6662956168dd650c public -- Assessment Value
-open import 66628b5668dd5a25 public -- Appraisal Option
-open import bcdbc016617a55be public -- Appraisal
-open import 3b539cbb551e4c2a public -- Assessment
+open import SysFEAT.SOF.366c3ea8675c13e2 public -- Appraisal Type
+open import SysFEAT.SOF.366c4033675c1636 public -- Assessment Type
+open import SysFEAT.SOF.6662956168dd650c public -- Assessment Value
+open import SysFEAT.SOF.66628b5668dd5a25 public -- Appraisal Option
+open import SysFEAT.SOF.bcdbc016617a55be public -- Appraisal
+open import SysFEAT.SOF.3b539cbb551e4c2a public -- Assessment

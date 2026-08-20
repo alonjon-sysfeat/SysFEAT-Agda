@@ -17,7 +17,8 @@ open import SysFEAT.SOF.9e3837e46192fcad public -- Individual Agent
 ResponsibleHumanEntity : ClassOfBoundedIndividual
 ResponsibleHumanEntity = BoundedIndividual
 
-postulate --  ResponsibleHumanEntity is subTypeOf IndividualAgent
-  st-c334e7755ecba04a : ResponsibleHumanEntity ⊏ₑ IndividualAgent
+--  ResponsibleHumanEntity is subTypeOf IndividualAgent
+st-c334e7755ecba04a : ResponsibleHumanEntity ⊏ₑ IndividualAgent
+st-c334e7755ecba04a = polySubTypeOf-identity
 
 -- == Relationships =======================

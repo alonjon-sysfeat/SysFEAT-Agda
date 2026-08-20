@@ -19,8 +19,9 @@ open import SysFEAT.SOF.0eb95f356855bf94 public -- Asset Block
 OperationalTransformation : ClassOfBoundedIndividual
 OperationalTransformation = BoundedIndividual
 
-postulate --  OperationalTransformation is subTypeOf EnduringInitiative
-  st-299e88b568488e01 : OperationalTransformation ⊏ₑ EnduringInitiative
+--  OperationalTransformation is subTypeOf EnduringInitiative
+st-299e88b568488e01 : OperationalTransformation ⊏ₑ EnduringInitiative
+st-299e88b568488e01 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

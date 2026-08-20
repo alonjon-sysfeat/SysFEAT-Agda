@@ -17,7 +17,8 @@ open import SysFEAT.SOF.0f641043685975c9 public -- Governance Building Block
 GovernanceInstrument : ∀ (u : Level) → ClassOfMixedOrderEntity u
 GovernanceInstrument u = MixedOrderEntity u
 
-postulate --  GovernanceInstrument is subTypeOf GovernanceBuildingBlock
-  st-92a7177667cf5f2c : ∀ {u v} → (GovernanceInstrument u) ⊏⋆ₑ (GovernanceBuildingBlock v)
+--  GovernanceInstrument is subTypeOf GovernanceBuildingBlock
+st-92a7177667cf5f2c : ∀ {u v} → (GovernanceInstrument u) ⊏⋆ₑ (GovernanceBuildingBlock v)
+st-92a7177667cf5f2c = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

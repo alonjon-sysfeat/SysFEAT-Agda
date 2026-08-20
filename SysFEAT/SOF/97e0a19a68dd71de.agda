@@ -18,8 +18,9 @@ open import SysFEAT.SOF.97e0a09268dd70b6 public -- Policy Decision Type
 PolicyapplicabilityStatus : PropertyType
 PolicyapplicabilityStatus = ClassOfProperty
 
-postulate --  PolicyapplicabilityStatus is subTypeOf DecisionOutcome
-  st-97e0a1a268dd7226 : PolicyapplicabilityStatus ⊏ₑ DecisionOutcome
+--  PolicyapplicabilityStatus is subTypeOf DecisionOutcome
+st-97e0a1a268dd7226 : PolicyapplicabilityStatus ⊏ₑ DecisionOutcome
+st-97e0a1a268dd7226 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

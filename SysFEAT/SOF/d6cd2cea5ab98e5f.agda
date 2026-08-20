@@ -19,11 +19,13 @@ open import SysFEAT.SOF.c189d5f068ae4d75 public -- Information Property
 InformationEntity : ClassOfClassOfBoundedIndividual
 InformationEntity = ClassOfBoundedIndividual
 
-postulate --  InformationEntity is subTypeOf InformationAsset
-  st-51ae665d5ee7d56c : InformationEntity ⊏ₑ InformationAsset
+--  InformationEntity is subTypeOf InformationAsset
+st-51ae665d5ee7d56c : InformationEntity ⊏ₑ InformationAsset
+st-51ae665d5ee7d56c = polySubTypeOf-identity
 
-postulate --  InformationEntity is subTypeOf ClassOfBoundedIndividual
-  st-56ea65136605b505 : InformationEntity ⊏ₑ ClassOfBoundedIndividual
+--  InformationEntity is subTypeOf ClassOfBoundedIndividual
+st-56ea65136605b505 : InformationEntity ⊏ₑ ClassOfBoundedIndividual
+st-56ea65136605b505 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

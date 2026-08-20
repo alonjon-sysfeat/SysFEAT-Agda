@@ -19,8 +19,9 @@ open import SysFEAT.SOF.9e3837e46192fcad public -- Individual Agent
 IndividualProcess : ClassOfBoundedIndividual
 IndividualProcess = BoundedIndividual
 
-postulate --  IndividualProcess is subTypeOf IndividualBehavior
-  st-a273b51465b7a880 : IndividualProcess ⊏ₑ IndividualBehavior
+--  IndividualProcess is subTypeOf IndividualBehavior
+st-a273b51465b7a880 : IndividualProcess ⊏ₑ IndividualBehavior
+st-a273b51465b7a880 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

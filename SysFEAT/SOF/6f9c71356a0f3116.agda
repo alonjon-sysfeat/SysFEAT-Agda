@@ -18,10 +18,12 @@ open import SysFEAT.UpperOntology.f69619236a0f8dcd public -- Category
 FamilyOfMeasurement : ∀ (u : Level) → Set (lsuc (lsuc (lsuc u)))
 FamilyOfMeasurement u = Category u
 
-postulate --  FamilyOfMeasurement is subTypeOf ModelPropertyBlock
-  st-c2f2a61766ea39ec : ∀ {u v} → (FamilyOfMeasurement u) ⊏⋆ₑ (ModelPropertyBlock v)
+--  FamilyOfMeasurement is subTypeOf ModelPropertyBlock
+st-c2f2a61766ea39ec : ∀ {u v} → (FamilyOfMeasurement u) ⊏⋆ₑ (ModelPropertyBlock v)
+st-c2f2a61766ea39ec = trivialPolySubTypeOfEntity
 
-postulate --  FamilyOfMeasurement is subTypeOf Category
-  st-bb5dc52c6a0257db : ∀ {u v} → (FamilyOfMeasurement u) ⊏⋆ₑ (Category v)
+--  FamilyOfMeasurement is subTypeOf Category
+st-bb5dc52c6a0257db : ∀ {u v} → (FamilyOfMeasurement u) ⊏⋆ₑ (Category v)
+st-bb5dc52c6a0257db = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

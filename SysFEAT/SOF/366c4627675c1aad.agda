@@ -17,7 +17,8 @@ open import SysFEAT.SOF.366c3ea8675c13e2 public -- Appraisal Type
 ResolutionType : ThirdOrderClass
 ResolutionType = SecondOrderClass
 
-postulate --  ResolutionType is subTypeOf AppraisalType
-  st-e073015661d31bcf : ResolutionType ⊏ₑ AppraisalType
+--  ResolutionType is subTypeOf AppraisalType
+st-e073015661d31bcf : ResolutionType ⊏ₑ AppraisalType
+st-e073015661d31bcf = polySubTypeOf-identity
 
 -- == Relationships =======================

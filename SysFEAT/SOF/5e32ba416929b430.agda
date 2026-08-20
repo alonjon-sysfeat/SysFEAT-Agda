@@ -18,7 +18,8 @@ open import SysFEAT.SOF.97e0a19a68dd71de public -- Policy applicability Status
 PolicityDecisionOption : ClassOfProperty
 PolicityDecisionOption = Property
 
-postulate --  PolicityDecisionOption is subTypeOf Property
-  st-fee314eb695d1fff : PolicityDecisionOption ⊏ₑ Property
+--  PolicityDecisionOption is subTypeOf Property
+st-fee314eb695d1fff : PolicityDecisionOption ⊏ₑ Property
+st-fee314eb695d1fff = polySubTypeOf-identity
 
 -- == Relationships =======================

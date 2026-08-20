@@ -18,8 +18,9 @@ open import SysFEAT.SOF.366c4033675c1636 public -- Assessment Type
 AssessmentValue : PropertyType
 AssessmentValue = ClassOfProperty
 
-postulate --  AssessmentValue is subTypeOf AppraisalOption
-  st-83bba1556192433e : AssessmentValue ⊏ₑ AppraisalOption
+--  AssessmentValue is subTypeOf AppraisalOption
+st-83bba1556192433e : AssessmentValue ⊏ₑ AppraisalOption
+st-83bba1556192433e = polySubTypeOf-identity
 
 -- == Relationships =======================
 

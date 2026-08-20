@@ -17,7 +17,8 @@ open import SysFEAT.UpperOntology.3492c53e619642ed public -- Class of Bounded In
 LocationType : ClassOfClassOfBoundedIndividual
 LocationType = ClassOfBoundedIndividual
 
-postulate --  LocationType is subTypeOf ClassOfBoundedIndividual
-  st-ef5df90c632126a6 : LocationType ⊏ₑ ClassOfBoundedIndividual
+--  LocationType is subTypeOf ClassOfBoundedIndividual
+st-ef5df90c632126a6 : LocationType ⊏ₑ ClassOfBoundedIndividual
+st-ef5df90c632126a6 = polySubTypeOf-identity
 
 -- == Relationships =======================

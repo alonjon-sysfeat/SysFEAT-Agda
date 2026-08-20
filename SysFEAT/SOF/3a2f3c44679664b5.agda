@@ -19,7 +19,8 @@ AssetState : StateClass
 AssetState = StateConcept
 
 
-postulate --  AssetState is subTypeOf IndividualAsset
-  st-3a2f3c2567966494 : AssetState ⊏ₑ IndividualAsset
+--  AssetState is subTypeOf IndividualAsset
+st-3a2f3c2567966494 : AssetState ⊏ₑ IndividualAsset
+st-3a2f3c2567966494 = polySubTypeOf-identity
 
 -- == Relationships =======================

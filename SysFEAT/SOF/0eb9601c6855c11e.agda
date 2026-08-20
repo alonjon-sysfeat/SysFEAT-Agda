@@ -19,11 +19,13 @@ Library : FirstOrderClass
 Library = FirstOrderEntity
 
 
-postulate --  Library is subTypeOf ModelPackage
-  st-0f6418c268598b03 : Library ⊏ₑ ModelPackage
+--  Library is subTypeOf ModelPackage
+st-0f6418c268598b03 : Library ⊏ₑ ModelPackage
+st-0f6418c268598b03 = polySubTypeOf-identity
 
-postulate --  Library withAspect ArchitectureContainer
-  st-0eb960326855c14a : Library ⊏ₐₑ (ArchitectureContainer lzero)
+--  Library withAspect ArchitectureContainer
+st-0eb960326855c14a : Library ⊏ₐₑ (ArchitectureContainer lzero)
+st-0eb960326855c14a = polySubTypeOf-identity
 
 -- == Relationships =======================
 

@@ -24,14 +24,17 @@ open import SysFEAT.SOF.2cc9717155263b89 public -- Governance Committee
 GoverningTeam : ClassOfBoundedIndividual
 GoverningTeam = BoundedIndividual
 
-postulate --  GoverningTeam withAspect GovernanceBuildingBlock
-  st-92a7168d67cf5e74 : GoverningTeam ⊏ₐₑ (GovernanceBuildingBlock lzero)
+--  GoverningTeam withAspect GovernanceBuildingBlock
+st-92a7168d67cf5e74 : GoverningTeam ⊏ₐₑ (GovernanceBuildingBlock lzero)
+st-92a7168d67cf5e74 = polySubTypeOf-identity
 
-postulate --  GoverningTeam withAspect GovernanceContainer
-  st-6bf1837e68598fa1 : GoverningTeam ⊏ₐₑ (GovernanceContainer lzero)
+--  GoverningTeam withAspect GovernanceContainer
+st-6bf1837e68598fa1 : GoverningTeam ⊏ₐₑ (GovernanceContainer lzero)
+st-6bf1837e68598fa1 = polySubTypeOf-identity
 
-postulate --  GoverningTeam is subTypeOf WholeLifeIndividual
-  st-366c3c96675c1211 : GoverningTeam ⊏ₑ WholeLifeIndividual
+--  GoverningTeam is subTypeOf WholeLifeIndividual
+st-366c3c96675c1211 : GoverningTeam ⊏ₑ WholeLifeIndividual
+st-366c3c96675c1211 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

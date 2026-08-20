@@ -18,8 +18,9 @@ open import SysFEAT.SOF.2cc9718655263c44 public -- Individual Stakeholder
 GovernanceCommittee : ClassOfBoundedIndividual
 GovernanceCommittee = BoundedIndividual
 
-postulate --  GovernanceCommittee is subTypeOf Stakeholder
-  st-2cc9717855263c02 : GovernanceCommittee ⊏ₑ Stakeholder
+--  GovernanceCommittee is subTypeOf Stakeholder
+st-2cc9717855263c02 : GovernanceCommittee ⊏ₑ Stakeholder
+st-2cc9717855263c02 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

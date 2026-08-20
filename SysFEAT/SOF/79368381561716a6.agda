@@ -21,8 +21,9 @@ open import SysFEAT.SOF.d6cd116d5ab97525 public -- Information Domain
 AgentType : ClassOfClassOfBoundedIndividual
 AgentType = ClassOfBoundedIndividual
 
-postulate --  AgentType is subTypeOf OperatingAssetType
-  st-a371a4bf5b8659f3 : AgentType ⊏ₑ OperatingAssetType
+--  AgentType is subTypeOf OperatingAssetType
+st-a371a4bf5b8659f3 : AgentType ⊏ₑ OperatingAssetType
+st-a371a4bf5b8659f3 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

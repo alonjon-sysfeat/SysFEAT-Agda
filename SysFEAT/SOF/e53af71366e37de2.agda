@@ -19,11 +19,13 @@ open import SysFEAT.SOF.6cfb6ef26a0f15e4 public -- Condition Category
 ConditionPropertyType : ThirdOrderClass
 ConditionPropertyType = SecondOrderClass
 
-postulate --  ConditionPropertyType is subTypeOf AssetPropertyType
-  st-e53af73166e37e27 : ConditionPropertyType ⊏ₑ AssetPropertyType
+--  ConditionPropertyType is subTypeOf AssetPropertyType
+st-e53af73166e37e27 : ConditionPropertyType ⊏ₑ AssetPropertyType
+st-e53af73166e37e27 = polySubTypeOf-identity
 
-postulate --  ConditionPropertyType withAspect ModelPropertyBlock
-  st-c2f2a61266ea39c4 : ConditionPropertyType ⊏ₐₑ (ModelPropertyBlock (lsuc(lsuc(lzero))))
+--  ConditionPropertyType withAspect ModelPropertyBlock
+st-c2f2a61266ea39c4 : ConditionPropertyType ⊏ₐₑ (ModelPropertyBlock (lsuc(lsuc(lzero))))
+st-c2f2a61266ea39c4 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

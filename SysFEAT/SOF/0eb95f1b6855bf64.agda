@@ -20,11 +20,13 @@ open import SysFEAT.SOF.0eb95f356855bf94 public -- Asset Block
 ArchitectureContainer : ∀ (u : Level) → ClassOfMixedOrderEntity u
 ArchitectureContainer u = MixedOrderEntity u
 
-postulate --  ArchitectureContainer is subTypeOf ArchitectureLexicalScope
-  st-0eb95f7b6855c056 : ∀ {u v} → (ArchitectureContainer u) ⊏⋆ₑ (ArchitectureLexicalScope v)
+--  ArchitectureContainer is subTypeOf ArchitectureLexicalScope
+st-0eb95f7b6855c056 : ∀ {u v} → (ArchitectureContainer u) ⊏⋆ₑ (ArchitectureLexicalScope v)
+st-0eb95f7b6855c056 = trivialPolySubTypeOfEntity
 
-postulate --  ArchitectureContainer is subTypeOf ModelContainer
-  st-9397bc2b6877823c : ∀ {u v} → (ArchitectureContainer u) ⊏⋆ₑ (ModelContainer v)
+--  ArchitectureContainer is subTypeOf ModelContainer
+st-9397bc2b6877823c : ∀ {u v} → (ArchitectureContainer u) ⊏⋆ₑ (ModelContainer v)
+st-9397bc2b6877823c = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================
 
