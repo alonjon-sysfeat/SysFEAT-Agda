@@ -19,8 +19,9 @@ open import SysFEAT.SOF.97e09afa68dd69f1 public -- Resolution Outcome
 Resolution : ClassOfBoundedIndividual
 Resolution = BoundedIndividual
 
-postulate --  Resolution is subTypeOf Appraisal
-  st-e073f9f261d210ca : Resolution ⊏ₑ Appraisal
+--  Resolution is subTypeOf Appraisal
+st-e073f9f261d210ca : Resolution ⊏ₑ Appraisal
+st-e073f9f261d210ca = polySubTypeOf-identity
 
 -- == Relationships =======================
 

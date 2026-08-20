@@ -19,13 +19,16 @@ open import SysFEAT.UpperOntology.9429979a66823f90 public -- Temporal Bounding T
 BehavioralEvent : ClassOfClassOfIndividual
 BehavioralEvent = ClassOfIndividual
 
-postulate --  BehavioralEvent is subTypeOf OperatingConnection
-  st-915285165ed551cc : BehavioralEvent ⊏ₑ OperatingConnection
+--  BehavioralEvent is subTypeOf OperatingConnection
+st-915285165ed551cc : BehavioralEvent ⊏ₑ OperatingConnection
+st-915285165ed551cc = polySubTypeOf-identity
 
-postulate --  BehavioralEvent is subTypeOf FunctionalAsset
-  st-a44fc9976748c7db : BehavioralEvent ⊏ₑ FunctionalAsset
+--  BehavioralEvent is subTypeOf FunctionalAsset
+st-a44fc9976748c7db : BehavioralEvent ⊏ₑ FunctionalAsset
+st-a44fc9976748c7db = polySubTypeOf-identity
 
-postulate --  BehavioralEvent is subTypeOf TemporalBoundingType
-  st-ab8f26d8675328af : BehavioralEvent ⊏ₑ TemporalBoundingType
+--  BehavioralEvent is subTypeOf TemporalBoundingType
+st-ab8f26d8675328af : BehavioralEvent ⊏ₑ TemporalBoundingType
+st-ab8f26d8675328af = polySubTypeOf-identity
 
 -- == Relationships =======================

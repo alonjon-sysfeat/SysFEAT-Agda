@@ -17,7 +17,8 @@ open import SysFEAT.UpperOntology.23d5a9ea68513ced public -- Building Block
 ModelPropertyBlock : ∀ (u : Level) → ClassOfMixedOrderEntity u
 ModelPropertyBlock u = MixedOrderEntity u
 
-postulate --  ModelPropertyBlock is subTypeOf BuildingBlock
-  st-0eb97b056855cd4d : ∀ {u v} → (ModelPropertyBlock u) ⊏⋆ₑ (BuildingBlock v)
+--  ModelPropertyBlock is subTypeOf BuildingBlock
+st-0eb97b056855cd4d : ∀ {u v} → (ModelPropertyBlock u) ⊏⋆ₑ (BuildingBlock v)
+st-0eb97b056855cd4d = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

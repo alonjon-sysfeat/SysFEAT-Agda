@@ -20,11 +20,13 @@ Documentation : FirstOrderClass
 Documentation = FirstOrderEntity
 
 
-postulate --  Documentation withAspect ElementaryBlock
-  st-fb59081369445da0 : Documentation ⊏ₐₑ (ElementaryBlock lzero)
+--  Documentation withAspect ElementaryBlock
+st-fb59081369445da0 : Documentation ⊏ₐₑ (ElementaryBlock lzero)
+st-fb59081369445da0 = polySubTypeOf-identity
 
-postulate --  Documentation is subTypeOf AnnotationBlock
-  st-3346b1d6687847c7 : Documentation ⊏ₑ AnnotationBlock
+--  Documentation is subTypeOf AnnotationBlock
+st-3346b1d6687847c7 : Documentation ⊏ₑ AnnotationBlock
+st-3346b1d6687847c7 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

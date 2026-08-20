@@ -19,11 +19,13 @@ open import SysFEAT.SOF.0eb95f356855bf94 public -- Asset Block
 GovernanceEvent : ClassOfBoundedIndividual
 GovernanceEvent = BoundedIndividual
 
-postulate --  GovernanceEvent withAspect GovernanceInstrument
-  st-a66fa9e065a9856b : GovernanceEvent ⊏ₐₑ (GovernanceInstrument lzero)
+--  GovernanceEvent withAspect GovernanceInstrument
+st-a66fa9e065a9856b : GovernanceEvent ⊏ₐₑ (GovernanceInstrument lzero)
+st-a66fa9e065a9856b = polySubTypeOf-identity
 
-postulate --  GovernanceEvent is subTypeOf BoundedIndividual
-  st-366c3cd3675c1299 : GovernanceEvent ⊏ₑ BoundedIndividual
+--  GovernanceEvent is subTypeOf BoundedIndividual
+st-366c3cd3675c1299 : GovernanceEvent ⊏ₑ BoundedIndividual
+st-366c3cd3675c1299 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

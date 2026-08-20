@@ -20,11 +20,13 @@ open import SysFEAT.SOF.582e785466f6b36f public -- Data Risk Type
 InformationAsset : ClassOfClassOfBoundedIndividual
 InformationAsset = ClassOfBoundedIndividual
 
-postulate --  InformationAsset is subTypeOf AssetType
-  st-27a44f796407c1e4 : InformationAsset ⊏ₑ AssetType
+--  InformationAsset is subTypeOf AssetType
+st-27a44f796407c1e4 : InformationAsset ⊏ₑ AssetType
+st-27a44f796407c1e4 = polySubTypeOf-identity
 
-postulate --  InformationAsset withAspect InformationBlock
-  st-8f1c9a7768ca8cfd : InformationAsset ⊏ₐₑ (InformationBlock (lsuc(lzero)))
+--  InformationAsset withAspect InformationBlock
+st-8f1c9a7768ca8cfd : InformationAsset ⊏ₐₑ (InformationBlock (lsuc(lzero)))
+st-8f1c9a7768ca8cfd = polySubTypeOf-identity
 
 -- == Relationships =======================
 

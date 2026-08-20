@@ -18,8 +18,9 @@ open import SysFEAT.SOF.6c5f80e468587f06 public -- Information Block
 InformationLexicalScope : ∀ (u : Level) → ClassOfMixedOrderEntity u
 InformationLexicalScope u = MixedOrderEntity u
 
-postulate --  InformationLexicalScope is subTypeOf ArchitectureLexicalScope
-  st-6c5f80a768587e97 : ∀ {u v} → (InformationLexicalScope u) ⊏⋆ₑ (ArchitectureLexicalScope v)
+--  InformationLexicalScope is subTypeOf ArchitectureLexicalScope
+st-6c5f80a768587e97 : ∀ {u v} → (InformationLexicalScope u) ⊏⋆ₑ (ArchitectureLexicalScope v)
+st-6c5f80a768587e97 = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================
 

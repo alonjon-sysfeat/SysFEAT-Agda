@@ -17,7 +17,8 @@ open import SysFEAT.UpperOntology.9429979a66823f90 public -- Temporal Bounding T
 AgentLifeCycleEvent : ClassOfClassOfIndividual
 AgentLifeCycleEvent = ClassOfIndividual
 
-postulate --  AgentLifeCycleEvent is subTypeOf TemporalBoundingType
-  st-c80acf556784192e : AgentLifeCycleEvent ⊏ₑ TemporalBoundingType
+--  AgentLifeCycleEvent is subTypeOf TemporalBoundingType
+st-c80acf556784192e : AgentLifeCycleEvent ⊏ₑ TemporalBoundingType
+st-c80acf556784192e = polySubTypeOf-identity
 
 -- == Relationships =======================

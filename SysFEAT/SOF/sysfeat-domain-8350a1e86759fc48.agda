@@ -8,11 +8,11 @@ Measurement:
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
-{-# OPTIONS --cubical-compatible #-}
+module SysFEAT.SOF.sysfeat-domain-8350a1e86759fc48 where -- ========== Measurement
 
-module 8350a1e86759fc48 where -- ========== Measurement
+open import SysFEAT.SOF.sysfeat-domain-ab6f7f85681a69f1 public -- Architecture Packages
+open import SysFEAT.SOF.sysfeat-domain-dc0bed9d5ae95bc0 public -- Teams Pattern
+open import SysFEAT.SOF.sysfeat-domain-c30bd1505a5d97f9 public -- Architecture Assets
 
-open import Agda.Primitive
-open import Relation.Binary.PropositionalEquality
-open import 8f46e8eb64b7719a public -- Key Indicator
-open import 3b1bc7e968cdac60 public -- Measurement Value
+open import SysFEAT.SOF.8f46e8eb64b7719a public -- Key Indicator
+open import SysFEAT.SOF.3b1bc7e968cdac60 public -- Measurement Value

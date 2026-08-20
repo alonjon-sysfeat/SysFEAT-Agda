@@ -17,7 +17,8 @@ open import SysFEAT.UpperOntology.3492c53e619642ed public -- Class of Bounded In
 PeriodType : ClassOfClassOfBoundedIndividual
 PeriodType = ClassOfBoundedIndividual
 
-postulate --  PeriodType is subTypeOf ClassOfBoundedIndividual
-  st-1d51aec46353270d : PeriodType ⊏ₑ ClassOfBoundedIndividual
+--  PeriodType is subTypeOf ClassOfBoundedIndividual
+st-1d51aec46353270d : PeriodType ⊏ₑ ClassOfBoundedIndividual
+st-1d51aec46353270d = polySubTypeOf-identity
 
 -- == Relationships =======================

@@ -18,8 +18,9 @@ open import SysFEAT.SOF.e53af85b66e37f78 public -- Environmental Property Type
 EnvironmentalProperty : PropertyType
 EnvironmentalProperty = ClassOfProperty
 
-postulate --  EnvironmentalProperty is subTypeOf ConditionProperty
-  st-dd264a59689f47c3 : EnvironmentalProperty ⊏ₑ ConditionProperty
+--  EnvironmentalProperty is subTypeOf ConditionProperty
+st-dd264a59689f47c3 : EnvironmentalProperty ⊏ₑ ConditionProperty
+st-dd264a59689f47c3 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

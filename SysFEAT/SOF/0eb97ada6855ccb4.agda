@@ -20,11 +20,13 @@ AnnotationBlock : FirstOrderClass
 AnnotationBlock = FirstOrderEntity
 
 
-postulate --  AnnotationBlock withAspect BuildingBlock
-  st-0eb97ae96855ccf8 : AnnotationBlock ⊏ₐₑ (BuildingBlock lzero)
+--  AnnotationBlock withAspect BuildingBlock
+st-0eb97ae96855ccf8 : AnnotationBlock ⊏ₐₑ (BuildingBlock lzero)
+st-0eb97ae96855ccf8 = polySubTypeOf-identity
 
-postulate --  AnnotationBlock is subTypeOf FirstOrderEntity
-  st-da29e2ed69d4782b : AnnotationBlock ⊏ₑ FirstOrderEntity
+--  AnnotationBlock is subTypeOf FirstOrderEntity
+st-da29e2ed69d4782b : AnnotationBlock ⊏ₑ FirstOrderEntity
+st-da29e2ed69d4782b = polySubTypeOf-identity
 
 -- == Relationships =======================
 

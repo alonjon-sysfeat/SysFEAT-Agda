@@ -19,11 +19,13 @@ open import SysFEAT.SOF.30223b5c5ec90c01 public -- Outcome Event
 ServiceInterface : ClassOfClassOfIndividual
 ServiceInterface = ClassOfIndividual
 
-postulate --  ServiceInterface is subTypeOf BehaviorType
-  st-56ea58726605a6c8 : ServiceInterface ⊏ₑ BehaviorType
+--  ServiceInterface is subTypeOf BehaviorType
+st-56ea58726605a6c8 : ServiceInterface ⊏ₑ BehaviorType
+st-56ea58726605a6c8 = polySubTypeOf-identity
 
-postulate --  ServiceInterface is subTypeOf OperatingConnection
-  st-2b5b46d566ed59cd : ServiceInterface ⊏ₑ OperatingConnection
+--  ServiceInterface is subTypeOf OperatingConnection
+st-2b5b46d566ed59cd : ServiceInterface ⊏ₑ OperatingConnection
+st-2b5b46d566ed59cd = polySubTypeOf-identity
 
 -- == Relationships =======================
 

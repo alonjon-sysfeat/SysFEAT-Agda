@@ -18,10 +18,12 @@ open import SysFEAT.SOF.e13ce1cd678f1111 public -- Whole Life Asset Type
 WholeLifeAgentType : ClassOfClassOfBoundedIndividual
 WholeLifeAgentType = ClassOfBoundedIndividual
 
-postulate --  WholeLifeAgentType is subTypeOf AgentType
-  st-c80ac883678410ac : WholeLifeAgentType ⊏ₑ AgentType
+--  WholeLifeAgentType is subTypeOf AgentType
+st-c80ac883678410ac : WholeLifeAgentType ⊏ₑ AgentType
+st-c80ac883678410ac = polySubTypeOf-identity
 
-postulate --  WholeLifeAgentType is subTypeOf WholeLifeAssetType
-  st-c80ac87d67841083 : WholeLifeAgentType ⊏ₑ WholeLifeAssetType
+--  WholeLifeAgentType is subTypeOf WholeLifeAssetType
+st-c80ac87d67841083 : WholeLifeAgentType ⊏ₑ WholeLifeAssetType
+st-c80ac87d67841083 = polySubTypeOf-identity
 
 -- == Relationships =======================

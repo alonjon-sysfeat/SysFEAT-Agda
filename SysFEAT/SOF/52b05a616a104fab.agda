@@ -17,7 +17,8 @@ open import SysFEAT.UpperOntology.308c3b3868e9141e public -- Class of Mixed-Orde
 ConceptualizationLevel : ∀ (u : Level) → MixedOrderMetaClass u
 ConceptualizationLevel u = ClassOfMixedOrderEntity u
 
-postulate --  ConceptualizationLevel is subTypeOf ClassOfMixedOrderEntity
-  st-52b05bd66a1052c2 : ∀ {u v} → (ConceptualizationLevel u) ⊏⋆ₑ (ClassOfMixedOrderEntity v)
+--  ConceptualizationLevel is subTypeOf ClassOfMixedOrderEntity
+st-52b05bd66a1052c2 : ∀ {u v} → (ConceptualizationLevel u) ⊏⋆ₑ (ClassOfMixedOrderEntity v)
+st-52b05bd66a1052c2 = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

@@ -8,10 +8,8 @@ Risk & Threat:
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
-{-# OPTIONS --cubical-compatible #-}
+module SysFEAT.SOF.sysfeat-domain-427c1bdb64b5d1c7 where -- ========== Risk & Threat
 
-module 427c1bdb64b5d1c7 where -- ========== Risk & Threat
+open import SysFEAT.UpperOntology.sysfeat-domain-fb342c5665561f29 public -- 4D Composite Knowledge Graph
 
-open import Agda.Primitive
-open import Relation.Binary.PropositionalEquality
-open import 0e55206a66f11ec5 public -- Risk Type
+open import SysFEAT.SOF.0e55206a66f11ec5 public -- Risk Type

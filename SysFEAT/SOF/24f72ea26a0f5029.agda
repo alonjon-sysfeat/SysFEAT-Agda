@@ -18,10 +18,12 @@ open import SysFEAT.SOF.0eb97aff6855cd23 public -- Model Property Block
 FamilyOfCategory : ∀ (u : Level) → Set (lsuc (lsuc (lsuc u)))
 FamilyOfCategory u = Category u
 
-postulate --  FamilyOfCategory is subTypeOf Category
-  st-435650496a110c3e : ∀ {u v} → (FamilyOfCategory u) ⊏⋆ₑ (Category v)
+--  FamilyOfCategory is subTypeOf Category
+st-435650496a110c3e : ∀ {u v} → (FamilyOfCategory u) ⊏⋆ₑ (Category v)
+st-435650496a110c3e = trivialPolySubTypeOfEntity
 
-postulate --  FamilyOfCategory is subTypeOf ModelPropertyBlock
-  st-c2f2a60666ea3974 : ∀ {u v} → (FamilyOfCategory u) ⊏⋆ₑ (ModelPropertyBlock v)
+--  FamilyOfCategory is subTypeOf ModelPropertyBlock
+st-c2f2a60666ea3974 : ∀ {u v} → (FamilyOfCategory u) ⊏⋆ₑ (ModelPropertyBlock v)
+st-c2f2a60666ea3974 = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

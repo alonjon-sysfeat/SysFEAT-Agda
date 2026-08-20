@@ -17,7 +17,8 @@ open import SysFEAT.SOF.0e55206a66f11ec5 public -- Risk Type
 DataRiskType : ThirdOrderClass
 DataRiskType = SecondOrderClass
 
-postulate --  DataRiskType is subTypeOf RiskType
-  st-5163d45464b674fa : DataRiskType ⊏ₑ RiskType
+--  DataRiskType is subTypeOf RiskType
+st-5163d45464b674fa : DataRiskType ⊏ₑ RiskType
+st-5163d45464b674fa = polySubTypeOf-identity
 
 -- == Relationships =======================

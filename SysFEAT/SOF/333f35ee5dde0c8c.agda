@@ -19,8 +19,9 @@ open import SysFEAT.SOF.79368381561716a6 public -- Agent Type
 InteractionProcessType : ClassOfClassOfBoundedIndividual
 InteractionProcessType = ClassOfBoundedIndividual
 
-postulate --  InteractionProcessType is subTypeOf BehaviorType
-  st-ca35f4485fc4863d : InteractionProcessType ⊏ₑ BehaviorType
+--  InteractionProcessType is subTypeOf BehaviorType
+st-ca35f4485fc4863d : InteractionProcessType ⊏ₑ BehaviorType
+st-ca35f4485fc4863d = polySubTypeOf-identity
 
 -- == Relationships =======================
 

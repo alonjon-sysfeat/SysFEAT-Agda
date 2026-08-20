@@ -17,7 +17,8 @@ open import SysFEAT.SOF.366c4627675c1aad public -- Resolution Type
 DecisionType : ThirdOrderClass
 DecisionType = SecondOrderClass
 
-postulate --  DecisionType is subTypeOf ResolutionType
-  st-83bba0a66192407d : DecisionType ⊏ₑ ResolutionType
+--  DecisionType is subTypeOf ResolutionType
+st-83bba0a66192407d : DecisionType ⊏ₑ ResolutionType
+st-83bba0a66192407d = polySubTypeOf-identity
 
 -- == Relationships =======================

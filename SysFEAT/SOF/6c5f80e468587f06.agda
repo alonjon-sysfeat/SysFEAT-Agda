@@ -17,7 +17,8 @@ open import SysFEAT.SOF.9397b45268777e3b public -- Architecture Block
 InformationBlock : ∀ (u : Level) → ClassOfMixedOrderEntity u
 InformationBlock u = MixedOrderEntity u
 
-postulate --  InformationBlock is subTypeOf ArchitectureBlock
-  st-6c5f812168587f9d : ∀ {u v} → (InformationBlock u) ⊏⋆ₑ (ArchitectureBlock v)
+--  InformationBlock is subTypeOf ArchitectureBlock
+st-6c5f812168587f9d : ∀ {u v} → (InformationBlock u) ⊏⋆ₑ (ArchitectureBlock v)
+st-6c5f812168587f9d = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

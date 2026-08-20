@@ -18,10 +18,12 @@ open import SysFEAT.SOF.6662916b68dd5f84 public -- Governance Instrument
 AppraisalType : ThirdOrderClass
 AppraisalType = SecondOrderClass
 
-postulate --  AppraisalType is subTypeOf GovernancePropertyType
-  st-83bba07961923fe6 : AppraisalType ⊏ₑ GovernancePropertyType
+--  AppraisalType is subTypeOf GovernancePropertyType
+st-83bba07961923fe6 : AppraisalType ⊏ₑ GovernancePropertyType
+st-83bba07961923fe6 = polySubTypeOf-identity
 
-postulate --  AppraisalType withAspect GovernanceInstrument
-  st-6662975468dd6776 : AppraisalType ⊏ₐₑ (GovernanceInstrument (lsuc(lsuc(lzero))))
+--  AppraisalType withAspect GovernanceInstrument
+st-6662975468dd6776 : AppraisalType ⊏ₐₑ (GovernanceInstrument (lsuc(lsuc(lzero))))
+st-6662975468dd6776 = polySubTypeOf-identity
 
 -- == Relationships =======================

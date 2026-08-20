@@ -21,8 +21,9 @@ open import SysFEAT.SOF.a4a5b3f855585ce1 public -- Asset Type
 IndividualAsset : ClassOfBoundedIndividual
 IndividualAsset = BoundedIndividual
 
-postulate --  IndividualAsset is subTypeOf BoundedIndividual
-  st-21ed583a689c196f : IndividualAsset ⊏ₑ BoundedIndividual
+--  IndividualAsset is subTypeOf BoundedIndividual
+st-21ed583a689c196f : IndividualAsset ⊏ₑ BoundedIndividual
+st-21ed583a689c196f = polySubTypeOf-identity
 
 -- == Relationships =======================
 

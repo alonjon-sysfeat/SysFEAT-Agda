@@ -18,8 +18,9 @@ open import SysFEAT.SOF.190c7429689664b5 public -- Policy
 BehavioralRule : PropertyType
 BehavioralRule = ClassOfProperty
 
-postulate --  BehavioralRule is subTypeOf Directive
-  st-fe2203f05c4f100c : BehavioralRule ⊏ₑ Directive
+--  BehavioralRule is subTypeOf Directive
+st-fe2203f05c4f100c : BehavioralRule ⊏ₑ Directive
+st-fe2203f05c4f100c = polySubTypeOf-identity
 
 -- == Relationships =======================
 

@@ -20,14 +20,17 @@ open import SysFEAT.SOF.515c13db68953887 public -- Capability
 IndividualOperatingAsset : ClassOfBoundedIndividual
 IndividualOperatingAsset = BoundedIndividual
 
-postulate --  IndividualOperatingAsset withAspect AssetBlock
-  st-3b1b7e0568cd6e7d : IndividualOperatingAsset ⊏ₐₑ (AssetBlock lzero)
+--  IndividualOperatingAsset withAspect AssetBlock
+st-3b1b7e0568cd6e7d : IndividualOperatingAsset ⊏ₐₑ (AssetBlock lzero)
+st-3b1b7e0568cd6e7d = polySubTypeOf-identity
 
-postulate --  IndividualOperatingAsset is subTypeOf IndividualAsset
-  st-a44f93a06748a9d5 : IndividualOperatingAsset ⊏ₑ IndividualAsset
+--  IndividualOperatingAsset is subTypeOf IndividualAsset
+st-a44f93a06748a9d5 : IndividualOperatingAsset ⊏ₑ IndividualAsset
+st-a44f93a06748a9d5 = polySubTypeOf-identity
 
-postulate --  IndividualOperatingAsset is subTypeOf BoundedIndividual
-  st-be75bef768d23a89 : IndividualOperatingAsset ⊏ₑ BoundedIndividual
+--  IndividualOperatingAsset is subTypeOf BoundedIndividual
+st-be75bef768d23a89 : IndividualOperatingAsset ⊏ₑ BoundedIndividual
+st-be75bef768d23a89 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

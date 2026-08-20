@@ -17,7 +17,8 @@ open import SysFEAT.SOF.e073f9c161d2104a public -- Resolution
 Advise : ClassOfBoundedIndividual
 Advise = BoundedIndividual
 
-postulate --  Advise is subTypeOf Resolution
-  st-e073fc8661d2179f : Advise ⊏ₑ Resolution
+--  Advise is subTypeOf Resolution
+st-e073fc8661d2179f : Advise ⊏ₑ Resolution
+st-e073fc8661d2179f = polySubTypeOf-identity
 
 -- == Relationships =======================

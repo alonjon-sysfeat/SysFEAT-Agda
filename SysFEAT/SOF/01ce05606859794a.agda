@@ -17,7 +17,8 @@ open import SysFEAT.SOF.01ce05f9685979d8 public -- Initiative Block
 InitiativeInstrument : ∀ (u : Level) → ClassOfMixedOrderEntity u
 InitiativeInstrument u = MixedOrderEntity u
 
-postulate --  InitiativeInstrument is subTypeOf InitiativeBlock
-  st-0b950d3668e54ade : ∀ {u v} → (InitiativeInstrument u) ⊏⋆ₑ (InitiativeBlock v)
+--  InitiativeInstrument is subTypeOf InitiativeBlock
+st-0b950d3668e54ade : ∀ {u v} → (InitiativeInstrument u) ⊏⋆ₑ (InitiativeBlock v)
+st-0b950d3668e54ade = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

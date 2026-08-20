@@ -19,10 +19,12 @@ ReferenceDictionary : FirstOrderClass
 ReferenceDictionary = FirstOrderEntity
 
 
-postulate --  ReferenceDictionary is subTypeOf ModelPackage
-  st-0f6418f168598b8d : ReferenceDictionary ⊏ₑ ModelPackage
+--  ReferenceDictionary is subTypeOf ModelPackage
+st-0f6418f168598b8d : ReferenceDictionary ⊏ₑ ModelPackage
+st-0f6418f168598b8d = polySubTypeOf-identity
 
-postulate --  ReferenceDictionary withAspect ArchitectureContainer
-  st-0f64190268598bc7 : ReferenceDictionary ⊏ₐₑ (ArchitectureContainer lzero)
+--  ReferenceDictionary withAspect ArchitectureContainer
+st-0f64190268598bc7 : ReferenceDictionary ⊏ₐₑ (ArchitectureContainer lzero)
+st-0f64190268598bc7 = polySubTypeOf-identity
 
 -- == Relationships =======================

@@ -18,8 +18,9 @@ open import SysFEAT.SOF.79368381561716a6 public -- Agent Type
 IndividualAgent : ClassOfBoundedIndividual
 IndividualAgent = BoundedIndividual
 
-postulate --  IndividualAgent is subTypeOf IndividualOperatingAsset
-  st-9e38381c6192fe47 : IndividualAgent ⊏ₑ IndividualOperatingAsset
+--  IndividualAgent is subTypeOf IndividualOperatingAsset
+st-9e38381c6192fe47 : IndividualAgent ⊏ₑ IndividualOperatingAsset
+st-9e38381c6192fe47 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

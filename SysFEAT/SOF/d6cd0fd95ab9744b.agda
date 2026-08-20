@@ -20,8 +20,9 @@ open import SysFEAT.SOF.ca3513af5fc59413 public -- Environment Interaction Proce
 AgentTypeEnvironment : ClassOfClassOfBoundedIndividual
 AgentTypeEnvironment = ClassOfBoundedIndividual
 
-postulate --  AgentTypeEnvironment is subTypeOf OperatingEcoSystem
-  st-d6cd10f85ab974f9 : AgentTypeEnvironment ⊏ₑ OperatingEcoSystem
+--  AgentTypeEnvironment is subTypeOf OperatingEcoSystem
+st-d6cd10f85ab974f9 : AgentTypeEnvironment ⊏ₑ OperatingEcoSystem
+st-d6cd10f85ab974f9 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -30,7 +31,7 @@ specializedOperatingEnvironment :  Linkage AgentTypeEnvironment AgentTypeEnviron
 specializedOperatingEnvironment = make_subTypeOf "Specialized Operating Environment" "specializedOperatingEnvironment"
 
 postulate -- specializedOperatingEnvironment is subTypeOf specializedAsset
-  st-325a373d66f33dca-12b0287266e936d5  : specializedOperatingEnvironment   ⊏⋆ᵣ  specializedAsset {lzero}
+  st-325a373d66f33dca-12b0287266e936d5  : specializedOperatingEnvironment   ⊏⋆ᵣ  specializedAsset 
 
 {- Realized Operating Environment: -}
 realizedOperatingEnvironment :  Linkage AgentTypeEnvironment AgentTypeEnvironment

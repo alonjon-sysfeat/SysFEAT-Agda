@@ -18,8 +18,9 @@ open import SysFEAT.SOF.79368381561716a6 public -- Agent Type
 BehaviorType : ClassOfClassOfBoundedIndividual
 BehaviorType = ClassOfBoundedIndividual
 
-postulate --  BehaviorType is subTypeOf OperatingAssetType
-  st-986cd52d5ffca44c : BehaviorType ⊏ₑ OperatingAssetType
+--  BehaviorType is subTypeOf OperatingAssetType
+st-986cd52d5ffca44c : BehaviorType ⊏ₑ OperatingAssetType
+st-986cd52d5ffca44c = polySubTypeOf-identity
 
 -- == Relationships =======================
 

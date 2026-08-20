@@ -19,11 +19,13 @@ open import SysFEAT.SOF.f696240c6a0f9ea4 public -- Category Partition
 AssetCategory : ∀ (u : Level) → Set (lsuc (lsuc (lsuc u)))
 AssetCategory u = Category u
 
-postulate --  AssetCategory is subTypeOf Category
-  st-8085811a65b66abf : ∀ {u v} → (AssetCategory u) ⊏⋆ₑ (Category v)
+--  AssetCategory is subTypeOf Category
+st-8085811a65b66abf : ∀ {u v} → (AssetCategory u) ⊏⋆ₑ (Category v)
+st-8085811a65b66abf = trivialPolySubTypeOfEntity
 
-postulate --  AssetCategory is subTypeOf ModelPropertyBlock
-  st-dd27f4c268a15a7d : ∀ {u v} → (AssetCategory u) ⊏⋆ₑ (ModelPropertyBlock v)
+--  AssetCategory is subTypeOf ModelPropertyBlock
+st-dd27f4c268a15a7d : ∀ {u v} → (AssetCategory u) ⊏⋆ₑ (ModelPropertyBlock v)
+st-dd27f4c268a15a7d = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================
 

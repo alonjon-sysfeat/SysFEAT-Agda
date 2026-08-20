@@ -19,11 +19,13 @@ open import SysFEAT.SOF.83f8933a67407206 public -- Governance Property Type
 GovernanceProperty : PropertyType
 GovernanceProperty = ClassOfProperty
 
-postulate --  GovernanceProperty is subTypeOf ClassOfProperty
-  st-83f88e3867406bce : GovernanceProperty ⊏ₑ ClassOfProperty
+--  GovernanceProperty is subTypeOf ClassOfProperty
+st-83f88e3867406bce : GovernanceProperty ⊏ₑ ClassOfProperty
+st-83f88e3867406bce = polySubTypeOf-identity
 
-postulate --  GovernanceProperty withAspect GovernanceInstrument
-  st-83f88e5f67406c0f : GovernanceProperty ⊏ₐₑ (GovernanceInstrument (lsuc(lzero)))
+--  GovernanceProperty withAspect GovernanceInstrument
+st-83f88e5f67406c0f : GovernanceProperty ⊏ₐₑ (GovernanceInstrument (lsuc(lzero)))
+st-83f88e5f67406c0f = polySubTypeOf-identity
 
 -- == Relationships =======================
 

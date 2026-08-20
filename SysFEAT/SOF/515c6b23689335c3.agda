@@ -20,11 +20,13 @@ open import SysFEAT.SOF.e6f250185f772ee1 public -- Information Asset
 Directive : PropertyType
 Directive = ClassOfProperty
 
-postulate --  Directive withAspect UnboundedAggregate
-  st-0861381666579466 : Directive ⊏ₐₑ (UnboundedAggregate (lsuc(lzero)))
+--  Directive withAspect UnboundedAggregate
+st-0861381666579466 : Directive ⊏ₐₑ (UnboundedAggregate (lsuc(lzero)))
+st-0861381666579466 = polySubTypeOf-identity
 
-postulate --  Directive withAspect PolicyAsset
-  st-9397c69468778c7e : Directive ⊏ₐₑ (PolicyAsset (lsuc(lzero)))
+--  Directive withAspect PolicyAsset
+st-9397c69468778c7e : Directive ⊏ₐₑ (PolicyAsset (lsuc(lzero)))
+st-9397c69468778c7e = polySubTypeOf-identity
 
 -- == Relationships =======================
 

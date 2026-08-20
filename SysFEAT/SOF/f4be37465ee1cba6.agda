@@ -18,8 +18,9 @@ open import SysFEAT.SOF.ebcfaeac5ad76ed7 public -- Individual Asset
 Audit : ClassOfBoundedIndividual
 Audit = BoundedIndividual
 
-postulate --  Audit is subTypeOf GovernanceActivity
-  st-f4be375d5ee1ccbf : Audit ⊏ₑ GovernanceActivity
+--  Audit is subTypeOf GovernanceActivity
+st-f4be375d5ee1ccbf : Audit ⊏ₑ GovernanceActivity
+st-f4be375d5ee1ccbf = polySubTypeOf-identity
 
 -- == Relationships =======================
 

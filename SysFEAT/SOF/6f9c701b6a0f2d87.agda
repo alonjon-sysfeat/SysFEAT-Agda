@@ -17,7 +17,8 @@ open import SysFEAT.SOF.6cfb6ef26a0f15e4 public -- Condition Category
 MeasurementType : ∀ (u : Level) → Set (lsuc (lsuc (lsuc u)))
 MeasurementType u = Category u
 
-postulate --  MeasurementType is subTypeOf ConditionCategory
-  st-c2f2914166ea2626 : ∀ {u v} → (MeasurementType u) ⊏⋆ₑ (ConditionCategory v)
+--  MeasurementType is subTypeOf ConditionCategory
+st-c2f2914166ea2626 : ∀ {u v} → (MeasurementType u) ⊏⋆ₑ (ConditionCategory v)
+st-c2f2914166ea2626 = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

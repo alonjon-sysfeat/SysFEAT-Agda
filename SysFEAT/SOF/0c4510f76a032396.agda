@@ -17,7 +17,8 @@ open import SysFEAT.SOF.0c450e776a031ff0 public -- Systemic Level
 MicroOperatingAsset : ∀ (u : Level) → MixedOrderMetaClass u
 MicroOperatingAsset u = ClassOfMixedOrderEntity u
 
-postulate --  MicroOperatingAsset is subTypeOf SystemicLevel
-  st-0c45110e6a0323fd : ∀ {u v} → (MicroOperatingAsset u) ⊏⋆ₑ (SystemicLevel v)
+--  MicroOperatingAsset is subTypeOf SystemicLevel
+st-0c45110e6a0323fd : ∀ {u v} → (MicroOperatingAsset u) ⊏⋆ₑ (SystemicLevel v)
+st-0c45110e6a0323fd = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

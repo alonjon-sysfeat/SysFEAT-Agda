@@ -18,8 +18,9 @@ open import SysFEAT.SOF.366c4dbc675c2776 public -- Architecture Decision Type
 ArchitectureDecisionOutcome : PropertyType
 ArchitectureDecisionOutcome = ClassOfProperty
 
-postulate --  ArchitectureDecisionOutcome is subTypeOf DecisionOutcome
-  st-366c4cff675c24ca : ArchitectureDecisionOutcome ⊏ₑ DecisionOutcome
+--  ArchitectureDecisionOutcome is subTypeOf DecisionOutcome
+st-366c4cff675c24ca : ArchitectureDecisionOutcome ⊏ₑ DecisionOutcome
+st-366c4cff675c24ca = polySubTypeOf-identity
 
 -- == Relationships =======================
 

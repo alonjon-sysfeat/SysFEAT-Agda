@@ -17,7 +17,8 @@ open import SysFEAT.SOF.d321c226601262ae public -- Enduring Initiative
 AssuranceInitiative : ClassOfBoundedIndividual
 AssuranceInitiative = BoundedIndividual
 
-postulate --  AssuranceInitiative is subTypeOf EnduringInitiative
-  st-299e8e096848935a : AssuranceInitiative ⊏ₑ EnduringInitiative
+--  AssuranceInitiative is subTypeOf EnduringInitiative
+st-299e8e096848935a : AssuranceInitiative ⊏ₑ EnduringInitiative
+st-299e8e096848935a = polySubTypeOf-identity
 
 -- == Relationships =======================

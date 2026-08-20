@@ -17,7 +17,8 @@ open import SysFEAT.SOF.1737b76a5fe28204 public -- Governance Activity
 AssessmentProcess : ClassOfBoundedIndividual
 AssessmentProcess = BoundedIndividual
 
-postulate --  AssessmentProcess is subTypeOf GovernanceActivity
-  st-37b7a5c86026076c : AssessmentProcess ⊏ₑ GovernanceActivity
+--  AssessmentProcess is subTypeOf GovernanceActivity
+st-37b7a5c86026076c : AssessmentProcess ⊏ₑ GovernanceActivity
+st-37b7a5c86026076c = polySubTypeOf-identity
 
 -- == Relationships =======================

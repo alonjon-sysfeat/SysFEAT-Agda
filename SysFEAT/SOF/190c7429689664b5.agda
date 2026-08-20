@@ -17,8 +17,9 @@ open import SysFEAT.SOF.515c6b23689335c3 public -- Directive
 Policy : PropertyType
 Policy = ClassOfProperty
 
-postulate --  Policy is subTypeOf Directive
-  st-a67dc17c5f8e90ea : Policy ⊏ₑ Directive
+--  Policy is subTypeOf Directive
+st-a67dc17c5f8e90ea : Policy ⊏ₑ Directive
+st-a67dc17c5f8e90ea = polySubTypeOf-identity
 
 -- == Relationships =======================
 

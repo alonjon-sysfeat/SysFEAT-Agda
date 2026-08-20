@@ -19,11 +19,13 @@ open import SysFEAT.SOF.366c3ea8675c13e2 public -- Appraisal Type
 AppraisalOption : PropertyType
 AppraisalOption = ClassOfProperty
 
-postulate --  AppraisalOption is subTypeOf GovernanceProperty
-  st-97e09a9b68dd67e8 : AppraisalOption ⊏ₑ GovernanceProperty
+--  AppraisalOption is subTypeOf GovernanceProperty
+st-97e09a9b68dd67e8 : AppraisalOption ⊏ₑ GovernanceProperty
+st-97e09a9b68dd67e8 = polySubTypeOf-identity
 
-postulate --  AppraisalOption withAspect GovernanceInstrument
-  st-6662974f68dd674d : AppraisalOption ⊏ₐₑ (GovernanceInstrument (lsuc(lzero)))
+--  AppraisalOption withAspect GovernanceInstrument
+st-6662974f68dd674d : AppraisalOption ⊏ₐₑ (GovernanceInstrument (lsuc(lzero)))
+st-6662974f68dd674d = polySubTypeOf-identity
 
 -- == Relationships =======================
 

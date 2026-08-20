@@ -18,8 +18,9 @@ open import SysFEAT.SOF.e53af74b66e37e5d public -- Measure Property Type
 MeasureProperty : PropertyType
 MeasureProperty = ClassOfProperty
 
-postulate --  MeasureProperty is subTypeOf ConditionProperty
-  st-21ed2adc689c12fc : MeasureProperty ⊏ₑ ConditionProperty
+--  MeasureProperty is subTypeOf ConditionProperty
+st-21ed2adc689c12fc : MeasureProperty ⊏ₑ ConditionProperty
+st-21ed2adc689c12fc = polySubTypeOf-identity
 
 -- == Relationships =======================
 

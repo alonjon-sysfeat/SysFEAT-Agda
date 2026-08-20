@@ -20,8 +20,9 @@ open import SysFEAT.SOF.3346b1e7687847f3 public -- Description Note
 ModelLexicalScope : ∀ (u : Level) → ClassOfMixedOrderEntity u
 ModelLexicalScope u = MixedOrderEntity u
 
-postulate --  ModelLexicalScope is subTypeOf BlockLexicalScope
-  st-0eb95e126855be7d : ∀ {u v} → (ModelLexicalScope u) ⊏⋆ₑ (BlockLexicalScope v)
+--  ModelLexicalScope is subTypeOf BlockLexicalScope
+st-0eb95e126855be7d : ∀ {u v} → (ModelLexicalScope u) ⊏⋆ₑ (BlockLexicalScope v)
+st-0eb95e126855be7d = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================
 

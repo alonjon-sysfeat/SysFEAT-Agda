@@ -20,11 +20,13 @@ ArchitectureBlockCollection : FirstOrderClass
 ArchitectureBlockCollection = FirstOrderEntity
 
 
-postulate --  ArchitectureBlockCollection withAspect BlockCollection
-  st-0eb963f66855c298 : ArchitectureBlockCollection ⊏ₐₑ (BlockCollection lzero)
+--  ArchitectureBlockCollection withAspect BlockCollection
+st-0eb963f66855c298 : ArchitectureBlockCollection ⊏ₐₑ (BlockCollection lzero)
+st-0eb963f66855c298 = polySubTypeOf-identity
 
-postulate --  ArchitectureBlockCollection is subTypeOf FirstOrderEntity
-  st-fbc4fc366a5d64c8 : ArchitectureBlockCollection ⊏ₑ FirstOrderEntity
+--  ArchitectureBlockCollection is subTypeOf FirstOrderEntity
+st-fbc4fc366a5d64c8 : ArchitectureBlockCollection ⊏ₑ FirstOrderEntity
+st-fbc4fc366a5d64c8 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

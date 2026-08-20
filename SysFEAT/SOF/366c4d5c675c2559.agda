@@ -19,8 +19,9 @@ open import SysFEAT.SOF.97e09d7e68dd6d87 public -- Architecture Decision Outcome
 ArchitectureDecision : ClassOfBoundedIndividual
 ArchitectureDecision = BoundedIndividual
 
-postulate --  ArchitectureDecision is subTypeOf Decision
-  st-366c4d64675c25a1 : ArchitectureDecision ⊏ₑ Decision
+--  ArchitectureDecision is subTypeOf Decision
+st-366c4d64675c25a1 : ArchitectureDecision ⊏ₑ Decision
+st-366c4d64675c25a1 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

@@ -19,11 +19,13 @@ open import SysFEAT.SOF.83f88fd567406e53 public -- Asset Property Type
 AssetProperty : PropertyType
 AssetProperty = ClassOfProperty
 
-postulate --  AssetProperty is subTypeOf ClassOfProperty
-  st-83f88a116740659d : AssetProperty ⊏ₑ ClassOfProperty
+--  AssetProperty is subTypeOf ClassOfProperty
+st-83f88a116740659d : AssetProperty ⊏ₑ ClassOfProperty
+st-83f88a116740659d = polySubTypeOf-identity
 
-postulate --  AssetProperty withAspect ModelPropertyBlock
-  st-92a7e08a67ce4049 : AssetProperty ⊏ₐₑ (ModelPropertyBlock (lsuc(lzero)))
+--  AssetProperty withAspect ModelPropertyBlock
+st-92a7e08a67ce4049 : AssetProperty ⊏ₐₑ (ModelPropertyBlock (lsuc(lzero)))
+st-92a7e08a67ce4049 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

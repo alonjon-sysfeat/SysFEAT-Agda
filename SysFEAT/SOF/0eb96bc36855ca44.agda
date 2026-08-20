@@ -19,11 +19,13 @@ ModelPackage : FirstOrderClass
 ModelPackage = FirstOrderEntity
 
 
-postulate --  ModelPackage withAspect ModelContainer
-  st-0eb96bc96855ca70 : ModelPackage ⊏ₐₑ (ModelContainer lzero)
+--  ModelPackage withAspect ModelContainer
+st-0eb96bc96855ca70 : ModelPackage ⊏ₐₑ (ModelContainer lzero)
+st-0eb96bc96855ca70 = polySubTypeOf-identity
 
-postulate --  ModelPackage is subTypeOf ContainerPackage
-  st-3346ae766878462c : ModelPackage ⊏ₑ ContainerPackage
+--  ModelPackage is subTypeOf ContainerPackage
+st-3346ae766878462c : ModelPackage ⊏ₑ ContainerPackage
+st-3346ae766878462c = polySubTypeOf-identity
 
 -- == Relationships =======================
 

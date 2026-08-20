@@ -19,11 +19,13 @@ InformationDictionary : FirstOrderClass
 InformationDictionary = FirstOrderEntity
 
 
-postulate --  InformationDictionary withAspect InformationLexicalScope
-  st-6c5f8359685881cd : InformationDictionary ⊏ₐₑ (InformationLexicalScope lzero)
+--  InformationDictionary withAspect InformationLexicalScope
+st-6c5f8359685881cd : InformationDictionary ⊏ₐₑ (InformationLexicalScope lzero)
+st-6c5f8359685881cd = polySubTypeOf-identity
 
-postulate --  InformationDictionary is subTypeOf ModelPackage
-  st-6c5f84dd6858864b : InformationDictionary ⊏ₑ ModelPackage
+--  InformationDictionary is subTypeOf ModelPackage
+st-6c5f84dd6858864b : InformationDictionary ⊏ₑ ModelPackage
+st-6c5f84dd6858864b = polySubTypeOf-identity
 
 -- == Relationships =======================
 

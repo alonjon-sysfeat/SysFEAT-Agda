@@ -20,14 +20,17 @@ open import SysFEAT.SOF.24f72ea26a0f5029 public -- Family of Category
 CategoryPartition : ∀ (u : Level) → Set (lsuc (lsuc (lsuc u)))
 CategoryPartition u = Category u
 
-postulate --  CategoryPartition is subTypeOf ClassPartition
-  st-24f72e4d6a0f4fa3 : ∀ {u v} → (CategoryPartition u) ⊏⋆ₑ (ClassPartition v)
+--  CategoryPartition is subTypeOf ClassPartition
+st-24f72e4d6a0f4fa3 : ∀ {u v} → (CategoryPartition u) ⊏⋆ₑ (ClassPartition v)
+st-24f72e4d6a0f4fa3 = trivialPolySubTypeOfEntity
 
-postulate --  CategoryPartition is subTypeOf ModelPropertyBlock
-  st-c2f2a60166ea394c : ∀ {u v} → (CategoryPartition u) ⊏⋆ₑ (ModelPropertyBlock v)
+--  CategoryPartition is subTypeOf ModelPropertyBlock
+st-c2f2a60166ea394c : ∀ {u v} → (CategoryPartition u) ⊏⋆ₑ (ModelPropertyBlock v)
+st-c2f2a60166ea394c = trivialPolySubTypeOfEntity
 
-postulate --  CategoryPartition is subTypeOf Category
-  st-e15be9376a10fadc : ∀ {u v} → (CategoryPartition u) ⊏⋆ₑ (Category v)
+--  CategoryPartition is subTypeOf Category
+st-e15be9376a10fadc : ∀ {u v} → (CategoryPartition u) ⊏⋆ₑ (Category v)
+st-e15be9376a10fadc = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================
 

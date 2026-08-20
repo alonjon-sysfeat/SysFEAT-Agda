@@ -20,11 +20,13 @@ open import SysFEAT.SOF.190c74f868966584 public -- Behavioral Rule
 OperatingAssetType : ClassOfClassOfBoundedIndividual
 OperatingAssetType = ClassOfBoundedIndividual
 
-postulate --  OperatingAssetType is subTypeOf FunctionalAsset
-  st-43ee7c9663725e73 : OperatingAssetType ⊏ₑ FunctionalAsset
+--  OperatingAssetType is subTypeOf FunctionalAsset
+st-43ee7c9663725e73 : OperatingAssetType ⊏ₑ FunctionalAsset
+st-43ee7c9663725e73 = polySubTypeOf-identity
 
-postulate --  OperatingAssetType withAspect OperatingAsset
-  st-9397bd8568778340 : OperatingAssetType ⊏ₐₑ (OperatingAsset (lsuc(lzero)))
+--  OperatingAssetType withAspect OperatingAsset
+st-9397bd8568778340 : OperatingAssetType ⊏ₐₑ (OperatingAsset (lsuc(lzero)))
+st-9397bd8568778340 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

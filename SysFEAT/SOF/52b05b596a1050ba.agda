@@ -17,7 +17,8 @@ open import SysFEAT.SOF.52b05a616a104fab public -- Conceptualization Level
 ConceptualLevel : ∀ (u : Level) → MixedOrderMetaClass u
 ConceptualLevel u = ClassOfMixedOrderEntity u
 
-postulate --  ConceptualLevel is subTypeOf ConceptualizationLevel
-  st-52b05b606a10511c : ∀ {u v} → (ConceptualLevel u) ⊏⋆ₑ (ConceptualizationLevel v)
+--  ConceptualLevel is subTypeOf ConceptualizationLevel
+st-52b05b606a10511c : ∀ {u v} → (ConceptualLevel u) ⊏⋆ₑ (ConceptualizationLevel v)
+st-52b05b606a10511c = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

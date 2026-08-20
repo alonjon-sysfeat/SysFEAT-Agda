@@ -17,7 +17,8 @@ open import SysFEAT.UpperOntology.267b6a126675a0b9 public -- Temporal Bounding
 WaiverEnd : ClassOfIndividual
 WaiverEnd = Individual
 
-postulate --  WaiverEnd is subTypeOf TemporalBounding
-  st-fee31b43695d36e6 : WaiverEnd ⊏ₑ TemporalBounding
+--  WaiverEnd is subTypeOf TemporalBounding
+st-fee31b43695d36e6 : WaiverEnd ⊏ₑ TemporalBounding
+st-fee31b43695d36e6 = polySubTypeOf-identity
 
 -- == Relationships =======================

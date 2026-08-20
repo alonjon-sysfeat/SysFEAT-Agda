@@ -17,8 +17,9 @@ open import SysFEAT.SOF.e53af71366e37de2 public -- Condition Property Type
 SetOfEnvironmentalConditionType : ThirdOrderClass
 SetOfEnvironmentalConditionType = SecondOrderClass
 
-postulate --  SetOfEnvironmentalConditionType is subTypeOf ConditionPropertyType
-  st-e53af88066e38012 : SetOfEnvironmentalConditionType ⊏ₑ ConditionPropertyType
+--  SetOfEnvironmentalConditionType is subTypeOf ConditionPropertyType
+st-e53af88066e38012 : SetOfEnvironmentalConditionType ⊏ₑ ConditionPropertyType
+st-e53af88066e38012 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

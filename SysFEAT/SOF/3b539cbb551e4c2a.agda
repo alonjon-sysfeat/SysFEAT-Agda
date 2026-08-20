@@ -19,8 +19,9 @@ open import SysFEAT.SOF.6662956168dd650c public -- Assessment Value
 Assessment : ClassOfBoundedIndividual
 Assessment = BoundedIndividual
 
-postulate --  Assessment is subTypeOf Appraisal
-  st-3b539cda551e4cca : Assessment ⊏ₑ Appraisal
+--  Assessment is subTypeOf Appraisal
+st-3b539cda551e4cca : Assessment ⊏ₑ Appraisal
+st-3b539cda551e4cca = polySubTypeOf-identity
 
 -- == Relationships =======================
 
