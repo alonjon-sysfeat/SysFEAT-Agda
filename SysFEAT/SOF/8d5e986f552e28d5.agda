@@ -28,5 +28,5 @@ st-a44f94366748aa53 = polySubTypeOf-identity
 subSite :  Linkage Location Location
 subSite = make_holonymyRelation "Sub-Site" "subSite"
 
-postulate -- subSite is subTypeOf locatedat
-  st-d308d7165a2f67e3-167126a16008efeb  : subSite   ⊏⋆ᵣ  locatedat 
+postulate -- subSite is subTypeOf meronymyRelation
+  st-d308d7165a2f67e3-4aeab6186964fd66  : subSite   ⊏⋆ᵣ  meronymyRelation 
