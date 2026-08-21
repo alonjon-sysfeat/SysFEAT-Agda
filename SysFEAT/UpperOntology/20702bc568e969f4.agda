@@ -98,7 +98,7 @@ semantic content is the extension map:
     "same-root declination" case;
   * a real projection/coercion - when a sub-side witness structurally
     contains a super-side witness;
-  * a constant map to a chosen point - the degenerate model-only case.
+  * a constant map to a chosen point - the trivial model-only case.
 -}
 polySubTypeOfRel-fromExtensionMap : ∀ {u1 v1 u2 v2}
     {cs1 : ClassOfEntity u1} {ct1 : ClassOfEntity v1}
@@ -182,7 +182,7 @@ M-ed2d64e169483a86 {u} {v} =
   → (c1 ⊏ₘₑ c2) ≃ HomSubType c1 c2
 ⊏ₘₑ-asHomSubType {c1 = c1} = witness-≃ (HomSubType c1)
 
--- entity-level spellings of the coercion-based / degenerate subtype witnesses
+-- entity-level spellings of the coercion-based / trivial subtype witnesses
 subTypeOfEntity-fromCoercion : ∀ {u} {c d : ClassOfEntity u} → (c → d) → c ⊏ₑ d
 subTypeOfEntity-fromCoercion = subTypeOf-fromCoercion
 
@@ -196,13 +196,13 @@ metaSubTypeOfEntity-identity : ∀ {u} {c : ClassOfEntity u} → c ⊏ₘₑ c
 metaSubTypeOfEntity-identity = polySubTypeOf-identity
 
 trivialSubTypeOfEntity : ∀ {u} {c d : ClassOfEntity u} → c ⊏ₑ d
-trivialSubTypeOfEntity = degeneratePolySubTypeOf
+trivialSubTypeOfEntity = trivialPolySubTypeOf
 
 trivialPolySubTypeOfEntity : ∀ {u v} {c : ClassOfEntity u} {d : ClassOfEntity v} → c ⊏⋆ₑ d
-trivialPolySubTypeOfEntity = degeneratePolySubTypeOf
+trivialPolySubTypeOfEntity = trivialPolySubTypeOf
 
 trivialMetaSubTypeOfEntity : ∀ {u v} {c : ClassOfEntity u} {d : ClassOfEntity v} → c ⊏ₘₑ d
-trivialMetaSubTypeOfEntity = degeneratePolySubTypeOf
+trivialMetaSubTypeOfEntity = trivialPolySubTypeOf
 
 -- ============================================================
 -- V. MEREOLOGICAL APEX AT CLASS LEVEL - universe-polymorphic
