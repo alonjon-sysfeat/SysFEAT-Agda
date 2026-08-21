@@ -46,7 +46,7 @@ Relation : ∀ {u v} → Linkage (Entity u) (Entity v)
 Relation {u} {v} = make_Relation "Relation" "Related Entity"
 
 -- a canonical point of the extension of the root Relation (support library;
--- used for degenerate extension maps in cross-level assertions and the model)
+-- used for trivial extension maps in cross-level assertions and the model)
 relationExtPoint : ∀ {u v} → LinkageExt (Relation {u} {v})
 relationExtPoint {u} {v} = Unit* , (Unit* , functionLinkage (λ _ → tt*))
 
@@ -187,19 +187,19 @@ instanceOfEntity-fromCoercion {c = c} f = (c , functionLinkage f) , refl
 powerInstanceOfEntity-fromCoercion : ∀ {u v} {e : ClassOfEntity u} {c : ClassOfEntity v} → (e → c) → e ∷ₚₑ c
 powerInstanceOfEntity-fromCoercion {c = c} f = (c , functionLinkage f) , refl
 
--- degenerate witnesses (satisfiability model only)
-degenerateInstanceOfEntity : ∀ {u v} {e : Entity u} {c : ClassOfEntity v} → e ∷ₑ c
-degenerateInstanceOfEntity {u} {v} {e} {c} = (c , liftLinkage {w = lsuc (u ⊔ v)}) , refl
+-- trivial witnesses (satisfiability model only)
+trivialInstanceOfEntity : ∀ {u v} {e : Entity u} {c : ClassOfEntity v} → e ∷ₑ c
+trivialInstanceOfEntity {u} {v} {e} {c} = (c , liftLinkage {w = lsuc (u ⊔ v)}) , refl
 
-degeneratePowerInstanceOfEntity : ∀ {u v} {e : ClassOfEntity u} {c : ClassOfEntity v} → e ∷ₚₑ c
-degeneratePowerInstanceOfEntity {u} {v} {e} {c} = (c , liftLinkage {w = lsuc (u ⊔ v)}) , refl
+trivialPowerInstanceOfEntity : ∀ {u v} {e : ClassOfEntity u} {c : ClassOfEntity v} → e ∷ₚₑ c
+trivialPowerInstanceOfEntity {u} {v} {e} {c} = (c , liftLinkage {w = lsuc (u ⊔ v)}) , refl
 
-degeneratePolyInstanceOfRel : ∀ {u1 v1 u2 v2}
+trivialPolyInstanceOfRel : ∀ {u1 v1 u2 v2}
         {e1 : Entity u1} {e2 : Entity v1}
         {c1 : ClassOfEntity u2} {c2 : ClassOfEntity v2}
         {iRel : HomRelation e1 e2} {cRel : HomClassOfRelation c1 c2}
         → iRel ∷ᵣ⋆ cRel
-degeneratePolyInstanceOfRel {u1} {v1} {u2} {v2} {e1} {e2} {c1} {c2} {cRel = cRel} =
+trivialPolyInstanceOfRel {u1} {v1} {u2} {v2} {e1} {e2} {c1} {c2} {cRel = cRel} =
   (cRel , admin) , refl
   where
   admin : Linkage {lsuc (u1 ⊔ v1)} {lsuc (lsuc (u2 ⊔ v2))} {lsuc (lsuc (u1 ⊔ v1 ⊔ u2 ⊔ v2))}
@@ -227,7 +227,7 @@ existentialDependency {u} {v} = make_Relation "Existential dependency Relation" 
 
 {- existentialDependency is subtypeOf Relation : the historical statement
    relates a CLASS-level relation to the ENTITY-level root one level below;
-   only the degenerate (point) extension map inhabits it. The faithful
+   only the trivial (point) extension map inhabits it. The faithful
    statement targets Relation one level up (same Hom family, identity map). -}
 cbfce84668535952 : ∀ {u v} → existentialDependency {u} {v} ⊏⋆ᵣ Relation {u} {v}
 cbfce84668535952 {u} {v} =

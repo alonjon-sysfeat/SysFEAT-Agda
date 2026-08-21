@@ -27,7 +27,7 @@ ClassOfMixedOrderEntity u = ClassOfEntity u
 
 --postulate -- ClassOfMixedOrderEntity isPowerInstanceOf MixedOrderMetaClass
 d9cce43b693711e2 : ∀ {u v} → (ClassOfMixedOrderEntity u) ∷ₚₑ (MixedOrderMetaClass v)
-d9cce43b693711e2 = degeneratePowerInstanceOfEntity
+d9cce43b693711e2 = trivialPowerInstanceOfEntity
 
 -- ============================================================
 -- II. MixedOrderMetaclass is declared as a metaSubType of ClassOfMixedOrderEntity

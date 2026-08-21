@@ -83,7 +83,7 @@ BORO/West integration-grade identity for individuals.
 -}
 open MereologyKit FirstOrderEntity holonymyRelation meronymyRelation public
 
-{- The GEM bundle is NO LONGER POSTULATED at M0: for the current degenerate
+{- The GEM bundle is NO LONGER POSTULATED at M0: for the current trivial
    mereological roots it is REFUTABLE (SysFEAT.Ontology.Audit proves
    GEMAxioms → ⊥). Downstream reasoning that needs GEM is parametric over it:
    `open M0-GEM-Hypothetical gem` discharges it against a future model in

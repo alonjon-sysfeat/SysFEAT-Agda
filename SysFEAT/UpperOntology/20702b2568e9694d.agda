@@ -152,19 +152,19 @@ polySubTypeOf-fromCoercion = subTypeOf-fromCoercion
 metaSubTypeOf-fromCoercion : ∀ {u} {c d : ClassOfElement u} → (c → d) → c ⊏ₘ d
 metaSubTypeOf-fromCoercion = subTypeOf-fromCoercion
 
--- degenerate witnesses (satisfiability model only)
-degeneratePolySubTypeOf : ∀ {u v} {c : ClassOfElement u} {d : ClassOfElement v} → c ⊏⋆ d
-degeneratePolySubTypeOf {u} {v} {c} {d} =
-  (d , (liftLinkage {w = lsuc (u ⊔ v)} , (λ e _ → degeneratePolyInstanceOf))) , refl
+-- trivial witnesses (satisfiability model only)
+trivialPolySubTypeOf : ∀ {u v} {c : ClassOfElement u} {d : ClassOfElement v} → c ⊏⋆ d
+trivialPolySubTypeOf {u} {v} {c} {d} =
+  (d , (liftLinkage {w = lsuc (u ⊔ v)} , (λ e _ → trivialPolyInstanceOf))) , refl
 
-degenerateSubTypeOf : ∀ {u} {c d : ClassOfElement u} → c ⊏ d
-degenerateSubTypeOf = degeneratePolySubTypeOf
+trivialSubTypeOf : ∀ {u} {c d : ClassOfElement u} → c ⊏ d
+trivialSubTypeOf = trivialPolySubTypeOf
 
-degenerateMetaSubTypeOf : ∀ {u v} {c : ClassOfElement u} {d : ClassOfElement v} → c ⊏ₘ d
-degenerateMetaSubTypeOf = degeneratePolySubTypeOf
+trivialMetaSubTypeOf : ∀ {u v} {c : ClassOfElement u} {d : ClassOfElement v} → c ⊏ₘ d
+trivialMetaSubTypeOf = trivialPolySubTypeOf
 
-degenerateMetaInstanceOf : ∀ {u v} {e : Element u} {c : ClassOfElement v} → e ∷ₘ c
-degenerateMetaInstanceOf = degeneratePolyInstanceOf
+trivialMetaInstanceOf : ∀ {u v} {e : Element u} {c : ClassOfElement v} → e ∷ₘ c
+trivialMetaInstanceOf = trivialPolyInstanceOf
 
 -- ============================================================
 -- II. POWER TYPES
@@ -191,7 +191,7 @@ powertype-closure : a subtype of the power-type base is an instance of the
 power type.  This is the FAITHFUL second component of the power-type witness,
 extracted honestly (no degeneracy): from  c ∷ₚ p  and  s ⊏ c  we obtain  s ∷ p .
 It replaces the previous `reflexive-powertype`, whose conclusion was discharged
-by a degenerate cross-level witness (true but vacuous).
+by a trivial cross-level witness (true but vacuous).
 -}
 powertype-closure :
   ∀ {u} {c : ClassOfElement u} {p : ClassOfElement (lsuc u)}
@@ -219,7 +219,7 @@ Element-isPowerInstanceOf-ClassOfElement {u} =
 ClassOfElement re-enters the element hierarchy ONE LEVEL UP: definitionally
 ClassOfElement u ≡ Element (lsuc u)  (both are Set (lsuc u)).  So "a class is an
 element" is FAITHFUL, by the identity coercion, when the target is re-indexed by
-lsuc — NOT the degenerate downward crossing  ClassOfElement u ⊏ₘ Element u  (which
+lsuc — NOT the trivial downward crossing  ClassOfElement u ⊏ₘ Element u  (which
 would lower a universe).  This re-indexed subtyping is what carries the
 Reflexive KG; it is a strict, same-level ⊏ proved by reflexivity.
 -}
@@ -229,7 +229,7 @@ ClassOfElement-isSubTypeOf-ElementAbove = subTypeOf-identity
 {-
 Faithful power-type step: ClassOfElement u is (by the identity above) a subtype
 of Element (lsuc u), whose power type is ClassOfElement (lsuc u); the power-type
-closure therefore classifies it there — with a real witness, not a degenerate one.
+closure therefore classifies it there — with a real witness, not a trivial one.
 A power type is reflexive only when the class is ALSO a subtype of its base, and
 here that premise is discharged faithfully.
 -}
@@ -280,8 +280,8 @@ aspectOf-transitive = polySubTypeOf-transitive
 aspectOf-fromCoercion : ∀ {u} {c d : ClassOfElement u} → (c → d) → c ⊏ₐ d
 aspectOf-fromCoercion = subTypeOf-fromCoercion
 
-degenerateAspectOf : ∀ {u v} {c : ClassOfOrderedElement u} {d : ClassOfMixedOrderElement v} → c ⊏ₐ d
-degenerateAspectOf = degeneratePolySubTypeOf
+trivialAspectOf : ∀ {u v} {c : ClassOfOrderedElement u} {d : ClassOfMixedOrderElement v} → c ⊏ₐ d
+trivialAspectOf = trivialPolySubTypeOf
 
 -- ============================================================
 -- V. SUBTYPING AS AN ORDERED LINKAGE

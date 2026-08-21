@@ -198,7 +198,7 @@ Two canonical ways to inhabit a Linkage type:
     (definitional aliases: f = id; structural restrictions: f = projection;
     level crossings: f = lift).
 
-  * liftLinkage : the degenerate witness whose fibre over every source is
+  * liftLinkage : the trivial witness whose fibre over every source is
     (a lifted copy of) the whole target. It shows that a bare Linkage type
     between any two Elements is always inhabited; it carries no semantic
     force and is reserved for the satisfiability model (see
@@ -306,9 +306,9 @@ polyInstanceOf-fromCoercion : ∀ {u v} {e : Element u} {c : ClassOfElement v}
   → (e → c) → e ∷⋆ c
 polyInstanceOf-fromCoercion {c = c} f = (c , functionLinkage f) , refl
 
--- | degenerate instantiation witness (model use only, see the design report)
-degeneratePolyInstanceOf : ∀ {u v} {e : Element u} {c : ClassOfElement v} → e ∷⋆ c
-degeneratePolyInstanceOf {u} {v} {e} {c} = (c , liftLinkage {w = lsuc (u ⊔ v)}) , refl
+-- | trivial instantiation witness (model use only, see the design report)
+trivialPolyInstanceOf : ∀ {u v} {e : Element u} {c : ClassOfElement v} → e ∷⋆ c
+trivialPolyInstanceOf {u} {v} {e} {c} = (c , liftLinkage {w = lsuc (u ⊔ v)}) , refl
 
 -- | instanceOf : strict/standard instantiation.
 --   The class c lives exactly one universe level above the element e.
