@@ -178,6 +178,9 @@ HierarchicalMember u = AggregateMember u
 postulate -- HierarchicalMember is subType of AggregateMember
   sb-fb660df868699fa2 : ∀ {u v} → (HierarchicalMember u) ⊏⋆ₑ (AggregateMember v)
 
+postulate -- HierarchicalMember is subType of LexicalScope
+  29e3dd0b6979a3e3 : ∀ {u v} → (HierarchicalMember u) ⊏⋆ₑ (LexicalScope v)
+
 {- membershipOfHierarchicalMember : upward (bidirectional) nesting relation
   from an Aggregate Block to a Hierarchical Member.
   It represents membership in a strictly hierarchical (scoped) context.
@@ -199,10 +202,15 @@ membershipOfHierarchicalMember = membershipOfAggregateMember
 hierarchicalMemberAggregation : ∀ {u v} → Linkage (AggregateMember u) (BuildingBlock v)
 hierarchicalMemberAggregation = nestingRelation
 
--- hierarchicalMembership is subType of membershipOfAggregateMember 
-fb660df868699fa2 : ∀ {u v} → (hierarchicalMemberAggregation {u} {v}) ⊏⋆ᵣ (nestingRelation {u} {v})
+postulate -- hierarchicalMembership is subType of membershipOfAggregateMember 
+  fb6616316869b129 : ∀ {u v} → (hierarchicalMemberAggregation {u} {v}) ⊏⋆ᵣ (membershipOfAggregateMember {u} {v})
+
+-- hierarchicalMembership is subType of nestingRelation scopedBuildingBlock
+fb660df868699fa2 : ∀ {u v} → (hierarchicalMemberAggregation {u} {v}) ⊏⋆ᵣ (scopedBuildingBlock {u} {v})
 fb660df868699fa2 {u} {v} =
-  polySubTypeOfRel-fromExtensionMap {subRel = (hierarchicalMemberAggregation {u} {v})} {superRel = (nestingRelation {u} {v})} (λ w → w)
+  polySubTypeOfRel-fromExtensionMap {subRel = (hierarchicalMemberAggregation {u} {v})} {superRel = (scopedBuildingBlock {u} {v})} (λ w → w)
+
+
 {- hierarchicalMember : derived relation from an Aggregate Block to a Building Block
    via a Hierarchical Member. It composes hierarchical membership with
    hierarchical member aggregation, yielding a hierarchical (tree‑like) structure.
