@@ -42,7 +42,7 @@ LexicalScope u = MixedOrderEntity u
 a39aaab8685e517d : ∀ {u} → (LexicalScope u) ⊏⋆ₑ (MixedOrderEntity u)
 a39aaab8685e517d {u} = polySubTypeOf-identity
 
--- ── II. HomType de nesting ───────────────────────────────────────────
+-- ── II. Nesting HomType ───────────────────────────────────────────
 -- Le nesting de scope vers target = posséder un Linkage scope→target.
 -- C'est la structure Linkage elle-même — le nesting IS le fibrage.
 HomNestingRelation : ∀ {u v} (scope : LexicalScope u) (target : Entity v)
@@ -58,7 +58,7 @@ HomNestingRelation {u}{v} scope target =
 make_nestingRelation : ∀ {u v} (label : String) (fwdRole : String) → Linkage (Entity u) (Entity v)
 make_nestingRelation = make_Linkage HomNestingRelation
 
-{- A Nesting Relation is a Relation that references its target Entity by nesting, using a Nesting Adjacency.
+{- A Nesting Relation is a Relation that references its target Entity by nesting, using a Nesting Linkage.
 Nesting is a fundamental concept in complex systems organization where elements are contained within other elements, creating hierarchical or constextual web-like structures. This embedding mechanism intrinsically links the properties, behaviors, and lifecycles of nested entities to their containing entities, forming cohesive units at multiple scales.
 Nesting facilitates the emergence of complex Aggregate Blocks and properties from simpler entities, enables efficient design of systems across levels, and supports both autonomy and integration within systems (see Compositionality).
 Nesting also facilitates the creation of modules through packaging of Building Blocks (see Packaging). -}

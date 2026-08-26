@@ -54,6 +54,7 @@ classOfHolonymy = polyClassOfHolonymy
 215db38c68b4375d : classOfHolonymy ⊏⋆ᵣ classOfFirstOrderRelation
 215db38c68b4375d  =
   polySubTypeOfRel-fromExtensionMap {subRel = classOfHolonymy} {superRel = classOfFirstOrderRelation} (λ w → w)
+
 {- Class of Meronymy is the powertype of Meronymy Relation (part - whole). -}
 classOfMeronymy : Linkage FirstOrderClass FirstOrderClass
 classOfMeronymy = polyClassOfMeronymy
