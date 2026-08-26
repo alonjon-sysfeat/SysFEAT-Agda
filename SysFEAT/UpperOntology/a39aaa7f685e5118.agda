@@ -66,20 +66,10 @@ Nesting also facilitates the creation of modules through packaging of Building B
 nestingRelation : ∀ {u v} → Linkage (LexicalScope u) (Entity v)
 nestingRelation = make_nestingRelation "Nesting" "Nested Entity" 
 
-{-
--- ── Root class nestingRelation ──────────────────────────
--- Relation entre ClassOfOrderedEntity et ClassOfMixedOrderEntity.
--- C'est un ASPECT : ⊏⋆ᵣ aspectOfEntity dans la hiérarchie.
-classOfNestingRelation : ∀ {u v}
-  → Linkage (ClassOfOrderedEntity u) (ClassOfMixedOrderEntity v)
-classOfNestingRelation {u}{v} =
-  make_classOfRelation "Class of Nesting Relation" "Nested Class"
+-- nestingRelation isSubTypeOf Relation
+23d53b4f68511d89 : ∀ {u v} → nestingRelation {u} {v}  ⊏⋆ᵣ  Relation {u} {v}
+23d53b4f68511d89 {u} {v} =
+  polySubTypeOfRel-fromExtensionMap
+    {subRel = nestingRelation {u} {v}} {superRel = Relation {u} {v}}
+    (λ (s , (t , (L , subordination))) → (s , (t , L)))
 
-postulate
-  classOfNestingRelation-isAspect :
-    ∀ {u v} → classOfNestingRelation {u}{v} ⊏⋆ᵣ aspectOfEntity {u}{v}
-
-postulate
-  nestingRelation-isInstance :
-    ∀ {u v} → nestingRelation {u}{v} ⊏⋆ᵣ classOfNestingRelation {u}{v}
-_-}
