@@ -214,30 +214,28 @@ trivialPolyInstanceOfRel {u1} {v1} {u2} {v2} {e1} {e2} {c1} {c2} {cRel = cRel} =
 -- ============================================================
 -- VI. STRUCTURAL ASPECTS OF RELATIONS (Reference, Dependency, ...)
 -- ============================================================
+{- A Reference Relation is a Relation that points at a target Entity which is not in the lexical scope of its source Entity.
+-}
 referenceRelation : ∀ {u v} → Linkage (Entity u) (Entity v)
 referenceRelation {u} {v} = make_Relation "Refencing Relation" "Related Entity"
 
 -- referenceRelation is subtypeOf Relation : PROVED (same Hom family, identity extension map)
 23d53a6668511cec : ∀ {u v} → referenceRelation {u} {v} ⊏⋆ᵣ Relation {u} {v}
-23d53a6668511cec {u} {v} =
-  polySubTypeOfRel-fromExtensionMap {subRel = referenceRelation {u} {v}} {superRel = Relation {u} {v}} (λ w → w)
+23d53a6668511cec {u} {v} = polySubTypeOfRel-fromExtensionMap {subRel = referenceRelation {u} {v}} {superRel = Relation {u} {v}} (λ w → w)
 
+{- An  Existential Dependency relationship is a Relation where the source Entity's existence depends on the existence of the target Entity.
+   The cardinality of the set of targetted Entity is [1..1].
+-}
 existentialDependency : ∀ {u v} → Linkage (ClassOfEntity u) (ClassOfEntity v)
 existentialDependency {u} {v} = make_Relation "Existential dependency Relation" "Dependency Entity"
 
-{- existentialDependency is subtypeOf Relation : the historical statement
-   relates a CLASS-level relation to the ENTITY-level root one level below;
-   only the trivial (point) extension map inhabits it. The faithful
-   statement targets Relation one level up (same Hom family, identity map). -}
-cbfce84668535952 : ∀ {u v} → existentialDependency {u} {v} ⊏⋆ᵣ Relation {u} {v}
-cbfce84668535952 {u} {v} =
-  polySubTypeOfRel-fromExtensionMap {subRel = existentialDependency {u} {v}} {superRel = Relation {u} {v}}
-    (λ _ → relationExtPoint)
+{- existentialDependency is subtypeOf Relation -}
+cbfce84668535952 : ∀ {u v} → existentialDependency {u} {v} ⊏⋆ᵣ Relation {lsuc u} {lsuc v}
+cbfce84668535952 {u} {v} = polySubTypeOfRel-fromExtensionMap {subRel = existentialDependency {u} {v}} {superRel = Relation {lsuc u} {lsuc v}} (λ w → w)
 
-cbfce84668535952-corrected : ∀ {u v} → existentialDependency {u} {v} ⊏⋆ᵣ Relation {lsuc u} {lsuc v}
-cbfce84668535952-corrected {u} {v} =
-  polySubTypeOfRel-fromExtensionMap {subRel = existentialDependency {u} {v}} {superRel = Relation {lsuc u} {lsuc v}} (λ w → w)
-
+{- An  Existential Independence relation is a Relation that specifies that the existence of the source Entity doesn't depend on the existence of its target Entity.
+   The cardinality of set of targetted Entity is [0..*]. 
+-}
 existentialIndependence : ∀ {u v} → Linkage (ClassOfEntity u) (ClassOfEntity v)
 existentialIndependence {u} {v} = make_Relation "Existential independence Relation" "Related Entity"
 

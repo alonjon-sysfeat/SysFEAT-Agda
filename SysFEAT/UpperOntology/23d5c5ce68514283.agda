@@ -45,9 +45,12 @@ make_upwardNestingRelation = make_Linkage HomUpwardNesting
 AggregateBlock : (u : Level) → ClassOfMixedOrderEntity u
 AggregateBlock u = MixedOrderEntity u
 
-postulate -- AggregateBlock is subType of Building Block
-  23d5c5d3685142ad  : ∀ {u v} →  (AggregateBlock u) ⊏⋆ₑ (BuildingBlock v)
+-- AggregateBlock is subType of Building Block
+23d5c5d3685142ad  : ∀ {u v} →  (AggregateBlock u) ⊏⋆ₑ (BuildingBlock v)
+23d5c5d3685142ad  = trivialPolySubTypeOfEntity
 
+-- ====== Internal structure
+--
 {- An Aggregate Member is a Mixed-Order Entity that serves as an internal constituent of an Aggregate Block, incorporating (aggregating) an external Building Block into its parent structure.
 Aggregation is the syntactic mechanism that enables the construction of modular, composite Building Blocks. It establishes a reified Relation (the nested  Aggregate Member) between the Aggregate Block and the aggregated Building Block, allowing the definition of local characteristic specific to the Aggregate Member. This mechanism facilitates the expression of emergent properties within the composite structure of  the Aggregate Block .
 Examples:
@@ -174,10 +177,6 @@ HierarchicalMember u = AggregateMember u
 
 postulate -- HierarchicalMember is subType of AggregateMember
   sb-fb660df868699fa2 : ∀ {u v} → (HierarchicalMember u) ⊏⋆ₑ (AggregateMember v)
-
--- HierarchicalMember is subType of BlockLexicalScope
-29e3dd0b6979a3e3 : ∀ {u v} → (HierarchicalMember u) ⊏⋆ₑ (BlockLexicalScope v)
-29e3dd0b6979a3e3 = trivialPolySubTypeOfEntity
 
 {- membershipOfHierarchicalMember : upward (bidirectional) nesting relation
   from an Aggregate Block to a Hierarchical Member.

@@ -87,7 +87,7 @@ subTypeOfRel {u} {cs1} {ct1} {cs2} {ct2} subRel superRel =
   _⊏⋆ᵣ_ {u} {u} {u} {u} {cs1} {ct1} {cs2} {ct2} subRel superRel
 
 -- ============================================================
--- III.b RELATION-SUBTYPE WITNESSES (SUPPORT LIBRARY, new)
+-- III.b RELATION-SUBTYPE WITNESSES 
 -- ============================================================
 {-
 A ⊏⋆ᵣ witness is (an administrative M2 linkage +) a map between the two
