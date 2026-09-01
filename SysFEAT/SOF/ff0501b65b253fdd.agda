@@ -56,8 +56,8 @@ postulate -- ownedTeamEvent is subTypeOf packagedGovernanceBlock
 governedInitiative :  Linkage GoverningTeam Initiative
 governedInitiative = make_holonymyRelation "Governed Initiative" "governedInitiative"
 
-postulate -- governedInitiative is subTypeOf elementaryHolonymy
-  st-18a81ed15eeb5d60-9653a95669701e02  : governedInitiative   ⊏⋆ᵣ  elementaryHolonymy 
+postulate -- governedInitiative is subTypeOf referenceHolonymy
+  st-18a81ed15eeb5d60-9653a95669701e02  : governedInitiative   ⊏⋆ᵣ  referenceHolonymy 
 postulate -- governedInitiative is subTypeOf existentialDependency
   st-18a81ed15eeb5d60-cbfce7da685358e9  : governedInitiative   ⊏⋆ᵣ  existentialDependency {lzero} {lzero}
 
@@ -79,5 +79,5 @@ postulate -- subTeam is subTypeOf holonymyRelation
 teamCommittee :  Linkage GoverningTeam GovernanceCommittee
 teamCommittee = make_holonymyRelation "Team Committee" "teamCommittee"
 
-postulate -- teamCommittee is subTypeOf elementaryHolonymy
-  st-b0d7b34f5ea02f2c-9653a95669701e02  : teamCommittee   ⊏⋆ᵣ  elementaryHolonymy 
+postulate -- teamCommittee is subTypeOf referenceHolonymy
+  st-b0d7b34f5ea02f2c-9653a95669701e02  : teamCommittee   ⊏⋆ᵣ  referenceHolonymy 

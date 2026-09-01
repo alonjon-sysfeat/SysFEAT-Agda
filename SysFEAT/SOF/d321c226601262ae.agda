@@ -56,8 +56,8 @@ subInitiative = make_holonymyRelation "Sub-Initiative" "subInitiative"
 
 postulate -- subInitiative is subTypeOf holonymyRelation
   st-5b7a0ecf61f5650a-c2f2c6ce66e90be7  : subInitiative   ⊏⋆ᵣ  holonymyRelation 
-postulate -- subInitiative is subTypeOf subModelPackage
-  st-5b7a0ecf61f5650a-0eb96c446855cb6c  : subInitiative   ⊏⋆ᵣ  subModelPackage 
+postulate -- subInitiative is subTypeOf scopedModelBlock
+  st-5b7a0ecf61f5650a-0eb96a306855c816  : subInitiative   ⊏⋆ᵣ  scopedModelBlock {lzero}
 
 {- Roadmap: 
 Set of all Initiative Stages of an Enduring Initiative that, along with coordinating Initiative Milestones, forms its roadmap.
@@ -65,6 +65,8 @@ Set of all Initiative Stages of an Enduring Initiative that, along with coordina
 roadmap :  Linkage EnduringInitiative InitiativeStage
 roadmap = make_holonymyRelation "Roadmap" "roadmap"
 
+postulate -- roadmap is subTypeOf scopedModelBlock
+  st-29df685860086c52-0eb96a306855c816  : roadmap   ⊏⋆ᵣ  scopedModelBlock {lzero}
 postulate -- roadmap is subTypeOf holonymyRelation
   st-29df685860086c52-c2f2c6ce66e90be7  : roadmap   ⊏⋆ᵣ  holonymyRelation 
 

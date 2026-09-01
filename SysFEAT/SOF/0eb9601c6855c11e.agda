@@ -29,9 +29,9 @@ st-0eb960326855c14a = polySubTypeOf-identity
 
 -- == Relationships =======================
 
-{- Sub-Library: -}
-subLibrary :  Linkage Library Library
-subLibrary = make_nestingRelation "Sub-Library" "subLibrary"
+{- Parent Library: -}
+parentLibrary :  Linkage Library Library
+parentLibrary = make_Relation "Parent Library" "parentLibrary"
 
-postulate -- subLibrary is subTypeOf includedArchitectureDictionary
-  st-0f64228e685999f8-0f6416aa685987e1  : subLibrary   ⊏⋆ᵣ  includedArchitectureDictionary {lzero} {lzero}
+postulate -- parentLibrary is subTypeOf parentModelPackage
+  st-e7cb01db6a976047-e7cb000b6a975e4c  : parentLibrary   ⊏⋆ᵣ  parentModelPackage 
