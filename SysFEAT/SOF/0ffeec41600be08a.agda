@@ -40,8 +40,8 @@ st-b07be2aa67626977 = polySubTypeOf-identity
 steeringAuthority :  Linkage Initiative ResponsibleHumanEntity
 steeringAuthority = make_holonymyRelation "Steering Authority" "steeringAuthority"
 
-postulate -- steeringAuthority is subTypeOf elementaryHolonymy
-  st-b2f2d64d5f47e364-9653a95669701e02  : steeringAuthority   ⊏⋆ᵣ  elementaryHolonymy 
+postulate -- steeringAuthority is subTypeOf referenceHolonymy
+  st-b2f2d64d5f47e364-9653a95669701e02  : steeringAuthority   ⊏⋆ᵣ  referenceHolonymy 
 
 {- Course of Action: 
 A plan recognized by an enterprise as being essential to achieving its goals - i.e. a strategic specification of what the enterprise does. In other words, a Course of Action channels efforts towards Desired Results.Business Capabilities might be required by an Enterprise to conduct its Courses of Action.
