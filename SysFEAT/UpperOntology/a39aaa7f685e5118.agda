@@ -4,7 +4,16 @@
    framework.sysfeat.com
 
 Lexical Scope: 
-A Lexical Scope is a kind of Mixed-Order Entity that defines the existence, visibility, and accessibility of the entities nested within it through a Nesting Relation.Nested Entitys have no independent identity or validity outside the lexical or structural scope in which they are defined - they exist only within and for the duration of their parent construct.Every Entity belongs to exactly one Lexical Scope.A Lexical Scope carries no intrinsic semantic meaning; it serves purely as a syntactic mechanism for establishing hierarchical containment.Examples:1) Composite structures (Aggregate Block) nesting their internal constituents (Aggregate Member).2) Social structures nesting their roles and functions.3) Computer functions nesting their local variables or inner functions.4) Packages nesting their Building Blocks (packaging).
+A Lexical Scope is a kind of Mixed-Order Entity that defines the existence, visibility, and accessibility of the entities nested within it through a Nesting Relation.
+Nested Entitys have no independent identity or validity outside the lexical or structural scope in which they are defined - they exist only within and for the duration of their parent construct.
+Every Entity belongs to exactly one Lexical Scope.
+A Lexical Scope carries no intrinsic semantic meaning; it serves purely as a syntactic mechanism for establishing scope through hierarchical containment.
+Examples:
+1) Composite structures (Aggregate Block) nesting their internal constituents (Aggregate Member).
+2) Social structures nesting their roles and functions.
+3) Computer functions nesting their local variables or inner functions.
+4) Packages nesting their Building Blocks (packaging).
+
  - ============================== -}
 
 {-# OPTIONS --safe --cubical --guardedness #-}
