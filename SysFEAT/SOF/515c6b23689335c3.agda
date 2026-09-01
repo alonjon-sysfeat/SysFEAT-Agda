@@ -4,7 +4,7 @@
    framework.sysfeat.com
 
 Directive: 
-A Directive is an authoritative declaration that indicates how Agents and their Behaviors should be (or should not be) in the enterprise.Specifically, a Directive defines, constrains or liberates some aspects of an Agent and its Behaviors. As such, Directives shall be considered as constraning Asset Propertys.Directives are intended to assert agent structures or to control or influence their Behaviors. Directives are stated in declarative form.
+A Directive is an authoritative declaration that indicates how Agent Types and their Behavior Types should be (or should not be) in the enterprise.Specifically, a Directive defines, constrains or liberates some aspects of an Agent Type and its Behavior Types. As such, Directives shall be considered as constraning Asset Propertys.Directives are intended to assert agent structures or to control or influence their Behaviors. Directives are stated in declarative form.
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -14,6 +14,7 @@ module SysFEAT.SOF.515c6b23689335c3 where -- ========== Directive
 open import Agda.Primitive
 open import SysFEAT.UpperOntology.8cfa942f68527849 public -- Unbounded Aggregate
 open import SysFEAT.SOF.9397c3d86877842f public -- Policy Asset
+open import SysFEAT.UpperOntology.746ac18368905aa2 public -- Class of Property
 open import SysFEAT.SOF.952ea6c467285821 public -- Policy Category
 open import SysFEAT.SOF.e6f250185f772ee1 public -- Information Asset
 
@@ -27,6 +28,10 @@ st-0861381666579466 = polySubTypeOf-identity
 --  Directive withAspect PolicyAsset
 st-9397c69468778c7e : Directive ⊏ₐₑ (PolicyAsset (lsuc(lzero)))
 st-9397c69468778c7e = polySubTypeOf-identity
+
+--  Directive is subTypeOf ClassOfProperty
+st-e7cbed836a9547f6 : Directive ⊏ₑ ClassOfProperty
+st-e7cbed836a9547f6 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

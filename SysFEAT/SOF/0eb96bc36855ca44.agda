@@ -29,9 +29,11 @@ st-3346ae766878462c = polySubTypeOf-identity
 
 -- == Relationships =======================
 
-{- Sub Model Package: -}
-subModelPackage :  Linkage ModelPackage ModelPackage
-subModelPackage = make_nestingRelation "Sub Model Package" "subModelPackage"
+{- Parent Model Package: 
+Existential Dependency that asserts the existence of a Model Package in a parent Model Package
+-}
+parentModelPackage :  Linkage ModelPackage ModelPackage
+parentModelPackage = make_Relation "Parent Model Package" "parentModelPackage"
 
-postulate -- subModelPackage is subTypeOf subContainer
-  st-0eb96c446855cb6c-0eb9824a6855d23d  : subModelPackage   ⊏⋆ᵣ  subContainer 
+postulate -- parentModelPackage is subTypeOf parentPackage
+  st-e7cb000b6a975e4c-e7cbfde76a965b64  : parentModelPackage   ⊏⋆ᵣ  parentPackage 

@@ -34,8 +34,8 @@ st-9397bc2b6877823c = trivialPolySubTypeOfEntity
 includedArchitectureDictionary : ∀ {u v} →  Linkage (ArchitectureContainer u) (ArchitectureContainer v)
 includedArchitectureDictionary = make_nestingRelation "Included Architecture Dictionary" "includedArchitectureDictionary"
 
-postulate -- includedArchitectureDictionary is subTypeOf subModelPackage
-  st-0f6416aa685987e1-0eb96c446855cb6c  : ∀ {u v} → includedArchitectureDictionary {u} {v}  ⊏⋆ᵣ  subModelPackage
+postulate -- includedArchitectureDictionary is subTypeOf nestingRelation
+  st-0f6416aa685987e1-02a506a968540333  : ∀ {u v} → includedArchitectureDictionary {u} {v}  ⊏⋆ᵣ  nestingRelation {u} {v}
 
 {- Packaged Block Collection: -}
 packagedBlockCollection : ∀ {u} →  Linkage (ArchitectureContainer u) ArchitectureBlockCollection
