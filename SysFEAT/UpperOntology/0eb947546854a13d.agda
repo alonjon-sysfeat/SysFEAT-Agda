@@ -29,11 +29,13 @@ st-e2780fbf68f17d72 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
-{- Sub-Container: 
-Nesting Relation that asserts the existence of a given Sub-Container Package in the context of a parent Container Package.
+{- Parent Package: 
+Existential Dependency that asserts the existence of a Container Package in a Parent Package.
 -}
-subContainer :  Linkage ContainerPackage ContainerPackage
-subContainer = make_nestingRelation "Sub-Container" "subContainer"
+parentPackage :  Linkage ContainerPackage ContainerPackage
+parentPackage = make_Relation "Parent Package" "parentPackage"
 
-postulate -- subContainer is subTypeOf nestingRelation
-  st-0eb9824a6855d23d-02a506a968540333  : subContainer   ⊏⋆ᵣ  nestingRelation {lzero} {lzero}
+postulate -- parentPackage is subTypeOf referenceRelation
+  st-e7cbfde76a965b64-23d5398f68511bc1  : parentPackage   ⊏⋆ᵣ  referenceRelation {lzero} {lzero}
+postulate -- parentPackage is subTypeOf existentialDependency
+  st-e7cbfde76a965b64-cbfce7da685358e9  : parentPackage   ⊏⋆ᵣ  existentialDependency {lzero} {lzero}

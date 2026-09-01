@@ -92,7 +92,7 @@ aggregateQualification : Linkage ClassOfBoundedIndividual ClassOfProperty
 aggregateQualification = membershipOfAggregateQualification  ∘  aggregationOfClassOfPropertyAggregateQualification
 
 {- Aggregate Holonymy Type: 
-An Aggregate Holonymy Type is a reified flavor of Poly Class of Holonymy whereby the referenced Class of Individual is aggregated in its parent (whole) Class of Bounded Individual.Example:1) A Process Step is the reification of the composition of a child process in a parent process.2) 
+An Aggregate Holonymy Type is a reified flavor of Class of Holonymy whereby the referenced Class of Individual is aggregated in its parent (whole) Class of Bounded Individual.Example:1) A Process Step is the reification of the composition of a child process in a parent process.2) 
 -}
 -- Aggregate Member : Aggregate Holonymy Type
 AggregateHolonymyType : ClassOfClassOfIndividual

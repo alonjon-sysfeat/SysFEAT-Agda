@@ -34,5 +34,5 @@ postulate -- specializedPropertyType is subTypeOf superClassOfClassOfIndividual
 propertyTypeHolonymy :  Linkage PropertyType PropertyType
 propertyTypeHolonymy = make_classOfHolonymy "Property Type Holonymy" "propertyTypeHolonymy"
 
-postulate -- propertyTypeHolonymy is subTypeOf polyClassOfHolonymy
-  st-9653a4ad6970107b-c2f2c09a66ea41bf  : propertyTypeHolonymy   ⊏⋆ᵣ  polyClassOfHolonymy {lsuc(lzero)}
+postulate -- propertyTypeHolonymy is subTypeOf classOfHolonymy
+  st-9653a4ad6970107b-c2f2c09a66ea41bf  : propertyTypeHolonymy   ⊏⋆ᵣ  classOfHolonymy {lsuc(lzero)}
