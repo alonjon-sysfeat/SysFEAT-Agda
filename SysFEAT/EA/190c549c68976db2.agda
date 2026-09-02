@@ -18,8 +18,9 @@ open import SysFEAT.EA.952ead2b67285cfd public -- Business Policy Category
 BusinessPolicy : PropertyType
 BusinessPolicy = ClassOfProperty
 
-postulate --  BusinessPolicy withAspect PolicyFrameworkAsset
-  st-4b94611f68a48567 : BusinessPolicy ⊏ₐₑ (PolicyFrameworkAsset (lsuc(lzero)))
+--  BusinessPolicy withAspect PolicyFrameworkAsset
+st-4b94611f68a48567 : BusinessPolicy ⊏ₐₑ (PolicyFrameworkAsset (lsuc(lzero)))
+st-4b94611f68a48567 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

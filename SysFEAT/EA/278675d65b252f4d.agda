@@ -21,11 +21,13 @@ open import SysFEAT.EA.46194939560d374f public -- System Process
 BusinessSystem : ClassOfClassOfBoundedIndividual
 BusinessSystem = ClassOfBoundedIndividual
 
-postulate --  BusinessSystem is subTypeOf BusinessAgentType
-  st-108489c25fce9243 : BusinessSystem ⊏ₑ BusinessAgentType
+--  BusinessSystem is subTypeOf BusinessAgentType
+st-108489c25fce9243 : BusinessSystem ⊏ₑ BusinessAgentType
+st-108489c25fce9243 = polySubTypeOf-identity
 
-postulate --  BusinessSystem is subTypeOf BusinessSystemAsset
-  st-6246930961b81a51 : BusinessSystem ⊏ₑ BusinessSystemAsset
+--  BusinessSystem is subTypeOf BusinessSystemAsset
+st-6246930961b81a51 : BusinessSystem ⊏ₑ BusinessSystemAsset
+st-6246930961b81a51 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

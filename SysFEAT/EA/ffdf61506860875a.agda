@@ -17,7 +17,8 @@ open import SysFEAT.EA.e2ef091962147ad7 public -- Resource Agent Type
 HumanAgentCategory : ClassOfClassOfBoundedIndividual
 HumanAgentCategory = ClassOfBoundedIndividual
 
-postulate --  HumanAgentCategory is subTypeOf ResourceAgentType
-  st-ffdf615a686087a1 : HumanAgentCategory ⊏ₑ ResourceAgentType
+--  HumanAgentCategory is subTypeOf ResourceAgentType
+st-ffdf615a686087a1 : HumanAgentCategory ⊏ₑ ResourceAgentType
+st-ffdf615a686087a1 = polySubTypeOf-identity
 
 -- == Relationships =======================

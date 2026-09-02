@@ -20,11 +20,13 @@ open import SysFEAT.EA.07b60b4168a50438 public -- Resource Rule
 ResourceOperatingAsset : ClassOfClassOfBoundedIndividual
 ResourceOperatingAsset = ClassOfBoundedIndividual
 
-postulate --  ResourceOperatingAsset is subTypeOf OperatingAssetType
-  st-f8e61dd7621db856 : ResourceOperatingAsset ⊏ₑ OperatingAssetType
+--  ResourceOperatingAsset is subTypeOf OperatingAssetType
+st-f8e61dd7621db856 : ResourceOperatingAsset ⊏ₑ OperatingAssetType
+st-f8e61dd7621db856 = polySubTypeOf-identity
 
-postulate --  ResourceOperatingAsset is subTypeOf ResourceFunctionalAsset
-  st-9beca2b166fb119c : ResourceOperatingAsset ⊏ₑ ResourceFunctionalAsset
+--  ResourceOperatingAsset is subTypeOf ResourceFunctionalAsset
+st-9beca2b166fb119c : ResourceOperatingAsset ⊏ₑ ResourceFunctionalAsset
+st-9beca2b166fb119c = polySubTypeOf-identity
 
 -- == Relationships =======================
 

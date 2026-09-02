@@ -17,7 +17,8 @@ open import SysFEAT.SOF.0e55206a66f11ec5 public -- Risk Type
 OperationalRiskType : ThirdOrderClass
 OperationalRiskType = SecondOrderClass
 
-postulate --  OperationalRiskType is subTypeOf RiskType
-  st-f4be399f5ee1d91b : OperationalRiskType ⊏ₑ RiskType
+--  OperationalRiskType is subTypeOf RiskType
+st-f4be399f5ee1d91b : OperationalRiskType ⊏ₑ RiskType
+st-f4be399f5ee1d91b = polySubTypeOf-identity
 
 -- == Relationships =======================

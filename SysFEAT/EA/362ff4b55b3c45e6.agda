@@ -18,8 +18,9 @@ open import SysFEAT.SOF.362ff9085b3c4933 public -- Period Type
 EventConcept : ClassOfClassOfBoundedIndividual
 EventConcept = ClassOfBoundedIndividual
 
-postulate --  EventConcept is subTypeOf ConceptualEntityAsset
-  st-5e4060fc5b528656 : EventConcept ⊏ₑ ConceptualEntityAsset
+--  EventConcept is subTypeOf ConceptualEntityAsset
+st-5e4060fc5b528656 : EventConcept ⊏ₑ ConceptualEntityAsset
+st-5e4060fc5b528656 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

@@ -22,11 +22,13 @@ open import SysFEAT.SOF.d6cd116d5ab97525 public -- Information Domain
 ResourceAgentType : ClassOfClassOfBoundedIndividual
 ResourceAgentType = ClassOfBoundedIndividual
 
-postulate --  ResourceAgentType is subTypeOf ResourceOperatingAsset
-  st-f8e61e88621dba12 : ResourceAgentType ⊏ₑ ResourceOperatingAsset
+--  ResourceAgentType is subTypeOf ResourceOperatingAsset
+st-f8e61e88621dba12 : ResourceAgentType ⊏ₑ ResourceOperatingAsset
+st-f8e61e88621dba12 = polySubTypeOf-identity
 
-postulate --  ResourceAgentType is subTypeOf AgentType
-  st-7c348ff066f1991c : ResourceAgentType ⊏ₑ AgentType
+--  ResourceAgentType is subTypeOf AgentType
+st-7c348ff066f1991c : ResourceAgentType ⊏ₑ AgentType
+st-7c348ff066f1991c = polySubTypeOf-identity
 
 -- == Relationships =======================
 

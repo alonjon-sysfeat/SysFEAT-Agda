@@ -18,10 +18,12 @@ open import SysFEAT.EA.340f52dc686212f5 public -- Physical Resource Agent
 HardwareSystemCategory : ClassOfClassOfBoundedIndividual
 HardwareSystemCategory = ClassOfBoundedIndividual
 
-postulate --  HardwareSystemCategory is subTypeOf Artifact
-  st-ffdf60b9686086bb : HardwareSystemCategory ⊏ₑ Artifact
+--  HardwareSystemCategory is subTypeOf Artifact
+st-ffdf60b9686086bb : HardwareSystemCategory ⊏ₑ Artifact
+st-ffdf60b9686086bb = polySubTypeOf-identity
 
-postulate --  HardwareSystemCategory is subTypeOf PhysicalResourceAgent
-  st-340f5377686213d8 : HardwareSystemCategory ⊏ₑ PhysicalResourceAgent
+--  HardwareSystemCategory is subTypeOf PhysicalResourceAgent
+st-340f5377686213d8 : HardwareSystemCategory ⊏ₑ PhysicalResourceAgent
+st-340f5377686213d8 = polySubTypeOf-identity
 
 -- == Relationships =======================

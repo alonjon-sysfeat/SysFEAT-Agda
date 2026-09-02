@@ -18,11 +18,13 @@ open import SysFEAT.EA.340f52dc686212f5 public -- Physical Resource Agent
 NaturalResourceCategory : ClassOfClassOfBoundedIndividual
 NaturalResourceCategory = ClassOfBoundedIndividual
 
-postulate --  NaturalResourceCategory is subTypeOf ResourceAgentType
-  st-8619880b637244c4 : NaturalResourceCategory ⊏ₑ ResourceAgentType
+--  NaturalResourceCategory is subTypeOf ResourceAgentType
+st-8619880b637244c4 : NaturalResourceCategory ⊏ₑ ResourceAgentType
+st-8619880b637244c4 = polySubTypeOf-identity
 
-postulate --  NaturalResourceCategory is subTypeOf PhysicalResourceAgent
-  st-340f583b686217d6 : NaturalResourceCategory ⊏ₑ PhysicalResourceAgent
+--  NaturalResourceCategory is subTypeOf PhysicalResourceAgent
+st-340f583b686217d6 : NaturalResourceCategory ⊏ₑ PhysicalResourceAgent
+st-340f583b686217d6 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
