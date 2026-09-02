@@ -19,11 +19,13 @@ open import SysFEAT.EA.952eab2a67285b02 public -- Architecture Principle Categor
 Architectureprinciple : PropertyType
 Architectureprinciple = ClassOfProperty
 
-postulate --  Architectureprinciple is subTypeOf Policy
-  st-07231b315f4eb49d : Architectureprinciple ⊏ₑ Policy
+--  Architectureprinciple is subTypeOf Policy
+st-07231b315f4eb49d : Architectureprinciple ⊏ₑ Policy
+st-07231b315f4eb49d = polySubTypeOf-identity
 
-postulate --  Architectureprinciple withAspect PolicyFrameworkAsset
-  st-4b94610f68a48539 : Architectureprinciple ⊏ₐₑ (PolicyFrameworkAsset (lsuc(lzero)))
+--  Architectureprinciple withAspect PolicyFrameworkAsset
+st-4b94610f68a48539 : Architectureprinciple ⊏ₐₑ (PolicyFrameworkAsset (lsuc(lzero)))
+st-4b94610f68a48539 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

@@ -17,7 +17,8 @@ open import SysFEAT.SOF.582e785466f6b36f public -- Data Risk Type
 PrivacyRiskType : ThirdOrderClass
 PrivacyRiskType = SecondOrderClass
 
-postulate --  PrivacyRiskType is subTypeOf DataRiskType
-  st-582e83e966f6dd05 : PrivacyRiskType ⊏ₑ DataRiskType
+--  PrivacyRiskType is subTypeOf DataRiskType
+st-582e83e966f6dd05 : PrivacyRiskType ⊏ₑ DataRiskType
+st-582e83e966f6dd05 = polySubTypeOf-identity
 
 -- == Relationships =======================

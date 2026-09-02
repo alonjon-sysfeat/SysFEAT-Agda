@@ -20,11 +20,13 @@ open import SysFEAT.EA.c7dad43c5ae92d25 public -- Person
 Organization : ClassOfBoundedIndividual
 Organization = BoundedIndividual
 
-postulate --  Organization is subTypeOf ResponsibleHumanEntity
-  st-c334e7635ecb9fea : Organization ⊏ₑ ResponsibleHumanEntity
+--  Organization is subTypeOf ResponsibleHumanEntity
+st-c334e7635ecb9fea : Organization ⊏ₑ ResponsibleHumanEntity
+st-c334e7635ecb9fea = polySubTypeOf-identity
 
-postulate --  Organization is subTypeOf IndividualBusinessAgent
-  st-c80a3e6567858e70 : Organization ⊏ₑ IndividualBusinessAgent
+--  Organization is subTypeOf IndividualBusinessAgent
+st-c80a3e6567858e70 : Organization ⊏ₑ IndividualBusinessAgent
+st-c80a3e6567858e70 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

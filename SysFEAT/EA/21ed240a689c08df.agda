@@ -19,8 +19,9 @@ open import SysFEAT.SOF.21ed231d689c0679 public -- Condition Property
 ValueProposition : PropertyType
 ValueProposition = ClassOfProperty
 
-postulate --  ValueProposition is subTypeOf AssetProperty
-  st-21ed4b52689c16c6 : ValueProposition ⊏ₑ AssetProperty
+--  ValueProposition is subTypeOf AssetProperty
+st-21ed4b52689c16c6 : ValueProposition ⊏ₑ AssetProperty
+st-21ed4b52689c16c6 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

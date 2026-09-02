@@ -19,11 +19,13 @@ open import SysFEAT.EA.62466ea661b80d09 public -- Business Operating Asset
 BusinessOutcomeEvent : ClassOfClassOfIndividual
 BusinessOutcomeEvent = ClassOfIndividual
 
-postulate --  BusinessOutcomeEvent is subTypeOf BusinessEvent
-  st-be94de86655c8306 : BusinessOutcomeEvent ⊏ₑ BusinessEvent
+--  BusinessOutcomeEvent is subTypeOf BusinessEvent
+st-be94de86655c8306 : BusinessOutcomeEvent ⊏ₑ BusinessEvent
+st-be94de86655c8306 = polySubTypeOf-identity
 
-postulate --  BusinessOutcomeEvent is subTypeOf ResourceOutcomeEvent
-  st-6a70e46d678799ac : BusinessOutcomeEvent ⊏ₑ ResourceOutcomeEvent
+--  BusinessOutcomeEvent is subTypeOf ResourceOutcomeEvent
+st-6a70e46d678799ac : BusinessOutcomeEvent ⊏ₑ ResourceOutcomeEvent
+st-6a70e46d678799ac = polySubTypeOf-identity
 
 -- == Relationships =======================
 

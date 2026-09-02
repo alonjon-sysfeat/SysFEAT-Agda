@@ -27,14 +27,17 @@ open import SysFEAT.EA.21ed240a689c08df public -- Value Proposition
 Enterprise : ClassOfBoundedIndividual
 Enterprise = BoundedIndividual
 
-postulate --  Enterprise is subTypeOf EnterpriseInitiative
-  st-fafa25986646fca8 : Enterprise ⊏ₑ EnterpriseInitiative
+--  Enterprise is subTypeOf EnterpriseInitiative
+st-fafa25986646fca8 : Enterprise ⊏ₑ EnterpriseInitiative
+st-fafa25986646fca8 = polySubTypeOf-identity
 
-postulate --  Enterprise is subTypeOf OperationalTransformation
-  st-dd269f0968a1e50f : Enterprise ⊏ₑ OperationalTransformation
+--  Enterprise is subTypeOf OperationalTransformation
+st-dd269f0968a1e50f : Enterprise ⊏ₑ OperationalTransformation
+st-dd269f0968a1e50f = polySubTypeOf-identity
 
-postulate --  Enterprise withAspect ArchitectureContainer
-  st-dd269ffd68a1e860 : Enterprise ⊏ₐₑ (ArchitectureContainer lzero)
+--  Enterprise withAspect ArchitectureContainer
+st-dd269ffd68a1e860 : Enterprise ⊏ₐₑ (ArchitectureContainer lzero)
+st-dd269ffd68a1e860 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

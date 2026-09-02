@@ -20,8 +20,9 @@ open import SysFEAT.SOF.bcebd0175491272a public -- Stakeholder
 Driver : ClassOfBoundedIndividual
 Driver = BoundedIndividual
 
-postulate --  Driver is subTypeOf GovernanceEvent
-  st-91019cb6550a30d5 : Driver ⊏ₑ GovernanceEvent
+--  Driver is subTypeOf GovernanceEvent
+st-91019cb6550a30d5 : Driver ⊏ₑ GovernanceEvent
+st-91019cb6550a30d5 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -47,5 +48,5 @@ Set of Stakeholders having an interest or concern in the state of the enterprise
 concernedstakeholder :  Linkage Driver Stakeholder
 concernedstakeholder = make_holonymyRelation "concerned stakeholder" "concernedstakeholder"
 
-postulate -- concernedstakeholder is subTypeOf elementaryHolonymy
-  st-2cc9b802552653f2-9653a95669701e02  : concernedstakeholder   ⊏⋆ᵣ  elementaryHolonymy 
+postulate -- concernedstakeholder is subTypeOf referenceHolonymy
+  st-2cc9b802552653f2-9653a95669701e02  : concernedstakeholder   ⊏⋆ᵣ  referenceHolonymy 

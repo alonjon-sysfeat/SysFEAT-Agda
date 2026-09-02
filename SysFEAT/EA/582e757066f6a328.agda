@@ -17,7 +17,8 @@ open import SysFEAT.EA.0e55230266f12252 public -- Operational Risk Type
 ComplianceRiskType : ThirdOrderClass
 ComplianceRiskType = SecondOrderClass
 
-postulate --  ComplianceRiskType is subTypeOf OperationalRiskType
-  st-8f469fb464b76f55 : ComplianceRiskType ⊏ₑ OperationalRiskType
+--  ComplianceRiskType is subTypeOf OperationalRiskType
+st-8f469fb464b76f55 : ComplianceRiskType ⊏ₑ OperationalRiskType
+st-8f469fb464b76f55 = polySubTypeOf-identity
 
 -- == Relationships =======================

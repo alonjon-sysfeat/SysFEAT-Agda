@@ -19,11 +19,13 @@ open import SysFEAT.EA.d6a956495a395d28 public -- MicroService
 Application : ClassOfClassOfBoundedIndividual
 Application = ClassOfBoundedIndividual
 
-postulate --  Application is subTypeOf SOftwareModule
-  st-c30bdce05a5d9f53 : Application ⊏ₑ SOftwareModule
+--  Application is subTypeOf SOftwareModule
+st-c30bdce05a5d9f53 : Application ⊏ₑ SOftwareModule
+st-c30bdce05a5d9f53 = polySubTypeOf-identity
 
-postulate --  Application is subTypeOf MezzoBusinessSystem
-  st-6a4e7937679b3957 : Application ⊏ₑ MezzoBusinessSystem
+--  Application is subTypeOf MezzoBusinessSystem
+st-6a4e7937679b3957 : Application ⊏ₑ MezzoBusinessSystem
+st-6a4e7937679b3957 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

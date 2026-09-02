@@ -18,7 +18,8 @@ open import SysFEAT.SOF.362ff9085b3c4933 public -- Period Type
 Period : ClassOfBoundedIndividual
 Period = BoundedIndividual
 
-postulate --  Period is subTypeOf IndividualAsset
-  st-1d51ade76353249c : Period ⊏ₑ IndividualAsset
+--  Period is subTypeOf IndividualAsset
+st-1d51ade76353249c : Period ⊏ₑ IndividualAsset
+st-1d51ade76353249c = polySubTypeOf-identity
 
 -- == Relationships =======================

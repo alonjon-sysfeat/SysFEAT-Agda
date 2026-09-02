@@ -22,11 +22,13 @@ open import SysFEAT.SOF.d6cd116d5ab97525 public -- Information Domain
 ResourceActionProcess : ClassOfClassOfBoundedIndividual
 ResourceActionProcess = ClassOfBoundedIndividual
 
-postulate --  ResourceActionProcess is subTypeOf ResourceBehavior
-  st-f8e623e2621dc7d0 : ResourceActionProcess ⊏ₑ ResourceBehavior
+--  ResourceActionProcess is subTypeOf ResourceBehavior
+st-f8e623e2621dc7d0 : ResourceActionProcess ⊏ₑ ResourceBehavior
+st-f8e623e2621dc7d0 = polySubTypeOf-identity
 
-postulate --  ResourceActionProcess is subTypeOf ActionProcessType
-  st-79707a05665941de : ResourceActionProcess ⊏ₑ ActionProcessType
+--  ResourceActionProcess is subTypeOf ActionProcessType
+st-79707a05665941de : ResourceActionProcess ⊏ₑ ActionProcessType
+st-79707a05665941de = polySubTypeOf-identity
 
 -- == Relationships =======================
 
