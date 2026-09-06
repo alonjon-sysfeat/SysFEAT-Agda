@@ -149,7 +149,7 @@ make_instanceOf = make_Linkage HomInstanceOfEntity
 -- Strict instanciation between entities and their classes
 instanceOfEntity :  ∀ {u v} → Linkage (Entity u) (ClassOfEntity v)
 instanceOfEntity {u} {v} = record
-  { label       = "Polymorphic Instantiation"
+  { label       = "Polymorphic Classification"
   ; forwardrole = "Classifying Type"
   ; localType   = λ e → Σ (ClassOfEntity v) (λ c → HomInstanceOfEntity e c)
   ; ref         = λ {e} (c , L) → c
@@ -162,7 +162,7 @@ _∷ₑ_ e c = e —⟨ instanceOfEntity ⟩→ c
 -- powerInstanceOf relies on instanceOf shifted up, so universes must match.
 powerInstanceOfEntity :  ∀ {u v} → Linkage (ClassOfEntity u) (ClassOfEntity v)
 powerInstanceOfEntity {u} {v} = record
-    { label       = "Power instantiation"
+    { label       = "Power Classification"
     ; forwardrole = "Power Type"
     ; localType   = λ (e : ClassOfEntity u) →
                     Σ (ClassOfEntity v) λ c →

@@ -4,7 +4,7 @@
    framework.sysfeat.com
 
 Class of Bounded Individual: 
-A Class of Bounded Individual is a Class of Individual which denotes Bounded Individuals that have a proper life cycle, bounded by Temporal Bounding Types.Class of Bounded Individual is the powertype of  Bounded Individual. It means that all sub-types of Bounded Individual are instances of Class of Bounded Individual.Examples:- Car, - Application,- A Process Type (Action Process Type) such as the registration process used at the Oackland digital hospital during the COVID-19 pandemic.Counterexamples:- Project is not a Class of Bounded Individual because its instances have a spatio-temporal extent. Project is a subtype of Bounded Individual.- Capability is not a Class of Bounded Individual. It is a Class of Property.
+A Class of Bounded Individual is a Class of Individual which denotes Bounded Individuals that have a proper life cycle, bounded by Temporal Bounding Types.Class of Bounded Individual is the powertype of  Bounded Individual. It means that all sub-types of Bounded Individual are instances of Class of Bounded Individual.Examples:- Car, - Application,- A Process Type (Action Process Type) such as the registration process used at the Oackland digital hospital during the COVID-19 pandemic.Counterexamples:- Project is not a Class of Bounded Individual because its instances have a spatio-temporal extent. Project is a subtype of Bounded Individual.- Capability is not a Class of Bounded Individual. It is a Property.
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -15,7 +15,7 @@ open import Agda.Primitive
 open import SysFEAT.UpperOntology.6aa8cbcb65b32971 public -- Class of Individual
 open import SysFEAT.UpperOntology.8cfa941b6852781f public -- Bounded Aggregate
 open import SysFEAT.UpperOntology.60876d5c68de82f2 public -- Class of Class of Bounded Individual
-open import SysFEAT.UpperOntology.746ac18368905aa2 public -- Class of Property
+open import SysFEAT.UpperOntology.746ac18368905aa2 public -- Property
 open import SysFEAT.UpperOntology.9429979a66823f90 public -- Temporal Bounding Type
 
 ClassOfBoundedIndividual : ClassOfClassOfBoundedIndividual
@@ -33,19 +33,19 @@ st-6483b19466723a48 = polySubTypeOf-identity
 
 {- Specialized Class of Bounded Individual: -}
 specializedClassOfBoundedIndividual :  Linkage ClassOfBoundedIndividual ClassOfBoundedIndividual
-specializedClassOfBoundedIndividual = make_subTypeOf "Specialized Class of Bounded Individual" "specializedClassOfBoundedIndividual"
+specializedClassOfBoundedIndividual = make_subTypeOf "Class of Bounded Individual Specialization" "Specialized Class of Bounded Individual"
 
 postulate -- specializedClassOfBoundedIndividual is subTypeOf specializedClassOfIndividual
   st-e53a627766e4b4cd-e429632e66ec72ab  : specializedClassOfBoundedIndividual   ⊏⋆ᵣ  specializedClassOfIndividual 
 
-{- Qualification: 
-A SubTypeOfEntity from a Class of Bounded Individual to a Class of Property that asserts all members of the Class of Bounded Individual  have  the Class of Property.
+{- Qualifying Property: 
+A SubTypeOfEntity from a Class of Bounded Individual to a Property that asserts all members of the Class of Bounded Individual  have  the Property.
 -}
-qualification :  Linkage ClassOfBoundedIndividual ClassOfProperty
-qualification = make_subTypeOf "Qualification" "qualification"
+qualifyingProperty :  Linkage ClassOfBoundedIndividual Property
+qualifyingProperty = make_subTypeOf "Qualification" "Qualifying Property"
 
-postulate -- qualification is subTypeOf specializedClassOfIndividual
-  st-16621f9a689131e0-e429632e66ec72ab  : qualification   ⊏⋆ᵣ  specializedClassOfIndividual 
+postulate -- qualifyingProperty is subTypeOf specializedClassOfIndividual
+  st-16621f9a689131e0-e429632e66ec72ab  : qualifyingProperty   ⊏⋆ᵣ  specializedClassOfIndividual 
 
 {- Temporal Sequencing Type: -}
 -- Aggregate Member : Temporal Sequencing Type
@@ -69,7 +69,7 @@ temporalSequencingType : Linkage ClassOfBoundedIndividual TemporalBoundingType
 temporalSequencingType = membershipOfTemporalSequencingType  ∘  aggregationOfTemporalBoundingTypeTemporalSequencingType
 
 {- Aggregate Qualification: 
-An Aggregate Qualification is a Qualification that is refied as an Unbounded Member of a Class of Bounded Individual.Example:. The enforcement of a rule in a process (Rule Enforcement) is a refied Qualification.
+An Aggregate Qualification is a Qualifying Property that is refied as an Unbounded Member of a Class of Bounded Individual.Example:. The enforcement of a rule in a process (Rule Enforcement) is a refied Qualifying Property.
 -}
 -- Aggregate Member : Aggregate Qualification
 AggregateQualification : ClassOfClassOfIndividual
@@ -80,16 +80,16 @@ membershipOfAggregateQualification :  Linkage ClassOfBoundedIndividual Aggregate
 membershipOfAggregateQualification = membershipOfAggregateMember
 
 -- Aggregation relation
-aggregationOfClassOfPropertyAggregateQualification :  Linkage AggregateQualification ClassOfProperty
-aggregationOfClassOfPropertyAggregateQualification = aggregationOfBuildingBlock
+aggregationOfPropertyAggregateQualification :  Linkage AggregateQualification Property
+aggregationOfPropertyAggregateQualification = aggregationOfBuildingBlock
 
 {- aggregateQualification : derived relation obtained by composing
-   membershipOfAggregateQualification and aggregationOfClassOfPropertyAggregateQualification
-   It directly links an Class of Bounded Individual to the final aggregated ClassOfProperty
+   membershipOfAggregateQualification and aggregationOfPropertyAggregateQualification
+   It directly links an Class of Bounded Individual to the final aggregated Property
    hiding the reifying AggregateQualification
 -}
-aggregateQualification : Linkage ClassOfBoundedIndividual ClassOfProperty
-aggregateQualification = membershipOfAggregateQualification  ∘  aggregationOfClassOfPropertyAggregateQualification
+aggregateQualification : Linkage ClassOfBoundedIndividual Property
+aggregateQualification = membershipOfAggregateQualification  ∘  aggregationOfPropertyAggregateQualification
 
 {- Aggregate Holonymy Type: 
 An Aggregate Holonymy Type is a reified flavor of Class of Holonymy whereby the referenced Class of Individual is aggregated in its parent (whole) Class of Bounded Individual.Example:1) A Process Step is the reification of the composition of a child process in a parent process.2) 

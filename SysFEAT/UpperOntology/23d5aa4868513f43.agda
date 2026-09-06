@@ -28,7 +28,7 @@ st-6bf1a76f6859ce2c = trivialPolySubTypeOfEntity
 Set of Building Blocks of a Block Collection.
 -}
 groupedBuildingBlock : ∀ {u v} →  Linkage (BlockCollection u) (BuildingBlock v)
-groupedBuildingBlock = make_Relation "Grouped Building Block" "groupedBuildingBlock"
+groupedBuildingBlock = make_Relation "Grouping of Building Block" "Grouped Building Block"
 
 postulate -- groupedBuildingBlock is subTypeOf existentialIndependence
   st-23d5c4b66851421c-cbfcee0c685359a7  : ∀ {u v} → groupedBuildingBlock {u} {v}  ⊏⋆ᵣ  existentialIndependence {u} {v}
