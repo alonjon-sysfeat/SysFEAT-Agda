@@ -14,7 +14,7 @@ module SysFEAT.UpperOntology.28f07b2354be0d69 where -- ========== Bounded Indivi
 open import Agda.Primitive
 open import SysFEAT.UpperOntology.4df9512266826e23 public -- Individual
 open import SysFEAT.UpperOntology.8cfa941b6852781f public -- Bounded Aggregate
-open import SysFEAT.UpperOntology.746ac18368905aa2 public -- Class of Property
+open import SysFEAT.UpperOntology.746ac18368905aa2 public -- Property
 open import SysFEAT.UpperOntology.3492c53e619642ed public -- Class of Bounded Individual
 open import SysFEAT.UpperOntology.267b6a126675a0b9 public -- Temporal Bounding
 
@@ -31,22 +31,22 @@ st-6483b18b66723a1f = polySubTypeOf-identity
 
 -- == Relationships =======================
 
-{- Elementary Holonymy: 
-Elementary Holonymy is a non-reified Holonymy Relation where the composed Bounded Individual is referenced (Reference Relation) as a part of the source Bounded Individual.
+{- Reference Holonymy: 
+Reference Holonymy is a non-reified Holonymy Relation where the composed Bounded Individual is referenced (Reference Relation) as a part of the source Bounded Individual.
 -}
-elementaryHolonymy :  Linkage BoundedIndividual BoundedIndividual
-elementaryHolonymy = make_holonymyRelation "Elementary Holonymy" "elementaryHolonymy"
+referenceHolonymy :  Linkage BoundedIndividual BoundedIndividual
+referenceHolonymy = make_holonymyRelation "Reference Holonymy" "Reference Holonymy"
 
-postulate -- elementaryHolonymy is subTypeOf holonymyRelation
-  st-9653a95669701e02-c2f2c6ce66e90be7  : elementaryHolonymy   ⊏⋆ᵣ  holonymyRelation 
-postulate -- elementaryHolonymy is subTypeOf referenceRelation
-  st-9653a95669701e02-23d5398f68511bc1  : elementaryHolonymy   ⊏⋆ᵣ  referenceRelation {lzero} {lzero}
+postulate -- referenceHolonymy is subTypeOf holonymyRelation
+  st-9653a95669701e02-c2f2c6ce66e90be7  : referenceHolonymy   ⊏⋆ᵣ  holonymyRelation 
+postulate -- referenceHolonymy is subTypeOf referenceRelation
+  st-9653a95669701e02-23d5398f68511bc1  : referenceHolonymy   ⊏⋆ᵣ  referenceRelation {lzero} {lzero}
 
 {- Property of Individual: 
-An instance of Entity from a Bounded Individual to a Class of Property that asserts the Bounded Individual  has  the Class of Property.
+An instance of Entity from a Bounded Individual to a Property that asserts the Bounded Individual  has  the Property.
 -}
-propertyOfIndividual :  Linkage BoundedIndividual ClassOfProperty
-propertyOfIndividual = make_instanceOf "Property of Individual" "propertyOfIndividual"
+propertyOfIndividual :  Linkage BoundedIndividual Property
+propertyOfIndividual = make_instanceOf "Individual Qualification" "Property of Individual"
 
 postulate -- propertyOfIndividual is subTypeOf instanceOfEntity
   st-19763dbb68926a48-34a453a068f7a3ef  : propertyOfIndividual   ⊏⋆ᵣ  instanceOfEntity {lzero} {lsuc(lzero)}

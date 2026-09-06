@@ -33,7 +33,7 @@ st-e2780fbf68f17d72 = polySubTypeOf-identity
 Existential Dependency that asserts the existence of a Container Package in a Parent Package.
 -}
 parentPackage :  Linkage ContainerPackage ContainerPackage
-parentPackage = make_Relation "Parent Package" "parentPackage"
+parentPackage = make_Relation "Container Basing" "Parent Package"
 
 postulate -- parentPackage is subTypeOf referenceRelation
   st-e7cbfde76a965b64-23d5398f68511bc1  : parentPackage   ⊏⋆ᵣ  referenceRelation {lzero} {lzero}

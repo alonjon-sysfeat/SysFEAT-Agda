@@ -33,7 +33,7 @@ st-a39aab30685e523f = trivialPolySubTypeOfEntity
 Nesting Relation that asserts the existence of a set of Building Blocks in the context of a given Block Lexical Scope.A Building Block belongs to one and one one Block Lexical Scope.
 -}
 scopedBuildingBlock : ∀ {u v} →  Linkage (BlockLexicalScope u) (BuildingBlock v)
-scopedBuildingBlock = make_nestingRelation "Scoped Building Block" "scopedBuildingBlock"
+scopedBuildingBlock = make_nestingRelation "Block Scoping" "Scoped Building Block"
 
 postulate -- scopedBuildingBlock is subTypeOf nestingRelation
   st-0eb946496854a02e-02a506a968540333  : ∀ {u v} → scopedBuildingBlock {u} {v}  ⊏⋆ᵣ  nestingRelation {u} {v}

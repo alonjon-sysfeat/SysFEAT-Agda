@@ -33,7 +33,7 @@ st-afe2c475681b7b09 = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================
 
-{- Category Specialization: -}
-categorySpecialization : ∀ {u v} →  Linkage (Category u) (Category v)
-categorySpecialization = make_subTypeOf "Category Specialization" "categorySpecialization"
+{- Specialized Category: -}
+specializedCategory : ∀ {u v} →  Linkage (Category u) (Category v)
+specializedCategory = make_subTypeOf "Category Specialization" "Specialized Category"
 

@@ -25,14 +25,12 @@ st-87d3065d66e33a12 = polySubTypeOf-identity
 
 {- Specialized Property Type: -}
 specializedPropertyType :  Linkage PropertyType PropertyType
-specializedPropertyType = make_subTypeOf "Specialized Property Type" "specializedPropertyType"
+specializedPropertyType = make_subTypeOf "Property Type Specialization" "Specialized Property Type"
 
 postulate -- specializedPropertyType is subTypeOf superClassOfClassOfIndividual
   st-12b01dee66e92b43-60876c6168de81be  : specializedPropertyType   ⊏⋆ᵣ  superClassOfClassOfIndividual 
 
 {- Property Type Holonymy: -}
 propertyTypeHolonymy :  Linkage PropertyType PropertyType
-propertyTypeHolonymy = make_classOfHolonymy "Property Type Holonymy" "propertyTypeHolonymy"
+propertyTypeHolonymy = make_classOfHolonymy "Property Type Holonymy" "Property Type Holonymy"
 
-postulate -- propertyTypeHolonymy is subTypeOf classOfHolonymy
-  st-9653a4ad6970107b-c2f2c09a66ea41bf  : propertyTypeHolonymy   ⊏⋆ᵣ  classOfHolonymy {lsuc(lzero)}

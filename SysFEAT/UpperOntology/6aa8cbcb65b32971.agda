@@ -29,14 +29,14 @@ st-f4f7f59c68f71c71 = polySubTypeOf-identity
 Specialization relationship between Class of Individual.
 -}
 specializedClassOfIndividual :  Linkage ClassOfIndividual ClassOfIndividual
-specializedClassOfIndividual = make_subTypeOf "Specialized Class of Individual" "specializedClassOfIndividual"
+specializedClassOfIndividual = make_subTypeOf "Individual Class Specialization" "Specialized Class of Individual"
 
 postulate -- specializedClassOfIndividual is subTypeOf subTypeOfEntity
   st-e429632e66ec72ab-8336837268e9448b  : specializedClassOfIndividual   ⊏⋆ᵣ  subTypeOfEntity {lsuc(lzero)}
 
 {- Categorization: -}
 categorization : ∀ {u} →  Linkage ClassOfIndividual (Category u)
-categorization = make_instanceOf "Categorization" "categorization"
+categorization = make_instanceOf "Categorization" "Categorization"
 
 postulate -- categorization is subTypeOf instanceOfEntity
   st-f69619646a0f8e6c-34a453a068f7a3ef  : categorization  {lsuc(lsuc(lzero))}  ⊏⋆ᵣ  instanceOfEntity {lzero} {lsuc(lzero)}
