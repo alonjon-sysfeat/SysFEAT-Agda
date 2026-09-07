@@ -5,6 +5,10 @@
 
 Individual: 
 Individuals are First Order Entitys which represent things that exist over space and time.Individuals are represented as light orange boxes, while their classes are represented as dark orange boxes (see the Meta-Model Legend) .Examples:. The Eiffel tower completion (31st March 1889). The Eiffel tower (31st March 1889 - ...).. William Shakespeare birth (1592). William Shakespeare in its Early Theatrical Career (1592-1600).. Confucius (685-758).. Confucius death (758).. Mount Vesuvius eruption (Aug. 24-25, A.D. 79).. Oackland digital hospital after its renovation (2022 - ...). The execution of the registration process at the Oackland digital hospital, by John Smith, on 17 March 2020.
+
+   External references:
+     ISO 15926 - PossibleIndividual: https://15926.blog/topics/data-model/index.htm#PossibleIndividual
+     Stanford Encyclopedia - Temporal-parts: https://plato.stanford.edu/entries/temporal-parts
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

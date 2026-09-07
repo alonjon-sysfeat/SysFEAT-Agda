@@ -5,6 +5,9 @@
 
 Property Type: 
 A Property Type is a Class of Class of Individual Object that is used to classify Propertys.Example:- Temperature- Color- Weight- Confidentiality- Availability
+
+   External references:
+     ISO 15926 - ClassOfProperty: https://15926.blog/topics/data-model/index.htm#ClassOfProperty
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

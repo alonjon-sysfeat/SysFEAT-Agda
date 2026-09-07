@@ -5,6 +5,9 @@
 
 Block Lexical Scope: 
 A Block Lexical Scope is a Block Collection that is also a Lexical Scope for the Building Blocks it groups.A Block Lexical Scope defines the existence of its grouped Building Blocks through nesting.
+
+   External references:
+     Blog - Explain lexical scope in plain English: https://dev.to/fleepgeek/i-would-try-to-explain-lexical-scope-in-plain-english-wish-me-luck-4j06
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
