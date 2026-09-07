@@ -5,6 +5,9 @@
 
 Elementary Block: 
 An Elementary Block is a Building Block which doesnt have an internal structure.
+
+Documentation : https://framework.sysfeat.com/pages/23d5c5fc685142de.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

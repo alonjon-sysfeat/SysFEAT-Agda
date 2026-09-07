@@ -4,7 +4,15 @@
    framework.sysfeat.com
 
 Class of Element: 
-A Class of Element is an Element whose inhabitants are themselves Elements: a type one universe level above its members. Formally, ClassOfElement u = Element (lsuc u), so a class at level u is a type whose instances are Element u things. This universe gap is what separates a class from its members and prevents the self-reference paradoxes of naive set theory - while still allowing, through cross-level reasoning (metaInstanceOf), the class of all classes to be an instance of itself. A Class of Element is the Predication Substrates answer to the question  what is a category of things   - not a predicate that returns true or false, but a type that collects its instances as inhabitants.
+A Class of Element is an Element whose inhabitants are themselves Elements: a type one universe level above its members. 
+Formally, ClassOfElement u = Element (lsuc u), so a class at level u is a type whose instances are Element u things. 
+This universe gap is what separates a class from its members and prevents the self-reference paradoxes of naive set theory -
+while still allowing, through cross-level reasoning (metaInstanceOf), the class of all classes to be an instance of itself. 
+A Class of Element is the Predication Substrates answer to the question  what is a category of things   - not a predicate that returns 
+true or false, but a type that collects its instances as inhabitants.
+
+Documentation: https://framework.sysfeat.com/pages/20702b2568e9694d.htm
+
  - ============================== -}
 
 {-# OPTIONS --safe --cubical --guardedness #-}

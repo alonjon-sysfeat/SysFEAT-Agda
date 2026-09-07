@@ -6,9 +6,11 @@
 Whole Life Individual: 
 A Whole Life Individual is a Bounded Individual that is not the temporal slice of any other Bounded Individual. A Whole Life Individual includes its past and future.Examples:. The Eiffel tower (31st March 1889 - ...).. William Shakespeare (23 April 1564 - 23 April 1616).. Confucius (685-758).. Mount Vesuvius eruption (Aug. 24-25, A.D. 79).. Oackland digital hospital (1994 - ...).. The execution of the registration process at the Oackland digital hospital, by John Smith, on 17 March 2020.
 
-   External references:
-     ISO 15926 - WholeLifeIndividual: https://15926.blog/topics/data-model/index.htm#WholeLifeIndividual
-     OMG - KerML - Life: https://www.omg.org/spec/KerML/1.0/PDF#page=292
+Documentation : https://framework.sysfeat.com/pages/342f74b166156e02.htm
+
+External references:
+  ISO 15926 - WholeLifeIndividual: https://15926.blog/topics/data-model/index.htm#WholeLifeIndividual
+  OMG - KerML - Life: https://www.omg.org/spec/KerML/1.0/PDF#page=292
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

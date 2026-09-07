@@ -6,11 +6,13 @@
 Building Block: 
 A Building Block is an autonomous Entity that contributes to the makeup of other Building Blocks.Building Blocks can be either reusable entities (packaged in Containers) or be local to the Aggregate Block that references them (see Block Lexical Scope and Hierarchical Member).Examples:- Functionality(ies), Business Process(es), Data Entity(ies), Tags, ARE Building Blocks. - Process Steps or Attributes of a data entity ARE NOT Building Blocks. They are members on an internal structure (see Aggregate Member).
 
-   External references:
-     OpenGroup - TOGAF - Definition - Building Block: https://pubs.opengroup.org/togaf-standard/introduction/chap04.html#sec-04_26
-     OpenGroup - TOGAF - Guide - Building Blocks: https://pubs.opengroup.org/togaf-standard/architecture-content/chap05.html
-     Merriam Webster - Building Block: https://www.merriam-webster.com/dictionary/building%20block
-     WordNet - Building Block: https://en-word.net/ili/i86364
+Documentation : https://framework.sysfeat.com/pages/23d5a9ea68513ced.htm
+
+External references:
+  OpenGroup - TOGAF - Definition - Building Block: https://pubs.opengroup.org/togaf-standard/introduction/chap04.html#sec-04_26
+  OpenGroup - TOGAF - Guide - Building Blocks: https://pubs.opengroup.org/togaf-standard/architecture-content/chap05.html
+  Merriam Webster - Building Block: https://www.merriam-webster.com/dictionary/building%20block
+  WordNet - Building Block: https://en-word.net/ili/i86364
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

@@ -6,10 +6,12 @@
 Predication Substrate: 
 The Predication Substrate defines the compositional system of Element, Class of Element, and local predicates (Linkage) from which SysFEATs ontological structures are grown. It provides the internal structure of predication - classification, specialization, powertyping, and Compositionality - as a single, universe-stratified, mechanically verified engine that every higher layer inherits.Unlike predicate logic (where a predicate is not a term) and graph theory (where an edge is not a node), a Linkage is simultaneously the mechanism of relating an Element that can be classified, specialized, and related to other entities. This self-applicability is what allows the framework to provide a theory of Relation - not just relations, but the ability to classify relations, specialize them, and compose them, using the same machinery that applies to the Entitys they relate.
 
-   External references:
-     Wikipedia - Upper ontology: https://en.wikipedia.org/wiki/Upper_ontology
-     OMG - KerML - Root: https://www.omg.org/spec/KerML/1.0/PDF#page=39
-     SysFEAT-TheoraticalFoundations-LocalityPrinciple.pdf: ../resources/framework/SysFEAT-TheoraticalFoundations-LocalityPrinciple.pdf
+Documentation : https://framework.sysfeat.com/pages/ae26f9c25acd52d4.htm
+
+External references:
+  Wikipedia - Upper ontology: https://en.wikipedia.org/wiki/Upper_ontology
+  OMG - KerML - Root: https://www.omg.org/spec/KerML/1.0/PDF#page=39
+  SysFEAT-TheoraticalFoundations-LocalityPrinciple.pdf: ../resources/framework/SysFEAT-TheoraticalFoundations-LocalityPrinciple.pdf
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

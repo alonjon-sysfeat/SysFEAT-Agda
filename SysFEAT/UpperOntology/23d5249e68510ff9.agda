@@ -4,7 +4,12 @@
    framework.sysfeat.com
 
 Element: 
-Element is the most primitive concept in the Predication Substrate: anything that can be the subject or object of predication. Formally, Element u = Set u - a type at universe level u. An Element makes no ontological commitment: it is neither an Entity nor a Relation, neither concrete nor abstract. It is simply something that can be talked about - classified, linked, composed. Every concept in SysFEAT is an Element at some universe level; what distinguishes concepts is the level at which they live and the Linkages they participate in.
+Element is the most primitive concept in the Predication Substrate: anything that can be the subject or object of predication.
+Formally, Element u = Set u - a type at universe level u. An Element makes no ontological commitment: it is neither an Entity nor a Relation, 
+neither concrete nor abstract. It is simply something that can be talked about - classified, linked, composed. 
+Every concept in SysFEAT is an Element at some universe level; what distinguishes concepts is the level at which they live and the Linkages they participate in.
+
+Documentation: https://framework.sysfeat.com/pages/23d5249e68510ff9.htm
  - ============================== -}
 
 {-# OPTIONS --safe --cubical --guardedness #-}

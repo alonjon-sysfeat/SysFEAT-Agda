@@ -5,6 +5,9 @@
 
 Power Class: 
 A Power Class of a class A-denoted as P*(A)-is the class whose members are every possible subclass of A, including A itself and the empty class.
+
+Documentation : https://framework.sysfeat.com/pages/edc1f6b868f4546c.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

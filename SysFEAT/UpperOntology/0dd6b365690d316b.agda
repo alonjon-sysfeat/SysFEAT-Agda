@@ -4,7 +4,11 @@
    framework.sysfeat.com
 
 Ordered Entity: 
-Ordered Entity is a class whose sub-types are classifed by a Class of Ordered Entity: It is the power instance of Class of Ordered Entity.Examples:- First Order Entity - First Order Class- Second Order Class
+Ordered Entity is a class whose sub-types are classifed by a Class of Ordered Entity: 
+It is the power instance of Class of Ordered Entity.Examples:- First Order Entity - First Order Class- Second Order Class
+
+Documentation : https://framework.sysfeat.com/pages/0dd6b365690d316b.htm
+
  - ============================== -}
 
 {-# OPTIONS --safe --cubical --guardedness #-}

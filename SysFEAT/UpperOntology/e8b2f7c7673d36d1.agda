@@ -4,7 +4,12 @@
    framework.sysfeat.com
 
 Entity: 
-An Entity is a distinct, identifiable Element that has a proper existence (living or non living). It is accessible by some referencing mechanism and can have Relations to other Entitys.The Entity class is the powerinstance of Class of Entity: all subtypes of Entity are instances of Class of Entity.
+An Entity is a distinct, identifiable Element that has a proper existence (living or non living). 
+It is accessible by some referencing mechanism and can have Relations to other Entitys.
+The Entity class is the powerinstance of Class of Entity: all subtypes of Entity are instances of Class of Entity.
+
+Documentation : https://framework.sysfeat.com/pages/e8b2f7c7673d36d1.htm
+
  - ============================== -}
 
 {-# OPTIONS --safe --cubical --guardedness #-}

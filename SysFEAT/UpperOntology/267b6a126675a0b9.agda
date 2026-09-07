@@ -5,6 +5,9 @@
 
 Temporal Bounding: 
 A Temporal Bounding is an Individual whose temporal extent is instantaneous, and whose spatial extent corresponds with the start or end of the Bounded Individuals for which it is the temporal border.Example:. The Eiffel tower completion (31st March 1889). William Shakespeare birth (1564). Confucius death (758).. Start of the first Plinian phase of the Mount Vesuvius eruption (18h, Aug. 24 A.D. 79). Oakland hospital opening in 1994.
+
+Documentation : https://framework.sysfeat.com/pages/267b6a126675a0b9.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

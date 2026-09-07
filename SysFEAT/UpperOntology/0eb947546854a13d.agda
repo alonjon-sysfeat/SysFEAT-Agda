@@ -5,6 +5,9 @@
 
 Container Package: 
 A Container Package is a Container which sole purpose is model management.Examples:  Library, Information DictionaryConterexamples: Enterprises or Infrastructure Landscapes are Containers but are not Container Packages because they have functional purposes that go beyond model management.
+
+Documentation : https://framework.sysfeat.com/pages/0eb947546854a13d.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
