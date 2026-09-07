@@ -5,6 +5,9 @@
 
 Initiative Block: 
 An Initiative Block is a Model Building Block used to describe enterprise transformation and sustainability Initiatives.
+
+Documentation : https://framework.sysfeat.com/pages/01ce05f9685979d8.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

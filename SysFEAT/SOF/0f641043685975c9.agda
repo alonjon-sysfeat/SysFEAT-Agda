@@ -5,6 +5,9 @@
 
 Governance Building Block: 
 A Governance Building Block is a Model Building Block that is participate to the overarching of transformation Initiatives.
+
+Documentation : https://framework.sysfeat.com/pages/0f641043685975c9.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

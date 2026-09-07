@@ -5,6 +5,9 @@
 
 Capability Map: 
 Top level assembly of Capabilitys and their dependencies which, together, provide a scope of added value (Outcome Events) pursued by Operational Transformations.
+
+Documentation : https://framework.sysfeat.com/pages/01f12127689b6de2.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

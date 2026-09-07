@@ -5,6 +5,9 @@
 
 Governance Property Type: 
 A Governance Property Type is a classification of Governance Propertys.
+
+Documentation : https://framework.sysfeat.com/pages/83f8933a67407206.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

@@ -1,10 +1,13 @@
 ﻿{- ============================== 
-   Copyright (c) 2026 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
+   Copyright (c) 2025 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
    This work is released under the MIT License.
    framework.sysfeat.com
 
 Appraisal Pattern: 
 The Appraisal Pattern domain defines constructs used by stakeholders to assess and qualify Asset Blocks.
+
+Documentation : https://framework.sysfeat.com/pages/83bb9d706192357b.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

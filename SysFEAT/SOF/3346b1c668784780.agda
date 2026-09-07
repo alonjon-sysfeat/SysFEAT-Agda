@@ -5,6 +5,9 @@
 
 Documentation: 
 
+
+Documentation : https://framework.sysfeat.com/pages/3346b1c668784780.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -32,7 +35,7 @@ st-3346b1d6687847c7 = polySubTypeOf-identity
 
 {- Documented Block: -}
 documentedBlock : ∀ {u} →  Linkage Documentation (BuildingBlock u)
-documentedBlock = make_Relation "Documented Block" "documentedBlock"
+documentedBlock = make_Relation "Documented Block" "Documented Block"
 
 postulate -- documentedBlock is subTypeOf annotedElement
   st-3346be6a68784eee-3346b23668784855  : documentedBlock  {lzero}  ⊏⋆ᵣ  annotedElement  {lzero}

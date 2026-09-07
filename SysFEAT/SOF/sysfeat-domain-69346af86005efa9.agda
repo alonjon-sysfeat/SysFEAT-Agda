@@ -1,10 +1,13 @@
 ﻿{- ============================== 
-   Copyright (c) 2026 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
+   Copyright (c) 2025 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
    This work is released under the MIT License.
    framework.sysfeat.com
 
 Initiative and Transformation Pattern: 
 The Initiative and Transformation Pattern domain defines management concepts required for transformation initiatives.It provides principles for the coordination of large scale initiatives evolving over time (Enduring Initiative and their Initiative Stages).
+
+Documentation : https://framework.sysfeat.com/pages/69346af86005efa9.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

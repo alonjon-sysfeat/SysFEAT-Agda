@@ -5,6 +5,9 @@
 
 Category Partition: 
 
+
+Documentation : https://framework.sysfeat.com/pages/f696240c6a0f9ea4.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -36,5 +39,5 @@ st-e15be9376a10fadc = trivialPolySubTypeOfEntity
 
 {- Classifying Schema: -}
 classifyingSchema : ∀ {u v} →  Linkage (CategoryPartition u) (FamilyOfCategory v)
-classifyingSchema = make_classOfRelation "Classifying Schema" "classifyingSchema"
+classifyingSchema = make_classOfRelation "Classifying Schema" "Classifying Schema"
 

@@ -5,6 +5,11 @@
 
 Library: 
 A Library is a kind of Architecture Container used to group Asset Blocks into several independent modules (aka package).They allow virtual partitions of model repositories used for model management. In particular, Asset Blocks owned by different Library(ies) can have the same name (namespacing).
+
+Documentation : https://framework.sysfeat.com/pages/0eb9601c6855c11e.htm
+
+External references:
+  OMG - KerML - LibraryPackage: https://www.omg.org/spec/KerML/1.0/PDF#page=238
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -31,7 +36,7 @@ st-0eb960326855c14a = polySubTypeOf-identity
 
 {- Parent Library: -}
 parentLibrary :  Linkage Library Library
-parentLibrary = make_Relation "Parent Library" "parentLibrary"
+parentLibrary = make_Relation "Library Basing" "Parent Library"
 
 postulate -- parentLibrary is subTypeOf parentModelPackage
   st-e7cb01db6a976047-e7cb000b6a975e4c  : parentLibrary   ⊏⋆ᵣ  parentModelPackage 

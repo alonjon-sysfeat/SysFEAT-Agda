@@ -5,6 +5,9 @@
 
 Architecture Decision Type: 
 
+
+Documentation : https://framework.sysfeat.com/pages/366c4dbc675c2776.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

@@ -5,6 +5,12 @@
 
 Behavioral Rule: 
 A Behavioral Rule is a Directive intended to guide the Behavior of Agent Types, in compliance with enterprise Policy(ies) or regulations.Often, a Behavioral Rule is derived from a Policy. Behavioral Rules are enforced in Processes and Agent Types.
+
+Documentation : https://framework.sysfeat.com/pages/190c74f868966584.htm
+
+External references:
+  OMG - BMM - Business Rule: https://www.omg.org/spec/BMM/1.3/PDF#page=46
+  OMG - SBVR - Business Rule (Behavioral): https://www.omg.org/spec/SBVR/1.5/PDF#page=129
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -26,7 +32,7 @@ st-fe2203f05c4f100c = polySubTypeOf-identity
 
 {- Specialized Behavioral Rule: -}
 specializedBehavioralRule :  Linkage BehavioralRule BehavioralRule
-specializedBehavioralRule = make_subTypeOf "Specialized Behavioral Rule" "specializedBehavioralRule"
+specializedBehavioralRule = make_subTypeOf "Specialized Behavioral Rule" "Specialized Behavioral Rule"
 
 postulate -- specializedBehavioralRule is subTypeOf specializedDirective
   st-01f10e56689b5157-190c79c26896690d  : specializedBehavioralRule   ⊏⋆ᵣ  specializedDirective 

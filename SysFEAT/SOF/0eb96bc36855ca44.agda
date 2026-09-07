@@ -5,6 +5,12 @@
 
 Model Package: 
 
+
+Documentation : https://framework.sysfeat.com/pages/0eb96bc36855ca44.htm
+
+External references:
+  OMG - UML - Package: https://www.omg.org/spec/UML/2.5.1/PDF#page=283
+  OMG - KerML - LibraryPackage: https://www.omg.org/spec/KerML/1.0/PDF#page=238
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -33,7 +39,7 @@ st-3346ae766878462c = polySubTypeOf-identity
 Existential Dependency that asserts the existence of a Model Package in a parent Model Package
 -}
 parentModelPackage :  Linkage ModelPackage ModelPackage
-parentModelPackage = make_Relation "Parent Model Package" "parentModelPackage"
+parentModelPackage = make_Relation "Model Package Basing" "Parent Model Package"
 
 postulate -- parentModelPackage is subTypeOf parentPackage
   st-e7cb000b6a975e4c-e7cbfde76a965b64  : parentModelPackage   ⊏⋆ᵣ  parentPackage 

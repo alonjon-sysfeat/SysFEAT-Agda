@@ -5,6 +5,9 @@
 
 Governance Committee: 
 A Governance Committee is a group of Stakeholders that contributes to architecting and assurance activities and governs Enduring Initiatives.
+
+Documentation : https://framework.sysfeat.com/pages/2cc9717155263b89.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

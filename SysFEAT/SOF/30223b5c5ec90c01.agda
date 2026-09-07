@@ -5,6 +5,15 @@
 
 Outcome Event: 
 An Outcome Event is a Behavioral Event that signals the Output of an Asset Type or state of Asset Type (Outcome) by a producer Behavior Type, ready to be used as an Input by a consumer Behavior Type.
+
+Documentation : https://framework.sysfeat.com/pages/30223b5c5ec90c01.htm
+
+External references:
+  Russell Ackoff - Choice & Communication - Outcomes: ../resources/external-references/Ackoff-1967-Choice-Communication-and-Conflict.pdf#Outcomes
+  Russell Ackoff - Choice & Communication - Utility: ../resources/external-references/Ackoff-1967-Choice-Communication-and-Conflict.pdf#Utility
+  WordNet - Outcome: https://en-word.net/ili/i97562
+  OMG - BACM - Outcome: https://www.omg.org/spec/BACM/1.0/PDF#page=51
+  OMG - UML - Signal: https://www.omg.org/spec/UML/2.5.1/PDF#page=211
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

@@ -5,6 +5,11 @@
 
 Agent Type Environment: 
 An Agent Type Environment is an Operating Eco-System which defines the interactions (Service Channel) of an Agent Type with its partners (Partner Agent).
+
+Documentation : https://framework.sysfeat.com/pages/d6cd0fd95ab9744b.htm
+
+External references:
+  Russell Ackoff - System of Concepts - Environment of a system: ../resources/external-references/Ackoff-1971-Towards-a-system-of-systems-concepts.pdf#EnvironmentOfaSystem
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -28,14 +33,14 @@ st-d6cd10f85ab974f9 = polySubTypeOf-identity
 
 {- Specialized Operating Environment: -}
 specializedOperatingEnvironment :  Linkage AgentTypeEnvironment AgentTypeEnvironment
-specializedOperatingEnvironment = make_subTypeOf "Specialized Operating Environment" "specializedOperatingEnvironment"
+specializedOperatingEnvironment = make_subTypeOf "Specialized Operating Environment" "Specialized Operating Environment"
 
 postulate -- specializedOperatingEnvironment is subTypeOf specializedAsset
   st-325a373d66f33dca-12b0287266e936d5  : specializedOperatingEnvironment   ⊏⋆ᵣ  specializedAsset 
 
 {- Realized Operating Environment: -}
 realizedOperatingEnvironment :  Linkage AgentTypeEnvironment AgentTypeEnvironment
-realizedOperatingEnvironment = make_subTypeOf "Realized Operating Environment" "realizedOperatingEnvironment"
+realizedOperatingEnvironment = make_subTypeOf "Realized Operating Environment" "Realized Operating Environment"
 
 postulate -- realizedOperatingEnvironment is subTypeOf realizedFunctionalAsset
   st-325a3a1066f35860-7dc1907b684951ae  : realizedOperatingEnvironment   ⊏⋆ᵣ  realizedFunctionalAsset 

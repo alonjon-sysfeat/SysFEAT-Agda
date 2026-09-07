@@ -5,6 +5,9 @@
 
 Model Property Block: 
 A Model Property Block is a Building Block used to provide classification and qualification of Model Building Blocks.For instance, Tags are used for classification. Condition Value are used for qualification or quantification.
+
+Documentation : https://framework.sysfeat.com/pages/0eb97aff6855cd23.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

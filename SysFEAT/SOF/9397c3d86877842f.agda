@@ -5,6 +5,9 @@
 
 Policy Asset: 
 A Policy Asset is any topic related to policy definitions.It ranges from the different kinds of Directives (Business Policy, Architecture principle, Behavioral Rule, etc.),  to classification of policies (Policy Category) up to an entire set of policies (Policy Framework).
+
+Documentation : https://framework.sysfeat.com/pages/9397c3d86877842f.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

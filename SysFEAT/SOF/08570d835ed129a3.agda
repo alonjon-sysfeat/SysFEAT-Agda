@@ -5,6 +5,9 @@
 
 Initiative Milestone: 
 An Initiative Milestone is a calendar change that marks the end of an Initiative and possibly the beginning of another.
+
+Documentation : https://framework.sysfeat.com/pages/08570d835ed129a3.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

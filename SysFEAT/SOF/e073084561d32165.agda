@@ -5,6 +5,9 @@
 
 Waiver: 
 A Waiver is a temporary Resolution, agreed upon by Stakeholders, that suspends the enforcement of a Policy Decision for a specified duration.
+
+Documentation : https://framework.sysfeat.com/pages/e073084561d32165.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

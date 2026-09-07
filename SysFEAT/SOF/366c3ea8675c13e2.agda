@@ -5,6 +5,9 @@
 
 Appraisal Type: 
 An Appraisal Type refers to a kind of Appraisal method and technique used to evaluate the worth, effectiveness, compliance, or quality of enterprise Asset Blocks.Appraisal Types define a set of Appraisal Options which are the possible values that will result from an Appraisal activity.For instance, when making decisions about invesment on an enterprise asset, the possible options can be: eliminate, invest, migrate.Assessment Type and Resolution Type are the two appraisal techniques provided by SysFEAT.
+
+Documentation : https://framework.sysfeat.com/pages/366c3ea8675c13e2.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

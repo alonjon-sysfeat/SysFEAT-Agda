@@ -5,6 +5,9 @@
 
 Assurance Initiative: 
 An Assurance Initiative is an Initiative designed to uphold operational trustworthiness by mitigating Risks, countering threats, and complying with regulatory requirements.
+
+Documentation : https://framework.sysfeat.com/pages/299e895568488eb3.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

@@ -5,6 +5,12 @@
 
 Individual Behavior: 
 An Individual Behavior is an actual instance of Behavior Type that is bounded in time.
+
+Documentation : https://framework.sysfeat.com/pages/e9af119866e86785.htm
+
+External references:
+  OpenGroup - ArchiMate - Behavior-Elements: https://pubs.opengroup.org/architecture/archimate32-doc/ch-Generic-Metamodel.html#sec-Behavior-Elements
+  ISO 15926 - Activity: https://15926.blog/topics/data-model/index.htm#Activity
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

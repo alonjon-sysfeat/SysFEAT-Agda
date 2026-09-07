@@ -5,6 +5,11 @@
 
 Measure Property: 
 A Measure Property is a possible value of a Measure Property Type such as a delivery time of 30 minutes, a weight of 20 kg, a high level of confidentiality.It represents how much there is or how many there are of something that you can quantify according to its Constraining Measurable Property.Measure Propertys are used as constraints on Asset Blocks in the context of non-functional requirement analysis and Value Proposition analysis.
+
+Documentation : https://framework.sysfeat.com/pages/21ed2aa6689c12ba.htm
+
+External references:
+  ISO 15926 - Property: https://15926.blog/topics/data-model/index.htm#Property
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -26,7 +31,7 @@ st-21ed2adc689c12fc = polySubTypeOf-identity
 
 {- Measure Property Type: -}
 measurePropertyType :  Linkage MeasureProperty MeasurePropertyType
-measurePropertyType = make_instanceOf "Measure Property Type" "measurePropertyType"
+measurePropertyType = make_instanceOf "Measure Property Type" "Measure Property Type"
 
 postulate -- measurePropertyType is subTypeOf conditionPropertyType
   st-21ed59d8689c1a21-21ed5a16689c1a59  : measurePropertyType   ⊏⋆ᵣ  conditionPropertyType 

@@ -1,10 +1,13 @@
 ﻿{- ============================== 
-   Copyright (c) 2026 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
+   Copyright (c) 2025 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
    This work is released under the MIT License.
    framework.sysfeat.com
 
 Resolution & Decision: 
 The Resolution &amp; Decision domain defines constructs used by stakeholders to assess and qualify Functional Assets.
+
+Documentation : https://framework.sysfeat.com/pages/e073fb4561d211a3.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

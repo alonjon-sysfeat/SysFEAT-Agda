@@ -5,6 +5,9 @@
 
 Time-bound Initiative: 
 A Time-bound Initiative is an Initiative that has a clearly defined start and end date, with specific objectives to be achieved within that timeframe. These initiatives are characterized by their limited duration, focus on achieving particular outcomes within the set period.Example: project.
+
+Documentation : https://framework.sysfeat.com/pages/0520200666475f86.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

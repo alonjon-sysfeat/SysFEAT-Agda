@@ -5,6 +5,9 @@
 
 Architecture Lexical Scope: 
 An Architecture Lexical Scope is a kind of Model Lexical Scope for Architecture Blocks.
+
+Documentation : https://framework.sysfeat.com/pages/0eb95d786855bbd9.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -26,7 +29,7 @@ st-0eb95f556855c00f = trivialPolySubTypeOfEntity
 
 {- Scoped Architecture Block: -}
 scopedArchitectureBlock : ∀ {u v} →  Linkage (ArchitectureLexicalScope u) (ArchitectureBlock v)
-scopedArchitectureBlock = make_nestingRelation "Scoped Architecture Block" "scopedArchitectureBlock"
+scopedArchitectureBlock = make_nestingRelation "Scoped Architecture Block" "Scoped Architecture Block"
 
 postulate -- scopedArchitectureBlock is subTypeOf scopedModelBlock
   st-0eb95f9a6855c081-0eb96a306855c816  : ∀ {u v} → scopedArchitectureBlock {u} {v}  ⊏⋆ᵣ  scopedModelBlock {u} {v}

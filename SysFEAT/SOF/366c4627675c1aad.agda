@@ -5,6 +5,9 @@
 
 Resolution Type: 
 A Resolution Type is an Appraisal Type that refers to a kind of Resolution used to guide what can or cannot be done regarding a specific Asset Block.Resolution Types define a set of Resolution Options which are the possible values that will result from a resolution process.For instance, when making decisions about invesment on an enterprise asset, the possible options can be: eliminate, invest, migrate.
+
+Documentation : https://framework.sysfeat.com/pages/366c4627675c1aad.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

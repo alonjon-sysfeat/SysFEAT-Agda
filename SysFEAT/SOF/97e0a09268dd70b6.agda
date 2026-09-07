@@ -5,6 +5,9 @@
 
 Policy Decision Type: 
 
+
+Documentation : https://framework.sysfeat.com/pages/97e0a09268dd70b6.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

@@ -5,6 +5,9 @@
 
 Policy Decision: 
 A Policy Decision is a Decision that defines the applicability status of a Policy to a set of Functional Assets.Example: A Policy Decision on the applicability of the RGPD regulation to specific enterprise data assets can have the result: Applicable or Non applicable.
+
+Documentation : https://framework.sysfeat.com/pages/732799d364364423.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -30,7 +33,7 @@ st-732799e06436446c = polySubTypeOf-identity
 The set of Functional Assets which are subject of the Policy Decision.
 -}
 applicabilityDomain :  Linkage PolicyDecision FunctionalAsset
-applicabilityDomain = make_Relation "Applicability Domain" "applicabilityDomain"
+applicabilityDomain = make_Relation "Applicability Domain" "Applicability Domain"
 
 postulate -- applicabilityDomain is subTypeOf concernedAsset
   st-6bf187b168599781-0f642afd6859a59f  : applicabilityDomain   ⊏⋆ᵣ  concernedAsset  {lzero}
@@ -39,14 +42,14 @@ postulate -- applicabilityDomain is subTypeOf concernedAsset
 The Policy which applicability is the subject of the Policy Decision.
 -}
 concernedPolicy :  Linkage PolicyDecision Policy
-concernedPolicy = make_Relation "Concerned Policy" "concernedPolicy"
+concernedPolicy = make_Relation "Concerned Policy" "Concerned Policy"
 
 postulate -- concernedPolicy is subTypeOf decisionSubject
   st-9397cbcf687793de-6bf18905685999a3  : concernedPolicy   ⊏⋆ᵣ  decisionSubject  {lzero}
 
 {- Selected Policy Option: -}
 selectedPolicyOption :  Linkage PolicyDecision PolicyapplicabilityStatus
-selectedPolicyOption = make_instanceOf "Selected Policy Option" "selectedPolicyOption"
+selectedPolicyOption = make_instanceOf "Selected Policy Option" "Selected Policy Option"
 
 postulate -- selectedPolicyOption is subTypeOf selectedDecisionOption
   st-97e0a1b668dd7256-97e09d5368dd6d39  : selectedPolicyOption   ⊏⋆ᵣ  selectedDecisionOption 

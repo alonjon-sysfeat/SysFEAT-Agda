@@ -5,6 +5,11 @@
 
 Systemic Levels: 
 The Systemic Levels domain defines the different granularities in which a complex system can be described or analyzed, by decomposition and analysis of interactions, at each level of composition.
+
+Documentation : https://framework.sysfeat.com/pages/0c450d696a031e95.htm
+
+External references:
+  SysFEAT - Systemic Levels: ../resources/framework/SysFEAT-ModelingFramework-12-SystemicLevels.gif
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

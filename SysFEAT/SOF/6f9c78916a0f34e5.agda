@@ -5,6 +5,9 @@
 
 Environmental Condition Type: 
 An Environmental Condition Type is a class of  Environmental Property Type.Example: PESTEL (political, economic, social, environmental, legal),  physical conditions (weather conditions, terrain conditions,)It is used to group Environmental Property Type(ies) by domain of concerns represented by Schema of Measurement.
+
+Documentation : https://framework.sysfeat.com/pages/6f9c78916a0f34e5.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

@@ -5,6 +5,15 @@
 
 Behavioral Event: 
 A Behavioral Event is a Temporal Bounding Type that establishes a temporal connection between Behavior Types.A Behavioral Event connects a Predecessor Behavioral Event, to a Successor Behavioral Event.
+
+Documentation : https://framework.sysfeat.com/pages/24ae31d75ed1c747.htm
+
+External references:
+  WordNet - Change: https://en-word.net/ili/i75036
+  OpenGroup - ArchiMate - Event: https://pubs.opengroup.org/architecture/archimate32-doc/ch-Generic-Metamodel.html#sec-Behavior-Elements
+  Russell Ackoff - System of Concepts - System Changes: ../resources/external-references/Ackoff-1971-Towards-a-system-of-systems-concepts.pdf#SystemChanges
+  ISO 15926 - ClassOfEvent: https://15926.blog/topics/data-model/index.htm#ClassOfEvent
+  Russell Ackoff - Choice & Communication - Signal: ../resources/external-references/Ackoff-1967-Choice-Communication-and-Conflict.pdf#Signal
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

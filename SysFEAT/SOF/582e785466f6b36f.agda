@@ -5,6 +5,9 @@
 
 Data Risk Type: 
 A  Data Risk Type is a Risk Type that refers to the accuracy, consistency, and reliability of data during its entire lifecycle.
+
+Documentation : https://framework.sysfeat.com/pages/582e785466f6b36f.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

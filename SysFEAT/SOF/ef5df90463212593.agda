@@ -5,6 +5,12 @@
 
 Location Type: 
 A Location Type is a type of Location that is a geopolitical location.Example:- Continent- Country- City- District- Street
+
+Documentation : https://framework.sysfeat.com/pages/ef5df90463212593.htm
+
+External references:
+  OMG - UAF - Location: https://www.omg.org/spec/UAF/1.2/Beta1/DMM/PDF#Location
+  ISO 15926 - ClassOfRelativeLocation: https://15926.blog/topics/data-model/index.htm#ClassOfRelativeLocation
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

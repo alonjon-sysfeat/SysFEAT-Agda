@@ -5,6 +5,9 @@
 
 Family of Category: 
 A Family of Category is a Top level group of categories that belong to a common domain.For instance, the GDPR categorization schema groups all categories relevant to GDPR such as data categories, sensitive activities.
+
+Documentation : https://framework.sysfeat.com/pages/24f72ea26a0f5029.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

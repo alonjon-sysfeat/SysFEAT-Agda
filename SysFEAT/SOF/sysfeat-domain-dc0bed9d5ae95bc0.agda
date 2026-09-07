@@ -1,10 +1,15 @@
 ﻿{- ============================== 
-   Copyright (c) 2026 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
+   Copyright (c) 2025 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
    This work is released under the MIT License.
    framework.sysfeat.com
 
 Teams Pattern: 
 The Teams Pattern domain defines organization structure and behavior as well as instrurments required to govern Enduring Initiatives.Any Initiative, (project, enterprise, asset portfolio, privacy insurance, etc.) shall be governed. This includes:1. Governance Committees in charge of governance. They comprise persons and the role of these individual in the team (architects, auditors, product owner, etc.).2. Governance Events describe changes that need to be recorded to monitor transformations (décisions, incidents, etc.).3. Governance Activity(ies) describe all actions that come in response to change events and may results in other change events (workflow, audits, ...).4. Measurement Instruments provide KPIs (qualification and quantification) on the status of Undertakings being governed.
+
+Documentation : https://framework.sysfeat.com/pages/dc0bed9d5ae95bc0.htm
+
+External references:
+  OpenGroup - TOGAF - Definitions - Governance: https://pubs.opengroup.org/togaf-standard/introduction/chap04.html#tag_04_48
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

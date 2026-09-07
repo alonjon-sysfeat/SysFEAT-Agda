@@ -5,6 +5,9 @@
 
 Whole Life Agent Type: 
 A Whole Life Agent Type is an Agent Type that is not the temporal slice type of any other Agent Type. Examples:. A type of building such as a skycraper.. A type of person such as a philosopher.. A type of facility such as a Hospital.
+
+Documentation : https://framework.sysfeat.com/pages/c80ac83967840ef1.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

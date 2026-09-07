@@ -5,6 +5,11 @@
 
 Policy Category: 
 A Policy Category is a classification of policies. In regulations, it represents sections of the law.
+
+Documentation : https://framework.sysfeat.com/pages/952ea6c467285821.htm
+
+External references:
+  OMG - BMM - Directive Category: https://www.omg.org/spec/BMM/1.3/PDF#page=44
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -30,7 +35,7 @@ st-9397c68b68778c56 = polySubTypeOf-identity
 
 {- Parent Policy Category: -}
 parentPolicyCategory :  Linkage PolicyCategory PolicyCategory
-parentPolicyCategory = make_subTypeOf "Parent Policy Category" "parentPolicyCategory"
+parentPolicyCategory = make_subTypeOf "Parent Policy Category" "Parent Policy Category"
 
 postulate -- parentPolicyCategory is subTypeOf specializedPropertyType
   st-952ea9b6672858c7-12b01dee66e92b43  : parentPolicyCategory   ⊏⋆ᵣ  specializedPropertyType 

@@ -5,6 +5,9 @@
 
 Asset Category: 
 An Asset Category is a Category used to classify Asset Types.There are different kinds of Asset Category that applies only to certain subtypes of Asset Types.For instance:. Data Category applies to Information Assets.. Process Family applies to Resource Operating Assets.. Risk Type applies to Functional Assets.
+
+Documentation : https://framework.sysfeat.com/pages/f69620466a0f9c2f.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -31,12 +34,12 @@ st-dd27f4c268a15a7d = trivialPolySubTypeOfEntity
 
 {- Specialized Category: -}
 specializedCategory : ∀ {u v} →  Linkage (AssetCategory u) (AssetCategory v)
-specializedCategory = make_subTypeOf "Specialized Category" "specializedCategory"
+specializedCategory = make_subTypeOf "Specialized Category" "Specialized Category"
 
-postulate -- specializedCategory is subTypeOf categorySpecialization
-  st-24f72cf56a0f4ec7-24f727b96a0f4281  : ∀ {u v} → specializedCategory {u} {v}  ⊏⋆ᵣ  categorySpecialization {u} {v}
+postulate -- specializedCategory is subTypeOf specializedCategory
+  st-24f72cf56a0f4ec7-24f727b96a0f4281  : ∀ {u v} → specializedCategory {u} {v}  ⊏⋆ᵣ  specializedCategory {u} {v}
 
 {- Category Partition: -}
 categoryPartition : ∀ {u v} →  Linkage (AssetCategory u) (CategoryPartition v)
-categoryPartition = make_subTypeOf "Category Partition" "categoryPartition"
+categoryPartition = make_subTypeOf "Category Partition" "Category Partition"
 

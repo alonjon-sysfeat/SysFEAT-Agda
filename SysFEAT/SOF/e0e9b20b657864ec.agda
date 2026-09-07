@@ -5,6 +5,9 @@
 
 Time Event: 
 A Time Event is a Behavioral Event that signifies the happening of a time change used to coordinate Behavior Types.
+
+Documentation : https://framework.sysfeat.com/pages/e0e9b20b657864ec.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

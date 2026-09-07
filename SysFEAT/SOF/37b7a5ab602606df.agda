@@ -5,6 +5,9 @@
 
 Assessment Process: 
 An Assessment Process is an Governance Activity carried out over a determined time period. When an assessment session is published, an assessment questionnaire containing questions is sent to targeted assessors.
+
+Documentation : https://framework.sysfeat.com/pages/37b7a5ab602606df.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

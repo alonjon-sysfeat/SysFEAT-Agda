@@ -5,6 +5,9 @@
 
 Individual Operating Asset: 
 An Individual Operating Asset is a Functional Asset that describes the way Outcomes are produced and consumed: how (Individual Processes) and by whom (Individual Agents).
+
+Documentation : https://framework.sysfeat.com/pages/9f61cf9166833fb7.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -38,7 +41,7 @@ st-be75bef768d23a89 = polySubTypeOf-identity
 Set of Capabilitys that an Individual Individual Operating Asset exhibits.
 -}
 exhibitedCapability :  Linkage IndividualOperatingAsset Capability
-exhibitedCapability = make_instanceOf "Exhibited Capability" "exhibitedCapability"
+exhibitedCapability = make_instanceOf "Exhibited Capability" "Exhibited Capability"
 
 postulate -- exhibitedCapability is subTypeOf propertyOfIndividual
   st-e44104b768d586bb-19763dbb68926a48  : exhibitedCapability   ⊏⋆ᵣ  propertyOfIndividual 

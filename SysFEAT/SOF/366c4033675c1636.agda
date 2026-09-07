@@ -5,6 +5,9 @@
 
 Assessment Type: 
 An Assessment Type refers to a kind of Assessment method and technique used to evaluate the worth, effectiveness, compliance, or quality of enterprise Asset Blocks.Assessment Types define a set of Assessment Values which are the possible values that will result from an Assessment.
+
+Documentation : https://framework.sysfeat.com/pages/366c4033675c1636.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

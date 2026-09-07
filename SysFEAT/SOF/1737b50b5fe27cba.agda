@@ -5,6 +5,9 @@
 
 Governance Event: 
 A Governance Event is any event that has an impact on the management and governance of an Enduring Initiative.This includes the result of Assessments, Decisions, recorded Incidents, Drivers, etc.
+
+Documentation : https://framework.sysfeat.com/pages/1737b50b5fe27cba.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -31,7 +34,7 @@ st-366c3cd3675c1299 = polySubTypeOf-identity
 
 {- Event Subject: -}
 eventSubject : ∀ {u} →  Linkage GovernanceEvent (AssetBlock u)
-eventSubject = make_Relation "Event Subject" "eventSubject"
+eventSubject = make_Relation "Event Subject" "Event Subject"
 
 postulate -- eventSubject is subTypeOf existentialDependency
   st-0f642d4d6859ad70-cbfce7da685358e9  : eventSubject  {lzero}  ⊏⋆ᵣ  existentialDependency {lzero} {lzero}
