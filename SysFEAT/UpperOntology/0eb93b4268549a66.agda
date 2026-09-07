@@ -5,6 +5,12 @@
 
 Container: 
 A Container is a collection of Building Blocks whose existence and meaning are defined by the Container.A Container is both:1. A Lexical Scope: the meaning and usage of a Building Block is only applicable within the context of the Container to which it belongs.2. A universe of discourse: the complete range of Building Blocks that are expressed, assumed, or implied in an architecture domain.Examples: - Container Package- Library- Enterprise
+
+   External references:
+     OMG - UML - Namespace: https://www.omg.org/spec/UML/2.5.1/PDF#page=69
+     Collins - universe-of-discourse: https://www.collinsdictionary.com/dictionary/english/universe-of-discourse
+     Blog - Explain lexical scope in plain English: https://dev.to/fleepgeek/i-would-try-to-explain-lexical-scope-in-plain-english-wish-me-luck-4j06
+     OMG - KerML - Namespace: https://www.omg.org/spec/KerML/1.0/PDF#page=45
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

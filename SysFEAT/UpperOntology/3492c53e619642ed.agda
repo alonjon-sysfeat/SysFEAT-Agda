@@ -5,6 +5,10 @@
 
 Class of Bounded Individual: 
 A Class of Bounded Individual is a Class of Individual which denotes Bounded Individuals that have a proper life cycle, bounded by Temporal Bounding Types.Class of Bounded Individual is the powertype of  Bounded Individual. It means that all sub-types of Bounded Individual are instances of Class of Bounded Individual.Examples:- Car, - Application,- A Process Type (Action Process Type) such as the registration process used at the Oackland digital hospital during the COVID-19 pandemic.Counterexamples:- Project is not a Class of Bounded Individual because its instances have a spatio-temporal extent. Project is a subtype of Bounded Individual.- Capability is not a Class of Bounded Individual. It is a Property.
+
+   External references:
+     OMG - KerML - Class: https://www.omg.org/spec/KerML/1.0/PDF#page=67
+     ISO 15926 - ClassOfArrangedIndividual: https://15926.blog/topics/data-model/index.htm#ClassOfArrangedIndividual
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

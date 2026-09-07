@@ -5,6 +5,19 @@
 
 Compositionality: 
 The purpose of the Compositionality family of concepts is to provide syntactic mechanisms that support the construction of composite Building Blocks.The Compositionality pattern handles situations where Building Blocks have an internal structure. Such Building Blocks are called Aggregate Blocks. They are made of internal nested Entitys called Aggregate Members. Aggregate Members contextualizes Building Blocks living outside the Aggregate Block structure (specialization in OMG - Kernel Modeling Language (KerML) is such an Aggregate Member).Advanced Aggregate Block features are provided by Bounded Aggregates which hide their internal structure to the outside world by means of a formal boundary (see Ordering Connection).
+
+   External references:
+     DDD - Glossary - Entity: https://www.dddcommunity.org/resources/ddd_terms?[entity]
+     Martin Fowler - Evans Classification: https://martinfowler.com/bliki/EvansClassification.html
+     Wikipedia - Domain driven design: https://en.wikipedia.org/wiki/Domain-driven_design
+     Christensen Institute - Modularity: https://www.christenseninstitute.org/theory/modularity
+     OpenGroup - OAA - Modularity: https://pubs.opengroup.org/architecture/o-aa-standard/definitions.html#_modularity
+     OpenGroup - TOGAF - Definition - Building Block: https://pubs.opengroup.org/togaf-standard/introduction/chap04.html#sec-04_26
+     DDD - Aggregate: https://www.dddcommunity.org/library/vernon_2011
+     SysFEAT - Modularity.pdf: ../resources/framework/SysFEAT-ModelingFramework-01-Modularity.pdf
+     Stanford Encyclopedia of Philosophy - Compositionality: https://plato.stanford.edu/entries/compositionality
+     SysFEAT-ModelingFramework-Visualization.pdf: ../resources/framework/SysFEAT-ModelingFramework-Visualization.pdf
+     SysFEAT-TheoraticalFoundations-LocalityPrinciple.pdf: ../resources/framework/SysFEAT-TheoraticalFoundations-LocalityPrinciple.pdf
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

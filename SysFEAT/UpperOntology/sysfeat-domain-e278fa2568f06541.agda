@@ -5,6 +5,17 @@
 
 Reflexive Knowledge Graph: 
 The Reflexive Knowledge Graph domain defines the top level constructs of Entitys, Relations, their multi-level classification and mereological relationships.It forms the second layer of SysFEATs graph architecture. In this domain, Relations are refied as first class Elements, allowing them to be further described and qualified.Multi-level classification is implemented by PowerTyping, which enables open and flexible meta-modeling capabilities, This includes support for reflexive meta-modeling,  for example allowing Meta-Class to be an instance of itself.Powertyping also applies to relationships, including the Holonymy Relation.This design grounds the Reflexive Knowledge Graph in non-well-founded set theory, ensuring consistency in circular and self-referential structures (see associated external references).The 4D Composite Knowledge Graph provides additional structuring of Entitys and Relations by implementing the Compositionality pattern which establishes the concepts of dynamic locality and connections.
+
+   External references:
+     OpenGroup - ArchiMate - Top Level Language Structure: https://pubs.opengroup.org/architecture/archimate32-doc/ch-Language-Structure.html#sec-Top-Level-Language-Structure
+     Matthew West - Ontology meets Business - Non well founded sets: ../resources/external-references/Matthew-West-2009_Ontology-meets-business.pdf#page=26
+     BORO Research - Unification of Types and Multi-Level Modeling: https://research.borosolutions.net/kcl-2024-unification-types-multi-level-modeling-introduction/
+     Multi-level conceptual modeling: Theory, language and application: https://ris.utwente.nl/ws/portalfiles/portal/359288948/1-s2.0-S0169023X21000215-main.pdf
+     SysFEAT-TheoraticalFoundations-MultiLevelModeling.pdf: ../resources/framework/SysFEAT-TheoraticalFoundations-MultiLevelModeling.pdf
+     Wordnet - Semantics: https://en-word.net/ili/i67948
+     WordNet - Abstraction: https://en-word.net/ili/i67636
+     Stanford Encyclopedia of Philosophy - Non-wellfounded set theory: https://plato.stanford.edu/entries/nonwellfounded-set-theory/#1
+     WordNet - Typology: https://en-word.net/ili/i40713
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

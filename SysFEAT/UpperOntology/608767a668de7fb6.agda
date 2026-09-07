@@ -5,6 +5,9 @@
 
 Class of Class of Individual: 
 A Class of Class of Individual is a that classifies Class of Individuals.Class of Class of Individual is the powertype of Class of Individual.Example:- Property Types such as Temperatures or colors.
+
+   External references:
+     ISO 15926 - ClassOfClassOfIndividual: https://15926.blog/topics/data-model/index.htm#ClassOfClassOfIndividual
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
