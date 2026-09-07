@@ -15,8 +15,6 @@ open import Agda.Primitive
 open import SysFEAT.UpperOntology.20702bc568e969f4 public -- Class of Entity and Relation
 open import SysFEAT.UpperOntology.23d5c494685141b5 public -- Block Lexical Scope
 open import SysFEAT.UpperOntology.23d5a9ea68513ced public -- Building Block
---open import SysFEAT.Samples.Sample-Container public
-
 
 -- ============================================================
 -- I. CONTEXTUAL NESTING (Two-Way Nesting)
@@ -99,8 +97,7 @@ memberRelation {u} {v} = make_Relation "Local Relation" "Related Member"
 
 -- memberRelation is subType of Relation 
 st-23d5e92968515409 : ∀ {u v} → (memberRelation {u} {v}) ⊏⋆ᵣ (Relation {u} {v})
-st-23d5e92968515409 {u} {v} =
-  polySubTypeOfRel-fromExtensionMap {subRel = (memberRelation {u} {v})} {superRel = (Relation {u} {v})} (λ w → w)
+st-23d5e92968515409 {u} {v} = polySubTypeOfRel-fromExtensionMap {subRel = (memberRelation {u} {v})} {superRel = (Relation {u} {v})} (λ w → w)
 
 -- ============================================================
 -- III. DYNAMIC LOCALITY (The "that" operator)
