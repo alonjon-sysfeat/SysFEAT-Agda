@@ -4,7 +4,13 @@
    framework.sysfeat.com
 
 Class of Entity: 
-A Class of Entity is a Class of Element that classifies Entitys. Being a subtype of Entity, it is also an instance of itself.Note:1)  SysFEAT is a higher-order ontology, so  Class of Entity may have instances that are also Class of Entity (Class of Classes).2)  SysFEAT is also a non-well-founded and allows for self-referencing  Class of Entity.
+A Class of Entity is a Class of Element that classifies Entitys. Being a subtype of Entity, it is also an instance of itself.
+Note:
+  1)  SysFEAT is a higher-order ontology, so  Class of Entity may have instances that are also Class of Entity (Class of Classes).
+  2)  SysFEAT is also a non-well-founded and allows for self-referencing  Class of Entity.
+
+Documentation : https://framework.sysfeat.com/pages/20702bc568e969f4.htm
+
  - ============================== -}
 
 {-# OPTIONS --safe --cubical --guardedness #-}

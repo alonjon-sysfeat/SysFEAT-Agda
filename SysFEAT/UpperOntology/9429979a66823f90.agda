@@ -5,6 +5,9 @@
 
 Temporal Bounding Type: 
 A Temporal Bounding Type is Class of Individual that defines the type of temporal boundaries that delimitate Class of Bounded Individuals.It is a class of Temporal Bounding.Exemples:- Birth, - Death,- Start of the plinian phase of a volcanic eruption.- Hospital opening.
+
+Documentation : https://framework.sysfeat.com/pages/9429979a66823f90.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

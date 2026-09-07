@@ -5,6 +5,9 @@
 
 Mixed-Order Element: 
 An Mixed-Order Element is an Element that can belong to multiple metamodeling order (mixed universes in Agda).Example:- Lexical Scope - Building Block
+
+Documentation : https://framework.sysfeat.com/pages/526b679569de63eb.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

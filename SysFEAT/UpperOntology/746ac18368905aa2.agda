@@ -6,12 +6,14 @@
 Property: 
 A Property is an abstract Class of Individual, which purpose is to qualify Bounded Individuals and their classes (Class of Bounded Individual).Because instances of Property are Property Values, they do not have proper instances: there are no instances of  red , but there are red Bounded Individuals.Example:- 10 degree celcius;- Ability to cook (a capability);- Red;- 12 kg;-  Top Secret (TS) confidentiality.- 7/7 availability
 
-   External references:
-     Matthew West - Ontology meets Business - Properties: ../resources/external-references/Matthew-West-2009_Ontology-meets-business.pdf#page=27
-     Russell Ackoff - Choice & Communication - Property: ../resources/external-references/Ackoff-1967-Choice-Communication-and-Conflict.pdf#Property
-     OMG - SBVR - Categorization: https://www.omg.org/spec/SBVR/1.5/PDF#page=92
-     WordNet - Property: https://en-word.net/ili/i62823
-     ISO 15926 - Property: https://15926.blog/topics/data-model/index.htm#Property
+Documentation : https://framework.sysfeat.com/pages/746ac18368905aa2.htm
+
+External references:
+  Matthew West - Ontology meets Business - Properties: ../resources/external-references/Matthew-West-2009_Ontology-meets-business.pdf#page=27
+  Russell Ackoff - Choice & Communication - Property: ../resources/external-references/Ackoff-1967-Choice-Communication-and-Conflict.pdf#Property
+  OMG - SBVR - Categorization: https://www.omg.org/spec/SBVR/1.5/PDF#page=92
+  WordNet - Property: https://en-word.net/ili/i62823
+  ISO 15926 - Property: https://15926.blog/topics/data-model/index.htm#Property
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

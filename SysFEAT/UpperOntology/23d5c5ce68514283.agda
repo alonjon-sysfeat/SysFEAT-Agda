@@ -4,7 +4,20 @@
    framework.sysfeat.com
 
 Aggregate Block: 
-An Aggregate Block is a Building Block which has an internal structure made of Aggregate Members which, through nesting (Membership of -Aggregate Member-), contextualizes/aggregates (Aggregation of -Building Block (Aggregate Member) - ) external Building Blocks within the Aggregate Block.
+An Aggregate Block is a Building Block which has an internal structure made of Aggregate Members which, through nesting (Membership of -Aggregate Member-), 
+contextualizes/aggregates (Aggregation of -Building Block (Aggregate Member) - ) external Building Blocks within the Aggregate Block.
+
+Documentation: https://framework.sysfeat.com/pages/23d5c5ce68514283.htm
+
+External references:
+  OMG - UML - StructuredClassifier                      : https://www.omg.org/spec/UML/2.5.1/PDF#page=225
+  OMG - KerML - Type                                    : https://www.omg.org/spec/KerML/1.0/PDF#page=52
+  DDD-Aggretate                                         : https://www.dddcommunity.org/library/vernon_2011
+  Martin Fowler - Aggregate                             : https://martinfowler.com/bliki/DDD_Aggregate.html
+  Stanford Encyclopedia of Philosophy - Compositionality: https://plato.stanford.edu/entries/compositionality/
+  SysFEAT - Modularity                                  : https://framework.sysfeat.com/resources/framework/SysFEAT-ModelingFramework-01-Modularity.pdf
+  SysFEAT - SysFEAT-ModelingFramework-Visualization.pdf : https://framework.sysfeat.com/resources/framework/SysFEAT-ModelingFramework-Visualization.pdf
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

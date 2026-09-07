@@ -6,11 +6,13 @@
 4D Composite Knowledge Graph: 
 The purpose of the 4D Composite Knowledge Graph is to layer structured spatio-temporal concepts onto the Reflexive Knowledge Graph,The 4D Composite Knowledge Graph integrates the capabilities of Reflexive Knowledge Graphs (entities, relationships,  Holonymy Relation and multi-level instance of Entity) with those of Compositionality (composite structures) resulting in the addition of the following key features:1) Mereological  Aggregate Holonymy relationships, providing dynamic locality to composition.2) Individual-Property distinction: a clear ontological separation between Bounded Individuals (entities that exist in space and time) and their properties (Property Value). A dedicated Typology characterizes how individuals relate to and instantiate these properties.3) Temporal Framing: the introduction of temporal connections (Temporal Bounding) that define the temporal boundaries of Bounded Individuals, enabling the explicit modeling of state changes, events, and persistence over time.
 
-   External references:
-     Russell Ackoff - Choice & Communication - Signification of a Sign: ../resources/external-references/Ackoff-1967-Choice-Communication-and-Conflict.pdf#SignificationOfASign
-     SysFEAT -Semantic.pdf: ../resources/framework/SysFEAT-ModelingFramework-02-Semantic.pdf
-     Wordnet - Semantics: https://en-word.net/ili/i67948
-     Stanford Encyclopedia - Temporal-parts: https://plato.stanford.edu/entries/temporal-parts
+Documentation : https://framework.sysfeat.com/pages/fb342c5665561f29.htm
+
+External references:
+  Russell Ackoff - Choice & Communication - Signification of a Sign: ../resources/external-references/Ackoff-1967-Choice-Communication-and-Conflict.pdf#SignificationOfASign
+  SysFEAT -Semantic.pdf: ../resources/framework/SysFEAT-ModelingFramework-02-Semantic.pdf
+  Wordnet - Semantics: https://en-word.net/ili/i67948
+  Stanford Encyclopedia - Temporal-parts: https://plato.stanford.edu/entries/temporal-parts
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

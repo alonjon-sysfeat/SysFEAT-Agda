@@ -6,11 +6,13 @@
 Packaging: 
 The Packaging domain defines the core elements of Building Block and Container which provide the basis for building modules.Building Blocks are reusable units They have an independent existence. Thereby, they cannot be nested in other structures which would hide their existence (lexical scope). Because of their independent existence, they must be owned by an independent artifact which sole purpose is model management Containers . Containers are dedicated to model management:&#60;br/&#62;. They own blocks to which they provide existence.&#60;br/&#62;. They can provide namespace to blocks.&#60;br/&#62;. They have dependencies on other Containers which blocks have relationships to blocks they packaged.
 
-   External references:
-     Christensen Institute - Modularity: https://www.christenseninstitute.org/theory/modularity
-     OMG - UML - Package: https://www.omg.org/spec/UML/2.5.1/PDF#page=283
-     SysFEAT - Modularity.pdf: ../resources/framework/SysFEAT-ModelingFramework-01-Modularity.pdf
-     OMG - KerML - Package: https://www.omg.org/spec/KerML/1.0/PDF#page=93
+Documentation : https://framework.sysfeat.com/pages/f0fd779f65a18c5d.htm
+
+External references:
+  Christensen Institute - Modularity: https://www.christenseninstitute.org/theory/modularity
+  OMG - UML - Package: https://www.omg.org/spec/UML/2.5.1/PDF#page=283
+  SysFEAT - Modularity.pdf: ../resources/framework/SysFEAT-ModelingFramework-01-Modularity.pdf
+  OMG - KerML - Package: https://www.omg.org/spec/KerML/1.0/PDF#page=93
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

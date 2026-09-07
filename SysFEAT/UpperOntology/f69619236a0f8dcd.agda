@@ -5,6 +5,9 @@
 
 Category: 
 A Category is a used to classify Class of Individual.
+
+Documentation : https://framework.sysfeat.com/pages/f69619236a0f8dcd.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

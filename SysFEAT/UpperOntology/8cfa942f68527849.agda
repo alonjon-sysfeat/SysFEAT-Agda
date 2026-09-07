@@ -5,6 +5,9 @@
 
 Unbounded Aggregate: 
 An Unbounded Aggregate is an Aggregate Entity Block that does not have boundaries and, thereby, that cannot participate to Ordering Connections.Examples:- Operating Eco-System;- Directive.
+
+Documentation : https://framework.sysfeat.com/pages/8cfa942f68527849.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

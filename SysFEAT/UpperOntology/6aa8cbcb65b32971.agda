@@ -6,9 +6,11 @@
 Class of Individual: 
 A Class of Individual is a First Order Class of Entitys that exist in space and time. It is the powertype of  Individual.Class of Individuals are represented as dark orange boxes (see the Meta-Model Legend) .Examples:- Red;- 12 kg;-  Top Secret (TS) confidentiality.- Birth,- Death,
 
-   External references:
-     ISO 15926 - ClassOfIndividual: https://15926.blog/topics/data-model/index.htm#ClassOfIndividual
-     OMG - SBVR - General Concept: https://www.omg.org/spec/SBVR/1.5/PDF#page=59
+Documentation : https://framework.sysfeat.com/pages/6aa8cbcb65b32971.htm
+
+External references:
+  ISO 15926 - ClassOfIndividual: https://15926.blog/topics/data-model/index.htm#ClassOfIndividual
+  OMG - SBVR - General Concept: https://www.omg.org/spec/SBVR/1.5/PDF#page=59
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

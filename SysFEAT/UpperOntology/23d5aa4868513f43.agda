@@ -5,6 +5,9 @@
 
 Block Collection: 
 A Block Collection is a Mixed-Order Entity that is a set of Building Blocks.The grouping of  Building Blocks can be achieved either by reference (Reference Relation) or by nesting (Nesting Relation), in which case the Block Collection serves as a Block Lexical Scope.Example:- Container Package as a Block Lexical Scope.- Asset Portfolio as a pure Block Collection.
+
+Documentation : https://framework.sysfeat.com/pages/23d5aa4868513f43.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

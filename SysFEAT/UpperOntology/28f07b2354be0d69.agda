@@ -6,11 +6,13 @@
 Bounded Individual: 
 Bounded Individuals are Individuals which have a life cycle, bounded by Temporal Boundings. Because of its composite nature, Bounded Individual is a sub-type of Bounded Aggregate.Bounded Individuals shall be made distinct from Class of Bounded Individual which they are instance of.Bounded Individuals are represented with light orange boxes (see the Meta-Model Legend).Examples:. The Eiffel tower (31st March 1889 - ...).. William Shakespeare in its Early Theatrical Career (1592-1600).. Confucius (685-758).. Mount Vesuvius eruption (Aug. 24-25, A.D. 79).. Oackland digital hospital after its renovation (2022 - ...). The execution of the registration process at the Oackland digital hospital, by John Smith, on 17 March 2020.
 
-   External references:
-     ISO 15926 - ArrangedIndividual: https://15926.blog/topics/data-model/index.htm#ArrangedIndividual
-     SysFEAT -Semantic.pdf: ../resources/framework/SysFEAT-ModelingFramework-02-Semantic.pdf
-     W3C - OWL - Individual: https://www.w3.org/TR/owl-ref/#Individual
-     OMG - KerML - Occurrence: https://www.omg.org/spec/KerML/1.0/PDF#page=316
+Documentation : https://framework.sysfeat.com/pages/28f07b2354be0d69.htm
+
+External references:
+  ISO 15926 - ArrangedIndividual: https://15926.blog/topics/data-model/index.htm#ArrangedIndividual
+  SysFEAT -Semantic.pdf: ../resources/framework/SysFEAT-ModelingFramework-02-Semantic.pdf
+  W3C - OWL - Individual: https://www.w3.org/TR/owl-ref/#Individual
+  OMG - KerML - Occurrence: https://www.omg.org/spec/KerML/1.0/PDF#page=316
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

@@ -5,6 +5,9 @@
 
 Whole Life Class: 
 Whole Life Class is the power-type of Whole Life Individual.Examples:. A type of building such as a skycraper.. A type of person such as a philosopher.. A type of activity such as a volcanic eruption.. A type of facility such as a hospital.. A Process Type (Action Process Type) such as the registration process used at the Oackland digital hospital during the COVID-19 pandemic.
+
+Documentation : https://framework.sysfeat.com/pages/00ae5d3b667038fc.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
