@@ -1,10 +1,13 @@
 ﻿{- ============================== 
-   Copyright (c) 2026 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
+   Copyright (c) 2025 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
    This work is released under the MIT License.
    framework.sysfeat.com
 
 Model Block Packaging: 
 The Model Block Packaging family of concepts defines the different kind of Building Blocks used in system and enterprise modeling:. Model Building Blocks.. Annotation Blocks. Model Property Blocks.
+
+Documentation : https://framework.sysfeat.com/pages/af4db12d62993434.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

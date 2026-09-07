@@ -5,6 +5,9 @@
 
 Operational Transformation: 
 An Operational Transformation is an Initiative that creates or transform Operating Asset Types, based on a Capability Maps functional scope.Its Goal is to deliver new or improved Capabilitys, with measurable qualitative properties, to well identified beneficiary stakholders. 
+
+Documentation : https://framework.sysfeat.com/pages/299e882b68488d2c.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -27,7 +30,7 @@ st-299e88b568488e01 = polySubTypeOf-identity
 
 {- Functional Scope: -}
 functionalScope :  Linkage OperationalTransformation CapabilityMap
-functionalScope = make_instanceOf "Functional Scope" "functionalScope"
+functionalScope = make_instanceOf "Functional Scope" "Functional Scope"
 
 postulate -- functionalScope is subTypeOf propertyOfIndividual
   st-01f1214c689b6e0f-19763dbb68926a48  : functionalScope   ⊏⋆ᵣ  propertyOfIndividual 

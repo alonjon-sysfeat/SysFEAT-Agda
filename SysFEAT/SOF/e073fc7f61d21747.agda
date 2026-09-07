@@ -5,6 +5,9 @@
 
 Advise: 
 An Advise is time bound Resolution, agreed upon by Stakeholders to recommend what can or cannot be done regarding an Asset Block.
+
+Documentation : https://framework.sysfeat.com/pages/e073fc7f61d21747.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

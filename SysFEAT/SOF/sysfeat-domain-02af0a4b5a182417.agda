@@ -5,6 +5,13 @@
 
 System Operating Framework - SOF: 
 The System Operating Framework - SOF models how an active system (Agent Type) operates/functions (Behavior Type) in its Operating Eco-System to produce Outcome Events that benefit (value) to other Agent Types or affect (have an effect upon) these Agent Types.The SOF includes Agent Types, Action Process Types, Interaction Process Types, Policy(ies), Capability(ies), Outcome Events.
+
+Documentation : https://framework.sysfeat.com/pages/02af0a4b5a182417.htm
+
+External references:
+  OpenGroup - ArchiMate - Generic-Metamodel: https://pubs.opengroup.org/architecture/archimate32-doc/ch-Generic-Metamodel.html
+  de Weck - The three dimensions of complexity: https://complexsystems.mst.edu/media/conference/complexsystems/documents/de_Weck_CAS_Keynote_Nov_2015_updated.pdf#page=40
+  SysFEAT - Operating Semantic Presentation (SOF): ../resources/framework/SysFEAT-ModelingFramework-10-SOF.pdf
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

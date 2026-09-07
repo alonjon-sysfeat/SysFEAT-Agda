@@ -5,6 +5,9 @@
 
 Architecture Block: 
 An Architecture Block is any Model Building Block used to describe the architecture of a system (including the enterprise). This includes Asset Blocks (Applications, org-units, Business Functions, Business Processes...) and Individual Architecture Assets (physical persons, software installations, locations, ...).
+
+Documentation : https://framework.sysfeat.com/pages/9397b45268777e3b.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

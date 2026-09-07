@@ -5,6 +5,9 @@
 
 Governance Activity: 
 A Governance Activity is an action done by one or several Stakeholders as part of the governance of an Enduring Initiative.Governance Activity(ies) range from assessments, audit, workflows to remediation plans.
+
+Documentation : https://framework.sysfeat.com/pages/1737b76a5fe28204.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

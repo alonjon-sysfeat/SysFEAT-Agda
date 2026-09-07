@@ -5,6 +5,9 @@
 
 Asset State Type: 
 An Asset State Type is a temporal slice type of an Asset Type.Examples:. The lifecyle phases of buildings such as a skycraper: construction phase, operation and maintenance phase, decommissioning phase.. The lifecycle phases of a person, such as childhood, adulthood, eldery stage.. The phases of a volcanic eruption:  magma accumulation, plinian phase, eruptive phase, effusive phase, declining phase.. The lifecyle phases of a hospital such as construction phase, operation and maintenance phase, renovation and expansion phase, decommissioning phase.
+
+Documentation : https://framework.sysfeat.com/pages/e13ce269678f11ed.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

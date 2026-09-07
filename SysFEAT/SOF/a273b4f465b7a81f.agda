@@ -5,6 +5,11 @@
 
 Individual Process: 
 Individual Process is the root instance of Action Process Type.
+
+Documentation : https://framework.sysfeat.com/pages/a273b4f465b7a81f.htm
+
+External references:
+  OpenGroup - ArchiMate - Process: https://pubs.opengroup.org/architecture/archimate32-doc/ch-Generic-Metamodel.html#sec-Specializations-of-Structure-and-Behavior-Elements
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

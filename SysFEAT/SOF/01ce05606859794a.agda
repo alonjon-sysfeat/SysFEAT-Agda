@@ -5,6 +5,9 @@
 
 Initiative Instrument: 
 An Initiative Instrument is a resource and course of actions defined by Enduring Initiatives  to achieve its objectives.For instance:Data Controls are mechanisms used to ensure data quality and data integrityPrivacy Representatives are used to identify national entities in charge on privacy.
+
+Documentation : https://framework.sysfeat.com/pages/01ce05606859794a.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

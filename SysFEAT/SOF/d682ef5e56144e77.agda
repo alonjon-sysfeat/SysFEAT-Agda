@@ -5,6 +5,19 @@
 
 Action Process Type: 
 An Action Process Type is a Behavior Type that describes a typical course of action intended to produce Outcomes, through the involvement of Agent Types as Active Participants.During its course of action, a process consumes or produces Functional Assets, including Information Assets.1) It may memorize or access Information Assets from and to its Process Stores.2) It may receive Functional Assets at its boundary: Outcome Consumptions.3) It may signal the production of Functional Assets at its boundary: Outcome Productions.The course of actions of a Action Process Type is constrained (Rule Enforcement) by the application of Behavioral Rules that define what is allowed and not allowed to do.Within SysFEAT, we can examine Action Process Typees from two distinct perspectives:a) A conceptual standpoint is provided by Value Streams.b) A concrete implementation standpoint is provided by Resource Action Processes.
+
+Documentation : https://framework.sysfeat.com/pages/d682ef5e56144e77.htm
+
+External references:
+  OpenGroup - ArchiMate - Process: https://pubs.opengroup.org/architecture/archimate32-doc/ch-Generic-Metamodel.html#sec-Specializations-of-Structure-and-Behavior-Elements
+  OMG - UML - Activity: https://www.omg.org/spec/UML/2.5.1/PDF#page=415
+  ISO 9000 - 3.4.1 - Process: https://www.iso.org/obp/ui/#iso:std:iso:9000:ed-4:v1:en3.4.1.Process
+  OMG - BPMN - Process: https://www.omg.org/spec/BPMN/2.0.2/PDF#page=173
+  Russell Ackoff - System of Concepts - Process: ../resources/external-references/Ackoff-1971-Towards-a-system-of-systems-concepts.pdf#Process
+  ISO 15926 - ClassOfActivity: https://15926.blog/topics/data-model/index.htm#ClassOfActivity
+  WordNet - Process: https://en-word.net/ili/i40766
+  Merriam Webster - Process: https://www.merriam-webster.com/dictionary/process
+  OMG - UAF - Process: https://www.omg.org/spec/UAF/1.2/Beta1/DMM/PDF#Process
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -29,14 +42,14 @@ st-a371a5c65b86606b = polySubTypeOf-identity
 
 {- Specialized Process: -}
 specializedProcess :  Linkage ActionProcessType ActionProcessType
-specializedProcess = make_subTypeOf "Specialized Process" "specializedProcess"
+specializedProcess = make_subTypeOf "Specialized Process" "Specialized Process"
 
 postulate -- specializedProcess is subTypeOf specializedBehavior
   st-325a376e66f345e2-2b5b452d66ed5855  : specializedProcess   ⊏⋆ᵣ  specializedBehavior 
 
 {- Realized Proces: -}
 realizedProces :  Linkage ActionProcessType ActionProcessType
-realizedProces = make_subTypeOf "Realized Proces" "realizedProces"
+realizedProces = make_subTypeOf "Realized Proces" "Realized Proces"
 
 postulate -- realizedProces is subTypeOf realizedBehavior
   st-325a3a1466f35b22-2b5b45a466ed5920  : realizedProces   ⊏⋆ᵣ  realizedBehavior 

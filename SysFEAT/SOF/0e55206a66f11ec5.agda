@@ -5,6 +5,9 @@
 
 Risk Type: 
 A Risk Type is a distinct category or classification of risk based on its origin, nature, or potential impact. It helps in organizing and addressing different sources of uncertainty or potential harm that an individual, organization, or system might face. By categorizing risks into different types, entities can develop more targeted mitigation strategies and response plans. Common risk types include Operational Risk Type, Privacy Risk Type, and Compliance Risk Type, among others,
+
+Documentation : https://framework.sysfeat.com/pages/0e55206a66f11ec5.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -25,7 +28,7 @@ st-427c1ca364b5d50a = polySubTypeOf-identity
 
 {- Parent Risk: -}
 parentRisk :  Linkage RiskType RiskType
-parentRisk = make_subTypeOf "Parent Risk" "parentRisk"
+parentRisk = make_subTypeOf "Parent Risk" "Parent Risk"
 
 postulate -- parentRisk is subTypeOf specializedPropertyType
   st-332c410066f1656d-12b01dee66e92b43  : parentRisk   ⊏⋆ᵣ  specializedPropertyType 

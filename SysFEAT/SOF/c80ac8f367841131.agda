@@ -5,6 +5,9 @@
 
 Agent State Type: 
 An Agent State Type is a temporal slice type of an Agent Type related to its lifefcyle.Examples:. The lifecycle phases of a person, such as childhood, adulthood, eldery stage.. The lifecyle phases of a hospital such as construction phase, operation and maintenance phase, renovation and expansion phase, decommissioning phase.
+
+Documentation : https://framework.sysfeat.com/pages/c80ac8f367841131.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

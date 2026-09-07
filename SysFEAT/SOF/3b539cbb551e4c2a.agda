@@ -5,6 +5,9 @@
 
 Assessment: 
 An Assessment is the result of the act of judging or assessing an aspect of the enterprise, based on an enterprise description and on the comparison of this description with the actual state of the enterprise.An Assessment is made by one or several Stakeholder s.
+
+Documentation : https://framework.sysfeat.com/pages/3b539cbb551e4c2a.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -29,14 +32,14 @@ st-3b539cda551e4cca = polySubTypeOf-identity
 Asset Block that is the subject of an Assessment.
 -}
 assessedAsset : ∀ {u} →  Linkage Assessment (AssetBlock u)
-assessedAsset = make_Relation "Assessed Asset" "assessedAsset"
+assessedAsset = make_Relation "Assessed Asset" "Assessed Asset"
 
 postulate -- assessedAsset is subTypeOf appraisedAsset
   st-6bf1843a68599028-6bf17d4e68598487  : assessedAsset  {lzero}  ⊏⋆ᵣ  appraisedAsset  {lzero}
 
 {- Selected Assessment Value: -}
 selectedAssessmentValue :  Linkage Assessment AssessmentValue
-selectedAssessmentValue = make_instanceOf "Selected Assessment Value" "selectedAssessmentValue"
+selectedAssessmentValue = make_instanceOf "Selected Assessment Value" "Selected Assessment Value"
 
 postulate -- selectedAssessmentValue is subTypeOf selectedAppraisalOption
   st-6662956f68dd654c-6662932568dd6161  : selectedAssessmentValue   ⊏⋆ᵣ  selectedAppraisalOption 

@@ -5,6 +5,9 @@
 
 Governance Instrument: 
 Governance Instruments include all instruments used to monitor and steer transformation Initiatives. They include incidents, assessments, indicators and their templates.
+
+Documentation : https://framework.sysfeat.com/pages/6662916b68dd5f84.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

@@ -5,6 +5,9 @@
 
 Review Note: 
 Review Note is a comment used by a Stakeholder  to annotate Repository objects.Review Notes are the bases to follow a conversation between Stakeholder on a dedicated object.
+
+Documentation : https://framework.sysfeat.com/pages/4993655063907d35.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

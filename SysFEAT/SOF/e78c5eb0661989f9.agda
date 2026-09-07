@@ -5,6 +5,9 @@
 
 Initiative Stage: 
 An Initiative Stage is a past, current or future state of an Enduring Initiative. The set of all Initiative Stages of an Enduring Initiative defines its Roadmap.
+
+Documentation : https://framework.sysfeat.com/pages/e78c5eb0661989f9.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

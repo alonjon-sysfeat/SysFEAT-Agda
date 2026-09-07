@@ -5,6 +5,11 @@
 
 Measurement Instrument: 
 A Measurement Instrument is a quantified aspect of the assets of the enterprise (Agent Types,  Behavior Types, Information Assets) used by organizations to guide its transformation and assurance Initiatives.
+
+Documentation : https://framework.sysfeat.com/pages/173706265fe3f332.htm
+
+External references:
+  WordNet - Measure: https://en-word.net/ili/i35594
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

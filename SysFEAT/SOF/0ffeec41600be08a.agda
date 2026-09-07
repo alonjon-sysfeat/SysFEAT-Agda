@@ -5,6 +5,12 @@
 
 Initiative: 
 An Initiative is any piece of work that is undertaken or attempted under the responsibility of a Steering Authority.Initiatives range from single project to long term initiatives (Enduring Initiative) such as Enterprises.Initiatives are sychronized over time using Initiative Milestones.
+
+Documentation : https://framework.sysfeat.com/pages/0ffeec41600be08a.htm
+
+External references:
+  Merriam Webster - Undertaking: https://www.merriam-webster.com/dictionary/undertaking
+  Wordnet - Undertaking: https://en-word.net/ili/i39587
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -38,7 +44,7 @@ st-b07be2aa67626977 = polySubTypeOf-identity
 
 {- Steering Authority: -}
 steeringAuthority :  Linkage Initiative ResponsibleHumanEntity
-steeringAuthority = make_holonymyRelation "Steering Authority" "steeringAuthority"
+steeringAuthority = make_holonymyRelation "Steering Authority" "Steering Authority"
 
 postulate -- steeringAuthority is subTypeOf referenceHolonymy
   st-b2f2d64d5f47e364-9653a95669701e02  : steeringAuthority   ⊏⋆ᵣ  referenceHolonymy 

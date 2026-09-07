@@ -1,10 +1,13 @@
 ﻿{- ============================== 
-   Copyright (c) 2026 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
+   Copyright (c) 2025 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
    This work is released under the MIT License.
    framework.sysfeat.com
 
 Architecture Packages: 
 The Architecture Packages domain defines how Asset Blocks are grouped and packaged.
+
+Documentation : https://framework.sysfeat.com/pages/ab6f7f85681a69f1.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

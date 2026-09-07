@@ -5,6 +5,9 @@
 
 Condition Property: 
 A Condition Property is a possible value of a Condition Property Type such as a delivery time of 30 minutes, a weight of 20 kg, a high level of confidentiality, stormy conditions.A Condition Property is either a single measure (Measure Property: a weight of 20 kg), an Environmental Property (stormy conditions.) or a Set of Condition Propertiess.Condition Propertys are used to constrain Asset Blocks in the context of non-functional requirement analysis and Value Proposition analysis.Examples:. Cost of 100€. Delivery time of 30 minutes.. Weight of 20 kg.. Temperature of 18 degree Celcius.
+
+Documentation : https://framework.sysfeat.com/pages/21ed231d689c0679.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -26,7 +29,7 @@ st-21ed234f689c06bb = polySubTypeOf-identity
 
 {- Condition Property Type: -}
 conditionPropertyType :  Linkage ConditionProperty ConditionPropertyType
-conditionPropertyType = make_instanceOf "Condition Property Type" "conditionPropertyType"
+conditionPropertyType = make_instanceOf "Condition Property Type" "Condition Property Type"
 
 postulate -- conditionPropertyType is subTypeOf assetPropertyType
   st-21ed5a16689c1a59-190c1f03689649e5  : conditionPropertyType   ⊏⋆ᵣ  assetPropertyType 

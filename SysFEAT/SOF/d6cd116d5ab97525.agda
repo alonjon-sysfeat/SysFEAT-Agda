@@ -5,6 +5,9 @@
 
 Information Domain: 
 An Information Domain is a family of Information Entity(ies) which constitutes a unit a knowlege required by an Agent Type to operate during Behavior Type execution.
+
+Documentation : https://framework.sysfeat.com/pages/d6cd116d5ab97525.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -31,14 +34,14 @@ st-8f1c9a9c68ca8d3a = polySubTypeOf-identity
 
 {- Specialized Information Domain: -}
 specializedInformationDomain :  Linkage InformationDomain InformationDomain
-specializedInformationDomain = make_subTypeOf "Specialized Information Domain" "specializedInformationDomain"
+specializedInformationDomain = make_subTypeOf "Specialized Information Domain" "Specialized Information Domain"
 
 postulate -- specializedInformationDomain is subTypeOf subTypeOfEntity
   st-325a380a66f34efb-8336837268e9448b  : specializedInformationDomain   ⊏⋆ᵣ  subTypeOfEntity {lsuc(lzero)}
 
 {- Realized Information Domain: -}
 realizedInformationDomain :  Linkage InformationDomain InformationDomain
-realizedInformationDomain = make_subTypeOf "Realized Information Domain" "realizedInformationDomain"
+realizedInformationDomain = make_subTypeOf "Realized Information Domain" "Realized Information Domain"
 
 postulate -- realizedInformationDomain is subTypeOf subTypeOfEntity
   st-325a3a0e66f3562c-8336837268e9448b  : realizedInformationDomain   ⊏⋆ᵣ  subTypeOfEntity {lsuc(lzero)}

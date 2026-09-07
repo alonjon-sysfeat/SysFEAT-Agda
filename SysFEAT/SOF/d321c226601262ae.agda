@@ -5,6 +5,9 @@
 
 Enduring Initiative: 
 An Enduring Initiative is a long term Initiative which involves roadmapping and governance. Enterprises and their Management Systems are typical Enduring Initiatives.1. Enduring Initiatives are purpose-oriented. 2. Enduring Initiatives are change management systems: they have objectives regarding the purposes they pursue, maintain and develop.3. Enduring Initiatives are measured to ensure they meet their Goals.4. Enduring Initiatives are organized according to subsidiary levels, ensuring autonomy and ownership at each level of delegation while providing responsibility and accountability in achieving common goals.5. Enduring Initiatives are under the control of an associed Governing Team.6.Governing Teams have instruments used to carry out governance: responsibility assignment, assessments, workflow, decision records, incident records.
+
+Documentation : https://framework.sysfeat.com/pages/d321c226601262ae.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -38,35 +41,35 @@ st-a44fdc6b67459081 = polySubTypeOf-identity
 
 {- Packaged Initiative Resource: -}
 packagedInitiativeResource : ∀ {u} →  Linkage EnduringInitiative (InitiativeInstrument u)
-packagedInitiativeResource = make_nestingRelation "Packaged Initiative Resource" "packagedInitiativeResource"
+packagedInitiativeResource = make_nestingRelation "Packaged Initiative Resource" "Packaged Initiative Resource"
 
 postulate -- packagedInitiativeResource is subTypeOf packagedModelBlock
   st-01ce058868597974-3346b0ad687846e9  : packagedInitiativeResource  {lzero}  ⊏⋆ᵣ  packagedModelBlock {lzero} {lzero}
 
 {- Dependent Initiative: -}
 dependentInitiative :  Linkage EnduringInitiative EnduringInitiative
-dependentInitiative = make_holonymyRelation "Dependent Initiative" "dependentInitiative"
+dependentInitiative = make_holonymyRelation "Dependent Initiative" "Dependent Initiative"
 
 postulate -- dependentInitiative is subTypeOf importedContainer
-  st-5b7a0d6361f5633f-0eb94b9b6854a563  : dependentInitiative   ⊏⋆ᵣ  importedContainer {lzero}
+  st-5b7a0d6361f5633f-0eb94b9b6854a563  : dependentInitiative   ⊏⋆ᵣ  importedContainer {lzero} {lzero}
 
 {- Sub-Initiative: -}
 subInitiative :  Linkage EnduringInitiative EnduringInitiative
-subInitiative = make_holonymyRelation "Sub-Initiative" "subInitiative"
+subInitiative = make_holonymyRelation "Sub-Initiative" "Sub-Initiative"
 
 postulate -- subInitiative is subTypeOf holonymyRelation
   st-5b7a0ecf61f5650a-c2f2c6ce66e90be7  : subInitiative   ⊏⋆ᵣ  holonymyRelation 
 postulate -- subInitiative is subTypeOf scopedModelBlock
-  st-5b7a0ecf61f5650a-0eb96a306855c816  : subInitiative   ⊏⋆ᵣ  scopedModelBlock {lzero}
+  st-5b7a0ecf61f5650a-0eb96a306855c816  : subInitiative   ⊏⋆ᵣ  scopedModelBlock {lzero} {lzero}
 
 {- Roadmap: 
 Set of all Initiative Stages of an Enduring Initiative that, along with coordinating Initiative Milestones, forms its roadmap.
 -}
 roadmap :  Linkage EnduringInitiative InitiativeStage
-roadmap = make_holonymyRelation "Roadmap" "roadmap"
+roadmap = make_holonymyRelation "Roadmap" "Roadmap"
 
 postulate -- roadmap is subTypeOf scopedModelBlock
-  st-29df685860086c52-0eb96a306855c816  : roadmap   ⊏⋆ᵣ  scopedModelBlock {lzero}
+  st-29df685860086c52-0eb96a306855c816  : roadmap   ⊏⋆ᵣ  scopedModelBlock {lzero} {lzero}
 postulate -- roadmap is subTypeOf holonymyRelation
   st-29df685860086c52-c2f2c6ce66e90be7  : roadmap   ⊏⋆ᵣ  holonymyRelation 
 

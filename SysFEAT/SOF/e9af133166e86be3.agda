@@ -5,6 +5,12 @@
 
 Individual Event: 
 An Individual Event is a Temporal Bounding that establishes a temporal connection between Individual Behaviors.An Individual Event connects a Previous Behavioral Event, to a Next Behavioral Event.
+
+Documentation : https://framework.sysfeat.com/pages/e9af133166e86be3.htm
+
+External references:
+  ISO 15926 - Event: https://15926.blog/topics/data-model/index.htm#Event
+  OpenGroup - ArchiMate - Event: https://pubs.opengroup.org/architecture/archimate32-doc/ch-Generic-Metamodel.html#sec-Behavior-Elements
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

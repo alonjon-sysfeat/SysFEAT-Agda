@@ -5,6 +5,11 @@
 
 Description Note: 
 A Description Note is an  Annotation Block whose body in describes its in Annoted Element in natural language.
+
+Documentation : https://framework.sysfeat.com/pages/3346b1e7687847f3.htm
+
+External references:
+  OMG - KerML - Comment: https://www.omg.org/spec/KerML/1.0/PDF#page=254
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -32,7 +37,7 @@ st-3346b5a968784949 = polySubTypeOf-identity
 
 {- Described Element: -}
 describedElement : ∀ {u} →  Linkage DescriptionNote (Entity u)
-describedElement = make_Relation "Described Element" "describedElement"
+describedElement = make_Relation "Described Element" "Described Element"
 
 postulate -- describedElement is subTypeOf annotedElement
   st-3346bfad68785033-3346b23668784855  : describedElement  {lzero}  ⊏⋆ᵣ  annotedElement  {lzero}

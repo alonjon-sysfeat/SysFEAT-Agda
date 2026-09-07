@@ -5,6 +5,9 @@
 
 Operating Connection: 
 An Operating Connection is an Aggregate Connection that defines a behavioral connection between Operating Asset Types.
+
+Documentation : https://framework.sysfeat.com/pages/21c5276e655759fb.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

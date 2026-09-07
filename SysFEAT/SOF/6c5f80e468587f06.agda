@@ -5,6 +5,9 @@
 
 Information Block: 
 An Information Block is an Asset Block involved in the description of information.Information Blocks range from Information Assets to Information Domains.They are packaged in Information Dictionary(ies) and managed in Data Catalogs.
+
+Documentation : https://framework.sysfeat.com/pages/6c5f80e468587f06.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

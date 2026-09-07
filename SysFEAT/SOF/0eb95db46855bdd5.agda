@@ -5,6 +5,9 @@
 
 Model Lexical Scope: 
 A Model Lexical Scope is Block Lexical Scope for Model Building Blocks.It also adds the ability to nest Annotation Blocks.
+
+Documentation : https://framework.sysfeat.com/pages/0eb95db46855bdd5.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -28,7 +31,7 @@ st-0eb95e126855be7d = trivialPolySubTypeOfEntity
 
 {- Scoped Model Block: -}
 scopedModelBlock : ∀ {u v} →  Linkage (ModelLexicalScope u) (ModelBuildingBlock v)
-scopedModelBlock = make_nestingRelation "Scoped Model Block" "scopedModelBlock"
+scopedModelBlock = make_nestingRelation "Scoped Model Block" "Scoped Model Block"
 
 postulate -- scopedModelBlock is subTypeOf scopedBuildingBlock
   st-0eb96a306855c816-0eb946496854a02e  : ∀ {u v} → scopedModelBlock {u} {v}  ⊏⋆ᵣ  scopedBuildingBlock {u} {v}
@@ -37,14 +40,14 @@ postulate -- scopedModelBlock is subTypeOf scopedBuildingBlock
 Nesting of Annotation Blocks within a Model Lexical Scope.
 -}
 scopedAnnotationBlock : ∀ {u} →  Linkage (ModelLexicalScope u) AnnotationBlock
-scopedAnnotationBlock = make_nestingRelation "Scoped Annotation Block" "scopedAnnotationBlock"
+scopedAnnotationBlock = make_nestingRelation "Scoped Annotation Block" "Scoped Annotation Block"
 
 postulate -- scopedAnnotationBlock is subTypeOf scopedBuildingBlock
   st-0eb97bc46855ce52-0eb946496854a02e  : scopedAnnotationBlock {u}  ⊏⋆ᵣ  scopedBuildingBlock {u} {v}
 
 {- Nested Description Note: -}
 nestedDescriptionNote : ∀ {u} →  Linkage (ModelLexicalScope u) DescriptionNote
-nestedDescriptionNote = make_nestingRelation "Nested Description Note" "nestedDescriptionNote"
+nestedDescriptionNote = make_nestingRelation "Nested Description Note" "Nested Description Note"
 
 postulate -- nestedDescriptionNote is subTypeOf scopedAnnotationBlock
   st-3346bde868784e38-0eb97bc46855ce52  : nestedDescriptionNote {v}  ⊏⋆ᵣ  scopedAnnotationBlock {v}

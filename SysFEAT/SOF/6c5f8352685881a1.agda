@@ -5,6 +5,9 @@
 
 Information Dictionary: 
 An Information Dictionary is a Model Package of Information Blocks used to describe an information architecture. This includes:1. Information Domain which groups Information Entitys by unit knowlege required by an Agent to operate during Behavior execution.2. Information Entity which constitute resusable unit of information that can change over time.3. Concept Property which constitue immutable characteristics of Information Entitys.Concrete implementations of Model Packages are Business Dictionary, Logical Data Dictionary, etc.
+
+Documentation : https://framework.sysfeat.com/pages/6c5f8352685881a1.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -33,7 +36,7 @@ st-6c5f84dd6858864b = polySubTypeOf-identity
 The Imported Information Dictionary relationship extends the Information Lexical Scope of an Information Dictionary to Information Blocks of the imported Information Dictionary.
 -}
 importedInformationDictionary :  Linkage InformationDictionary InformationDictionary
-importedInformationDictionary = make_Relation "Imported Information Dictionary" "importedInformationDictionary"
+importedInformationDictionary = make_Relation "Imported Information Dictionary" "Imported Information Dictionary"
 
 postulate -- importedInformationDictionary is subTypeOf importedModelContainer
   st-0f64145168598226-0eb97ce26855cf57  : importedInformationDictionary   ⊏⋆ᵣ  importedModelContainer {lzero}

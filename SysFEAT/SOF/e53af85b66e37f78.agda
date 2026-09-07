@@ -5,6 +5,9 @@
 
 Environmental Property Type: 
 An Environmental Property Type is a characteristic of the environment in which an Enterprise or its sub-systems are required to operate.Examples:. Terrain Type: muddy, frozen ground, deep snow, etc;. Light conditions: broad daylight, dusk, moonlit, etc;. Weather condition: stormy, sunny, cloudy, etc;. Polical conditions: political stability, level of education;. Economical conditions: exchange rates, inflation rate.
+
+Documentation : https://framework.sysfeat.com/pages/e53af85b66e37f78.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -28,7 +31,7 @@ st-e53af86866e37fa2 = polySubTypeOf-identity
 The Environmental Condition Type that an Environmental Property Type belongs to.For instance,  Economic growth  belongs to the  Policital Factor  category. 
 -}
 environmentalConditionType : ∀ {u} →  Linkage EnvironmentalPropertyType (EnvironmentalConditionType u)
-environmentalConditionType = make_classOfRelation "Environmental Condition Type" "environmentalConditionType"
+environmentalConditionType = make_classOfRelation "Environmental Condition Type" "Environmental Condition Type"
 
 postulate -- environmentalConditionType is subTypeOf conditionCategory
   st-6f9c790e6a0f35b2-6f9c72c26a0f3238  : environmentalConditionType  {lsuc(lsuc(lzero))}  ⊏⋆ᵣ  conditionCategory  {lsuc(lsuc(lzero))}

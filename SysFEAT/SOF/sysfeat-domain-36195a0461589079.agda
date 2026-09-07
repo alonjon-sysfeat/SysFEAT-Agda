@@ -1,10 +1,13 @@
 ﻿{- ============================== 
-   Copyright (c) 2026 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
+   Copyright (c) 2025 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
    This work is released under the MIT License.
    framework.sysfeat.com
 
 Systemic Operating Ontology: 
 The Systemic Operating Ontology domain bundles sub-domains used to model how a system, including an enterprise, operates/functions in its environment.It includes Agent Types, Action Process Typees, interactions , Behavioral Rules, Capabilityies, Outcome Events, Information Assets and Directives.
+
+Documentation : https://framework.sysfeat.com/pages/36195a0461589079.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

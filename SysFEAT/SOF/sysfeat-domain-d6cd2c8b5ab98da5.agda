@@ -1,10 +1,13 @@
 ﻿{- ============================== 
-   Copyright (c) 2026 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
+   Copyright (c) 2025 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
    This work is released under the MIT License.
    framework.sysfeat.com
 
 Information Assets: 
 The Information Assets domain describes top level concepts used to describe information.
+
+Documentation : https://framework.sysfeat.com/pages/d6cd2c8b5ab98da5.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

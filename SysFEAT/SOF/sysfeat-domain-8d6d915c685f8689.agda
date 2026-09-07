@@ -1,9 +1,12 @@
 ﻿{- ============================== 
-   Copyright (c) 2026 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
+   Copyright (c) 2025 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
    This work is released under the MIT License.
    framework.sysfeat.com
 
 Information Packaging: 
+
+
+Documentation : https://framework.sysfeat.com/pages/8d6d915c685f8689.htm
 
  - ============================== -}
 

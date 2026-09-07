@@ -1,10 +1,15 @@
 ﻿{- ============================== 
-   Copyright (c) 2026 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
+   Copyright (c) 2025 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
    This work is released under the MIT License.
    framework.sysfeat.com
 
 Policies: 
 The Policies domain defines  Directives and Behavioral Rules that constrain enterprise structures (Agent Types structure) and Behavior Types.
+
+Documentation : https://framework.sysfeat.com/pages/02f70fdc600f4179.htm
+
+External references:
+  OMG - BMM - Directive: https://www.omg.org/spec/BMM/1.3/PDF#page=41
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

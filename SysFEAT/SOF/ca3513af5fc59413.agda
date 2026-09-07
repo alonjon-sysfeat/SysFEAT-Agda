@@ -5,6 +5,9 @@
 
 Environment Interaction Process Type: 
 An Environment Interaction Process Type is a story that describes how an Agent Type interacts with its partners (Partner Agent) to achieve Outcome Events in a specific Operating Eco-System (Agent Type Environment).This includes:1) A course of events represented by Object Flows depicting the succession of intermediate Outcome Events towards the production and consumption of final Outcome Events.2) Interacting partners who participate to the story in the considered Operating Eco-System.
+
+Documentation : https://framework.sysfeat.com/pages/ca3513af5fc59413.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

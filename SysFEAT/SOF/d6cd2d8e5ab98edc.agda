@@ -5,6 +5,9 @@
 
 Information Map: 
 An Information Map is a Operating Property Map that is the top level grouping of Information Domains. Information Maps are used to provide navigationtop level entry points for Information Dictionary(ies) and to scope data management initiatives at the level of portfolio management ( Data Catalog), at the project level or at the Enterprise level (Enterprise Concept Map).
+
+Documentation : https://framework.sysfeat.com/pages/d6cd2d8e5ab98edc.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

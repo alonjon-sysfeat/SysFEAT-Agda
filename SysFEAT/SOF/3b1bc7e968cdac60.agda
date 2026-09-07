@@ -5,6 +5,9 @@
 
 Measurement Value: 
 A Measurement Value is the value of Measure Property Type that result from a Measurement, at specific point in time in the context of a Key Indicator.A Measurement Value is always nested by its Measurement.
+
+Documentation : https://framework.sysfeat.com/pages/3b1bc7e968cdac60.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -26,7 +29,7 @@ st-3b1bc87f68cdaf0c = polySubTypeOf-identity
 
 {- Measured Property Type: -}
 measuredPropertyType :  Linkage MeasurementValue MeasurePropertyType
-measuredPropertyType = make_instanceOf "Measured Property Type" "measuredPropertyType"
+measuredPropertyType = make_instanceOf "Measured Property Type" "Measured Property Type"
 
 postulate -- measuredPropertyType is subTypeOf measurePropertyType
   st-3b1bc80968cdad31-21ed59d8689c1a21  : measuredPropertyType   ⊏⋆ᵣ  measurePropertyType 

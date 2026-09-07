@@ -5,6 +5,12 @@
 
 Individual Agent: 
 An Individual Agent is an Individual Operating Asset that exists in space/time and that is able to participate actively to Action Process Typees and/or to conduct Action Process Typees.
+
+Documentation : https://framework.sysfeat.com/pages/9e3837e46192fcad.htm
+
+External references:
+  OpenGroup - ArchiMate - Internal Active Structure Element: https://pubs.opengroup.org/architecture/archimate32-doc/ch-Generic-Metamodel.html#sec-Active-Structure-Elements
+  OMG - KerML - Object: https://www.omg.org/spec/KerML/1.0/PDF#page=338
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

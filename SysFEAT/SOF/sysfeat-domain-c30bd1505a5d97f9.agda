@@ -5,6 +5,11 @@
 
 Architecture Assets: 
 The Architecture Assets domain defines top level constructs used in enterprise architecting: Asset Types, Asset Category(ies), Asset Property(ies).
+
+Documentation : https://framework.sysfeat.com/pages/c30bd1505a5d97f9.htm
+
+External references:
+  OpenGroup - TOGAF - Architecture Building Blocks: https://pubs.opengroup.org/togaf-standard/architecture-content/chap04.html#tag_04_02_01
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

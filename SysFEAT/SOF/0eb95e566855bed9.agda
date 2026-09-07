@@ -5,6 +5,9 @@
 
 Model Building Block: 
 A Model Building Block is a Building Block used to represent aspects of the reality. It comprises:-  Asset Blocks are used to describe the how the enterprise and its systems operate (function) is their eco-systems.-  Initiatives are used to manage enterprise and systems functional transformations, as well as assurance objectives and activities.-  Governance Instruments are used to ensure that these objectives and activities are understood and fulfilled.
+
+Documentation : https://framework.sysfeat.com/pages/0eb95e566855bed9.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

@@ -5,6 +5,11 @@
 
 Resolution: 
 A Resolution is time bound Appraisal, agreed upon by Stakeholders to guide what can or cannot be done regarding a specific Functional Asset.
+
+Documentation : https://framework.sysfeat.com/pages/e073f9c161d2104a.htm
+
+External references:
+  WordNet - Resolution: https://en-word.net/ili/i70681
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -27,14 +32,14 @@ st-e073f9f261d210ca = polySubTypeOf-identity
 
 {- Concerned Asset: -}
 concernedAsset : ∀ {u} →  Linkage Resolution (AssetBlock u)
-concernedAsset = make_Relation "Concerned Asset" "concernedAsset"
+concernedAsset = make_Relation "Concerned Asset" "Concerned Asset"
 
 postulate -- concernedAsset is subTypeOf appraisedAsset
   st-0f642afd6859a59f-6bf17d4e68598487  : concernedAsset  {lzero}  ⊏⋆ᵣ  appraisedAsset  {lzero}
 
 {- Selected Resolution Option: -}
 selectedResolutionOption :  Linkage Resolution ResolutionOutcome
-selectedResolutionOption = make_instanceOf "Selected Resolution Option" "selectedResolutionOption"
+selectedResolutionOption = make_instanceOf "Selected Resolution Option" "Selected Resolution Option"
 
 postulate -- selectedResolutionOption is subTypeOf selectedAppraisalOption
   st-97e09b4468dd6aca-6662932568dd6161  : selectedResolutionOption   ⊏⋆ᵣ  selectedAppraisalOption 

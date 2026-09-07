@@ -5,6 +5,9 @@
 
 Architecture Block Collection: 
 An Architecture Block Collection is a collection of Asset Blocks usually created for model management purposes, such as validating or sharing a set of Asset Blocks.
+
+Documentation : https://framework.sysfeat.com/pages/0eb960766855c180.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -32,7 +35,7 @@ st-fbc4fc366a5d64c8 = polySubTypeOf-identity
 
 {- Grouped Architecture Block: -}
 groupedArchitectureBlock : ∀ {u} →  Linkage ArchitectureBlockCollection (AssetBlock u)
-groupedArchitectureBlock = make_Relation "Grouped Architecture Block" "groupedArchitectureBlock"
+groupedArchitectureBlock = make_Relation "Grouped Architecture Block" "Grouped Architecture Block"
 
 postulate -- groupedArchitectureBlock is subTypeOf groupedBuildingBlock
   st-0eb964546855c2dc-23d5c4b66851421c  : groupedArchitectureBlock  {lzero}  {lzero}  ⊏⋆ᵣ  groupedBuildingBlock {lzero} {lzero}

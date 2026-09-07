@@ -5,6 +5,13 @@
 
 Operating Eco-System: 
 An Operating Eco-System is an Operating Context in which an Agent Type exists or lives for a specific purpose, interacting with partners.For instance, the operating context of an enterprise includes its customers and suppliers.
+
+Documentation : https://framework.sysfeat.com/pages/ca35f48a5fc48686.htm
+
+External references:
+  OMG - UAF - Architecture: https://www.omg.org/spec/UAF/1.2/Beta1/DMM/PDF#Architecture
+  Russell Ackoff - System of Concepts - Environment of a system: ../resources/external-references/Ackoff-1971-Towards-a-system-of-systems-concepts.pdf#EnvironmentOfaSystem
+  OpenGroup - OAA - Ecosystem: https://pubs.opengroup.org/architecture/o-aa-standard/definitions.html#ecosystem
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

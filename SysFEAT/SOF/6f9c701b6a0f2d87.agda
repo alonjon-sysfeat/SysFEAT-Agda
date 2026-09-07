@@ -5,6 +5,9 @@
 
 Measurement Type: 
 A Measurement Type is a class of  measurement.Example: Performance, Security, Cost.It is used to group Measure Property Type(ies) by domain of concerns represented by Family of Measurements.
+
+Documentation : https://framework.sysfeat.com/pages/6f9c701b6a0f2d87.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

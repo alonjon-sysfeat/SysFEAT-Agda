@@ -5,6 +5,12 @@
 
 Annotation Block: 
 An Annotation Block is a Building Block used to provide additional characteristics such as Documentations,Examples: Description Notes .Tags.
+
+Documentation : https://framework.sysfeat.com/pages/0eb97ada6855ccb4.htm
+
+External references:
+  OMG - KerML - AnnotatingElement: https://www.omg.org/spec/KerML/1.0/PDF#page=252
+  WordNet - Annotation: https://en-word.net/ili/i72033
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -32,7 +38,7 @@ st-da29e2ed69d4782b = polySubTypeOf-identity
 
 {- Annoted Element: -}
 annotedElement : ∀ {u} →  Linkage AnnotationBlock (Element u)
-annotedElement = make_Relation "Annoted Element" "annotedElement"
+annotedElement = make_Relation "Annoted Element" "Annoted Element"
 
 postulate -- annotedElement is subTypeOf referenceRelation
   st-3346b23668784855-23d5398f68511bc1  : annotedElement  {lzero}  ⊏⋆ᵣ  referenceRelation {lzero} {lzero}

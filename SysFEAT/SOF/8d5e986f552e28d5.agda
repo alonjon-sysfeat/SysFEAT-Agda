@@ -5,6 +5,12 @@
 
 Location: 
 A Location is a geopolitical location anywhere on the earth.Examples: - France- Paris- Washington DC- Cairo- Buenos-Aires- Asia
+
+Documentation : https://framework.sysfeat.com/pages/8d5e986f552e28d5.htm
+
+External references:
+  ISO 15926 - SpatialLocation: https://15926.blog/topics/data-model/index.htm#SpatialLocation
+  OMG - UAF - ActualLocation: https://www.omg.org/spec/UAF/1.2/Beta1/DMM/PDF#ActualLocation
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -26,7 +32,7 @@ st-a44f94366748aa53 = polySubTypeOf-identity
 
 {- Sub-Site: -}
 subSite :  Linkage Location Location
-subSite = make_holonymyRelation "Sub-Site" "subSite"
+subSite = make_holonymyRelation "Sub-Site" "Sub-Site"
 
 postulate -- subSite is subTypeOf meronymyRelation
   st-d308d7165a2f67e3-4aeab6186964fd66  : subSite   ⊏⋆ᵣ  meronymyRelation 

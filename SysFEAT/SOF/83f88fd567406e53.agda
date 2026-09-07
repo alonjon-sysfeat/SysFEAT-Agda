@@ -5,6 +5,9 @@
 
 Asset Property Type: 
 An Asset Property Type is a classification of Asset Propertys.
+
+Documentation : https://framework.sysfeat.com/pages/83f88fd567406e53.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

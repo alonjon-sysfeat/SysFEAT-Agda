@@ -5,6 +5,13 @@
 
 Stakeholder: 
 A Stakeholder is an individual, team, organization, or classes thereof, having an interest in an Initiative.Stakeholders have concerns with respect to the Initiative considered in relation to its environment.
+
+Documentation : https://framework.sysfeat.com/pages/bcebd0175491272a.htm
+
+External references:
+  OMG - UAF - Stakeholder: https://www.omg.org/spec/UAF/1.2/Beta1/DMM/PDF#Stakeholder
+  OpenGroup - TOGAF - Definitions - Stakeholder: https://pubs.opengroup.org/togaf-standard/introduction/chap04.html#tag_04_75
+  ISO 42010 - Terms - 3.10 - Stakeholder: https://www.iso.org/obp/ui/#iso:std:iso-iec-ieee:42010:ed-2:v1:enStakeholder
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

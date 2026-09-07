@@ -4,7 +4,10 @@
    framework.sysfeat.com
 
 Governance Property: 
-A Governance Property is a Class of Property used to measure Asset Blocks during governance activities.
+A Governance Property is a Property used to measure Asset Blocks during governance activities.
+
+Documentation : https://framework.sysfeat.com/pages/66628bbe68dd5bef.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -12,15 +15,15 @@ A Governance Property is a Class of Property used to measure Asset Blocks during
 module SysFEAT.SOF.66628bbe68dd5bef where -- ========== Governance Property
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.746ac18368905aa2 public -- Class of Property
+open import SysFEAT.UpperOntology.746ac18368905aa2 public -- Property
 open import SysFEAT.SOF.6662916b68dd5f84 public -- Governance Instrument
 open import SysFEAT.SOF.83f8933a67407206 public -- Governance Property Type
 
 GovernanceProperty : PropertyType
 GovernanceProperty = ClassOfProperty
 
---  GovernanceProperty is subTypeOf ClassOfProperty
-st-83f88e3867406bce : GovernanceProperty ⊏ₑ ClassOfProperty
+--  GovernanceProperty is subTypeOf Property
+st-83f88e3867406bce : GovernanceProperty ⊏ₑ Property
 st-83f88e3867406bce = polySubTypeOf-identity
 
 --  GovernanceProperty withAspect GovernanceInstrument
@@ -31,7 +34,7 @@ st-83f88e5f67406c0f = polySubTypeOf-identity
 
 {- Governance Property Type: -}
 governancePropertyType :  Linkage GovernanceProperty GovernancePropertyType
-governancePropertyType = make_instanceOf "Governance Property Type" "governancePropertyType"
+governancePropertyType = make_instanceOf "Governance Property Type" "Governance Property Type"
 
 postulate -- governancePropertyType is subTypeOf propertyClassification
   st-666293d768dd6238-1976247d68925c3e  : governancePropertyType   ⊏⋆ᵣ  propertyClassification 

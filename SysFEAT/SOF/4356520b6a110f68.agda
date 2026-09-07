@@ -5,6 +5,9 @@
 
 Data Category: 
 A Data Category is a classification or division of Information Assets regarded as having particular shared characteristics.Examples:. Health data, . Financial data, . Contact data.
+
+Documentation : https://framework.sysfeat.com/pages/4356520b6a110f68.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
