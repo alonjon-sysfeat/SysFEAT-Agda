@@ -5,7 +5,7 @@
 
 First Order Entity: 
 A First Order Entity is a kind of Ordered Entity that is not itself a class (Class of Entity): it cannot have instances. 
-The  First Order Entity  class is the powerinstance of First Order Class.  
+The First Order Entity class is the powerinstance of First Order Class.  
 First Order Entitys are the most common type of entities.The word  Individual  is sometimes used to designate particulars. 
 In SysFEAT, the term Individual is reserved for particulars that have a spatio-temporal extent.
 Examples:
