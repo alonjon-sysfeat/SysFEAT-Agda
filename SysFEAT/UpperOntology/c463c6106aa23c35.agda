@@ -15,7 +15,7 @@ open import Agda.Primitive
 open import SysFEAT.UpperOntology.20702bc568e969f4 public -- Class of Entity and Relation
 open import SysFEAT.UpperOntology.e27801e868f17024 public -- MetaClass et MetaRelation (M2)
 open import SysFEAT.UpperOntology.7d35645c68f37329 public -- Class of Ordered Entity
-open import SysFEAT.UpperOntology.a599a7E46aa370fb public -- Second Order Class
+open import SysFEAT.UpperOntology.a599a7e46aa370fb public -- Second Order Class
 
 -- ============================================================
 -- I. First Order Class (M1 level)
