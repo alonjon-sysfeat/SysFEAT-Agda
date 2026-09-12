@@ -5,6 +5,9 @@
 
 Capability Map: 
 Top level assembly of Capabilitys and their dependencies which, together, provide a scope of added value (Outcome Events) pursued by Operational Transformations.
+
+Documentation : https://framework.sysfeat.com/pages/01f12127689b6de2.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,11 +22,13 @@ open import SysFEAT.SOF.515c13db68953887 public -- Capability
 CapabilityMap : PropertyType
 CapabilityMap = ClassOfProperty
 
-postulate --  CapabilityMap withAspect MetaFamilyOfClass
-  st-299e33c5684864b3 : CapabilityMap ⊏ₐₑ (MetaFamilyOfClass (lsuc(lzero)))
+--  CapabilityMap withAspect MetaFamilyOfClass
+st-299e33c5684864b3 : CapabilityMap ⊏ₐₑ (MetaFamilyOfClass (lsuc(lzero)))
+st-299e33c5684864b3 = polySubTypeOf-identity
 
-postulate --  CapabilityMap withAspect UnboundedAggregate
-  st-299e556b6848808c : CapabilityMap ⊏ₐₑ (UnboundedAggregate (lsuc(lzero)))
+--  CapabilityMap withAspect UnboundedAggregate
+st-299e556b6848808c : CapabilityMap ⊏ₐₑ (UnboundedAggregate (lsuc(lzero)))
+st-299e556b6848808c = polySubTypeOf-identity
 
 -- == Relationships =======================
 

@@ -5,6 +5,9 @@
 
 Model Property Block: 
 A Model Property Block is a Building Block used to provide classification and qualification of Model Building Blocks.For instance, Tags are used for classification. Condition Value are used for qualification or quantification.
+
+Documentation : https://framework.sysfeat.com/pages/0eb97aff6855cd23.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -17,7 +20,8 @@ open import SysFEAT.UpperOntology.23d5a9ea68513ced public -- Building Block
 ModelPropertyBlock : ∀ (u : Level) → ClassOfMixedOrderEntity u
 ModelPropertyBlock u = MixedOrderEntity u
 
-postulate --  ModelPropertyBlock is subTypeOf BuildingBlock
-  st-0eb97b056855cd4d : ∀ {u v} → (ModelPropertyBlock u) ⊏⋆ₑ (BuildingBlock v)
+--  ModelPropertyBlock is subTypeOf BuildingBlock
+st-0eb97b056855cd4d : ∀ {u v} → (ModelPropertyBlock u) ⊏⋆ₑ (BuildingBlock v)
+st-0eb97b056855cd4d = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

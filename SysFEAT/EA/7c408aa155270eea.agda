@@ -19,8 +19,9 @@ open import SysFEAT.EA.076d151c5a5e1561 public -- Organizational Position
 DepartmentType : ClassOfClassOfBoundedIndividual
 DepartmentType = ClassOfBoundedIndividual
 
-postulate --  DepartmentType is subTypeOf OrgUnitType
-  st-076d15eb5a5e173f : DepartmentType ⊏ₑ OrgUnitType
+--  DepartmentType is subTypeOf OrgUnitType
+st-076d15eb5a5e173f : DepartmentType ⊏ₑ OrgUnitType
+st-076d15eb5a5e173f = polySubTypeOf-identity
 
 -- == Relationships =======================
 

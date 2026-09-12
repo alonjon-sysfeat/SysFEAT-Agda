@@ -23,11 +23,13 @@ open import SysFEAT.EA.203b8ff05a5f43fe public -- Concept Domain
 ValueStream : ClassOfClassOfBoundedIndividual
 ValueStream = ClassOfBoundedIndividual
 
-postulate --  ValueStream is subTypeOf ConceptualBehavior
-  st-f97e3c7f632b30d6 : ValueStream ⊏ₑ ConceptualBehavior
+--  ValueStream is subTypeOf ConceptualBehavior
+st-f97e3c7f632b30d6 : ValueStream ⊏ₑ ConceptualBehavior
+st-f97e3c7f632b30d6 = polySubTypeOf-identity
 
-postulate --  ValueStream is subTypeOf ActionProcessType
-  st-21919d4d678660cd : ValueStream ⊏ₑ ActionProcessType
+--  ValueStream is subTypeOf ActionProcessType
+st-21919d4d678660cd : ValueStream ⊏ₑ ActionProcessType
+st-21919d4d678660cd = polySubTypeOf-identity
 
 -- == Relationships =======================
 

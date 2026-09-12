@@ -5,6 +5,11 @@
 
 Interaction Process Type: 
 An Interaction Process Type is a story (Behavior Type) that describes how the components of an Agent Type interacts to produce and consume Outcome Events.This includes:1) A course of events represented by Object Flows depicting the succesion of  intermediate Outcome Events towards the production of the final Outcome Events.2) Interacting Agent Types who participate to the story.
+
+Documentation : https://framework.sysfeat.com/pages/333f35ee5dde0c8c.htm
+
+External references:
+  OMG - UAF - InteractionScenario: https://www.omg.org/spec/UAF/1.2/Beta1/DMM/PDF#InteractionScenario
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,21 +24,22 @@ open import SysFEAT.SOF.79368381561716a6 public -- Agent Type
 InteractionProcessType : ClassOfClassOfBoundedIndividual
 InteractionProcessType = ClassOfBoundedIndividual
 
-postulate --  InteractionProcessType is subTypeOf BehaviorType
-  st-ca35f4485fc4863d : InteractionProcessType ⊏ₑ BehaviorType
+--  InteractionProcessType is subTypeOf BehaviorType
+st-ca35f4485fc4863d : InteractionProcessType ⊏ₑ BehaviorType
+st-ca35f4485fc4863d = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Specialized Scenario: -}
 specializedScenario :  Linkage InteractionProcessType InteractionProcessType
-specializedScenario = make_subTypeOf "Specialized Scenario" "specializedScenario"
+specializedScenario = make_subTypeOf "Specialized Scenario" "Specialized Scenario"
 
 postulate -- specializedScenario is subTypeOf specializedBehavior
   st-325a373a66f33d61-2b5b452d66ed5855  : specializedScenario   ⊏⋆ᵣ  specializedBehavior 
 
 {- Realized Scenario: -}
 realizedScenario :  Linkage InteractionProcessType InteractionProcessType
-realizedScenario = make_subTypeOf "Realized Scenario" "realizedScenario"
+realizedScenario = make_subTypeOf "Realized Scenario" "Realized Scenario"
 
 postulate -- realizedScenario is subTypeOf realizedBehavior
   st-325a3a0e66f356d7-2b5b45a466ed5920  : realizedScenario   ⊏⋆ᵣ  realizedBehavior 

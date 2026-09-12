@@ -17,7 +17,8 @@ open import SysFEAT.EA.e2ef091962147ad7 public -- Resource Agent Type
 Artifact : ClassOfClassOfBoundedIndividual
 Artifact = ClassOfBoundedIndividual
 
-postulate --  Artifact is subTypeOf ResourceAgentType
-  st-ffdf607b68608649 : Artifact ⊏ₑ ResourceAgentType
+--  Artifact is subTypeOf ResourceAgentType
+st-ffdf607b68608649 : Artifact ⊏ₑ ResourceAgentType
+st-ffdf607b68608649 = polySubTypeOf-identity
 
 -- == Relationships =======================

@@ -5,6 +5,9 @@
 
 Initiative Milestone: 
 An Initiative Milestone is a calendar change that marks the end of an Initiative and possibly the beginning of another.
+
+Documentation : https://framework.sysfeat.com/pages/08570d835ed129a3.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,10 +21,12 @@ open import SysFEAT.SOF.01ce05f9685979d8 public -- Initiative Block
 InitiativeMilestone : ClassOfIndividual
 InitiativeMilestone = Individual
 
-postulate --  InitiativeMilestone is subTypeOf TemporalBounding
-  st-1c6a1fcc6684755f : InitiativeMilestone ⊏ₑ TemporalBounding
+--  InitiativeMilestone is subTypeOf TemporalBounding
+st-1c6a1fcc6684755f : InitiativeMilestone ⊏ₑ TemporalBounding
+st-1c6a1fcc6684755f = polySubTypeOf-identity
 
-postulate --  InitiativeMilestone withAspect InitiativeBlock
-  st-a7ecac1b645bf89b : InitiativeMilestone ⊏ₐₑ (InitiativeBlock lzero)
+--  InitiativeMilestone withAspect InitiativeBlock
+st-a7ecac1b645bf89b : InitiativeMilestone ⊏ₐₑ (InitiativeBlock lzero)
+st-a7ecac1b645bf89b = polySubTypeOf-identity
 
 -- == Relationships =======================

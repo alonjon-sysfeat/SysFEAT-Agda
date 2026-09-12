@@ -5,6 +5,9 @@
 
 Initiative Block: 
 An Initiative Block is a Model Building Block used to describe enterprise transformation and sustainability Initiatives.
+
+Documentation : https://framework.sysfeat.com/pages/01ce05f9685979d8.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -17,7 +20,8 @@ open import SysFEAT.SOF.0eb95e566855bed9 public -- Model Building Block
 InitiativeBlock : ∀ (u : Level) → ClassOfMixedOrderEntity u
 InitiativeBlock u = MixedOrderEntity u
 
-postulate --  InitiativeBlock is subTypeOf ModelBuildingBlock
-  st-01ce061b68597a3a : ∀ {u v} → (InitiativeBlock u) ⊏⋆ₑ (ModelBuildingBlock v)
+--  InitiativeBlock is subTypeOf ModelBuildingBlock
+st-01ce061b68597a3a : ∀ {u v} → (InitiativeBlock u) ⊏⋆ₑ (ModelBuildingBlock v)
+st-01ce061b68597a3a = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

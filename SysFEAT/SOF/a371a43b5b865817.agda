@@ -5,6 +5,11 @@
 
 Operating Asset Type: 
 An Operating Asset Type is a Functional Asset that describes the way Outcome Events are produced and consumed: how (Behavior Types) and by whom (Agent Types).Operating Asset Types fulfill Capability(ies) (Fulfilled Capability).As any Functional Architecture Asset, Operating Asset Types are subject to Policy Conformances. In addition, they define Rule Enforcements to indicate how Policy Conformances are met.
+
+Documentation : https://framework.sysfeat.com/pages/a371a43b5b865817.htm
+
+External references:
+  OMG - KerML - Class: https://www.omg.org/spec/KerML/1.0/PDF#page=67
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,17 +25,19 @@ open import SysFEAT.SOF.190c74f868966584 public -- Behavioral Rule
 OperatingAssetType : ClassOfClassOfBoundedIndividual
 OperatingAssetType = ClassOfBoundedIndividual
 
-postulate --  OperatingAssetType is subTypeOf FunctionalAsset
-  st-43ee7c9663725e73 : OperatingAssetType ⊏ₑ FunctionalAsset
+--  OperatingAssetType is subTypeOf FunctionalAsset
+st-43ee7c9663725e73 : OperatingAssetType ⊏ₑ FunctionalAsset
+st-43ee7c9663725e73 = polySubTypeOf-identity
 
-postulate --  OperatingAssetType withAspect OperatingAsset
-  st-9397bd8568778340 : OperatingAssetType ⊏ₐₑ (OperatingAsset (lsuc(lzero)))
+--  OperatingAssetType withAspect OperatingAsset
+st-9397bd8568778340 : OperatingAssetType ⊏ₐₑ (OperatingAsset (lsuc(lzero)))
+st-9397bd8568778340 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Specialized Operating Asset: -}
 specializedOperatingAsset :  Linkage OperatingAssetType OperatingAssetType
-specializedOperatingAsset = make_subTypeOf "Specialized Operating Asset" "specializedOperatingAsset"
+specializedOperatingAsset = make_subTypeOf "Specialized Operating Asset" "Specialized Operating Asset"
 
 postulate -- specializedOperatingAsset is subTypeOf specializedFunctionalAsset
   st-6a70772167873276-6a7076d2678731e2  : specializedOperatingAsset   ⊏⋆ᵣ  specializedFunctionalAsset 
@@ -39,7 +46,7 @@ postulate -- specializedOperatingAsset is subTypeOf specializedClassOfBoundedInd
 
 {- Realized Operating Asset: -}
 realizedOperatingAsset :  Linkage OperatingAssetType OperatingAssetType
-realizedOperatingAsset = make_subTypeOf "Realized Operating Asset" "realizedOperatingAsset"
+realizedOperatingAsset = make_subTypeOf "Realized Operating Asset" "Realized Operating Asset"
 
 postulate -- realizedOperatingAsset is subTypeOf realizedFunctionalAsset
   st-7dc193da6849536c-7dc1907b684951ae  : realizedOperatingAsset   ⊏⋆ᵣ  realizedFunctionalAsset 
@@ -48,7 +55,7 @@ postulate -- realizedOperatingAsset is subTypeOf realizedFunctionalAsset
 Capability(ies) fulfilled by an Agent Type and its Behavior Types.
 -}
 fulfilledCapability :  Linkage OperatingAssetType Capability
-fulfilledCapability = make_subTypeOf "Fulfilled Capability" "fulfilledCapability"
+fulfilledCapability = make_subTypeOf "Fulfilled Capability" "Fulfilled Capability"
 
 postulate -- fulfilledCapability is subTypeOf assetTypeQualification
   st-190c72c368966198-190c1f3b68964a27  : fulfilledCapability   ⊏⋆ᵣ  assetTypeQualification 

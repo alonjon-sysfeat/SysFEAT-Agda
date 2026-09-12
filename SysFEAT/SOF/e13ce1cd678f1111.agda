@@ -5,6 +5,9 @@
 
 Whole Life Asset Type: 
 A Whole Life Asset Type is an Asset Type that is not the temporal slice type of any other Asset Type. Examples:. A type of building such as a skycraper.. A type of person such as a philosopher.. A type of activity such as a volcanic eruption.. A type of facility such as a Hospital.
+
+Documentation : https://framework.sysfeat.com/pages/e13ce1cd678f1111.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,10 +21,12 @@ open import SysFEAT.UpperOntology.00ae5d3b667038fc public -- Whole Life Class
 WholeLifeAssetType : ClassOfClassOfBoundedIndividual
 WholeLifeAssetType = ClassOfBoundedIndividual
 
-postulate --  WholeLifeAssetType is subTypeOf AssetType
-  st-e13ce3b4678f1471 : WholeLifeAssetType ⊏ₑ AssetType
+--  WholeLifeAssetType is subTypeOf AssetType
+st-e13ce3b4678f1471 : WholeLifeAssetType ⊏ₑ AssetType
+st-e13ce3b4678f1471 = polySubTypeOf-identity
 
-postulate --  WholeLifeAssetType is subTypeOf WholeLifeClass
-  st-e13ce24c678f11ba : WholeLifeAssetType ⊏ₑ WholeLifeClass
+--  WholeLifeAssetType is subTypeOf WholeLifeClass
+st-e13ce24c678f11ba : WholeLifeAssetType ⊏ₑ WholeLifeClass
+st-e13ce24c678f11ba = polySubTypeOf-identity
 
 -- == Relationships =======================

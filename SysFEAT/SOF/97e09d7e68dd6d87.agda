@@ -5,6 +5,9 @@
 
 Architecture Decision Outcome: 
 An Architecture Decision Outcome is a Decision Outcome  that can apply to any kind of Functional Asset as the result of an Architecture Decision process.Example:An architecture decision regarding invesments on an enterprise asset can have the possible Architecture Decision Outcome: eliminate, invest, migrate, tolerate.
+
+Documentation : https://framework.sysfeat.com/pages/97e09d7e68dd6d87.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,14 +21,15 @@ open import SysFEAT.SOF.366c4dbc675c2776 public -- Architecture Decision Type
 ArchitectureDecisionOutcome : PropertyType
 ArchitectureDecisionOutcome = ClassOfProperty
 
-postulate --  ArchitectureDecisionOutcome is subTypeOf DecisionOutcome
-  st-366c4cff675c24ca : ArchitectureDecisionOutcome ⊏ₑ DecisionOutcome
+--  ArchitectureDecisionOutcome is subTypeOf DecisionOutcome
+st-366c4cff675c24ca : ArchitectureDecisionOutcome ⊏ₑ DecisionOutcome
+st-366c4cff675c24ca = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Architecture Decision Type: -}
 architectureDecisionType :  Linkage ArchitectureDecisionOutcome ArchitectureDecisionType
-architectureDecisionType = make_instanceOf "Architecture Decision Type" "architectureDecisionType"
+architectureDecisionType = make_instanceOf "Architecture Decision Type" "Architecture Decision Type"
 
 postulate -- architectureDecisionType is subTypeOf decisionType
   st-97e0a05268dd7053-97e09d2068dd6cd0  : architectureDecisionType   ⊏⋆ᵣ  decisionType 

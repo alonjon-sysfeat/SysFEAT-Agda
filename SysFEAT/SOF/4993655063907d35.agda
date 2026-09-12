@@ -5,6 +5,9 @@
 
 Review Note: 
 Review Note is a comment used by a Stakeholder  to annotate Repository objects.Review Notes are the bases to follow a conversation between Stakeholder on a dedicated object.
+
+Documentation : https://framework.sysfeat.com/pages/4993655063907d35.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -17,7 +20,8 @@ open import SysFEAT.SOF.1737b50b5fe27cba public -- Governance Event
 ReviewNote : ClassOfBoundedIndividual
 ReviewNote = BoundedIndividual
 
-postulate --  ReviewNote is subTypeOf GovernanceEvent
-  st-4993655963907d7a : ReviewNote ⊏ₑ GovernanceEvent
+--  ReviewNote is subTypeOf GovernanceEvent
+st-4993655963907d7a : ReviewNote ⊏ₑ GovernanceEvent
+st-4993655963907d7a = polySubTypeOf-identity
 
 -- == Relationships =======================

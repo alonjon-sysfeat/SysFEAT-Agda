@@ -5,6 +5,9 @@
 
 Key Indicator: 
 A Key Indicator is a collection of Measurement of Architecture Property regarding the valuation, over time, of a Measure Property Type that qualifies a specific Asset Block.
+
+Documentation : https://framework.sysfeat.com/pages/8f46e8eb64b7719a.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,8 +22,9 @@ open import SysFEAT.SOF.3b1bc7e968cdac60 public -- Measurement Value
 KeyIndicator : ClassOfBoundedIndividual
 KeyIndicator = BoundedIndividual
 
-postulate --  KeyIndicator is subTypeOf MeasurementInstrument
-  st-8f46e90164b771f3 : KeyIndicator ⊏ₑ MeasurementInstrument
+--  KeyIndicator is subTypeOf MeasurementInstrument
+st-8f46e90164b771f3 : KeyIndicator ⊏ₑ MeasurementInstrument
+st-8f46e90164b771f3 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -28,7 +32,7 @@ postulate --  KeyIndicator is subTypeOf MeasurementInstrument
 The Asset Block that is the subject of a measurement.
 -}
 measuredAsset : ∀ {u} →  Linkage KeyIndicator (AssetBlock u)
-measuredAsset = make_Relation "Measured Asset" "measuredAsset"
+measuredAsset = make_Relation "Measured Asset" "Measured Asset"
 
 postulate -- measuredAsset is subTypeOf holonymyRelation
   st-6bf1872268599564-c2f2c6ce66e90be7  : measuredAsset  {lzero}  ⊏⋆ᵣ  holonymyRelation 

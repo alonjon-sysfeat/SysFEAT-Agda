@@ -5,6 +5,9 @@
 
 Tag: 
 A Tag is a general classification description which permits non formal characterization of Entitys.All Entitys can be tagged.
+
+Documentation : https://framework.sysfeat.com/pages/3346c3266878522f.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,17 +23,19 @@ Tag : FirstOrderClass
 Tag = FirstOrderEntity
 
 
-postulate --  Tag withAspect ElementaryBlock
-  st-fb5907d669445d73 : Tag ⊏ₐₑ (ElementaryBlock lzero)
+--  Tag withAspect ElementaryBlock
+st-fb5907d669445d73 : Tag ⊏ₐₑ (ElementaryBlock lzero)
+st-fb5907d669445d73 = polySubTypeOf-identity
 
-postulate --  Tag is subTypeOf AnnotationBlock
-  st-3346c34068785295 : Tag ⊏ₑ AnnotationBlock
+--  Tag is subTypeOf AnnotationBlock
+st-3346c34068785295 : Tag ⊏ₑ AnnotationBlock
+st-3346c34068785295 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Tagged Element: -}
 taggedElement : ∀ {u} →  Linkage Tag (Entity u)
-taggedElement = make_Relation "Tagged Element" "taggedElement"
+taggedElement = make_Relation "Tagged Element" "Tagged Element"
 
 postulate -- taggedElement is subTypeOf annotedElement
   st-3346c41a6878530e-3346b23668784855  : taggedElement  {lzero}  ⊏⋆ᵣ  annotedElement  {lzero}

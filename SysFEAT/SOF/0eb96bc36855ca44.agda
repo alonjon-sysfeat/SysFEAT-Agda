@@ -5,6 +5,12 @@
 
 Model Package: 
 
+
+Documentation : https://framework.sysfeat.com/pages/0eb96bc36855ca44.htm
+
+External references:
+  OMG - UML - Package: https://www.omg.org/spec/UML/2.5.1/PDF#page=283
+  OMG - KerML - LibraryPackage: https://www.omg.org/spec/KerML/1.0/PDF#page=238
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,17 +25,21 @@ ModelPackage : FirstOrderClass
 ModelPackage = FirstOrderEntity
 
 
-postulate --  ModelPackage withAspect ModelContainer
-  st-0eb96bc96855ca70 : ModelPackage ⊏ₐₑ (ModelContainer lzero)
+--  ModelPackage withAspect ModelContainer
+st-0eb96bc96855ca70 : ModelPackage ⊏ₐₑ (ModelContainer lzero)
+st-0eb96bc96855ca70 = polySubTypeOf-identity
 
-postulate --  ModelPackage is subTypeOf ContainerPackage
-  st-3346ae766878462c : ModelPackage ⊏ₑ ContainerPackage
+--  ModelPackage is subTypeOf ContainerPackage
+st-3346ae766878462c : ModelPackage ⊏ₑ ContainerPackage
+st-3346ae766878462c = polySubTypeOf-identity
 
 -- == Relationships =======================
 
-{- Sub Model Package: -}
-subModelPackage :  Linkage ModelPackage ModelPackage
-subModelPackage = make_nestingRelation "Sub Model Package" "subModelPackage"
+{- Parent Model Package: 
+Existential Dependency that asserts the existence of a Model Package in a parent Model Package
+-}
+parentModelPackage :  Linkage ModelPackage ModelPackage
+parentModelPackage = make_Relation "Model Package Basing" "Parent Model Package"
 
-postulate -- subModelPackage is subTypeOf subContainer
-  st-0eb96c446855cb6c-0eb9824a6855d23d  : subModelPackage   ⊏⋆ᵣ  subContainer 
+postulate -- parentModelPackage is subTypeOf parentPackage
+  st-e7cb000b6a975e4c-e7cbfde76a965b64  : parentModelPackage   ⊏⋆ᵣ  parentPackage 

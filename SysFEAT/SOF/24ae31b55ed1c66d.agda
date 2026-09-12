@@ -5,6 +5,12 @@
 
 Service Interface: 
 A Service Interface is an interaction Behavior Type that describes a typical course of Flow Connections, coordinated by Behavioral Events and Outcome Events, and intended to produce Outcomes through the involvement of Agent Types.
+
+Documentation : https://framework.sysfeat.com/pages/24ae31b55ed1c66d.htm
+
+External references:
+  OpenGroup - ArchiMate - Service: https://pubs.opengroup.org/architecture/archimate32-doc/ch-Generic-Metamodel.html#sec-Behavior-Elements
+  OpenGroup - IT4IT - Defining Service Reference Architecture: https://publications.opengroup.org/w161
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,11 +25,13 @@ open import SysFEAT.SOF.30223b5c5ec90c01 public -- Outcome Event
 ServiceInterface : ClassOfClassOfIndividual
 ServiceInterface = ClassOfIndividual
 
-postulate --  ServiceInterface is subTypeOf BehaviorType
-  st-56ea58726605a6c8 : ServiceInterface ⊏ₑ BehaviorType
+--  ServiceInterface is subTypeOf BehaviorType
+st-56ea58726605a6c8 : ServiceInterface ⊏ₑ BehaviorType
+st-56ea58726605a6c8 = polySubTypeOf-identity
 
-postulate --  ServiceInterface is subTypeOf OperatingConnection
-  st-2b5b46d566ed59cd : ServiceInterface ⊏ₑ OperatingConnection
+--  ServiceInterface is subTypeOf OperatingConnection
+st-2b5b46d566ed59cd : ServiceInterface ⊏ₑ OperatingConnection
+st-2b5b46d566ed59cd = polySubTypeOf-identity
 
 -- == Relationships =======================
 

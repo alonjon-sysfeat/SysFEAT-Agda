@@ -5,6 +5,9 @@
 
 Appraisal Option: 
 An Appraisal Option is a Property associated with an Appraisal Type representing a potential appraisal value that can be chosen during an appraisal process.For instance, when making decisions about invesment on an enterprise asset, the possible options can be: eliminate, invest, migrate.
+
+Documentation : https://framework.sysfeat.com/pages/66628b5668dd5a25.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,17 +22,19 @@ open import SysFEAT.SOF.366c3ea8675c13e2 public -- Appraisal Type
 AppraisalOption : PropertyType
 AppraisalOption = ClassOfProperty
 
-postulate --  AppraisalOption is subTypeOf GovernanceProperty
-  st-97e09a9b68dd67e8 : AppraisalOption ⊏ₑ GovernanceProperty
+--  AppraisalOption is subTypeOf GovernanceProperty
+st-97e09a9b68dd67e8 : AppraisalOption ⊏ₑ GovernanceProperty
+st-97e09a9b68dd67e8 = polySubTypeOf-identity
 
-postulate --  AppraisalOption withAspect GovernanceInstrument
-  st-6662974f68dd674d : AppraisalOption ⊏ₐₑ (GovernanceInstrument (lsuc(lzero)))
+--  AppraisalOption withAspect GovernanceInstrument
+st-6662974f68dd674d : AppraisalOption ⊏ₐₑ (GovernanceInstrument (lsuc(lzero)))
+st-6662974f68dd674d = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Appraisal Type: -}
 appraisalType :  Linkage AppraisalOption AppraisalType
-appraisalType = make_instanceOf "Appraisal Type" "appraisalType"
+appraisalType = make_instanceOf "Appraisal Type" "Appraisal Type"
 
 postulate -- appraisalType is subTypeOf governancePropertyType
   st-666294f768dd64bc-666293d768dd6238  : appraisalType   ⊏⋆ᵣ  governancePropertyType 

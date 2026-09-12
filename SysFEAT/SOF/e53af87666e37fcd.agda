@@ -5,6 +5,11 @@
 
 Set of Environmental Condition Type: 
 A Set of Environmental Condition Type is an  and  combination of Condition Property Types.Example:.  Delivery time  at  appropriate cost  in  stormy conditions .
+
+Documentation : https://framework.sysfeat.com/pages/e53af87666e37fcd.htm
+
+External references:
+  OMG - UAF - MeasurementSet: https://www.omg.org/spec/UAF/1.2/Beta1/DMM/PDF#MeasurementSet
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -17,8 +22,9 @@ open import SysFEAT.SOF.e53af71366e37de2 public -- Condition Property Type
 SetOfEnvironmentalConditionType : ThirdOrderClass
 SetOfEnvironmentalConditionType = SecondOrderClass
 
-postulate --  SetOfEnvironmentalConditionType is subTypeOf ConditionPropertyType
-  st-e53af88066e38012 : SetOfEnvironmentalConditionType ⊏ₑ ConditionPropertyType
+--  SetOfEnvironmentalConditionType is subTypeOf ConditionPropertyType
+st-e53af88066e38012 : SetOfEnvironmentalConditionType ⊏ₑ ConditionPropertyType
+st-e53af88066e38012 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -26,7 +32,7 @@ postulate --  SetOfEnvironmentalConditionType is subTypeOf ConditionPropertyType
 Set of Condition Property Types.
 -}
 combinedConditionType :  Linkage SetOfEnvironmentalConditionType SetOfEnvironmentalConditionType
-combinedConditionType = make_classOfHolonymy "Combined Condition Type" "combinedConditionType"
+combinedConditionType = make_classOfHolonymy "Combined Condition Type" "Combined Condition Type"
 
 postulate -- combinedConditionType is subTypeOf propertyTypeHolonymy
   st-c2f278bb66ea258a-9653a4ad6970107b  : combinedConditionType   ⊏⋆ᵣ  propertyTypeHolonymy 

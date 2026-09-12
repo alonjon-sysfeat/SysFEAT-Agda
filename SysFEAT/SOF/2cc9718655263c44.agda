@@ -5,6 +5,9 @@
 
 Individual Stakeholder: 
 An Individual Stakeholder is a person with a Stakeholder role in architecting &amp; assurance activities.
+
+Documentation : https://framework.sysfeat.com/pages/2cc9718655263c44.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -17,7 +20,8 @@ open import SysFEAT.SOF.bcebd0175491272a public -- Stakeholder
 IndividualStakeholder : ClassOfBoundedIndividual
 IndividualStakeholder = BoundedIndividual
 
-postulate --  IndividualStakeholder is subTypeOf Stakeholder
-  st-2cc9718f55263cbd : IndividualStakeholder ⊏ₑ Stakeholder
+--  IndividualStakeholder is subTypeOf Stakeholder
+st-2cc9718f55263cbd : IndividualStakeholder ⊏ₑ Stakeholder
+st-2cc9718f55263cbd = polySubTypeOf-identity
 
 -- == Relationships =======================

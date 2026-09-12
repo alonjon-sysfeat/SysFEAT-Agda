@@ -5,6 +5,9 @@
 
 Agent Life Cycle Event: 
 An Agent Life Cycle Event is a Temporal Bounding Type that defines the boundaries of an Agent Types life cycle.
+
+Documentation : https://framework.sysfeat.com/pages/c80acb82678413ac.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -17,7 +20,8 @@ open import SysFEAT.UpperOntology.9429979a66823f90 public -- Temporal Bounding T
 AgentLifeCycleEvent : ClassOfClassOfIndividual
 AgentLifeCycleEvent = ClassOfIndividual
 
-postulate --  AgentLifeCycleEvent is subTypeOf TemporalBoundingType
-  st-c80acf556784192e : AgentLifeCycleEvent ⊏ₑ TemporalBoundingType
+--  AgentLifeCycleEvent is subTypeOf TemporalBoundingType
+st-c80acf556784192e : AgentLifeCycleEvent ⊏ₑ TemporalBoundingType
+st-c80acf556784192e = polySubTypeOf-identity
 
 -- == Relationships =======================

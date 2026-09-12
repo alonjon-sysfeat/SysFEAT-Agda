@@ -5,6 +5,9 @@
 
 Architecture Decision Type: 
 
+
+Documentation : https://framework.sysfeat.com/pages/366c4dbc675c2776.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -17,7 +20,8 @@ open import SysFEAT.SOF.366c47e1675c1c07 public -- Decision Type
 ArchitectureDecisionType : ThirdOrderClass
 ArchitectureDecisionType = SecondOrderClass
 
-postulate --  ArchitectureDecisionType is subTypeOf DecisionType
-  st-366c4dc1675c27bb : ArchitectureDecisionType ⊏ₑ DecisionType
+--  ArchitectureDecisionType is subTypeOf DecisionType
+st-366c4dc1675c27bb : ArchitectureDecisionType ⊏ₑ DecisionType
+st-366c4dc1675c27bb = polySubTypeOf-identity
 
 -- == Relationships =======================

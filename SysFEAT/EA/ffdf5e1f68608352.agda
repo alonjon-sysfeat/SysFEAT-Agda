@@ -18,10 +18,12 @@ open import SysFEAT.EA.c80afd2f6784305d public -- Intangible Resource Agent
 SOftwareSystemCategory : ClassOfClassOfBoundedIndividual
 SOftwareSystemCategory = ClassOfBoundedIndividual
 
-postulate --  SOftwareSystemCategory is subTypeOf Artifact
-  st-ffdf60706860861d : SOftwareSystemCategory ⊏ₑ Artifact
+--  SOftwareSystemCategory is subTypeOf Artifact
+st-ffdf60706860861d : SOftwareSystemCategory ⊏ₑ Artifact
+st-ffdf60706860861d = polySubTypeOf-identity
 
-postulate --  SOftwareSystemCategory is subTypeOf IntangibleResourceAgent
-  st-340f510468621250 : SOftwareSystemCategory ⊏ₑ IntangibleResourceAgent
+--  SOftwareSystemCategory is subTypeOf IntangibleResourceAgent
+st-340f510468621250 : SOftwareSystemCategory ⊏ₑ IntangibleResourceAgent
+st-340f510468621250 = polySubTypeOf-identity
 
 -- == Relationships =======================

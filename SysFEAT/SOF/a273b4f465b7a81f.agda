@@ -5,6 +5,11 @@
 
 Individual Process: 
 Individual Process is the root instance of Action Process Type.
+
+Documentation : https://framework.sysfeat.com/pages/a273b4f465b7a81f.htm
+
+External references:
+  OpenGroup - ArchiMate - Process: https://pubs.opengroup.org/architecture/archimate32-doc/ch-Generic-Metamodel.html#sec-Specializations-of-Structure-and-Behavior-Elements
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,8 +24,9 @@ open import SysFEAT.SOF.9e3837e46192fcad public -- Individual Agent
 IndividualProcess : ClassOfBoundedIndividual
 IndividualProcess = BoundedIndividual
 
-postulate --  IndividualProcess is subTypeOf IndividualBehavior
-  st-a273b51465b7a880 : IndividualProcess ⊏ₑ IndividualBehavior
+--  IndividualProcess is subTypeOf IndividualBehavior
+st-a273b51465b7a880 : IndividualProcess ⊏ₑ IndividualBehavior
+st-a273b51465b7a880 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

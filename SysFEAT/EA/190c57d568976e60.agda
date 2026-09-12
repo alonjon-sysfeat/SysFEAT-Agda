@@ -19,11 +19,13 @@ open import SysFEAT.EA.952eb284672864df public -- Regulation section
 RegulationArticle : PropertyType
 RegulationArticle = ClassOfProperty
 
-postulate --  RegulationArticle is subTypeOf Policy
-  st-af66197a6307d559 : RegulationArticle ⊏ₑ Policy
+--  RegulationArticle is subTypeOf Policy
+st-af66197a6307d559 : RegulationArticle ⊏ₑ Policy
+st-af66197a6307d559 = polySubTypeOf-identity
 
-postulate --  RegulationArticle withAspect RegulatoryAsset
-  st-4b947ee068a4a05d : RegulationArticle ⊏ₐₑ (RegulatoryAsset (lsuc(lzero)))
+--  RegulationArticle withAspect RegulatoryAsset
+st-4b947ee068a4a05d : RegulationArticle ⊏ₐₑ (RegulatoryAsset (lsuc(lzero)))
+st-4b947ee068a4a05d = polySubTypeOf-identity
 
 -- == Relationships =======================
 

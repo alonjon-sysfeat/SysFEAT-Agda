@@ -5,6 +5,9 @@
 
 Resolution Outcome: 
 A Resolution Outcome is a possible value of a Resolution Type, that will be selected during a Resolution process.For instance, when making decisions about invesment on an enterprise asset, the possible options are: eliminate, invest, migrate. tolerate.
+
+Documentation : https://framework.sysfeat.com/pages/97e09afa68dd69f1.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,14 +21,15 @@ open import SysFEAT.SOF.366c4627675c1aad public -- Resolution Type
 ResolutionOutcome : PropertyType
 ResolutionOutcome = ClassOfProperty
 
-postulate --  ResolutionOutcome is subTypeOf AppraisalOption
-  st-e073fecb61d21a06 : ResolutionOutcome ⊏ₑ AppraisalOption
+--  ResolutionOutcome is subTypeOf AppraisalOption
+st-e073fecb61d21a06 : ResolutionOutcome ⊏ₑ AppraisalOption
+st-e073fecb61d21a06 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Resolution Type: -}
 resolutionType :  Linkage ResolutionOutcome ResolutionType
-resolutionType = make_instanceOf "Resolution Type" "resolutionType"
+resolutionType = make_instanceOf "Resolution Type" "Resolution Type"
 
 postulate -- resolutionType is subTypeOf appraisalType
   st-97e09c3d68dd6b51-666294f768dd64bc  : resolutionType   ⊏⋆ᵣ  appraisalType 

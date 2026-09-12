@@ -5,6 +5,11 @@
 
 Reference Dictionary: 
 A Reference Dictionary is a kind of Architecture Container that is used as a reference library to hold reference materials used to develop architectures.Example:- Vendor Catalog- Regulatory Framework- 
+
+Documentation : https://framework.sysfeat.com/pages/0f6418e568598b38.htm
+
+External references:
+  OpenGroup - TOGAF - Method - Reference Libraries: https://pubs.opengroup.org/togaf-standard/architecture-content/chap07.html#tag_07_03
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,10 +24,12 @@ ReferenceDictionary : FirstOrderClass
 ReferenceDictionary = FirstOrderEntity
 
 
-postulate --  ReferenceDictionary is subTypeOf ModelPackage
-  st-0f6418f168598b8d : ReferenceDictionary ⊏ₑ ModelPackage
+--  ReferenceDictionary is subTypeOf ModelPackage
+st-0f6418f168598b8d : ReferenceDictionary ⊏ₑ ModelPackage
+st-0f6418f168598b8d = polySubTypeOf-identity
 
-postulate --  ReferenceDictionary withAspect ArchitectureContainer
-  st-0f64190268598bc7 : ReferenceDictionary ⊏ₐₑ (ArchitectureContainer lzero)
+--  ReferenceDictionary withAspect ArchitectureContainer
+st-0f64190268598bc7 : ReferenceDictionary ⊏ₐₑ (ArchitectureContainer lzero)
+st-0f64190268598bc7 = polySubTypeOf-identity
 
 -- == Relationships =======================

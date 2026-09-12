@@ -23,8 +23,9 @@ open import SysFEAT.EA.98159f6b5f682d1e public -- Data Quality Policy
 DataCatalog : ClassOfBoundedIndividual
 DataCatalog = BoundedIndividual
 
-postulate --  DataCatalog is subTypeOf AssuranceSystem
-  st-c830d018617a4c38 : DataCatalog ⊏ₑ AssuranceSystem
+--  DataCatalog is subTypeOf AssuranceSystem
+st-c830d018617a4c38 : DataCatalog ⊏ₑ AssuranceSystem
+st-c830d018617a4c38 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

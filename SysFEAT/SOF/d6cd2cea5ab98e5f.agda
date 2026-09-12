@@ -5,6 +5,11 @@
 
 Information Entity: 
 An Information Entity is an Information Asset that is not fundamentally defined by its attributes, but rather by its continuity.An Information Entity evolves over time and has states.For instance a person is an Information Entity. Employe is a state of a person.An Information Entity has relationships to other Information Entitys and can have Information Propertys.
+
+Documentation : https://framework.sysfeat.com/pages/d6cd2cea5ab98e5f.htm
+
+External references:
+  DDD - Glossary - Entity: https://www.dddcommunity.org/resources/ddd_terms?[entity]
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,11 +24,13 @@ open import SysFEAT.SOF.c189d5f068ae4d75 public -- Information Property
 InformationEntity : ClassOfClassOfBoundedIndividual
 InformationEntity = ClassOfBoundedIndividual
 
-postulate --  InformationEntity is subTypeOf InformationAsset
-  st-51ae665d5ee7d56c : InformationEntity ⊏ₑ InformationAsset
+--  InformationEntity is subTypeOf InformationAsset
+st-51ae665d5ee7d56c : InformationEntity ⊏ₑ InformationAsset
+st-51ae665d5ee7d56c = polySubTypeOf-identity
 
-postulate --  InformationEntity is subTypeOf ClassOfBoundedIndividual
-  st-56ea65136605b505 : InformationEntity ⊏ₑ ClassOfBoundedIndividual
+--  InformationEntity is subTypeOf ClassOfBoundedIndividual
+st-56ea65136605b505 : InformationEntity ⊏ₑ ClassOfBoundedIndividual
+st-56ea65136605b505 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -31,7 +38,7 @@ postulate --  InformationEntity is subTypeOf ClassOfBoundedIndividual
 Generalization relationship between a sub-Information Entity and its super-Information Entity.
 -}
 specializedInformationEntity :  Linkage InformationEntity InformationEntity
-specializedInformationEntity = make_subTypeOf "Specialized Information Entity" "specializedInformationEntity"
+specializedInformationEntity = make_subTypeOf "Specialized Information Entity" "Specialized Information Entity"
 
 postulate -- specializedInformationEntity is subTypeOf specializedInformationAsset
   st-325a37b966f34da2-325a372e66f33bca  : specializedInformationEntity   ⊏⋆ᵣ  specializedInformationAsset 

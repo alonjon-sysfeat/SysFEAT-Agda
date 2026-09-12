@@ -18,11 +18,13 @@ open import SysFEAT.EA.6a70c0b36787698c public -- Resource Outcome Event
 TechnologyOutcomeEvent : ClassOfClassOfIndividual
 TechnologyOutcomeEvent = ClassOfIndividual
 
-postulate --  TechnologyOutcomeEvent is subTypeOf TechnologyFunctionalAsset
-  st-83c718b567561123 : TechnologyOutcomeEvent ⊏ₑ TechnologyFunctionalAsset
+--  TechnologyOutcomeEvent is subTypeOf TechnologyFunctionalAsset
+st-83c718b567561123 : TechnologyOutcomeEvent ⊏ₑ TechnologyFunctionalAsset
+st-83c718b567561123 = polySubTypeOf-identity
 
-postulate --  TechnologyOutcomeEvent is subTypeOf ResourceOutcomeEvent
-  st-6a70d2b86787815d : TechnologyOutcomeEvent ⊏ₑ ResourceOutcomeEvent
+--  TechnologyOutcomeEvent is subTypeOf ResourceOutcomeEvent
+st-6a70d2b86787815d : TechnologyOutcomeEvent ⊏ₑ ResourceOutcomeEvent
+st-6a70d2b86787815d = polySubTypeOf-identity
 
 -- == Relationships =======================
 

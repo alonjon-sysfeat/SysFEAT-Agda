@@ -5,6 +5,9 @@
 
 Policy applicability Status: 
 A Policy applicability Status is a Decision Outcome  that can apply to any kind of Functional Asset as the result of a Policy Decision process.There are two possible values of Policy applicability Status:1) Applicable, which means that the Concerned Policy applies to all Functional Assets that are part of the of the Applicability Domain of the Policy Decision.2) Non applicable, which means that the Concerned Policy do not apply to all Functional Assets that are part of the of the Applicability Domain of the Policy Decision.
+
+Documentation : https://framework.sysfeat.com/pages/97e0a19a68dd71de.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,14 +21,15 @@ open import SysFEAT.SOF.97e0a09268dd70b6 public -- Policy Decision Type
 PolicyapplicabilityStatus : PropertyType
 PolicyapplicabilityStatus = ClassOfProperty
 
-postulate --  PolicyapplicabilityStatus is subTypeOf DecisionOutcome
-  st-97e0a1a268dd7226 : PolicyapplicabilityStatus ⊏ₑ DecisionOutcome
+--  PolicyapplicabilityStatus is subTypeOf DecisionOutcome
+st-97e0a1a268dd7226 : PolicyapplicabilityStatus ⊏ₑ DecisionOutcome
+st-97e0a1a268dd7226 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Policy Decision Type: -}
 policyDecisionType :  Linkage PolicyapplicabilityStatus PolicyDecisionType
-policyDecisionType = make_instanceOf "Policy Decision Type" "policyDecisionType"
+policyDecisionType = make_instanceOf "Policy Decision Type" "Policy Decision Type"
 
 postulate -- policyDecisionType is subTypeOf decisionType
   st-97e0a1e168dd7342-97e09d2068dd6cd0  : policyDecisionType   ⊏⋆ᵣ  decisionType 

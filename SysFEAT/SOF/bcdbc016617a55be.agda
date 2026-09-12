@@ -5,6 +5,9 @@
 
 Appraisal: 
 An Appraisal is a time bound statement expressed by stakeholders to qualify Asset Blocks with respect to their worth.Assessments and Decisions are two major types of Appraisals provided by SysFEAT.
+
+Documentation : https://framework.sysfeat.com/pages/bcdbc016617a55be.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,21 +22,22 @@ open import SysFEAT.SOF.66628b5668dd5a25 public -- Appraisal Option
 Appraisal : ClassOfBoundedIndividual
 Appraisal = BoundedIndividual
 
-postulate --  Appraisal is subTypeOf GovernanceEvent
-  st-bcdbc028617a561c : Appraisal ⊏ₑ GovernanceEvent
+--  Appraisal is subTypeOf GovernanceEvent
+st-bcdbc028617a561c : Appraisal ⊏ₑ GovernanceEvent
+st-bcdbc028617a561c = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Appraised Asset: -}
 appraisedAsset : ∀ {u} →  Linkage Appraisal (AssetBlock u)
-appraisedAsset = make_Relation "Appraised Asset" "appraisedAsset"
+appraisedAsset = make_Relation "Appraised Asset" "Appraised Asset"
 
 postulate -- appraisedAsset is subTypeOf eventSubject
   st-6bf17d4e68598487-0f642d4d6859ad70  : appraisedAsset  {lzero}  ⊏⋆ᵣ  eventSubject  {lzero}
 
 {- Selected Appraisal Option: -}
 selectedAppraisalOption :  Linkage Appraisal AppraisalOption
-selectedAppraisalOption = make_instanceOf "Selected Appraisal Option" "selectedAppraisalOption"
+selectedAppraisalOption = make_instanceOf "Selected Appraisal Option" "Selected Appraisal Option"
 
 postulate -- selectedAppraisalOption is subTypeOf propertyOfIndividual
   st-6662932568dd6161-19763dbb68926a48  : selectedAppraisalOption   ⊏⋆ᵣ  propertyOfIndividual 

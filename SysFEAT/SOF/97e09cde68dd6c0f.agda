@@ -5,6 +5,9 @@
 
 Decision Outcome: 
 A Decision Outcome is a possible value of a Decision Type, that will be selected during a decision-making process.For instance, when making decisions about invesment on an enterprise asset, the possible options are: eliminate, invest, migrate, tolerate.
+
+Documentation : https://framework.sysfeat.com/pages/97e09cde68dd6c0f.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,14 +21,15 @@ open import SysFEAT.SOF.366c47e1675c1c07 public -- Decision Type
 DecisionOutcome : PropertyType
 DecisionOutcome = ClassOfProperty
 
-postulate --  DecisionOutcome is subTypeOf ResolutionOutcome
-  st-83bb9fa061923c3f : DecisionOutcome ⊏ₑ ResolutionOutcome
+--  DecisionOutcome is subTypeOf ResolutionOutcome
+st-83bb9fa061923c3f : DecisionOutcome ⊏ₑ ResolutionOutcome
+st-83bb9fa061923c3f = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Decision Type: -}
 decisionType :  Linkage DecisionOutcome DecisionType
-decisionType = make_instanceOf "Decision Type" "decisionType"
+decisionType = make_instanceOf "Decision Type" "Decision Type"
 
 postulate -- decisionType is subTypeOf resolutionType
   st-97e09d2068dd6cd0-97e09c3d68dd6b51  : decisionType   ⊏⋆ᵣ  resolutionType 

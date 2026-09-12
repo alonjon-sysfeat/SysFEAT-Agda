@@ -5,6 +5,9 @@
 
 Assurance Initiative: 
 An Assurance Initiative is an Initiative designed to uphold operational trustworthiness by mitigating Risks, countering threats, and complying with regulatory requirements.
+
+Documentation : https://framework.sysfeat.com/pages/299e895568488eb3.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -17,7 +20,8 @@ open import SysFEAT.SOF.d321c226601262ae public -- Enduring Initiative
 AssuranceInitiative : ClassOfBoundedIndividual
 AssuranceInitiative = BoundedIndividual
 
-postulate --  AssuranceInitiative is subTypeOf EnduringInitiative
-  st-299e8e096848935a : AssuranceInitiative ⊏ₑ EnduringInitiative
+--  AssuranceInitiative is subTypeOf EnduringInitiative
+st-299e8e096848935a : AssuranceInitiative ⊏ₑ EnduringInitiative
+st-299e8e096848935a = polySubTypeOf-identity
 
 -- == Relationships =======================

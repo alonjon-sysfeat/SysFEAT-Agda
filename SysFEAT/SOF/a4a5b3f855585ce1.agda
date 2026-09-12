@@ -5,6 +5,11 @@
 
 Asset Type: 
 An Asset Type is a Class of Individual which is used in the description of the enterprise and its systems, such as Action Process Typees, Department Types, Applications, Location Types, Period Types.
+
+Documentation : https://framework.sysfeat.com/pages/a4a5b3f855585ce1.htm
+
+External references:
+  OpenGroup - TOGAF - Architecture Building Blocks: https://pubs.opengroup.org/togaf-standard/architecture-content/chap04.html#tag_04_02_01
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -21,19 +26,30 @@ open import SysFEAT.SOF.f69620466a0f9c2f public -- Asset Category
 AssetType : ClassOfClassOfBoundedIndividual
 AssetType = ClassOfBoundedIndividual
 
-postulate --  AssetType withAspect AssetBlock
-  st-d342da165b121507 : AssetType ⊏ₐₑ (AssetBlock (lsuc(lzero)))
+--  AssetType withAspect AssetBlock
+st-d342da165b121507 : AssetType ⊏ₐₑ (AssetBlock (lsuc(lzero)))
+st-d342da165b121507 = polySubTypeOf-identity
 
-postulate --  AssetType is subTypeOf ClassOfBoundedIndividual
-  st-0861325b665787e0 : AssetType ⊏ₑ ClassOfBoundedIndividual
+--  AssetType is subTypeOf ClassOfBoundedIndividual
+st-0861325b665787e0 : AssetType ⊏ₑ ClassOfBoundedIndividual
+st-0861325b665787e0 = polySubTypeOf-identity
 
 -- == Relationships =======================
+
+{- Specialized Asset: 
+A specialization of Asset Types.
+-}
+specializedAsset :  Linkage AssetType AssetType
+specializedAsset = make_subTypeOf "Specialized Asset" "Specialized Asset"
+
+postulate -- specializedAsset is subTypeOf specializedClassOfBoundedIndividual
+  st-12b0287266e936d5-e53a627766e4b4cd  : specializedAsset   ⊏⋆ᵣ  specializedClassOfBoundedIndividual 
 
 {- Applicable Condition Type: 
 Set of Condition Property Types that can be applied to an Asset Type.
 -}
 applicableConditionType :  Linkage AssetType ConditionPropertyType
-applicableConditionType = make_instanceOf "Applicable Condition Type" "applicableConditionType"
+applicableConditionType = make_instanceOf "Applicable Condition Type" "Applicable Condition Type"
 
 postulate -- applicableConditionType is subTypeOf categorization
   st-c2f2709166ea21a0-f69619646a0f8e6c  : applicableConditionType   ⊏⋆ᵣ  categorization  {lsuc(lsuc(lzero))}
@@ -42,14 +58,14 @@ postulate -- applicableConditionType is subTypeOf categorization
 Qualification of an Asset Type by an Asset Property.
 -}
 assetTypeQualification :  Linkage AssetType AssetProperty
-assetTypeQualification = make_subTypeOf "Asset Type Qualification" "assetTypeQualification"
+assetTypeQualification = make_subTypeOf "Asset Type Qualification" "Asset Type Qualification"
 
-postulate -- assetTypeQualification is subTypeOf qualification
-  st-190c1f3b68964a27-16621f9a689131e0  : assetTypeQualification   ⊏⋆ᵣ  qualification 
+postulate -- assetTypeQualification is subTypeOf qualifyingProperty
+  st-190c1f3b68964a27-16621f9a689131e0  : assetTypeQualification   ⊏⋆ᵣ  qualifyingProperty 
 
 {- Category of Architecture Block: -}
 categoryOfArchitectureBlock : ∀ {u} →  Linkage AssetType (AssetCategory u)
-categoryOfArchitectureBlock = make_instanceOf "Category of Architecture Block" "categoryOfArchitectureBlock"
+categoryOfArchitectureBlock = make_instanceOf "Category of Architecture Block" "Category of Architecture Block"
 
 postulate -- categoryOfArchitectureBlock is subTypeOf categorization
   st-f69620606a0f9c94-f69619646a0f8e6c  : categoryOfArchitectureBlock  {lsuc(lsuc(lzero))}  ⊏⋆ᵣ  categorization  {lsuc(lsuc(lzero))}

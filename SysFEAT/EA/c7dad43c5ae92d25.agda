@@ -20,11 +20,13 @@ open import SysFEAT.EA.dd26f17a68a0b08b public -- Skill
 Person : ClassOfBoundedIndividual
 Person = BoundedIndividual
 
-postulate --  Person is subTypeOf ResponsibleHumanEntity
-  st-c7dad3255ae92d0e : Person ⊏ₑ ResponsibleHumanEntity
+--  Person is subTypeOf ResponsibleHumanEntity
+st-c7dad3255ae92d0e : Person ⊏ₑ ResponsibleHumanEntity
+st-c7dad3255ae92d0e = polySubTypeOf-identity
 
-postulate --  Person is subTypeOf IndividualBusinessAgent
-  st-c80a3e7067858e98 : Person ⊏ₑ IndividualBusinessAgent
+--  Person is subTypeOf IndividualBusinessAgent
+st-c80a3e7067858e98 : Person ⊏ₑ IndividualBusinessAgent
+st-c80a3e7067858e98 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

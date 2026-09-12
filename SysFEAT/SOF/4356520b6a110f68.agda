@@ -5,6 +5,9 @@
 
 Data Category: 
 A Data Category is a classification or division of Information Assets regarded as having particular shared characteristics.Examples:. Health data, . Financial data, . Contact data.
+
+Documentation : https://framework.sysfeat.com/pages/4356520b6a110f68.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -17,7 +20,8 @@ open import SysFEAT.SOF.f69620466a0f9c2f public -- Asset Category
 DataCategory : ∀ (u : Level) → Set (lsuc (lsuc (lsuc u)))
 DataCategory u = Category u
 
-postulate --  DataCategory is subTypeOf AssetCategory
-  st-f4be328f5ee1b3f7 : ∀ {u v} → (DataCategory u) ⊏⋆ₑ (AssetCategory v)
+--  DataCategory is subTypeOf AssetCategory
+st-f4be328f5ee1b3f7 : ∀ {u v} → (DataCategory u) ⊏⋆ₑ (AssetCategory v)
+st-f4be328f5ee1b3f7 = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

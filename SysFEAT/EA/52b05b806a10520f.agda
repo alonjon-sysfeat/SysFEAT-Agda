@@ -17,7 +17,8 @@ open import SysFEAT.SOF.52b05a616a104fab public -- Conceptualization Level
 ResourceLevel : ∀ (u : Level) → MixedOrderMetaClass u
 ResourceLevel u = ClassOfMixedOrderEntity u
 
-postulate --  ResourceLevel is subTypeOf ConceptualizationLevel
-  st-52b05b916a105276 : ∀ {u v} → (ResourceLevel u) ⊏⋆ₑ (ConceptualizationLevel v)
+--  ResourceLevel is subTypeOf ConceptualizationLevel
+st-52b05b916a105276 : ∀ {u v} → (ResourceLevel u) ⊏⋆ₑ (ConceptualizationLevel v)
+st-52b05b916a105276 = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

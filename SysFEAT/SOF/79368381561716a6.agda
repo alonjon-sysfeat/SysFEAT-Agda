@@ -5,6 +5,19 @@
 
 Agent Type: 
 An Agent Type is an Operating Asset Type which is able to participate actively to Behavior Types, to produce and react to Outcome Events.1. Agent Types participate to Action Process Typees (Active Participant) and/or conduct Action Process Typees (Performed Process).2. Agent Types participate to Interaction Process Type (Scenario Participant) describing how they interact with other Agent Types.These actions and interactions define Agent Types boundaries described by Service Interfaces.
+
+Documentation : https://framework.sysfeat.com/pages/79368381561716a6.htm
+
+External references:
+  OpenGroup - ArchiMate - Internal Active Structure Element: https://pubs.opengroup.org/architecture/archimate32-doc/ch-Generic-Metamodel.html#sec-Active-Structure-Elements
+  Christensen Institute - Modularity: https://www.christenseninstitute.org/theory/modularity
+  OpenGroup - OAA - Modularity: https://pubs.opengroup.org/architecture/o-aa-standard/definitions.html#_modularity
+  OpenGroup - TOGAF - Definition - System: https://pubs.opengroup.org/togaf-standard/introduction/apdxb.html#tag_06_41
+  OMG - UML - EncapsulatedClassifier: https://www.omg.org/spec/UML/2.5.1/PDF#page=231
+  ISO 15926 - ClassOfPossibleRoleAndDomain: https://15926.blog/topics/data-model/index.htm#ClassOfPossibleRoleAndDomain
+  Russell Ackoff - System of Concepts - Abstract System: ../resources/external-references/Ackoff-1971-Towards-a-system-of-systems-concepts.pdf#AbstractSystem
+  WordNet - Agent: https://en-word.net/ili/i84938
+  OMG - KerML - Structure: https://www.omg.org/spec/KerML/1.0/PDF#page=68
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -21,21 +34,22 @@ open import SysFEAT.SOF.d6cd116d5ab97525 public -- Information Domain
 AgentType : ClassOfClassOfBoundedIndividual
 AgentType = ClassOfBoundedIndividual
 
-postulate --  AgentType is subTypeOf OperatingAssetType
-  st-a371a4bf5b8659f3 : AgentType ⊏ₑ OperatingAssetType
+--  AgentType is subTypeOf OperatingAssetType
+st-a371a4bf5b8659f3 : AgentType ⊏ₑ OperatingAssetType
+st-a371a4bf5b8659f3 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Specialized Agent: -}
 specializedAgent :  Linkage AgentType AgentType
-specializedAgent = make_subTypeOf "Specialized Agent" "specializedAgent"
+specializedAgent = make_subTypeOf "Specialized Agent" "Specialized Agent"
 
 postulate -- specializedAgent is subTypeOf specializedOperatingAsset
   st-2b5b440b66ed56d4-6a70772167873276  : specializedAgent   ⊏⋆ᵣ  specializedOperatingAsset 
 
 {- Realized Agent: -}
 realizedAgent :  Linkage AgentType AgentType
-realizedAgent = make_subTypeOf "Realized Agent" "realizedAgent"
+realizedAgent = make_subTypeOf "Realized Agent" "Realized Agent"
 
 postulate -- realizedAgent is subTypeOf realizedOperatingAsset
   st-2b5b449f66ed57a2-7dc193da6849536c  : realizedAgent   ⊏⋆ᵣ  realizedOperatingAsset 

@@ -5,6 +5,9 @@
 
 Policy Decision Type: 
 
+
+Documentation : https://framework.sysfeat.com/pages/97e0a09268dd70b6.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -17,7 +20,8 @@ open import SysFEAT.SOF.366c47e1675c1c07 public -- Decision Type
 PolicyDecisionType : ThirdOrderClass
 PolicyDecisionType = SecondOrderClass
 
-postulate --  PolicyDecisionType is subTypeOf DecisionType
-  st-97e0a09968dd70fd : PolicyDecisionType ⊏ₑ DecisionType
+--  PolicyDecisionType is subTypeOf DecisionType
+st-97e0a09968dd70fd : PolicyDecisionType ⊏ₑ DecisionType
+st-97e0a09968dd70fd = polySubTypeOf-identity
 
 -- == Relationships =======================

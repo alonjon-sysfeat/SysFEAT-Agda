@@ -5,6 +5,9 @@
 
 Architecture Block: 
 An Architecture Block is any Model Building Block used to describe the architecture of a system (including the enterprise). This includes Asset Blocks (Applications, org-units, Business Functions, Business Processes...) and Individual Architecture Assets (physical persons, software installations, locations, ...).
+
+Documentation : https://framework.sysfeat.com/pages/9397b45268777e3b.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -17,7 +20,8 @@ open import SysFEAT.SOF.0eb95e566855bed9 public -- Model Building Block
 ArchitectureBlock : ∀ (u : Level) → ClassOfMixedOrderEntity u
 ArchitectureBlock u = MixedOrderEntity u
 
-postulate --  ArchitectureBlock is subTypeOf ModelBuildingBlock
-  st-0eb95f446855bfcc : ∀ {u v} → (ArchitectureBlock u) ⊏⋆ₑ (ModelBuildingBlock v)
+--  ArchitectureBlock is subTypeOf ModelBuildingBlock
+st-0eb95f446855bfcc : ∀ {u v} → (ArchitectureBlock u) ⊏⋆ₑ (ModelBuildingBlock v)
+st-0eb95f446855bfcc = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

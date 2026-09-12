@@ -5,6 +5,9 @@
 
 Initiative Stage: 
 An Initiative Stage is a past, current or future state of an Enduring Initiative. The set of all Initiative Stages of an Enduring Initiative defines its Roadmap.
+
+Documentation : https://framework.sysfeat.com/pages/e78c5eb0661989f9.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,11 +23,13 @@ InitiativeStage : StateClass
 InitiativeStage = StateConcept
 
 
-postulate --  InitiativeStage is subTypeOf IndividualState
-  st-e78c5f3066198b69 : InitiativeStage ⊏ₑ IndividualState
+--  InitiativeStage is subTypeOf IndividualState
+st-e78c5f3066198b69 : InitiativeStage ⊏ₑ IndividualState
+st-e78c5f3066198b69 = polySubTypeOf-identity
 
-postulate --  InitiativeStage is subTypeOf Initiative
-  st-e78c5e90661989d5 : InitiativeStage ⊏ₑ Initiative
+--  InitiativeStage is subTypeOf Initiative
+st-e78c5e90661989d5 : InitiativeStage ⊏ₑ Initiative
+st-e78c5e90661989d5 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

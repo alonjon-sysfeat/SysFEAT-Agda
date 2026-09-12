@@ -5,6 +5,9 @@
 
 Documentation: 
 
+
+Documentation : https://framework.sysfeat.com/pages/3346b1c668784780.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,17 +23,19 @@ Documentation : FirstOrderClass
 Documentation = FirstOrderEntity
 
 
-postulate --  Documentation withAspect ElementaryBlock
-  st-fb59081369445da0 : Documentation ⊏ₐₑ (ElementaryBlock lzero)
+--  Documentation withAspect ElementaryBlock
+st-fb59081369445da0 : Documentation ⊏ₐₑ (ElementaryBlock lzero)
+st-fb59081369445da0 = polySubTypeOf-identity
 
-postulate --  Documentation is subTypeOf AnnotationBlock
-  st-3346b1d6687847c7 : Documentation ⊏ₑ AnnotationBlock
+--  Documentation is subTypeOf AnnotationBlock
+st-3346b1d6687847c7 : Documentation ⊏ₑ AnnotationBlock
+st-3346b1d6687847c7 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Documented Block: -}
 documentedBlock : ∀ {u} →  Linkage Documentation (BuildingBlock u)
-documentedBlock = make_Relation "Documented Block" "documentedBlock"
+documentedBlock = make_Relation "Documented Block" "Documented Block"
 
 postulate -- documentedBlock is subTypeOf annotedElement
   st-3346be6a68784eee-3346b23668784855  : documentedBlock  {lzero}  ⊏⋆ᵣ  annotedElement  {lzero}

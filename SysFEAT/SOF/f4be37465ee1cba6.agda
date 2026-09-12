@@ -5,6 +5,9 @@
 
 Audit: 
 An Audit is a mission assigned to a team of internal auditors in the context of an audit plan.
+
+Documentation : https://framework.sysfeat.com/pages/f4be37465ee1cba6.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,8 +21,9 @@ open import SysFEAT.SOF.ebcfaeac5ad76ed7 public -- Individual Asset
 Audit : ClassOfBoundedIndividual
 Audit = BoundedIndividual
 
-postulate --  Audit is subTypeOf GovernanceActivity
-  st-f4be375d5ee1ccbf : Audit ⊏ₑ GovernanceActivity
+--  Audit is subTypeOf GovernanceActivity
+st-f4be375d5ee1ccbf : Audit ⊏ₑ GovernanceActivity
+st-f4be375d5ee1ccbf = polySubTypeOf-identity
 
 -- == Relationships =======================
 

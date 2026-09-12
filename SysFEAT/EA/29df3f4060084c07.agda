@@ -21,11 +21,13 @@ open import SysFEAT.SOF.0eb95f356855bf94 public -- Asset Block
 ManagementSystem : ClassOfBoundedIndividual
 ManagementSystem = BoundedIndividual
 
-postulate --  ManagementSystem is subTypeOf ManagementInitiative
-  st-24f8291f66475750 : ManagementSystem ⊏ₑ ManagementInitiative
+--  ManagementSystem is subTypeOf ManagementInitiative
+st-24f8291f66475750 : ManagementSystem ⊏ₑ ManagementInitiative
+st-24f8291f66475750 = polySubTypeOf-identity
 
-postulate --  ManagementSystem is subTypeOf EnduringInitiative
-  st-a44fddc267459172 : ManagementSystem ⊏ₑ EnduringInitiative
+--  ManagementSystem is subTypeOf EnduringInitiative
+st-a44fddc267459172 : ManagementSystem ⊏ₑ EnduringInitiative
+st-a44fddc267459172 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

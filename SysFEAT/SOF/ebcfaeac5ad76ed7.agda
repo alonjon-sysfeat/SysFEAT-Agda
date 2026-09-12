@@ -5,6 +5,11 @@
 
 Individual Asset: 
 An Individual Asset is an Individual which is used in the description of the enterprise and its systems.Individual Assets can be qualified by Condition Scale Values.
+
+Documentation : https://framework.sysfeat.com/pages/ebcfaeac5ad76ed7.htm
+
+External references:
+  OpenGroup - TOGAF - Architecture Building Blocks: https://pubs.opengroup.org/togaf-standard/architecture-content/chap04.html#tag_04_02_01
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -21,21 +26,22 @@ open import SysFEAT.SOF.a4a5b3f855585ce1 public -- Asset Type
 IndividualAsset : ClassOfBoundedIndividual
 IndividualAsset = BoundedIndividual
 
-postulate --  IndividualAsset is subTypeOf BoundedIndividual
-  st-21ed583a689c196f : IndividualAsset ⊏ₑ BoundedIndividual
+--  IndividualAsset is subTypeOf BoundedIndividual
+st-21ed583a689c196f : IndividualAsset ⊏ₑ BoundedIndividual
+st-21ed583a689c196f = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Located at: -}
 locatedat :  Linkage IndividualAsset Location
-locatedat = make_holonymyRelation "Located at" "locatedat"
+locatedat = make_holonymyRelation "Located at" "Located at"
 
 postulate -- locatedat is subTypeOf meronymyRelation
   st-167126a16008efeb-4aeab6186964fd66  : locatedat   ⊏⋆ᵣ  meronymyRelation 
 
 {- Qualifying Asset Property: -}
 qualifyingAssetProperty :  Linkage IndividualAsset AssetProperty
-qualifyingAssetProperty = make_instanceOf "Qualifying Asset Property" "qualifyingAssetProperty"
+qualifyingAssetProperty = make_instanceOf "Qualifying Asset Property" "Qualifying Asset Property"
 
 postulate -- qualifyingAssetProperty is subTypeOf propertyOfIndividual
   st-190c414968965640-19763dbb68926a48  : qualifyingAssetProperty   ⊏⋆ᵣ  propertyOfIndividual 
@@ -44,7 +50,7 @@ postulate -- qualifyingAssetProperty is subTypeOf propertyOfIndividual
 The classification of Individual Assets  by Condition Propertys.
 -}
 qualifyingConditionProperty :  Linkage IndividualAsset ConditionProperty
-qualifyingConditionProperty = make_instanceOf "Qualifying Condition Property" "qualifyingConditionProperty"
+qualifyingConditionProperty = make_instanceOf "Qualifying Condition Property" "Qualifying Condition Property"
 
 postulate -- qualifyingConditionProperty is subTypeOf qualifyingAssetProperty
   st-21ed5601689c1844-190c414968965640  : qualifyingConditionProperty   ⊏⋆ᵣ  qualifyingAssetProperty 
