@@ -5,6 +5,9 @@
 
 Governance Container: 
 Container of Model Building Blocks used to measure, assess, monitor transformation Initiatives .
+
+Documentation : https://framework.sysfeat.com/pages/0f64116a68597a27.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,14 +21,15 @@ open import SysFEAT.SOF.0f641043685975c9 public -- Governance Building Block
 GovernanceContainer : ∀ (u : Level) → ClassOfMixedOrderEntity u
 GovernanceContainer u = MixedOrderEntity u
 
-postulate --  GovernanceContainer is subTypeOf ModelContainer
-  st-0f64119b68597a81 : ∀ {u v} → (GovernanceContainer u) ⊏⋆ₑ (ModelContainer v)
+--  GovernanceContainer is subTypeOf ModelContainer
+st-0f64119b68597a81 : ∀ {u v} → (GovernanceContainer u) ⊏⋆ₑ (ModelContainer v)
+st-0f64119b68597a81 = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================
 
 {- Packaged Governance Block: -}
 packagedGovernanceBlock : ∀ {u v} →  Linkage (GovernanceContainer u) (GovernanceBuildingBlock v)
-packagedGovernanceBlock = make_nestingRelation "Packaged Governance Block" "packagedGovernanceBlock"
+packagedGovernanceBlock = make_nestingRelation "Packaged Governance Block" "Packaged Governance Block"
 
 postulate -- packagedGovernanceBlock is subTypeOf packagedModelBlock
   st-0f6410c668597695-3346b0ad687846e9  : ∀ {u v} → packagedGovernanceBlock {u} {v}  ⊏⋆ᵣ  packagedModelBlock {u} {v}

@@ -5,6 +5,9 @@
 
 Conceptual Level: 
 The  Conceptual Level classifies concepts describing the conceptual views of the enterprise.The conceptual view is independant of any commitment to physical resources. 
+
+Documentation : https://framework.sysfeat.com/pages/52b05b596a1050ba.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -17,7 +20,8 @@ open import SysFEAT.SOF.52b05a616a104fab public -- Conceptualization Level
 ConceptualLevel : ∀ (u : Level) → MixedOrderMetaClass u
 ConceptualLevel u = ClassOfMixedOrderEntity u
 
-postulate --  ConceptualLevel is subTypeOf ConceptualizationLevel
-  st-52b05b606a10511c : ∀ {u v} → (ConceptualLevel u) ⊏⋆ₑ (ConceptualizationLevel v)
+--  ConceptualLevel is subTypeOf ConceptualizationLevel
+st-52b05b606a10511c : ∀ {u v} → (ConceptualLevel u) ⊏⋆ₑ (ConceptualizationLevel v)
+st-52b05b606a10511c = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

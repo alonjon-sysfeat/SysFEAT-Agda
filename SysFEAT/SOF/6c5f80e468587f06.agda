@@ -5,6 +5,9 @@
 
 Information Block: 
 An Information Block is an Asset Block involved in the description of information.Information Blocks range from Information Assets to Information Domains.They are packaged in Information Dictionary(ies) and managed in Data Catalogs.
+
+Documentation : https://framework.sysfeat.com/pages/6c5f80e468587f06.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -17,7 +20,8 @@ open import SysFEAT.SOF.9397b45268777e3b public -- Architecture Block
 InformationBlock : ∀ (u : Level) → ClassOfMixedOrderEntity u
 InformationBlock u = MixedOrderEntity u
 
-postulate --  InformationBlock is subTypeOf ArchitectureBlock
-  st-6c5f812168587f9d : ∀ {u v} → (InformationBlock u) ⊏⋆ₑ (ArchitectureBlock v)
+--  InformationBlock is subTypeOf ArchitectureBlock
+st-6c5f812168587f9d : ∀ {u v} → (InformationBlock u) ⊏⋆ₑ (ArchitectureBlock v)
+st-6c5f812168587f9d = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

@@ -5,6 +5,12 @@
 
 Initiative: 
 An Initiative is any piece of work that is undertaken or attempted under the responsibility of a Steering Authority.Initiatives range from single project to long term initiatives (Enduring Initiative) such as Enterprises.Initiatives are sychronized over time using Initiative Milestones.
+
+Documentation : https://framework.sysfeat.com/pages/0ffeec41600be08a.htm
+
+External references:
+  Merriam Webster - Undertaking: https://www.merriam-webster.com/dictionary/undertaking
+  Wordnet - Undertaking: https://en-word.net/ili/i39587
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -22,23 +28,26 @@ open import SysFEAT.SOF.0eb95f356855bf94 public -- Asset Block
 Initiative : ClassOfBoundedIndividual
 Initiative = BoundedIndividual
 
-postulate --  Initiative withAspect InitiativeBlock
-  st-918cbd6861e6fb1b : Initiative ⊏ₐₑ (InitiativeBlock lzero)
+--  Initiative withAspect InitiativeBlock
+st-918cbd6861e6fb1b : Initiative ⊏ₐₑ (InitiativeBlock lzero)
+st-918cbd6861e6fb1b = polySubTypeOf-identity
 
-postulate --  Initiative is subTypeOf BoundedIndividual
-  st-366c3d63675c135d : Initiative ⊏ₑ BoundedIndividual
+--  Initiative is subTypeOf BoundedIndividual
+st-366c3d63675c135d : Initiative ⊏ₑ BoundedIndividual
+st-366c3d63675c135d = polySubTypeOf-identity
 
-postulate --  Initiative withAspect BlockCollection
-  st-b07be2aa67626977 : Initiative ⊏ₐₑ (BlockCollection lzero)
+--  Initiative withAspect BlockCollection
+st-b07be2aa67626977 : Initiative ⊏ₐₑ (BlockCollection lzero)
+st-b07be2aa67626977 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Steering Authority: -}
 steeringAuthority :  Linkage Initiative ResponsibleHumanEntity
-steeringAuthority = make_holonymyRelation "Steering Authority" "steeringAuthority"
+steeringAuthority = make_holonymyRelation "Steering Authority" "Steering Authority"
 
-postulate -- steeringAuthority is subTypeOf elementaryHolonymy
-  st-b2f2d64d5f47e364-9653a95669701e02  : steeringAuthority   ⊏⋆ᵣ  elementaryHolonymy 
+postulate -- steeringAuthority is subTypeOf referenceHolonymy
+  st-b2f2d64d5f47e364-9653a95669701e02  : steeringAuthority   ⊏⋆ᵣ  referenceHolonymy 
 
 {- Course of Action: 
 A plan recognized by an enterprise as being essential to achieving its goals - i.e. a strategic specification of what the enterprise does. In other words, a Course of Action channels efforts towards Desired Results.Business Capabilities might be required by an Enterprise to conduct its Courses of Action.

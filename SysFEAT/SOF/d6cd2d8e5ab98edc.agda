@@ -5,6 +5,9 @@
 
 Information Map: 
 An Information Map is a Operating Property Map that is the top level grouping of Information Domains. Information Maps are used to provide navigationtop level entry points for Information Dictionary(ies) and to scope data management initiatives at the level of portfolio management ( Data Catalog), at the project level or at the Enterprise level (Enterprise Concept Map).
+
+Documentation : https://framework.sysfeat.com/pages/d6cd2d8e5ab98edc.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,11 +22,13 @@ open import SysFEAT.SOF.d6cd116d5ab97525 public -- Information Domain
 InformationMap : ClassOfClassOfBoundedIndividual
 InformationMap = ClassOfBoundedIndividual
 
-postulate --  InformationMap withAspect MetaFamilyOfClass
-  st-299e32f268486286 : InformationMap ⊏ₐₑ (MetaFamilyOfClass (lsuc(lzero)))
+--  InformationMap withAspect MetaFamilyOfClass
+st-299e32f268486286 : InformationMap ⊏ₐₑ (MetaFamilyOfClass (lsuc(lzero)))
+st-299e32f268486286 = polySubTypeOf-identity
 
-postulate --  InformationMap withAspect InformationBlock
-  st-8f1c9aa668ca8d67 : InformationMap ⊏ₐₑ (InformationBlock (lsuc(lzero)))
+--  InformationMap withAspect InformationBlock
+st-8f1c9aa668ca8d67 : InformationMap ⊏ₐₑ (InformationBlock (lsuc(lzero)))
+st-8f1c9aa668ca8d67 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

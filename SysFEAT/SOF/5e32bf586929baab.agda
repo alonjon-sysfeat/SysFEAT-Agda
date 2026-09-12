@@ -5,6 +5,9 @@
 
 Non applicable: 
 
+
+Documentation : https://framework.sysfeat.com/pages/5e32bf586929baab.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -17,7 +20,8 @@ open import SysFEAT.SOF.5e32ba416929b430 public -- Policity Decision Option
 Nonapplicable : ClassOfProperty
 Nonapplicable = Property
 
-postulate --  Nonapplicable is subTypeOf PolicityDecisionOption
-  st-5e32bf756929bb0b : Nonapplicable ⊏ₑ PolicityDecisionOption
+--  Nonapplicable is subTypeOf PolicityDecisionOption
+st-5e32bf756929bb0b : Nonapplicable ⊏ₑ PolicityDecisionOption
+st-5e32bf756929bb0b = polySubTypeOf-identity
 
 

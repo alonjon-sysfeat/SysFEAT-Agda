@@ -5,6 +5,11 @@
 
 Measurement Instrument: 
 A Measurement Instrument is a quantified aspect of the assets of the enterprise (Agent Types,  Behavior Types, Information Assets) used by organizations to guide its transformation and assurance Initiatives.
+
+Documentation : https://framework.sysfeat.com/pages/173706265fe3f332.htm
+
+External references:
+  WordNet - Measure: https://en-word.net/ili/i35594
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,10 +23,12 @@ open import SysFEAT.UpperOntology.28f07b2354be0d69 public -- Bounded Individual
 MeasurementInstrument : ClassOfBoundedIndividual
 MeasurementInstrument = BoundedIndividual
 
-postulate --  MeasurementInstrument withAspect GovernanceInstrument
-  st-a66fa9e965a98597 : MeasurementInstrument ⊏ₐₑ (GovernanceInstrument lzero)
+--  MeasurementInstrument withAspect GovernanceInstrument
+st-a66fa9e965a98597 : MeasurementInstrument ⊏ₐₑ (GovernanceInstrument lzero)
+st-a66fa9e965a98597 = polySubTypeOf-identity
 
-postulate --  MeasurementInstrument is subTypeOf BoundedIndividual
-  st-366c3d4a675c1326 : MeasurementInstrument ⊏ₑ BoundedIndividual
+--  MeasurementInstrument is subTypeOf BoundedIndividual
+st-366c3d4a675c1326 : MeasurementInstrument ⊏ₑ BoundedIndividual
+st-366c3d4a675c1326 = polySubTypeOf-identity
 
 -- == Relationships =======================

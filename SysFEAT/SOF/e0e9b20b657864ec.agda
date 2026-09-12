@@ -5,6 +5,9 @@
 
 Time Event: 
 A Time Event is a Behavioral Event that signifies the happening of a time change used to coordinate Behavior Types.
+
+Documentation : https://framework.sysfeat.com/pages/e0e9b20b657864ec.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,8 +21,9 @@ open import SysFEAT.SOF.362ff9085b3c4933 public -- Period Type
 TimeEvent : ClassOfClassOfIndividual
 TimeEvent = ClassOfIndividual
 
-postulate --  TimeEvent is subTypeOf BehavioralEvent
-  st-e0e9b22e65786534 : TimeEvent ⊏ₑ BehavioralEvent
+--  TimeEvent is subTypeOf BehavioralEvent
+st-e0e9b22e65786534 : TimeEvent ⊏ₑ BehavioralEvent
+st-e0e9b22e65786534 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

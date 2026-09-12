@@ -4,7 +4,16 @@
    framework.sysfeat.com
 
 Directive: 
-A Directive is an authoritative declaration that indicates how Agents and their Behaviors should be (or should not be) in the enterprise.Specifically, a Directive defines, constrains or liberates some aspects of an Agent and its Behaviors. As such, Directives shall be considered as constraning Asset Propertys.Directives are intended to assert agent structures or to control or influence their Behaviors. Directives are stated in declarative form.
+A Directive is an authoritative declaration that indicates how Agent Types and their Behavior Types should be (or should not be) in the enterprise.Specifically, a Directive defines, constrains or liberates some aspects of an Agent Type and its Behavior Types. As such, Directives shall be considered as constraning Asset Propertys.Directives are intended to assert agent structures or to control or influence their Behaviors. Directives are stated in declarative form.
+
+Documentation : https://framework.sysfeat.com/pages/515c6b23689335c3.htm
+
+External references:
+  OpenGroup - ArchiMate - Constraint: https://pubs.opengroup.org/architecture/archimate32-doc/ch-Motivation-Elements.html#sec-Constraint
+  OMG - SBVR - Element of Guidance: https://www.omg.org/spec/SBVR/1.5/PDF#page=40
+  OMG - BMM - Directive: https://www.omg.org/spec/BMM/1.3/PDF#page=41
+  UCF Glossary - Directive: https://compliancedictionary.com/term/9062
+  OMG - UAF - Rule: https://www.omg.org/spec/UAF/1.2/Beta1/DMM/PDF#Rule
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -14,37 +23,44 @@ module SysFEAT.SOF.515c6b23689335c3 where -- ========== Directive
 open import Agda.Primitive
 open import SysFEAT.UpperOntology.8cfa942f68527849 public -- Unbounded Aggregate
 open import SysFEAT.SOF.9397c3d86877842f public -- Policy Asset
+open import SysFEAT.UpperOntology.746ac18368905aa2 public -- Property
 open import SysFEAT.SOF.952ea6c467285821 public -- Policy Category
 open import SysFEAT.SOF.e6f250185f772ee1 public -- Information Asset
 
 Directive : PropertyType
 Directive = ClassOfProperty
 
-postulate --  Directive withAspect UnboundedAggregate
-  st-0861381666579466 : Directive ⊏ₐₑ (UnboundedAggregate (lsuc(lzero)))
+--  Directive withAspect UnboundedAggregate
+st-0861381666579466 : Directive ⊏ₐₑ (UnboundedAggregate (lsuc(lzero)))
+st-0861381666579466 = polySubTypeOf-identity
 
-postulate --  Directive withAspect PolicyAsset
-  st-9397c69468778c7e : Directive ⊏ₐₑ (PolicyAsset (lsuc(lzero)))
+--  Directive withAspect PolicyAsset
+st-9397c69468778c7e : Directive ⊏ₐₑ (PolicyAsset (lsuc(lzero)))
+st-9397c69468778c7e = polySubTypeOf-identity
+
+--  Directive is subTypeOf Property
+st-e7cbed836a9547f6 : Directive ⊏ₑ Property
+st-e7cbed836a9547f6 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Policy Category: -}
 policyCategory :  Linkage Directive PolicyCategory
-policyCategory = make_instanceOf "Policy Category" "policyCategory"
+policyCategory = make_instanceOf "Policy Category" "Policy Category"
 
 postulate -- policyCategory is subTypeOf categoryOfArchitectureBlock
   st-515c6b2b689335ef-f69620606a0f9c94  : policyCategory   ⊏⋆ᵣ  categoryOfArchitectureBlock  {lsuc(lsuc(lzero))}
 
 {- Specialized Directive: -}
 specializedDirective :  Linkage Directive Directive
-specializedDirective = make_subTypeOf "Specialized Directive" "specializedDirective"
+specializedDirective = make_subTypeOf "Specialized Directive" "Specialized Directive"
 
 postulate -- specializedDirective is subTypeOf specializedProperty
   st-190c79c26896690d-1662112a68925f90  : specializedDirective   ⊏⋆ᵣ  specializedProperty 
 
 {- Realized Directive: -}
 realizedDirective :  Linkage Directive Directive
-realizedDirective = make_subTypeOf "Realized Directive" "realizedDirective"
+realizedDirective = make_subTypeOf "Realized Directive" "Realized Directive"
 
 postulate -- realizedDirective is subTypeOf specializedProperty
   st-190c7a7f6896696e-1662112a68925f90  : realizedDirective   ⊏⋆ᵣ  specializedProperty 

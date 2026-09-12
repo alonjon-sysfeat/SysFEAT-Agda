@@ -5,6 +5,9 @@
 
 Operating Connection: 
 An Operating Connection is an Aggregate Connection that defines a behavioral connection between Operating Asset Types.
+
+Documentation : https://framework.sysfeat.com/pages/21c5276e655759fb.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -17,7 +20,8 @@ open import SysFEAT.UpperOntology.23d5eaba68515533 public -- Ordering Connection
 OperatingConnection : ClassOfClassOfIndividual
 OperatingConnection = ClassOfIndividual
 
-postulate --  OperatingConnection withAspect OrderingConnection
-  st-a4018d4666008d65 : OperatingConnection ⊏ₐₑ (OrderingConnection (lsuc(lzero)))
+--  OperatingConnection withAspect OrderingConnection
+st-a4018d4666008d65 : OperatingConnection ⊏ₐₑ (OrderingConnection (lsuc(lzero)))
+st-a4018d4666008d65 = polySubTypeOf-identity
 
 -- == Relationships =======================

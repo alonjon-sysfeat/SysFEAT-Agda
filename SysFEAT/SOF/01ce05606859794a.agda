@@ -5,6 +5,9 @@
 
 Initiative Instrument: 
 An Initiative Instrument is a resource and course of actions defined by Enduring Initiatives  to achieve its objectives.For instance:Data Controls are mechanisms used to ensure data quality and data integrityPrivacy Representatives are used to identify national entities in charge on privacy.
+
+Documentation : https://framework.sysfeat.com/pages/01ce05606859794a.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -17,7 +20,8 @@ open import SysFEAT.SOF.01ce05f9685979d8 public -- Initiative Block
 InitiativeInstrument : ∀ (u : Level) → ClassOfMixedOrderEntity u
 InitiativeInstrument u = MixedOrderEntity u
 
-postulate --  InitiativeInstrument is subTypeOf InitiativeBlock
-  st-0b950d3668e54ade : ∀ {u v} → (InitiativeInstrument u) ⊏⋆ₑ (InitiativeBlock v)
+--  InitiativeInstrument is subTypeOf InitiativeBlock
+st-0b950d3668e54ade : ∀ {u v} → (InitiativeInstrument u) ⊏⋆ₑ (InitiativeBlock v)
+st-0b950d3668e54ade = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

@@ -5,6 +5,11 @@
 
 Library: 
 A Library is a kind of Architecture Container used to group Asset Blocks into several independent modules (aka package).They allow virtual partitions of model repositories used for model management. In particular, Asset Blocks owned by different Library(ies) can have the same name (namespacing).
+
+Documentation : https://framework.sysfeat.com/pages/0eb9601c6855c11e.htm
+
+External references:
+  OMG - KerML - LibraryPackage: https://www.omg.org/spec/KerML/1.0/PDF#page=238
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -12,24 +17,25 @@ A Library is a kind of Architecture Container used to group Asset Blocks into se
 module SysFEAT.SOF.0eb9601c6855c11e where -- ========== Library
 
 open import Agda.Primitive
-open import SysFEAT.SOF.0eb96bc36855ca44 public -- Model Package
+open import SysFEAT.SOF.d745dbaa6aa3840b public -- Model Package
 open import SysFEAT.SOF.0eb95f1b6855bf64 public -- Architecture Container
 
-Library : FirstOrderClass
-Library = FirstOrderEntity
+Library : ∀ (u : Level) → ClassOfMixedOrderEntity u
+Library u = MixedOrderEntity u
 
+--  Library is subTypeOf ModelPackage
+st-0f6418c268598b03 : ∀ {u} → (Library u) ⊏ₘₑ ModelPackage
+st-0f6418c268598b03 = polySubTypeOf-identity
 
-postulate --  Library is subTypeOf ModelPackage
-  st-0f6418c268598b03 : Library ⊏ₑ ModelPackage
-
-postulate --  Library withAspect ArchitectureContainer
-  st-0eb960326855c14a : Library ⊏ₐₑ (ArchitectureContainer lzero)
+--  Library is subTypeOf ArchitectureContainer
+st-0eb960326855c14a : ∀ {u v} → (Library u) ⊏⋆ₑ (ArchitectureContainer v)
+st-0eb960326855c14a = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================
 
-{- Sub-Library: -}
-subLibrary :  Linkage Library Library
-subLibrary = make_nestingRelation "Sub-Library" "subLibrary"
+{- Parent Library: -}
+parentLibrary : ∀ {u v} →  Linkage (Library u) (Library v)
+parentLibrary = make_Relation "Library Basing" "Parent Library"
 
-postulate -- subLibrary is subTypeOf includedArchitectureDictionary
-  st-0f64228e685999f8-0f6416aa685987e1  : subLibrary   ⊏⋆ᵣ  includedArchitectureDictionary {lzero} {lzero}
+postulate -- parentLibrary is subTypeOf parentModelPackage
+  st-e7cb01db6a976047-e7cb000b6a975e4c  : ∀ {u v} → parentLibrary {u} {v}  ⊏⋆ᵣ  parentModelPackage

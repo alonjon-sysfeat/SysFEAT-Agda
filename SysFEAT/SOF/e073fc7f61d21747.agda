@@ -5,6 +5,9 @@
 
 Advise: 
 An Advise is time bound Resolution, agreed upon by Stakeholders to recommend what can or cannot be done regarding an Asset Block.
+
+Documentation : https://framework.sysfeat.com/pages/e073fc7f61d21747.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -17,7 +20,8 @@ open import SysFEAT.SOF.e073f9c161d2104a public -- Resolution
 Advise : ClassOfBoundedIndividual
 Advise = BoundedIndividual
 
-postulate --  Advise is subTypeOf Resolution
-  st-e073fc8661d2179f : Advise ⊏ₑ Resolution
+--  Advise is subTypeOf Resolution
+st-e073fc8661d2179f : Advise ⊏ₑ Resolution
+st-e073fc8661d2179f = polySubTypeOf-identity
 
 -- == Relationships =======================

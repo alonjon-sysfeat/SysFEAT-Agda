@@ -5,6 +5,11 @@
 
 Information Asset: 
 An Information Asset  represents anything that can be communicated or memorized by an Agent Type to produce and react to Outcome Events.An Information Asset is either an Information Entity or an Information Property.The difference lies in their relationship to change and to time. Information Entity(ies) can change over time and have a lifeycle while Information Propertys are immutable characteristics.
+
+Documentation : https://framework.sysfeat.com/pages/e6f250185f772ee1.htm
+
+External references:
+  OpenGroup - ArchiMate - Passive-Structure-Elements: https://pubs.opengroup.org/architecture/archimate32-doc/ch-Generic-Metamodel.html#sec-Passive-Structure-Elements
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,24 +25,26 @@ open import SysFEAT.SOF.582e785466f6b36f public -- Data Risk Type
 InformationAsset : ClassOfClassOfBoundedIndividual
 InformationAsset = ClassOfBoundedIndividual
 
-postulate --  InformationAsset is subTypeOf AssetType
-  st-27a44f796407c1e4 : InformationAsset ⊏ₑ AssetType
+--  InformationAsset is subTypeOf AssetType
+st-27a44f796407c1e4 : InformationAsset ⊏ₑ AssetType
+st-27a44f796407c1e4 = polySubTypeOf-identity
 
-postulate --  InformationAsset withAspect InformationBlock
-  st-8f1c9a7768ca8cfd : InformationAsset ⊏ₐₑ (InformationBlock (lsuc(lzero)))
+--  InformationAsset withAspect InformationBlock
+st-8f1c9a7768ca8cfd : InformationAsset ⊏ₐₑ (InformationBlock (lsuc(lzero)))
+st-8f1c9a7768ca8cfd = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Specialized Information Asset: -}
 specializedInformationAsset :  Linkage InformationAsset InformationAsset
-specializedInformationAsset = make_subTypeOf "Specialized Information Asset" "specializedInformationAsset"
+specializedInformationAsset = make_subTypeOf "Specialized Information Asset" "Specialized Information Asset"
 
 postulate -- specializedInformationAsset is subTypeOf subTypeOfEntity
   st-325a372e66f33bca-8336837268e9448b  : specializedInformationAsset   ⊏⋆ᵣ  subTypeOfEntity {lsuc(lzero)}
 
 {- Realized Information Asset: -}
 realizedInformationAsset :  Linkage InformationAsset InformationAsset
-realizedInformationAsset = make_subTypeOf "Realized Information Asset" "realizedInformationAsset"
+realizedInformationAsset = make_subTypeOf "Realized Information Asset" "Realized Information Asset"
 
 postulate -- realizedInformationAsset is subTypeOf subTypeOfEntity
   st-325a3a0b66f354a7-8336837268e9448b  : realizedInformationAsset   ⊏⋆ᵣ  subTypeOfEntity {lsuc(lzero)}
@@ -46,7 +53,7 @@ postulate -- realizedInformationAsset is subTypeOf subTypeOfEntity
 Classification of an Information Asset as belonging to a Data Category.
 -}
 dataCategory : ∀ {u} →  Linkage InformationAsset (DataCategory u)
-dataCategory = make_instanceOf "Data Category" "dataCategory"
+dataCategory = make_instanceOf "Data Category" "Data Category"
 
 postulate -- dataCategory is subTypeOf categoryOfArchitectureBlock
   st-435652586a111043-f69620606a0f9c94  : dataCategory  {lsuc(lsuc(lzero))}  ⊏⋆ᵣ  categoryOfArchitectureBlock  {lsuc(lsuc(lzero))}

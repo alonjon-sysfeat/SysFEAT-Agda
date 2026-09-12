@@ -5,6 +5,9 @@
 
 Time-bound Initiative: 
 A Time-bound Initiative is an Initiative that has a clearly defined start and end date, with specific objectives to be achieved within that timeframe. These initiatives are characterized by their limited duration, focus on achieving particular outcomes within the set period.Example: project.
+
+Documentation : https://framework.sysfeat.com/pages/0520200666475f86.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,10 +21,12 @@ open import SysFEAT.UpperOntology.342f74b166156e02 public -- Whole Life Individu
 TimeboundInitiative : ClassOfBoundedIndividual
 TimeboundInitiative = BoundedIndividual
 
-postulate --  TimeboundInitiative is subTypeOf Initiative
-  st-0520203f66475ff9 : TimeboundInitiative ⊏ₑ Initiative
+--  TimeboundInitiative is subTypeOf Initiative
+st-0520203f66475ff9 : TimeboundInitiative ⊏ₑ Initiative
+st-0520203f66475ff9 = polySubTypeOf-identity
 
-postulate --  TimeboundInitiative is subTypeOf WholeLifeIndividual
-  st-a44fdca4674590b1 : TimeboundInitiative ⊏ₑ WholeLifeIndividual
+--  TimeboundInitiative is subTypeOf WholeLifeIndividual
+st-a44fdca4674590b1 : TimeboundInitiative ⊏ₑ WholeLifeIndividual
+st-a44fdca4674590b1 = polySubTypeOf-identity
 
 -- == Relationships =======================

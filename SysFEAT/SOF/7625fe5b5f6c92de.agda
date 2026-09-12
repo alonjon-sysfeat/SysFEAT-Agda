@@ -5,6 +5,9 @@
 
 Remediation Plan: 
 
+
+Documentation : https://framework.sysfeat.com/pages/7625fe5b5f6c92de.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -17,7 +20,8 @@ open import SysFEAT.SOF.1737b76a5fe28204 public -- Governance Activity
 RemediationPlan : ClassOfBoundedIndividual
 RemediationPlan = BoundedIndividual
 
-postulate --  RemediationPlan is subTypeOf GovernanceActivity
-  st-d7f911165f73d9f6 : RemediationPlan ⊏ₑ GovernanceActivity
+--  RemediationPlan is subTypeOf GovernanceActivity
+st-d7f911165f73d9f6 : RemediationPlan ⊏ₑ GovernanceActivity
+st-d7f911165f73d9f6 = polySubTypeOf-identity
 
 -- == Relationships =======================

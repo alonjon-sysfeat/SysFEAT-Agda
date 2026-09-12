@@ -5,6 +5,9 @@
 
 Class of Systemic Level: 
 Class of Systemic Level is the powertype of Systemic Level.
+
+Documentation : https://framework.sysfeat.com/pages/0c450e8c6a032050.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -17,7 +20,8 @@ open import SysFEAT.UpperOntology.8d1cf23968f75847 public -- Meta-Class Partitio
 ClassOfSystemicLevel : ∀ (u : Level) → Set (lsuc (lsuc (lsuc u)))
 ClassOfSystemicLevel u = MetaClass u
 
-postulate --  ClassOfSystemicLevel is subTypeOf MetaClassPartition
-  st-0c450f126a032125 : ∀ {u v} → (ClassOfSystemicLevel u) ⊏⋆ₑ (MetaClassPartition v)
+--  ClassOfSystemicLevel is subTypeOf MetaClassPartition
+st-0c450f126a032125 : ∀ {u v} → (ClassOfSystemicLevel u) ⊏⋆ₑ (MetaClassPartition v)
+st-0c450f126a032125 = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

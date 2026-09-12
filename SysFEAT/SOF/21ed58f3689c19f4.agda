@@ -5,6 +5,9 @@
 
 Environmental Property: 
 An Environmental Property is a specific value of an Environmental Property Type.Environmental Propertys are used as constraints on Asset Blocks in the context of non-functional requirement analysis and Value Proposition analysis.Examples:- Muddy, frozen ground, deep snow (Terrain Type),- Broad daylight, dusk, moonlit  (Light condition).
+
+Documentation : https://framework.sysfeat.com/pages/21ed58f3689c19f4.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,14 +21,15 @@ open import SysFEAT.SOF.e53af85b66e37f78 public -- Environmental Property Type
 EnvironmentalProperty : PropertyType
 EnvironmentalProperty = ClassOfProperty
 
-postulate --  EnvironmentalProperty is subTypeOf ConditionProperty
-  st-dd264a59689f47c3 : EnvironmentalProperty ⊏ₑ ConditionProperty
+--  EnvironmentalProperty is subTypeOf ConditionProperty
+st-dd264a59689f47c3 : EnvironmentalProperty ⊏ₑ ConditionProperty
+st-dd264a59689f47c3 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Environmental Property Type: -}
 environmentalPropertyType :  Linkage EnvironmentalProperty EnvironmentalPropertyType
-environmentalPropertyType = make_instanceOf "Environmental Property Type" "environmentalPropertyType"
+environmentalPropertyType = make_instanceOf "Environmental Property Type" "Environmental Property Type"
 
 postulate -- environmentalPropertyType is subTypeOf conditionPropertyType
   st-21ed5b67689c1c35-21ed5a16689c1a59  : environmentalPropertyType   ⊏⋆ᵣ  conditionPropertyType 

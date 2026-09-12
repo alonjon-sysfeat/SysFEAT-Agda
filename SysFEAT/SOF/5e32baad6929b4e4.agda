@@ -5,6 +5,9 @@
 
 Applicable: 
 
+
+Documentation : https://framework.sysfeat.com/pages/5e32baad6929b4e4.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -17,7 +20,8 @@ open import SysFEAT.SOF.5e32ba416929b430 public -- Policity Decision Option
 Applicable : ClassOfProperty
 Applicable = Property
 
-postulate --  Applicable is subTypeOf PolicityDecisionOption
-  st-5e32bab46929b524 : Applicable ⊏ₑ PolicityDecisionOption
+--  Applicable is subTypeOf PolicityDecisionOption
+st-5e32bab46929b524 : Applicable ⊏ₑ PolicityDecisionOption
+st-5e32bab46929b524 = polySubTypeOf-identity
 
 

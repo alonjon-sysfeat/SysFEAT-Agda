@@ -5,6 +5,9 @@
 
 Governance Committee: 
 A Governance Committee is a group of Stakeholders that contributes to architecting and assurance activities and governs Enduring Initiatives.
+
+Documentation : https://framework.sysfeat.com/pages/2cc9717155263b89.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,8 +21,9 @@ open import SysFEAT.SOF.2cc9718655263c44 public -- Individual Stakeholder
 GovernanceCommittee : ClassOfBoundedIndividual
 GovernanceCommittee = BoundedIndividual
 
-postulate --  GovernanceCommittee is subTypeOf Stakeholder
-  st-2cc9717855263c02 : GovernanceCommittee ⊏ₑ Stakeholder
+--  GovernanceCommittee is subTypeOf Stakeholder
+st-2cc9717855263c02 : GovernanceCommittee ⊏ₑ Stakeholder
+st-2cc9717855263c02 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

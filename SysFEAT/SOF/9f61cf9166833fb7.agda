@@ -5,6 +5,9 @@
 
 Individual Operating Asset: 
 An Individual Operating Asset is a Functional Asset that describes the way Outcomes are produced and consumed: how (Individual Processes) and by whom (Individual Agents).
+
+Documentation : https://framework.sysfeat.com/pages/9f61cf9166833fb7.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,14 +23,17 @@ open import SysFEAT.SOF.515c13db68953887 public -- Capability
 IndividualOperatingAsset : ClassOfBoundedIndividual
 IndividualOperatingAsset = BoundedIndividual
 
-postulate --  IndividualOperatingAsset withAspect AssetBlock
-  st-3b1b7e0568cd6e7d : IndividualOperatingAsset ⊏ₐₑ (AssetBlock lzero)
+--  IndividualOperatingAsset withAspect AssetBlock
+st-3b1b7e0568cd6e7d : IndividualOperatingAsset ⊏ₐₑ (AssetBlock lzero)
+st-3b1b7e0568cd6e7d = polySubTypeOf-identity
 
-postulate --  IndividualOperatingAsset is subTypeOf IndividualAsset
-  st-a44f93a06748a9d5 : IndividualOperatingAsset ⊏ₑ IndividualAsset
+--  IndividualOperatingAsset is subTypeOf IndividualAsset
+st-a44f93a06748a9d5 : IndividualOperatingAsset ⊏ₑ IndividualAsset
+st-a44f93a06748a9d5 = polySubTypeOf-identity
 
-postulate --  IndividualOperatingAsset is subTypeOf BoundedIndividual
-  st-be75bef768d23a89 : IndividualOperatingAsset ⊏ₑ BoundedIndividual
+--  IndividualOperatingAsset is subTypeOf BoundedIndividual
+st-be75bef768d23a89 : IndividualOperatingAsset ⊏ₑ BoundedIndividual
+st-be75bef768d23a89 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -35,7 +41,7 @@ postulate --  IndividualOperatingAsset is subTypeOf BoundedIndividual
 Set of Capabilitys that an Individual Individual Operating Asset exhibits.
 -}
 exhibitedCapability :  Linkage IndividualOperatingAsset Capability
-exhibitedCapability = make_instanceOf "Exhibited Capability" "exhibitedCapability"
+exhibitedCapability = make_instanceOf "Exhibited Capability" "Exhibited Capability"
 
 postulate -- exhibitedCapability is subTypeOf propertyOfIndividual
   st-e44104b768d586bb-19763dbb68926a48  : exhibitedCapability   ⊏⋆ᵣ  propertyOfIndividual 

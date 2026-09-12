@@ -5,6 +5,9 @@
 
 Architecture Container: 
 An Architecture Container is a Model Container that packages Asset Blocks used for enterprise architecture descriptions.This includes Information Asset, Processes, Software Systems, Hardware Systems, Organizations, etc.Model Containers are used to split SysFEAT repository content into several independent modules (aka package).They allow virtual partitions of the repository. In particular, Asset Blocks packaged by different Model Containers can have the same name (namespacing).There are two main kinds of Model Container: Enterprise and Library.
+
+Documentation : https://framework.sysfeat.com/pages/0eb95f1b6855bf64.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,33 +23,35 @@ open import SysFEAT.SOF.0eb95f356855bf94 public -- Asset Block
 ArchitectureContainer : ∀ (u : Level) → ClassOfMixedOrderEntity u
 ArchitectureContainer u = MixedOrderEntity u
 
-postulate --  ArchitectureContainer is subTypeOf ArchitectureLexicalScope
-  st-0eb95f7b6855c056 : ∀ {u v} → (ArchitectureContainer u) ⊏⋆ₑ (ArchitectureLexicalScope v)
+--  ArchitectureContainer is subTypeOf ArchitectureLexicalScope
+st-0eb95f7b6855c056 : ∀ {u v} → (ArchitectureContainer u) ⊏⋆ₑ (ArchitectureLexicalScope v)
+st-0eb95f7b6855c056 = trivialPolySubTypeOfEntity
 
-postulate --  ArchitectureContainer is subTypeOf ModelContainer
-  st-9397bc2b6877823c : ∀ {u v} → (ArchitectureContainer u) ⊏⋆ₑ (ModelContainer v)
+--  ArchitectureContainer is subTypeOf ModelContainer
+st-9397bc2b6877823c : ∀ {u v} → (ArchitectureContainer u) ⊏⋆ₑ (ModelContainer v)
+st-9397bc2b6877823c = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================
 
 {- Included Architecture Dictionary: -}
 includedArchitectureDictionary : ∀ {u v} →  Linkage (ArchitectureContainer u) (ArchitectureContainer v)
-includedArchitectureDictionary = make_nestingRelation "Included Architecture Dictionary" "includedArchitectureDictionary"
+includedArchitectureDictionary = make_nestingRelation "Included Architecture Dictionary" "Included Architecture Dictionary"
 
-postulate -- includedArchitectureDictionary is subTypeOf subModelPackage
-  st-0f6416aa685987e1-0eb96c446855cb6c  : ∀ {u v} → includedArchitectureDictionary {u} {v}  ⊏⋆ᵣ  subModelPackage
+postulate -- includedArchitectureDictionary is subTypeOf nestingRelation
+  st-0f6416aa685987e1-02a506a968540333  : ∀ {u v} → includedArchitectureDictionary {u} {v}  ⊏⋆ᵣ  nestingRelation {u} {v}
 
 {- Packaged Block Collection: -}
-packagedBlockCollection : ∀ {u} →  Linkage (ArchitectureContainer u) ArchitectureBlockCollection
-packagedBlockCollection = make_nestingRelation "Packaged Block Collection" "packagedBlockCollection"
+packagedBlockCollection : ∀ {u v} →  Linkage (ArchitectureContainer u) (ArchitectureBlockCollection v)
+packagedBlockCollection = make_nestingRelation "Packaged Block Collection" "Packaged Block Collection"
 
 postulate -- packagedBlockCollection is subTypeOf nestingRelation
-  st-0eb966436855c46e-02a506a968540333  : packagedBlockCollection {u}  ⊏⋆ᵣ  nestingRelation {u} {v}
+  st-0eb966436855c46e-02a506a968540333  : ∀ {u v} → packagedBlockCollection {u} {v}  ⊏⋆ᵣ  nestingRelation {u} {v}
 
 {- Packaged Asset Block: 
 Packaging of Packaged Asset Blocks in Architecture Containers.
 -}
 packagedAssetBlock : ∀ {u v} →  Linkage (ArchitectureContainer u) (AssetBlock v)
-packagedAssetBlock = make_nestingRelation "Packaged Asset Block" "packagedAssetBlock"
+packagedAssetBlock = make_nestingRelation "Packaged Asset Block" "Packaged Asset Block"
 
 postulate -- packagedAssetBlock is subTypeOf packagedModelBlock
   st-9397bbda687781e0-3346b0ad687846e9  : ∀ {u v} → packagedAssetBlock {u} {v}  ⊏⋆ᵣ  packagedModelBlock {u} {v}
@@ -57,7 +62,7 @@ postulate -- packagedAssetBlock is subTypeOf scopedArchitectureBlock
 The Imported Architecture Container relationship extends the lexical scope of an Architecture Container to Asset Blocks of the imported Architecture Container.
 -}
 importedArchitectureContainer : ∀ {u v} →  Linkage (ArchitectureContainer u) (ArchitectureContainer v)
-importedArchitectureContainer = make_Relation "Imported Architecture Container" "importedArchitectureContainer"
+importedArchitectureContainer = make_Relation "Imported Architecture Container" "Imported Architecture Container"
 
 postulate -- importedArchitectureContainer is subTypeOf importedModelContainer
   st-0eb984ce6855d3ca-0eb97ce26855cf57  : ∀ {u v} → importedArchitectureContainer {u} {v}  ⊏⋆ᵣ  importedModelContainer {u} {v}
