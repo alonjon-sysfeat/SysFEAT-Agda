@@ -16,26 +16,25 @@ module SysFEAT.SOF.0eb960766855c180 where -- ========== Architecture Block Colle
 
 open import Agda.Primitive
 open import SysFEAT.UpperOntology.23d5aa4868513f43 public -- Block Collection
-open import SysFEAT.UpperOntology.f41700e868ee0f29 public -- First Order Entity
+open import SysFEAT.UpperOntology.5425a2df6aa225cf public -- First Order Entity
 open import SysFEAT.SOF.0eb95f356855bf94 public -- Asset Block
 
-ArchitectureBlockCollection : FirstOrderClass
-ArchitectureBlockCollection = FirstOrderEntity
+ArchitectureBlockCollection : ∀ (u : Level) → ClassOfMixedOrderEntity u
+ArchitectureBlockCollection u = MixedOrderEntity u
 
-
---  ArchitectureBlockCollection withAspect BlockCollection
-st-0eb963f66855c298 : ArchitectureBlockCollection ⊏ₐₑ (BlockCollection lzero)
-st-0eb963f66855c298 = polySubTypeOf-identity
+--  ArchitectureBlockCollection is subTypeOf BlockCollection
+st-0eb963f66855c298 : ∀ {u v} → (ArchitectureBlockCollection u) ⊏⋆ₑ (BlockCollection v)
+st-0eb963f66855c298 = trivialPolySubTypeOfEntity
 
 --  ArchitectureBlockCollection is subTypeOf FirstOrderEntity
-st-fbc4fc366a5d64c8 : ArchitectureBlockCollection ⊏ₑ FirstOrderEntity
+st-fbc4fc366a5d64c8 : ∀ {u} → (ArchitectureBlockCollection u) ⊏ₘₑ FirstOrderEntity
 st-fbc4fc366a5d64c8 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Grouped Architecture Block: -}
-groupedArchitectureBlock : ∀ {u} →  Linkage ArchitectureBlockCollection (AssetBlock u)
+groupedArchitectureBlock : ∀ {u v} →  Linkage (ArchitectureBlockCollection u) (AssetBlock v)
 groupedArchitectureBlock = make_Relation "Grouped Architecture Block" "Grouped Architecture Block"
 
 postulate -- groupedArchitectureBlock is subTypeOf groupedBuildingBlock
-  st-0eb964546855c2dc-23d5c4b66851421c  : groupedArchitectureBlock  {lzero}  {lzero}  ⊏⋆ᵣ  groupedBuildingBlock {lzero} {lzero}
+  st-0eb964546855c2dc-23d5c4b66851421c  : ∀ {u v} → groupedArchitectureBlock {u} {v}  ⊏⋆ᵣ  groupedBuildingBlock {u} {v}

@@ -17,8 +17,8 @@ module SysFEAT.SOF.0eb95db46855bdd5 where -- ========== Model Lexical Scope
 open import Agda.Primitive
 open import SysFEAT.UpperOntology.23d5c494685141b5 public -- Block Lexical Scope
 open import SysFEAT.SOF.0eb95e566855bed9 public -- Model Building Block
-open import SysFEAT.SOF.0eb97ada6855ccb4 public -- Annotation Block
-open import SysFEAT.SOF.3346b1e7687847f3 public -- Description Note
+open import SysFEAT.SOF.d745e6ea6aa386e5 public -- Annotation Block
+open import SysFEAT.SOF.d745e8936aa388e0 public -- Description Note
 
 ModelLexicalScope : ∀ (u : Level) → ClassOfMixedOrderEntity u
 ModelLexicalScope u = MixedOrderEntity u

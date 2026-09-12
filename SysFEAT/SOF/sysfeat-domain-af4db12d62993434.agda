@@ -21,9 +21,8 @@ open import SysFEAT.UpperOntology.sysfeat-domain-36166b8c6157b6b4 public -- Comp
 open import SysFEAT.SOF.0eb95e566855bed9 public -- Model Building Block
 open import SysFEAT.SOF.0eb95db46855bdd5 public -- Model Lexical Scope
 open import SysFEAT.SOF.0eb95dce6855be2e public -- Model Container
-open import SysFEAT.SOF.0eb96bc36855ca44 public -- Model Package
-open import SysFEAT.SOF.0eb97ada6855ccb4 public -- Annotation Block
 open import SysFEAT.SOF.0eb97aff6855cd23 public -- Model Property Block
-open import SysFEAT.SOF.3346c3266878522f public -- Tag
-open import SysFEAT.SOF.3346b1e7687847f3 public -- Description Note
-open import SysFEAT.SOF.3346b1c668784780 public -- Documentation
+open import SysFEAT.SOF.d745dbaa6aa3840b public -- Model Package
+open import SysFEAT.SOF.d745e6ea6aa386e5 public -- Annotation Block
+open import SysFEAT.SOF.d745e8936aa388e0 public -- Description Note
+open import SysFEAT.SOF.d745e99d6aa38a7a public -- Tag

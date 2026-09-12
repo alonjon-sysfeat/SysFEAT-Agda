@@ -24,4 +24,4 @@ AssessmentType = SecondOrderClass
 st-366c4200675c172f : AssessmentType ⊏ₑ AppraisalType
 st-366c4200675c172f = polySubTypeOf-identity
 
--- == Relationships =======================
+
