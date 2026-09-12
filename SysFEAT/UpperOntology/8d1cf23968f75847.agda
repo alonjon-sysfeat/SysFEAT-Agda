@@ -19,6 +19,6 @@ MetaClassPartition u = MetaFamilyOfClass u
 
 -- MetaClassPartition isSubTypeOf MetaFamilyOfClass
 8d1cd27468f758a5 : ∀ {u} → (MetaClassPartition u) ⊏ₘₑ (MetaFamilyOfClass u)
-8d1cd27468f758a5 {u} = ⊏⋆-refl
+8d1cd27468f758a5 {u} = polySubTypeOf-identity
 
 

@@ -24,6 +24,6 @@ ClassPartition u = FamilyOfClass u
 
 -- ClassPartition isSubTypeOf FamilyOfClass
 8d1ceec668f7560c : ∀ {u} → (ClassPartition u) ⊏ₑ (FamilyOfClass u)
-8d1ceec668f7560c {u} = ⊏⋆-refl
+8d1ceec668f7560c {u} = polySubTypeOf-identity
 
 

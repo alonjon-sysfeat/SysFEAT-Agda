@@ -4,7 +4,15 @@
    framework.sysfeat.com
 
 4D Composite Knowledge Graph: 
-The purpose of the 4D Composite Knowledge Graph is to layer structured spatio-temporal concepts onto the Reflexive Knowledge Graph,The 4D Composite Knowledge Graph integrates the capabilities of Reflexive Knowledge Graphs (entities, relationships,  Holonymy Relation and multi-level instance of Entity) with those of Compositionality (composite structures) resulting in the addition of the following key features:1) Mereological  Aggregate Holonymy relationships, providing dynamic locality to composition.2) Individual-Property distinction: a clear ontological separation between Bounded Individuals (entities that exist in space and time) and their properties (Property). A dedicated Typology characterizes how individuals relate to and instantiate these properties.3) Temporal Framing: the introduction of temporal connections (Temporal Bounding) that define the temporal boundaries of Bounded Individuals, enabling the explicit modeling of state changes, events, and persistence over time.
+The purpose of the 4D Composite Knowledge Graph is to layer structured spatio-temporal concepts onto the Reflexive Knowledge Graph,The 4D Composite Knowledge Graph integrates the capabilities of Reflexive Knowledge Graphs (entities, relationships,  Holonymy Relation and multi-level instance of Entity) with those of Compositionality (composite structures) resulting in the addition of the following key features:1) Mereological  Aggregate Holonymy relationships, providing dynamic locality to composition.2) Individual-Property distinction: a clear ontological separation between Bounded Individuals (entities that exist in space and time) and their properties (Property Value). A dedicated Typology characterizes how individuals relate to and instantiate these properties.3) Temporal Framing: the introduction of temporal connections (Temporal Bounding) that define the temporal boundaries of Bounded Individuals, enabling the explicit modeling of state changes, events, and persistence over time.
+
+Documentation : https://framework.sysfeat.com/pages/fb342c5665561f29.htm
+
+External references:
+  Russell Ackoff - Choice & Communication - Signification of a Sign: ../resources/external-references/Ackoff-1967-Choice-Communication-and-Conflict.pdf#SignificationOfASign
+  SysFEAT -Semantic.pdf: ../resources/framework/SysFEAT-ModelingFramework-02-Semantic.pdf
+  Wordnet - Semantics: https://en-word.net/ili/i67948
+  Stanford Encyclopedia - Temporal-parts: https://plato.stanford.edu/entries/temporal-parts
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -15,9 +23,9 @@ open import SysFEAT.UpperOntology.sysfeat-domain-e278fa2568f06541 public -- Refl
 open import SysFEAT.UpperOntology.sysfeat-domain-36166b8c6157b6b4 public -- Compositionality
 
 open import SysFEAT.UpperOntology.87d3062666e33965 public -- Property Type
-open import SysFEAT.UpperOntology.746ac18368905aa2 public -- Class of Property
+open import SysFEAT.UpperOntology.746ac18368905aa2 public -- Property
 open import SysFEAT.UpperOntology.3492c53e619642ed public -- Class of Bounded Individual
-open import SysFEAT.UpperOntology.b85efd0868df48b1 public -- Property
+open import SysFEAT.UpperOntology.b85efd0868df48b1 public -- Property Value
 open import SysFEAT.UpperOntology.28f07b2354be0d69 public -- Bounded Individual
 open import SysFEAT.UpperOntology.29cd2db0661546c4 public -- Individual State
 open import SysFEAT.UpperOntology.342f43ae66156429 public -- State Class

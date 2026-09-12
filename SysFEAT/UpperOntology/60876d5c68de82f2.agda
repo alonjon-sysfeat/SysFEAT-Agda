@@ -5,6 +5,9 @@
 
 Class of Class of Bounded Individual: 
 A Class of Class of Bounded Individual is a Class of Class of Individual which is the powertype of  Class of Bounded Individual . It means that all sub-types of Class of Bounded Individual are instances of Class of Class of Bounded Individual.
+
+Documentation : https://framework.sysfeat.com/pages/60876d5c68de82f2.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -17,7 +20,8 @@ open import SysFEAT.UpperOntology.608767a668de7fb6 public -- Class of Class of I
 ClassOfClassOfBoundedIndividual : ThirdOrderClass
 ClassOfClassOfBoundedIndividual = ClassOfClassOfIndividual
 
-postulate --  ClassOfClassOfBoundedIndividual is subTypeOf ClassOfClassOfIndividual
-  st-87d3223566e34385 : ClassOfClassOfBoundedIndividual ⊏ₑ ClassOfClassOfIndividual
+--  ClassOfClassOfBoundedIndividual is subTypeOf ClassOfClassOfIndividual
+st-87d3223566e34385 : ClassOfClassOfBoundedIndividual ⊏ₑ ClassOfClassOfIndividual
+st-87d3223566e34385 = polySubTypeOf-identity
 
--- == Relationships =======================
+

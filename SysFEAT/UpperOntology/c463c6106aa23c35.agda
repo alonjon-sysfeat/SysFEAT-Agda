@@ -9,13 +9,13 @@ First Order Class is the Meta-Class of all subclasses of First Order Entity. Eac
 
 {-# OPTIONS --safe --cubical --guardedness #-}
 
-module SysFEAT.UpperOntology.b148d6d568ec7bf1 where -- ====================== First Order Class (Level 1)
+module SysFEAT.UpperOntology.c463c6106aa23c35 where -- ====================== First Order Class (Level 1)
 
 open import Agda.Primitive
 open import SysFEAT.UpperOntology.20702bc568e969f4 public -- Class of Entity and Relation
 open import SysFEAT.UpperOntology.e27801e868f17024 public -- MetaClass et MetaRelation (M2)
 open import SysFEAT.UpperOntology.7d35645c68f37329 public -- Class of Ordered Entity
-open import SysFEAT.UpperOntology.78e382a768ef0daa public -- Second Order Class
+open import SysFEAT.UpperOntology.a599a7e46aa370fb public -- Second Order Class
 
 -- ============================================================
 -- I. First Order Class (M1 level)
@@ -25,11 +25,11 @@ FirstOrderClass = ClassOfOrderedEntity lzero
 
 -- FirstOrderClass isSubTypeOf ClassOfOrderedEntity
 12fe2cfc68ed169c : FirstOrderClass ⊏ₑ (ClassOfOrderedEntity lzero)
-12fe2cfc68ed169c = ⊏⋆-refl
+12fe2cfc68ed169c = polySubTypeOf-identity
 
 -- FirstOrderClass isPowerInstanceOf SecondOrderClass
 78e382d568ef0df8 : FirstOrderClass ∷ₚₑ SecondOrderClass
-78e382d568ef0df8  = ∷ₚₑ-fromMap (λ A → Lift _ A)
+78e382d568ef0df8  = powerInstanceOfEntity-fromCoercion (λ A → Lift _ A)
 
 -- ============================================================
 -- II. Relations between First Order Class (M1 level)
@@ -53,7 +53,8 @@ classOfHolonymy = polyClassOfHolonymy
 -- classOfHolonymy isSubTypeOf classOfFirstOrderRelation 
 215db38c68b4375d : classOfHolonymy ⊏⋆ᵣ classOfFirstOrderRelation
 215db38c68b4375d  =
-  ⊏⋆ᵣ-fromExtMap {subRel = classOfHolonymy} {superRel = classOfFirstOrderRelation} (λ w → w)
+  polySubTypeOfRel-fromExtensionMap {subRel = classOfHolonymy} {superRel = classOfFirstOrderRelation} (λ w → w)
+
 {- Class of Meronymy is the powertype of Meronymy Relation (part - whole). -}
 classOfMeronymy : Linkage FirstOrderClass FirstOrderClass
 classOfMeronymy = polyClassOfMeronymy
@@ -61,7 +62,7 @@ classOfMeronymy = polyClassOfMeronymy
 -- classOfMeronymy isSubTypeOf classOfFirstOrderRelation
 526b3ea169df6b26 : classOfMeronymy ⊏⋆ᵣ classOfFirstOrderRelation
 526b3ea169df6b26  =
-  ⊏⋆ᵣ-fromExtMap {subRel = classOfMeronymy} {superRel = classOfFirstOrderRelation} (λ w → w)
+  polySubTypeOfRel-fromExtensionMap {subRel = classOfMeronymy} {superRel = classOfFirstOrderRelation} (λ w → w)
 -- ============================================================
 -- IV. Mereological Governance (Meta level M2)
 -- ============================================================ 

@@ -5,6 +5,11 @@
 
 Upper Ontology: 
 The Upper Ontology domain encompasses five fundamental domains that establish the foundation for the modeling syntax and semantic.1) The Predication Substrate defines basic constructs for relating (Linkage) and classifying Elements from which ontological structures are grown.2) The Reflexive Knowledge Graph defines the elementary constructs of Entity, Relation,  their multi-level classification and mereological relationships. Its provides the foundation for open meta-modeling.3) Packaging, as aspect of modularity, defines syntactic constructs used to group reusable entities (Building Blocks) into modules called Containers.4) Compositionality, another aspect of modularity, defines the syntactic constructs used to build Entitys that have an internal structure and boundaries.5) The 4D Composite Knowledge Graph defines Bounded Individuals (entities that exists over space and time) how they are composed (aggregate mereology), qualified (properties) and connected, enabling effective representation of meaning.
+
+Documentation : https://framework.sysfeat.com/pages/3616864f6157d242.htm
+
+External references:
+  SysFEAT-TheoraticalFoundations-Introduction.pdf: ../resources/framework/SysFEAT-TheoraticalFoundations-Introduction.pdf
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

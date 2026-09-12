@@ -5,6 +5,14 @@
 
 Container: 
 A Container is a collection of Building Blocks whose existence and meaning are defined by the Container.A Container is both:1. A Lexical Scope: the meaning and usage of a Building Block is only applicable within the context of the Container to which it belongs.2. A universe of discourse: the complete range of Building Blocks that are expressed, assumed, or implied in an architecture domain.Examples: - Container Package- Library- Enterprise
+
+Documentation : https://framework.sysfeat.com/pages/0eb93b4268549a66.htm
+
+External references:
+  OMG - UML - Namespace: https://www.omg.org/spec/UML/2.5.1/PDF#page=69
+  Collins - universe-of-discourse: https://www.collinsdictionary.com/dictionary/english/universe-of-discourse
+  Blog - Explain lexical scope in plain English: https://dev.to/fleepgeek/i-would-try-to-explain-lexical-scope-in-plain-english-wish-me-luck-4j06
+  OMG - KerML - Namespace: https://www.omg.org/spec/KerML/1.0/PDF#page=45
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,14 +26,15 @@ open import SysFEAT.UpperOntology.23d5a9ea68513ced public -- Building Block
 Container : ∀ (u : Level) → ClassOfMixedOrderEntity u
 Container u = MixedOrderEntity u
 
-postulate --  Container is subTypeOf BlockLexicalScope
-  st-0eb9430568549edb : ∀ {u v} → (Container u) ⊏⋆ₑ (BlockLexicalScope v)
+--  Container is subTypeOf BlockLexicalScope
+st-0eb9430568549edb : ∀ {u v} → (Container u) ⊏⋆ₑ (BlockLexicalScope v)
+st-0eb9430568549edb = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================
 
 {- Packaged Building Block: -}
 packagedBuildingBlock : ∀ {u v} →  Linkage (Container u) (BuildingBlock v)
-packagedBuildingBlock = make_nestingRelation "Packaged Building Block" "packagedBuildingBlock"
+packagedBuildingBlock = make_nestingRelation "Building Block Packaging" "Packaged Building Block"
 
 postulate -- packagedBuildingBlock is subTypeOf scopedBuildingBlock
   st-3346a99968784284-0eb946496854a02e  : ∀ {u v} → packagedBuildingBlock {u} {v}  ⊏⋆ᵣ  scopedBuildingBlock {u} {v}
@@ -34,7 +43,7 @@ postulate -- packagedBuildingBlock is subTypeOf scopedBuildingBlock
 The Imported Container relationship extends the Block Lexical Scope of a Containerr to Building Blocksof the imported Container.
 -}
 importedContainer : ∀ {u v} →  Linkage (Container u) (Container v)
-importedContainer = make_Relation "Imported Container" "importedContainer"
+importedContainer = make_Relation "Container Import" "Imported Container"
 
 postulate -- importedContainer is subTypeOf referenceRelation
   st-0eb94b9b6854a563-23d5398f68511bc1  : ∀ {u v} → importedContainer {u} {v}  ⊏⋆ᵣ  referenceRelation {u} {v}

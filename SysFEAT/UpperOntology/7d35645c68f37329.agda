@@ -27,11 +27,11 @@ ClassOfOrderedEntity u = ClassOfEntity u
 
 -- ClassOfOrderedEntity isSubTypeOf ClassOfEntity 
 7d35649168f3739b : ∀ {u} → (ClassOfOrderedEntity u) ⊏ₑ (ClassOfEntity u)
-7d35649168f3739b {u} = ⊏⋆-refl
+7d35649168f3739b {u} = polySubTypeOf-identity
 
 -- ClassOfOrderedEntity isPowerInstanceOf OrderedMetaClass 
 d9cce64E6937133b : ∀ {u} → (ClassOfOrderedEntity u) ∷ₚₑ (OrderedMetaClass u)
-d9cce64E6937133b {u} = ∷ₚₑ-fromMap (λ A → Lift _ A)
+d9cce64E6937133b {u} = powerInstanceOfEntity-fromCoercion (λ A → Lift _ A)
 
 -- ============================================================
 -- II. OrderedMetaclass is declared as a metaSubType of ClassOfOrderedEntity
@@ -58,7 +58,7 @@ _⊏ₐₑ_ c1 c2 = c1 —⟨ aspectOfEntity  ⟩→ c2
 -- aspectOfEntity isSubTypeOf polySubTypeOfEntity
 da2b741c69d78c55 : ∀ {u v} → aspectOfEntity {u}{v} ⊏⋆ᵣ polySubTypeOfEntity {u}{v}
 da2b741c69d78c55 {u} {v} =
-  ⊏⋆ᵣ-fromExtMap {subRel = (aspectOfEntity {u}{v})} {superRel = (polySubTypeOfEntity {u}{v})} (λ w → w)
+  polySubTypeOfRel-fromExtensionMap {subRel = (aspectOfEntity {u}{v})} {superRel = (polySubTypeOfEntity {u}{v})} (λ w → w)
 
 -- ============================================================
 -- V. Order or Relations (M2 Level)

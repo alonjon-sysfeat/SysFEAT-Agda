@@ -4,17 +4,28 @@
    framework.sysfeat.com
 
 First Order Entity: 
-A First Order Entity is a kind of Ordered Entity that is not itself a class (Class of Entity): it cannot have instances. The  First Order Entity  class is the powerinstance of First Order Class.  First Order Entitys are the most common type of entities.The word  Individual  is sometimes used to designate particulars. In SysFEAT, the term Individual is reserved for particulars that have a spatio-temporal extent.Examples:. The set of numbers {1,2,3,4}.. The mathematical constant ð (pi).. The English word  Tree  (as a specific string of characters in a specific language). . The Eiffel tower (31st March 1889 - ...).. Mount Vesuvius eruption (Aug. 24-25, A.D. 79).
- - ============================== -}
+A First Order Entity is a kind of Ordered Entity that is not itself a class (Class of Entity): it cannot have instances. 
+The First Order Entity class is the powerinstance of First Order Class.  
+First Order Entitys are the most common type of entities.The word  Individual  is sometimes used to designate particulars. 
+In SysFEAT, the term Individual is reserved for particulars that have a spatio-temporal extent.
+Examples:
+  . The set of numbers {1,2,3,4}.
+  . The mathematical constant ð (pi).. The English word  Tree  (as a specific string of characters in a specific language). 
+  . The Eiffel tower (31st March 1889 - ...).
+  . Mount Vesuvius eruption (Aug. 24-25, A.D. 79).
+
+Documentation : https://framework.sysfeat.com/pages/5425a2df6aa225cf.htm
+
+- ============================== -}
 
 {-# OPTIONS --safe --cubical --guardedness #-}
 
-module SysFEAT.UpperOntology.f41700e868ee0f29 where -- ======================== First Order Entity (Level 1)
+module SysFEAT.UpperOntology.5425a2df6aa225cf where -- ======================== First Order Entity (Level 1)
 
 open import Agda.Primitive
 open import SysFEAT.UpperOntology.20702bc568e969f4 public -- Class of Entity & Class of Relation
 open import SysFEAT.UpperOntology.0dd6b365690d316b public -- Ordered Entity
-open import SysFEAT.UpperOntology.b148d6d568ec7bf1 public -- First Order Class (M1) - brings the Mereology Kit (Entity module)
+open import SysFEAT.UpperOntology.c463c6106aa23c35 public -- First Order Class (M1) - brings the Mereology Kit (Entity module)
 
 -- ============================================================
 -- I. First Order Entity  (M1 level)
@@ -24,11 +35,11 @@ FirstOrderEntity = OrderedEntity lzero
 
 -- FirstOrderEntity isSubTypeOf OrderedEntity
 78e39efd68ef141b : FirstOrderEntity ⊏ₑ (OrderedEntity lzero)
-78e39efd68ef141b = ⊏⋆-refl
+78e39efd68ef141b = polySubTypeOf-identity
 
 -- FirstOrderEntity isPowerInstanceOf FirstOrderClass
 78e37a6868ef0712 : FirstOrderEntity ∷ₚₑ FirstOrderClass
-78e37a6868ef0712  = ∷ₚₑ-fromMap (λ A → Lift _ A)
+78e37a6868ef0712  = powerInstanceOfEntity-fromCoercion (λ A → Lift _ A)
 
 -- ============================================================
 -- II. Physical Relations (M0 level)
@@ -52,7 +63,7 @@ holonymyRelation = make_holonymyRelation "Root of First holonymy Relation" "Part
 -- holonymyRelation isSubTypeOf firstOrderRelation (FIX: subject was firstOrderRelation by copy-paste; mirrors M1: classOfHolonymy ⊏⋆ᵣ classOfFirstOrderRelation)  [PROVED - was a postulate]
 be05d30567070844 : holonymyRelation ⊏⋆ᵣ firstOrderRelation
 be05d30567070844  =
-  ⊏⋆ᵣ-fromExtMap {subRel = holonymyRelation} {superRel = firstOrderRelation} (λ w → w)
+  polySubTypeOfRel-fromExtensionMap {subRel = holonymyRelation} {superRel = firstOrderRelation} (λ w → w)
 -- holonymyRelation ispowerInstanceOf classOfHolonymy  [moved to SysFEAT.Ontology.Axioms]
 {-
 Meronymy (Part Of) is a directional "part-to-whole" Relation between First Order Entitys, where the source First Order Entity (the part) is defined has being part of a larger whole First Order Entity.
@@ -69,7 +80,7 @@ meronymyRelation = make_meronymyRelation "Root of First meronymy Relation" "Whol
 -- meronymyRelation isSubTypeOf firstOrderRelation (FIX: subject was firstOrderRelation by copy-paste; mirrors M1: classOfMeronymy ⊏⋆ᵣ classOfFirstOrderRelation)  [PROVED - was a postulate]
 4aebb6e669640bb2 : meronymyRelation ⊏⋆ᵣ firstOrderRelation
 4aebb6e669640bb2  =
-  ⊏⋆ᵣ-fromExtMap {subRel = meronymyRelation} {superRel = firstOrderRelation} (λ w → w)
+  polySubTypeOfRel-fromExtensionMap {subRel = meronymyRelation} {superRel = firstOrderRelation} (λ w → w)
 -- meronymyRelation ispowerInstanceOf classOfMeronymy (FIX comment: said holonymy)  [moved to SysFEAT.Ontology.Axioms]
 -- ============================================================
 -- IV. Mereological principles at M1
@@ -83,7 +94,7 @@ BORO/West integration-grade identity for individuals.
 -}
 open MereologyKit FirstOrderEntity holonymyRelation meronymyRelation public
 
-{- The GEM bundle is NO LONGER POSTULATED at M0: for the current degenerate
+{- The GEM bundle is NO LONGER POSTULATED at M0: for the current trivial
    mereological roots it is REFUTABLE (SysFEAT.Ontology.Audit proves
    GEMAxioms → ⊥). Downstream reasoning that needs GEM is parametric over it:
    `open M0-GEM-Hypothetical gem` discharges it against a future model in

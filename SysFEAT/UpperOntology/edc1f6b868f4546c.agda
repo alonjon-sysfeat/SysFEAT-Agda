@@ -5,6 +5,9 @@
 
 Power Class: 
 A Power Class of a class A-denoted as P*(A)-is the class whose members are every possible subclass of A, including A itself and the empty class.
+
+Documentation : https://framework.sysfeat.com/pages/edc1f6b868f4546c.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -17,7 +20,8 @@ open import SysFEAT.UpperOntology.308c3b3868e9141e public -- Class of Mixed-Orde
 PowerClass : ∀ (u : Level) → MixedOrderMetaClass u
 PowerClass u = ClassOfMixedOrderEntity u
 
-postulate --  PowerClass is subTypeOf ClassOfMixedOrderEntity
-  st-edc1079368f554e6 : ∀ {u v} → (PowerClass u) ⊏⋆ₑ (ClassOfMixedOrderEntity v)
+--  PowerClass is subTypeOf ClassOfMixedOrderEntity
+st-edc1079368f554e6 : ∀ {u v} → (PowerClass u) ⊏⋆ₑ (ClassOfMixedOrderEntity v)
+st-edc1079368f554e6 = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

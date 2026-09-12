@@ -5,6 +5,11 @@
 
 Block Lexical Scope: 
 A Block Lexical Scope is a Block Collection that is also a Lexical Scope for the Building Blocks it groups.A Block Lexical Scope defines the existence of its grouped Building Blocks through nesting.
+
+Documentation : https://framework.sysfeat.com/pages/23d5c494685141b5.htm
+
+External references:
+  Blog - Explain lexical scope in plain English: https://dev.to/fleepgeek/i-would-try-to-explain-lexical-scope-in-plain-english-wish-me-luck-4j06
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,11 +24,13 @@ open import SysFEAT.UpperOntology.23d5a9ea68513ced public -- Building Block
 BlockLexicalScope : ∀ (u : Level) → ClassOfMixedOrderEntity u
 BlockLexicalScope u = MixedOrderEntity u
 
-postulate --  BlockLexicalScope is subTypeOf BlockCollection
-  st-23d5c499685141df : ∀ {u v} → (BlockLexicalScope u) ⊏⋆ₑ (BlockCollection v)
+--  BlockLexicalScope is subTypeOf BlockCollection
+st-23d5c499685141df : ∀ {u v} → (BlockLexicalScope u) ⊏⋆ₑ (BlockCollection v)
+st-23d5c499685141df = trivialPolySubTypeOfEntity
 
-postulate --  BlockLexicalScope is subTypeOf LexicalScope
-  st-a39aab30685e523f : ∀ {u v} → (BlockLexicalScope u) ⊏⋆ₑ (LexicalScope v)
+--  BlockLexicalScope is subTypeOf LexicalScope
+st-a39aab30685e523f : ∀ {u v} → (BlockLexicalScope u) ⊏⋆ₑ (LexicalScope v)
+st-a39aab30685e523f = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================
 
@@ -31,7 +38,7 @@ postulate --  BlockLexicalScope is subTypeOf LexicalScope
 Nesting Relation that asserts the existence of a set of Building Blocks in the context of a given Block Lexical Scope.A Building Block belongs to one and one one Block Lexical Scope.
 -}
 scopedBuildingBlock : ∀ {u v} →  Linkage (BlockLexicalScope u) (BuildingBlock v)
-scopedBuildingBlock = make_nestingRelation "Scoped Building Block" "scopedBuildingBlock"
+scopedBuildingBlock = make_nestingRelation "Block Scoping" "Scoped Building Block"
 
 postulate -- scopedBuildingBlock is subTypeOf nestingRelation
   st-0eb946496854a02e-02a506a968540333  : ∀ {u v} → scopedBuildingBlock {u} {v}  ⊏⋆ᵣ  nestingRelation {u} {v}

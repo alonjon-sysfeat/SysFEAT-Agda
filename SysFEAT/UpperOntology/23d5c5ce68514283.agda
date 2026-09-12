@@ -4,7 +4,20 @@
    framework.sysfeat.com
 
 Aggregate Block: 
-An Aggregate Block is a Building Block which has an internal structure made of Aggregate Members which, through nesting (Membership of -Aggregate Member-), contextualizes/aggregates (Aggregation of -Building Block (Aggregate Member) - ) external Building Blocks within the Aggregate Block.
+An Aggregate Block is a Building Block which has an internal structure made of Aggregate Members which, through nesting (Membership of -Aggregate Member-), 
+contextualizes/aggregates (Aggregation of -Building Block (Aggregate Member) - ) external Building Blocks within the Aggregate Block.
+
+Documentation: https://framework.sysfeat.com/pages/23d5c5ce68514283.htm
+
+External references:
+  OMG - UML - StructuredClassifier                      : https://www.omg.org/spec/UML/2.5.1/PDF#page=225
+  OMG - KerML - Type                                    : https://www.omg.org/spec/KerML/1.0/PDF#page=52
+  DDD-Aggretate                                         : https://www.dddcommunity.org/library/vernon_2011
+  Martin Fowler - Aggregate                             : https://martinfowler.com/bliki/DDD_Aggregate.html
+  Stanford Encyclopedia of Philosophy - Compositionality: https://plato.stanford.edu/entries/compositionality/
+  SysFEAT - Modularity                                  : https://framework.sysfeat.com/resources/framework/SysFEAT-ModelingFramework-01-Modularity.pdf
+  SysFEAT - SysFEAT-ModelingFramework-Visualization.pdf : https://framework.sysfeat.com/resources/framework/SysFEAT-ModelingFramework-Visualization.pdf
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -15,8 +28,6 @@ open import Agda.Primitive
 open import SysFEAT.UpperOntology.20702bc568e969f4 public -- Class of Entity and Relation
 open import SysFEAT.UpperOntology.23d5c494685141b5 public -- Block Lexical Scope
 open import SysFEAT.UpperOntology.23d5a9ea68513ced public -- Building Block
---open import SysFEAT.Samples.Sample-Container public
-
 
 -- ============================================================
 -- I. CONTEXTUAL NESTING (Two-Way Nesting)
@@ -45,9 +56,12 @@ make_upwardNestingRelation = make_Linkage HomUpwardNesting
 AggregateBlock : (u : Level) → ClassOfMixedOrderEntity u
 AggregateBlock u = MixedOrderEntity u
 
-postulate -- AggregateBlock is subType of Building Block
-  23d5c5d3685142ad  : ∀ {u v} →  (AggregateBlock u) ⊏⋆ₑ (BuildingBlock v)
+-- AggregateBlock is subType of Building Block
+23d5c5d3685142ad  : ∀ {u v} →  (AggregateBlock u) ⊏⋆ₑ (BuildingBlock v)
+23d5c5d3685142ad  = trivialPolySubTypeOfEntity
 
+-- ====== Internal structure
+--
 {- An Aggregate Member is a Mixed-Order Entity that serves as an internal constituent of an Aggregate Block, incorporating (aggregating) an external Building Block into its parent structure.
 Aggregation is the syntactic mechanism that enables the construction of modular, composite Building Blocks. It establishes a reified Relation (the nested  Aggregate Member) between the Aggregate Block and the aggregated Building Block, allowing the definition of local characteristic specific to the Aggregate Member. This mechanism facilitates the expression of emergent properties within the composite structure of  the Aggregate Block .
 Examples:
@@ -57,8 +71,9 @@ Examples:
 AggregateMember : (u : Level) → ClassOfMixedOrderEntity u
 AggregateMember u = MixedOrderEntity u
 
-postulate -- AggregateMember is subType of MixedOrderEntity
-  81d1871c681b4023  : ∀ {u v} →  (AggregateMember u) ⊏⋆ₑ (MixedOrderEntity v)
+-- AggregateMember is subType of MixedOrderEntity
+81d1871c681b4023  : ∀ {u v} →  (AggregateMember u) ⊏⋆ₑ (MixedOrderEntity v)
+81d1871c681b4023 = trivialPolySubTypeOfEntity
 
 {- membershipOfAggregateMember : upward (bidirectional) nesting relation from an Aggregate Block
    to its Aggregate Member. The member is contextually aware of its parent aggregate.
@@ -95,8 +110,7 @@ memberRelation {u} {v} = make_Relation "Local Relation" "Related Member"
 
 -- memberRelation is subType of Relation 
 st-23d5e92968515409 : ∀ {u v} → (memberRelation {u} {v}) ⊏⋆ᵣ (Relation {u} {v})
-st-23d5e92968515409 {u} {v} =
-  ⊏⋆ᵣ-fromExtMap {subRel = (memberRelation {u} {v})} {superRel = (Relation {u} {v})} (λ w → w)
+st-23d5e92968515409 {u} {v} = polySubTypeOfRel-fromExtensionMap {subRel = (memberRelation {u} {v})} {superRel = (Relation {u} {v})} (λ w → w)
 
 -- ============================================================
 -- III. DYNAMIC LOCALITY (The "that" operator)
@@ -129,16 +143,18 @@ that {mem = mem} ⟨ ⟨ mem' , ⟨ L_fwd , ⟨ isNested , ⟨ parent , pf ⟩ �
 BlockMember : (u : Level) → ClassOfMixedOrderEntity u
 BlockMember u = AggregateMember u
 
-postulate -- BlocMember is subType of AggregateMember
-  sb-fb660e2f6869a015 : ∀ {u v} → (BlockMember u) ⊏⋆ₑ (AggregateMember v)
+-- BlockMember is subType of AggregateMember
+st-fb660e2f6869a015 : ∀ {u v} → (BlockMember u) ⊏⋆ₑ (AggregateMember v)
+st-fb660e2f6869a015  = trivialPolySubTypeOfEntity
 
+-- BlockMember is nested (membership) in AggregateBlock
 membershipOfBlockMember : ∀ {u v} → Linkage (AggregateBlock u) (BlockMember v)
 membershipOfBlockMember = membershipOfAggregateMember
 
--- blockMembership is subType of membershipOfAggregateMember 
+-- membershipOfBlockMember is subType of membershipOfAggregateMember 
 215daf3e68b433ae : ∀ {u v} → (membershipOfBlockMember {u} {v}) ⊏⋆ᵣ (membershipOfAggregateMember {u} {v})
 215daf3e68b433ae {u} {v} =
-  ⊏⋆ᵣ-fromExtMap {subRel = (membershipOfBlockMember {u} {v})} {superRel = (membershipOfAggregateMember {u} {v})} (λ w → w)
+  polySubTypeOfRel-fromExtensionMap {subRel = (membershipOfBlockMember {u} {v})} {superRel = (membershipOfAggregateMember {u} {v})} (λ w → w)
 
 blockMemberAggregation : ∀ {u v} → Linkage (AggregateMember u) (BuildingBlock v)
 blockMemberAggregation = aggregationOfBuildingBlock
@@ -146,14 +162,22 @@ blockMemberAggregation = aggregationOfBuildingBlock
 -- blockMemberAggregation is subType of aggregationOfBuildingBlock
 fb6616a46869b1bc : ∀ {u v} → (blockMemberAggregation {u} {v}) ⊏⋆ᵣ (aggregationOfBuildingBlock {u} {v})
 fb6616a46869b1bc {u} {v} =
-  ⊏⋆ᵣ-fromExtMap {subRel = (blockMemberAggregation {u} {v})} {superRel = (aggregationOfBuildingBlock {u} {v})} (λ w → w)
+  polySubTypeOfRel-fromExtensionMap {subRel = (blockMemberAggregation {u} {v})} {superRel = (aggregationOfBuildingBlock {u} {v})} (λ w → w)
+
+{- blockMember : derived relation obtained by composing
+   membershipOfBlockMember and blockMemberAggregation
+   It directly links an AggregateBlock to the final BuildingBlock
+   hiding the reifying BlockMember
+-}
 blockMember : ∀ {u v w} → Linkage (AggregateBlock u) (BuildingBlock w)
 blockMember {u} {v} {w} = membershipOfBlockMember {u} {v} ∘ blockMemberAggregation {v} {w}
 
 -- blockMember is subType of aggregateMember 
 blockMember-isSubTypeOf-aggregateMember : ∀ {u w} → (blockMember {u} {u} {w}) ⊏⋆ᵣ (aggregateMember {u} {u} {w})
 blockMember-isSubTypeOf-aggregateMember {u} {w} =
-  ⊏⋆ᵣ-fromExtMap {subRel = (blockMember {u} {u} {w})} {superRel = (aggregateMember {u} {u} {w})} (λ w → w)
+  polySubTypeOfRel-fromExtensionMap {subRel = (blockMember {u} {u} {w})} {superRel = (aggregateMember {u} {u} {w})} (λ w → w)
+
+
 {- A Hierarchical Member is an Aggregate Member that is also a Block Lexical Scope for the Building Block it aggregates: 
    it relates its aggregated block by nesting (see Nesting Relation).
    Hierarchical Members are used to build hierarchical structures of Building Blocks, in constrast to Block Members which are used to build network structures of Building Blocks.
@@ -164,8 +188,8 @@ HierarchicalMember u = AggregateMember u
 postulate -- HierarchicalMember is subType of AggregateMember
   sb-fb660df868699fa2 : ∀ {u v} → (HierarchicalMember u) ⊏⋆ₑ (AggregateMember v)
 
-postulate -- HierarchicalMember is subType of BlockLexicalScope
-  29e3dd0b6979a3e3 : ∀ {u v} → (HierarchicalMember u) ⊏⋆ₑ (BlockLexicalScope v)
+postulate -- HierarchicalMember is subType of LexicalScope
+  29e3dd0b6979a3e3 : ∀ {u v} → (HierarchicalMember u) ⊏⋆ₑ (LexicalScope v)
 
 {- membershipOfHierarchicalMember : upward (bidirectional) nesting relation
   from an Aggregate Block to a Hierarchical Member.
@@ -177,7 +201,7 @@ membershipOfHierarchicalMember = membershipOfAggregateMember
 -- hierarchicalMembership is subType of membershipOfAggregateMember  
 215daf8368b433e7 : ∀ {u v} → (membershipOfHierarchicalMember {u} {v}) ⊏⋆ᵣ (membershipOfAggregateMember {u} {v})
 215daf8368b433e7 {u} {v} =
-  ⊏⋆ᵣ-fromExtMap {subRel = (membershipOfHierarchicalMember {u} {v})} {superRel = (membershipOfAggregateMember {u} {v})} (λ w → w)
+  polySubTypeOfRel-fromExtensionMap {subRel = (membershipOfHierarchicalMember {u} {v})} {superRel = (membershipOfAggregateMember {u} {v})} (λ w → w)
 
 
 {- hierarchicalMemberAggregation : nesting relation from an Aggregate Member
@@ -188,10 +212,15 @@ membershipOfHierarchicalMember = membershipOfAggregateMember
 hierarchicalMemberAggregation : ∀ {u v} → Linkage (AggregateMember u) (BuildingBlock v)
 hierarchicalMemberAggregation = nestingRelation
 
--- hierarchicalMembership is subType of membershipOfAggregateMember 
-fb660df868699fa2 : ∀ {u v} → (hierarchicalMemberAggregation {u} {v}) ⊏⋆ᵣ (nestingRelation {u} {v})
+postulate -- hierarchicalMembership is subType of membershipOfAggregateMember 
+  fb6616316869b129 : ∀ {u v} → (hierarchicalMemberAggregation {u} {v}) ⊏⋆ᵣ (membershipOfAggregateMember {u} {v})
+
+-- hierarchicalMembership is subType of nestingRelation scopedBuildingBlock
+fb660df868699fa2 : ∀ {u v} → (hierarchicalMemberAggregation {u} {v}) ⊏⋆ᵣ (scopedBuildingBlock {u} {v})
 fb660df868699fa2 {u} {v} =
-  ⊏⋆ᵣ-fromExtMap {subRel = (hierarchicalMemberAggregation {u} {v})} {superRel = (nestingRelation {u} {v})} (λ w → w)
+  polySubTypeOfRel-fromExtensionMap {subRel = (hierarchicalMemberAggregation {u} {v})} {superRel = (scopedBuildingBlock {u} {v})} (λ w → w)
+
+
 {- hierarchicalMember : derived relation from an Aggregate Block to a Building Block
    via a Hierarchical Member. It composes hierarchical membership with
    hierarchical member aggregation, yielding a hierarchical (tree‑like) structure.

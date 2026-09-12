@@ -4,7 +4,12 @@
    framework.sysfeat.com
 
 Meta-Class: 
-Meta-Class (also called Class of Classes of Entity) is the Class of Entity of all Class of Entitys each of whose instances is necessarily a Class of Entity. In other word, Meta-Class is the powertype of Class of Entity: all sub-classes of Class of Entitys are instances of Meta-Class.Since Meta-Class is itself a sub-type of Class of Entity, Meta-Class is an instance of itself. 
+Meta-Class (also called Class of Classes of Entity) is the Class of Entity of all Class of Entitys each of whose instances is necessarily a Class of Entity. 
+In other word, Meta-Class is the powertype of Class of Entity: all sub-classes of Class of Entitys are instances of Meta-Class.
+Since Meta-Class is itself a sub-type of Class of Entity, Meta-Class is an instance of itself. 
+
+Documentation: https://framework.sysfeat.com/pages/e27801e868f17024.htm
+
  - ============================== -}
 
 {-# OPTIONS --safe --cubical --guardedness #-}
@@ -25,10 +30,10 @@ MetaClass : (u : Level) → Set (lsuc (lsuc (lsuc u)))
 MetaClass u = ClassOfEntity (lsuc u)
 
 MetaClass-isSubTypeOf-ClassOfEntity : ∀ {u} → (MetaClass u) ⊏⋆ₑ (ClassOfEntity (lsuc u))
-MetaClass-isSubTypeOf-ClassOfEntity {u} = ⊏⋆-refl
+MetaClass-isSubTypeOf-ClassOfEntity {u} = polySubTypeOf-identity
 
 ClassOfEntity-isInstanceOf-MetaClass : ∀ {u} →  (ClassOfEntity u) ∷ₘ (MetaClass u)
-ClassOfEntity-isInstanceOf-MetaClass {u} = ∷ₘ-fromMap (λ A → Lift _ A)
+ClassOfEntity-isInstanceOf-MetaClass {u} = metaInstanceOf-fromCoercion (λ A → Lift _ A)
 -- ============================================================
 -- II. Meta Relations (Meta-Level)
 -- ============================================================

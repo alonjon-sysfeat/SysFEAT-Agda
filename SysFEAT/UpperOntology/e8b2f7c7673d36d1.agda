@@ -4,7 +4,12 @@
    framework.sysfeat.com
 
 Entity: 
-An Entity is a distinct, identifiable Element that has a proper existence (living or non living). It is accessible by some referencing mechanism and can have Relations to other Entitys.The Entity class is the powerinstance of Class of Entity: all subtypes of Entity are instances of Class of Entity.
+An Entity is a distinct, identifiable Element that has a proper existence (living or non living). 
+It is accessible by some referencing mechanism and can have Relations to other Entitys.
+The Entity class is the powerinstance of Class of Entity: all subtypes of Entity are instances of Class of Entity.
+
+Documentation : https://framework.sysfeat.com/pages/e8b2f7c7673d36d1.htm
+
  - ============================== -}
 
 {-# OPTIONS --safe --cubical --guardedness #-}
@@ -19,9 +24,16 @@ open import SysFEAT.UpperOntology.20702bc568e969f4 public -- Class of Element
 Entity : (u : Level) → Set (lsuc u)
 Entity u = Element u
 
--- Entity isSubTypeOf Element : definitional alias, proved (bucket 1)
+-- Entity isSubTypeOf Element 
 23d5276468511162 : ∀ {u} → (Entity u) ⊏⋆ (Element u)
-23d5276468511162 = ⊏⋆-refl
+23d5276468511162 = polySubTypeOf-identity
+
+-- ClassOfEntity re-enters the entity hierarchy ONE LEVEL UP: definitionally
+-- ClassOfEntity u ≡ Entity (lsuc u) (both are Set (lsuc u)).  So "a class of
+-- entity is an entity" is FAITHFUL by identity when the target is re-indexed by
+-- lsuc — the Reflexive-KG subtyping, symmetric to MetaClass-isSubTypeOf-ClassOfEntity.
+ClassOfEntity-isSubTypeOf-Entity : ∀ {u} → (ClassOfEntity u) ⊏ₑ (Entity (lsuc u))
+ClassOfEntity-isSubTypeOf-Entity = subTypeOfEntity-identity
 
 -- ============================================================
 -- II. RELATION (Physical Links M0)
@@ -39,7 +51,7 @@ Relation : ∀ {u v} → Linkage (Entity u) (Entity v)
 Relation {u} {v} = make_Relation "Relation" "Related Entity"
 
 -- a canonical point of the extension of the root Relation (support library;
--- used for degenerate extension maps in cross-level assertions and the model)
+-- used for trivial extension maps in cross-level assertions and the model)
 relationExtPoint : ∀ {u v} → LinkageExt (Relation {u} {v})
 relationExtPoint {u} {v} = Unit* , (Unit* , functionLinkage (λ _ → tt*))
 
@@ -142,7 +154,7 @@ make_instanceOf = make_Linkage HomInstanceOfEntity
 -- Strict instanciation between entities and their classes
 instanceOfEntity :  ∀ {u v} → Linkage (Entity u) (ClassOfEntity v)
 instanceOfEntity {u} {v} = record
-  { label       = "Polymorphic Instantiation"
+  { label       = "Polymorphic Classification"
   ; forwardrole = "Classifying Type"
   ; localType   = λ e → Σ (ClassOfEntity v) (λ c → HomInstanceOfEntity e c)
   ; ref         = λ {e} (c , L) → c
@@ -155,7 +167,7 @@ _∷ₑ_ e c = e —⟨ instanceOfEntity ⟩→ c
 -- powerInstanceOf relies on instanceOf shifted up, so universes must match.
 powerInstanceOfEntity :  ∀ {u v} → Linkage (ClassOfEntity u) (ClassOfEntity v)
 powerInstanceOfEntity {u} {v} = record
-    { label       = "Power instantiation"
+    { label       = "Power Classification"
     ; forwardrole = "Power Type"
     ; localType   = λ (e : ClassOfEntity u) →
                     Σ (ClassOfEntity v) λ c →
@@ -172,27 +184,27 @@ _∷ₚₑ_ e c = e —⟨ powerInstanceOfEntity ⟩→ c
 -- ============================================================
 
 -- instantiation witness from an element-level coercion (FAITHFUL)
-∷ₑ-fromMap : ∀ {u v} {e : Entity u} {c : ClassOfEntity v} → (e → c) → e ∷ₑ c
-∷ₑ-fromMap {c = c} f = (c , functionLinkage f) , refl
+instanceOfEntity-fromCoercion : ∀ {u v} {e : Entity u} {c : ClassOfEntity v} → (e → c) → e ∷ₑ c
+instanceOfEntity-fromCoercion {c = c} f = (c , functionLinkage f) , refl
 
 -- power-instantiation witness from a class-level coercion (FAITHFUL;
 -- for the canonical powertype pairs the coercion is `Lift` or `λ A → A`)
-∷ₚₑ-fromMap : ∀ {u v} {e : ClassOfEntity u} {c : ClassOfEntity v} → (e → c) → e ∷ₚₑ c
-∷ₚₑ-fromMap {c = c} f = (c , functionLinkage f) , refl
+powerInstanceOfEntity-fromCoercion : ∀ {u v} {e : ClassOfEntity u} {c : ClassOfEntity v} → (e → c) → e ∷ₚₑ c
+powerInstanceOfEntity-fromCoercion {c = c} f = (c , functionLinkage f) , refl
 
--- degenerate witnesses (satisfiability model only)
-any∷ₑ : ∀ {u v} {e : Entity u} {c : ClassOfEntity v} → e ∷ₑ c
-any∷ₑ {u} {v} {e} {c} = (c , liftLinkage {w = lsuc (u ⊔ v)}) , refl
+-- trivial witnesses (satisfiability model only)
+trivialInstanceOfEntity : ∀ {u v} {e : Entity u} {c : ClassOfEntity v} → e ∷ₑ c
+trivialInstanceOfEntity {u} {v} {e} {c} = (c , liftLinkage {w = lsuc (u ⊔ v)}) , refl
 
-any∷ₚₑ : ∀ {u v} {e : ClassOfEntity u} {c : ClassOfEntity v} → e ∷ₚₑ c
-any∷ₚₑ {u} {v} {e} {c} = (c , liftLinkage {w = lsuc (u ⊔ v)}) , refl
+trivialPowerInstanceOfEntity : ∀ {u v} {e : ClassOfEntity u} {c : ClassOfEntity v} → e ∷ₚₑ c
+trivialPowerInstanceOfEntity {u} {v} {e} {c} = (c , liftLinkage {w = lsuc (u ⊔ v)}) , refl
 
-any∷ᵣ⋆ : ∀ {u1 v1 u2 v2}
+trivialPolyInstanceOfRel : ∀ {u1 v1 u2 v2}
         {e1 : Entity u1} {e2 : Entity v1}
         {c1 : ClassOfEntity u2} {c2 : ClassOfEntity v2}
         {iRel : HomRelation e1 e2} {cRel : HomClassOfRelation c1 c2}
         → iRel ∷ᵣ⋆ cRel
-any∷ᵣ⋆ {u1} {v1} {u2} {v2} {e1} {e2} {c1} {c2} {cRel = cRel} =
+trivialPolyInstanceOfRel {u1} {v1} {u2} {v2} {e1} {e2} {c1} {c2} {cRel = cRel} =
   (cRel , admin) , refl
   where
   admin : Linkage {lsuc (u1 ⊔ v1)} {lsuc (lsuc (u2 ⊔ v2))} {lsuc (lsuc (u1 ⊔ v1 ⊔ u2 ⊔ v2))}
@@ -207,42 +219,40 @@ any∷ᵣ⋆ {u1} {v1} {u2} {v2} {e1} {e2} {c1} {c2} {cRel = cRel} =
 -- ============================================================
 -- VI. STRUCTURAL ASPECTS OF RELATIONS (Reference, Dependency, ...)
 -- ============================================================
+{- A Reference Relation is a Relation that points at a target Entity which is not in the lexical scope of its source Entity.
+-}
 referenceRelation : ∀ {u v} → Linkage (Entity u) (Entity v)
 referenceRelation {u} {v} = make_Relation "Refencing Relation" "Related Entity"
 
 -- referenceRelation is subtypeOf Relation : PROVED (same Hom family, identity extension map)
 23d53a6668511cec : ∀ {u v} → referenceRelation {u} {v} ⊏⋆ᵣ Relation {u} {v}
-23d53a6668511cec {u} {v} =
-  ⊏⋆ᵣ-fromExtMap {subRel = referenceRelation {u} {v}} {superRel = Relation {u} {v}} (λ w → w)
+23d53a6668511cec {u} {v} = polySubTypeOfRel-fromExtensionMap {subRel = referenceRelation {u} {v}} {superRel = Relation {u} {v}} (λ w → w)
 
+{- An  Existential Dependency relationship is a Relation where the source Entity's existence depends on the existence of the target Entity.
+   The cardinality of the set of targetted Entity is [1..1].
+-}
 existentialDependency : ∀ {u v} → Linkage (ClassOfEntity u) (ClassOfEntity v)
 existentialDependency {u} {v} = make_Relation "Existential dependency Relation" "Dependency Entity"
 
-{- existentialDependency is subtypeOf Relation : the historical statement
-   relates a CLASS-level relation to the ENTITY-level root one level below;
-   only the degenerate (point) extension map inhabits it. The faithful
-   statement targets Relation one level up (same Hom family, identity map). -}
-cbfce84668535952 : ∀ {u v} → existentialDependency {u} {v} ⊏⋆ᵣ Relation {u} {v}
-cbfce84668535952 {u} {v} =
-  ⊏⋆ᵣ-fromExtMap {subRel = existentialDependency {u} {v}} {superRel = Relation {u} {v}}
-    (λ _ → relationExtPoint)
+{- existentialDependency is subtypeOf Relation -}
+cbfce84668535952 : ∀ {u v} → existentialDependency {u} {v} ⊏⋆ᵣ Relation {lsuc u} {lsuc v}
+cbfce84668535952 {u} {v} = polySubTypeOfRel-fromExtensionMap {subRel = existentialDependency {u} {v}} {superRel = Relation {lsuc u} {lsuc v}} (λ w → w)
 
-cbfce84668535952-corrected : ∀ {u v} → existentialDependency {u} {v} ⊏⋆ᵣ Relation {lsuc u} {lsuc v}
-cbfce84668535952-corrected {u} {v} =
-  ⊏⋆ᵣ-fromExtMap {subRel = existentialDependency {u} {v}} {superRel = Relation {lsuc u} {lsuc v}} (λ w → w)
-
+{- An  Existential Independence relation is a Relation that specifies that the existence of the source Entity doesn't depend on the existence of its target Entity.
+   The cardinality of set of targetted Entity is [0..*]. 
+-}
 existentialIndependence : ∀ {u v} → Linkage (ClassOfEntity u) (ClassOfEntity v)
 existentialIndependence {u} {v} = make_Relation "Existential independence Relation" "Related Entity"
 
 -- existentialIndependence is subtypeOf Relation : same situation as above.
 cbfcf29668535a09 : ∀ {u v} → existentialIndependence {u} {v} ⊏⋆ᵣ Relation {u} {v}
 cbfcf29668535a09 {u} {v} =
-  ⊏⋆ᵣ-fromExtMap {subRel = existentialIndependence {u} {v}} {superRel = Relation {u} {v}}
+  polySubTypeOfRel-fromExtensionMap {subRel = existentialIndependence {u} {v}} {superRel = Relation {u} {v}}
     (λ _ → relationExtPoint)
 
 cbfcf29668535a09-corrected : ∀ {u v} → existentialIndependence {u} {v} ⊏⋆ᵣ Relation {lsuc u} {lsuc v}
 cbfcf29668535a09-corrected {u} {v} =
-  ⊏⋆ᵣ-fromExtMap {subRel = existentialIndependence {u} {v}} {superRel = Relation {lsuc u} {lsuc v}} (λ w → w)
+  polySubTypeOfRel-fromExtensionMap {subRel = existentialIndependence {u} {v}} {superRel = Relation {lsuc u} {lsuc v}} (λ w → w)
 
 -- ============================================================
 -- VIII. MEREOLOGICAL APEX HOMTYPES

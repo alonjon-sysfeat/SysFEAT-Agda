@@ -5,6 +5,11 @@
 
 Class of Class of Individual: 
 A Class of Class of Individual is a that classifies Class of Individuals.Class of Class of Individual is the powertype of Class of Individual.Example:- Property Types such as Temperatures or colors.
+
+Documentation : https://framework.sysfeat.com/pages/608767a668de7fb6.htm
+
+External references:
+  ISO 15926 - ClassOfClassOfIndividual: https://15926.blog/topics/data-model/index.htm#ClassOfClassOfIndividual
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -12,19 +17,20 @@ A Class of Class of Individual is a that classifies Class of Individuals.Class o
 module SysFEAT.UpperOntology.608767a668de7fb6 where -- ========== Class of Class of Individual
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.78e382a768ef0daa public -- Second Order Class
+open import SysFEAT.UpperOntology.a599a7e46aa370fb public -- Second Order Class
 
 ClassOfClassOfIndividual : ThirdOrderClass
 ClassOfClassOfIndividual = MetaClass lzero
 
-postulate --  ClassOfClassOfIndividual is subTypeOf SecondOrderClass
-  st-87d309d966e33aa3 : ClassOfClassOfIndividual ⊏ₑ SecondOrderClass
+--  ClassOfClassOfIndividual is subTypeOf SecondOrderClass
+st-87d309d966e33aa3 : ClassOfClassOfIndividual ⊏ₑ SecondOrderClass
+st-87d309d966e33aa3 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Super Class of Class of Individual: -}
 superClassOfClassOfIndividual :  Linkage ClassOfClassOfIndividual ClassOfClassOfIndividual
-superClassOfClassOfIndividual = make_subTypeOf "Super Class of Class of Individual" "superClassOfClassOfIndividual"
+superClassOfClassOfIndividual = make_subTypeOf "Super Class of Class of Individual" "Super Class of Class of Individual"
 
 postulate -- superClassOfClassOfIndividual is subTypeOf subTypeOfEntity
   st-60876c6168de81be-8336837268e9448b  : superClassOfClassOfIndividual   ⊏⋆ᵣ  subTypeOfEntity {lsuc(lzero)}
