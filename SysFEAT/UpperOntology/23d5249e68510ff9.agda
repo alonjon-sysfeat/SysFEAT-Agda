@@ -10,6 +10,7 @@ neither concrete nor abstract. It is simply something that can be talked about -
 Every concept in SysFEAT is an Element at some universe level; what distinguishes concepts is the level at which they live and the Linkages they participate in.
 
 Documentation: https://framework.sysfeat.com/pages/23d5249e68510ff9.htm
+
  - ============================== -}
 
 {-# OPTIONS --safe --cubical --guardedness #-}

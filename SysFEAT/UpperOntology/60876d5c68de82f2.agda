@@ -24,4 +24,4 @@ ClassOfClassOfBoundedIndividual = ClassOfClassOfIndividual
 st-87d3223566e34385 : ClassOfClassOfBoundedIndividual ⊏ₑ ClassOfClassOfIndividual
 st-87d3223566e34385 = polySubTypeOf-identity
 
--- == Relationships =======================
+

@@ -18,7 +18,7 @@ External references:
 module SysFEAT.UpperOntology.6aa8cbcb65b32971 where -- ========== Class of Individual
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.b148d6d568ec7bf1 public -- First Order Class
+open import SysFEAT.UpperOntology.c463c6106aa23c35 public -- First Order Class
 open import SysFEAT.UpperOntology.608767a668de7fb6 public -- Class of Class of Individual
 open import SysFEAT.UpperOntology.f69619236a0f8dcd public -- Category
 

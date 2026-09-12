@@ -6,29 +6,28 @@
 Container Package: 
 A Container Package is a Container which sole purpose is model management.Examples:  Library, Information DictionaryConterexamples: Enterprises or Infrastructure Landscapes are Containers but are not Container Packages because they have functional purposes that go beyond model management.
 
-Documentation : https://framework.sysfeat.com/pages/0eb947546854a13d.htm
+Documentation : https://framework.sysfeat.com/pages/542599db6aa21e06.htm
 
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
 
-module SysFEAT.UpperOntology.0eb947546854a13d where -- ========== Container Package
+module SysFEAT.UpperOntology.542599db6aa21e06 where -- ========== Container Package
 
 open import Agda.Primitive
+open import SysFEAT.UpperOntology.5425a2df6aa225cf public -- First Order Entity
 open import SysFEAT.UpperOntology.0eb93b4268549a66 public -- Container
-open import SysFEAT.UpperOntology.f41700e868ee0f29 public -- First Order Entity
 
-ContainerPackage : FirstOrderClass
-ContainerPackage = FirstOrderEntity
-
-
---  ContainerPackage withAspect Container
-st-0eb947626854a167 : ContainerPackage ⊏ₐₑ (Container lzero)
-st-0eb947626854a167 = polySubTypeOf-identity
+ContainerPackage : ClassOfIndividual
+ContainerPackage = Individual
 
 --  ContainerPackage is subTypeOf FirstOrderEntity
 st-e2780fbf68f17d72 : ContainerPackage ⊏ₑ FirstOrderEntity
 st-e2780fbf68f17d72 = polySubTypeOf-identity
+
+--  ContainerPackage withAspect Container
+st-54259f0b6aa22211 : ContainerPackage ⊏ₐₑ (Container lzero)
+st-54259f0b6aa22211 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

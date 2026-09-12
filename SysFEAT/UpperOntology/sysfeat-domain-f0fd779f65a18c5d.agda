@@ -22,6 +22,5 @@ open import SysFEAT.UpperOntology.sysfeat-domain-e278fa2568f06541 public -- Refl
 
 open import SysFEAT.UpperOntology.23d5c494685141b5 public -- Block Lexical Scope
 open import SysFEAT.UpperOntology.0eb93b4268549a66 public -- Container
-open import SysFEAT.UpperOntology.0eb947546854a13d public -- Container Package
 open import SysFEAT.UpperOntology.23d5aa4868513f43 public -- Block Collection
 open import SysFEAT.UpperOntology.23d5a9ea68513ced public -- Building Block
