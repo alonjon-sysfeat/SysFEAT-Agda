@@ -4,7 +4,12 @@
    framework.sysfeat.com
 
 Meta-Class: 
-Meta-Class (also called Class of Classes of Entity) is the Class of Entity of all Class of Entitys each of whose instances is necessarily a Class of Entity. In other word, Meta-Class is the powertype of Class of Entity: all sub-classes of Class of Entitys are instances of Meta-Class.Since Meta-Class is itself a sub-type of Class of Entity, Meta-Class is an instance of itself. 
+Meta-Class (also called Class of Classes of Entity) is the Class of Entity of all Class of Entitys each of whose instances is necessarily a Class of Entity. 
+In other word, Meta-Class is the powertype of Class of Entity: all sub-classes of Class of Entitys are instances of Meta-Class.
+Since Meta-Class is itself a sub-type of Class of Entity, Meta-Class is an instance of itself. 
+
+Documentation: https://framework.sysfeat.com/pages/e27801e868f17024.htm
+
  - ============================== -}
 
 {-# OPTIONS --safe --cubical --guardedness #-}

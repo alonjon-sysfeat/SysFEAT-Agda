@@ -4,7 +4,11 @@
    framework.sysfeat.com
 
 Ordered Meta-Class: 
-Ordered Class is the defined as the Meta-Class of all power-type based Class of Entitys that follow a strict ordering of metalevels.
+Ordered Class is the defined as the Meta-Class of all power-type based Class of Entitys 
+that follow a strict ordering of metalevels.
+
+Documentation: https://framework.sysfeat.com/pages/d9cce4e96937128c.htm
+
  - ============================== -}
 
 {-# OPTIONS --safe --cubical --guardedness #-}

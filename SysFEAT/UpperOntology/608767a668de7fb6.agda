@@ -17,7 +17,7 @@ External references:
 module SysFEAT.UpperOntology.608767a668de7fb6 where -- ========== Class of Class of Individual
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.78e382a768ef0daa public -- Second Order Class
+open import SysFEAT.UpperOntology.a599a7e46aa370fb public -- Second Order Class
 
 ClassOfClassOfIndividual : ThirdOrderClass
 ClassOfClassOfIndividual = MetaClass lzero
