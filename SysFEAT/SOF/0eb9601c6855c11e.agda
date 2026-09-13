@@ -17,26 +17,25 @@ External references:
 module SysFEAT.SOF.0eb9601c6855c11e where -- ========== Library
 
 open import Agda.Primitive
-open import SysFEAT.SOF.0eb96bc36855ca44 public -- Model Package
+open import SysFEAT.SOF.d745dbaa6aa3840b public -- Model Package
 open import SysFEAT.SOF.0eb95f1b6855bf64 public -- Architecture Container
 
-Library : FirstOrderClass
-Library = FirstOrderEntity
-
+Library : ∀ (u : Level) → ClassOfMixedOrderEntity u
+Library u = MixedOrderEntity u
 
 --  Library is subTypeOf ModelPackage
-st-0f6418c268598b03 : Library ⊏ₑ ModelPackage
+st-0f6418c268598b03 : ∀ {u} → (Library u) ⊏ₘₑ ModelPackage
 st-0f6418c268598b03 = polySubTypeOf-identity
 
---  Library withAspect ArchitectureContainer
-st-0eb960326855c14a : Library ⊏ₐₑ (ArchitectureContainer lzero)
-st-0eb960326855c14a = polySubTypeOf-identity
+--  Library is subTypeOf ArchitectureContainer
+st-0eb960326855c14a : ∀ {u v} → (Library u) ⊏⋆ₑ (ArchitectureContainer v)
+st-0eb960326855c14a = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================
 
 {- Parent Library: -}
-parentLibrary :  Linkage Library Library
+parentLibrary : ∀ {u v} →  Linkage (Library u) (Library v)
 parentLibrary = make_Relation "Library Basing" "Parent Library"
 
 postulate -- parentLibrary is subTypeOf parentModelPackage
-  st-e7cb01db6a976047-e7cb000b6a975e4c  : parentLibrary   ⊏⋆ᵣ  parentModelPackage 
+  st-e7cb01db6a976047-e7cb000b6a975e4c  : ∀ {u v} → parentLibrary {u} {v}  ⊏⋆ᵣ  parentModelPackage

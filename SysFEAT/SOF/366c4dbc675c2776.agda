@@ -24,4 +24,4 @@ ArchitectureDecisionType = SecondOrderClass
 st-366c4dc1675c27bb : ArchitectureDecisionType ⊏ₑ DecisionType
 st-366c4dc1675c27bb = polySubTypeOf-identity
 
--- == Relationships =======================
+
