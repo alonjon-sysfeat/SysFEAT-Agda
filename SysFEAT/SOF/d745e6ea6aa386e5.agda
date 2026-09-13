@@ -4,9 +4,9 @@
    framework.sysfeat.com
 
 Annotation Block: 
-An Annotation Block is a Building Block used to provide additional characteristics such as Documentations,Examples: Description Notes .Tags.
+An Annotation Block is a Building Block used to provide additional characteristics such as Documentations,Examples:. Description Note.. Tag.
 
-Documentation : https://framework.sysfeat.com/pages/0eb97ada6855ccb4.htm
+Documentation : https://framework.sysfeat.com/pages/d745e6ea6aa386e5.htm
 
 External references:
   OMG - KerML - AnnotatingElement: https://www.omg.org/spec/KerML/1.0/PDF#page=252
@@ -15,24 +15,23 @@ External references:
 
 {-# OPTIONS --cubical --guardedness #-}
 
-module SysFEAT.SOF.0eb97ada6855ccb4 where -- ========== Annotation Block
+module SysFEAT.SOF.d745e6ea6aa386e5 where -- ========== Annotation Block
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.23d5a9ea68513ced public -- Building Block
 open import SysFEAT.UpperOntology.5425a2df6aa225cf public -- First Order Entity
+open import SysFEAT.UpperOntology.23d5a9ea68513ced public -- Building Block
 open import SysFEAT.UpperOntology.23d5249e68510ff9 public -- Element
 
-AnnotationBlock : FirstOrderClass
-AnnotationBlock = FirstOrderEntity
-
-
---  AnnotationBlock withAspect BuildingBlock
-st-0eb97ae96855ccf8 : AnnotationBlock ⊏ₐₑ (BuildingBlock lzero)
-st-0eb97ae96855ccf8 = polySubTypeOf-identity
+AnnotationBlock : ClassOfIndividual
+AnnotationBlock = Individual
 
 --  AnnotationBlock is subTypeOf FirstOrderEntity
-st-da29e2ed69d4782b : AnnotationBlock ⊏ₑ FirstOrderEntity
-st-da29e2ed69d4782b = polySubTypeOf-identity
+st-d745ec016aa38d7a : AnnotationBlock ⊏ₑ FirstOrderEntity
+st-d745ec016aa38d7a = polySubTypeOf-identity
+
+--  AnnotationBlock withAspect BuildingBlock
+st-d745e7256aa3877d : AnnotationBlock ⊏ₐₑ (BuildingBlock lzero)
+st-d745e7256aa3877d = polySubTypeOf-identity
 
 -- == Relationships =======================
 

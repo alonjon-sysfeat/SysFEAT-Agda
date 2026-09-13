@@ -17,19 +17,18 @@ External references:
 module SysFEAT.SOF.0f6418e568598b38 where -- ========== Reference Dictionary
 
 open import Agda.Primitive
-open import SysFEAT.SOF.0eb96bc36855ca44 public -- Model Package
+open import SysFEAT.SOF.d745dbaa6aa3840b public -- Model Package
 open import SysFEAT.SOF.0eb95f1b6855bf64 public -- Architecture Container
 
-ReferenceDictionary : FirstOrderClass
-ReferenceDictionary = FirstOrderEntity
-
+ReferenceDictionary : ∀ (u : Level) → ClassOfMixedOrderEntity u
+ReferenceDictionary u = MixedOrderEntity u
 
 --  ReferenceDictionary is subTypeOf ModelPackage
-st-0f6418f168598b8d : ReferenceDictionary ⊏ₑ ModelPackage
+st-0f6418f168598b8d : ∀ {u} → (ReferenceDictionary u) ⊏ₘₑ ModelPackage
 st-0f6418f168598b8d = polySubTypeOf-identity
 
---  ReferenceDictionary withAspect ArchitectureContainer
-st-0f64190268598bc7 : ReferenceDictionary ⊏ₐₑ (ArchitectureContainer lzero)
-st-0f64190268598bc7 = polySubTypeOf-identity
+--  ReferenceDictionary is subTypeOf ArchitectureContainer
+st-0f64190268598bc7 : ∀ {u v} → (ReferenceDictionary u) ⊏⋆ₑ (ArchitectureContainer v)
+st-0f64190268598bc7 = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

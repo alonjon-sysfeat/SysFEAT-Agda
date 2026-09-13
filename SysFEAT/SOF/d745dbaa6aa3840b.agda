@@ -4,9 +4,9 @@
    framework.sysfeat.com
 
 Model Package: 
+A Model Package is a Container Package that packages Model Building Blocks.
 
-
-Documentation : https://framework.sysfeat.com/pages/0eb96bc36855ca44.htm
+Documentation : https://framework.sysfeat.com/pages/d745dbaa6aa3840b.htm
 
 External references:
   OMG - UML - Package: https://www.omg.org/spec/UML/2.5.1/PDF#page=283
@@ -15,28 +15,27 @@ External references:
 
 {-# OPTIONS --cubical --guardedness #-}
 
-module SysFEAT.SOF.0eb96bc36855ca44 where -- ========== Model Package
+module SysFEAT.SOF.d745dbaa6aa3840b where -- ========== Model Package
 
 open import Agda.Primitive
+open import SysFEAT.UpperOntology.542599db6aa21e06 public -- Container Package
 open import SysFEAT.SOF.0eb95dce6855be2e public -- Model Container
-open import SysFEAT.UpperOntology.0eb947546854a13d public -- Container Package
 
-ModelPackage : FirstOrderClass
-ModelPackage = FirstOrderEntity
-
-
---  ModelPackage withAspect ModelContainer
-st-0eb96bc96855ca70 : ModelPackage ⊏ₐₑ (ModelContainer lzero)
-st-0eb96bc96855ca70 = polySubTypeOf-identity
+ModelPackage : ClassOfIndividual
+ModelPackage = Individual
 
 --  ModelPackage is subTypeOf ContainerPackage
-st-3346ae766878462c : ModelPackage ⊏ₑ ContainerPackage
-st-3346ae766878462c = polySubTypeOf-identity
+st-d745e6006aa385be : ModelPackage ⊏ₑ ContainerPackage
+st-d745e6006aa385be = polySubTypeOf-identity
+
+--  ModelPackage withAspect ModelContainer
+st-d745dbfb6aa384b4 : ModelPackage ⊏ₐₑ (ModelContainer lzero)
+st-d745dbfb6aa384b4 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Parent Model Package: 
-Existential Dependency that asserts the existence of a Model Package in a parent Model Package
+Existential Dependency that asserts the existence of a Model Package in a parent Model Package.
 -}
 parentModelPackage :  Linkage ModelPackage ModelPackage
 parentModelPackage = make_Relation "Model Package Basing" "Parent Model Package"

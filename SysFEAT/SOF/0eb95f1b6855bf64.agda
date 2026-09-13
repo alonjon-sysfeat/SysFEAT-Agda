@@ -41,11 +41,11 @@ postulate -- includedArchitectureDictionary is subTypeOf nestingRelation
   st-0f6416aa685987e1-02a506a968540333  : ∀ {u v} → includedArchitectureDictionary {u} {v}  ⊏⋆ᵣ  nestingRelation {u} {v}
 
 {- Packaged Block Collection: -}
-packagedBlockCollection : ∀ {u} →  Linkage (ArchitectureContainer u) ArchitectureBlockCollection
+packagedBlockCollection : ∀ {u v} →  Linkage (ArchitectureContainer u) (ArchitectureBlockCollection v)
 packagedBlockCollection = make_nestingRelation "Packaged Block Collection" "Packaged Block Collection"
 
 postulate -- packagedBlockCollection is subTypeOf nestingRelation
-  st-0eb966436855c46e-02a506a968540333  : packagedBlockCollection {u}  ⊏⋆ᵣ  nestingRelation {u} {v}
+  st-0eb966436855c46e-02a506a968540333  : ∀ {u v} → packagedBlockCollection {u} {v}  ⊏⋆ᵣ  nestingRelation {u} {v}
 
 {- Packaged Asset Block: 
 Packaging of Packaged Asset Blocks in Architecture Containers.
