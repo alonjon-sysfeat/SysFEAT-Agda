@@ -24,8 +24,8 @@ ModelLexicalScope : ∀ (u : Level) → ClassOfMixedOrderEntity u
 ModelLexicalScope u = MixedOrderEntity u
 
 --  ModelLexicalScope is subTypeOf BlockLexicalScope
-st-0eb95e126855be7d : ∀ {u v} → (ModelLexicalScope u) ⊏⋆ₑ (BlockLexicalScope v)
-st-0eb95e126855be7d = trivialPolySubTypeOfEntity
+st-0eb95db46855bdd5-23d5c494685141b5 : ∀ {u v} → (ModelLexicalScope u) ⊏⋆ₑ (BlockLexicalScope v)
+st-0eb95db46855bdd5-23d5c494685141b5 = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================
 

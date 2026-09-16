@@ -21,7 +21,7 @@ DecisionType : ThirdOrderClass
 DecisionType = SecondOrderClass
 
 --  DecisionType is subTypeOf ResolutionType
-st-83bba0a66192407d : DecisionType ⊏ₑ ResolutionType
-st-83bba0a66192407d = polySubTypeOf-identity
+st-366c47e1675c1c07-366c4627675c1aad : DecisionType ⊏ₑ ResolutionType
+st-366c47e1675c1c07-366c4627675c1aad = polySubTypeOf-identity
 
 -- == Relationships =======================

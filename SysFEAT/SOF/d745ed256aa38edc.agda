@@ -22,12 +22,12 @@ InformationDictionary : ClassOfIndividual
 InformationDictionary = Individual
 
 --  InformationDictionary is subTypeOf ModelPackage
-st-d745ed496aa38f61 : InformationDictionary ⊏ₑ ModelPackage
-st-d745ed496aa38f61 = polySubTypeOf-identity
+st-d745ed256aa38edc-d745dbaa6aa3840b : InformationDictionary ⊏ₑ ModelPackage
+st-d745ed256aa38edc-d745dbaa6aa3840b = polySubTypeOf-identity
 
 --  InformationDictionary withAspect InformationLexicalScope
-st-d745ed536aa38f89 : InformationDictionary ⊏ₐₑ (InformationLexicalScope lzero)
-st-d745ed536aa38f89 = polySubTypeOf-identity
+st-d745ed256aa38edc-6c5f808b68587e49 : InformationDictionary ⊏ₐₑ (InformationLexicalScope lzero)
+st-d745ed256aa38edc-6c5f808b68587e49 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

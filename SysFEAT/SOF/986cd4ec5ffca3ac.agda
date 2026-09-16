@@ -29,8 +29,8 @@ BehaviorType : ClassOfClassOfBoundedIndividual
 BehaviorType = ClassOfBoundedIndividual
 
 --  BehaviorType is subTypeOf OperatingAssetType
-st-986cd52d5ffca44c : BehaviorType ⊏ₑ OperatingAssetType
-st-986cd52d5ffca44c = polySubTypeOf-identity
+st-986cd4ec5ffca3ac-a371a43b5b865817 : BehaviorType ⊏ₑ OperatingAssetType
+st-986cd4ec5ffca3ac-a371a43b5b865817 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -57,11 +57,11 @@ BehaviorParticipant = ClassOfIndividual
 
 -- Membership relation
 membershipOfBehaviorParticipant :  Linkage BehaviorType BehaviorParticipant
-membershipOfBehaviorParticipant = membershipOfAggregateMember
+membershipOfBehaviorParticipant = make_upwardNestingRelation "behaviorParticipant membership" "nested behaviorParticipant"
 
 -- Aggregation relation
 aggregationOfAgentTypeBehaviorParticipant :  Linkage BehaviorParticipant AgentType
-aggregationOfAgentTypeBehaviorParticipant = aggregationOfBuildingBlock
+aggregationOfAgentTypeBehaviorParticipant = make_Relation "AgentType aggregation" "aggregated AgentType"
 
 {- behaviorParticipant : derived relation obtained by composing
    membershipOfBehaviorParticipant and aggregationOfAgentTypeBehaviorParticipant
@@ -70,6 +70,10 @@ aggregationOfAgentTypeBehaviorParticipant = aggregationOfBuildingBlock
 -}
 behaviorParticipant : Linkage BehaviorType AgentType
 behaviorParticipant = membershipOfBehaviorParticipant  ∘  aggregationOfAgentTypeBehaviorParticipant
+
+postulate -- behaviorParticipant is subTypeOf operatingAssetPart
+  st-e0e86fad65789c43-b776b8c668b04b35  : behaviorParticipant   ⊏⋆ᵣ  operatingAssetPart 
+
 
 {- Behavior Part: 
 A composed Behavior Type that is a part of the parent Behavior Type.
@@ -80,11 +84,11 @@ BehaviorPart = ClassOfIndividual
 
 -- Membership relation
 membershipOfBehaviorPart :  Linkage BehaviorType BehaviorPart
-membershipOfBehaviorPart = membershipOfAggregateMember
+membershipOfBehaviorPart = make_upwardNestingRelation "behaviorPart membership" "nested behaviorPart"
 
 -- Aggregation relation
 aggregationOfBehaviorTypeBehaviorPart :  Linkage BehaviorPart BehaviorType
-aggregationOfBehaviorTypeBehaviorPart = aggregationOfBuildingBlock
+aggregationOfBehaviorTypeBehaviorPart = make_Relation "BehaviorType aggregation" "aggregated BehaviorType"
 
 {- behaviorPart : derived relation obtained by composing
    membershipOfBehaviorPart and aggregationOfBehaviorTypeBehaviorPart
@@ -93,3 +97,7 @@ aggregationOfBehaviorTypeBehaviorPart = aggregationOfBuildingBlock
 -}
 behaviorPart : Linkage BehaviorType BehaviorType
 behaviorPart = membershipOfBehaviorPart  ∘  aggregationOfBehaviorTypeBehaviorPart
+
+postulate -- behaviorPart is subTypeOf operatingAssetPart
+  st-b776b92668b04c85-b776b8c668b04b35  : behaviorPart   ⊏⋆ᵣ  operatingAssetPart 
+

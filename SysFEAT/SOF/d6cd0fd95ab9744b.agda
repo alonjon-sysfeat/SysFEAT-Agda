@@ -26,8 +26,8 @@ AgentTypeEnvironment : ClassOfClassOfBoundedIndividual
 AgentTypeEnvironment = ClassOfBoundedIndividual
 
 --  AgentTypeEnvironment is subTypeOf OperatingEcoSystem
-st-d6cd10f85ab974f9 : AgentTypeEnvironment ⊏ₑ OperatingEcoSystem
-st-d6cd10f85ab974f9 = polySubTypeOf-identity
+st-d6cd0fd95ab9744b-ca35f48a5fc48686 : AgentTypeEnvironment ⊏ₑ OperatingEcoSystem
+st-d6cd0fd95ab9744b-ca35f48a5fc48686 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -52,11 +52,11 @@ ServiceChannel = ClassOfIndividual
 
 -- Membership relation
 membershipOfServiceChannel :  Linkage AgentTypeEnvironment ServiceChannel
-membershipOfServiceChannel = membershipOfAggregateMember
+membershipOfServiceChannel = make_upwardNestingRelation "serviceChannel membership" "nested serviceChannel"
 
 -- Aggregation relation
 aggregationOfServiceInterfaceServiceChannel :  Linkage ServiceChannel ServiceInterface
-aggregationOfServiceInterfaceServiceChannel = aggregationOfBuildingBlock
+aggregationOfServiceInterfaceServiceChannel = make_Relation "ServiceInterface aggregation" "aggregated ServiceInterface"
 
 {- serviceChannel : derived relation obtained by composing
    membershipOfServiceChannel and aggregationOfServiceInterfaceServiceChannel
@@ -66,6 +66,10 @@ aggregationOfServiceInterfaceServiceChannel = aggregationOfBuildingBlock
 serviceChannel : Linkage AgentTypeEnvironment ServiceInterface
 serviceChannel = membershipOfServiceChannel  ∘  aggregationOfServiceInterfaceServiceChannel
 
+postulate -- serviceChannel is subTypeOf operatingConnector
+  st-80be29065fc2a83d-3d3f4b4062013550  : serviceChannel   ⊏⋆ᵣ  operatingConnector 
+
+
 {- Participant Agent: -}
 -- Aggregate Member : Participant Agent
 ParticipantAgent : ClassOfClassOfIndividual
@@ -73,11 +77,11 @@ ParticipantAgent = ClassOfIndividual
 
 -- Membership relation
 membershipOfParticipantAgent :  Linkage AgentTypeEnvironment ParticipantAgent
-membershipOfParticipantAgent = membershipOfAggregateMember
+membershipOfParticipantAgent = make_upwardNestingRelation "participantAgent membership" "nested participantAgent"
 
 -- Aggregation relation
 aggregationOfAgentTypeParticipantAgent :  Linkage ParticipantAgent AgentType
-aggregationOfAgentTypeParticipantAgent = aggregationOfBuildingBlock
+aggregationOfAgentTypeParticipantAgent = make_Relation "AgentType aggregation" "aggregated AgentType"
 
 {- participantAgent : derived relation obtained by composing
    membershipOfParticipantAgent and aggregationOfAgentTypeParticipantAgent
@@ -86,6 +90,10 @@ aggregationOfAgentTypeParticipantAgent = aggregationOfBuildingBlock
 -}
 participantAgent : Linkage AgentTypeEnvironment AgentType
 participantAgent = membershipOfParticipantAgent  ∘  aggregationOfAgentTypeParticipantAgent
+
+postulate -- participantAgent is subTypeOf ecosystemMember
+  st-80be28965fc2a6b8-3d3f4aed6201346c  : participantAgent   ⊏⋆ᵣ  ecosystemMember 
+
 
 {- Performed Interaction: 
 set of interactions processes performed in the context of an Operating Eco-System.
@@ -96,11 +104,11 @@ PerformedInteraction = ClassOfIndividual
 
 -- Membership relation
 26CB2D596961099C :  Linkage AgentTypeEnvironment PerformedInteraction
-26CB2D596961099C = membershipOfAggregateMember
+26CB2D596961099C = make_upwardNestingRelation "performedInteraction membership" "nested performedInteraction"
 
 -- Aggregation relation
 aggregationOfEnvironmentInteractionProcessTypePerformedInteraction :  Linkage PerformedInteraction EnvironmentInteractionProcessType
-aggregationOfEnvironmentInteractionProcessTypePerformedInteraction = aggregationOfBuildingBlock
+aggregationOfEnvironmentInteractionProcessTypePerformedInteraction = make_Relation "EnvironmentInteractionProcessType aggregation" "aggregated EnvironmentInteractionProcessType"
 
 {- performedInteraction : derived relation obtained by composing
    26CB2D596961099C and aggregationOfEnvironmentInteractionProcessTypePerformedInteraction
@@ -110,6 +118,10 @@ aggregationOfEnvironmentInteractionProcessTypePerformedInteraction = aggregation
 performedInteraction : Linkage AgentTypeEnvironment EnvironmentInteractionProcessType
 performedInteraction = 26CB2D596961099C  ∘  aggregationOfEnvironmentInteractionProcessTypePerformedInteraction
 
+postulate -- performedInteraction is subTypeOf aggregateHolonymyType
+  st-26cb2d5769610945-c2f2c83b66ea4d78  : performedInteraction   ⊏⋆ᵣ  aggregateHolonymyType 
+
+
 {- Subject Agent: -}
 -- Aggregate Member : Subject Agent
 SubjectAgent : ClassOfClassOfIndividual
@@ -117,11 +129,11 @@ SubjectAgent = ClassOfIndividual
 
 -- Membership relation
 membershipOfSubjectAgent :  Linkage AgentTypeEnvironment SubjectAgent
-membershipOfSubjectAgent = membershipOfAggregateMember
+membershipOfSubjectAgent = make_upwardNestingRelation "subjectAgent membership" "nested subjectAgent"
 
 -- Aggregation relation
 aggregationOfAgentTypeSubjectAgent :  Linkage SubjectAgent AgentType
-aggregationOfAgentTypeSubjectAgent = aggregationOfBuildingBlock
+aggregationOfAgentTypeSubjectAgent = make_Relation "AgentType aggregation" "aggregated AgentType"
 
 {- subjectAgent : derived relation obtained by composing
    membershipOfSubjectAgent and aggregationOfAgentTypeSubjectAgent
@@ -131,6 +143,10 @@ aggregationOfAgentTypeSubjectAgent = aggregationOfBuildingBlock
 subjectAgent : Linkage AgentTypeEnvironment AgentType
 subjectAgent = membershipOfSubjectAgent  ∘  aggregationOfAgentTypeSubjectAgent
 
+postulate -- subjectAgent is subTypeOf participantAgent
+  st-fa4ffc205ec86201-80be28965fc2a6b8  : subjectAgent   ⊏⋆ᵣ  participantAgent 
+
+
 {- Partner Agent: -}
 -- Aggregate Member : Partner Agent
 PartnerAgent : ClassOfClassOfIndividual
@@ -138,11 +154,11 @@ PartnerAgent = ClassOfIndividual
 
 -- Membership relation
 membershipOfPartnerAgent :  Linkage AgentTypeEnvironment PartnerAgent
-membershipOfPartnerAgent = membershipOfAggregateMember
+membershipOfPartnerAgent = make_upwardNestingRelation "partnerAgent membership" "nested partnerAgent"
 
 -- Aggregation relation
 aggregationOfAgentTypePartnerAgent :  Linkage PartnerAgent AgentType
-aggregationOfAgentTypePartnerAgent = aggregationOfBuildingBlock
+aggregationOfAgentTypePartnerAgent = make_Relation "AgentType aggregation" "aggregated AgentType"
 
 {- partnerAgent : derived relation obtained by composing
    membershipOfPartnerAgent and aggregationOfAgentTypePartnerAgent
@@ -151,3 +167,7 @@ aggregationOfAgentTypePartnerAgent = aggregationOfBuildingBlock
 -}
 partnerAgent : Linkage AgentTypeEnvironment AgentType
 partnerAgent = membershipOfPartnerAgent  ∘  aggregationOfAgentTypePartnerAgent
+
+postulate -- partnerAgent is subTypeOf participantAgent
+  st-fa4ffc235ec86276-80be28965fc2a6b8  : partnerAgent   ⊏⋆ᵣ  participantAgent 
+

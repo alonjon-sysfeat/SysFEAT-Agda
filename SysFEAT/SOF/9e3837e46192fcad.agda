@@ -25,8 +25,8 @@ IndividualAgent : ClassOfBoundedIndividual
 IndividualAgent = BoundedIndividual
 
 --  IndividualAgent is subTypeOf IndividualOperatingAsset
-st-9e38381c6192fe47 : IndividualAgent ⊏ₑ IndividualOperatingAsset
-st-9e38381c6192fe47 = polySubTypeOf-identity
+st-9e3837e46192fcad-9f61cf9166833fb7 : IndividualAgent ⊏ₑ IndividualOperatingAsset
+st-9e3837e46192fcad-9f61cf9166833fb7 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -40,11 +40,11 @@ AgentPart = AggregateMember (lsuc(lzero))
 
 -- Membership relation
 membershipOfAgentPart :  Linkage IndividualAgent AgentPart
-membershipOfAgentPart = membershipOfAggregateMember
+membershipOfAgentPart = make_upwardNestingRelation "agentPart membership" "nested agentPart"
 
 -- Aggregation relation
 aggregationOfIndividualAgentAgentPart :  Linkage AgentPart IndividualAgent
-aggregationOfIndividualAgentAgentPart = aggregationOfBuildingBlock
+aggregationOfIndividualAgentAgentPart = make_Relation "IndividualAgent aggregation" "aggregated IndividualAgent"
 
 {- agentPart : derived relation obtained by composing
    membershipOfAgentPart and aggregationOfIndividualAgentAgentPart
@@ -53,3 +53,7 @@ aggregationOfIndividualAgentAgentPart = aggregationOfBuildingBlock
 -}
 agentPart : Linkage IndividualAgent IndividualAgent
 agentPart = membershipOfAgentPart  ∘  aggregationOfIndividualAgentAgentPart
+
+postulate -- agentPart is subTypeOf individualOperatingPart
+  st-9d389f6761c4127d-d8ee780d68d224c2  : agentPart   ⊏⋆ᵣ  individualOperatingPart 
+

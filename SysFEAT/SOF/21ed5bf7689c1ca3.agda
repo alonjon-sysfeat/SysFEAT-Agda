@@ -25,12 +25,12 @@ SetOfConditionProperties : PropertyType
 SetOfConditionProperties = ClassOfProperty
 
 --  SetOfConditionProperties is subTypeOf ConditionProperty
-st-dd26497d689f4774 : SetOfConditionProperties ⊏ₑ ConditionProperty
-st-dd26497d689f4774 = polySubTypeOf-identity
+st-21ed5bf7689c1ca3-21ed231d689c0679 : SetOfConditionProperties ⊏ₑ ConditionProperty
+st-21ed5bf7689c1ca3-21ed231d689c0679 = polySubTypeOf-identity
 
 --  SetOfConditionProperties withAspect UnboundedAggregate
-st-fee30ea2695d17bd : SetOfConditionProperties ⊏ₐₑ (UnboundedAggregate (lsuc(lzero)))
-st-fee30ea2695d17bd = polySubTypeOf-identity
+st-21ed5bf7689c1ca3-8cfa942f68527849 : SetOfConditionProperties ⊏ₐₑ (UnboundedAggregate (lsuc(lzero)))
+st-21ed5bf7689c1ca3-8cfa942f68527849 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -50,11 +50,11 @@ CombinedProperty = ClassOfIndividual
 
 -- Membership relation
 membershipOfCombinedProperty :  Linkage SetOfConditionProperties CombinedProperty
-membershipOfCombinedProperty = membershipOfAggregateMember
+membershipOfCombinedProperty = make_upwardNestingRelation "combinedProperty membership" "nested combinedProperty"
 
 -- Aggregation relation
 aggregationOfConditionPropertyCombinedProperty :  Linkage CombinedProperty ConditionProperty
-aggregationOfConditionPropertyCombinedProperty = aggregationOfBuildingBlock
+aggregationOfConditionPropertyCombinedProperty = make_Relation "ConditionProperty aggregation" "aggregated ConditionProperty"
 
 {- combinedProperty : derived relation obtained by composing
    membershipOfCombinedProperty and aggregationOfConditionPropertyCombinedProperty
@@ -63,3 +63,7 @@ aggregationOfConditionPropertyCombinedProperty = aggregationOfBuildingBlock
 -}
 combinedProperty : Linkage SetOfConditionProperties ConditionProperty
 combinedProperty = membershipOfCombinedProperty  ∘  aggregationOfConditionPropertyCombinedProperty
+
+postulate -- combinedProperty is subTypeOf unboundedMember
+  st-dd26df9f689e4681-8cfaf71a6852b042  : combinedProperty   ⊏⋆ᵣ  unboundedMember {lzero} {lzero}
+

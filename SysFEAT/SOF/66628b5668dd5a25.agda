@@ -23,12 +23,12 @@ AppraisalOption : PropertyType
 AppraisalOption = ClassOfProperty
 
 --  AppraisalOption is subTypeOf GovernanceProperty
-st-97e09a9b68dd67e8 : AppraisalOption ⊏ₑ GovernanceProperty
-st-97e09a9b68dd67e8 = polySubTypeOf-identity
+st-66628b5668dd5a25-66628bbe68dd5bef : AppraisalOption ⊏ₑ GovernanceProperty
+st-66628b5668dd5a25-66628bbe68dd5bef = polySubTypeOf-identity
 
 --  AppraisalOption withAspect GovernanceInstrument
-st-6662974f68dd674d : AppraisalOption ⊏ₐₑ (GovernanceInstrument (lsuc(lzero)))
-st-6662974f68dd674d = polySubTypeOf-identity
+st-66628b5668dd5a25-6662916b68dd5f84 : AppraisalOption ⊏ₐₑ (GovernanceInstrument (lsuc(lzero)))
+st-66628b5668dd5a25-6662916b68dd5f84 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

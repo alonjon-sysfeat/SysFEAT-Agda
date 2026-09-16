@@ -23,7 +23,7 @@ ResponsibleHumanEntity : ClassOfBoundedIndividual
 ResponsibleHumanEntity = BoundedIndividual
 
 --  ResponsibleHumanEntity is subTypeOf IndividualAgent
-st-c334e7755ecba04a : ResponsibleHumanEntity ⊏ₑ IndividualAgent
-st-c334e7755ecba04a = polySubTypeOf-identity
+st-c7dad03f5ae92ae9-9e3837e46192fcad : ResponsibleHumanEntity ⊏ₑ IndividualAgent
+st-c7dad03f5ae92ae9-9e3837e46192fcad = polySubTypeOf-identity
 
 -- == Relationships =======================

@@ -23,8 +23,8 @@ Assessment : ClassOfBoundedIndividual
 Assessment = BoundedIndividual
 
 --  Assessment is subTypeOf Appraisal
-st-3b539cda551e4cca : Assessment ⊏ₑ Appraisal
-st-3b539cda551e4cca = polySubTypeOf-identity
+st-3b539cbb551e4c2a-bcdbc016617a55be : Assessment ⊏ₑ Appraisal
+st-3b539cbb551e4c2a-bcdbc016617a55be = polySubTypeOf-identity
 
 -- == Relationships =======================
 

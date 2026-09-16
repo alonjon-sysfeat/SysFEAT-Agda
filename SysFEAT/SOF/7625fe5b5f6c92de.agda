@@ -21,7 +21,7 @@ RemediationPlan : ClassOfBoundedIndividual
 RemediationPlan = BoundedIndividual
 
 --  RemediationPlan is subTypeOf GovernanceActivity
-st-d7f911165f73d9f6 : RemediationPlan ⊏ₑ GovernanceActivity
-st-d7f911165f73d9f6 = polySubTypeOf-identity
+st-7625fe5b5f6c92de-1737b76a5fe28204 : RemediationPlan ⊏ₑ GovernanceActivity
+st-7625fe5b5f6c92de-1737b76a5fe28204 = polySubTypeOf-identity
 
 -- == Relationships =======================

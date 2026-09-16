@@ -29,15 +29,15 @@ BehavioralEvent : ClassOfClassOfIndividual
 BehavioralEvent = ClassOfIndividual
 
 --  BehavioralEvent is subTypeOf OperatingConnection
-st-915285165ed551cc : BehavioralEvent ⊏ₑ OperatingConnection
-st-915285165ed551cc = polySubTypeOf-identity
+st-24ae31d75ed1c747-21c5276e655759fb : BehavioralEvent ⊏ₑ OperatingConnection
+st-24ae31d75ed1c747-21c5276e655759fb = polySubTypeOf-identity
 
 --  BehavioralEvent is subTypeOf FunctionalAsset
-st-a44fc9976748c7db : BehavioralEvent ⊏ₑ FunctionalAsset
-st-a44fc9976748c7db = polySubTypeOf-identity
+st-24ae31d75ed1c747-a44fb6bc6748b088 : BehavioralEvent ⊏ₑ FunctionalAsset
+st-24ae31d75ed1c747-a44fb6bc6748b088 = polySubTypeOf-identity
 
 --  BehavioralEvent is subTypeOf TemporalBoundingType
-st-ab8f26d8675328af : BehavioralEvent ⊏ₑ TemporalBoundingType
-st-ab8f26d8675328af = polySubTypeOf-identity
+st-24ae31d75ed1c747-9429979a66823f90 : BehavioralEvent ⊏ₑ TemporalBoundingType
+st-24ae31d75ed1c747-9429979a66823f90 = polySubTypeOf-identity
 
 -- == Relationships =======================

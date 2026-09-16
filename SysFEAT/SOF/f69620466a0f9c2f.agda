@@ -23,12 +23,12 @@ AssetCategory : ∀ (u : Level) → Set (lsuc (lsuc (lsuc u)))
 AssetCategory u = Category u
 
 --  AssetCategory is subTypeOf Category
-st-8085811a65b66abf : ∀ {u v} → (AssetCategory u) ⊏⋆ₑ (Category v)
-st-8085811a65b66abf = trivialPolySubTypeOfEntity
+st-f69620466a0f9c2f-f69619236a0f8dcd : ∀ {u v} → (AssetCategory u) ⊏⋆ₑ (Category v)
+st-f69620466a0f9c2f-f69619236a0f8dcd = trivialPolySubTypeOfEntity
 
 --  AssetCategory is subTypeOf ModelPropertyBlock
-st-dd27f4c268a15a7d : ∀ {u v} → (AssetCategory u) ⊏⋆ₑ (ModelPropertyBlock v)
-st-dd27f4c268a15a7d = trivialPolySubTypeOfEntity
+st-f69620466a0f9c2f-0eb97aff6855cd23 : ∀ {u v} → (AssetCategory u) ⊏⋆ₑ (ModelPropertyBlock v)
+st-f69620466a0f9c2f-0eb97aff6855cd23 = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================
 

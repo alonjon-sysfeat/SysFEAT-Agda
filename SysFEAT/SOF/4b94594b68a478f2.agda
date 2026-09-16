@@ -17,15 +17,15 @@ External references:
 module SysFEAT.SOF.4b94594b68a478f2 where -- ========== Policy Framework
 
 open import Agda.Primitive
-open import SysFEAT.SOF.0f6418e568598b38 public -- Reference Dictionary
+open import SysFEAT.SOF.3aca50c46aa63f3b public -- Reference Dictionary
 open import SysFEAT.SOF.9397c3d86877842f public -- Policy Asset
 
 PolicyFramework : ∀ (u : Level) → ClassOfMixedOrderEntity u
 PolicyFramework u = MixedOrderEntity u
 
 --  PolicyFramework is subTypeOf ReferenceDictionary
-st-a67dcb5e5f8eb5a9 : ∀ {u v} → (PolicyFramework u) ⊏⋆ₑ (ReferenceDictionary v)
-st-a67dcb5e5f8eb5a9 = trivialPolySubTypeOfEntity
+st-4b94594b68a478f2-3aca50c46aa63f3b : ∀ {u} → (PolicyFramework u) ⊏ₘₑ ReferenceDictionary
+st-4b94594b68a478f2-3aca50c46aa63f3b = polySubTypeOf-identity
 
 -- == Relationships =======================
 

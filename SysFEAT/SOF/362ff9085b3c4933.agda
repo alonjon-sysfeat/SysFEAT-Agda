@@ -21,7 +21,7 @@ PeriodType : ClassOfClassOfBoundedIndividual
 PeriodType = ClassOfBoundedIndividual
 
 --  PeriodType is subTypeOf ClassOfBoundedIndividual
-st-1d51aec46353270d : PeriodType ⊏ₑ ClassOfBoundedIndividual
-st-1d51aec46353270d = polySubTypeOf-identity
+st-362ff9085b3c4933-3492c53e619642ed : PeriodType ⊏ₑ ClassOfBoundedIndividual
+st-362ff9085b3c4933-3492c53e619642ed = polySubTypeOf-identity
 
 -- == Relationships =======================

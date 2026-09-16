@@ -24,12 +24,12 @@ InitiativeStage = StateConcept
 
 
 --  InitiativeStage is subTypeOf IndividualState
-st-e78c5f3066198b69 : InitiativeStage ⊏ₑ IndividualState
-st-e78c5f3066198b69 = polySubTypeOf-identity
+st-e78c5eb0661989f9-29cd2db0661546c4 : InitiativeStage ⊏ₑ IndividualState
+st-e78c5eb0661989f9-29cd2db0661546c4 = polySubTypeOf-identity
 
 --  InitiativeStage is subTypeOf Initiative
-st-e78c5e90661989d5 : InitiativeStage ⊏ₑ Initiative
-st-e78c5e90661989d5 = polySubTypeOf-identity
+st-e78c5eb0661989f9-0ffeec41600be08a : InitiativeStage ⊏ₑ Initiative
+st-e78c5eb0661989f9-0ffeec41600be08a = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -40,11 +40,11 @@ DesiredResult = ClassOfIndividual
 
 -- Membership relation
 membershipOfDesiredResult :  Linkage InitiativeStage DesiredResult
-membershipOfDesiredResult = membershipOfAggregateMember
+membershipOfDesiredResult = make_upwardNestingRelation "desiredResult membership" "nested desiredResult"
 
 -- Aggregation relation
 aggregationOfAssetPropertyDesiredResult :  Linkage DesiredResult AssetProperty
-aggregationOfAssetPropertyDesiredResult = aggregationOfBuildingBlock
+aggregationOfAssetPropertyDesiredResult = make_Relation "AssetProperty aggregation" "aggregated AssetProperty"
 
 {- desiredResult : derived relation obtained by composing
    membershipOfDesiredResult and aggregationOfAssetPropertyDesiredResult
@@ -53,6 +53,12 @@ aggregationOfAssetPropertyDesiredResult = aggregationOfBuildingBlock
 -}
 desiredResult : Linkage InitiativeStage AssetProperty
 desiredResult = membershipOfDesiredResult  ∘  aggregationOfAssetPropertyDesiredResult
+
+postulate -- desiredResult is subTypeOf aggregateMember
+  st-a56ba5d1689c4ba1-23d5ddef68514dba  : desiredResult   ⊏⋆ᵣ  aggregateMember {lzero} {lzero}
+postulate -- desiredResult is subTypeOf propertyOfIndividual
+  st-a56ba5d1689c4ba1-19763dbb68926a48  : desiredResult   ⊏⋆ᵣ  propertyOfIndividual 
+
 
 {- Stage Objective: 
 A Desired Result is a statement about a state or condition of Initiative Subjects of an Initiative Stage that can be obtained within this specified stage.
@@ -63,11 +69,11 @@ StageObjective = ClassOfIndividual
 
 -- Membership relation
 membershipOfStageObjective :  Linkage InitiativeStage StageObjective
-membershipOfStageObjective = membershipOfAggregateMember
+membershipOfStageObjective = make_upwardNestingRelation "stageObjective membership" "nested stageObjective"
 
 -- Aggregation relation
 aggregationOfAssetPropertyStageObjective :  Linkage StageObjective AssetProperty
-aggregationOfAssetPropertyStageObjective = aggregationOfBuildingBlock
+aggregationOfAssetPropertyStageObjective = make_Relation "AssetProperty aggregation" "aggregated AssetProperty"
 
 {- stageObjective : derived relation obtained by composing
    membershipOfStageObjective and aggregationOfAssetPropertyStageObjective
@@ -76,3 +82,7 @@ aggregationOfAssetPropertyStageObjective = aggregationOfBuildingBlock
 -}
 stageObjective : Linkage InitiativeStage AssetProperty
 stageObjective = membershipOfStageObjective  ∘  aggregationOfAssetPropertyStageObjective
+
+postulate -- stageObjective is subTypeOf desiredResult
+  st-a56ba723689c4c95-a56ba5d1689c4ba1  : stageObjective   ⊏⋆ᵣ  desiredResult 
+

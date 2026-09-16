@@ -22,11 +22,11 @@ GovernancePropertyType : ThirdOrderClass
 GovernancePropertyType = SecondOrderClass
 
 --  GovernancePropertyType withAspect GovernanceInstrument
-st-366c4927675c1dc9 : GovernancePropertyType ⊏ₐₑ (GovernanceInstrument (lsuc(lsuc(lzero))))
-st-366c4927675c1dc9 = polySubTypeOf-identity
+st-83f8933a67407206-6662916b68dd5f84 : GovernancePropertyType ⊏ₐₑ (GovernanceInstrument (lsuc(lsuc(lzero))))
+st-83f8933a67407206-6662916b68dd5f84 = polySubTypeOf-identity
 
 --  GovernancePropertyType is subTypeOf PropertyType
-st-83f8934e6740725b : GovernancePropertyType ⊏ₑ PropertyType
-st-83f8934e6740725b = polySubTypeOf-identity
+st-83f8933a67407206-87d3062666e33965 : GovernancePropertyType ⊏ₑ PropertyType
+st-83f8933a67407206-87d3062666e33965 = polySubTypeOf-identity
 
 -- == Relationships =======================

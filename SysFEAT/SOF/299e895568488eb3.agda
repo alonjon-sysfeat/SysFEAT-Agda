@@ -21,7 +21,7 @@ AssuranceInitiative : ClassOfBoundedIndividual
 AssuranceInitiative = BoundedIndividual
 
 --  AssuranceInitiative is subTypeOf EnduringInitiative
-st-299e8e096848935a : AssuranceInitiative ⊏ₑ EnduringInitiative
-st-299e8e096848935a = polySubTypeOf-identity
+st-299e895568488eb3-d321c226601262ae : AssuranceInitiative ⊏ₑ EnduringInitiative
+st-299e895568488eb3-d321c226601262ae = polySubTypeOf-identity
 
 -- == Relationships =======================

@@ -23,12 +23,12 @@ CapabilityMap : PropertyType
 CapabilityMap = ClassOfProperty
 
 --  CapabilityMap withAspect MetaFamilyOfClass
-st-299e33c5684864b3 : CapabilityMap ⊏ₐₑ (MetaFamilyOfClass (lsuc(lzero)))
-st-299e33c5684864b3 = polySubTypeOf-identity
+st-01f12127689b6de2-06710aeb68ed2d29 : CapabilityMap ⊏ₐₑ (MetaFamilyOfClass (lsuc(lzero)))
+st-01f12127689b6de2-06710aeb68ed2d29 = polySubTypeOf-identity
 
 --  CapabilityMap withAspect UnboundedAggregate
-st-299e556b6848808c : CapabilityMap ⊏ₐₑ (UnboundedAggregate (lsuc(lzero)))
-st-299e556b6848808c = polySubTypeOf-identity
+st-01f12127689b6de2-8cfa942f68527849 : CapabilityMap ⊏ₐₑ (UnboundedAggregate (lsuc(lzero)))
+st-01f12127689b6de2-8cfa942f68527849 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -41,11 +41,11 @@ CapabilityMember = ClassOfIndividual
 
 -- Membership relation
 membershipOfCapabilityMember :  Linkage CapabilityMap CapabilityMember
-membershipOfCapabilityMember = membershipOfAggregateMember
+membershipOfCapabilityMember = make_upwardNestingRelation "capabilityMember membership" "nested capabilityMember"
 
 -- Aggregation relation
 aggregationOfCapabilityCapabilityMember :  Linkage CapabilityMember Capability
-aggregationOfCapabilityCapabilityMember = aggregationOfBuildingBlock
+aggregationOfCapabilityCapabilityMember = make_Relation "Capability aggregation" "aggregated Capability"
 
 {- capabilityMember : derived relation obtained by composing
    membershipOfCapabilityMember and aggregationOfCapabilityCapabilityMember
@@ -54,3 +54,7 @@ aggregationOfCapabilityCapabilityMember = aggregationOfBuildingBlock
 -}
 capabilityMember : Linkage CapabilityMap Capability
 capabilityMember = membershipOfCapabilityMember  ∘  aggregationOfCapabilityCapabilityMember
+
+postulate -- capabilityMember is subTypeOf unboundedMember
+  st-01f12228689b6efa-8cfaf71a6852b042  : capabilityMember   ⊏⋆ᵣ  unboundedMember {lzero} {lzero}
+

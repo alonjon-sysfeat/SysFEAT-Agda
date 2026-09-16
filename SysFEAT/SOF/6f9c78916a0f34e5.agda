@@ -21,7 +21,7 @@ EnvironmentalConditionType : ∀ (u : Level) → Set (lsuc (lsuc (lsuc u)))
 EnvironmentalConditionType u = Category u
 
 --  EnvironmentalConditionType is subTypeOf ConditionCategory
-st-c2f29bad66ea2947 : ∀ {u v} → (EnvironmentalConditionType u) ⊏⋆ₑ (ConditionCategory v)
-st-c2f29bad66ea2947 = trivialPolySubTypeOfEntity
+st-6f9c78916a0f34e5-6cfb6ef26a0f15e4 : ∀ {u v} → (EnvironmentalConditionType u) ⊏⋆ₑ (ConditionCategory v)
+st-6f9c78916a0f34e5-6cfb6ef26a0f15e4 = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

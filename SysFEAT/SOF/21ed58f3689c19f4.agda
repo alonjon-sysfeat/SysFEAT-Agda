@@ -22,8 +22,8 @@ EnvironmentalProperty : PropertyType
 EnvironmentalProperty = ClassOfProperty
 
 --  EnvironmentalProperty is subTypeOf ConditionProperty
-st-dd264a59689f47c3 : EnvironmentalProperty ⊏ₑ ConditionProperty
-st-dd264a59689f47c3 = polySubTypeOf-identity
+st-21ed58f3689c19f4-21ed231d689c0679 : EnvironmentalProperty ⊏ₑ ConditionProperty
+st-21ed58f3689c19f4-21ed231d689c0679 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

@@ -25,8 +25,8 @@ InteractionProcessType : ClassOfClassOfBoundedIndividual
 InteractionProcessType = ClassOfBoundedIndividual
 
 --  InteractionProcessType is subTypeOf BehaviorType
-st-ca35f4485fc4863d : InteractionProcessType ⊏ₑ BehaviorType
-st-ca35f4485fc4863d = polySubTypeOf-identity
+st-333f35ee5dde0c8c-986cd4ec5ffca3ac : InteractionProcessType ⊏ₑ BehaviorType
+st-333f35ee5dde0c8c-986cd4ec5ffca3ac = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -51,11 +51,11 @@ InteractionFlow = ClassOfIndividual
 
 -- Membership relation
 membershipOfInteractionFlow :  Linkage InteractionProcessType InteractionFlow
-membershipOfInteractionFlow = membershipOfAggregateMember
+membershipOfInteractionFlow = make_upwardNestingRelation "interactionFlow membership" "nested interactionFlow"
 
 -- Aggregation relation
 aggregationOfOutcomeEventInteractionFlow :  Linkage InteractionFlow OutcomeEvent
-aggregationOfOutcomeEventInteractionFlow = aggregationOfBuildingBlock
+aggregationOfOutcomeEventInteractionFlow = make_Relation "OutcomeEvent aggregation" "aggregated OutcomeEvent"
 
 {- interactionFlow : derived relation obtained by composing
    membershipOfInteractionFlow and aggregationOfOutcomeEventInteractionFlow
@@ -64,6 +64,12 @@ aggregationOfOutcomeEventInteractionFlow = aggregationOfBuildingBlock
 -}
 interactionFlow : Linkage InteractionProcessType OutcomeEvent
 interactionFlow = membershipOfInteractionFlow  ∘  aggregationOfOutcomeEventInteractionFlow
+
+postulate -- interactionFlow is subTypeOf temporalOrderingType
+  st-7d33fa1762813f5c-2557481f6758a91a  : interactionFlow   ⊏⋆ᵣ  temporalOrderingType 
+postulate -- interactionFlow is subTypeOf behaviorPart
+  st-7d33fa1762813f5c-b776b92668b04c85  : interactionFlow   ⊏⋆ᵣ  behaviorPart 
+
 
 {- Scenario Participant: 
 A Scenario Participant is a Behavior Participant engaged in Interaction Flow the context of an Interaction Process Type.
@@ -74,11 +80,11 @@ ScenarioParticipant = ClassOfIndividual
 
 -- Membership relation
 membershipOfScenarioParticipant :  Linkage InteractionProcessType ScenarioParticipant
-membershipOfScenarioParticipant = membershipOfAggregateMember
+membershipOfScenarioParticipant = make_upwardNestingRelation "scenarioParticipant membership" "nested scenarioParticipant"
 
 -- Aggregation relation
 aggregationOfAgentTypeScenarioParticipant :  Linkage ScenarioParticipant AgentType
-aggregationOfAgentTypeScenarioParticipant = aggregationOfBuildingBlock
+aggregationOfAgentTypeScenarioParticipant = make_Relation "AgentType aggregation" "aggregated AgentType"
 
 {- scenarioParticipant : derived relation obtained by composing
    membershipOfScenarioParticipant and aggregationOfAgentTypeScenarioParticipant
@@ -87,3 +93,7 @@ aggregationOfAgentTypeScenarioParticipant = aggregationOfBuildingBlock
 -}
 scenarioParticipant : Linkage InteractionProcessType AgentType
 scenarioParticipant = membershipOfScenarioParticipant  ∘  aggregationOfAgentTypeScenarioParticipant
+
+postulate -- scenarioParticipant is subTypeOf behaviorParticipant
+  st-07e737495eccd831-e0e86fad65789c43  : scenarioParticipant   ⊏⋆ᵣ  behaviorParticipant 
+

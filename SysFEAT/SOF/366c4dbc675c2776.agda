@@ -21,7 +21,7 @@ ArchitectureDecisionType : ThirdOrderClass
 ArchitectureDecisionType = SecondOrderClass
 
 --  ArchitectureDecisionType is subTypeOf DecisionType
-st-366c4dc1675c27bb : ArchitectureDecisionType ⊏ₑ DecisionType
-st-366c4dc1675c27bb = polySubTypeOf-identity
+st-366c4dbc675c2776-366c47e1675c1c07 : ArchitectureDecisionType ⊏ₑ DecisionType
+st-366c4dbc675c2776-366c47e1675c1c07 = polySubTypeOf-identity
 
 

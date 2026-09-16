@@ -23,8 +23,8 @@ Appraisal : ClassOfBoundedIndividual
 Appraisal = BoundedIndividual
 
 --  Appraisal is subTypeOf GovernanceEvent
-st-bcdbc028617a561c : Appraisal ⊏ₑ GovernanceEvent
-st-bcdbc028617a561c = polySubTypeOf-identity
+st-bcdbc016617a55be-1737b50b5fe27cba : Appraisal ⊏ₑ GovernanceEvent
+st-bcdbc016617a55be-1737b50b5fe27cba = polySubTypeOf-identity
 
 -- == Relationships =======================
 

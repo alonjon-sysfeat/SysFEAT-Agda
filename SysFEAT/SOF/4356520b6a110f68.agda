@@ -21,7 +21,7 @@ DataCategory : ∀ (u : Level) → Set (lsuc (lsuc (lsuc u)))
 DataCategory u = Category u
 
 --  DataCategory is subTypeOf AssetCategory
-st-f4be328f5ee1b3f7 : ∀ {u v} → (DataCategory u) ⊏⋆ₑ (AssetCategory v)
-st-f4be328f5ee1b3f7 = trivialPolySubTypeOfEntity
+st-4356520b6a110f68-f69620466a0f9c2f : ∀ {u v} → (DataCategory u) ⊏⋆ₑ (AssetCategory v)
+st-4356520b6a110f68-f69620466a0f9c2f = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

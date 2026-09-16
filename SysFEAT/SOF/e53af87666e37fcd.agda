@@ -23,8 +23,8 @@ SetOfEnvironmentalConditionType : ThirdOrderClass
 SetOfEnvironmentalConditionType = SecondOrderClass
 
 --  SetOfEnvironmentalConditionType is subTypeOf ConditionPropertyType
-st-e53af88066e38012 : SetOfEnvironmentalConditionType ⊏ₑ ConditionPropertyType
-st-e53af88066e38012 = polySubTypeOf-identity
+st-e53af87666e37fcd-e53af71366e37de2 : SetOfEnvironmentalConditionType ⊏ₑ ConditionPropertyType
+st-e53af87666e37fcd-e53af71366e37de2 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

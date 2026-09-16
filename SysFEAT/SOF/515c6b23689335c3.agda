@@ -31,16 +31,16 @@ Directive : PropertyType
 Directive = ClassOfProperty
 
 --  Directive withAspect UnboundedAggregate
-st-0861381666579466 : Directive ⊏ₐₑ (UnboundedAggregate (lsuc(lzero)))
-st-0861381666579466 = polySubTypeOf-identity
+st-515c6b23689335c3-8cfa942f68527849 : Directive ⊏ₐₑ (UnboundedAggregate (lsuc(lzero)))
+st-515c6b23689335c3-8cfa942f68527849 = polySubTypeOf-identity
 
 --  Directive withAspect PolicyAsset
-st-9397c69468778c7e : Directive ⊏ₐₑ (PolicyAsset (lsuc(lzero)))
-st-9397c69468778c7e = polySubTypeOf-identity
+st-515c6b23689335c3-9397c3d86877842f : Directive ⊏ₐₑ (PolicyAsset (lsuc(lzero)))
+st-515c6b23689335c3-9397c3d86877842f = polySubTypeOf-identity
 
 --  Directive is subTypeOf Property
-st-e7cbed836a9547f6 : Directive ⊏ₑ Property
-st-e7cbed836a9547f6 = polySubTypeOf-identity
+st-515c6b23689335c3-746ac18368905aa2 : Directive ⊏ₑ Property
+st-515c6b23689335c3-746ac18368905aa2 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -72,11 +72,11 @@ DirectiveSubject = ClassOfIndividual
 
 -- Membership relation
 membershipOfDirectiveSubject :  Linkage Directive DirectiveSubject
-membershipOfDirectiveSubject = membershipOfAggregateMember
+membershipOfDirectiveSubject = make_upwardNestingRelation "directiveSubject membership" "nested directiveSubject"
 
 -- Aggregation relation
 aggregationOfInformationAssetDirectiveSubject :  Linkage DirectiveSubject InformationAsset
-aggregationOfInformationAssetDirectiveSubject = aggregationOfBuildingBlock
+aggregationOfInformationAssetDirectiveSubject = make_Relation "InformationAsset aggregation" "aggregated InformationAsset"
 
 {- directiveSubject : derived relation obtained by composing
    membershipOfDirectiveSubject and aggregationOfInformationAssetDirectiveSubject
@@ -85,3 +85,7 @@ aggregationOfInformationAssetDirectiveSubject = aggregationOfBuildingBlock
 -}
 directiveSubject : Linkage Directive InformationAsset
 directiveSubject = membershipOfDirectiveSubject  ∘  aggregationOfInformationAssetDirectiveSubject
+
+postulate -- directiveSubject is subTypeOf unboundedMember
+  st-190c75cc689666a9-8cfaf71a6852b042  : directiveSubject   ⊏⋆ᵣ  unboundedMember {lzero} {lzero}
+

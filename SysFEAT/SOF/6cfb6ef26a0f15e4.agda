@@ -23,12 +23,12 @@ ConditionCategory : ∀ (u : Level) → Set (lsuc (lsuc (lsuc u)))
 ConditionCategory u = Category u
 
 --  ConditionCategory is subTypeOf Category
-st-6cfb6f166a0f166b : ∀ {u v} → (ConditionCategory u) ⊏⋆ₑ (Category v)
-st-6cfb6f166a0f166b = trivialPolySubTypeOfEntity
+st-6cfb6ef26a0f15e4-f69619236a0f8dcd : ∀ {u v} → (ConditionCategory u) ⊏⋆ₑ (Category v)
+st-6cfb6ef26a0f15e4-f69619236a0f8dcd = trivialPolySubTypeOfEntity
 
 --  ConditionCategory is subTypeOf ModelPropertyBlock
-st-c2f2a61c66ea3a14 : ∀ {u v} → (ConditionCategory u) ⊏⋆ₑ (ModelPropertyBlock v)
-st-c2f2a61c66ea3a14 = trivialPolySubTypeOfEntity
+st-6cfb6ef26a0f15e4-0eb97aff6855cd23 : ∀ {u v} → (ConditionCategory u) ⊏⋆ₑ (ModelPropertyBlock v)
+st-6cfb6ef26a0f15e4-0eb97aff6855cd23 = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================
 

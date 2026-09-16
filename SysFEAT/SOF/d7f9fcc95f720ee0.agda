@@ -23,8 +23,8 @@ Decision : ClassOfBoundedIndividual
 Decision = BoundedIndividual
 
 --  Decision is subTypeOf Resolution
-st-9afad5635f76d966 : Decision ⊏ₑ Resolution
-st-9afad5635f76d966 = polySubTypeOf-identity
+st-d7f9fcc95f720ee0-e073f9c161d2104a : Decision ⊏ₑ Resolution
+st-d7f9fcc95f720ee0-e073f9c161d2104a = polySubTypeOf-identity
 
 -- == Relationships =======================
 

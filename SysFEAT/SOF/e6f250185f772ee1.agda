@@ -26,12 +26,12 @@ InformationAsset : ClassOfClassOfBoundedIndividual
 InformationAsset = ClassOfBoundedIndividual
 
 --  InformationAsset is subTypeOf AssetType
-st-27a44f796407c1e4 : InformationAsset ⊏ₑ AssetType
-st-27a44f796407c1e4 = polySubTypeOf-identity
+st-e6f250185f772ee1-a4a5b3f855585ce1 : InformationAsset ⊏ₑ AssetType
+st-e6f250185f772ee1-a4a5b3f855585ce1 = polySubTypeOf-identity
 
 --  InformationAsset withAspect InformationBlock
-st-8f1c9a7768ca8cfd : InformationAsset ⊏ₐₑ (InformationBlock (lsuc(lzero)))
-st-8f1c9a7768ca8cfd = polySubTypeOf-identity
+st-e6f250185f772ee1-6c5f80e468587f06 : InformationAsset ⊏ₐₑ (InformationBlock (lsuc(lzero)))
+st-e6f250185f772ee1-6c5f80e468587f06 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -67,11 +67,11 @@ InformationAssetRelationship = ClassOfIndividual
 
 -- Membership relation
 membershipOfInformationAssetRelationship :  Linkage InformationAsset InformationAssetRelationship
-membershipOfInformationAssetRelationship = membershipOfAggregateMember
+membershipOfInformationAssetRelationship = make_upwardNestingRelation "informationAssetRelationship membership" "nested informationAssetRelationship"
 
 -- Aggregation relation
 aggregationOfInformationAssetInformationAssetRelationship :  Linkage InformationAssetRelationship InformationAsset
-aggregationOfInformationAssetInformationAssetRelationship = aggregationOfBuildingBlock
+aggregationOfInformationAssetInformationAssetRelationship = make_Relation "InformationAsset aggregation" "aggregated InformationAsset"
 
 {- informationAssetRelationship : derived relation obtained by composing
    membershipOfInformationAssetRelationship and aggregationOfInformationAssetInformationAssetRelationship
@@ -80,6 +80,10 @@ aggregationOfInformationAssetInformationAssetRelationship = aggregationOfBuildin
 -}
 informationAssetRelationship : Linkage InformationAsset InformationAsset
 informationAssetRelationship = membershipOfInformationAssetRelationship  ∘  aggregationOfInformationAssetInformationAssetRelationship
+
+postulate -- informationAssetRelationship is subTypeOf aggregateMember
+  st-18eb1f335fdb6e7f-23d5ddef68514dba  : informationAssetRelationship   ⊏⋆ᵣ  aggregateMember {lzero} {lzero}
+
 
 {- Data Risk: 
 A Data Risk is Risk that refers to the potential for loss resulting from inadequate structure and usage of an Information Asset.
@@ -90,11 +94,11 @@ DataRisk = SecondOrderClass
 
 -- Membership relation
 membershipOfDataRisk :  Linkage InformationAsset DataRisk
-membershipOfDataRisk = membershipOfAggregateMember
+membershipOfDataRisk = make_upwardNestingRelation "dataRisk membership" "nested dataRisk"
 
 -- Aggregation relation
 aggregationOfDataRiskTypeDataRisk :  Linkage DataRisk DataRiskType
-aggregationOfDataRiskTypeDataRisk = aggregationOfBuildingBlock
+aggregationOfDataRiskTypeDataRisk = make_Relation "DataRiskType aggregation" "aggregated DataRiskType"
 
 {- dataRisk : derived relation obtained by composing
    membershipOfDataRisk and aggregationOfDataRiskTypeDataRisk
@@ -103,3 +107,7 @@ aggregationOfDataRiskTypeDataRisk = aggregationOfBuildingBlock
 -}
 dataRisk : Linkage InformationAsset DataRiskType
 dataRisk = membershipOfDataRisk  ∘  aggregationOfDataRiskTypeDataRisk
+
+postulate -- dataRisk is subTypeOf risk
+  st-582e78cd66f6b425-0e55219466f11fd7  : dataRisk   ⊏⋆ᵣ  risk 
+

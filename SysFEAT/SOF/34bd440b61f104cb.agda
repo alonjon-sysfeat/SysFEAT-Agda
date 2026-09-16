@@ -21,7 +21,7 @@ WaiverEnd : ClassOfIndividual
 WaiverEnd = Individual
 
 --  WaiverEnd is subTypeOf TemporalBounding
-st-fee31b43695d36e6 : WaiverEnd ⊏ₑ TemporalBounding
-st-fee31b43695d36e6 = polySubTypeOf-identity
+st-34bd440b61f104cb-267b6a126675a0b9 : WaiverEnd ⊏ₑ TemporalBounding
+st-34bd440b61f104cb-267b6a126675a0b9 = polySubTypeOf-identity
 
 -- == Relationships =======================

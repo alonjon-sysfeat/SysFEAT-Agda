@@ -22,7 +22,7 @@ PolicityDecisionOption : ClassOfProperty
 PolicityDecisionOption = Property
 
 --  PolicityDecisionOption is subTypeOf PropertyValue
-st-fee314eb695d1fff : PolicityDecisionOption ⊏ₑ PropertyValue
-st-fee314eb695d1fff = polySubTypeOf-identity
+st-5e32ba416929b430-b85efd0868df48b1 : PolicityDecisionOption ⊏ₑ PropertyValue
+st-5e32ba416929b430-b85efd0868df48b1 = polySubTypeOf-identity
 
 -- == Relationships =======================

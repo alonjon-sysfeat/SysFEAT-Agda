@@ -21,7 +21,7 @@ GovernanceBuildingBlock : ∀ (u : Level) → ClassOfMixedOrderEntity u
 GovernanceBuildingBlock u = MixedOrderEntity u
 
 --  GovernanceBuildingBlock is subTypeOf ModelBuildingBlock
-st-0f6410a968597653 : ∀ {u v} → (GovernanceBuildingBlock u) ⊏⋆ₑ (ModelBuildingBlock v)
-st-0f6410a968597653 = trivialPolySubTypeOfEntity
+st-0f641043685975c9-0eb95e566855bed9 : ∀ {u v} → (GovernanceBuildingBlock u) ⊏⋆ₑ (ModelBuildingBlock v)
+st-0f641043685975c9-0eb95e566855bed9 = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

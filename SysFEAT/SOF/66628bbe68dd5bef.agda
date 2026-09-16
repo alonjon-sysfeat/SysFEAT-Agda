@@ -23,12 +23,12 @@ GovernanceProperty : PropertyType
 GovernanceProperty = ClassOfProperty
 
 --  GovernanceProperty is subTypeOf Property
-st-83f88e3867406bce : GovernanceProperty ⊏ₑ Property
-st-83f88e3867406bce = polySubTypeOf-identity
+st-66628bbe68dd5bef-746ac18368905aa2 : GovernanceProperty ⊏ₑ Property
+st-66628bbe68dd5bef-746ac18368905aa2 = polySubTypeOf-identity
 
 --  GovernanceProperty withAspect GovernanceInstrument
-st-83f88e5f67406c0f : GovernanceProperty ⊏ₐₑ (GovernanceInstrument (lsuc(lzero)))
-st-83f88e5f67406c0f = polySubTypeOf-identity
+st-66628bbe68dd5bef-6662916b68dd5f84 : GovernanceProperty ⊏ₐₑ (GovernanceInstrument (lsuc(lzero)))
+st-66628bbe68dd5bef-6662916b68dd5f84 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

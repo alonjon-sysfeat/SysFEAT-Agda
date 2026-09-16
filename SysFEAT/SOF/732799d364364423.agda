@@ -24,8 +24,8 @@ PolicyDecision : ClassOfBoundedIndividual
 PolicyDecision = BoundedIndividual
 
 --  PolicyDecision is subTypeOf Decision
-st-732799e06436446c : PolicyDecision ⊏ₑ Decision
-st-732799e06436446c = polySubTypeOf-identity
+st-732799d364364423-d7f9fcc95f720ee0 : PolicyDecision ⊏ₑ Decision
+st-732799d364364423-d7f9fcc95f720ee0 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

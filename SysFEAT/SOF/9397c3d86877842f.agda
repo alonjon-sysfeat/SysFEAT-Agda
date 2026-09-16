@@ -21,7 +21,7 @@ PolicyAsset : ∀ (u : Level) → ClassOfMixedOrderEntity u
 PolicyAsset u = MixedOrderEntity u
 
 --  PolicyAsset is subTypeOf ArchitectureBlock
-st-9397c71568778cb8 : ∀ {u v} → (PolicyAsset u) ⊏⋆ₑ (ArchitectureBlock v)
-st-9397c71568778cb8 = trivialPolySubTypeOfEntity
+st-9397c3d86877842f-9397b45268777e3b : ∀ {u v} → (PolicyAsset u) ⊏⋆ₑ (ArchitectureBlock v)
+st-9397c3d86877842f-9397b45268777e3b = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

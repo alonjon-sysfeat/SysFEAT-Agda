@@ -27,12 +27,12 @@ AssetType : ClassOfClassOfBoundedIndividual
 AssetType = ClassOfBoundedIndividual
 
 --  AssetType withAspect AssetBlock
-st-d342da165b121507 : AssetType ⊏ₐₑ (AssetBlock (lsuc(lzero)))
-st-d342da165b121507 = polySubTypeOf-identity
+st-a4a5b3f855585ce1-0eb95f356855bf94 : AssetType ⊏ₐₑ (AssetBlock (lsuc(lzero)))
+st-a4a5b3f855585ce1-0eb95f356855bf94 = polySubTypeOf-identity
 
 --  AssetType is subTypeOf ClassOfBoundedIndividual
-st-0861325b665787e0 : AssetType ⊏ₑ ClassOfBoundedIndividual
-st-0861325b665787e0 = polySubTypeOf-identity
+st-a4a5b3f855585ce1-3492c53e619642ed : AssetType ⊏ₑ ClassOfBoundedIndividual
+st-a4a5b3f855585ce1-3492c53e619642ed = polySubTypeOf-identity
 
 -- == Relationships =======================
 

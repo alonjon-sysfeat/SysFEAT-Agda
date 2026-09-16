@@ -35,8 +35,8 @@ AgentType : ClassOfClassOfBoundedIndividual
 AgentType = ClassOfBoundedIndividual
 
 --  AgentType is subTypeOf OperatingAssetType
-st-a371a4bf5b8659f3 : AgentType ⊏ₑ OperatingAssetType
-st-a371a4bf5b8659f3 = polySubTypeOf-identity
+st-79368381561716a6-a371a43b5b865817 : AgentType ⊏ₑ OperatingAssetType
+st-79368381561716a6-a371a43b5b865817 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -61,11 +61,11 @@ InteractionChannel = ClassOfIndividual
 
 -- Membership relation
 membershipOfInteractionChannel :  Linkage AgentType InteractionChannel
-membershipOfInteractionChannel = membershipOfAggregateMember
+membershipOfInteractionChannel = make_upwardNestingRelation "interactionChannel membership" "nested interactionChannel"
 
 -- Aggregation relation
 aggregationOfServiceInterfaceInteractionChannel :  Linkage InteractionChannel ServiceInterface
-aggregationOfServiceInterfaceInteractionChannel = aggregationOfBuildingBlock
+aggregationOfServiceInterfaceInteractionChannel = make_Relation "ServiceInterface aggregation" "aggregated ServiceInterface"
 
 {- interactionChannel : derived relation obtained by composing
    membershipOfInteractionChannel and aggregationOfServiceInterfaceInteractionChannel
@@ -74,6 +74,10 @@ aggregationOfServiceInterfaceInteractionChannel = aggregationOfBuildingBlock
 -}
 interactionChannel : Linkage AgentType ServiceInterface
 interactionChannel = membershipOfInteractionChannel  ∘  aggregationOfServiceInterfaceInteractionChannel
+
+postulate -- interactionChannel is subTypeOf orderingConnector
+  st-24ae34bb5ed1cb17-478a4a4468565425  : interactionChannel   ⊏⋆ᵣ  orderingConnector {lzero} {lzero}
+
 
 {- Performed Process: 
 A Performed Process is a Action Process Type operated by an Agent Type.
@@ -84,11 +88,11 @@ PerformedProcess = ClassOfIndividual
 
 -- Membership relation
 membershipOfPerformedProcess :  Linkage AgentType PerformedProcess
-membershipOfPerformedProcess = membershipOfAggregateMember
+membershipOfPerformedProcess = make_upwardNestingRelation "performedProcess membership" "nested performedProcess"
 
 -- Aggregation relation
 aggregationOfActionProcessTypePerformedProcess :  Linkage PerformedProcess ActionProcessType
-aggregationOfActionProcessTypePerformedProcess = aggregationOfBuildingBlock
+aggregationOfActionProcessTypePerformedProcess = make_Relation "ActionProcessType aggregation" "aggregated ActionProcessType"
 
 {- performedProcess : derived relation obtained by composing
    membershipOfPerformedProcess and aggregationOfActionProcessTypePerformedProcess
@@ -97,6 +101,10 @@ aggregationOfActionProcessTypePerformedProcess = aggregationOfBuildingBlock
 -}
 performedProcess : Linkage AgentType ActionProcessType
 performedProcess = membershipOfPerformedProcess  ∘  aggregationOfActionProcessTypePerformedProcess
+
+postulate -- performedProcess is subTypeOf operatingAssetPart
+  st-004b03b15ebd0fdb-b776b8c668b04b35  : performedProcess   ⊏⋆ᵣ  operatingAssetPart 
+
 
 {- Agent Part: 
 An Agent Part is a structural composition of a sub Agent Type within its parent Agent Type.
@@ -107,11 +115,11 @@ AgentPart = ClassOfIndividual
 
 -- Membership relation
 membershipOfAgentPart :  Linkage AgentType AgentPart
-membershipOfAgentPart = membershipOfAggregateMember
+membershipOfAgentPart = make_upwardNestingRelation "agentPart membership" "nested agentPart"
 
 -- Aggregation relation
 aggregationOfAgentTypeAgentPart :  Linkage AgentPart AgentType
-aggregationOfAgentTypeAgentPart = aggregationOfBuildingBlock
+aggregationOfAgentTypeAgentPart = make_Relation "AgentType aggregation" "aggregated AgentType"
 
 {- agentPart : derived relation obtained by composing
    membershipOfAgentPart and aggregationOfAgentTypeAgentPart
@@ -120,6 +128,10 @@ aggregationOfAgentTypeAgentPart = aggregationOfBuildingBlock
 -}
 agentPart : Linkage AgentType AgentType
 agentPart = membershipOfAgentPart  ∘  aggregationOfAgentTypeAgentPart
+
+postulate -- agentPart is subTypeOf operatingAssetPart
+  st-1da6216a5ebc65f7-b776b8c668b04b35  : agentPart   ⊏⋆ᵣ  operatingAssetPart 
+
 
 {- Performed Interaction: 
 A Performed Interaction is an Interaction Process Type operated by an Agent Type.
@@ -130,11 +142,11 @@ PerformedInteraction = ClassOfIndividual
 
 -- Membership relation
 membershipOfPerformedInteraction :  Linkage AgentType PerformedInteraction
-membershipOfPerformedInteraction = membershipOfAggregateMember
+membershipOfPerformedInteraction = make_upwardNestingRelation "performedInteraction membership" "nested performedInteraction"
 
 -- Aggregation relation
 aggregationOfInteractionProcessTypePerformedInteraction :  Linkage PerformedInteraction InteractionProcessType
-aggregationOfInteractionProcessTypePerformedInteraction = aggregationOfBuildingBlock
+aggregationOfInteractionProcessTypePerformedInteraction = make_Relation "InteractionProcessType aggregation" "aggregated InteractionProcessType"
 
 {- performedInteraction : derived relation obtained by composing
    membershipOfPerformedInteraction and aggregationOfInteractionProcessTypePerformedInteraction
@@ -143,6 +155,10 @@ aggregationOfInteractionProcessTypePerformedInteraction = aggregationOfBuildingB
 -}
 performedInteraction : Linkage AgentType InteractionProcessType
 performedInteraction = membershipOfPerformedInteraction  ∘  aggregationOfInteractionProcessTypePerformedInteraction
+
+postulate -- performedInteraction is subTypeOf operatingAssetPart
+  st-07e737925eccd8f1-b776b8c668b04b35  : performedInteraction   ⊏⋆ᵣ  operatingAssetPart 
+
 
 {- Information Store: 
 An Information Store is a storage of Information Assets necessary for an Agent Type to carry out its activities.The scope of the necessary Information Assets is given by the Information Domain associated with the Information Store.
@@ -153,11 +169,11 @@ InformationStore = ClassOfIndividual
 
 -- Membership relation
 membershipOfInformationStore :  Linkage AgentType InformationStore
-membershipOfInformationStore = membershipOfAggregateMember
+membershipOfInformationStore = make_upwardNestingRelation "informationStore membership" "nested informationStore"
 
 -- Aggregation relation
 aggregationOfInformationDomainInformationStore :  Linkage InformationStore InformationDomain
-aggregationOfInformationDomainInformationStore = aggregationOfBuildingBlock
+aggregationOfInformationDomainInformationStore = make_Relation "InformationDomain aggregation" "aggregated InformationDomain"
 
 {- informationStore : derived relation obtained by composing
    membershipOfInformationStore and aggregationOfInformationDomainInformationStore
@@ -166,3 +182,7 @@ aggregationOfInformationDomainInformationStore = aggregationOfBuildingBlock
 -}
 informationStore : Linkage AgentType InformationDomain
 informationStore = membershipOfInformationStore  ∘  aggregationOfInformationDomainInformationStore
+
+postulate -- informationStore is subTypeOf unboundedMember
+  st-f4bee5925ee1be5b-8cfaf71a6852b042  : informationStore   ⊏⋆ᵣ  unboundedMember {lzero} {lzero}
+

@@ -22,8 +22,8 @@ ConditionProperty : PropertyType
 ConditionProperty = ClassOfProperty
 
 --  ConditionProperty is subTypeOf AssetProperty
-st-21ed234f689c06bb : ConditionProperty ⊏ₑ AssetProperty
-st-21ed234f689c06bb = polySubTypeOf-identity
+st-21ed231d689c0679-515c6a856893324e : ConditionProperty ⊏ₑ AssetProperty
+st-21ed231d689c0679-515c6a856893324e = polySubTypeOf-identity
 
 -- == Relationships =======================
 

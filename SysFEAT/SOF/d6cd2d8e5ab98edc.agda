@@ -23,12 +23,12 @@ InformationMap : ClassOfClassOfBoundedIndividual
 InformationMap = ClassOfBoundedIndividual
 
 --  InformationMap withAspect MetaFamilyOfClass
-st-299e32f268486286 : InformationMap ⊏ₐₑ (MetaFamilyOfClass (lsuc(lzero)))
-st-299e32f268486286 = polySubTypeOf-identity
+st-d6cd2d8e5ab98edc-06710aeb68ed2d29 : InformationMap ⊏ₐₑ (MetaFamilyOfClass (lsuc(lzero)))
+st-d6cd2d8e5ab98edc-06710aeb68ed2d29 = polySubTypeOf-identity
 
 --  InformationMap withAspect InformationBlock
-st-8f1c9aa668ca8d67 : InformationMap ⊏ₐₑ (InformationBlock (lsuc(lzero)))
-st-8f1c9aa668ca8d67 = polySubTypeOf-identity
+st-d6cd2d8e5ab98edc-6c5f80e468587f06 : InformationMap ⊏ₐₑ (InformationBlock (lsuc(lzero)))
+st-d6cd2d8e5ab98edc-6c5f80e468587f06 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -39,11 +39,11 @@ InformationDomainMember = ClassOfIndividual
 
 -- Membership relation
 membershipOfInformationDomainMember :  Linkage InformationMap InformationDomainMember
-membershipOfInformationDomainMember = membershipOfAggregateMember
+membershipOfInformationDomainMember = make_upwardNestingRelation "informationDomainMember membership" "nested informationDomainMember"
 
 -- Aggregation relation
 aggregationOfInformationDomainInformationDomainMember :  Linkage InformationDomainMember InformationDomain
-aggregationOfInformationDomainInformationDomainMember = aggregationOfBuildingBlock
+aggregationOfInformationDomainInformationDomainMember = make_Relation "InformationDomain aggregation" "aggregated InformationDomain"
 
 {- informationDomainMember : derived relation obtained by composing
    membershipOfInformationDomainMember and aggregationOfInformationDomainInformationDomainMember
@@ -53,6 +53,10 @@ aggregationOfInformationDomainInformationDomainMember = aggregationOfBuildingBlo
 informationDomainMember : Linkage InformationMap InformationDomain
 informationDomainMember = membershipOfInformationDomainMember  ∘  aggregationOfInformationDomainInformationDomainMember
 
+postulate -- informationDomainMember is subTypeOf unboundedMember
+  st-dfa4e2865ebb4e38-8cfaf71a6852b042  : informationDomainMember   ⊏⋆ᵣ  unboundedMember {lzero} {lzero}
+
+
 {- external Information Area: -}
 -- Aggregate Member : external Information Area
 externalInformationArea : ClassOfClassOfIndividual
@@ -60,11 +64,11 @@ externalInformationArea = ClassOfIndividual
 
 -- Membership relation
 membershipOfexternalInformationArea :  Linkage InformationMap externalInformationArea
-membershipOfexternalInformationArea = membershipOfAggregateMember
+membershipOfexternalInformationArea = make_upwardNestingRelation "externalInformationArea membership" "nested externalInformationArea"
 
 -- Aggregation relation
 aggregationOfInformationDomainexternalInformationArea :  Linkage externalInformationArea InformationDomain
-aggregationOfInformationDomainexternalInformationArea = aggregationOfBuildingBlock
+aggregationOfInformationDomainexternalInformationArea = make_Relation "InformationDomain aggregation" "aggregated InformationDomain"
 
 {- externalInformationArea : derived relation obtained by composing
    membershipOfexternalInformationArea and aggregationOfInformationDomainexternalInformationArea
@@ -73,3 +77,7 @@ aggregationOfInformationDomainexternalInformationArea = aggregationOfBuildingBlo
 -}
 externalInformationArea : Linkage InformationMap InformationDomain
 externalInformationArea = membershipOfexternalInformationArea  ∘  aggregationOfInformationDomainexternalInformationArea
+
+postulate -- externalInformationArea is subTypeOf unboundedMember
+  st-dfa4e2b35ebb4ee8-8cfaf71a6852b042  : externalInformationArea   ⊏⋆ᵣ  unboundedMember {lzero} {lzero}
+

@@ -23,12 +23,12 @@ GovernanceEvent : ClassOfBoundedIndividual
 GovernanceEvent = BoundedIndividual
 
 --  GovernanceEvent withAspect GovernanceInstrument
-st-a66fa9e065a9856b : GovernanceEvent ⊏ₐₑ (GovernanceInstrument lzero)
-st-a66fa9e065a9856b = polySubTypeOf-identity
+st-1737b50b5fe27cba-6662916b68dd5f84 : GovernanceEvent ⊏ₐₑ (GovernanceInstrument lzero)
+st-1737b50b5fe27cba-6662916b68dd5f84 = polySubTypeOf-identity
 
 --  GovernanceEvent is subTypeOf BoundedIndividual
-st-366c3cd3675c1299 : GovernanceEvent ⊏ₑ BoundedIndividual
-st-366c3cd3675c1299 = polySubTypeOf-identity
+st-1737b50b5fe27cba-28f07b2354be0d69 : GovernanceEvent ⊏ₑ BoundedIndividual
+st-1737b50b5fe27cba-28f07b2354be0d69 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

@@ -23,11 +23,11 @@ WholeLifeAsset : ClassOfBoundedIndividual
 WholeLifeAsset = BoundedIndividual
 
 --  WholeLifeAsset is subTypeOf IndividualAsset
-st-3a2f3b5967966256 : WholeLifeAsset ⊏ₑ IndividualAsset
-st-3a2f3b5967966256 = polySubTypeOf-identity
+st-3a2f3b516796620e-ebcfaeac5ad76ed7 : WholeLifeAsset ⊏ₑ IndividualAsset
+st-3a2f3b516796620e-ebcfaeac5ad76ed7 = polySubTypeOf-identity
 
 --  WholeLifeAsset is subTypeOf WholeLifeIndividual
-st-3a2f3b76679663c2 : WholeLifeAsset ⊏ₑ WholeLifeIndividual
-st-3a2f3b76679663c2 = polySubTypeOf-identity
+st-3a2f3b516796620e-342f74b166156e02 : WholeLifeAsset ⊏ₑ WholeLifeIndividual
+st-3a2f3b516796620e-342f74b166156e02 = polySubTypeOf-identity
 
 -- == Relationships =======================

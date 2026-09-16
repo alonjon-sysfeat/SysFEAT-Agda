@@ -23,12 +23,12 @@ AssetProperty : PropertyType
 AssetProperty = ClassOfProperty
 
 --  AssetProperty is subTypeOf Property
-st-83f88a116740659d : AssetProperty ⊏ₑ Property
-st-83f88a116740659d = polySubTypeOf-identity
+st-515c6a856893324e-746ac18368905aa2 : AssetProperty ⊏ₑ Property
+st-515c6a856893324e-746ac18368905aa2 = polySubTypeOf-identity
 
 --  AssetProperty withAspect ModelPropertyBlock
-st-92a7e08a67ce4049 : AssetProperty ⊏ₐₑ (ModelPropertyBlock (lsuc(lzero)))
-st-92a7e08a67ce4049 = polySubTypeOf-identity
+st-515c6a856893324e-0eb97aff6855cd23 : AssetProperty ⊏ₐₑ (ModelPropertyBlock (lsuc(lzero)))
+st-515c6a856893324e-0eb97aff6855cd23 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

@@ -26,8 +26,8 @@ IndividualBehavior : ClassOfBoundedIndividual
 IndividualBehavior = BoundedIndividual
 
 --  IndividualBehavior is subTypeOf IndividualOperatingAsset
-st-e9af125f66e86910 : IndividualBehavior ⊏ₑ IndividualOperatingAsset
-st-e9af125f66e86910 = polySubTypeOf-identity
+st-e9af119866e86785-9f61cf9166833fb7 : IndividualBehavior ⊏ₑ IndividualOperatingAsset
+st-e9af119866e86785-9f61cf9166833fb7 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -41,11 +41,11 @@ IndividualBehaviorPart = AggregateMember (lsuc(lzero))
 
 -- Membership relation
 membershipOfIndividualBehaviorPart :  Linkage IndividualBehavior IndividualBehaviorPart
-membershipOfIndividualBehaviorPart = membershipOfAggregateMember
+membershipOfIndividualBehaviorPart = make_upwardNestingRelation "individualBehaviorPart membership" "nested individualBehaviorPart"
 
 -- Aggregation relation
 aggregationOfIndividualBehaviorIndividualBehaviorPart :  Linkage IndividualBehaviorPart IndividualBehavior
-aggregationOfIndividualBehaviorIndividualBehaviorPart = aggregationOfBuildingBlock
+aggregationOfIndividualBehaviorIndividualBehaviorPart = make_Relation "IndividualBehavior aggregation" "aggregated IndividualBehavior"
 
 {- individualBehaviorPart : derived relation obtained by composing
    membershipOfIndividualBehaviorPart and aggregationOfIndividualBehaviorIndividualBehaviorPart
@@ -54,6 +54,10 @@ aggregationOfIndividualBehaviorIndividualBehaviorPart = aggregationOfBuildingBlo
 -}
 individualBehaviorPart : Linkage IndividualBehavior IndividualBehavior
 individualBehaviorPart = membershipOfIndividualBehaviorPart  ∘  aggregationOfIndividualBehaviorIndividualBehaviorPart
+
+postulate -- individualBehaviorPart is subTypeOf individualOperatingPart
+  st-ffb9011b68d36c96-d8ee780d68d224c2  : individualBehaviorPart   ⊏⋆ᵣ  individualOperatingPart 
+
 
 {- Individual Participant: 
 An  Individual Participant is
@@ -65,11 +69,11 @@ IndividualParticipant = AggregateMember (lsuc(lzero))
 
 -- Membership relation
 membershipOfIndividualParticipant :  Linkage IndividualBehavior IndividualParticipant
-membershipOfIndividualParticipant = membershipOfAggregateMember
+membershipOfIndividualParticipant = make_upwardNestingRelation "individualParticipant membership" "nested individualParticipant"
 
 -- Aggregation relation
 aggregationOfIndividualAgentIndividualParticipant :  Linkage IndividualParticipant IndividualAgent
-aggregationOfIndividualAgentIndividualParticipant = aggregationOfBuildingBlock
+aggregationOfIndividualAgentIndividualParticipant = make_Relation "IndividualAgent aggregation" "aggregated IndividualAgent"
 
 {- individualParticipant : derived relation obtained by composing
    membershipOfIndividualParticipant and aggregationOfIndividualAgentIndividualParticipant
@@ -78,3 +82,7 @@ aggregationOfIndividualAgentIndividualParticipant = aggregationOfBuildingBlock
 -}
 individualParticipant : Linkage IndividualBehavior IndividualAgent
 individualParticipant = membershipOfIndividualParticipant  ∘  aggregationOfIndividualAgentIndividualParticipant
+
+postulate -- individualParticipant is subTypeOf individualOperatingPart
+  st-ffb9014568d36d76-d8ee780d68d224c2  : individualParticipant   ⊏⋆ᵣ  individualOperatingPart 
+

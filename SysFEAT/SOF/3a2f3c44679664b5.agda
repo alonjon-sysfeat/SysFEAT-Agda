@@ -23,7 +23,7 @@ AssetState = StateConcept
 
 
 --  AssetState is subTypeOf IndividualAsset
-st-3a2f3c2567966494 : AssetState ⊏ₑ IndividualAsset
-st-3a2f3c2567966494 = polySubTypeOf-identity
+st-3a2f3c44679664b5-ebcfaeac5ad76ed7 : AssetState ⊏ₑ IndividualAsset
+st-3a2f3c44679664b5-ebcfaeac5ad76ed7 = polySubTypeOf-identity
 
 -- == Relationships =======================

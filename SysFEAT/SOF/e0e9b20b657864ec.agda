@@ -22,8 +22,8 @@ TimeEvent : ClassOfClassOfIndividual
 TimeEvent = ClassOfIndividual
 
 --  TimeEvent is subTypeOf BehavioralEvent
-st-e0e9b22e65786534 : TimeEvent ⊏ₑ BehavioralEvent
-st-e0e9b22e65786534 = polySubTypeOf-identity
+st-e0e9b20b657864ec-24ae31d75ed1c747 : TimeEvent ⊏ₑ BehavioralEvent
+st-e0e9b20b657864ec-24ae31d75ed1c747 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -34,11 +34,11 @@ TimeChange = ClassOfIndividual
 
 -- Membership relation
 membershipOfTimeChange :  Linkage TimeEvent TimeChange
-membershipOfTimeChange = membershipOfAggregateMember
+membershipOfTimeChange = make_upwardNestingRelation "timeChange membership" "nested timeChange"
 
 -- Aggregation relation
 aggregationOfPeriodTypeTimeChange :  Linkage TimeChange PeriodType
-aggregationOfPeriodTypeTimeChange = aggregationOfBuildingBlock
+aggregationOfPeriodTypeTimeChange = make_Relation "PeriodType aggregation" "aggregated PeriodType"
 
 {- timeChange : derived relation obtained by composing
    membershipOfTimeChange and aggregationOfPeriodTypeTimeChange
@@ -47,3 +47,7 @@ aggregationOfPeriodTypeTimeChange = aggregationOfBuildingBlock
 -}
 timeChange : Linkage TimeEvent PeriodType
 timeChange = membershipOfTimeChange  ∘  aggregationOfPeriodTypeTimeChange
+
+postulate -- timeChange is subTypeOf unboundedMember
+  st-96c5fe7665824f97-8cfaf71a6852b042  : timeChange   ⊏⋆ᵣ  unboundedMember {lzero} {lzero}
+

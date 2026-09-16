@@ -27,8 +27,8 @@ IndividualAsset : ClassOfBoundedIndividual
 IndividualAsset = BoundedIndividual
 
 --  IndividualAsset is subTypeOf BoundedIndividual
-st-21ed583a689c196f : IndividualAsset ⊏ₑ BoundedIndividual
-st-21ed583a689c196f = polySubTypeOf-identity
+st-ebcfaeac5ad76ed7-28f07b2354be0d69 : IndividualAsset ⊏ₑ BoundedIndividual
+st-ebcfaeac5ad76ed7-28f07b2354be0d69 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

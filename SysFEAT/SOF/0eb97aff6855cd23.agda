@@ -21,7 +21,7 @@ ModelPropertyBlock : ∀ (u : Level) → ClassOfMixedOrderEntity u
 ModelPropertyBlock u = MixedOrderEntity u
 
 --  ModelPropertyBlock is subTypeOf BuildingBlock
-st-0eb97b056855cd4d : ∀ {u v} → (ModelPropertyBlock u) ⊏⋆ₑ (BuildingBlock v)
-st-0eb97b056855cd4d = trivialPolySubTypeOfEntity
+st-0eb97aff6855cd23-23d5a9ea68513ced : ∀ {u v} → (ModelPropertyBlock u) ⊏⋆ₑ (BuildingBlock v)
+st-0eb97aff6855cd23-23d5a9ea68513ced = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

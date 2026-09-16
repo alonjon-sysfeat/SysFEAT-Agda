@@ -25,8 +25,8 @@ MeasurePropertyType : ThirdOrderClass
 MeasurePropertyType = SecondOrderClass
 
 --  MeasurePropertyType is subTypeOf ConditionPropertyType
-st-e53af77e66e37eb5 : MeasurePropertyType ⊏ₑ ConditionPropertyType
-st-e53af77e66e37eb5 = polySubTypeOf-identity
+st-e53af74b66e37e5d-e53af71366e37de2 : MeasurePropertyType ⊏ₑ ConditionPropertyType
+st-e53af74b66e37e5d-e53af71366e37de2 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

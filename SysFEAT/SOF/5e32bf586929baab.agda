@@ -21,7 +21,7 @@ Nonapplicable : ClassOfProperty
 Nonapplicable = Property
 
 --  Nonapplicable is subTypeOf PolicityDecisionOption
-st-5e32bf756929bb0b : Nonapplicable ⊏ₑ PolicityDecisionOption
-st-5e32bf756929bb0b = polySubTypeOf-identity
+st-5e32bf586929baab-5e32ba416929b430 : Nonapplicable ⊏ₑ PolicityDecisionOption
+st-5e32bf586929baab-5e32ba416929b430 = polySubTypeOf-identity
 
 

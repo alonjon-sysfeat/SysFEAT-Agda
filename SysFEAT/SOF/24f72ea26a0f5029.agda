@@ -22,11 +22,11 @@ FamilyOfCategory : ∀ (u : Level) → Set (lsuc (lsuc (lsuc u)))
 FamilyOfCategory u = Category u
 
 --  FamilyOfCategory is subTypeOf Category
-st-435650496a110c3e : ∀ {u v} → (FamilyOfCategory u) ⊏⋆ₑ (Category v)
-st-435650496a110c3e = trivialPolySubTypeOfEntity
+st-24f72ea26a0f5029-f69619236a0f8dcd : ∀ {u v} → (FamilyOfCategory u) ⊏⋆ₑ (Category v)
+st-24f72ea26a0f5029-f69619236a0f8dcd = trivialPolySubTypeOfEntity
 
 --  FamilyOfCategory is subTypeOf ModelPropertyBlock
-st-c2f2a60666ea3974 : ∀ {u v} → (FamilyOfCategory u) ⊏⋆ₑ (ModelPropertyBlock v)
-st-c2f2a60666ea3974 = trivialPolySubTypeOfEntity
+st-24f72ea26a0f5029-0eb97aff6855cd23 : ∀ {u v} → (FamilyOfCategory u) ⊏⋆ₑ (ModelPropertyBlock v)
+st-24f72ea26a0f5029-0eb97aff6855cd23 = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

@@ -35,8 +35,8 @@ ActionProcessType : ClassOfClassOfBoundedIndividual
 ActionProcessType = ClassOfBoundedIndividual
 
 --  ActionProcessType is subTypeOf BehaviorType
-st-a371a5c65b86606b : ActionProcessType ⊏ₑ BehaviorType
-st-a371a5c65b86606b = polySubTypeOf-identity
+st-d682ef5e56144e77-986cd4ec5ffca3ac : ActionProcessType ⊏ₑ BehaviorType
+st-d682ef5e56144e77-986cd4ec5ffca3ac = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -63,11 +63,11 @@ SequenceFlow = ClassOfIndividual
 
 -- Membership relation
 membershipOfSequenceFlow :  Linkage ActionProcessType SequenceFlow
-membershipOfSequenceFlow = membershipOfAggregateMember
+membershipOfSequenceFlow = make_upwardNestingRelation "sequenceFlow membership" "nested sequenceFlow"
 
 -- Aggregation relation
 aggregationOfBehavioralEventSequenceFlow :  Linkage SequenceFlow BehavioralEvent
-aggregationOfBehavioralEventSequenceFlow = aggregationOfBuildingBlock
+aggregationOfBehavioralEventSequenceFlow = make_Relation "BehavioralEvent aggregation" "aggregated BehavioralEvent"
 
 {- sequenceFlow : derived relation obtained by composing
    membershipOfSequenceFlow and aggregationOfBehavioralEventSequenceFlow
@@ -76,6 +76,10 @@ aggregationOfBehavioralEventSequenceFlow = aggregationOfBuildingBlock
 -}
 sequenceFlow : Linkage ActionProcessType BehavioralEvent
 sequenceFlow = membershipOfSequenceFlow  ∘  aggregationOfBehavioralEventSequenceFlow
+
+postulate -- sequenceFlow is subTypeOf temporalOrdering
+  st-40d5416b5ee36739-255744cb6758a69e  : sequenceFlow   ⊏⋆ᵣ  temporalOrdering 
+
 
 {- Object Flow: 
 Object Flow is a Sequence Flow that convey from its source 
@@ -86,11 +90,11 @@ ObjectFlow = ClassOfIndividual
 
 -- Membership relation
 membershipOfObjectFlow :  Linkage ActionProcessType ObjectFlow
-membershipOfObjectFlow = membershipOfAggregateMember
+membershipOfObjectFlow = make_upwardNestingRelation "objectFlow membership" "nested objectFlow"
 
 -- Aggregation relation
 aggregationOfOutcomeEventObjectFlow :  Linkage ObjectFlow OutcomeEvent
-aggregationOfOutcomeEventObjectFlow = aggregationOfBuildingBlock
+aggregationOfOutcomeEventObjectFlow = make_Relation "OutcomeEvent aggregation" "aggregated OutcomeEvent"
 
 {- objectFlow : derived relation obtained by composing
    membershipOfObjectFlow and aggregationOfOutcomeEventObjectFlow
@@ -99,6 +103,10 @@ aggregationOfOutcomeEventObjectFlow = aggregationOfBuildingBlock
 -}
 objectFlow : Linkage ActionProcessType OutcomeEvent
 objectFlow = membershipOfObjectFlow  ∘  aggregationOfOutcomeEventObjectFlow
+
+postulate -- objectFlow is subTypeOf sequenceFlow
+  st-e4c0fff75ed0ec45-40d5416b5ee36739  : objectFlow   ⊏⋆ᵣ  sequenceFlow 
+
 
 {- Process Store: 
 An Process Store references an Information Domain necessary for activities of the process.
@@ -109,11 +117,11 @@ ProcessStore = ClassOfIndividual
 
 -- Membership relation
 membershipOfProcessStore :  Linkage ActionProcessType ProcessStore
-membershipOfProcessStore = membershipOfAggregateMember
+membershipOfProcessStore = make_upwardNestingRelation "processStore membership" "nested processStore"
 
 -- Aggregation relation
 aggregationOfInformationDomainProcessStore :  Linkage ProcessStore InformationDomain
-aggregationOfInformationDomainProcessStore = aggregationOfBuildingBlock
+aggregationOfInformationDomainProcessStore = make_Relation "InformationDomain aggregation" "aggregated InformationDomain"
 
 {- processStore : derived relation obtained by composing
    membershipOfProcessStore and aggregationOfInformationDomainProcessStore
@@ -122,6 +130,10 @@ aggregationOfInformationDomainProcessStore = aggregationOfBuildingBlock
 -}
 processStore : Linkage ActionProcessType InformationDomain
 processStore = membershipOfProcessStore  ∘  aggregationOfInformationDomainProcessStore
+
+postulate -- processStore is subTypeOf unboundedMember
+  st-e4c003255ed1f037-8cfaf71a6852b042  : processStore   ⊏⋆ᵣ  unboundedMember {lzero} {lzero}
+
 
 {- Active Participant: 
 An Active Participant is a Process Participant indicating the role of an Agent Type actively engaged as an actor within a Action Process Type.
@@ -132,11 +144,11 @@ ActiveParticipant = ClassOfIndividual
 
 -- Membership relation
 membershipOfActiveParticipant :  Linkage ActionProcessType ActiveParticipant
-membershipOfActiveParticipant = membershipOfAggregateMember
+membershipOfActiveParticipant = make_upwardNestingRelation "activeParticipant membership" "nested activeParticipant"
 
 -- Aggregation relation
 aggregationOfAgentTypeActiveParticipant :  Linkage ActiveParticipant AgentType
-aggregationOfAgentTypeActiveParticipant = aggregationOfBuildingBlock
+aggregationOfAgentTypeActiveParticipant = make_Relation "AgentType aggregation" "aggregated AgentType"
 
 {- activeParticipant : derived relation obtained by composing
    membershipOfActiveParticipant and aggregationOfAgentTypeActiveParticipant
@@ -145,6 +157,10 @@ aggregationOfAgentTypeActiveParticipant = aggregationOfBuildingBlock
 -}
 activeParticipant : Linkage ActionProcessType AgentType
 activeParticipant = membershipOfActiveParticipant  ∘  aggregationOfAgentTypeActiveParticipant
+
+postulate -- activeParticipant is subTypeOf processParticipant
+  st-004b041f5ebd1119-fafb50d966460369  : activeParticipant   ⊏⋆ᵣ  processParticipant 
+
 
 {- Process Participant: 
 A Process Participant is the involvement of an in a .
@@ -155,11 +171,11 @@ ProcessParticipant = ClassOfIndividual
 
 -- Membership relation
 membershipOfProcessParticipant :  Linkage ActionProcessType ProcessParticipant
-membershipOfProcessParticipant = membershipOfAggregateMember
+membershipOfProcessParticipant = make_upwardNestingRelation "processParticipant membership" "nested processParticipant"
 
 -- Aggregation relation
 aggregationOfAgentTypeProcessParticipant :  Linkage ProcessParticipant AgentType
-aggregationOfAgentTypeProcessParticipant = aggregationOfBuildingBlock
+aggregationOfAgentTypeProcessParticipant = make_Relation "AgentType aggregation" "aggregated AgentType"
 
 {- processParticipant : derived relation obtained by composing
    membershipOfProcessParticipant and aggregationOfAgentTypeProcessParticipant
@@ -168,6 +184,10 @@ aggregationOfAgentTypeProcessParticipant = aggregationOfBuildingBlock
 -}
 processParticipant : Linkage ActionProcessType AgentType
 processParticipant = membershipOfProcessParticipant  ∘  aggregationOfAgentTypeProcessParticipant
+
+postulate -- processParticipant is subTypeOf behaviorParticipant
+  st-fafb50d966460369-e0e86fad65789c43  : processParticipant   ⊏⋆ᵣ  behaviorParticipant 
+
 
 {- Process Step: 
 A Process Step is a Process Activity  invoking another Action Process Type
@@ -178,11 +198,11 @@ ProcessStep = ClassOfIndividual
 
 -- Membership relation
 membershipOfProcessStep :  Linkage ActionProcessType ProcessStep
-membershipOfProcessStep = membershipOfAggregateMember
+membershipOfProcessStep = make_upwardNestingRelation "processStep membership" "nested processStep"
 
 -- Aggregation relation
 aggregationOfActionProcessTypeProcessStep :  Linkage ProcessStep ActionProcessType
-aggregationOfActionProcessTypeProcessStep = aggregationOfBuildingBlock
+aggregationOfActionProcessTypeProcessStep = make_Relation "ActionProcessType aggregation" "aggregated ActionProcessType"
 
 {- processStep : derived relation obtained by composing
    membershipOfProcessStep and aggregationOfActionProcessTypeProcessStep
@@ -191,3 +211,7 @@ aggregationOfActionProcessTypeProcessStep = aggregationOfBuildingBlock
 -}
 processStep : Linkage ActionProcessType ActionProcessType
 processStep = membershipOfProcessStep  ∘  aggregationOfActionProcessTypeProcessStep
+
+postulate -- processStep is subTypeOf behaviorPart
+  st-8e1390925ebe3db7-b776b92668b04c85  : processStep   ⊏⋆ᵣ  behaviorPart 
+

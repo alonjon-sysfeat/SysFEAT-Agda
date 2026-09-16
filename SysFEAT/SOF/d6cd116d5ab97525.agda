@@ -23,12 +23,12 @@ InformationDomain : ClassOfClassOfBoundedIndividual
 InformationDomain = ClassOfBoundedIndividual
 
 --  InformationDomain withAspect ClassPartition
-st-297f2d5f665f5975 : InformationDomain ⊏ₐₑ (ClassPartition (lsuc(lzero)))
-st-297f2d5f665f5975 = polySubTypeOf-identity
+st-d6cd116d5ab97525-8d1ceeab68f755a5 : InformationDomain ⊏ₐₑ (ClassPartition (lsuc(lzero)))
+st-d6cd116d5ab97525-8d1ceeab68f755a5 = polySubTypeOf-identity
 
 --  InformationDomain withAspect InformationBlock
-st-8f1c9a9c68ca8d3a : InformationDomain ⊏ₐₑ (InformationBlock (lsuc(lzero)))
-st-8f1c9a9c68ca8d3a = polySubTypeOf-identity
+st-d6cd116d5ab97525-6c5f80e468587f06 : InformationDomain ⊏ₐₑ (InformationBlock (lsuc(lzero)))
+st-d6cd116d5ab97525-6c5f80e468587f06 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -55,11 +55,11 @@ DomainAsset = ClassOfIndividual
 
 -- Membership relation
 membershipOfDomainAsset :  Linkage InformationDomain DomainAsset
-membershipOfDomainAsset = membershipOfAggregateMember
+membershipOfDomainAsset = make_upwardNestingRelation "domainAsset membership" "nested domainAsset"
 
 -- Aggregation relation
 aggregationOfInformationAssetDomainAsset :  Linkage DomainAsset InformationAsset
-aggregationOfInformationAssetDomainAsset = aggregationOfBuildingBlock
+aggregationOfInformationAssetDomainAsset = make_Relation "InformationAsset aggregation" "aggregated InformationAsset"
 
 {- domainAsset : derived relation obtained by composing
    membershipOfDomainAsset and aggregationOfInformationAssetDomainAsset
@@ -68,6 +68,10 @@ aggregationOfInformationAssetDomainAsset = aggregationOfBuildingBlock
 -}
 domainAsset : Linkage InformationDomain InformationAsset
 domainAsset = membershipOfDomainAsset  ∘  aggregationOfInformationAssetDomainAsset
+
+postulate -- domainAsset is subTypeOf unboundedMember
+  st-24ae4a405ed16bcf-8cfaf71a6852b042  : domainAsset   ⊏⋆ᵣ  unboundedMember {lzero} {lzero}
+
 
 {- Sub-Information Area: 
 The decompostion of an Information Domain into sub-Information Domain.
@@ -78,11 +82,11 @@ SubInformationArea = ClassOfIndividual
 
 -- Membership relation
 membershipOfSubInformationArea :  Linkage InformationDomain SubInformationArea
-membershipOfSubInformationArea = membershipOfAggregateMember
+membershipOfSubInformationArea = make_upwardNestingRelation "subInformationArea membership" "nested subInformationArea"
 
 -- Aggregation relation
 aggregationOfInformationDomainSubInformationArea :  Linkage SubInformationArea InformationDomain
-aggregationOfInformationDomainSubInformationArea = aggregationOfBuildingBlock
+aggregationOfInformationDomainSubInformationArea = make_Relation "InformationDomain aggregation" "aggregated InformationDomain"
 
 {- subInformationArea : derived relation obtained by composing
    membershipOfSubInformationArea and aggregationOfInformationDomainSubInformationArea
@@ -91,3 +95,7 @@ aggregationOfInformationDomainSubInformationArea = aggregationOfBuildingBlock
 -}
 subInformationArea : Linkage InformationDomain InformationDomain
 subInformationArea = membershipOfSubInformationArea  ∘  aggregationOfInformationDomainSubInformationArea
+
+postulate -- subInformationArea is subTypeOf unboundedMember
+  st-24ae4a625ed16c60-8cfaf71a6852b042  : subInformationArea   ⊏⋆ᵣ  unboundedMember {lzero} {lzero}
+

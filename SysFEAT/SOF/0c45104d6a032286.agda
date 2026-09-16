@@ -21,7 +21,7 @@ MezzoOperatingAsset : ∀ (u : Level) → MixedOrderMetaClass u
 MezzoOperatingAsset u = ClassOfMixedOrderEntity u
 
 --  MezzoOperatingAsset is subTypeOf SystemicLevel
-st-0c45105e6a0322cf : ∀ {u v} → (MezzoOperatingAsset u) ⊏⋆ₑ (SystemicLevel v)
-st-0c45105e6a0322cf = trivialPolySubTypeOfEntity
+st-0c45104d6a032286-0c450e776a031ff0 : ∀ {u v} → (MezzoOperatingAsset u) ⊏⋆ₑ (SystemicLevel v)
+st-0c45104d6a032286-0c450e776a031ff0 = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

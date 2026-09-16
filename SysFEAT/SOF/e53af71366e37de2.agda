@@ -29,12 +29,12 @@ ConditionPropertyType : ThirdOrderClass
 ConditionPropertyType = SecondOrderClass
 
 --  ConditionPropertyType is subTypeOf AssetPropertyType
-st-e53af73166e37e27 : ConditionPropertyType ⊏ₑ AssetPropertyType
-st-e53af73166e37e27 = polySubTypeOf-identity
+st-e53af71366e37de2-83f88fd567406e53 : ConditionPropertyType ⊏ₑ AssetPropertyType
+st-e53af71366e37de2-83f88fd567406e53 = polySubTypeOf-identity
 
 --  ConditionPropertyType withAspect ModelPropertyBlock
-st-c2f2a61266ea39c4 : ConditionPropertyType ⊏ₐₑ (ModelPropertyBlock (lsuc(lsuc(lzero))))
-st-c2f2a61266ea39c4 = polySubTypeOf-identity
+st-e53af71366e37de2-0eb97aff6855cd23 : ConditionPropertyType ⊏ₐₑ (ModelPropertyBlock (lsuc(lsuc(lzero))))
+st-e53af71366e37de2-0eb97aff6855cd23 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

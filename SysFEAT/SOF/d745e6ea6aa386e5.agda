@@ -18,20 +18,20 @@ External references:
 module SysFEAT.SOF.d745e6ea6aa386e5 where -- ========== Annotation Block
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.5425a2df6aa225cf public -- First Order Entity
+open import SysFEAT.UpperOntology.3aca52346aa6418d public -- Abstract Entity
 open import SysFEAT.UpperOntology.23d5a9ea68513ced public -- Building Block
 open import SysFEAT.UpperOntology.23d5249e68510ff9 public -- Element
 
 AnnotationBlock : ClassOfIndividual
 AnnotationBlock = Individual
 
---  AnnotationBlock is subTypeOf FirstOrderEntity
-st-d745ec016aa38d7a : AnnotationBlock ⊏ₑ FirstOrderEntity
-st-d745ec016aa38d7a = polySubTypeOf-identity
+--  AnnotationBlock is subTypeOf AbstractEntity
+st-d745e6ea6aa386e5-3aca52346aa6418d : AnnotationBlock ⊏ₑ AbstractEntity
+st-d745e6ea6aa386e5-3aca52346aa6418d = polySubTypeOf-identity
 
 --  AnnotationBlock withAspect BuildingBlock
-st-d745e7256aa3877d : AnnotationBlock ⊏ₐₑ (BuildingBlock lzero)
-st-d745e7256aa3877d = polySubTypeOf-identity
+st-d745e6ea6aa386e5-23d5a9ea68513ced : AnnotationBlock ⊏ₐₑ (BuildingBlock lzero)
+st-d745e6ea6aa386e5-23d5a9ea68513ced = polySubTypeOf-identity
 
 -- == Relationships =======================
 

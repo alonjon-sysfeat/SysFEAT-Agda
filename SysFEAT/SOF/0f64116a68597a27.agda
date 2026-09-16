@@ -22,8 +22,8 @@ GovernanceContainer : ∀ (u : Level) → ClassOfMixedOrderEntity u
 GovernanceContainer u = MixedOrderEntity u
 
 --  GovernanceContainer is subTypeOf ModelContainer
-st-0f64119b68597a81 : ∀ {u v} → (GovernanceContainer u) ⊏⋆ₑ (ModelContainer v)
-st-0f64119b68597a81 = trivialPolySubTypeOfEntity
+st-0f64116a68597a27-0eb95dce6855be2e : ∀ {u v} → (GovernanceContainer u) ⊏⋆ₑ (ModelContainer v)
+st-0f64116a68597a27-0eb95dce6855be2e = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================
 

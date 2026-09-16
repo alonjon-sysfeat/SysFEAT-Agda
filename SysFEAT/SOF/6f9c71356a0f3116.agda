@@ -22,11 +22,11 @@ FamilyOfMeasurement : ∀ (u : Level) → Set (lsuc (lsuc (lsuc u)))
 FamilyOfMeasurement u = Category u
 
 --  FamilyOfMeasurement is subTypeOf ModelPropertyBlock
-st-c2f2a61766ea39ec : ∀ {u v} → (FamilyOfMeasurement u) ⊏⋆ₑ (ModelPropertyBlock v)
-st-c2f2a61766ea39ec = trivialPolySubTypeOfEntity
+st-6f9c71356a0f3116-0eb97aff6855cd23 : ∀ {u v} → (FamilyOfMeasurement u) ⊏⋆ₑ (ModelPropertyBlock v)
+st-6f9c71356a0f3116-0eb97aff6855cd23 = trivialPolySubTypeOfEntity
 
 --  FamilyOfMeasurement is subTypeOf Category
-st-bb5dc52c6a0257db : ∀ {u v} → (FamilyOfMeasurement u) ⊏⋆ₑ (Category v)
-st-bb5dc52c6a0257db = trivialPolySubTypeOfEntity
+st-6f9c71356a0f3116-f69619236a0f8dcd : ∀ {u v} → (FamilyOfMeasurement u) ⊏⋆ₑ (Category v)
+st-6f9c71356a0f3116-f69619236a0f8dcd = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

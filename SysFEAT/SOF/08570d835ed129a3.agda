@@ -22,11 +22,11 @@ InitiativeMilestone : ClassOfIndividual
 InitiativeMilestone = Individual
 
 --  InitiativeMilestone is subTypeOf TemporalBounding
-st-1c6a1fcc6684755f : InitiativeMilestone ⊏ₑ TemporalBounding
-st-1c6a1fcc6684755f = polySubTypeOf-identity
+st-08570d835ed129a3-267b6a126675a0b9 : InitiativeMilestone ⊏ₑ TemporalBounding
+st-08570d835ed129a3-267b6a126675a0b9 = polySubTypeOf-identity
 
 --  InitiativeMilestone withAspect InitiativeBlock
-st-a7ecac1b645bf89b : InitiativeMilestone ⊏ₐₑ (InitiativeBlock lzero)
-st-a7ecac1b645bf89b = polySubTypeOf-identity
+st-08570d835ed129a3-01ce05f9685979d8 : InitiativeMilestone ⊏ₐₑ (InitiativeBlock lzero)
+st-08570d835ed129a3-01ce05f9685979d8 = polySubTypeOf-identity
 
 -- == Relationships =======================

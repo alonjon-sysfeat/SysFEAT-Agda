@@ -25,12 +25,12 @@ InformationProperty : PropertyType
 InformationProperty = ClassOfProperty
 
 --  InformationProperty is subTypeOf InformationAsset
-st-e6f24eb45f772e1c : InformationProperty ⊏ₑ InformationAsset
-st-e6f24eb45f772e1c = polySubTypeOf-identity
+st-c189d5f068ae4d75-e6f250185f772ee1 : InformationProperty ⊏ₑ InformationAsset
+st-c189d5f068ae4d75-e6f250185f772ee1 = polySubTypeOf-identity
 
 --  InformationProperty is subTypeOf Property
-st-9397a25d6877759b : InformationProperty ⊏ₑ Property
-st-9397a25d6877759b = polySubTypeOf-identity
+st-c189d5f068ae4d75-746ac18368905aa2 : InformationProperty ⊏ₑ Property
+st-c189d5f068ae4d75-746ac18368905aa2 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -48,11 +48,11 @@ SubInformationProperty = ClassOfIndividual
 
 -- Membership relation
 membershipOfSubInformationProperty :  Linkage InformationProperty SubInformationProperty
-membershipOfSubInformationProperty = membershipOfAggregateMember
+membershipOfSubInformationProperty = make_upwardNestingRelation "subInformationProperty membership" "nested subInformationProperty"
 
 -- Aggregation relation
 aggregationOfInformationPropertySubInformationProperty :  Linkage SubInformationProperty InformationProperty
-aggregationOfInformationPropertySubInformationProperty = aggregationOfBuildingBlock
+aggregationOfInformationPropertySubInformationProperty = make_Relation "InformationProperty aggregation" "aggregated InformationProperty"
 
 {- subInformationProperty : derived relation obtained by composing
    membershipOfSubInformationProperty and aggregationOfInformationPropertySubInformationProperty
@@ -61,3 +61,7 @@ aggregationOfInformationPropertySubInformationProperty = aggregationOfBuildingBl
 -}
 subInformationProperty : Linkage InformationProperty InformationProperty
 subInformationProperty = membershipOfSubInformationProperty  ∘  aggregationOfInformationPropertySubInformationProperty
+
+postulate -- subInformationProperty is subTypeOf informationAssetRelationship
+  st-c189d78568ae4f12-18eb1f335fdb6e7f  : subInformationProperty   ⊏⋆ᵣ  informationAssetRelationship 
+

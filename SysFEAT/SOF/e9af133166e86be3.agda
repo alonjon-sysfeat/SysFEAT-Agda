@@ -25,7 +25,7 @@ IndividualEvent : ClassOfIndividual
 IndividualEvent = Individual
 
 --  IndividualEvent is subTypeOf TemporalBounding
-st-e9af144a66e86d00 : IndividualEvent ⊏ₑ TemporalBounding
-st-e9af144a66e86d00 = polySubTypeOf-identity
+st-e9af133166e86be3-267b6a126675a0b9 : IndividualEvent ⊏ₑ TemporalBounding
+st-e9af133166e86be3-267b6a126675a0b9 = polySubTypeOf-identity
 
 -- == Relationships =======================

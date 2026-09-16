@@ -24,12 +24,12 @@ PolicyCategory : ThirdOrderClass
 PolicyCategory = SecondOrderClass
 
 --  PolicyCategory is subTypeOf AssetPropertyType
-st-744b90425fbfd317 : PolicyCategory ⊏ₑ AssetPropertyType
-st-744b90425fbfd317 = polySubTypeOf-identity
+st-952ea6c467285821-83f88fd567406e53 : PolicyCategory ⊏ₑ AssetPropertyType
+st-952ea6c467285821-83f88fd567406e53 = polySubTypeOf-identity
 
 --  PolicyCategory withAspect PolicyAsset
-st-9397c68b68778c56 : PolicyCategory ⊏ₐₑ (PolicyAsset (lsuc(lsuc(lzero))))
-st-9397c68b68778c56 = polySubTypeOf-identity
+st-952ea6c467285821-9397c3d86877842f : PolicyCategory ⊏ₐₑ (PolicyAsset (lsuc(lsuc(lzero))))
+st-952ea6c467285821-9397c3d86877842f = polySubTypeOf-identity
 
 -- == Relationships =======================
 

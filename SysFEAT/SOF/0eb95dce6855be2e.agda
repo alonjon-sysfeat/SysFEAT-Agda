@@ -27,12 +27,12 @@ ModelContainer : ∀ (u : Level) → ClassOfMixedOrderEntity u
 ModelContainer u = MixedOrderEntity u
 
 --  ModelContainer is subTypeOf ModelLexicalScope
-st-0eb96a976855c898 : ∀ {u v} → (ModelContainer u) ⊏⋆ₑ (ModelLexicalScope v)
-st-0eb96a976855c898 = trivialPolySubTypeOfEntity
+st-0eb95dce6855be2e-0eb95db46855bdd5 : ∀ {u v} → (ModelContainer u) ⊏⋆ₑ (ModelLexicalScope v)
+st-0eb95dce6855be2e-0eb95db46855bdd5 = trivialPolySubTypeOfEntity
 
 --  ModelContainer is subTypeOf Container
-st-0eb97c486855cebd : ∀ {u v} → (ModelContainer u) ⊏⋆ₑ (Container v)
-st-0eb97c486855cebd = trivialPolySubTypeOfEntity
+st-0eb95dce6855be2e-0eb93b4268549a66 : ∀ {u v} → (ModelContainer u) ⊏⋆ₑ (Container v)
+st-0eb95dce6855be2e-0eb93b4268549a66 = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================
 

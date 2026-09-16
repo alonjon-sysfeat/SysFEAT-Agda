@@ -22,8 +22,8 @@ ResolutionOutcome : PropertyType
 ResolutionOutcome = ClassOfProperty
 
 --  ResolutionOutcome is subTypeOf AppraisalOption
-st-e073fecb61d21a06 : ResolutionOutcome ⊏ₑ AppraisalOption
-st-e073fecb61d21a06 = polySubTypeOf-identity
+st-97e09afa68dd69f1-66628b5668dd5a25 : ResolutionOutcome ⊏ₑ AppraisalOption
+st-97e09afa68dd69f1-66628b5668dd5a25 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

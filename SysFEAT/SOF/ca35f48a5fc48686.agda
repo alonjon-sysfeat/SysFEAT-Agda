@@ -27,12 +27,12 @@ OperatingEcoSystem : ClassOfClassOfBoundedIndividual
 OperatingEcoSystem = ClassOfBoundedIndividual
 
 --  OperatingEcoSystem is subTypeOf FunctionalAsset
-st-299e3b026848733f : OperatingEcoSystem ⊏ₑ FunctionalAsset
-st-299e3b026848733f = polySubTypeOf-identity
+st-ca35f48a5fc48686-a44fb6bc6748b088 : OperatingEcoSystem ⊏ₑ FunctionalAsset
+st-ca35f48a5fc48686-a44fb6bc6748b088 = polySubTypeOf-identity
 
 --  OperatingEcoSystem withAspect AssetBlock
-st-9397bd8e68778368 : OperatingEcoSystem ⊏ₐₑ (AssetBlock (lsuc(lzero)))
-st-9397bd8e68778368 = polySubTypeOf-identity
+st-ca35f48a5fc48686-0eb95f356855bf94 : OperatingEcoSystem ⊏ₐₑ (AssetBlock (lsuc(lzero)))
+st-ca35f48a5fc48686-0eb95f356855bf94 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -43,11 +43,11 @@ OperatingConnector = ClassOfIndividual
 
 -- Membership relation
 membershipOfOperatingConnector :  Linkage OperatingEcoSystem OperatingConnector
-membershipOfOperatingConnector = membershipOfAggregateMember
+membershipOfOperatingConnector = make_upwardNestingRelation "operatingConnector membership" "nested operatingConnector"
 
 -- Aggregation relation
 aggregationOfOperatingConnectionOperatingConnector :  Linkage OperatingConnector OperatingConnection
-aggregationOfOperatingConnectionOperatingConnector = aggregationOfBuildingBlock
+aggregationOfOperatingConnectionOperatingConnector = make_Relation "OperatingConnection aggregation" "aggregated OperatingConnection"
 
 {- operatingConnector : derived relation obtained by composing
    membershipOfOperatingConnector and aggregationOfOperatingConnectionOperatingConnector
@@ -57,6 +57,10 @@ aggregationOfOperatingConnectionOperatingConnector = aggregationOfBuildingBlock
 operatingConnector : Linkage OperatingEcoSystem OperatingConnection
 operatingConnector = membershipOfOperatingConnector  ∘  aggregationOfOperatingConnectionOperatingConnector
 
+postulate -- operatingConnector is subTypeOf orderingConnector
+  st-3d3f4b4062013550-478a4a4468565425  : operatingConnector   ⊏⋆ᵣ  orderingConnector {lzero} {lzero}
+
+
 {- Ecosystem Member: -}
 -- Aggregate Member : Ecosystem Member
 EcosystemMember : ClassOfClassOfIndividual
@@ -64,11 +68,11 @@ EcosystemMember = ClassOfIndividual
 
 -- Membership relation
 membershipOfEcosystemMember :  Linkage OperatingEcoSystem EcosystemMember
-membershipOfEcosystemMember = membershipOfAggregateMember
+membershipOfEcosystemMember = make_upwardNestingRelation "ecosystemMember membership" "nested ecosystemMember"
 
 -- Aggregation relation
 aggregationOfOperatingEcoSystemEcosystemMember :  Linkage EcosystemMember OperatingEcoSystem
-aggregationOfOperatingEcoSystemEcosystemMember = aggregationOfBuildingBlock
+aggregationOfOperatingEcoSystemEcosystemMember = make_Relation "OperatingEcoSystem aggregation" "aggregated OperatingEcoSystem"
 
 {- ecosystemMember : derived relation obtained by composing
    membershipOfEcosystemMember and aggregationOfOperatingEcoSystemEcosystemMember
@@ -77,3 +81,7 @@ aggregationOfOperatingEcoSystemEcosystemMember = aggregationOfBuildingBlock
 -}
 ecosystemMember : Linkage OperatingEcoSystem OperatingEcoSystem
 ecosystemMember = membershipOfEcosystemMember  ∘  aggregationOfOperatingEcoSystemEcosystemMember
+
+postulate -- ecosystemMember is subTypeOf boundedMember
+  st-3d3f4aed6201346c-0eb999956855e070  : ecosystemMember   ⊏⋆ᵣ  boundedMember {lzero} {lzero}
+

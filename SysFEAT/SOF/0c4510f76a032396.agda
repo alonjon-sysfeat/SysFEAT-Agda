@@ -21,7 +21,7 @@ MicroOperatingAsset : ∀ (u : Level) → MixedOrderMetaClass u
 MicroOperatingAsset u = ClassOfMixedOrderEntity u
 
 --  MicroOperatingAsset is subTypeOf SystemicLevel
-st-0c45110e6a0323fd : ∀ {u v} → (MicroOperatingAsset u) ⊏⋆ₑ (SystemicLevel v)
-st-0c45110e6a0323fd = trivialPolySubTypeOfEntity
+st-0c4510f76a032396-0c450e776a031ff0 : ∀ {u v} → (MicroOperatingAsset u) ⊏⋆ₑ (SystemicLevel v)
+st-0c4510f76a032396-0c450e776a031ff0 = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

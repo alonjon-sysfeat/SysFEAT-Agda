@@ -28,8 +28,8 @@ OutcomeEvent : ClassOfClassOfIndividual
 OutcomeEvent = ClassOfIndividual
 
 --  OutcomeEvent is subTypeOf BehavioralEvent
-st-24ae322b5ed1c8cb : OutcomeEvent ⊏ₑ BehavioralEvent
-st-24ae322b5ed1c8cb = polySubTypeOf-identity
+st-30223b5c5ec90c01-24ae31d75ed1c747 : OutcomeEvent ⊏ₑ BehavioralEvent
+st-30223b5c5ec90c01-24ae31d75ed1c747 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -42,11 +42,11 @@ Outcome = ClassOfIndividual
 
 -- Membership relation
 membershipOfOutcome :  Linkage OutcomeEvent Outcome
-membershipOfOutcome = membershipOfAggregateMember
+membershipOfOutcome = make_upwardNestingRelation "outcome membership" "nested outcome"
 
 -- Aggregation relation
 aggregationOfAssetTypeOutcome :  Linkage Outcome AssetType
-aggregationOfAssetTypeOutcome = aggregationOfBuildingBlock
+aggregationOfAssetTypeOutcome = make_Relation "AssetType aggregation" "aggregated AssetType"
 
 {- outcome : derived relation obtained by composing
    membershipOfOutcome and aggregationOfAssetTypeOutcome
@@ -55,3 +55,7 @@ aggregationOfAssetTypeOutcome = aggregationOfBuildingBlock
 -}
 outcome : Linkage OutcomeEvent AssetType
 outcome = membershipOfOutcome  ∘  aggregationOfAssetTypeOutcome
+
+postulate -- outcome is subTypeOf unboundedMember
+  st-af41ed1265ea77e5-8cfaf71a6852b042  : outcome   ⊏⋆ᵣ  unboundedMember {lzero} {lzero}
+
