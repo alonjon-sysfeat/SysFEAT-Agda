@@ -23,8 +23,8 @@ ClassOfClassOfIndividual : ThirdOrderClass
 ClassOfClassOfIndividual = MetaClass lzero
 
 --  ClassOfClassOfIndividual is subTypeOf SecondOrderClass
-st-87d309d966e33aa3 : ClassOfClassOfIndividual ⊏ₑ SecondOrderClass
-st-87d309d966e33aa3 = polySubTypeOf-identity
+st-608767a668de7fb6-a599a7e46aa370fb : ClassOfClassOfIndividual ⊏ₑ SecondOrderClass
+st-608767a668de7fb6-a599a7e46aa370fb = polySubTypeOf-identity
 
 -- == Relationships =======================
 

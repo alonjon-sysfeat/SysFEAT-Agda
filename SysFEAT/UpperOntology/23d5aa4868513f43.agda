@@ -22,8 +22,8 @@ BlockCollection : ∀ (u : Level) → ClassOfMixedOrderEntity u
 BlockCollection u = MixedOrderEntity u
 
 --  BlockCollection is subTypeOf MixedOrderEntity
-st-6bf1a76f6859ce2c : ∀ {u v} → (BlockCollection u) ⊏⋆ₑ (MixedOrderEntity v)
-st-6bf1a76f6859ce2c = trivialPolySubTypeOfEntity
+st-23d5aa4868513f43-6ef572f868f1366f : ∀ {u v} → (BlockCollection u) ⊏⋆ₑ (MixedOrderEntity v)
+st-23d5aa4868513f43-6ef572f868f1366f = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================
 

@@ -23,11 +23,11 @@ TemporalBounding : TemporalBoundingType
 TemporalBounding = Individual
 
 --  TemporalBounding is subTypeOf Individual
-st-80328c0466790c22 : TemporalBounding ⊏ₑ Individual
-st-80328c0466790c22 = polySubTypeOf-identity
+st-267b6a126675a0b9-4df9512266826e23 : TemporalBounding ⊏ₑ Individual
+st-267b6a126675a0b9-4df9512266826e23 = polySubTypeOf-identity
 
 --  TemporalBounding withAspect OrderingConnection
-st-715877f6672c4212 : TemporalBounding ⊏ₐₑ (OrderingConnection lzero)
-st-715877f6672c4212 = polySubTypeOf-identity
+st-267b6a126675a0b9-23d5eaba68515533 : TemporalBounding ⊏ₐₑ (OrderingConnection lzero)
+st-267b6a126675a0b9-23d5eaba68515533 = polySubTypeOf-identity
 
 -- == Relationships =======================

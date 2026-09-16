@@ -21,7 +21,7 @@ ClassOfClassOfBoundedIndividual : ThirdOrderClass
 ClassOfClassOfBoundedIndividual = ClassOfClassOfIndividual
 
 --  ClassOfClassOfBoundedIndividual is subTypeOf ClassOfClassOfIndividual
-st-87d3223566e34385 : ClassOfClassOfBoundedIndividual ⊏ₑ ClassOfClassOfIndividual
-st-87d3223566e34385 = polySubTypeOf-identity
+st-60876d5c68de82f2-608767a668de7fb6 : ClassOfClassOfBoundedIndividual ⊏ₑ ClassOfClassOfIndividual
+st-60876d5c68de82f2-608767a668de7fb6 = polySubTypeOf-identity
 
 

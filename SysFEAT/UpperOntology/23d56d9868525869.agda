@@ -53,8 +53,8 @@ c35aaee56a9e58b7 {u} {v} =
    It directly links an Unbounded Aggregate to the final aggregated UnboundedAggregate
    hiding the reifying UnboundedMember
 -}
-unboundedMember : ∀ {u v w} → Linkage (AggregateEntityBlock u) (BuildingBlock w)
-unboundedMember {u} {v} {w}  = membershipOfUnboundedMember {u} {v}   ∘  aggregationOfUnboundedBlock {v} {w} 
+unboundedMember : ∀ {u w} → Linkage (AggregateEntityBlock u) (BuildingBlock w)
+unboundedMember {u} {w}  = membershipOfUnboundedMember {u} {u ⊔ w}   ∘  aggregationOfUnboundedBlock {u ⊔ w} {w} 
 
 postulate -- unboundedMember is subTypeOf aggregateMember
-  st-8cfaf71a6852b042-8cfaf3b36852acd4  : ∀ {u w} → unboundedMember {u} {u} {w} ⊏⋆ᵣ  aggregateMember {u} {u} {w}
+  st-8cfaf71a6852b042-8cfaf3b36852acd4  : ∀ {u w} → unboundedMember {u} {w} ⊏⋆ᵣ  aggregateMember {u} {w}

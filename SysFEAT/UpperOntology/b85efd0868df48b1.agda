@@ -23,11 +23,11 @@ PropertyValue : ClassOfProperty
 PropertyValue = Individual
 
 --  PropertyValue is subTypeOf Individual
-st-d67ee75b68e436d1 : PropertyValue ⊏ₑ Individual
-st-d67ee75b68e436d1 = polySubTypeOf-identity
+st-b85efd0868df48b1-4df9512266826e23 : PropertyValue ⊏ₑ Individual
+st-b85efd0868df48b1-4df9512266826e23 = polySubTypeOf-identity
 
 --  PropertyValue withAspect BuildingBlock
-st-96581db06993059e : PropertyValue ⊏ₐₑ (BuildingBlock lzero)
-st-96581db06993059e = polySubTypeOf-identity
+st-b85efd0868df48b1-23d5a9ea68513ced : PropertyValue ⊏ₐₑ (BuildingBlock lzero)
+st-b85efd0868df48b1-23d5a9ea68513ced = polySubTypeOf-identity
 
 -- == Relationships =======================

@@ -18,7 +18,10 @@ open import SysFEAT.UpperOntology.23d5eaba68515533 public -- Ordering Connection
 BoundedAggregate : ∀ (u : Level) → ClassOfMixedOrderEntity u
 BoundedAggregate u = AggregateEntityBlock u
 
--- BoundedAggregate is subTypeOf AggregateEntityBlock  [moved to SysFEAT.Ontology.Axioms]
+-- BoundedAggregate is subTypeOf AggregateEntityBlock
+8cfaf38e6852ac9c : ∀ {u v} → (AggregateEntityBlock u) ⊏⋆ₑ (AggregateBlock v)
+8cfaf38e6852ac9c = trivialPolySubTypeOfEntity
+
 -- == Relationships =======================
 
 {- Bounded Member: 
@@ -29,22 +32,37 @@ Bounded Members can be related by means of Ordering Connectors which connect an 
 BoundedMember : ∀ (u : Level) → ClassOfMixedOrderEntity u
 BoundedMember u = AggregateMember u
 
+-- BoundedMember is subTypeOf AggregateMember
+3ebb40d968564742 : ∀ {u v} → (BoundedMember u) ⊏⋆ₑ (AggregateBlock v)
+3ebb40d968564742 = trivialPolySubTypeOfEntity
+
 -- Membership relation
 membershipOfBoundedMember : ∀ {u v} →  Linkage (BoundedAggregate u) (BoundedMember v)
 membershipOfBoundedMember = membershipOfAggregateMember
 
+postulate -- membershipOfBoundedMember is SubTypeOf membershipOfAggregateMember
+   419047b06aa928a8 :   ∀ {u v} → (membershipOfBoundedMember {u} {v}) ⊏⋆ᵣ (membershipOfAggregateMember {u} {v}) 
+
 -- Aggregation relation
 aggregationOfBoundedMember : ∀ {u v} →  Linkage (BoundedMember u) (BoundedAggregate v)
-aggregationOfBoundedMember = aggregationOfBuildingBlock
+aggregationOfBoundedMember = make_Relation "BuildingBlock Aggregation" "Aggregated Building Block"
+
+postulate -- aggregationOfBoundedMember is SubTypeOf aggregationOfBuildingBlock
+   419049f46aa928f0 :   ∀ {u v} → (aggregationOfBoundedMember {u} {v}) ⊏⋆ᵣ (aggregationOfBuildingBlock {u} {v}) 
 
 {- boundedMember : derived relation obtained by composing
    membershipOfBoundedMember and aggregationOfBoundedAggregateBoundedMember
    It directly links an Bounded Aggregate to the final aggregated BoundedAggregate
    hiding the reifying BoundedMember
 -}
-boundedMember : ∀ {u v w} → Linkage (BoundedAggregate u) (BoundedAggregate w)
-boundedMember {u} {v} {w}  = membershipOfBoundedMember {u} {v}   ∘  aggregationOfBoundedMember {v} {w} 
+--boundedMember : ∀ {u v w} → Linkage (BoundedAggregate u) (BoundedAggregate w)
+--boundedMember {u} {v} {w}  = membershipOfBoundedMember {u} {v}   ∘  aggregationOfBoundedMember {v} {w} 
 
+boundedMember : ∀ {u w} → Linkage (BoundedAggregate u) (BoundedAggregate w)
+boundedMember {u} {w} = membershipOfBoundedMember {u} {u ⊔ w} ∘ aggregationOfBoundedMember {u ⊔ w} {w}
+
+postulate -- boundedMember is subTypeOf aggregateMember
+  st-0eb999956855e070-8cfaf3b36852acd4  : ∀ {u w} → boundedMember {u} {w} ⊏⋆ᵣ  aggregateMember {u} {w}
 
 {- Ordering Connector: 
 An Ordering Connector is Block Member that connects a source Bounded Member to a target Bounded Member through their Entry Border and Exit Border.The semantic of Connector is given by their associated Ordering Connection.Examples:. Event that manifests a transition between two states.. Sequences between the end of a process step and the start of another process step.. Interface connection between a service consumer agent and a service provider agent.
@@ -67,5 +85,5 @@ aggregationOfOrderingConnector = aggregationOfBuildingBlock
    It directly links an Bounded Aggregate to the final aggregated OrderingConnection
    hiding the reifying OrderingConnector
 -}
-orderingConnector : ∀ {u v w} → Linkage (BoundedAggregate u) (OrderingConnection w)
-orderingConnector {u} {v} {w}  = membershipOfConnector {u} {v} ∘ aggregationOfOrderingConnector {v} {w} 
+orderingConnector : ∀ {u w} → Linkage (BoundedAggregate u) (OrderingConnection w)
+orderingConnector {u} {w}  = membershipOfConnector {u} {u ⊔ w} ∘ aggregationOfOrderingConnector {u ⊔ w} {w} 

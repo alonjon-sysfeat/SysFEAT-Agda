@@ -26,6 +26,7 @@ External references:
 module SysFEAT.UpperOntology.sysfeat-domain-36166b8c6157b6b4 where -- ========== Compositionality
 
 open import SysFEAT.UpperOntology.sysfeat-domain-f0fd779f65a18c5d public -- Packaging
+open import SysFEAT.UpperOntology.sysfeat-domain-e278fa2568f06541 public -- Reflexive Knowledge Graph
 
 open import SysFEAT.UpperOntology.23d5c5ce68514283 public -- Aggregate Block
 open import SysFEAT.UpperOntology.23d56d9868525869 public -- Aggregate Entity Block
