@@ -29,12 +29,12 @@ Property : PropertyType
 Property = ClassOfIndividual
 
 --  Property is subTypeOf ClassOfIndividual
-st-744b93fa5fbfe28c : Property ⊏ₑ ClassOfIndividual
-st-744b93fa5fbfe28c = polySubTypeOf-identity
+st-746ac18368905aa2-6aa8cbcb65b32971 : Property ⊏ₑ ClassOfIndividual
+st-746ac18368905aa2-6aa8cbcb65b32971 = polySubTypeOf-identity
 
 --  Property withAspect BuildingBlock
-st-4299b1aa6a853e9a : Property ⊏ₐₑ (BuildingBlock (lsuc(lzero)))
-st-4299b1aa6a853e9a = polySubTypeOf-identity
+st-746ac18368905aa2-23d5a9ea68513ced : Property ⊏ₐₑ (BuildingBlock (lsuc(lzero)))
+st-746ac18368905aa2-23d5a9ea68513ced = polySubTypeOf-identity
 
 -- == Relationships =======================
 

@@ -23,16 +23,16 @@ Category : (u : Level) → Set (lsuc (lsuc (lsuc u)))
 Category u = MetaClass u
 
 --  Category is subTypeOf MetaFamilyOfClass
-st-f69619306a0f8e3e : ∀ {u v} → (Category u) ⊏⋆ₑ (MetaFamilyOfClass v)
-st-f69619306a0f8e3e = trivialPolySubTypeOfEntity
+st-f69619236a0f8dcd-06710aeb68ed2d29 : ∀ {u v} → (Category u) ⊏⋆ₑ (MetaFamilyOfClass v)
+st-f69619236a0f8dcd-06710aeb68ed2d29 = trivialPolySubTypeOfEntity
 
 --  Category is subTypeOf ClassOfEntity
-st-2818ae7a6a168d8a : ∀ {u v} → (Category u) ⊏⋆ₑ (ClassOfEntity v)
-st-2818ae7a6a168d8a = trivialPolySubTypeOfEntity
+st-f69619236a0f8dcd-20702bc568e969f4 : ∀ {u v} → (Category u) ⊏⋆ₑ (ClassOfEntity v)
+st-f69619236a0f8dcd-20702bc568e969f4 = trivialPolySubTypeOfEntity
 
 --  Category is subTypeOf ElementaryBlock
-st-afe2c475681b7b09 : ∀ {u v} → (Category u) ⊏⋆ₑ (ElementaryBlock v)
-st-afe2c475681b7b09 = trivialPolySubTypeOfEntity
+st-f69619236a0f8dcd-23d5c5fc685142de : ∀ {u v} → (Category u) ⊏⋆ₑ (ElementaryBlock v)
+st-f69619236a0f8dcd-23d5c5fc685142de = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================
 

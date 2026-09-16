@@ -26,8 +26,8 @@ ClassOfIndividual : ClassOfClassOfIndividual
 ClassOfIndividual = FirstOrderClass
 
 --  ClassOfIndividual is subTypeOf FirstOrderClass
-st-f4f7f59c68f71c71 : ClassOfIndividual ⊏ₑ FirstOrderClass
-st-f4f7f59c68f71c71 = polySubTypeOf-identity
+st-6aa8cbcb65b32971-c463c6106aa23c35 : ClassOfIndividual ⊏ₑ FirstOrderClass
+st-6aa8cbcb65b32971-c463c6106aa23c35 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

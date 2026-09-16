@@ -22,11 +22,11 @@ TemporalBoundingType : ClassOfClassOfIndividual
 TemporalBoundingType = ClassOfIndividual
 
 --  TemporalBoundingType is subTypeOf ClassOfIndividual
-st-9429983566824027 : TemporalBoundingType ⊏ₑ ClassOfIndividual
-st-9429983566824027 = polySubTypeOf-identity
+st-9429979a66823f90-6aa8cbcb65b32971 : TemporalBoundingType ⊏ₑ ClassOfIndividual
+st-9429979a66823f90-6aa8cbcb65b32971 = polySubTypeOf-identity
 
 --  TemporalBoundingType withAspect OrderingConnection
-st-71587800672c423b : TemporalBoundingType ⊏ₐₑ (OrderingConnection (lsuc(lzero)))
-st-71587800672c423b = polySubTypeOf-identity
+st-9429979a66823f90-23d5eaba68515533 : TemporalBoundingType ⊏ₐₑ (OrderingConnection (lsuc(lzero)))
+st-9429979a66823f90-23d5eaba68515533 = polySubTypeOf-identity
 
 -- == Relationships =======================

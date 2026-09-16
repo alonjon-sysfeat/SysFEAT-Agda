@@ -21,7 +21,7 @@ PowerClass : ∀ (u : Level) → MixedOrderMetaClass u
 PowerClass u = ClassOfMixedOrderEntity u
 
 --  PowerClass is subTypeOf ClassOfMixedOrderEntity
-st-edc1079368f554e6 : ∀ {u v} → (PowerClass u) ⊏⋆ₑ (ClassOfMixedOrderEntity v)
-st-edc1079368f554e6 = trivialPolySubTypeOfEntity
+st-edc1f6b868f4546c-308c3b3868e9141e : ∀ {u v} → (PowerClass u) ⊏⋆ₑ (ClassOfMixedOrderEntity v)
+st-edc1f6b868f4546c-308c3b3868e9141e = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

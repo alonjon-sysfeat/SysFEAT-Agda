@@ -24,7 +24,7 @@ IndividualState : StateClass
 IndividualState = BoundedIndividual
 
 --  IndividualState is subTypeOf BoundedIndividual
-st-29cd2d90661546a1 : IndividualState ⊏ₑ BoundedIndividual
-st-29cd2d90661546a1 = polySubTypeOf-identity
+st-29cd2db0661546c4-28f07b2354be0d69 : IndividualState ⊏ₑ BoundedIndividual
+st-29cd2db0661546c4-28f07b2354be0d69 = polySubTypeOf-identity
 
 -- == Relationships =======================

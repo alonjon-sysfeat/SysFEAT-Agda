@@ -18,9 +18,11 @@ External references:
 {-# OPTIONS --cubical --guardedness #-}
 module SysFEAT.UpperOntology.sysfeat-domain-f0fd779f65a18c5d where -- ========== Packaging
 
+open import SysFEAT.UpperOntology.sysfeat-domain-3aca56b16aa64950 public -- Basic Knowledge Graph
 open import SysFEAT.UpperOntology.sysfeat-domain-e278fa2568f06541 public -- Reflexive Knowledge Graph
 
 open import SysFEAT.UpperOntology.23d5c494685141b5 public -- Block Lexical Scope
 open import SysFEAT.UpperOntology.0eb93b4268549a66 public -- Container
+open import SysFEAT.UpperOntology.542599db6aa21e06 public -- Container Package
 open import SysFEAT.UpperOntology.23d5aa4868513f43 public -- Block Collection
 open import SysFEAT.UpperOntology.23d5a9ea68513ced public -- Building Block

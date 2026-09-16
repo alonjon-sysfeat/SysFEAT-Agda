@@ -28,12 +28,12 @@ ClassOfBoundedIndividual : ClassOfClassOfBoundedIndividual
 ClassOfBoundedIndividual = ClassOfIndividual
 
 --  ClassOfBoundedIndividual is subTypeOf ClassOfIndividual
-st-3492c54761964345 : ClassOfBoundedIndividual ⊏ₑ ClassOfIndividual
-st-3492c54761964345 = polySubTypeOf-identity
+st-3492c53e619642ed-6aa8cbcb65b32971 : ClassOfBoundedIndividual ⊏ₑ ClassOfIndividual
+st-3492c53e619642ed-6aa8cbcb65b32971 = polySubTypeOf-identity
 
 --  ClassOfBoundedIndividual withAspect BoundedAggregate
-st-6483b19466723a48 : ClassOfBoundedIndividual ⊏ₐₑ (BoundedAggregate (lsuc(lzero)))
-st-6483b19466723a48 = polySubTypeOf-identity
+st-3492c53e619642ed-8cfa941b6852781f : ClassOfBoundedIndividual ⊏ₐₑ (BoundedAggregate (lsuc(lzero)))
+st-3492c53e619642ed-8cfa941b6852781f = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -53,49 +53,30 @@ qualifyingProperty = make_subTypeOf "Qualification" "Qualifying Property"
 postulate -- qualifyingProperty is subTypeOf specializedClassOfIndividual
   st-16621f9a689131e0-e429632e66ec72ab  : qualifyingProperty   ⊏⋆ᵣ  specializedClassOfIndividual 
 
-{- Temporal Sequencing Type: -}
--- Aggregate Member : Temporal Sequencing Type
-TemporalSequencingType : ClassOfClassOfIndividual
-TemporalSequencingType = ClassOfIndividual
+{- Temporal Ordering Type: -}
+-- Aggregate Member : Temporal Ordering Type
+TemporalOrderingType : ClassOfClassOfIndividual
+TemporalOrderingType = ClassOfIndividual
 
 -- Membership relation
-membershipOfTemporalSequencingType :  Linkage ClassOfBoundedIndividual TemporalSequencingType
-membershipOfTemporalSequencingType = membershipOfAggregateMember
+membershipOfTemporalOrderingType :  Linkage ClassOfBoundedIndividual TemporalOrderingType
+membershipOfTemporalOrderingType = make_upwardNestingRelation "temporalOrderingType membership" "nested temporalOrderingType"
 
 -- Aggregation relation
-aggregationOfTemporalBoundingTypeTemporalSequencingType :  Linkage TemporalSequencingType TemporalBoundingType
-aggregationOfTemporalBoundingTypeTemporalSequencingType = aggregationOfBuildingBlock
+aggregationOfTemporalBoundingTypeTemporalOrderingType :  Linkage TemporalOrderingType TemporalBoundingType
+aggregationOfTemporalBoundingTypeTemporalOrderingType = make_Relation "TemporalBoundingType aggregation" "aggregated TemporalBoundingType"
 
-{- temporalSequencingType : derived relation obtained by composing
-   membershipOfTemporalSequencingType and aggregationOfTemporalBoundingTypeTemporalSequencingType
+{- temporalOrderingType : derived relation obtained by composing
+   membershipOfTemporalOrderingType and aggregationOfTemporalBoundingTypeTemporalOrderingType
    It directly links an Class of Bounded Individual to the final aggregated TemporalBoundingType
-   hiding the reifying TemporalSequencingType
+   hiding the reifying TemporalOrderingType
 -}
-temporalSequencingType : Linkage ClassOfBoundedIndividual TemporalBoundingType
-temporalSequencingType = membershipOfTemporalSequencingType  ∘  aggregationOfTemporalBoundingTypeTemporalSequencingType
+temporalOrderingType : Linkage ClassOfBoundedIndividual TemporalBoundingType
+temporalOrderingType = membershipOfTemporalOrderingType  ∘  aggregationOfTemporalBoundingTypeTemporalOrderingType
 
-{- Aggregate Qualification: 
-An Aggregate Qualification is a Qualifying Property that is refied as an Unbounded Member of a Class of Bounded Individual.Example:. The enforcement of a rule in a process (Rule Enforcement) is a refied Qualifying Property.
--}
--- Aggregate Member : Aggregate Qualification
-AggregateQualification : ClassOfClassOfIndividual
-AggregateQualification = ClassOfIndividual
+postulate -- temporalOrderingType is subTypeOf orderingConnector
+  st-2557481f6758a91a-478a4a4468565425  : temporalOrderingType   ⊏⋆ᵣ  orderingConnector {lzero} {lzero}
 
--- Membership relation
-membershipOfAggregateQualification :  Linkage ClassOfBoundedIndividual AggregateQualification
-membershipOfAggregateQualification = membershipOfAggregateMember
-
--- Aggregation relation
-aggregationOfPropertyAggregateQualification :  Linkage AggregateQualification Property
-aggregationOfPropertyAggregateQualification = aggregationOfBuildingBlock
-
-{- aggregateQualification : derived relation obtained by composing
-   membershipOfAggregateQualification and aggregationOfPropertyAggregateQualification
-   It directly links an Class of Bounded Individual to the final aggregated Property
-   hiding the reifying AggregateQualification
--}
-aggregateQualification : Linkage ClassOfBoundedIndividual Property
-aggregateQualification = membershipOfAggregateQualification  ∘  aggregationOfPropertyAggregateQualification
 
 {- Aggregate Holonymy Type: 
 An Aggregate Holonymy Type is a reified flavor of Poly Class of Holonymy whereby the referenced Class of Individual is aggregated in its parent (whole) Class of Bounded Individual.Example:1) A Process Step is the reification of the composition of a child process in a parent process.2) 
@@ -106,11 +87,11 @@ AggregateHolonymyType = ClassOfIndividual
 
 -- Membership relation
 membershipOfAggregateHolonymyType :  Linkage ClassOfBoundedIndividual AggregateHolonymyType
-membershipOfAggregateHolonymyType = membershipOfAggregateMember
+membershipOfAggregateHolonymyType = make_upwardNestingRelation "aggregateHolonymyType membership" "nested aggregateHolonymyType"
 
 -- Aggregation relation
 aggregationOfClassOfBoundedIndividualAggregateHolonymyType :  Linkage AggregateHolonymyType ClassOfBoundedIndividual
-aggregationOfClassOfBoundedIndividualAggregateHolonymyType = aggregationOfBuildingBlock
+aggregationOfClassOfBoundedIndividualAggregateHolonymyType = make_Relation "ClassOfBoundedIndividual aggregation" "aggregated ClassOfBoundedIndividual"
 
 {- aggregateHolonymyType : derived relation obtained by composing
    membershipOfAggregateHolonymyType and aggregationOfClassOfBoundedIndividualAggregateHolonymyType
@@ -119,3 +100,34 @@ aggregationOfClassOfBoundedIndividualAggregateHolonymyType = aggregationOfBuildi
 -}
 aggregateHolonymyType : Linkage ClassOfBoundedIndividual ClassOfBoundedIndividual
 aggregateHolonymyType = membershipOfAggregateHolonymyType  ∘  aggregationOfClassOfBoundedIndividualAggregateHolonymyType
+
+postulate -- aggregateHolonymyType is subTypeOf boundedMember
+  st-c2f2c83b66ea4d78-0eb999956855e070  : aggregateHolonymyType   ⊏⋆ᵣ  boundedMember {lzero} {lzero}
+
+
+{- Aggregate Qualification: 
+An Aggregate Qualification is a Qualifying Property that is refied as an Unbounded Member of a Class of Bounded Individual.Example:. The enforcement of a rule in a process (Rule Enforcement) is a refied Qualifying Property.
+-}
+-- Aggregate Member : Aggregate Qualification
+AggregateQualification : ClassOfClassOfIndividual
+AggregateQualification = ClassOfIndividual
+
+-- Membership relation
+membershipOfAggregateQualification :  Linkage ClassOfBoundedIndividual AggregateQualification
+membershipOfAggregateQualification = make_upwardNestingRelation "aggregateQualification membership" "nested aggregateQualification"
+
+-- Aggregation relation
+aggregationOfPropertyAggregateQualification :  Linkage AggregateQualification Property
+aggregationOfPropertyAggregateQualification = make_Relation "Property aggregation" "aggregated Property"
+
+{- aggregateQualification : derived relation obtained by composing
+   membershipOfAggregateQualification and aggregationOfPropertyAggregateQualification
+   It directly links an Class of Bounded Individual to the final aggregated Property
+   hiding the reifying AggregateQualification
+-}
+aggregateQualification : Linkage ClassOfBoundedIndividual Property
+aggregateQualification = membershipOfAggregateQualification  ∘  aggregationOfPropertyAggregateQualification
+
+postulate -- aggregateQualification is subTypeOf unboundedMember
+  st-b83e30bc696f51e5-8cfaf71a6852b042  : aggregateQualification   ⊏⋆ᵣ  unboundedMember {lzero} {lzero}
+

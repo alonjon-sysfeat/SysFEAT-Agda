@@ -23,10 +23,15 @@ PropertyType : ThirdOrderClass
 PropertyType = ClassOfClassOfIndividual
 
 --  PropertyType is subTypeOf ClassOfClassOfIndividual
-st-87d3065d66e33a12 : PropertyType ⊏ₑ ClassOfClassOfIndividual
-st-87d3065d66e33a12 = polySubTypeOf-identity
+st-87d3062666e33965-608767a668de7fb6 : PropertyType ⊏ₑ ClassOfClassOfIndividual
+st-87d3062666e33965-608767a668de7fb6 = polySubTypeOf-identity
 
 -- == Relationships =======================
+
+{- Property Type Holonymy: -}
+propertyTypeHolonymy :  Linkage PropertyType PropertyType
+propertyTypeHolonymy = make_classOfHolonymy "Property Type Holonymy" "Property Type Holonymy"
+
 
 {- Specialized Property Type: -}
 specializedPropertyType :  Linkage PropertyType PropertyType
@@ -34,8 +39,3 @@ specializedPropertyType = make_subTypeOf "Property Type Specialization" "Special
 
 postulate -- specializedPropertyType is subTypeOf superClassOfClassOfIndividual
   st-12b01dee66e92b43-60876c6168de81be  : specializedPropertyType   ⊏⋆ᵣ  superClassOfClassOfIndividual 
-
-{- Property Type Holonymy: -}
-propertyTypeHolonymy :  Linkage PropertyType PropertyType
-propertyTypeHolonymy = make_classOfHolonymy "Property Type Holonymy" "Property Type Holonymy"
-

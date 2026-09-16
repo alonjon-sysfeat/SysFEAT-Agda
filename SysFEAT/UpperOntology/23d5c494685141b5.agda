@@ -25,12 +25,12 @@ BlockLexicalScope : ∀ (u : Level) → ClassOfMixedOrderEntity u
 BlockLexicalScope u = MixedOrderEntity u
 
 --  BlockLexicalScope is subTypeOf BlockCollection
-st-23d5c499685141df : ∀ {u v} → (BlockLexicalScope u) ⊏⋆ₑ (BlockCollection v)
-st-23d5c499685141df = trivialPolySubTypeOfEntity
+st-23d5c494685141b5-23d5aa4868513f43 : ∀ {u v} → (BlockLexicalScope u) ⊏⋆ₑ (BlockCollection v)
+st-23d5c494685141b5-23d5aa4868513f43 = trivialPolySubTypeOfEntity
 
 --  BlockLexicalScope is subTypeOf LexicalScope
-st-a39aab30685e523f : ∀ {u v} → (BlockLexicalScope u) ⊏⋆ₑ (LexicalScope v)
-st-a39aab30685e523f = trivialPolySubTypeOfEntity
+st-23d5c494685141b5-a39aaa7f685e5118 : ∀ {u v} → (BlockLexicalScope u) ⊏⋆ₑ (LexicalScope v)
+st-23d5c494685141b5-a39aaa7f685e5118 = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================
 

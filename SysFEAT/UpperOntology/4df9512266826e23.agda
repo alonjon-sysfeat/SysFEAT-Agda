@@ -25,7 +25,7 @@ Individual : ClassOfIndividual
 Individual = FirstOrderEntity
 
 --  Individual is subTypeOf FirstOrderEntity
-st-edc112a668f55896 : Individual ⊏ₑ FirstOrderEntity
-st-edc112a668f55896 = polySubTypeOf-identity
+st-4df9512266826e23-5425a2df6aa225cf : Individual ⊏ₑ FirstOrderEntity
+st-4df9512266826e23-5425a2df6aa225cf = polySubTypeOf-identity
 
 -- == Relationships =======================

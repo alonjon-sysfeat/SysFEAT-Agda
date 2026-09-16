@@ -39,11 +39,13 @@ open import SysFEAT.UpperOntology.23d5a9ea68513ced public -- Building Block
 HomUpwardNesting : ∀ {u v} (scope : Entity u) (target : Entity v) → Set (lsuc (u ⊔ v))
 HomUpwardNesting {u}{v} scope target =
   Σ (Linkage {u}{v}{u ⊔ v} scope target) λ L_fwd →
-    (∀ (s : scope) → Linkage.localType L_fwd s) ⊗  -- 1. Subordination (Nesting constraint)
-    Σ (target → scope) λ parent →                  -- 2. Contextual backward projection
+    (∀ (s : scope) → Linkage.localType L_fwd s) ⊗                                       -- 1. Subordination (Nesting constraint)
+    Σ (target → scope) λ parent →                                                        -- 2. Contextual backward projection
       (∀ {s : scope} (e : Linkage.localType L_fwd s) → parent (Linkage.ref L_fwd e) ≡ s) -- 3. Round-trip integrity
 
-make_upwardNestingRelation : ∀ {u v} (label fwdRole : String) → Linkage (Entity u) (Entity v)
+--make_upwardNestingRelation : ∀ {u v} (label fwdRole : String) → Linkage (Entity u) (Entity v)
+
+make_upwardNestingRelation : ∀ {u v} (label fwdRole : String) → Linkage {lsuc u} {lsuc v} {lsuc (u ⊔ v)} (Entity u) (Entity v)
 make_upwardNestingRelation = make_Linkage HomUpwardNesting
 
 -- ============================================================
@@ -59,6 +61,10 @@ AggregateBlock u = MixedOrderEntity u
 -- AggregateBlock is subType of Building Block
 23d5c5d3685142ad  : ∀ {u v} →  (AggregateBlock u) ⊏⋆ₑ (BuildingBlock v)
 23d5c5d3685142ad  = trivialPolySubTypeOfEntity
+
+-- AggregateBlock is subType of LexicalScope
+e7cbf1226a965a70 : ∀ {u v} →  (AggregateBlock u) ⊏⋆ₑ (LexicalScope v)
+e7cbf1226a965a70 = trivialPolySubTypeOfEntity
 
 -- ====== Internal structure
 --
@@ -97,16 +103,17 @@ postulate -- aggregationOfBuildingBlock is subType of existentialDependency
    hiding the intermediate Aggregate Member.
    Agda inference mechanism properly chains levels (u -> v -> w)
 -}
-aggregateMember : ∀ {u v w} → Linkage (AggregateBlock u) (BuildingBlock w)
-aggregateMember {u} {v} {w} = membershipOfAggregateMember {u} {v} ∘ aggregationOfBuildingBlock {v} {w}
+aggregateMember : ∀ {u w} → Linkage (AggregateBlock u) (BuildingBlock w)
+--aggregateMember {u} {v} {w} = membershipOfAggregateMember {u} {v} ∘ aggregationOfBuildingBlock {v} {w}
+aggregateMember {u} {w} = membershipOfAggregateMember {u} {u ⊔ w} ∘ aggregationOfBuildingBlock {u ⊔ w} {w}
 
 postulate -- aggregateMember is subType of Relation
-  23d5e92968515409 : ∀ {u w} → (aggregateMember {u} {u} {w}) ⊏⋆ᵣ (Relation {u} {w})
+  23d5e92968515409 : ∀ {u w} → (aggregateMember {u} {w}) ⊏⋆ᵣ (Relation {u} {w})
 
 {- Local relation between members of an Aggregate
 -}
 memberRelation : ∀ {u v} → Linkage (AggregateMember u) (AggregateMember v)
-memberRelation {u} {v} = make_Relation "Local Relation" "Related Member"
+memberRelation {u} {v} = make_Relation "Member Relation" "Related Member"
 
 -- memberRelation is subType of Relation 
 st-23d5e92968515409 : ∀ {u v} → (memberRelation {u} {v}) ⊏⋆ᵣ (Relation {u} {v})
@@ -169,13 +176,13 @@ fb6616a46869b1bc {u} {v} =
    It directly links an AggregateBlock to the final BuildingBlock
    hiding the reifying BlockMember
 -}
-blockMember : ∀ {u v w} → Linkage (AggregateBlock u) (BuildingBlock w)
-blockMember {u} {v} {w} = membershipOfBlockMember {u} {v} ∘ blockMemberAggregation {v} {w}
+blockMember : ∀ {u w} → Linkage (AggregateBlock u) (BuildingBlock w)
+blockMember {u} {w} = membershipOfBlockMember {u} {u ⊔ w} ∘ blockMemberAggregation {u ⊔ w} {w}
 
 -- blockMember is subType of aggregateMember 
-blockMember-isSubTypeOf-aggregateMember : ∀ {u w} → (blockMember {u} {u} {w}) ⊏⋆ᵣ (aggregateMember {u} {u} {w})
+blockMember-isSubTypeOf-aggregateMember : ∀ {u w} → (blockMember {u} {w}) ⊏⋆ᵣ (aggregateMember {u} {w})
 blockMember-isSubTypeOf-aggregateMember {u} {w} =
-  polySubTypeOfRel-fromExtensionMap {subRel = (blockMember {u} {u} {w})} {superRel = (aggregateMember {u} {u} {w})} (λ w → w)
+  polySubTypeOfRel-fromExtensionMap {subRel = (blockMember {u} {w})} {superRel = (aggregateMember {u} {w})} (λ w → w)
 
 
 {- A Hierarchical Member is an Aggregate Member that is also a Block Lexical Scope for the Building Block it aggregates: 
@@ -196,7 +203,7 @@ postulate -- HierarchicalMember is subType of LexicalScope
   It represents membership in a strictly hierarchical (scoped) context.
 -}
 membershipOfHierarchicalMember : ∀ {u v} → Linkage (AggregateBlock u) (HierarchicalMember v)
-membershipOfHierarchicalMember = membershipOfAggregateMember
+membershipOfHierarchicalMember = make_upwardNestingRelation "Hierarchical Membership" "nested HierarchicalMember"
 
 -- hierarchicalMembership is subType of membershipOfAggregateMember  
 215daf8368b433e7 : ∀ {u v} → (membershipOfHierarchicalMember {u} {v}) ⊏⋆ᵣ (membershipOfAggregateMember {u} {v})
@@ -225,8 +232,8 @@ fb660df868699fa2 {u} {v} =
    via a Hierarchical Member. It composes hierarchical membership with
    hierarchical member aggregation, yielding a hierarchical (tree‑like) structure.
 -}
-hierarchicalMember : ∀ {u v w} → Linkage (AggregateBlock u) (BuildingBlock w)
-hierarchicalMember {u} {v} {w} = membershipOfHierarchicalMember {u} {v} ∘ hierarchicalMemberAggregation {v} {w}
+hierarchicalMember : ∀ {u w} → Linkage (AggregateBlock u) (BuildingBlock w)
+hierarchicalMember {u} {w} = membershipOfHierarchicalMember {u} {u ⊔ w} ∘ hierarchicalMemberAggregation {u ⊔ w} {w}
 
 postulate -- hierarchicalMember is subType of aggregateMember
-  hierarchicalMember-isSubTypeOf-aggregateMember : ∀ {u w} → (hierarchicalMember {u} {u} {w}) ⊏⋆ᵣ (aggregateMember {u} {u} {w})
+  hierarchicalMember-isSubTypeOf-aggregateMember : ∀ {u w} → (hierarchicalMember {u} {w}) ⊏⋆ᵣ (aggregateMember {u} {w})

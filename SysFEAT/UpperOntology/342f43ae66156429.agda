@@ -23,7 +23,7 @@ StateClass : ClassOfClassOfBoundedIndividual
 StateClass = ClassOfBoundedIndividual
 
 --  StateClass is subTypeOf ClassOfBoundedIndividual
-st-342f43c566156475 : StateClass ⊏ₑ ClassOfBoundedIndividual
-st-342f43c566156475 = polySubTypeOf-identity
+st-342f43ae66156429-3492c53e619642ed : StateClass ⊏ₑ ClassOfBoundedIndividual
+st-342f43ae66156429-3492c53e619642ed = polySubTypeOf-identity
 
 -- == Relationships =======================

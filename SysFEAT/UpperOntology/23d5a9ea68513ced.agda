@@ -26,7 +26,7 @@ BuildingBlock : ∀ (u : Level) → ClassOfMixedOrderEntity u
 BuildingBlock u = MixedOrderEntity u
 
 --  BuildingBlock is subTypeOf MixedOrderEntity
-st-6bf1a7126859cd3f : ∀ {u v} → (BuildingBlock u) ⊏⋆ₑ (MixedOrderEntity v)
-st-6bf1a7126859cd3f = trivialPolySubTypeOfEntity
+st-23d5a9ea68513ced-6ef572f868f1366f : ∀ {u v} → (BuildingBlock u) ⊏⋆ₑ (MixedOrderEntity v)
+st-23d5a9ea68513ced-6ef572f868f1366f = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================
