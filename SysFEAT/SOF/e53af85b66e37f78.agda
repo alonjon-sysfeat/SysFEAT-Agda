@@ -22,8 +22,8 @@ EnvironmentalPropertyType : ThirdOrderClass
 EnvironmentalPropertyType = SecondOrderClass
 
 --  EnvironmentalPropertyType is subTypeOf ConditionPropertyType
-st-e53af86866e37fa2 : EnvironmentalPropertyType ⊏ₑ ConditionPropertyType
-st-e53af86866e37fa2 = polySubTypeOf-identity
+st-e53af85b66e37f78-e53af71366e37de2 : EnvironmentalPropertyType ⊏ₑ ConditionPropertyType
+st-e53af85b66e37f78-e53af71366e37de2 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

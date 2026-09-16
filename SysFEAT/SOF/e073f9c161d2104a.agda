@@ -25,8 +25,8 @@ Resolution : ClassOfBoundedIndividual
 Resolution = BoundedIndividual
 
 --  Resolution is subTypeOf Appraisal
-st-e073f9f261d210ca : Resolution ⊏ₑ Appraisal
-st-e073f9f261d210ca = polySubTypeOf-identity
+st-e073f9c161d2104a-bcdbc016617a55be : Resolution ⊏ₑ Appraisal
+st-e073f9c161d2104a-bcdbc016617a55be = polySubTypeOf-identity
 
 -- == Relationships =======================
 
