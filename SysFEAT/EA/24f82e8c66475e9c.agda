@@ -5,6 +5,9 @@
 
 Application Management Initiative: 
 An Asset Management Initiative is a Management Initiative aimed at developing and maintaining in operational conditions a set of Resource Operating Assets delivering functionalities required by Business Operations.
+
+Documentation : https://framework.sysfeat.com/pages/24f82e8c66475e9c.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,12 +22,12 @@ ApplicationManagementInitiative : ClassOfBoundedIndividual
 ApplicationManagementInitiative = BoundedIndividual
 
 --  ApplicationManagementInitiative is subTypeOf AssetManagementInitiative
-st-24f82ebc66475f13 : ApplicationManagementInitiative ⊏ₑ AssetManagementInitiative
-st-24f82ebc66475f13 = polySubTypeOf-identity
+st-24f82e8c66475e9c-05201bc866475765 : ApplicationManagementInitiative ⊏ₑ AssetManagementInitiative
+st-24f82e8c66475e9c-05201bc866475765 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Functional Scope: -}
 functionalScope :  Linkage ApplicationManagementInitiative FunctionalityMap
-functionalScope = make_instanceOf "Functional Scope" "functionalScope"
+functionalScope = make_instanceOf "Functional Scope" "Functional Scope"
 

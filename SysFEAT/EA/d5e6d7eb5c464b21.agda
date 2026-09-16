@@ -5,6 +5,11 @@
 
 Deployable Application Package: 
 A Deployable Application Package  is a split of application code according to deployment criteria at runtime. For example, it may be Front End/Back End or GUI/Business Logic etc.. Each Deployable Application Package is associated to required Software Technology(ies) (for running) and can host code of several Application Component. Architects can also prescribe a kind of hosting artefact (IaaS/PaaS cloud service or IT server model).
+
+Documentation : https://framework.sysfeat.com/pages/d5e6d7eb5c464b21.htm
+
+External references:
+  C4 Model - Level 2 - Container Diagram: https://c4model.com/#ContainerDiagram
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,8 +25,8 @@ DeployableApplicationPackage : ClassOfClassOfBoundedIndividual
 DeployableApplicationPackage = ClassOfBoundedIndividual
 
 --  DeployableApplicationPackage is subTypeOf DeployablePackage
-st-d5e6d8265c464b71 : DeployableApplicationPackage ⊏ₑ DeployablePackage
-st-d5e6d8265c464b71 = polySubTypeOf-identity
+st-d5e6d7eb5c464b21-4c7883cd5fca4d5b : DeployableApplicationPackage ⊏ₑ DeployablePackage
+st-d5e6d7eb5c464b21-4c7883cd5fca4d5b = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -34,11 +39,11 @@ PackagedITService = ClassOfIndividual
 
 -- Membership relation
 membershipOfPackagedITService :  Linkage DeployableApplicationPackage PackagedITService
-membershipOfPackagedITService = membershipOfAggregateMember
+membershipOfPackagedITService = make_upwardNestingRelation "packagedITService membership" "nested packagedITService"
 
 -- Aggregation relation
 aggregationOfApplicationComponentPackagedITService :  Linkage PackagedITService ApplicationComponent
-aggregationOfApplicationComponentPackagedITService = aggregationOfBuildingBlock
+aggregationOfApplicationComponentPackagedITService = make_Relation "ApplicationComponent aggregation" "aggregated ApplicationComponent"
 
 {- packagedITService : derived relation obtained by composing
    membershipOfPackagedITService and aggregationOfApplicationComponentPackagedITService
@@ -48,6 +53,8 @@ aggregationOfApplicationComponentPackagedITService = aggregationOfBuildingBlock
 packagedITService : Linkage DeployableApplicationPackage ApplicationComponent
 packagedITService = membershipOfPackagedITService  ∘  aggregationOfApplicationComponentPackagedITService
 
+
+
 {- Member Package: -}
 -- Aggregate Member : Member Package
 MemberPackage : ClassOfClassOfIndividual
@@ -55,11 +62,11 @@ MemberPackage = ClassOfIndividual
 
 -- Membership relation
 membershipOfMemberPackage :  Linkage DeployableApplicationPackage MemberPackage
-membershipOfMemberPackage = membershipOfAggregateMember
+membershipOfMemberPackage = make_upwardNestingRelation "memberPackage membership" "nested memberPackage"
 
 -- Aggregation relation
 aggregationOfDeployableApplicationPackageMemberPackage :  Linkage MemberPackage DeployableApplicationPackage
-aggregationOfDeployableApplicationPackageMemberPackage = aggregationOfBuildingBlock
+aggregationOfDeployableApplicationPackageMemberPackage = make_Relation "DeployableApplicationPackage aggregation" "aggregated DeployableApplicationPackage"
 
 {- memberPackage : derived relation obtained by composing
    membershipOfMemberPackage and aggregationOfDeployableApplicationPackageMemberPackage
@@ -69,6 +76,10 @@ aggregationOfDeployableApplicationPackageMemberPackage = aggregationOfBuildingBl
 memberPackage : Linkage DeployableApplicationPackage DeployableApplicationPackage
 memberPackage = membershipOfMemberPackage  ∘  aggregationOfDeployableApplicationPackageMemberPackage
 
+postulate -- memberPackage is subTypeOf deployableSOftwareMember
+  st-624e72a25ed98474-624e6cab5ed977a2  : memberPackage   ⊏⋆ᵣ  deployableSOftwareMember 
+
+
 {- Physical Domain Member: -}
 -- Aggregate Member : Physical Domain Member
 PhysicalDomainMember : ClassOfClassOfIndividual
@@ -76,11 +87,11 @@ PhysicalDomainMember = ClassOfIndividual
 
 -- Membership relation
 membershipOfPhysicalDomainMember :  Linkage DeployableApplicationPackage PhysicalDomainMember
-membershipOfPhysicalDomainMember = membershipOfAggregateMember
+membershipOfPhysicalDomainMember = make_upwardNestingRelation "physicalDomainMember membership" "nested physicalDomainMember"
 
 -- Aggregation relation
 aggregationOfDeployableDataPackagePhysicalDomainMember :  Linkage PhysicalDomainMember DeployableDataPackage
-aggregationOfDeployableDataPackagePhysicalDomainMember = aggregationOfBuildingBlock
+aggregationOfDeployableDataPackagePhysicalDomainMember = make_Relation "DeployableDataPackage aggregation" "aggregated DeployableDataPackage"
 
 {- physicalDomainMember : derived relation obtained by composing
    membershipOfPhysicalDomainMember and aggregationOfDeployableDataPackagePhysicalDomainMember
@@ -89,3 +100,7 @@ aggregationOfDeployableDataPackagePhysicalDomainMember = aggregationOfBuildingBl
 -}
 physicalDomainMember : Linkage DeployableApplicationPackage DeployableDataPackage
 physicalDomainMember = membershipOfPhysicalDomainMember  ∘  aggregationOfDeployableDataPackagePhysicalDomainMember
+
+postulate -- physicalDomainMember is subTypeOf deployableSOftwareMember
+  st-4c7884f65fca4ed4-624e6cab5ed977a2  : physicalDomainMember   ⊏⋆ᵣ  deployableSOftwareMember 
+

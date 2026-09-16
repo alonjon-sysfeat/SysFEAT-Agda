@@ -5,6 +5,13 @@
 
 Concept Property: 
 A Concept Property is an immutable factual characteristic of a Conceptual Entity.Example: names, amounts, etc.
+
+Documentation : https://framework.sysfeat.com/pages/190c2cd368965534.htm
+
+External references:
+  DDD - Glossary - Value Object: https://www.dddcommunity.org/resources/ddd_terms?valueobject
+  Martin Fowler - Value Object: https://martinfowler.com/bliki/ValueObject.html
+  OMG - UAF - OperationalInformation: https://www.omg.org/spec/UAF/1.2/Beta1/DMM/PDF#OperationalInformation
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,18 +26,18 @@ ConceptProperty : PropertyType
 ConceptProperty = ClassOfProperty
 
 --  ConceptProperty is subTypeOf ConceptualEntityAsset
-st-4150caa95ecc5340 : ConceptProperty ⊏ₑ ConceptualEntityAsset
-st-4150caa95ecc5340 = polySubTypeOf-identity
+st-190c2cd368965534-362fc8045b3c3e65 : ConceptProperty ⊏ₑ ConceptualEntityAsset
+st-190c2cd368965534-362fc8045b3c3e65 = polySubTypeOf-identity
 
 --  ConceptProperty is subTypeOf InformationProperty
-st-e7e3f7425fbb08ce : ConceptProperty ⊏ₑ InformationProperty
-st-e7e3f7425fbb08ce = polySubTypeOf-identity
+st-190c2cd368965534-c189d5f068ae4d75 : ConceptProperty ⊏ₑ InformationProperty
+st-190c2cd368965534-c189d5f068ae4d75 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Specialized Concept Property: -}
 specializedConceptProperty :  Linkage ConceptProperty ConceptProperty
-specializedConceptProperty = make_subTypeOf "Specialized Concept Property" "specializedConceptProperty"
+specializedConceptProperty = make_subTypeOf "Specialized Concept Property" "Specialized Concept Property"
 
 postulate -- specializedConceptProperty is subTypeOf specializedInformationProperty
   st-d267030868b2576d-c189dcc568ae56ac  : specializedConceptProperty   ⊏⋆ᵣ  specializedInformationProperty 

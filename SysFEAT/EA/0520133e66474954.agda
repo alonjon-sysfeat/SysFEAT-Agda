@@ -5,6 +5,9 @@
 
 Asset Portfolio Stage: 
 An Asset Portfolio Stage is a past, current or future state of an Asset Portfolio.Each Asset Portfolio represents an initiative comprising a purposeful set of activities whose primary purpose is focused on achieving a set of clearly defined objectives assigned to assets managed in the Asset Portfolio. It may transcend organisational boundaries and consequently require integrated team working under the direction of a Management Team.
+
+Documentation : https://framework.sysfeat.com/pages/0520133e66474954.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -21,12 +24,12 @@ AssetPortfolioStage = StateConcept
 
 
 --  AssetPortfolioStage is subTypeOf ManagementStage
-st-0520135d664749b7 : AssetPortfolioStage ⊏ₑ ManagementStage
-st-0520135d664749b7 = polySubTypeOf-identity
+st-0520133e66474954-05200e1c66474509 : AssetPortfolioStage ⊏ₑ ManagementStage
+st-0520133e66474954-05200e1c66474509 = polySubTypeOf-identity
 
 --  AssetPortfolioStage is subTypeOf AssetManagementInitiative
-st-0520132c66474953 : AssetPortfolioStage ⊏ₑ AssetManagementInitiative
-st-0520132c66474953 = polySubTypeOf-identity
+st-0520133e66474954-05201bc866475765 : AssetPortfolioStage ⊏ₑ AssetManagementInitiative
+st-0520133e66474954-05201bc866475765 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -37,11 +40,11 @@ ExhibitedResourceCapability = ClassOfIndividual
 
 -- Membership relation
 membershipOfExhibitedResourceCapability :  Linkage AssetPortfolioStage ExhibitedResourceCapability
-membershipOfExhibitedResourceCapability = membershipOfAggregateMember
+membershipOfExhibitedResourceCapability = make_upwardNestingRelation "exhibitedResourceCapability membership" "nested exhibitedResourceCapability"
 
 -- Aggregation relation
 aggregationOfResourceCapabilityExhibitedResourceCapability :  Linkage ExhibitedResourceCapability ResourceCapability
-aggregationOfResourceCapabilityExhibitedResourceCapability = aggregationOfBuildingBlock
+aggregationOfResourceCapabilityExhibitedResourceCapability = make_Relation "ResourceCapability aggregation" "aggregated ResourceCapability"
 
 {- exhibitedResourceCapability : derived relation obtained by composing
    membershipOfExhibitedResourceCapability and aggregationOfResourceCapabilityExhibitedResourceCapability
@@ -50,3 +53,5 @@ aggregationOfResourceCapabilityExhibitedResourceCapability = aggregationOfBuildi
 -}
 exhibitedResourceCapability : Linkage AssetPortfolioStage ResourceCapability
 exhibitedResourceCapability = membershipOfExhibitedResourceCapability  ∘  aggregationOfResourceCapabilityExhibitedResourceCapability
+
+

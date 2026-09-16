@@ -5,6 +5,9 @@
 
 Transfer Safe Guard: 
 Transfer safeguards are measures taken to ensure the legitimacy of data flows.
+
+Documentation : https://framework.sysfeat.com/pages/258c68065fd254de.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ TransferSafeGuard : ClassOfClassOfBoundedIndividual
 TransferSafeGuard = ClassOfBoundedIndividual
 
 --  TransferSafeGuard is subTypeOf PrivacyBlock
-st-36421473600809ff : TransferSafeGuard ⊏⋆ₑ PrivacyBlock
-st-36421473600809ff = polySubTypeOf-identity
+st-258c68065fd254de-7d3786425fd04ea2 : TransferSafeGuard ⊏⋆ₑ PrivacyBlock
+st-258c68065fd254de-7d3786425fd04ea2 = polySubTypeOf-identity
 
 

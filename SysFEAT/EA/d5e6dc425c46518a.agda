@@ -5,6 +5,11 @@
 
 Deployable Data Package: 
 A Deployable Data Package  represents a data part of an Application that must be hosted and accessed by application services (code) to run. Each Deployable Data Package is associated to Required Software Technologys (for data hosting and access) and can host several data structures. Architect can also prescribes a kind of hosting artefact (IaaS/PaaS cloud service or IT server model).
+
+Documentation : https://framework.sysfeat.com/pages/d5e6dc425c46518a.htm
+
+External references:
+  C4 Model - Level 2 - Container Diagram: https://c4model.com/#ContainerDiagram
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,8 +24,8 @@ DeployableDataPackage : ClassOfClassOfBoundedIndividual
 DeployableDataPackage = ClassOfBoundedIndividual
 
 --  DeployableDataPackage is subTypeOf DeployablePackage
-st-d5e6dcee5c4651f5 : DeployableDataPackage ⊏ₑ DeployablePackage
-st-d5e6dcee5c4651f5 = polySubTypeOf-identity
+st-d5e6dc425c46518a-4c7883cd5fca4d5b : DeployableDataPackage ⊏ₑ DeployablePackage
+st-d5e6dc425c46518a-4c7883cd5fca4d5b = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -33,11 +38,11 @@ TechnicalDataStore = ClassOfIndividual
 
 -- Membership relation
 membershipOfTechnicalDataStore :  Linkage DeployableDataPackage TechnicalDataStore
-membershipOfTechnicalDataStore = membershipOfAggregateMember
+membershipOfTechnicalDataStore = make_upwardNestingRelation "technicalDataStore membership" "nested technicalDataStore"
 
 -- Aggregation relation
 aggregationOfPhysicalDataDomainTechnicalDataStore :  Linkage TechnicalDataStore PhysicalDataDomain
-aggregationOfPhysicalDataDomainTechnicalDataStore = aggregationOfBuildingBlock
+aggregationOfPhysicalDataDomainTechnicalDataStore = make_Relation "PhysicalDataDomain aggregation" "aggregated PhysicalDataDomain"
 
 {- technicalDataStore : derived relation obtained by composing
    membershipOfTechnicalDataStore and aggregationOfPhysicalDataDomainTechnicalDataStore
@@ -46,3 +51,5 @@ aggregationOfPhysicalDataDomainTechnicalDataStore = aggregationOfBuildingBlock
 -}
 technicalDataStore : Linkage DeployableDataPackage PhysicalDataDomain
 technicalDataStore = membershipOfTechnicalDataStore  ∘  aggregationOfPhysicalDataDomainTechnicalDataStore
+
+

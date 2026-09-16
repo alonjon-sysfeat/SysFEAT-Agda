@@ -5,6 +5,9 @@
 
 Individual Facility: 
 An Individual Facility is an Individual System of Resources used to model factories, buildings, or outdoor constructions that provides a particular Business Capability or is used for a particular industry.Examples: - London Data Center- Frankfurt Factory- Milan Outlet
+
+Documentation : https://framework.sysfeat.com/pages/c80a413e678594ec.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,14 +22,14 @@ IndividualFacility : ClassOfBoundedIndividual
 IndividualFacility = BoundedIndividual
 
 --  IndividualFacility is subTypeOf IndividualSystemOfResources
-st-c80a414867859534 : IndividualFacility ⊏ₑ IndividualSystemOfResources
-st-c80a414867859534 = polySubTypeOf-identity
+st-c80a413e678594ec-c80a41b7678595bb : IndividualFacility ⊏ₑ IndividualSystemOfResources
+st-c80a413e678594ec-c80a41b7678595bb = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Facility Type: -}
 facilityType :  Linkage IndividualFacility Facility
-facilityType = make_instanceOf "Facility Type" "facilityType"
+facilityType = make_instanceOf "Facility Type" "Facility Type"
 
 postulate -- facilityType is subTypeOf systemOfResourceType
   st-c80a415e67859561-c80a436c67859774  : facilityType   ⊏⋆ᵣ  systemOfResourceType 

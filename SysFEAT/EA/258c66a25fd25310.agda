@@ -5,6 +5,9 @@
 
 Person Right: 
 Rights are legal, social or ethical principals of freedom that people are entitled for by a governing body.
+
+Documentation : https://framework.sysfeat.com/pages/258c66a25fd25310.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ PersonRight : ClassOfClassOfBoundedIndividual
 PersonRight = ClassOfBoundedIndividual
 
 --  PersonRight is subTypeOf Directive
-st-258c67ab5fd2544f : PersonRight ⊏ₑ Directive
-st-258c67ab5fd2544f = polySubTypeOf-identity
+st-258c66a25fd25310-515c6b23689335c3 : PersonRight ⊏ₑ Directive
+st-258c66a25fd25310-515c6b23689335c3 = polySubTypeOf-identity
 
 -- == Relationships =======================

@@ -1,10 +1,13 @@
 ﻿{- ============================== 
-   Copyright (c) 2026 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
+   Copyright (c) 2023 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
    This work is released under the MIT License.
    framework.sysfeat.com
 
 EA Pattern - Physical Data Domain: 
 The EA Pattern - Physical Data Domain comprises abstract concepts used to describe the physical structure of Data Assets.
+
+Documentation : https://framework.sysfeat.com/pages/75ef50ab620fb787.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

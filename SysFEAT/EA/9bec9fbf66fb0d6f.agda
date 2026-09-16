@@ -5,6 +5,9 @@
 
 Resource Functional Asset: 
 Resource Functional Assets are Functional Assets that define how Business Outcome Events are specified, produced and consumed.
+
+Documentation : https://framework.sysfeat.com/pages/9bec9fbf66fb0d6f.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,11 +22,11 @@ ResourceFunctionalAsset : ClassOfClassOfBoundedIndividual
 ResourceFunctionalAsset = ClassOfBoundedIndividual
 
 --  ResourceFunctionalAsset is subTypeOf FunctionalAsset
-st-9bec9fea66fb0dd1 : ResourceFunctionalAsset ⊏ₑ FunctionalAsset
-st-9bec9fea66fb0dd1 = polySubTypeOf-identity
+st-9bec9fbf66fb0d6f-a44fb6bc6748b088 : ResourceFunctionalAsset ⊏ₑ FunctionalAsset
+st-9bec9fbf66fb0d6f-a44fb6bc6748b088 = polySubTypeOf-identity
 
 --  ResourceFunctionalAsset is subTypeOf ResourceAsset
-st-d9f4dd34688d5a40 : ResourceFunctionalAsset ⊏ₑ ResourceAsset
-st-d9f4dd34688d5a40 = polySubTypeOf-identity
+st-9bec9fbf66fb0d6f-d9f4dcc5688d5969 : ResourceFunctionalAsset ⊏ₑ ResourceAsset
+st-9bec9fbf66fb0d6f-d9f4dcc5688d5969 = polySubTypeOf-identity
 
 -- == Relationships =======================

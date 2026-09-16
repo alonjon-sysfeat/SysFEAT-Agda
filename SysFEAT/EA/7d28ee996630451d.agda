@@ -5,6 +5,9 @@
 
 Enterprise Stage: 
 An Enterprise Stage is a past, current or future state of the Enterprise. Each stage represents an initiative comprising a purposeful set of activities whose primary purpose is focused on achieving a set of clearly defined objectives that may transcend organisational boundaries and consequently require integrated team working under the direction of an Architecture Governance Committee.
+
+Documentation : https://framework.sysfeat.com/pages/7d28ee996630451d.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -22,12 +25,12 @@ EnterpriseStage = StateConcept
 
 
 --  EnterpriseStage is subTypeOf InitiativeStage
-st-dd269a6968a1daac : EnterpriseStage ⊏ₑ InitiativeStage
-st-dd269a6968a1daac = polySubTypeOf-identity
+st-7d28ee996630451d-e78c5eb0661989f9 : EnterpriseStage ⊏ₑ InitiativeStage
+st-7d28ee996630451d-e78c5eb0661989f9 = polySubTypeOf-identity
 
 --  EnterpriseStage is subTypeOf EnterpriseInitiative
-st-7d28ee6666304516 : EnterpriseStage ⊏ₑ EnterpriseInitiative
-st-7d28ee6666304516 = polySubTypeOf-identity
+st-7d28ee996630451d-036a3de3548f229e : EnterpriseStage ⊏ₑ EnterpriseInitiative
+st-7d28ee996630451d-036a3de3548f229e = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -41,11 +44,11 @@ Tactic = AggregateMember (lsuc(lzero))
 
 -- Membership relation
 membershipOfTactic :  Linkage EnterpriseStage Tactic
-membershipOfTactic = membershipOfAggregateMember
+membershipOfTactic = make_upwardNestingRelation "tactic membership" "nested tactic"
 
 -- Aggregation relation
 aggregationOfIndividualResourceBehaviorTactic :  Linkage Tactic IndividualResourceBehavior
-aggregationOfIndividualResourceBehaviorTactic = aggregationOfBuildingBlock
+aggregationOfIndividualResourceBehaviorTactic = make_Relation "IndividualResourceBehavior aggregation" "aggregated IndividualResourceBehavior"
 
 {- tactic : derived relation obtained by composing
    membershipOfTactic and aggregationOfIndividualResourceBehaviorTactic
@@ -54,6 +57,10 @@ aggregationOfIndividualResourceBehaviorTactic = aggregationOfBuildingBlock
 -}
 tactic : Linkage EnterpriseStage IndividualResourceBehavior
 tactic = membershipOfTactic  ∘  aggregationOfIndividualResourceBehaviorTactic
+
+postulate -- tactic is subTypeOf enterpriseCourseOfAction
+  st-dd26e12e68a0a1a9-dd2696c768a1d406  : tactic   ⊏⋆ᵣ  enterpriseCourseOfAction 
+
 
 {- Enterprise Objective: 
 Business Capability that is exhibited by an Enterprise Stage with quantified measure (KPI) and potential geopolitical scope (Site) for a defined market segment (Business Partner).An Enterprise Objective is a quantifiable end that a company/organization wants to achieve for a given Enterprise Initiative.An Enterprise Objective may support an Enterprise Goal; it may be refined into sub-objectives.An Enterprise Objective may concern a defined Exhibited Capability and be addressed by a defined Tactic.
@@ -64,11 +71,11 @@ EnterpriseObjective = ClassOfIndividual
 
 -- Membership relation
 membershipOfEnterpriseObjective :  Linkage EnterpriseStage EnterpriseObjective
-membershipOfEnterpriseObjective = membershipOfAggregateMember
+membershipOfEnterpriseObjective = make_upwardNestingRelation "enterpriseObjective membership" "nested enterpriseObjective"
 
 -- Aggregation relation
 aggregationOfValuePropositionEnterpriseObjective :  Linkage EnterpriseObjective ValueProposition
-aggregationOfValuePropositionEnterpriseObjective = aggregationOfBuildingBlock
+aggregationOfValuePropositionEnterpriseObjective = make_Relation "ValueProposition aggregation" "aggregated ValueProposition"
 
 {- enterpriseObjective : derived relation obtained by composing
    membershipOfEnterpriseObjective and aggregationOfValuePropositionEnterpriseObjective
@@ -77,3 +84,7 @@ aggregationOfValuePropositionEnterpriseObjective = aggregationOfBuildingBlock
 -}
 enterpriseObjective : Linkage EnterpriseStage ValueProposition
 enterpriseObjective = membershipOfEnterpriseObjective  ∘  aggregationOfValuePropositionEnterpriseObjective
+
+postulate -- enterpriseObjective is subTypeOf stageObjective
+  st-dd26941068a08da2-a56ba723689c4c95  : enterpriseObjective   ⊏⋆ᵣ  stageObjective 
+

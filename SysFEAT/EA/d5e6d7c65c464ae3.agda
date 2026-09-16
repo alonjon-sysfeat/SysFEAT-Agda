@@ -5,6 +5,9 @@
 
 Application Deployment Architecture: 
 An Application Deployment Architecture describes one possible deployment configuration of an Application. It contains Deployable Packages to host, prescribed type of hosting and required Software Physical Channels (with communication protocols, port numbers...) to communicate with each other.
+
+Documentation : https://framework.sysfeat.com/pages/d5e6d7c65c464ae3.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -23,12 +26,12 @@ ApplicationDeploymentArchitecture : ClassOfClassOfBoundedIndividual
 ApplicationDeploymentArchitecture = ClassOfBoundedIndividual
 
 --  ApplicationDeploymentArchitecture is subTypeOf SOftwareDeploymentArchitecture
-st-d5e6d8215c464b5f : ApplicationDeploymentArchitecture ⊏ₑ SOftwareDeploymentArchitecture
-st-d5e6d8215c464b5f = polySubTypeOf-identity
+st-d5e6d7c65c464ae3-10844c325fce4e80 : ApplicationDeploymentArchitecture ⊏ₑ SOftwareDeploymentArchitecture
+st-d5e6d7c65c464ae3-10844c325fce4e80 = polySubTypeOf-identity
 
 --  ApplicationDeploymentArchitecture is subTypeOf Application
-st-070b080264011520 : ApplicationDeploymentArchitecture ⊏ₑ Application
-st-070b080264011520 = polySubTypeOf-identity
+st-d5e6d7c65c464ae3-bcebd8e9549144db : ApplicationDeploymentArchitecture ⊏ₑ Application
+st-d5e6d7c65c464ae3-bcebd8e9549144db = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -39,11 +42,11 @@ DataPart = ClassOfIndividual
 
 -- Membership relation
 membershipOfDataPart :  Linkage ApplicationDeploymentArchitecture DataPart
-membershipOfDataPart = membershipOfAggregateMember
+membershipOfDataPart = make_upwardNestingRelation "dataPart membership" "nested dataPart"
 
 -- Aggregation relation
 aggregationOfDeployableDataPackageDataPart :  Linkage DataPart DeployableDataPackage
-aggregationOfDeployableDataPackageDataPart = aggregationOfBuildingBlock
+aggregationOfDeployableDataPackageDataPart = make_Relation "DeployableDataPackage aggregation" "aggregated DeployableDataPackage"
 
 {- dataPart : derived relation obtained by composing
    membershipOfDataPart and aggregationOfDeployableDataPackageDataPart
@@ -52,6 +55,10 @@ aggregationOfDeployableDataPackageDataPart = aggregationOfBuildingBlock
 -}
 dataPart : Linkage ApplicationDeploymentArchitecture DeployableDataPackage
 dataPart = membershipOfDataPart  ∘  aggregationOfDeployableDataPackageDataPart
+
+postulate -- dataPart is subTypeOf packageMember
+  st-4c7802355fceb073-c993ce46602b668a  : dataPart   ⊏⋆ᵣ  packageMember 
+
 
 {- Micro Service Part: 
 Role of a MicroService in an Application Deployment Architecture.
@@ -62,11 +69,11 @@ MicroServicePart = ClassOfIndividual
 
 -- Membership relation
 membershipOfMicroServicePart :  Linkage ApplicationDeploymentArchitecture MicroServicePart
-membershipOfMicroServicePart = membershipOfAggregateMember
+membershipOfMicroServicePart = make_upwardNestingRelation "microServicePart membership" "nested microServicePart"
 
 -- Aggregation relation
 aggregationOfMicroServiceMicroServicePart :  Linkage MicroServicePart MicroService
-aggregationOfMicroServiceMicroServicePart = aggregationOfBuildingBlock
+aggregationOfMicroServiceMicroServicePart = make_Relation "MicroService aggregation" "aggregated MicroService"
 
 {- microServicePart : derived relation obtained by composing
    membershipOfMicroServicePart and aggregationOfMicroServiceMicroServicePart
@@ -75,6 +82,10 @@ aggregationOfMicroServiceMicroServicePart = aggregationOfBuildingBlock
 -}
 microServicePart : Linkage ApplicationDeploymentArchitecture MicroService
 microServicePart = membershipOfMicroServicePart  ∘  aggregationOfMicroServiceMicroServicePart
+
+postulate -- microServicePart is subTypeOf packageMember
+  st-cd7a3e5c5ff3d634-c993ce46602b668a  : microServicePart   ⊏⋆ᵣ  packageMember 
+
 
 {- Application Part: 
 Role of a Deployable Application Package is an Application Deployment Architecture.
@@ -85,11 +96,11 @@ ApplicationPart = ClassOfIndividual
 
 -- Membership relation
 membershipOfApplicationPart :  Linkage ApplicationDeploymentArchitecture ApplicationPart
-membershipOfApplicationPart = membershipOfAggregateMember
+membershipOfApplicationPart = make_upwardNestingRelation "applicationPart membership" "nested applicationPart"
 
 -- Aggregation relation
 aggregationOfDeployableApplicationPackageApplicationPart :  Linkage ApplicationPart DeployableApplicationPackage
-aggregationOfDeployableApplicationPackageApplicationPart = aggregationOfBuildingBlock
+aggregationOfDeployableApplicationPackageApplicationPart = make_Relation "DeployableApplicationPackage aggregation" "aggregated DeployableApplicationPackage"
 
 {- applicationPart : derived relation obtained by composing
    membershipOfApplicationPart and aggregationOfDeployableApplicationPackageApplicationPart
@@ -99,6 +110,10 @@ aggregationOfDeployableApplicationPackageApplicationPart = aggregationOfBuilding
 applicationPart : Linkage ApplicationDeploymentArchitecture DeployableApplicationPackage
 applicationPart = membershipOfApplicationPart  ∘  aggregationOfDeployableApplicationPackageApplicationPart
 
+postulate -- applicationPart is subTypeOf packageMember
+  st-624e6a1a5ed97133-c993ce46602b668a  : applicationPart   ⊏⋆ᵣ  packageMember 
+
+
 {- Required Computing Capability: -}
 -- Aggregate Member : Required Computing Capability
 RequiredComputingCapability : ClassOfClassOfIndividual
@@ -106,11 +121,11 @@ RequiredComputingCapability = ClassOfIndividual
 
 -- Membership relation
 1B046A4C69F8602C :  Linkage ApplicationDeploymentArchitecture RequiredComputingCapability
-1B046A4C69F8602C = membershipOfAggregateMember
+1B046A4C69F8602C = make_upwardNestingRelation "requiredComputingCapability membership" "nested requiredComputingCapability"
 
 -- Aggregation relation
 aggregationOfComputingSystemRequiredComputingCapability :  Linkage RequiredComputingCapability ComputingSystem
-aggregationOfComputingSystemRequiredComputingCapability = aggregationOfBuildingBlock
+aggregationOfComputingSystemRequiredComputingCapability = make_Relation "ComputingSystem aggregation" "aggregated ComputingSystem"
 
 {- requiredComputingCapability : derived relation obtained by composing
    1B046A4C69F8602C and aggregationOfComputingSystemRequiredComputingCapability
@@ -119,3 +134,5 @@ aggregationOfComputingSystemRequiredComputingCapability = aggregationOfBuildingB
 -}
 requiredComputingCapability : Linkage ApplicationDeploymentArchitecture ComputingSystem
 requiredComputingCapability = 1B046A4C69F8602C  ∘  aggregationOfComputingSystemRequiredComputingCapability
+
+

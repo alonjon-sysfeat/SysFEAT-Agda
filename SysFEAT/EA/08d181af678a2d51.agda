@@ -5,6 +5,12 @@
 
 Customer: 
 A Customer is a Business Partner who orders and/or uses Products (goods or services) produced by enterprises.A Customer is part of an ecosystem and has the ability to choose between different Products.
+
+Documentation : https://framework.sysfeat.com/pages/08d181af678a2d51.htm
+
+External references:
+  MBN - Customer: https://marketbusinessnews.com/financial-glossary/customer-definition-meaning/#:~:text=A%20customer%20is%20a%20person,what%20they%20have%20on%20sale.
+  OpenGroup - ArchiMate - Business-Actor: https://pubs.opengroup.org/architecture/archimate32-doc/ch-Business-Layer.html#sec-Business-Actor
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,12 +26,12 @@ Customer : ClassOfClassOfBoundedIndividual
 Customer = ClassOfBoundedIndividual
 
 --  Customer is subTypeOf BusinessPartner
-st-81f38853678b4159 : Customer ⊏ₑ BusinessPartner
-st-81f38853678b4159 = polySubTypeOf-identity
+st-08d181af678a2d51-08d17cde678a2b47 : Customer ⊏ₑ BusinessPartner
+st-08d181af678a2d51-08d17cde678a2b47 = polySubTypeOf-identity
 
 --  Customer is subTypeOf BusinessAgentType
-st-bcb7bd70678a62db : Customer ⊏ₑ BusinessAgentType
-st-bcb7bd70678a62db = polySubTypeOf-identity
+st-08d181af678a2d51-bcebd31f5491302c : Customer ⊏ₑ BusinessAgentType
+st-08d181af678a2d51-bcebd31f5491302c = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -33,7 +39,7 @@ st-bcb7bd70678a62db = polySubTypeOf-identity
 A categorization of Customers by market segment.
 -}
 customerSegmentation :  Linkage Customer CustomerSegment
-customerSegmentation = make_instanceOf "Customer Segmentation" "customerSegmentation"
+customerSegmentation = make_instanceOf "Customer Segmentation" "Customer Segmentation"
 
 postulate -- customerSegmentation is subTypeOf categoryOfArchitectureBlock
   st-be05fd7567071281-f69620606a0f9c94  : customerSegmentation   ⊏⋆ᵣ  categoryOfArchitectureBlock  {lsuc(lsuc(lzero))}

@@ -5,6 +5,9 @@
 
 Relational Data Map: 
 
+
+Documentation : https://framework.sysfeat.com/pages/137d23125ee2cb47.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,12 +23,12 @@ RelationalDataMap : ClassOfClassOfBoundedIndividual
 RelationalDataMap = ClassOfBoundedIndividual
 
 --  RelationalDataMap is subTypeOf PhysicalDataMap
-st-137d237e5ee2ce03 : RelationalDataMap ⊏ₑ PhysicalDataMap
-st-137d237e5ee2ce03 = polySubTypeOf-identity
+st-137d23125ee2cb47-f4be4bb95ee18b51 : RelationalDataMap ⊏ₑ PhysicalDataMap
+st-137d23125ee2cb47-f4be4bb95ee18b51 = polySubTypeOf-identity
 
 --  RelationalDataMap is subTypeOf RelationalDatabLOCK
-st-77318b7362167b2f : RelationalDataMap ⊏⋆ₑ RelationalDatabLOCK
-st-77318b7362167b2f = polySubTypeOf-identity
+st-137d23125ee2cb47-7731894d62166495 : RelationalDataMap ⊏⋆ₑ RelationalDatabLOCK
+st-137d23125ee2cb47-7731894d62166495 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -36,11 +39,11 @@ SubRelationalDomain = ClassOfIndividual
 
 -- Membership relation
 membershipOfSubRelationalDomain :  Linkage RelationalDataMap SubRelationalDomain
-membershipOfSubRelationalDomain = membershipOfAggregateMember
+membershipOfSubRelationalDomain = make_upwardNestingRelation "subRelationalDomain membership" "nested subRelationalDomain"
 
 -- Aggregation relation
 aggregationOfRelationalSchemaSubRelationalDomain :  Linkage SubRelationalDomain RelationalSchema
-aggregationOfRelationalSchemaSubRelationalDomain = aggregationOfBuildingBlock
+aggregationOfRelationalSchemaSubRelationalDomain = make_Relation "RelationalSchema aggregation" "aggregated RelationalSchema"
 
 {- subRelationalDomain : derived relation obtained by composing
    membershipOfSubRelationalDomain and aggregationOfRelationalSchemaSubRelationalDomain
@@ -50,6 +53,10 @@ aggregationOfRelationalSchemaSubRelationalDomain = aggregationOfBuildingBlock
 subRelationalDomain : Linkage RelationalDataMap RelationalSchema
 subRelationalDomain = membershipOfSubRelationalDomain  ∘  aggregationOfRelationalSchemaSubRelationalDomain
 
+postulate -- subRelationalDomain is subTypeOf physicalDomainMember
+  st-137d232b5ee2ccee-f4be4c025ee18d1e  : subRelationalDomain   ⊏⋆ᵣ  physicalDomainMember 
+
+
 {- External Relational Domain: -}
 -- Aggregate Member : External Relational Domain
 ExternalRelationalDomain : ClassOfClassOfIndividual
@@ -57,11 +64,11 @@ ExternalRelationalDomain = ClassOfIndividual
 
 -- Membership relation
 membershipOfExternalRelationalDomain :  Linkage RelationalDataMap ExternalRelationalDomain
-membershipOfExternalRelationalDomain = membershipOfAggregateMember
+membershipOfExternalRelationalDomain = make_upwardNestingRelation "externalRelationalDomain membership" "nested externalRelationalDomain"
 
 -- Aggregation relation
 aggregationOfRelationalSchemaExternalRelationalDomain :  Linkage ExternalRelationalDomain RelationalSchema
-aggregationOfRelationalSchemaExternalRelationalDomain = aggregationOfBuildingBlock
+aggregationOfRelationalSchemaExternalRelationalDomain = make_Relation "RelationalSchema aggregation" "aggregated RelationalSchema"
 
 {- externalRelationalDomain : derived relation obtained by composing
    membershipOfExternalRelationalDomain and aggregationOfRelationalSchemaExternalRelationalDomain
@@ -70,3 +77,7 @@ aggregationOfRelationalSchemaExternalRelationalDomain = aggregationOfBuildingBlo
 -}
 externalRelationalDomain : Linkage RelationalDataMap RelationalSchema
 externalRelationalDomain = membershipOfExternalRelationalDomain  ∘  aggregationOfRelationalSchemaExternalRelationalDomain
+
+postulate -- externalRelationalDomain is subTypeOf externalPhysicalDomain
+  st-1f235c605fbe93d7-4447473c5f4f6a69  : externalRelationalDomain   ⊏⋆ᵣ  externalPhysicalDomain 
+

@@ -5,6 +5,9 @@
 
 Hardware Management Initiative: 
 
+
+Documentation : https://framework.sysfeat.com/pages/24f8475766477e0a.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,12 +22,12 @@ HardwareManagementInitiative : ClassOfBoundedIndividual
 HardwareManagementInitiative = BoundedIndividual
 
 --  HardwareManagementInitiative is subTypeOf ManagementInitiative
-st-24f848c9664782f9 : HardwareManagementInitiative ⊏ₑ ManagementInitiative
-st-24f848c9664782f9 = polySubTypeOf-identity
+st-24f8475766477e0a-05201b936647570a : HardwareManagementInitiative ⊏ₑ ManagementInitiative
+st-24f8475766477e0a-05201b936647570a = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Porfolio Hardware Map: -}
 porfolioHardwareMap :  Linkage HardwareManagementInitiative PhysicalCapabilityMap
-porfolioHardwareMap = make_instanceOf "Porfolio Hardware Map" "porfolioHardwareMap"
+porfolioHardwareMap = make_instanceOf "Porfolio Hardware Map" "Porfolio Hardware Map"
 

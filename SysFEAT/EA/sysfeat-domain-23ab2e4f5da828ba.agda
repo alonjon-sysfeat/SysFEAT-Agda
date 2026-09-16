@@ -1,10 +1,15 @@
 ﻿{- ============================== 
-   Copyright (c) 2026 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
+   Copyright (c) 2023 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
    This work is released under the MIT License.
    framework.sysfeat.com
 
 Data Governance: 
 The Data Governance domain provides instruments that facilitate the management of data availability, usability, integrity, and security within an enterprise.It covers three dimensions organized as sub-domains:1) Privacy Assurance : mitigate risks on activities impacting privacy.2) Data Provenance &amp; Reliability Assurance : establish trust in the provenance of Information Assets.3) Data Asset Assurance : establish trust in the quality of Information Assets.
+
+Documentation : https://framework.sysfeat.com/pages/23ab2e4f5da828ba.htm
+
+External references:
+  DATAVERSITY - Data Govenance vs Data Management: https://www.dataversity.net/the-difference-between-data-governance-data-management/
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

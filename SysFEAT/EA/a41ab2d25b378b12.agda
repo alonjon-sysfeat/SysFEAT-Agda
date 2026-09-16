@@ -5,6 +5,12 @@
 
 Computer Network: 
 A Computer Network is an assembly of Network Devices (e.g. routers, switches, firewalls) that enables communications between Computing Systems (e.g. Computer Servers).A Computer Network may breakdown into sub-networks.
+
+Documentation : https://framework.sysfeat.com/pages/a41ab2d25b378b12.htm
+
+External references:
+  UCF Glossary - Network: https://compliancedictionary.com/term/853
+  AWS - What is Computer Networking?: https://aws.amazon.com/what-is/computer-networking/#:~:text=Computer%20networking%20refers%20to%20interconnected,over%20physical%20or%20wireless%20technologies.
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,12 +26,12 @@ ComputerNetwork : ClassOfClassOfBoundedIndividual
 ComputerNetwork = ClassOfBoundedIndividual
 
 --  ComputerNetwork is subTypeOf ITInfrastructureSystem
-st-a41ab3225b378bb7 : ComputerNetwork ⊏ₑ ITInfrastructureSystem
-st-a41ab3225b378bb7 = polySubTypeOf-identity
+st-a41ab2d25b378b12-a41ab3105b378b66 : ComputerNetwork ⊏ₑ ITInfrastructureSystem
+st-a41ab2d25b378b12-a41ab3105b378b66 = polySubTypeOf-identity
 
 --  ComputerNetwork is subTypeOf NetworkingSystem
-st-070b1093640122ba : ComputerNetwork ⊏ₑ NetworkingSystem
-st-070b1093640122ba = polySubTypeOf-identity
+st-a41ab2d25b378b12-070b0d5564011dbb : ComputerNetwork ⊏ₑ NetworkingSystem
+st-a41ab2d25b378b12-070b0d5564011dbb = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -38,11 +44,11 @@ NetworkNode = ClassOfIndividual
 
 -- Membership relation
 membershipOfNetworkNode :  Linkage ComputerNetwork NetworkNode
-membershipOfNetworkNode = membershipOfAggregateMember
+membershipOfNetworkNode = make_upwardNestingRelation "networkNode membership" "nested networkNode"
 
 -- Aggregation relation
 aggregationOfNetworkDeviceNetworkNode :  Linkage NetworkNode NetworkDevice
-aggregationOfNetworkDeviceNetworkNode = aggregationOfBuildingBlock
+aggregationOfNetworkDeviceNetworkNode = make_Relation "NetworkDevice aggregation" "aggregated NetworkDevice"
 
 {- networkNode : derived relation obtained by composing
    membershipOfNetworkNode and aggregationOfNetworkDeviceNetworkNode
@@ -51,3 +57,7 @@ aggregationOfNetworkDeviceNetworkNode = aggregationOfBuildingBlock
 -}
 networkNode : Linkage ComputerNetwork NetworkDevice
 networkNode = membershipOfNetworkNode  ∘  aggregationOfNetworkDeviceNetworkNode
+
+postulate -- networkNode is subTypeOf networkingPart
+  st-f4be0fd85ee1da9d-26b8386e5eeae4a4  : networkNode   ⊏⋆ᵣ  networkingPart 
+

@@ -5,6 +5,9 @@
 
 Dictionary View: 
 
+
+Documentation : https://framework.sysfeat.com/pages/92f8df5752f32aaf.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

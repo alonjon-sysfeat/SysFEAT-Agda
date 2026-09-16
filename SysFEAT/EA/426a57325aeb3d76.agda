@@ -5,6 +5,9 @@
 
 Privacy Processing: 
 A Privacy Processing is a Data Assurance Case  related to any operation or set of operations which is performed on personal data or on sets of personal data, whether or not by automated means, such as collection, recording, organisation, structuring, storage, adaptation or alteration, retrieval, consultation, use, disclosure by transmission, dissemination or otherwise making available, alignment or combination, restriction, erasure or destruction
+
+Documentation : https://framework.sysfeat.com/pages/426a57325aeb3d76.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -24,8 +27,8 @@ PrivacyProcessing : ClassOfClassOfBoundedIndividual
 PrivacyProcessing = ClassOfBoundedIndividual
 
 --  PrivacyProcessing is subTypeOf DataAssuranceCase
-st-364213c5600808b7 : PrivacyProcessing ⊏ₑ DataAssuranceCase
-st-364213c5600808b7 = polySubTypeOf-identity
+st-426a57325aeb3d76-b90aeac8600e619f : PrivacyProcessing ⊏ₑ DataAssuranceCase
+st-426a57325aeb3d76-b90aeac8600e619f = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -33,17 +36,17 @@ st-364213c5600808b7 = polySubTypeOf-identity
 People-human beings from whom or about whom you collect information in connection with your business and its operations.
 -}
 impacteddatasubject :  Linkage PrivacyProcessing BusinessPartner
-impacteddatasubject = make_classOfHolonymy "impacted data subject" "impacteddatasubject"
+impacteddatasubject = make_classOfHolonymy "impacted data subject" "impacted data subject"
 
 
 {- Person Right: -}
 personRight :  Linkage PrivacyProcessing PersonRight
-personRight = make_classOfHolonymy "Person Right" "personRight"
+personRight = make_classOfHolonymy "Person Right" "Person Right"
 
 
 {- Data Category: -}
 dataCategory : ∀ {u} →  Linkage PrivacyProcessing (DataCategory u)
-dataCategory = make_instanceOf "Data Category" "dataCategory"
+dataCategory = make_instanceOf "Data Category" "Data Category"
 
 
 {- Data Transfer: 
@@ -55,11 +58,11 @@ DataTransfer = ClassOfIndividual
 
 -- Membership relation
 membershipOfDataTransfer :  Linkage PrivacyProcessing DataTransfer
-membershipOfDataTransfer = membershipOfAggregateMember
+membershipOfDataTransfer = make_upwardNestingRelation "dataTransfer membership" "nested dataTransfer"
 
 -- Aggregation relation
 aggregationOfInformationAssetDataTransfer :  Linkage DataTransfer InformationAsset
-aggregationOfInformationAssetDataTransfer = aggregationOfBuildingBlock
+aggregationOfInformationAssetDataTransfer = make_Relation "InformationAsset aggregation" "aggregated InformationAsset"
 
 {- dataTransfer : derived relation obtained by composing
    membershipOfDataTransfer and aggregationOfInformationAssetDataTransfer
@@ -69,6 +72,8 @@ aggregationOfInformationAssetDataTransfer = aggregationOfBuildingBlock
 dataTransfer : Linkage PrivacyProcessing InformationAsset
 dataTransfer = membershipOfDataTransfer  ∘  aggregationOfInformationAssetDataTransfer
 
+
+
 {- Security Measure: -}
 -- Aggregate Member : Security Measure
 SecurityMeasure : ClassOfClassOfIndividual
@@ -76,11 +81,11 @@ SecurityMeasure = ClassOfIndividual
 
 -- Membership relation
 membershipOfSecurityMeasure :  Linkage PrivacyProcessing SecurityMeasure
-membershipOfSecurityMeasure = membershipOfAggregateMember
+membershipOfSecurityMeasure = make_upwardNestingRelation "securityMeasure membership" "nested securityMeasure"
 
 -- Aggregation relation
 aggregationOfSecurityMeasureTypeSecurityMeasure :  Linkage SecurityMeasure SecurityMeasureType
-aggregationOfSecurityMeasureTypeSecurityMeasure = aggregationOfBuildingBlock
+aggregationOfSecurityMeasureTypeSecurityMeasure = make_Relation "SecurityMeasureType aggregation" "aggregated SecurityMeasureType"
 
 {- securityMeasure : derived relation obtained by composing
    membershipOfSecurityMeasure and aggregationOfSecurityMeasureTypeSecurityMeasure
@@ -89,6 +94,10 @@ aggregationOfSecurityMeasureTypeSecurityMeasure = aggregationOfBuildingBlock
 -}
 securityMeasure : Linkage PrivacyProcessing SecurityMeasureType
 securityMeasure = membershipOfSecurityMeasure  ∘  aggregationOfSecurityMeasureTypeSecurityMeasure
+
+postulate -- securityMeasure is subTypeOf appliedControlMeasure
+  st-b13db35b5ede3983-f1600eb767d84743  : securityMeasure   ⊏⋆ᵣ  appliedControlMeasure 
+
 
 {- Mitigated Privacy Risk: 
 Represents any risk related to data privacy that should be identified and assessed during a DPIA process.
@@ -99,11 +108,11 @@ MitigatedPrivacyRisk = SecondOrderClass
 
 -- Membership relation
 membershipOfMitigatedPrivacyRisk :  Linkage PrivacyProcessing MitigatedPrivacyRisk
-membershipOfMitigatedPrivacyRisk = membershipOfAggregateMember
+membershipOfMitigatedPrivacyRisk = make_upwardNestingRelation "mitigatedPrivacyRisk membership" "nested mitigatedPrivacyRisk"
 
 -- Aggregation relation
 aggregationOfPrivacyRiskTypeMitigatedPrivacyRisk :  Linkage MitigatedPrivacyRisk PrivacyRiskType
-aggregationOfPrivacyRiskTypeMitigatedPrivacyRisk = aggregationOfBuildingBlock
+aggregationOfPrivacyRiskTypeMitigatedPrivacyRisk = make_Relation "PrivacyRiskType aggregation" "aggregated PrivacyRiskType"
 
 {- mitigatedPrivacyRisk : derived relation obtained by composing
    membershipOfMitigatedPrivacyRisk and aggregationOfPrivacyRiskTypeMitigatedPrivacyRisk
@@ -112,3 +121,7 @@ aggregationOfPrivacyRiskTypeMitigatedPrivacyRisk = aggregationOfBuildingBlock
 -}
 mitigatedPrivacyRisk : Linkage PrivacyProcessing PrivacyRiskType
 mitigatedPrivacyRisk = membershipOfMitigatedPrivacyRisk  ∘  aggregationOfPrivacyRiskTypeMitigatedPrivacyRisk
+
+postulate -- mitigatedPrivacyRisk is subTypeOf mitigatedDataRisk
+  st-582e841b66f6dd30-582e7e2266f6c278  : mitigatedPrivacyRisk   ⊏⋆ᵣ  mitigatedDataRisk 
+

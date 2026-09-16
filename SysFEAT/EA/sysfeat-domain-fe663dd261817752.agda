@@ -1,10 +1,13 @@
 ﻿{- ============================== 
-   Copyright (c) 2026 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
+   Copyright (c) 2025 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
    This work is released under the MIT License.
    framework.sysfeat.com
 
 Operational Assurance: 
 The Operational Assurance domain provides a framework for systematic and evidence-based methodologies for ensuring that an enterprises processes, systems, and services consistently meet defined trustworthiness criteria across multiple domains, including privacy, safety, security, business continuity, and quality. It establishes a structured framework for:1) Trustworthiness - Ensuring that organizational operations demonstrably achieve acceptable levels of dependability, resilience, and compliance with regulatory and stakeholder expectations.2) Risk-Informed Assurance - Aligning assurance initiatives with risk management to prioritize cost-effective controls while mitigating critical threats.3) Continuous Validation - Employing monitoring, testing, audits, and performance metrics to verify that assurance objectives are sustainably met.4) Cross-Domain Integration - Providing a unified approach to assurance that harmonizes domain-specific requirements (e.g., privacy, security, safety) while avoiding redundancy.5) Stakeholder Confidence - Delivering transparent, auditable evidence to internal and external stakeholders that operational risks are managed effectively.As an overarching pattern, Operational Assurance enables coherent implementation of Privacy Assurance, Safety Assurance, Security Assurance, Business Continuity Planning, and Quality Assurance by standardizing governance, assessment methodologies, and accountability mechanisms.
+
+Documentation : https://framework.sysfeat.com/pages/fe663dd261817752.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

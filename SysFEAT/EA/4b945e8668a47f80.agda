@@ -5,6 +5,9 @@
 
 Policy Framework Asset: 
 A Policy Framework Asset is a Policy Asset that is declared in a Business Policy Framework.
+
+Documentation : https://framework.sysfeat.com/pages/4b945e8668a47f80.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ PolicyFrameworkAsset : ∀ (u : Level) → ClassOfMixedOrderEntity u
 PolicyFrameworkAsset u = MixedOrderEntity u
 
 --  PolicyFrameworkAsset is subTypeOf PolicyAsset
-st-9e1ddbe6636b5f00 : ∀ {u v} → (PolicyFrameworkAsset u) ⊏⋆ₑ (PolicyAsset v)
-st-9e1ddbe6636b5f00 = trivialPolySubTypeOfEntity
+st-4b945e8668a47f80-9397c3d86877842f : ∀ {u v} → (PolicyFrameworkAsset u) ⊏⋆ₑ (PolicyAsset v)
+st-4b945e8668a47f80-9397c3d86877842f = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

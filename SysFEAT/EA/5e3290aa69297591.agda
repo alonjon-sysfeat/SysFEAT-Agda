@@ -5,6 +5,9 @@
 
 Composite Data Property: 
 A Composite Data Property is a Data Property that can be structuraly decomposed.
+
+Documentation : https://framework.sysfeat.com/pages/5e3290aa69297591.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ CompositeDataProperty : PropertyType
 CompositeDataProperty = ClassOfProperty
 
 --  CompositeDataProperty is subTypeOf DataProperty
-st-5e32931f69297b29 : CompositeDataProperty ⊏ₑ DataProperty
-st-5e32931f69297b29 = polySubTypeOf-identity
+st-5e3290aa69297591-8f1c991068ca8a23 : CompositeDataProperty ⊏ₑ DataProperty
+st-5e3290aa69297591-8f1c991068ca8a23 = polySubTypeOf-identity
 
 -- == Relationships =======================

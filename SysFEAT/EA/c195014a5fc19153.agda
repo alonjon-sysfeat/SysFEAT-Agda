@@ -5,6 +5,9 @@
 
 Data Processing Category: 
 
+
+Documentation : https://framework.sysfeat.com/pages/c195014a5fc19153.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ DataProcessingCategory : ClassOfClassOfBoundedIndividual
 DataProcessingCategory = ClassOfBoundedIndividual
 
 --  DataProcessingCategory withAspect ModelPropertyBlock
-st-c195014f5fc191bd : DataProcessingCategory ⊏ₐₑ (ModelPropertyBlock (lsuc(lzero)))
-st-c195014f5fc191bd = polySubTypeOf-identity
+st-c195014a5fc19153-0eb97aff6855cd23 : DataProcessingCategory ⊏ₐₑ (ModelPropertyBlock (lsuc(lzero)))
+st-c195014a5fc19153-0eb97aff6855cd23 = polySubTypeOf-identity
 
 

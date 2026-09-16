@@ -5,6 +5,9 @@
 
 Data Field Snapshot: 
 A Data Field Snapshot is status of a NoSQL Field a the time of data discovery. it provides factual information such as , Minimum Value, Maximum Value, etc.Data Field Snapshots are used for quality assessments in data governance.
+
+Documentation : https://framework.sysfeat.com/pages/affeb4c45f60553c.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ DataFieldSnapshot : ClassOfBoundedIndividual
 DataFieldSnapshot = BoundedIndividual
 
 --  DataFieldSnapshot is subTypeOf DataSourceSnaphotItem
-st-762586795f6be7f2 : DataFieldSnapshot ⊏ₑ DataSourceSnaphotItem
-st-762586795f6be7f2 = polySubTypeOf-identity
+st-affeb4c45f60553c-762580705f6bd560 : DataFieldSnapshot ⊏ₑ DataSourceSnaphotItem
+st-affeb4c45f60553c-762580705f6bd560 = polySubTypeOf-identity
 
 

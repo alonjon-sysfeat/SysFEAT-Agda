@@ -5,6 +5,9 @@
 
 NoSQL Data Asset: 
 A NoSQL Data Asset is a Physical Data Asset used for the physical description of data consumed and produced by Software Systems.NoSQL Data Assets range from NoSQL Data Schemas to NoSQL Fields.They are defined in MetaData Dictionary(ies) and managed in Data Catalogs.
+
+Documentation : https://framework.sysfeat.com/pages/77318c6c62167dd7.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ NoSQLDataAsset : ClassOfBoundedIndividual
 NoSQLDataAsset = BoundedIndividual
 
 --  NoSQLDataAsset withAspect PhysicalDataBlock
-st-77318c8962167e61 : NoSQLDataAsset ⊏ₐₑ (PhysicalDataBlock lzero)
-st-77318c8962167e61 = polySubTypeOf-identity
+st-77318c6c62167dd7-8f1cad7d68ca9df0 : NoSQLDataAsset ⊏ₐₑ (PhysicalDataBlock lzero)
+st-77318c6c62167dd7-8f1cad7d68ca9df0 = polySubTypeOf-identity
 
 -- == Relationships =======================

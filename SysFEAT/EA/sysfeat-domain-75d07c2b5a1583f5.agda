@@ -1,10 +1,13 @@
 ﻿{- ============================== 
-   Copyright (c) 2026 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
+   Copyright (c) 2021 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
    This work is released under the MIT License.
    framework.sysfeat.com
 
 Privacy Assurance: 
 Privacy assurance offers strategies and schemes adopted by an organization to prevent the flow of important information outside of the workplace. The approach includes investigation, remediation and reporting.
+
+Documentation : https://framework.sysfeat.com/pages/75d07c2b5a1583f5.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

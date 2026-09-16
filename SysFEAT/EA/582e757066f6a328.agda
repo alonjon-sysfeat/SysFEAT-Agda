@@ -5,6 +5,9 @@
 
 Compliance Risk Type: 
 A Compliance Risk Type a kind of Operational Risk Type that involves the potential for legal penalties, financial forfeiture and material loss, due to non-compliance with laws, regulations, or standards.
+
+Documentation : https://framework.sysfeat.com/pages/582e757066f6a328.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ ComplianceRiskType : ThirdOrderClass
 ComplianceRiskType = SecondOrderClass
 
 --  ComplianceRiskType is subTypeOf OperationalRiskType
-st-8f469fb464b76f55 : ComplianceRiskType ⊏ₑ OperationalRiskType
-st-8f469fb464b76f55 = polySubTypeOf-identity
+st-582e757066f6a328-0e55230266f12252 : ComplianceRiskType ⊏ₑ OperationalRiskType
+st-582e757066f6a328-0e55230266f12252 = polySubTypeOf-identity
 
--- == Relationships =======================
+

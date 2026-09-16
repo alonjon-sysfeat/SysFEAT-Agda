@@ -5,6 +5,9 @@
 
 Mezzo Business System: 
 A Mezzo Business System is a Business System that corresponds to the mezzo systemic level.Example:. Application. Department Type
+
+Documentation : https://framework.sysfeat.com/pages/f160fb6267d72652.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,11 +22,11 @@ MezzoBusinessSystem : ClassOfClassOfBoundedIndividual
 MezzoBusinessSystem = ClassOfBoundedIndividual
 
 --  MezzoBusinessSystem is subTypeOf BusinessSystem
-st-f160fbcc67d72754 : MezzoBusinessSystem ⊏ₑ BusinessSystem
-st-f160fbcc67d72754 = polySubTypeOf-identity
+st-f160fb6267d72652-278675d65b252f4d : MezzoBusinessSystem ⊏ₑ BusinessSystem
+st-f160fb6267d72652-278675d65b252f4d = polySubTypeOf-identity
 
 --  MezzoBusinessSystem is subTypeOf MezzoResourceOperatingAsset
-st-f160fb9667d726a7 : MezzoBusinessSystem ⊏ₑ MezzoResourceOperatingAsset
-st-f160fb9667d726a7 = polySubTypeOf-identity
+st-f160fb6267d72652-61e3afb3679f1256 : MezzoBusinessSystem ⊏ₑ MezzoResourceOperatingAsset
+st-f160fb6267d72652-61e3afb3679f1256 = polySubTypeOf-identity
 
 -- == Relationships =======================

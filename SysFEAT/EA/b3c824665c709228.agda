@@ -5,6 +5,9 @@
 
 Security Measure Type: 
 Security measures are appropriate technical, organizational or certification measures to be taken to ensure that the requirements of the GDPR are met.
+
+Documentation : https://framework.sysfeat.com/pages/b3c824665c709228.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

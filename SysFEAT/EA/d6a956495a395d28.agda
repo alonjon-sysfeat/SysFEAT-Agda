@@ -5,6 +5,15 @@
 
 MicroService: 
 A MicroService is a small autonomous unit of software, emphasizing self-management and lightweightness as the means to improve software agility, scalability, and autonomy.1) MicroServices are automous or assembled and orchestrated as components of Applications.2) MicroServices can be directly deployed to Computing Systems. MicroServices are both a logical unit of software and a Deployable Package.3) MicroServices owns their own data store and dot not have any shared stores with other components.MicroService is a Micro enterprise asset that sits at the lower level of Business Software System decomposition.
+
+Documentation : https://framework.sysfeat.com/pages/d6a956495a395d28.htm
+
+External references:
+  Martin Fowler - Micro-Service: https://martinfowler.com/articles/microservices.html
+  C4 Model - Level 2 - Container Diagram: https://c4model.com/#ContainerDiagram
+  C4 Model - Level 3 - Component Diagram: https://c4model.com/#ComponentDiagram
+  OpenGroup - ArchiMate - Application Component: https://pubs.opengroup.org/architecture/archimate32-doc/ch-Application-Layer.html#sec-Application-Component
+  Microsoft - Architecture Design - Microservice architecture style: https://learn.microsoft.com/en-us/azure/architecture/guide/architecture-styles/microservices
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,11 +28,11 @@ MicroService : ClassOfClassOfBoundedIndividual
 MicroService = ClassOfBoundedIndividual
 
 --  MicroService is subTypeOf DeployablePackage
-st-cd7a3a435ff3d167 : MicroService ⊏ₑ DeployablePackage
-st-cd7a3a435ff3d167 = polySubTypeOf-identity
+st-d6a956495a395d28-4c7883cd5fca4d5b : MicroService ⊏ₑ DeployablePackage
+st-d6a956495a395d28-4c7883cd5fca4d5b = polySubTypeOf-identity
 
 --  MicroService is subTypeOf SOftwareModule
-st-c30bdce95a5d9f65 : MicroService ⊏ₑ SOftwareModule
-st-c30bdce95a5d9f65 = polySubTypeOf-identity
+st-d6a956495a395d28-c30bdac25a5d9eaf : MicroService ⊏ₑ SOftwareModule
+st-d6a956495a395d28-c30bdac25a5d9eaf = polySubTypeOf-identity
 
 -- == Relationships =======================

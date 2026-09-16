@@ -5,6 +5,9 @@
 
 Processing Sensitivity: 
 A sensitive activity is an activity whose impact on the overall processing risk is important and should be highlighted when describing the properties of a Processing Activity.
+
+Documentation : https://framework.sysfeat.com/pages/258c28655fd35ea2.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ ProcessingSensitivity : ClassOfClassOfBoundedIndividual
 ProcessingSensitivity = ClassOfBoundedIndividual
 
 --  ProcessingSensitivity withAspect AssetCategory
-st-258c288e5fd35f52 : ProcessingSensitivity ⊏ₐₑ (AssetCategory (lsuc(lzero)))
-st-258c288e5fd35f52 = polySubTypeOf-identity
+st-258c28655fd35ea2-f69620466a0f9c2f : ProcessingSensitivity ⊏ₐₑ (AssetCategory (lsuc(lzero)))
+st-258c28655fd35ea2-f69620466a0f9c2f = polySubTypeOf-identity
 
 -- == Relationships =======================

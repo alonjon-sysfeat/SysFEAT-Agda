@@ -5,6 +5,9 @@
 
 Deployable Software System: 
 Deployable Software System is the super-type of all concepts used to describe the deployment of Business Software Systems.
+
+Documentation : https://framework.sysfeat.com/pages/d5e6d8015c464b40.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,19 +23,19 @@ DeployableSOftwareSystem : ClassOfClassOfBoundedIndividual
 DeployableSOftwareSystem = ClassOfBoundedIndividual
 
 --  DeployableSOftwareSystem is subTypeOf ConcreteSOftwareSystem
-st-78277e445ee345ff : DeployableSOftwareSystem ⊏ₑ ConcreteSOftwareSystem
-st-78277e445ee345ff = polySubTypeOf-identity
+st-d5e6d8015c464b40-24035cc65fc7ad7f : DeployableSOftwareSystem ⊏ₑ ConcreteSOftwareSystem
+st-d5e6d8015c464b40-24035cc65fc7ad7f = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Specialized Deployable Software: -}
 specializedDeployableSOftware :  Linkage DeployableSOftwareSystem DeployableSOftwareSystem
-specializedDeployableSOftware = make_subTypeOf "Specialized Deployable Software" "specializedDeployableSOftware"
+specializedDeployableSOftware = make_subTypeOf "Specialized Deployable Software" "Specialized Deployable Software"
 
 
 {- Deployable Software System: -}
 deployableSOftwareSystem :  Linkage DeployableSOftwareSystem BusinessSOftwareSystem
-deployableSOftwareSystem = make_subTypeOf "Deployable Software System" "deployableSOftwareSystem"
+deployableSOftwareSystem = make_subTypeOf "Deployable Software System" "Deployable Software System"
 
 
 {- Software Physical Channel: 
@@ -44,11 +47,11 @@ SOftwarePhysicalChannel = ClassOfIndividual
 
 -- Membership relation
 membershipOfSOftwarePhysicalChannel :  Linkage DeployableSOftwareSystem SOftwarePhysicalChannel
-membershipOfSOftwarePhysicalChannel = membershipOfAggregateMember
+membershipOfSOftwarePhysicalChannel = make_upwardNestingRelation "sOftwarePhysicalChannel membership" "nested sOftwarePhysicalChannel"
 
 -- Aggregation relation
 aggregationOfPhysicalSOftwareInterfaceSOftwarePhysicalChannel :  Linkage SOftwarePhysicalChannel PhysicalSOftwareInterface
-aggregationOfPhysicalSOftwareInterfaceSOftwarePhysicalChannel = aggregationOfBuildingBlock
+aggregationOfPhysicalSOftwareInterfaceSOftwarePhysicalChannel = make_Relation "PhysicalSOftwareInterface aggregation" "aggregated PhysicalSOftwareInterface"
 
 {- sOftwarePhysicalChannel : derived relation obtained by composing
    membershipOfSOftwarePhysicalChannel and aggregationOfPhysicalSOftwareInterfaceSOftwarePhysicalChannel
@@ -58,6 +61,10 @@ aggregationOfPhysicalSOftwareInterfaceSOftwarePhysicalChannel = aggregationOfBui
 sOftwarePhysicalChannel : Linkage DeployableSOftwareSystem PhysicalSOftwareInterface
 sOftwarePhysicalChannel = membershipOfSOftwarePhysicalChannel  ∘  aggregationOfPhysicalSOftwareInterfaceSOftwarePhysicalChannel
 
+postulate -- sOftwarePhysicalChannel is subTypeOf sOftwareTechnologyConnection
+  st-624e6e025ed979ba-24035f005fc7b0ef  : sOftwarePhysicalChannel   ⊏⋆ᵣ  sOftwareTechnologyConnection 
+
+
 {- Deployable Software Member: -}
 -- Aggregate Member : Deployable Software Member
 DeployableSOftwareMember : ClassOfClassOfIndividual
@@ -65,11 +72,11 @@ DeployableSOftwareMember = ClassOfIndividual
 
 -- Membership relation
 membershipOfDeployableSOftwareMember :  Linkage DeployableSOftwareSystem DeployableSOftwareMember
-membershipOfDeployableSOftwareMember = membershipOfAggregateMember
+membershipOfDeployableSOftwareMember = make_upwardNestingRelation "deployableSOftwareMember membership" "nested deployableSOftwareMember"
 
 -- Aggregation relation
 aggregationOfDeployableSOftwareSystemDeployableSOftwareMember :  Linkage DeployableSOftwareMember DeployableSOftwareSystem
-aggregationOfDeployableSOftwareSystemDeployableSOftwareMember = aggregationOfBuildingBlock
+aggregationOfDeployableSOftwareSystemDeployableSOftwareMember = make_Relation "DeployableSOftwareSystem aggregation" "aggregated DeployableSOftwareSystem"
 
 {- deployableSOftwareMember : derived relation obtained by composing
    membershipOfDeployableSOftwareMember and aggregationOfDeployableSOftwareSystemDeployableSOftwareMember
@@ -78,3 +85,7 @@ aggregationOfDeployableSOftwareSystemDeployableSOftwareMember = aggregationOfBui
 -}
 deployableSOftwareMember : Linkage DeployableSOftwareSystem DeployableSOftwareSystem
 deployableSOftwareMember = membershipOfDeployableSOftwareMember  ∘  aggregationOfDeployableSOftwareSystemDeployableSOftwareMember
+
+postulate -- deployableSOftwareMember is subTypeOf sOftwareSystemPart
+  st-624e6cab5ed977a2-24035e705fc7afb1  : deployableSOftwareMember   ⊏⋆ᵣ  sOftwareSystemPart 
+

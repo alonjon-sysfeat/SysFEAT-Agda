@@ -5,6 +5,9 @@
 
 Privacy Pre-Assessment: 
 This will help you determine your program or activitys potential privacy impacts and give you a sense of the risk level. The more privacy risk associated with your program or activity, the more you will need to analyze and mitigate the risk.
+
+Documentation : https://framework.sysfeat.com/pages/3d90ce8f5ff8e067.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ PrivacyPreAssessment : ClassOfBoundedIndividual
 PrivacyPreAssessment = BoundedIndividual
 
 --  PrivacyPreAssessment is subTypeOf PrivacyAssessment
-st-3d9071095ffce3d3 : PrivacyPreAssessment ⊏ₑ PrivacyAssessment
-st-3d9071095ffce3d3 = polySubTypeOf-identity
+st-3d90ce8f5ff8e067-8a9f9fe55ee0a603 : PrivacyPreAssessment ⊏ₑ PrivacyAssessment
+st-3d90ce8f5ff8e067-8a9f9fe55ee0a603 = polySubTypeOf-identity
 
 -- == Relationships =======================

@@ -5,6 +5,9 @@
 
 Customer Need: 
 A customers pain point is the emotion they feel when they think of a specific need, problem, weakness, struggle, or an unfulfilled desire they didnt find a solution for yet.
+
+Documentation : https://framework.sysfeat.com/pages/d170d3075be72e6b.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ CustomerNeed : ClassOfClassOfBoundedIndividual
 CustomerNeed = ClassOfBoundedIndividual
 
 --  CustomerNeed is subTypeOf AssetProperty
-st-d170da0d5be73c9e : CustomerNeed ⊏ₑ AssetProperty
-st-d170da0d5be73c9e = polySubTypeOf-identity
+st-d170d3075be72e6b-515c6a856893324e : CustomerNeed ⊏ₑ AssetProperty
+st-d170d3075be72e6b-515c6a856893324e = polySubTypeOf-identity
 
 -- == Relationships =======================

@@ -5,6 +5,13 @@
 
 Data Asset: 
 A Data Asset  represents the abstract structure of any kind of data that can be processed and memorized by a Business Software System.A Data Asset is either a Data Entity or a Data Property.Only Data Entitys can have identity and states. Data Propertys only handle raw data.Data Assets are managed in Data Catalogs.
+
+Documentation : https://framework.sysfeat.com/pages/6d2b7c935fbb6270.htm
+
+External references:
+  NIST - Data Asset: https://csrc.nist.gov/glossary/term/data_asset
+  UCF Glossary - Data: https://compliancedictionary.com/term/270
+  UCF Glossary - Data Element: https://compliancedictionary.com/term/2969
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -21,22 +28,22 @@ DataAsset : ClassOfClassOfBoundedIndividual
 DataAsset = ClassOfBoundedIndividual
 
 --  DataAsset is subTypeOf InformationAsset
-st-6d2b7c9f5fbb62f3 : DataAsset ⊏ₑ InformationAsset
-st-6d2b7c9f5fbb62f3 = polySubTypeOf-identity
+st-6d2b7c935fbb6270-e6f250185f772ee1 : DataAsset ⊏ₑ InformationAsset
+st-6d2b7c935fbb6270-e6f250185f772ee1 = polySubTypeOf-identity
 
 --  DataAsset withAspect DataBlock
-st-30efb3b561f37cc9 : DataAsset ⊏ₐₑ (DataBlock (lsuc(lzero)))
-st-30efb3b561f37cc9 = polySubTypeOf-identity
+st-6d2b7c935fbb6270-8f1c937168ca8195 : DataAsset ⊏ₐₑ (DataBlock (lsuc(lzero)))
+st-6d2b7c935fbb6270-8f1c937168ca8195 = polySubTypeOf-identity
 
 --  DataAsset is subTypeOf BusinessAsset
-st-6a70f6666787b627 : DataAsset ⊏ₑ BusinessAsset
-st-6a70f6666787b627 = polySubTypeOf-identity
+st-6d2b7c935fbb6270-6a70b9f6678763db : DataAsset ⊏ₑ BusinessAsset
+st-6d2b7c935fbb6270-6a70b9f6678763db = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Specialized Data Object: -}
 specializedDataObject :  Linkage DataAsset DataAsset
-specializedDataObject = make_subTypeOf "Specialized Data Object" "specializedDataObject"
+specializedDataObject = make_subTypeOf "Specialized Data Object" "Specialized Data Object"
 
 postulate -- specializedDataObject is subTypeOf specializedInformationAsset
   st-325a380d66f3515e-325a372e66f33bca  : specializedDataObject   ⊏⋆ᵣ  specializedInformationAsset 
@@ -45,7 +52,7 @@ postulate -- specializedDataObject is subTypeOf specializedInformationAsset
 Data Domains that the Data Asset is an implementation of.
 -}
 realizedConcept :  Linkage DataAsset ConceptualEntityAsset
-realizedConcept = make_subTypeOf "Realized Concept" "realizedConcept"
+realizedConcept = make_subTypeOf "Realized Concept" "Realized Concept"
 
 postulate -- realizedConcept is subTypeOf realizedInformationAsset
   st-325a3a0d66f355bd-325a3a0b66f354a7  : realizedConcept   ⊏⋆ᵣ  realizedInformationAsset 
@@ -59,11 +66,11 @@ DataObjectMember = ClassOfIndividual
 
 -- Membership relation
 membershipOfDataObjectMember :  Linkage DataAsset DataObjectMember
-membershipOfDataObjectMember = membershipOfAggregateMember
+membershipOfDataObjectMember = make_upwardNestingRelation "dataObjectMember membership" "nested dataObjectMember"
 
 -- Aggregation relation
 aggregationOfDataAssetDataObjectMember :  Linkage DataObjectMember DataAsset
-aggregationOfDataAssetDataObjectMember = aggregationOfBuildingBlock
+aggregationOfDataAssetDataObjectMember = make_Relation "DataAsset aggregation" "aggregated DataAsset"
 
 {- dataObjectMember : derived relation obtained by composing
    membershipOfDataObjectMember and aggregationOfDataAssetDataObjectMember
@@ -72,3 +79,7 @@ aggregationOfDataAssetDataObjectMember = aggregationOfBuildingBlock
 -}
 dataObjectMember : Linkage DataAsset DataAsset
 dataObjectMember = membershipOfDataObjectMember  ∘  aggregationOfDataAssetDataObjectMember
+
+postulate -- dataObjectMember is subTypeOf informationAssetRelationship
+  st-b6e3cdf35fbb6ad1-18eb1f335fdb6e7f  : dataObjectMember   ⊏⋆ᵣ  informationAssetRelationship 
+

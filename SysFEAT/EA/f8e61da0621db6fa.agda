@@ -5,6 +5,9 @@
 
 Resource Operating Asset: 
 Resource Operating Assets comprise all resources which contributes to the production and consumption of Business Outcome Events of the enterprise.Resource Operating Assets are subject to Operational Risks.
+
+Documentation : https://framework.sysfeat.com/pages/f8e61da0621db6fa.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -21,35 +24,60 @@ ResourceOperatingAsset : ClassOfClassOfBoundedIndividual
 ResourceOperatingAsset = ClassOfBoundedIndividual
 
 --  ResourceOperatingAsset is subTypeOf OperatingAssetType
-st-f8e61dd7621db856 : ResourceOperatingAsset ⊏ₑ OperatingAssetType
-st-f8e61dd7621db856 = polySubTypeOf-identity
+st-f8e61da0621db6fa-a371a43b5b865817 : ResourceOperatingAsset ⊏ₑ OperatingAssetType
+st-f8e61da0621db6fa-a371a43b5b865817 = polySubTypeOf-identity
 
 --  ResourceOperatingAsset is subTypeOf ResourceFunctionalAsset
-st-9beca2b166fb119c : ResourceOperatingAsset ⊏ₑ ResourceFunctionalAsset
-st-9beca2b166fb119c = polySubTypeOf-identity
+st-f8e61da0621db6fa-9bec9fbf66fb0d6f : ResourceOperatingAsset ⊏ₑ ResourceFunctionalAsset
+st-f8e61da0621db6fa-9bec9fbf66fb0d6f = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Specialized Resource Operating Asset: -}
 specializedResourceOperatingAsset :  Linkage ResourceOperatingAsset ResourceOperatingAsset
-specializedResourceOperatingAsset = make_subTypeOf "Specialized Resource Operating Asset" "specializedResourceOperatingAsset"
+specializedResourceOperatingAsset = make_subTypeOf "Specialized Resource Operating Asset" "Specialized Resource Operating Asset"
 
 postulate -- specializedResourceOperatingAsset is subTypeOf specializedOperatingAsset
   st-82a9879766ec3a29-6a70772167873276  : specializedResourceOperatingAsset   ⊏⋆ᵣ  specializedOperatingAsset 
 
 {- Realized Business Operating Asset: -}
 realizedBusinessOperatingAsset :  Linkage ResourceOperatingAsset ResourceOperatingAsset
-realizedBusinessOperatingAsset = make_subTypeOf "Realized Business Operating Asset" "realizedBusinessOperatingAsset"
+realizedBusinessOperatingAsset = make_subTypeOf "Realized Business Operating Asset" "Realized Business Operating Asset"
 
 
 {- Fulfilled Resource Capability: 
 Resource Capability(ies) fulfilled by a Resource Operating Asset.
 -}
 fulfilledResourceCapability :  Linkage ResourceOperatingAsset ResourceCapability
-fulfilledResourceCapability = make_subTypeOf "Fulfilled Resource Capability" "fulfilledResourceCapability"
+fulfilledResourceCapability = make_subTypeOf "Fulfilled Resource Capability" "Fulfilled Resource Capability"
 
 postulate -- fulfilledResourceCapability is subTypeOf fulfilledCapability
   st-dd265468689f5a22-190c72c368966198  : fulfilledResourceCapability   ⊏⋆ᵣ  fulfilledCapability 
+
+{- Resource Operating Asset Part: -}
+-- Aggregate Member : Resource Operating Asset Part
+ResourceOperatingAssetPart : ClassOfClassOfIndividual
+ResourceOperatingAssetPart = ClassOfIndividual
+
+-- Membership relation
+membershipOfResourceOperatingAssetPart :  Linkage ResourceOperatingAsset ResourceOperatingAssetPart
+membershipOfResourceOperatingAssetPart = make_upwardNestingRelation "resourceOperatingAssetPart membership" "nested resourceOperatingAssetPart"
+
+-- Aggregation relation
+aggregationOfResourceOperatingAssetResourceOperatingAssetPart :  Linkage ResourceOperatingAssetPart ResourceOperatingAsset
+aggregationOfResourceOperatingAssetResourceOperatingAssetPart = make_Relation "ResourceOperatingAsset aggregation" "aggregated ResourceOperatingAsset"
+
+{- resourceOperatingAssetPart : derived relation obtained by composing
+   membershipOfResourceOperatingAssetPart and aggregationOfResourceOperatingAssetResourceOperatingAssetPart
+   It directly links an Resource Operating Asset to the final aggregated ResourceOperatingAsset
+   hiding the reifying ResourceOperatingAssetPart
+-}
+resourceOperatingAssetPart : Linkage ResourceOperatingAsset ResourceOperatingAsset
+resourceOperatingAssetPart = membershipOfResourceOperatingAssetPart  ∘  aggregationOfResourceOperatingAssetResourceOperatingAssetPart
+
+postulate -- resourceOperatingAssetPart is subTypeOf operatingAssetPart
+  st-b776bf0868b0fbb3-b776b8c668b04b35  : resourceOperatingAssetPart   ⊏⋆ᵣ  operatingAssetPart 
+
 
 {- Resource Rule Enforcement: -}
 -- Aggregate Member : Resource Rule Enforcement
@@ -58,11 +86,11 @@ ResourceRuleEnforcement = ClassOfIndividual
 
 -- Membership relation
 membershipOfResourceRuleEnforcement :  Linkage ResourceOperatingAsset ResourceRuleEnforcement
-membershipOfResourceRuleEnforcement = membershipOfAggregateMember
+membershipOfResourceRuleEnforcement = make_upwardNestingRelation "resourceRuleEnforcement membership" "nested resourceRuleEnforcement"
 
 -- Aggregation relation
 aggregationOfResourceRuleResourceRuleEnforcement :  Linkage ResourceRuleEnforcement ResourceRule
-aggregationOfResourceRuleResourceRuleEnforcement = aggregationOfBuildingBlock
+aggregationOfResourceRuleResourceRuleEnforcement = make_Relation "ResourceRule aggregation" "aggregated ResourceRule"
 
 {- resourceRuleEnforcement : derived relation obtained by composing
    membershipOfResourceRuleEnforcement and aggregationOfResourceRuleResourceRuleEnforcement
@@ -72,23 +100,6 @@ aggregationOfResourceRuleResourceRuleEnforcement = aggregationOfBuildingBlock
 resourceRuleEnforcement : Linkage ResourceOperatingAsset ResourceRule
 resourceRuleEnforcement = membershipOfResourceRuleEnforcement  ∘  aggregationOfResourceRuleResourceRuleEnforcement
 
-{- Resource Operating Asset Part: -}
--- Aggregate Member : Resource Operating Asset Part
-ResourceOperatingAssetPart : ClassOfClassOfIndividual
-ResourceOperatingAssetPart = ClassOfIndividual
+postulate -- resourceRuleEnforcement is subTypeOf ruleEnforcement
+  st-07b60bd468a50731-7bc2d4c26897a1c4  : resourceRuleEnforcement   ⊏⋆ᵣ  ruleEnforcement 
 
--- Membership relation
-membershipOfResourceOperatingAssetPart :  Linkage ResourceOperatingAsset ResourceOperatingAssetPart
-membershipOfResourceOperatingAssetPart = membershipOfAggregateMember
-
--- Aggregation relation
-aggregationOfResourceOperatingAssetResourceOperatingAssetPart :  Linkage ResourceOperatingAssetPart ResourceOperatingAsset
-aggregationOfResourceOperatingAssetResourceOperatingAssetPart = aggregationOfBuildingBlock
-
-{- resourceOperatingAssetPart : derived relation obtained by composing
-   membershipOfResourceOperatingAssetPart and aggregationOfResourceOperatingAssetResourceOperatingAssetPart
-   It directly links an Resource Operating Asset to the final aggregated ResourceOperatingAsset
-   hiding the reifying ResourceOperatingAssetPart
--}
-resourceOperatingAssetPart : Linkage ResourceOperatingAsset ResourceOperatingAsset
-resourceOperatingAssetPart = membershipOfResourceOperatingAssetPart  ∘  aggregationOfResourceOperatingAssetResourceOperatingAssetPart

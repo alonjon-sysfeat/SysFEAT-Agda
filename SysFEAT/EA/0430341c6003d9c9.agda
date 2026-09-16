@@ -5,6 +5,9 @@
 
 Operational Incident: 
 The incident impacted elements are a subpart of the risks scope. The incident causes and consequences are a subpart of the risks ones. But the incident scope (processes, entities etc.) are not filtered within the scope of the risk connected to the incident, because the link between risk and incident isnt always done. 
+
+Documentation : https://framework.sysfeat.com/pages/0430341c6003d9c9.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ OperationalIncident : ClassOfBoundedIndividual
 OperationalIncident = BoundedIndividual
 
 --  OperationalIncident is subTypeOf Incident
-st-4425464d6182baef : OperationalIncident ⊏ₑ Incident
-st-4425464d6182baef = polySubTypeOf-identity
+st-0430341c6003d9c9-d059da695ef11294 : OperationalIncident ⊏ₑ Incident
+st-0430341c6003d9c9-d059da695ef11294 = polySubTypeOf-identity
 
 -- == Relationships =======================

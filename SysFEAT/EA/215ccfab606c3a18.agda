@@ -5,6 +5,9 @@
 
 Product Portfolio: 
 A Product Portfolio is a Management System within an enterprise which purpose is to develop, maintain, transform and deliver a set of  Products of the Enterprise.
+
+Documentation : https://framework.sysfeat.com/pages/215ccfab606c3a18.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,14 +23,14 @@ ProductPortfolio : ClassOfBoundedIndividual
 ProductPortfolio = BoundedIndividual
 
 --  ProductPortfolio is subTypeOf ManagementSystem
-st-215c69dc606d58a4 : ProductPortfolio ⊏ₑ ManagementSystem
-st-215c69dc606d58a4 = polySubTypeOf-identity
+st-215ccfab606c3a18-29df3f4060084c07 : ProductPortfolio ⊏ₑ ManagementSystem
+st-215ccfab606c3a18-29df3f4060084c07 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Owned Portfolio Stage: -}
 ownedPortfolioStage :  Linkage ProductPortfolio ProductPortfolioStage
-ownedPortfolioStage = make_holonymyRelation "Owned Portfolio Stage" "ownedPortfolioStage"
+ownedPortfolioStage = make_holonymyRelation "Owned Portfolio Stage" "Owned Portfolio Stage"
 
 postulate -- ownedPortfolioStage is subTypeOf roadmap
   st-31257f8561dce177-29df685860086c52  : ownedPortfolioStage   ⊏⋆ᵣ  roadmap 
@@ -39,11 +42,11 @@ ManagedProduct = ClassOfIndividual
 
 -- Membership relation
 membershipOfManagedProduct :  Linkage ProductPortfolio ManagedProduct
-membershipOfManagedProduct = membershipOfAggregateMember
+membershipOfManagedProduct = make_upwardNestingRelation "managedProduct membership" "nested managedProduct"
 
 -- Aggregation relation
 aggregationOfProductManagedProduct :  Linkage ManagedProduct Product
-aggregationOfProductManagedProduct = aggregationOfBuildingBlock
+aggregationOfProductManagedProduct = make_Relation "Product aggregation" "aggregated Product"
 
 {- managedProduct : derived relation obtained by composing
    membershipOfManagedProduct and aggregationOfProductManagedProduct
@@ -52,3 +55,7 @@ aggregationOfProductManagedProduct = aggregationOfBuildingBlock
 -}
 managedProduct : Linkage ProductPortfolio Product
 managedProduct = membershipOfManagedProduct  ∘  aggregationOfProductManagedProduct
+
+postulate -- managedProduct is subTypeOf managementSystemSubject
+  st-45df7704618e075e-6bf17ffc68598c26  : managedProduct   ⊏⋆ᵣ  managementSystemSubject  {lzero}
+

@@ -5,6 +5,9 @@
 
 Data Quality Measure: 
 Data Quality Measure is what should be enforced to ensure the quality of Data
+
+Documentation : https://framework.sysfeat.com/pages/72fe99d65e98598e.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

@@ -5,6 +5,11 @@
 
 Natural Resource Category: 
 A Natural Resource Category is a kind Physical Business Agent that refers to any class of material or substance that occurs naturally in the environment and can be used by humans for various purposes. These resources are derived from the Earth and include a wide range of physical entities such as water, minerals, forests, fossil fuels, soil, and air. 
+
+Documentation : https://framework.sysfeat.com/pages/861987db6372446e.htm
+
+External references:
+  OMG - UAF - NaturalResource: https://www.omg.org/spec/UAF/1.2/Beta1/DMM/PDF#NaturalResource
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,12 +24,12 @@ NaturalResourceCategory : ClassOfClassOfBoundedIndividual
 NaturalResourceCategory = ClassOfBoundedIndividual
 
 --  NaturalResourceCategory is subTypeOf ResourceAgentType
-st-8619880b637244c4 : NaturalResourceCategory ⊏ₑ ResourceAgentType
-st-8619880b637244c4 = polySubTypeOf-identity
+st-861987db6372446e-e2ef091962147ad7 : NaturalResourceCategory ⊏ₑ ResourceAgentType
+st-861987db6372446e-e2ef091962147ad7 = polySubTypeOf-identity
 
 --  NaturalResourceCategory is subTypeOf PhysicalResourceAgent
-st-340f583b686217d6 : NaturalResourceCategory ⊏ₑ PhysicalResourceAgent
-st-340f583b686217d6 = polySubTypeOf-identity
+st-861987db6372446e-340f52dc686212f5 : NaturalResourceCategory ⊏ₑ PhysicalResourceAgent
+st-861987db6372446e-340f52dc686212f5 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -35,11 +40,11 @@ NaturalResourcePart = ClassOfIndividual
 
 -- Membership relation
 membershipOfNaturalResourcePart :  Linkage NaturalResourceCategory NaturalResourcePart
-membershipOfNaturalResourcePart = membershipOfAggregateMember
+membershipOfNaturalResourcePart = make_upwardNestingRelation "naturalResourcePart membership" "nested naturalResourcePart"
 
 -- Aggregation relation
 aggregationOfNaturalResourceCategoryNaturalResourcePart :  Linkage NaturalResourcePart NaturalResourceCategory
-aggregationOfNaturalResourceCategoryNaturalResourcePart = aggregationOfBuildingBlock
+aggregationOfNaturalResourceCategoryNaturalResourcePart = make_Relation "NaturalResourceCategory aggregation" "aggregated NaturalResourceCategory"
 
 {- naturalResourcePart : derived relation obtained by composing
    membershipOfNaturalResourcePart and aggregationOfNaturalResourceCategoryNaturalResourcePart
@@ -48,3 +53,7 @@ aggregationOfNaturalResourceCategoryNaturalResourcePart = aggregationOfBuildingB
 -}
 naturalResourcePart : Linkage NaturalResourceCategory NaturalResourceCategory
 naturalResourcePart = membershipOfNaturalResourcePart  ∘  aggregationOfNaturalResourceCategoryNaturalResourcePart
+
+postulate -- naturalResourcePart is subTypeOf resourceAgentPart
+  st-c80a19ab678545f8-e2ef09de62147eb7  : naturalResourcePart   ⊏⋆ᵣ  resourceAgentPart 
+

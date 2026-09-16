@@ -5,6 +5,9 @@
 
 Deployed Hardware Configuration: 
 
+
+Documentation : https://framework.sysfeat.com/pages/c80a7d7a6785c1ff.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,14 +22,14 @@ DeployedHardwareConfiguration : ClassOfBoundedIndividual
 DeployedHardwareConfiguration = BoundedIndividual
 
 --  DeployedHardwareConfiguration is subTypeOf DeployedHardwareSystem
-st-c80a7d876785c26d : DeployedHardwareConfiguration ⊏ₑ DeployedHardwareSystem
-st-c80a7d876785c26d = polySubTypeOf-identity
+st-c80a7d7a6785c1ff-c80a7be56785c09b : DeployedHardwareConfiguration ⊏ₑ DeployedHardwareSystem
+st-c80a7d7a6785c1ff-c80a7be56785c09b = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Configuration Type: -}
 configurationType :  Linkage DeployedHardwareConfiguration HardwareConfiguration
-configurationType = make_instanceOf "Configuration Type" "configurationType"
+configurationType = make_instanceOf "Configuration Type" "Configuration Type"
 
 postulate -- configurationType is subTypeOf hardwareType
   st-c80a7eb66785c342-c80a7d4f6785c18f  : configurationType   ⊏⋆ᵣ  hardwareType 

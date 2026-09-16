@@ -5,6 +5,11 @@
 
 Physical Business Agent: 
 A Physical Business Agent is any identifiable Business Agent Type that exists in the physical universe. It is characterized by its ability to occupy space, possess mass, and interact with other Physical Business Agents through fundamental forces. Physical Business Agents are subject to the laws of physics and can be observed, measured, and analyzed using scientific methods. They can produce and consume Physical Outcome Events.
+
+Documentation : https://framework.sysfeat.com/pages/be94e82f655c90e7.htm
+
+External references:
+  WordNet - Physical Object: https://en-word.net/ili/i35549
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,18 +25,18 @@ PhysicalBusinessAgent : ClassOfClassOfBoundedIndividual
 PhysicalBusinessAgent = ClassOfBoundedIndividual
 
 --  PhysicalBusinessAgent is subTypeOf BusinessAgentType
-st-be94e918655c935e : PhysicalBusinessAgent ⊏ₑ BusinessAgentType
-st-be94e918655c935e = polySubTypeOf-identity
+st-be94e82f655c90e7-bcebd31f5491302c : PhysicalBusinessAgent ⊏ₑ BusinessAgentType
+st-be94e82f655c90e7-bcebd31f5491302c = polySubTypeOf-identity
 
 --  PhysicalBusinessAgent is subTypeOf PhysicalResourceAgent
-st-3b1b716d68cd5f92 : PhysicalBusinessAgent ⊏ₑ PhysicalResourceAgent
-st-3b1b716d68cd5f92 = polySubTypeOf-identity
+st-be94e82f655c90e7-340f52dc686212f5 : PhysicalBusinessAgent ⊏ₑ PhysicalResourceAgent
+st-be94e82f655c90e7-340f52dc686212f5 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Fulfilled Physical Capability: -}
 fulfilledPhysicalCapability :  Linkage PhysicalBusinessAgent PhysicalCapability
-fulfilledPhysicalCapability = make_subTypeOf "Fulfilled Physical Capability" "fulfilledPhysicalCapability"
+fulfilledPhysicalCapability = make_subTypeOf "Fulfilled Physical Capability" "Fulfilled Physical Capability"
 
 
 {- Physical Resource Agent Part: 
@@ -43,11 +48,11 @@ PhysicalResourceAgentPart = ClassOfIndividual
 
 -- Membership relation
 membershipOfPhysicalResourceAgentPart :  Linkage PhysicalBusinessAgent PhysicalResourceAgentPart
-membershipOfPhysicalResourceAgentPart = membershipOfAggregateMember
+membershipOfPhysicalResourceAgentPart = make_upwardNestingRelation "physicalResourceAgentPart membership" "nested physicalResourceAgentPart"
 
 -- Aggregation relation
 aggregationOfPhysicalBusinessAgentPhysicalResourceAgentPart :  Linkage PhysicalResourceAgentPart PhysicalBusinessAgent
-aggregationOfPhysicalBusinessAgentPhysicalResourceAgentPart = aggregationOfBuildingBlock
+aggregationOfPhysicalBusinessAgentPhysicalResourceAgentPart = make_Relation "PhysicalBusinessAgent aggregation" "aggregated PhysicalBusinessAgent"
 
 {- physicalResourceAgentPart : derived relation obtained by composing
    membershipOfPhysicalResourceAgentPart and aggregationOfPhysicalBusinessAgentPhysicalResourceAgentPart
@@ -56,3 +61,7 @@ aggregationOfPhysicalBusinessAgentPhysicalResourceAgentPart = aggregationOfBuild
 -}
 physicalResourceAgentPart : Linkage PhysicalBusinessAgent PhysicalBusinessAgent
 physicalResourceAgentPart = membershipOfPhysicalResourceAgentPart  ∘  aggregationOfPhysicalBusinessAgentPhysicalResourceAgentPart
+
+postulate -- physicalResourceAgentPart is subTypeOf resourceAgentPart
+  st-c80a1a0f67854745-24034f6d5fc79c3f  : physicalResourceAgentPart   ⊏⋆ᵣ  resourceAgentPart 
+

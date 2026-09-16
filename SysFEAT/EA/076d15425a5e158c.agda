@@ -5,6 +5,16 @@
 
 Org-Unit Type: 
 An Org-Unit Type is a type of Human Resource that represent a unit of social groups within an organization, responsible for operating one or more enterprises Business Functions.
+
+Documentation : https://framework.sysfeat.com/pages/076d15425a5e158c.htm
+
+External references:
+  Humanresourcesedu.org - Human Resource: https://www.humanresourcesedu.org/what-is-human-resources/
+  OpenGroup - ArchiMate - Business-Actor: https://pubs.opengroup.org/architecture/archimate32-doc/ch-Business-Layer.html#sec-Business-Actor
+  OpenGroup - ArchiMate - Business Internal Active Structure Element: https://pubs.opengroup.org/architecture/archimate32-doc/ch-Business-Layer.html#sec-business-Active-Structure-Elements
+  Christensen Institute - Modularity: https://www.christenseninstitute.org/theory/modularity
+  Russell Ackoff - System of Concepts - Organizations: ../resources/external-references/Ackoff-1971-Towards-a-system-of-systems-concepts.pdf#Organizations
+  OMG - UAF - OrganizationalResource: https://www.omg.org/spec/UAF/1.2/Beta1/DMM/PDF#organizationalresource
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -15,35 +25,60 @@ open import Agda.Primitive
 open import SysFEAT.EA.2c93337b67644a6a public -- Human Resource
 open import SysFEAT.EA.c80afd2f6784305d public -- Intangible Resource Agent
 open import SysFEAT.EA.dd26f17a68a0b08b public -- Skill
-open import SysFEAT.EA.c189cf1f68ae421a public -- Business Rule
 open import SysFEAT.EA.6f4b93a15fd3b6bf public -- Business Interaction Process
+open import SysFEAT.EA.c189cf1f68ae421a public -- Business Rule
 
 OrgUnitType : ClassOfClassOfBoundedIndividual
 OrgUnitType = ClassOfBoundedIndividual
 
 --  OrgUnitType is subTypeOf HumanResource
-st-24034c805fc7992c : OrgUnitType ⊏ₑ HumanResource
-st-24034c805fc7992c = polySubTypeOf-identity
+st-076d15425a5e158c-2c93337b67644a6a : OrgUnitType ⊏ₑ HumanResource
+st-076d15425a5e158c-2c93337b67644a6a = polySubTypeOf-identity
 
 --  OrgUnitType is subTypeOf IntangibleResourceAgent
-st-c80a24c067856232 : OrgUnitType ⊏ₑ IntangibleResourceAgent
-st-c80a24c067856232 = polySubTypeOf-identity
+st-076d15425a5e158c-c80afd2f6784305d : OrgUnitType ⊏ₑ IntangibleResourceAgent
+st-076d15425a5e158c-c80afd2f6784305d = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Specialized Org-Unit: -}
 specializedOrgUnit :  Linkage OrgUnitType OrgUnitType
-specializedOrgUnit = make_subTypeOf "Specialized Org-Unit" "specializedOrgUnit"
+specializedOrgUnit = make_subTypeOf "Specialized Org-Unit" "Specialized Org-Unit"
 
 postulate -- specializedOrgUnit is subTypeOf specializedResourceAgent
   st-325a3c7666f35f12-52c3540066f226f4  : specializedOrgUnit   ⊏⋆ᵣ  specializedResourceAgent 
 
 {- Fulfilled Skill: -}
 fulfilledSkill :  Linkage OrgUnitType Skill
-fulfilledSkill = make_subTypeOf "Fulfilled Skill" "fulfilledSkill"
+fulfilledSkill = make_subTypeOf "Fulfilled Skill" "Fulfilled Skill"
 
 postulate -- fulfilledSkill is subTypeOf fulfilledBusinessResourceCapability
   st-dd26a26568a1eb03-dd2681a968a1b9d1  : fulfilledSkill   ⊏⋆ᵣ  fulfilledBusinessResourceCapability 
+
+{- Performed Business Interaction: -}
+-- Aggregate Member : Performed Business Interaction
+PerformedBusinessInteraction : ClassOfClassOfIndividual
+PerformedBusinessInteraction = ClassOfIndividual
+
+-- Membership relation
+membershipOfPerformedBusinessInteraction :  Linkage OrgUnitType PerformedBusinessInteraction
+membershipOfPerformedBusinessInteraction = make_upwardNestingRelation "performedBusinessInteraction membership" "nested performedBusinessInteraction"
+
+-- Aggregation relation
+aggregationOfBusinessInteractionProcessPerformedBusinessInteraction :  Linkage PerformedBusinessInteraction BusinessInteractionProcess
+aggregationOfBusinessInteractionProcessPerformedBusinessInteraction = make_Relation "BusinessInteractionProcess aggregation" "aggregated BusinessInteractionProcess"
+
+{- performedBusinessInteraction : derived relation obtained by composing
+   membershipOfPerformedBusinessInteraction and aggregationOfBusinessInteractionProcessPerformedBusinessInteraction
+   It directly links an Org-Unit Type to the final aggregated BusinessInteractionProcess
+   hiding the reifying PerformedBusinessInteraction
+-}
+performedBusinessInteraction : Linkage OrgUnitType BusinessInteractionProcess
+performedBusinessInteraction = membershipOfPerformedBusinessInteraction  ∘  aggregationOfBusinessInteractionProcessPerformedBusinessInteraction
+
+postulate -- performedBusinessInteraction is subTypeOf performedResourceScenario
+  st-230b415a61d8966d-230b3f9061d8937b  : performedBusinessInteraction   ⊏⋆ᵣ  performedResourceScenario 
+
 
 {- Operational Rule Enforcement: 
 The set Business Rules that are enforced by an Org-Unit Type.
@@ -54,11 +89,11 @@ OperationalRuleEnforcement = ClassOfIndividual
 
 -- Membership relation
 membershipOfOperationalRuleEnforcement :  Linkage OrgUnitType OperationalRuleEnforcement
-membershipOfOperationalRuleEnforcement = membershipOfAggregateMember
+membershipOfOperationalRuleEnforcement = make_upwardNestingRelation "operationalRuleEnforcement membership" "nested operationalRuleEnforcement"
 
 -- Aggregation relation
 aggregationOfBusinessRuleOperationalRuleEnforcement :  Linkage OperationalRuleEnforcement BusinessRule
-aggregationOfBusinessRuleOperationalRuleEnforcement = aggregationOfBuildingBlock
+aggregationOfBusinessRuleOperationalRuleEnforcement = make_Relation "BusinessRule aggregation" "aggregated BusinessRule"
 
 {- operationalRuleEnforcement : derived relation obtained by composing
    membershipOfOperationalRuleEnforcement and aggregationOfBusinessRuleOperationalRuleEnforcement
@@ -68,23 +103,6 @@ aggregationOfBusinessRuleOperationalRuleEnforcement = aggregationOfBuildingBlock
 operationalRuleEnforcement : Linkage OrgUnitType BusinessRule
 operationalRuleEnforcement = membershipOfOperationalRuleEnforcement  ∘  aggregationOfBusinessRuleOperationalRuleEnforcement
 
-{- Performed Business Interaction: -}
--- Aggregate Member : Performed Business Interaction
-PerformedBusinessInteraction : ClassOfClassOfIndividual
-PerformedBusinessInteraction = ClassOfIndividual
+postulate -- operationalRuleEnforcement is subTypeOf businessRuleEnforcement
+  st-b777c62468b08327-23bf9ad368ad2e64  : operationalRuleEnforcement   ⊏⋆ᵣ  businessRuleEnforcement 
 
--- Membership relation
-membershipOfPerformedBusinessInteraction :  Linkage OrgUnitType PerformedBusinessInteraction
-membershipOfPerformedBusinessInteraction = membershipOfAggregateMember
-
--- Aggregation relation
-aggregationOfBusinessInteractionProcessPerformedBusinessInteraction :  Linkage PerformedBusinessInteraction BusinessInteractionProcess
-aggregationOfBusinessInteractionProcessPerformedBusinessInteraction = aggregationOfBuildingBlock
-
-{- performedBusinessInteraction : derived relation obtained by composing
-   membershipOfPerformedBusinessInteraction and aggregationOfBusinessInteractionProcessPerformedBusinessInteraction
-   It directly links an Org-Unit Type to the final aggregated BusinessInteractionProcess
-   hiding the reifying PerformedBusinessInteraction
--}
-performedBusinessInteraction : Linkage OrgUnitType BusinessInteractionProcess
-performedBusinessInteraction = membershipOfPerformedBusinessInteraction  ∘  aggregationOfBusinessInteractionProcessPerformedBusinessInteraction

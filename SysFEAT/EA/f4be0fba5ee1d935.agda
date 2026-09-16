@@ -5,6 +5,9 @@
 
 Network Device: 
 A Network Device is any piece of physical or virtual hardware that is used to connect Computing Systems (Computer Devices, Computer Servers) and other devices to a Computer Network.Network Devices enable the transmission and exchange of data between devices in the network through Network Interfaces.Examples: Switch, Router.
+
+Documentation : https://framework.sysfeat.com/pages/f4be0fba5ee1d935.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ NetworkDevice : ClassOfClassOfBoundedIndividual
 NetworkDevice = ClassOfBoundedIndividual
 
 --  NetworkDevice is subTypeOf NetworkingSystem
-st-070b10c964012306 : NetworkDevice ⊏ₑ NetworkingSystem
-st-070b10c964012306 = polySubTypeOf-identity
+st-f4be0fba5ee1d935-070b0d5564011dbb : NetworkDevice ⊏ₑ NetworkingSystem
+st-f4be0fba5ee1d935-070b0d5564011dbb = polySubTypeOf-identity
 
 -- == Relationships =======================

@@ -1,10 +1,15 @@
 ﻿{- ============================== 
-   Copyright (c) 2026 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
+   Copyright (c) 2025 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
    This work is released under the MIT License.
    framework.sysfeat.com
 
 SOF - Business Software Operating Model: 
 The SOF - Business Software Operating Model domain provides concepts and abstractions shared by all Business Software Systems.
+
+Documentation : https://framework.sysfeat.com/pages/25c09f1b61e2f2a0.htm
+
+External references:
+  OpenGroup - ArchiMate - Layer - Application Layer: https://pubs.opengroup.org/architecture/archimate32-doc/ch-Application-Layer.html
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

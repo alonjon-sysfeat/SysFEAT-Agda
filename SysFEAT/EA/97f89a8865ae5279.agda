@@ -5,6 +5,9 @@
 
 Technology Behavior: 
 A Technology Behavior is a  that describes any action or reaction of an Agent to external or internal Events. Behaviors include Processes (action), Interaction Scenarios (stories) or interactions (Service Interface).
+
+Documentation : https://framework.sysfeat.com/pages/97f89a8865ae5279.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,12 +23,12 @@ TechnologyBehavior : ClassOfClassOfBoundedIndividual
 TechnologyBehavior = ClassOfBoundedIndividual
 
 --  TechnologyBehavior is subTypeOf TechnologyOperatingAsset
-st-97889ead66176215 : TechnologyBehavior ⊏ₑ TechnologyOperatingAsset
-st-97889ead66176215 = polySubTypeOf-identity
+st-97f89a8865ae5279-d16006d362e085f2 : TechnologyBehavior ⊏ₑ TechnologyOperatingAsset
+st-97f89a8865ae5279-d16006d362e085f2 = polySubTypeOf-identity
 
 --  TechnologyBehavior is subTypeOf ResourceBehavior
-st-6a70db1667878b64 : TechnologyBehavior ⊏ₑ ResourceBehavior
-st-6a70db1667878b64 = polySubTypeOf-identity
+st-97f89a8865ae5279-0185cd936221bd72 : TechnologyBehavior ⊏ₑ ResourceBehavior
+st-97f89a8865ae5279-0185cd936221bd72 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -36,11 +39,11 @@ TechnologyParticipant = ClassOfIndividual
 
 -- Membership relation
 membershipOfTechnologyParticipant :  Linkage TechnologyBehavior TechnologyParticipant
-membershipOfTechnologyParticipant = membershipOfAggregateMember
+membershipOfTechnologyParticipant = make_upwardNestingRelation "technologyParticipant membership" "nested technologyParticipant"
 
 -- Aggregation relation
 aggregationOfTechnologySystemTechnologyParticipant :  Linkage TechnologyParticipant TechnologySystem
-aggregationOfTechnologySystemTechnologyParticipant = aggregationOfBuildingBlock
+aggregationOfTechnologySystemTechnologyParticipant = make_Relation "TechnologySystem aggregation" "aggregated TechnologySystem"
 
 {- technologyParticipant : derived relation obtained by composing
    membershipOfTechnologyParticipant and aggregationOfTechnologySystemTechnologyParticipant
@@ -49,3 +52,5 @@ aggregationOfTechnologySystemTechnologyParticipant = aggregationOfBuildingBlock
 -}
 technologyParticipant : Linkage TechnologyBehavior TechnologySystem
 technologyParticipant = membershipOfTechnologyParticipant  ∘  aggregationOfTechnologySystemTechnologyParticipant
+
+

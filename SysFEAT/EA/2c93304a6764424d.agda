@@ -5,6 +5,9 @@
 
 Deployed Software Technology System: 
 
+
+Documentation : https://framework.sysfeat.com/pages/2c93304a6764424d.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,14 +22,14 @@ DeployedSOftwareTechnologySystem : ClassOfBoundedIndividual
 DeployedSOftwareTechnologySystem = BoundedIndividual
 
 --  DeployedSOftwareTechnologySystem is subTypeOf IndividualTechnologySystem
-st-c80a5bf26785a8a4 : DeployedSOftwareTechnologySystem ⊏ₑ IndividualTechnologySystem
-st-c80a5bf26785a8a4 = polySubTypeOf-identity
+st-2c93304a6764424d-c80a54ad6785a44d : DeployedSOftwareTechnologySystem ⊏ₑ IndividualTechnologySystem
+st-2c93304a6764424d-c80a54ad6785a44d = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Software Technology Type: -}
 sOftwareTechnologyType :  Linkage DeployedSOftwareTechnologySystem SOftwareTechnologySystem
-sOftwareTechnologyType = make_instanceOf "Software Technology Type" "sOftwareTechnologyType"
+sOftwareTechnologyType = make_instanceOf "Software Technology Type" "Software Technology Type"
 
 postulate -- sOftwareTechnologyType is subTypeOf systemType
   st-2c9330e06764470a-c80a5a2e6785a53e  : sOftwareTechnologyType   ⊏⋆ᵣ  systemType 

@@ -5,6 +5,9 @@
 
 Resource Behavior: 
 An Resource Behavior is an Resource Operating Asset that describes any action or reaction of a Resource Agent Type to external or internal circumstances. This includes Resource Action Processes (actions), Resource Interaction Processs (stories) or service interactions (Business Service Interface).
+
+Documentation : https://framework.sysfeat.com/pages/0185cd936221bd72.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,18 +23,18 @@ ResourceBehavior : ClassOfClassOfBoundedIndividual
 ResourceBehavior = ClassOfBoundedIndividual
 
 --  ResourceBehavior is subTypeOf ResourceOperatingAsset
-st-01850bb66222c5ff : ResourceBehavior ⊏ₑ ResourceOperatingAsset
-st-01850bb66222c5ff = polySubTypeOf-identity
+st-0185cd936221bd72-f8e61da0621db6fa : ResourceBehavior ⊏ₑ ResourceOperatingAsset
+st-0185cd936221bd72-f8e61da0621db6fa = polySubTypeOf-identity
 
 --  ResourceBehavior is subTypeOf BehaviorType
-st-f08ff44566580d72 : ResourceBehavior ⊏ₑ BehaviorType
-st-f08ff44566580d72 = polySubTypeOf-identity
+st-0185cd936221bd72-986cd4ec5ffca3ac : ResourceBehavior ⊏ₑ BehaviorType
+st-0185cd936221bd72-986cd4ec5ffca3ac = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Specialized Resource Behavior: -}
 specializedResourceBehavior :  Linkage ResourceBehavior ResourceBehavior
-specializedResourceBehavior = make_subTypeOf "Specialized Resource Behavior" "specializedResourceBehavior"
+specializedResourceBehavior = make_subTypeOf "Specialized Resource Behavior" "Specialized Resource Behavior"
 
 postulate -- specializedResourceBehavior is subTypeOf specializedBehavior
   st-325a376866f343d3-2b5b452d66ed5855  : specializedResourceBehavior   ⊏⋆ᵣ  specializedBehavior 
@@ -47,11 +50,11 @@ ResourceBehaviorParticipant = ClassOfIndividual
 
 -- Membership relation
 membershipOfResourceBehaviorParticipant :  Linkage ResourceBehavior ResourceBehaviorParticipant
-membershipOfResourceBehaviorParticipant = membershipOfAggregateMember
+membershipOfResourceBehaviorParticipant = make_upwardNestingRelation "resourceBehaviorParticipant membership" "nested resourceBehaviorParticipant"
 
 -- Aggregation relation
 aggregationOfResourceAgentTypeResourceBehaviorParticipant :  Linkage ResourceBehaviorParticipant ResourceAgentType
-aggregationOfResourceAgentTypeResourceBehaviorParticipant = aggregationOfBuildingBlock
+aggregationOfResourceAgentTypeResourceBehaviorParticipant = make_Relation "ResourceAgentType aggregation" "aggregated ResourceAgentType"
 
 {- resourceBehaviorParticipant : derived relation obtained by composing
    membershipOfResourceBehaviorParticipant and aggregationOfResourceAgentTypeResourceBehaviorParticipant
@@ -60,3 +63,9 @@ aggregationOfResourceAgentTypeResourceBehaviorParticipant = aggregationOfBuildin
 -}
 resourceBehaviorParticipant : Linkage ResourceBehavior ResourceAgentType
 resourceBehaviorParticipant = membershipOfResourceBehaviorParticipant  ∘  aggregationOfResourceAgentTypeResourceBehaviorParticipant
+
+postulate -- resourceBehaviorParticipant is subTypeOf behaviorParticipant
+  st-e0e874626578a341-e0e86fad65789c43  : resourceBehaviorParticipant   ⊏⋆ᵣ  behaviorParticipant 
+postulate -- resourceBehaviorParticipant is subTypeOf resourceOperatingAssetPart
+  st-e0e874626578a341-b776bf0868b0fbb3  : resourceBehaviorParticipant   ⊏⋆ᵣ  resourceOperatingAssetPart 
+

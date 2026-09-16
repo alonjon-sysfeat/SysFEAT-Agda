@@ -5,6 +5,9 @@
 
 Dictionary Block: 
 A Dictionary Block is an Dictionary Block involved in informative descriptions of the enterprise.Dictionary Blocks range from Conceptual Entity Assets to Concept Domain Maps..Conceptual Entity Assets are managed in Data Catalogs.
+
+Documentation : https://framework.sysfeat.com/pages/6bf190796859b4ff.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ DictionaryBlock : ∀ (u : Level) → ClassOfMixedOrderEntity u
 DictionaryBlock u = MixedOrderEntity u
 
 --  DictionaryBlock is subTypeOf DictionaryLexicalBlock
-st-9397d9c16877c56a : ∀ {u v} → (DictionaryBlock u) ⊏⋆ₑ (DictionaryLexicalBlock v)
-st-9397d9c16877c56a = trivialPolySubTypeOfEntity
+st-6bf190796859b4ff-9397d98f6877c4e5 : ∀ {u v} → (DictionaryBlock u) ⊏⋆ₑ (DictionaryLexicalBlock v)
+st-6bf190796859b4ff-9397d98f6877c4e5 = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

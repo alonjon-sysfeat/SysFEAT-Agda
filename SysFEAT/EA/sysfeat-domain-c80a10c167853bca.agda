@@ -1,9 +1,12 @@
 ﻿{- ============================== 
-   Copyright (c) 2026 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
+   Copyright (c) 2025 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
    This work is released under the MIT License.
    framework.sysfeat.com
 
 EA Pattern - Physical Resource Agent: 
+
+
+Documentation : https://framework.sysfeat.com/pages/c80a10c167853bca.htm
 
  - ============================== -}
 

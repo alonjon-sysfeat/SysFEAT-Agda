@@ -1,10 +1,13 @@
 ﻿{- ============================== 
-   Copyright (c) 2026 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
+   Copyright (c) 2025 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
    This work is released under the MIT License.
    framework.sysfeat.com
 
 Regulatory Compliance: 
 The Regulatory Compliance encompasses methodological concepts used in the process of ensuring that an enterprise complies with applicable laws, regulations, standards, and ethical practices relevant to its operations. This activity involves monitoring legal Regulatory Frameworks, implementing policies and procedures to meet those obligations, and conducting audits or assessments to verify adherence. Effective regulatory compliance helps mitigate legal risks, avoid penalties, and maintain trust with stakeholders while promoting ethical and responsible business conduct. It spans various areas, including data protection, financial reporting, environmental regulations, and industry-specific mandates.
+
+Documentation : https://framework.sysfeat.com/pages/d5c9de7e5ecf1afd.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

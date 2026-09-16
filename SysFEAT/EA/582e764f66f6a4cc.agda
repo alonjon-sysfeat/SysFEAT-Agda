@@ -5,6 +5,9 @@
 
 Control Measure Category: 
 A category of measure aming at controlling conformity of asset associated to the Assurance Case.
+
+Documentation : https://framework.sysfeat.com/pages/582e764f66f6a4cc.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ ControlMeasureCategory : ThirdOrderClass
 ControlMeasureCategory = SecondOrderClass
 
 --  ControlMeasureCategory withAspect ModelPropertyBlock
-st-4edff46f5fc516dc : ControlMeasureCategory ⊏ₐₑ (ModelPropertyBlock (lsuc(lsuc(lzero))))
-st-4edff46f5fc516dc = polySubTypeOf-identity
+st-582e764f66f6a4cc-0eb97aff6855cd23 : ControlMeasureCategory ⊏ₐₑ (ModelPropertyBlock (lsuc(lsuc(lzero))))
+st-582e764f66f6a4cc-0eb97aff6855cd23 = polySubTypeOf-identity
 
 

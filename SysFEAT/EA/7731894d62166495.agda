@@ -5,6 +5,9 @@
 
 Relational Data bLOCK: 
 A Relational Data bLOCK is a Data Asset used for description of relational data consumed and produced by Business Software Systems.Relational Data bLOCKs range from Relational Schemas to Column Types.They are defined in Relational Dictionary(ies) and managed in Data Catalogs.
+
+Documentation : https://framework.sysfeat.com/pages/7731894d62166495.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ RelationalDatabLOCK : ClassOfBoundedIndividual
 RelationalDatabLOCK = BoundedIndividual
 
 --  RelationalDatabLOCK withAspect PhysicalDataBlock
-st-77318965621677b9 : RelationalDatabLOCK ⊏ₐₑ (PhysicalDataBlock lzero)
-st-77318965621677b9 = polySubTypeOf-identity
+st-7731894d62166495-8f1cad7d68ca9df0 : RelationalDatabLOCK ⊏ₐₑ (PhysicalDataBlock lzero)
+st-7731894d62166495-8f1cad7d68ca9df0 = polySubTypeOf-identity
 
 -- == Relationships =======================

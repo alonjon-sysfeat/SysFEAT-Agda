@@ -5,6 +5,9 @@
 
 Stored Procedure: 
 A Stored Procedure is a is a subroutine available to applications that access a relational database management system (RDBMS). It is a kind of Resource Process handled by RDBMS.
+
+Documentation : https://framework.sysfeat.com/pages/3c079ba761e14314.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,12 +22,12 @@ StoredProcedure : ClassOfClassOfBoundedIndividual
 StoredProcedure = ClassOfBoundedIndividual
 
 --  StoredProcedure is subTypeOf RelationalDatabLOCK
-st-77318bcb62167c80 : StoredProcedure ⊏⋆ₑ RelationalDatabLOCK
-st-77318bcb62167c80 = polySubTypeOf-identity
+st-3c079ba761e14314-7731894d62166495 : StoredProcedure ⊏⋆ₑ RelationalDatabLOCK
+st-3c079ba761e14314-7731894d62166495 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Referenced Entity: -}
 referencedEntity :  Linkage StoredProcedure RelationalEntity
-referencedEntity = make_classOfHolonymy "Referenced Entity" "referencedEntity"
+referencedEntity = make_classOfHolonymy "Referenced Entity" "Referenced Entity"
 

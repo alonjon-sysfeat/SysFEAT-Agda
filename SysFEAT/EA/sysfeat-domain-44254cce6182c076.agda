@@ -1,10 +1,13 @@
 ﻿{- ============================== 
-   Copyright (c) 2026 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
+   Copyright (c) 2023 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
    This work is released under the MIT License.
    framework.sysfeat.com
 
 Data Governance Core: 
 The Data Governance Core domain provides the core entities shared by all Data Governance sub-domains.Data Catalogs, along with their associated governance tools, form the central Management Systems that enable the execution of Data Governance objectives.
+
+Documentation : https://framework.sysfeat.com/pages/44254cce6182c076.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

@@ -5,6 +5,9 @@
 
 Resource Agent Configuration: 
 A Resource Agent Configuration is a Resource Agent Type that is combination of Human Agent Categorys and Artifacts.
+
+Documentation : https://framework.sysfeat.com/pages/ffdf64a868608999.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ ResourceAgentConfiguration : ClassOfClassOfBoundedIndividual
 ResourceAgentConfiguration = ClassOfBoundedIndividual
 
 --  ResourceAgentConfiguration is subTypeOf ResourceAgentType
-st-ffdf64c0686089e8 : ResourceAgentConfiguration ⊏ₑ ResourceAgentType
-st-ffdf64c0686089e8 = polySubTypeOf-identity
+st-ffdf64a868608999-e2ef091962147ad7 : ResourceAgentConfiguration ⊏ₑ ResourceAgentType
+st-ffdf64a868608999-e2ef091962147ad7 = polySubTypeOf-identity
 
 -- == Relationships =======================

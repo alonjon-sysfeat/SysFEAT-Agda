@@ -5,6 +5,9 @@
 
 Software System Category: 
 A Software System Category is an intangible, logic-based Artifact,  designed to perform tasks, process information, or enable control. It exists as code, data, or digital instructions and requires a computational medium to execute.
+
+Documentation : https://framework.sysfeat.com/pages/ffdf5e1f68608352.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,11 +22,11 @@ SOftwareSystemCategory : ClassOfClassOfBoundedIndividual
 SOftwareSystemCategory = ClassOfBoundedIndividual
 
 --  SOftwareSystemCategory is subTypeOf Artifact
-st-ffdf60706860861d : SOftwareSystemCategory ⊏ₑ Artifact
-st-ffdf60706860861d = polySubTypeOf-identity
+st-ffdf5e1f68608352-ffdf5eb7686083b4 : SOftwareSystemCategory ⊏ₑ Artifact
+st-ffdf5e1f68608352-ffdf5eb7686083b4 = polySubTypeOf-identity
 
 --  SOftwareSystemCategory is subTypeOf IntangibleResourceAgent
-st-340f510468621250 : SOftwareSystemCategory ⊏ₑ IntangibleResourceAgent
-st-340f510468621250 = polySubTypeOf-identity
+st-ffdf5e1f68608352-c80afd2f6784305d : SOftwareSystemCategory ⊏ₑ IntangibleResourceAgent
+st-ffdf5e1f68608352-c80afd2f6784305d = polySubTypeOf-identity
 
 -- == Relationships =======================

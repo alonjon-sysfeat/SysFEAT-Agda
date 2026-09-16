@@ -1,9 +1,12 @@
 ﻿{- ============================== 
-   Copyright (c) 2026 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
+   Copyright (c) 2021 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
    This work is released under the MIT License.
    framework.sysfeat.com
 
 Data Quality Governance: 
+
+
+Documentation : https://framework.sysfeat.com/pages/981598595f68274f.htm
 
  - ============================== -}
 

@@ -5,6 +5,12 @@
 
 Regulatory agency: 
 A Regulatory agency is public or government agency that supervises, through investigative and corrective powers, the application of Regulatory Frameworks.
+
+Documentation : https://framework.sysfeat.com/pages/167124af6008e9d3.htm
+
+External references:
+  WordNet - Regulatory Agency: https://en-word.net/ili/i81006
+  UCF Glossary - regulatory body: https://compliancedictionary.com/term/381708
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,14 +25,14 @@ Regulatoryagency : ClassOfBoundedIndividual
 Regulatoryagency = BoundedIndividual
 
 --  Regulatoryagency is subTypeOf LegalEntity
-st-167124c06008ea4a : Regulatoryagency ⊏ₑ LegalEntity
-st-167124c06008ea4a = polySubTypeOf-identity
+st-167124af6008e9d3-e78cee446618815a : Regulatoryagency ⊏ₑ LegalEntity
+st-167124af6008e9d3-e78cee446618815a = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Regulator Location: -}
 regulatorLocation :  Linkage Regulatoryagency Location
-regulatorLocation = make_holonymyRelation "Regulator Location" "regulatorLocation"
+regulatorLocation = make_holonymyRelation "Regulator Location" "Regulator Location"
 
 postulate -- regulatorLocation is subTypeOf locatedat
   st-167126066008ed22-167126a16008efeb  : regulatorLocation   ⊏⋆ᵣ  locatedat 

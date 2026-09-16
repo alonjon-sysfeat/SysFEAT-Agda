@@ -5,6 +5,9 @@
 
 Conceptual Asset: 
 A Conceptual Asset is an Asset Type that is a constituant of an Conceptual Operating Model, that provide an idealized view of an enterprises operations or those of one of its sub-systems..
+
+Documentation : https://framework.sysfeat.com/pages/d9f677bb688e2127.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ ConceptualAsset : ClassOfClassOfBoundedIndividual
 ConceptualAsset = ClassOfBoundedIndividual
 
 --  ConceptualAsset is subTypeOf AssetType
-st-d9f677fb688e21ab : ConceptualAsset ⊏ₑ AssetType
-st-d9f677fb688e21ab = polySubTypeOf-identity
+st-d9f677bb688e2127-a4a5b3f855585ce1 : ConceptualAsset ⊏ₑ AssetType
+st-d9f677bb688e2127-a4a5b3f855585ce1 = polySubTypeOf-identity
 
 -- == Relationships =======================

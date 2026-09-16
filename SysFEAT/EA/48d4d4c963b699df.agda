@@ -5,6 +5,9 @@
 
 Project Milesone: 
 A Project Milestone defines an intermediate delivery gate in the project lifecycle.Project Deliverables can be associated with a Project Milesone in case they are delivered during the project and not at the end of the project.Note: the association of deliverables to milestone do not affect their object life initialization; the object life should be manually updated accordingly if this is relevant.
+
+Documentation : https://framework.sysfeat.com/pages/48d4d4c963b699df.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

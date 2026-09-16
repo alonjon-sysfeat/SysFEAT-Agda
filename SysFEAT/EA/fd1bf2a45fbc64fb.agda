@@ -5,6 +5,9 @@
 
 Logical Data Asset: 
 A Logical Data Asset is a Data Asset used for the description of data consumed and produced by Logical Software Systems.Logical Data Assets are defined in Logical Data Dictionary(ies).
+
+Documentation : https://framework.sysfeat.com/pages/fd1bf2a45fbc64fb.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ LogicalDataAsset : ClassOfClassOfBoundedIndividual
 LogicalDataAsset = ClassOfBoundedIndividual
 
 --  LogicalDataAsset withAspect DataBlock
-st-78e262d56312fe01 : LogicalDataAsset ⊏ₐₑ (DataBlock (lsuc(lzero)))
-st-78e262d56312fe01 = polySubTypeOf-identity
+st-fd1bf2a45fbc64fb-8f1c937168ca8195 : LogicalDataAsset ⊏ₐₑ (DataBlock (lsuc(lzero)))
+st-fd1bf2a45fbc64fb-8f1c937168ca8195 = polySubTypeOf-identity
 
 -- == Relationships =======================

@@ -5,6 +5,11 @@
 
 Exogenous Driver: 
 An Exogenous Driver is an external Driver whose source of change is outside the enterprises organizational boundaries and that can impact its employment of Means or achievement of Ends.
+
+Documentation : https://framework.sysfeat.com/pages/7a717ae75596283e.htm
+
+External references:
+  OMG - BMM - External Influencer: https://www.omg.org/spec/BMM/1.3/PDF#page=49
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +23,7 @@ ExogenousDriver : ClassOfBoundedIndividual
 ExogenousDriver = BoundedIndividual
 
 --  ExogenousDriver is subTypeOf Driver
-st-7a717b54559629e9 : ExogenousDriver ⊏ₑ Driver
-st-7a717b54559629e9 = polySubTypeOf-identity
+st-7a717ae75596283e-bcebd0565491287e : ExogenousDriver ⊏ₑ Driver
+st-7a717ae75596283e-bcebd0565491287e = polySubTypeOf-identity
 
 -- == Relationships =======================

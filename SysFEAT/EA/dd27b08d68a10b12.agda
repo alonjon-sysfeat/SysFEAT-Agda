@@ -5,6 +5,9 @@
 
 Technology Capability: 
 A Technology Capability is a Resource Capability offered by Technology Systems and aimed at producing Technology Outcome Events.Technology Capabilitys define WHAT Technology Capabilitys can do, They are used to understand whether two types of Technology Capabilitys are fundamentally doing the same thing.They are also used in Software System ArcOps to identify where there are redundancies in Technology Portfolios.
+
+Documentation : https://framework.sysfeat.com/pages/dd27b08d68a10b12.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,8 +21,8 @@ TechnologyCapability : PropertyType
 TechnologyCapability = ClassOfProperty
 
 --  TechnologyCapability is subTypeOf ResourceCapability
-st-dd27b13568a10c0f : TechnologyCapability ⊏ₑ ResourceCapability
-st-dd27b13568a10c0f = polySubTypeOf-identity
+st-dd27b08d68a10b12-dd265414689f5987 : TechnologyCapability ⊏ₑ ResourceCapability
+st-dd27b08d68a10b12-dd265414689f5987 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -30,11 +33,11 @@ TechnologyCapabilityPart = ClassOfIndividual
 
 -- Membership relation
 membershipOfTechnologyCapabilityPart :  Linkage TechnologyCapability TechnologyCapabilityPart
-membershipOfTechnologyCapabilityPart = membershipOfAggregateMember
+membershipOfTechnologyCapabilityPart = make_upwardNestingRelation "technologyCapabilityPart membership" "nested technologyCapabilityPart"
 
 -- Aggregation relation
 aggregationOfTechnologyCapabilityTechnologyCapabilityPart :  Linkage TechnologyCapabilityPart TechnologyCapability
-aggregationOfTechnologyCapabilityTechnologyCapabilityPart = aggregationOfBuildingBlock
+aggregationOfTechnologyCapabilityTechnologyCapabilityPart = make_Relation "TechnologyCapability aggregation" "aggregated TechnologyCapability"
 
 {- technologyCapabilityPart : derived relation obtained by composing
    membershipOfTechnologyCapabilityPart and aggregationOfTechnologyCapabilityTechnologyCapabilityPart
@@ -43,3 +46,7 @@ aggregationOfTechnologyCapabilityTechnologyCapabilityPart = aggregationOfBuildin
 -}
 technologyCapabilityPart : Linkage TechnologyCapability TechnologyCapability
 technologyCapabilityPart = membershipOfTechnologyCapabilityPart  ∘  aggregationOfTechnologyCapabilityTechnologyCapabilityPart
+
+postulate -- technologyCapabilityPart is subTypeOf resourceCapabilityPart
+  st-dd27b26868a10dbe-dd262bf968a05e2c  : technologyCapabilityPart   ⊏⋆ᵣ  resourceCapabilityPart 
+

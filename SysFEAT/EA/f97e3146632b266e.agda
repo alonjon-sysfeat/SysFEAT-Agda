@@ -5,6 +5,9 @@
 
 Conceptual Interaction Scenario: 
 As part of the Conceptual Operating Model, a Conceptual Interaction Scenario is a story that frames how the components of a Conceptual Agent interacts to achieve Conceptual Outcome Events.This includes:1) A course of events represented by Business Object Flows depicting the steps towards the delivery of expected Conceptual Outcome Events.2) Conceptual Agents who participate to the story.
+
+Documentation : https://framework.sysfeat.com/pages/f97e3146632b266e.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,12 +23,12 @@ ConceptualInteractionScenario : ClassOfClassOfBoundedIndividual
 ConceptualInteractionScenario = ClassOfBoundedIndividual
 
 --  ConceptualInteractionScenario is subTypeOf ConceptualBehavior
-st-f97e4187632b3769 : ConceptualInteractionScenario ⊏ₑ ConceptualBehavior
-st-f97e4187632b3769 = polySubTypeOf-identity
+st-f97e3146632b266e-f97e3119632b25f8 : ConceptualInteractionScenario ⊏ₑ ConceptualBehavior
+st-f97e3146632b266e-f97e3119632b25f8 = polySubTypeOf-identity
 
 --  ConceptualInteractionScenario is subTypeOf InteractionProcessType
-st-6a7095e0678755b1 : ConceptualInteractionScenario ⊏ₑ InteractionProcessType
-st-6a7095e0678755b1 = polySubTypeOf-identity
+st-f97e3146632b266e-333f35ee5dde0c8c : ConceptualInteractionScenario ⊏ₑ InteractionProcessType
+st-f97e3146632b266e-333f35ee5dde0c8c = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -36,11 +39,11 @@ BusinessFunctionParticipant = ClassOfIndividual
 
 -- Membership relation
 membershipOfBusinessFunctionParticipant :  Linkage ConceptualInteractionScenario BusinessFunctionParticipant
-membershipOfBusinessFunctionParticipant = membershipOfAggregateMember
+membershipOfBusinessFunctionParticipant = make_upwardNestingRelation "businessFunctionParticipant membership" "nested businessFunctionParticipant"
 
 -- Aggregation relation
 aggregationOfBusinessFunctionBusinessFunctionParticipant :  Linkage BusinessFunctionParticipant BusinessFunction
-aggregationOfBusinessFunctionBusinessFunctionParticipant = aggregationOfBuildingBlock
+aggregationOfBusinessFunctionBusinessFunctionParticipant = make_Relation "BusinessFunction aggregation" "aggregated BusinessFunction"
 
 {- businessFunctionParticipant : derived relation obtained by composing
    membershipOfBusinessFunctionParticipant and aggregationOfBusinessFunctionBusinessFunctionParticipant
@@ -49,3 +52,7 @@ aggregationOfBusinessFunctionBusinessFunctionParticipant = aggregationOfBuilding
 -}
 businessFunctionParticipant : Linkage ConceptualInteractionScenario BusinessFunction
 businessFunctionParticipant = membershipOfBusinessFunctionParticipant  ∘  aggregationOfBusinessFunctionBusinessFunctionParticipant
+
+postulate -- businessFunctionParticipant is subTypeOf conceptualParticipant
+  st-f97e4064632b354d-6a7098be67875823  : businessFunctionParticipant   ⊏⋆ᵣ  conceptualParticipant 
+

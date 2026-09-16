@@ -5,6 +5,9 @@
 
 NoSQL Library: 
 
+
+Documentation : https://framework.sysfeat.com/pages/c758eed8600a399f.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -13,17 +16,17 @@ module SysFEAT.EA.c758eed8600a399f where -- ========== NoSQL Library
 
 open import Agda.Primitive
 open import SysFEAT.EA.8f1cb5a068caab57 public -- NoSQL Dictionary
-open import SysFEAT.SOF.0f6418e568598b38 public -- Reference Dictionary
+open import SysFEAT.SOF.3aca50c46aa63f3b public -- Reference Dictionary
 
 NoSQLLibrary : ClassOfBoundedIndividual
 NoSQLLibrary = BoundedIndividual
 
---  NoSQLLibrary is subTypeOf NoSQLDictionary
-st-c758eee2600a3a09 : NoSQLLibrary ⊏ₑ NoSQLDictionary
-st-c758eee2600a3a09 = polySubTypeOf-identity
+--  NoSQLLibrary withAspect NoSQLDictionary
+st-c758eed8600a399f-8f1cb5a068caab57 : NoSQLLibrary ⊏ₐₑ (NoSQLDictionary lzero)
+st-c758eed8600a399f-8f1cb5a068caab57 = polySubTypeOf-identity
 
 --  NoSQLLibrary is subTypeOf ReferenceDictionary
-st-c758ef33600a3ae3 : NoSQLLibrary ⊏ₑ ReferenceDictionary
-st-c758ef33600a3ae3 = polySubTypeOf-identity
+st-c758eed8600a399f-3aca50c46aa63f3b : NoSQLLibrary ⊏ₑ ReferenceDictionary
+st-c758eed8600a399f-3aca50c46aa63f3b = polySubTypeOf-identity
 
 -- == Relationships =======================

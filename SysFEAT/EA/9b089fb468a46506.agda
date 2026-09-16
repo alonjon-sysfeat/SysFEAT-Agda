@@ -5,6 +5,9 @@
 
 Physical Capability Map: 
 
+
+Documentation : https://framework.sysfeat.com/pages/9b089fb468a46506.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,8 +22,8 @@ PhysicalCapabilityMap : PropertyType
 PhysicalCapabilityMap = ClassOfProperty
 
 --  PhysicalCapabilityMap is subTypeOf BusinessResourceCapabilityMap
-st-22bb491b5eb4895d : PhysicalCapabilityMap ⊏ₑ BusinessResourceCapabilityMap
-st-22bb491b5eb4895d = polySubTypeOf-identity
+st-9b089fb468a46506-dd2638ba68a073a8 : PhysicalCapabilityMap ⊏ₑ BusinessResourceCapabilityMap
+st-9b089fb468a46506-dd2638ba68a073a8 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -31,11 +34,11 @@ PhysicalMapMember = ClassOfIndividual
 
 -- Membership relation
 membershipOfPhysicalMapMember :  Linkage PhysicalCapabilityMap PhysicalMapMember
-membershipOfPhysicalMapMember = membershipOfAggregateMember
+membershipOfPhysicalMapMember = make_upwardNestingRelation "physicalMapMember membership" "nested physicalMapMember"
 
 -- Aggregation relation
 aggregationOfPhysicalCapabilityPhysicalMapMember :  Linkage PhysicalMapMember PhysicalCapability
-aggregationOfPhysicalCapabilityPhysicalMapMember = aggregationOfBuildingBlock
+aggregationOfPhysicalCapabilityPhysicalMapMember = make_Relation "PhysicalCapability aggregation" "aggregated PhysicalCapability"
 
 {- physicalMapMember : derived relation obtained by composing
    membershipOfPhysicalMapMember and aggregationOfPhysicalCapabilityPhysicalMapMember
@@ -44,3 +47,7 @@ aggregationOfPhysicalCapabilityPhysicalMapMember = aggregationOfBuildingBlock
 -}
 physicalMapMember : Linkage PhysicalCapabilityMap PhysicalCapability
 physicalMapMember = membershipOfPhysicalMapMember  ∘  aggregationOfPhysicalCapabilityPhysicalMapMember
+
+postulate -- physicalMapMember is subTypeOf businessResourceCapabilityMember
+  st-9b08a0ba68a466b4-dd26a8b568a1f5be  : physicalMapMember   ⊏⋆ᵣ  businessResourceCapabilityMember 
+

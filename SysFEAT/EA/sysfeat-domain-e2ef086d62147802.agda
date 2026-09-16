@@ -1,10 +1,13 @@
 ﻿{- ============================== 
-   Copyright (c) 2026 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
+   Copyright (c) 2025 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
    This work is released under the MIT License.
    framework.sysfeat.com
 
 SOF - Resource System Operating Pattern (R-SOF): 
 The SOF - Resource System Operating Pattern (R-SOF) domain is a conceptualization level that comprises abstract entities that belong to the physical space and comprise Human resources,  Software resources, Hardware resources and natural resources. Unlike Conceptual entities (which are independent of physical implementation), Resource entities represent tangible or operational abstractions. Resource entities constrast with  Conceptual entities, which abstract from any physical implementation.This level is sometimes referred to as the  Organic Level  because it deals with functional, real-world elements. For example:.  Vision  is a Conceptual entity, abstract in nature..  Eye  is a Resource entity, representing its physical realization (e.g., human eyes, batrachian eyes, etc.). However,  Eye  remains an abstract resource since it encompasses multiple concrete implementations.The Resource conceptualization level models how a Resource Agent Type operates/functions within its Resource Operating Ecosystem to produce Resource Outcome Events.It includes Resource Agent Types, Resource Action Processes, Resource Service Interfaces, Resource Rules, Resource Capabilitys, Resource Outcome Events.
+
+Documentation : https://framework.sysfeat.com/pages/e2ef086d62147802.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

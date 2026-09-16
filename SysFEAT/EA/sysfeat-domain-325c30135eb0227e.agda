@@ -5,6 +5,9 @@
 
 Logical Application Architecture: 
 The Logical Application Architecture domain provides means of describing the logical structure and behavior of Business Software Systems of the enterprise. The aim of Logical Application Architecture is to describe an optimal optimal architecture of the enterprise IT systems. It is used to guide how key sub-systems and data domains are to be configured to meet IT systems missions and purposes. A Logical Application Architecture is concerned with how the IT Operating Model should look, not how it does look now.This includes:1)  Logical Application as the core building logical blocks for software components.2)  Logical Application System as consistent ssembly of Logical Applications.3)  Logical Data Domains of data entities.4)  Functionality(ies) fulfilled by logical systems.5) Functional APIs exposed and used by applications: Application Interfaces.
+
+Documentation : https://framework.sysfeat.com/pages/325c30135eb0227e.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

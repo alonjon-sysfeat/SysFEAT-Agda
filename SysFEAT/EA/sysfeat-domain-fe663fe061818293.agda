@@ -1,10 +1,16 @@
 ﻿{- ============================== 
-   Copyright (c) 2026 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
+   Copyright (c) 2023 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
    This work is released under the MIT License.
    framework.sysfeat.com
 
 Program & Projects: 
 The Program &amp; Projects domain comprises concepts used to organize Ad-hoc Initiatives aimed at achieving one shot transformations.
+
+Documentation : https://framework.sysfeat.com/pages/fe663fe061818293.htm
+
+External references:
+  Martin Fowler - Products over Projects: https://martinfowler.com/articles/products-over-projects.html
+  OMG - UAF - View - Project View: https://www.omg.org/spec/UAF/1.2/Beta1/DMM/PDF#page=95
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

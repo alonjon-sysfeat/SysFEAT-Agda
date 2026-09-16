@@ -5,6 +5,11 @@
 
 Conceptual Environment: 
 A Conceptual Environment  is an operating context which defines the interactions (Business Interaction) of an Operating Domain with its partners (Customers).
+
+Documentation : https://framework.sysfeat.com/pages/7c4097c855271c8e.htm
+
+External references:
+  OMG - UAF - OperationalArchitecture: https://www.omg.org/spec/UAF/1.2/Beta1/DMM/PDF#OperationalArchitecture
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -23,18 +28,18 @@ ConceptualEnvironment : ClassOfClassOfBoundedIndividual
 ConceptualEnvironment = ClassOfBoundedIndividual
 
 --  ConceptualEnvironment is subTypeOf ConceptualEcosystem
-st-6a70b9af67876384 : ConceptualEnvironment ⊏ₑ ConceptualEcosystem
-st-6a70b9af67876384 = polySubTypeOf-identity
+st-7c4097c855271c8e-f97e3e30632b31c1 : ConceptualEnvironment ⊏ₑ ConceptualEcosystem
+st-7c4097c855271c8e-f97e3e30632b31c1 = polySubTypeOf-identity
 
 --  ConceptualEnvironment is subTypeOf AgentTypeEnvironment
-st-ebcff5365ad8b891 : ConceptualEnvironment ⊏ₑ AgentTypeEnvironment
-st-ebcff5365ad8b891 = polySubTypeOf-identity
+st-7c4097c855271c8e-d6cd0fd95ab9744b : ConceptualEnvironment ⊏ₑ AgentTypeEnvironment
+st-7c4097c855271c8e-d6cd0fd95ab9744b = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Specialized Operating Model Environment: -}
 specializedOperatingModelEnvironment :  Linkage ConceptualEnvironment ConceptualEnvironment
-specializedOperatingModelEnvironment = make_subTypeOf "Specialized Operating Model Environment" "specializedOperatingModelEnvironment"
+specializedOperatingModelEnvironment = make_subTypeOf "Specialized Operating Model Environment" "Specialized Operating Model Environment"
 
 postulate -- specializedOperatingModelEnvironment is subTypeOf specializedOperatingEnvironment
   st-325a375266f33e40-325a373d66f33dca  : specializedOperatingModelEnvironment   ⊏⋆ᵣ  specializedOperatingEnvironment 
@@ -46,11 +51,11 @@ BusinessInteraction = ClassOfIndividual
 
 -- Membership relation
 membershipOfBusinessInteraction :  Linkage ConceptualEnvironment BusinessInteraction
-membershipOfBusinessInteraction = membershipOfAggregateMember
+membershipOfBusinessInteraction = make_upwardNestingRelation "businessInteraction membership" "nested businessInteraction"
 
 -- Aggregation relation
 aggregationOfBusinessServiceInterfaceBusinessInteraction :  Linkage BusinessInteraction BusinessServiceInterface
-aggregationOfBusinessServiceInterfaceBusinessInteraction = aggregationOfBuildingBlock
+aggregationOfBusinessServiceInterfaceBusinessInteraction = make_Relation "BusinessServiceInterface aggregation" "aggregated BusinessServiceInterface"
 
 {- businessInteraction : derived relation obtained by composing
    membershipOfBusinessInteraction and aggregationOfBusinessServiceInterfaceBusinessInteraction
@@ -60,6 +65,10 @@ aggregationOfBusinessServiceInterfaceBusinessInteraction = aggregationOfBuilding
 businessInteraction : Linkage ConceptualEnvironment BusinessServiceInterface
 businessInteraction = membershipOfBusinessInteraction  ∘  aggregationOfBusinessServiceInterfaceBusinessInteraction
 
+postulate -- businessInteraction is subTypeOf serviceChannel
+  st-1c3bfa59601c6817-80be29065fc2a83d  : businessInteraction   ⊏⋆ᵣ  serviceChannel 
+
+
 {- Partner Supplier: -}
 -- Aggregate Member : Partner Supplier
 PartnerSupplier : ClassOfClassOfIndividual
@@ -67,11 +76,11 @@ PartnerSupplier = ClassOfIndividual
 
 -- Membership relation
 membershipOfPartnerSupplier :  Linkage ConceptualEnvironment PartnerSupplier
-membershipOfPartnerSupplier = membershipOfAggregateMember
+membershipOfPartnerSupplier = make_upwardNestingRelation "partnerSupplier membership" "nested partnerSupplier"
 
 -- Aggregation relation
 aggregationOfSupplierPartnerSupplier :  Linkage PartnerSupplier Supplier
-aggregationOfSupplierPartnerSupplier = aggregationOfBuildingBlock
+aggregationOfSupplierPartnerSupplier = make_Relation "Supplier aggregation" "aggregated Supplier"
 
 {- partnerSupplier : derived relation obtained by composing
    membershipOfPartnerSupplier and aggregationOfSupplierPartnerSupplier
@@ -81,6 +90,10 @@ aggregationOfSupplierPartnerSupplier = aggregationOfBuildingBlock
 partnerSupplier : Linkage ConceptualEnvironment Supplier
 partnerSupplier = membershipOfPartnerSupplier  ∘  aggregationOfSupplierPartnerSupplier
 
+postulate -- partnerSupplier is subTypeOf enterpriseEcosystemPart
+  st-46664f3464087702-f8e6b83c621fffe6  : partnerSupplier   ⊏⋆ᵣ  enterpriseEcosystemPart 
+
+
 {- Subject Activity Domain: -}
 -- Aggregate Member : Subject Activity Domain
 SubjectActivityDomain : ClassOfClassOfIndividual
@@ -88,11 +101,11 @@ SubjectActivityDomain = ClassOfIndividual
 
 -- Membership relation
 membershipOfSubjectActivityDomain :  Linkage ConceptualEnvironment SubjectActivityDomain
-membershipOfSubjectActivityDomain = membershipOfAggregateMember
+membershipOfSubjectActivityDomain = make_upwardNestingRelation "subjectActivityDomain membership" "nested subjectActivityDomain"
 
 -- Aggregation relation
 aggregationOfOperatingDomainSubjectActivityDomain :  Linkage SubjectActivityDomain OperatingDomain
-aggregationOfOperatingDomainSubjectActivityDomain = aggregationOfBuildingBlock
+aggregationOfOperatingDomainSubjectActivityDomain = make_Relation "OperatingDomain aggregation" "aggregated OperatingDomain"
 
 {- subjectActivityDomain : derived relation obtained by composing
    membershipOfSubjectActivityDomain and aggregationOfOperatingDomainSubjectActivityDomain
@@ -102,6 +115,12 @@ aggregationOfOperatingDomainSubjectActivityDomain = aggregationOfBuildingBlock
 subjectActivityDomain : Linkage ConceptualEnvironment OperatingDomain
 subjectActivityDomain = membershipOfSubjectActivityDomain  ∘  aggregationOfOperatingDomainSubjectActivityDomain
 
+postulate -- subjectActivityDomain is subTypeOf subjectAgent
+  st-e8bfec375ebb805a-fa4ffc205ec86201  : subjectActivityDomain   ⊏⋆ᵣ  subjectAgent 
+postulate -- subjectActivityDomain is subTypeOf businessOperatingAgent
+  st-e8bfec375ebb805a-1c3bf9f5601c673d  : subjectActivityDomain   ⊏⋆ᵣ  businessOperatingAgent 
+
+
 {- Customer: -}
 -- Aggregate Member : Customer
 Customer : ClassOfClassOfIndividual
@@ -109,11 +128,11 @@ Customer = ClassOfIndividual
 
 -- Membership relation
 membershipOfCustomer :  Linkage ConceptualEnvironment Customer
-membershipOfCustomer = membershipOfAggregateMember
+membershipOfCustomer = make_upwardNestingRelation "customer membership" "nested customer"
 
 -- Aggregation relation
 aggregationOfCustomerCustomer :  Linkage Customer Customer
-aggregationOfCustomerCustomer = aggregationOfBuildingBlock
+aggregationOfCustomerCustomer = make_Relation "Customer aggregation" "aggregated Customer"
 
 {- customer : derived relation obtained by composing
    membershipOfCustomer and aggregationOfCustomerCustomer
@@ -122,3 +141,9 @@ aggregationOfCustomerCustomer = aggregationOfBuildingBlock
 -}
 customer : Linkage ConceptualEnvironment Customer
 customer = membershipOfCustomer  ∘  aggregationOfCustomerCustomer
+
+postulate -- customer is subTypeOf partnerAgent
+  st-e8bfec5b5ebb80db-fa4ffc235ec86276  : customer   ⊏⋆ᵣ  partnerAgent 
+postulate -- customer is subTypeOf businessOperatingAgent
+  st-e8bfec5b5ebb80db-1c3bf9f5601c673d  : customer   ⊏⋆ᵣ  businessOperatingAgent 
+

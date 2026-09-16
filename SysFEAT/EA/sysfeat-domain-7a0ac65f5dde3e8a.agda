@@ -5,6 +5,9 @@
 
 Operational Risk Assurance: 
 The Operational Risk Assurance domain is the discipline of mastering operational risks.
+
+Documentation : https://framework.sysfeat.com/pages/7a0ac65f5dde3e8a.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

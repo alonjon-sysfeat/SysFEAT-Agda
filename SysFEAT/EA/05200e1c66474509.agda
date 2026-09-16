@@ -5,6 +5,9 @@
 
 Management Stage: 
 A Management Stage is a past, current or future state of a Management System.Each Management Stage represents a Management Initiative comprising a purposeful set of activities whose primary purpose is focused on achieving a set of clearly defined objectives assigned to Functional Assets managed in the Management System. The set of all Management Stages of an Management System defines its Roadmap.
+
+Documentation : https://framework.sysfeat.com/pages/05200e1c66474509.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,11 +23,11 @@ ManagementStage = StateConcept
 
 
 --  ManagementStage is subTypeOf InitiativeStage
-st-05200eb1664745ec : ManagementStage ⊏ₑ InitiativeStage
-st-05200eb1664745ec = polySubTypeOf-identity
+st-05200e1c66474509-e78c5eb0661989f9 : ManagementStage ⊏ₑ InitiativeStage
+st-05200e1c66474509-e78c5eb0661989f9 = polySubTypeOf-identity
 
 --  ManagementStage is subTypeOf ManagementInitiative
-st-05200def664744e7 : ManagementStage ⊏ₑ ManagementInitiative
-st-05200def664744e7 = polySubTypeOf-identity
+st-05200e1c66474509-05201b936647570a : ManagementStage ⊏ₑ ManagementInitiative
+st-05200e1c66474509-05201b936647570a = polySubTypeOf-identity
 
 -- == Relationships =======================

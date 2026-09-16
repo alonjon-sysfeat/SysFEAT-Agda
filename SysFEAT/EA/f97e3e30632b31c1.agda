@@ -5,6 +5,9 @@
 
 Conceptual Ecosystem: 
 A Conceptual Ecosystem is an operating context in which a Conceptual Agent exists or lives for a specific purpose.For instance, the operating context of a Conceptual Ecosystem includes its Business Partners (customers and suppliers).
+
+Documentation : https://framework.sysfeat.com/pages/f97e3e30632b31c1.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,8 +22,8 @@ ConceptualEcosystem : ClassOfClassOfBoundedIndividual
 ConceptualEcosystem = ClassOfBoundedIndividual
 
 --  ConceptualEcosystem is subTypeOf OperatingEcoSystem
-st-6a70b83a67876067 : ConceptualEcosystem ⊏ₑ OperatingEcoSystem
-st-6a70b83a67876067 = polySubTypeOf-identity
+st-f97e3e30632b31c1-ca35f48a5fc48686 : ConceptualEcosystem ⊏ₑ OperatingEcoSystem
+st-f97e3e30632b31c1-ca35f48a5fc48686 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -31,11 +34,11 @@ LogicalEcosystemMember = ClassOfIndividual
 
 -- Membership relation
 membershipOfLogicalEcosystemMember :  Linkage ConceptualEcosystem LogicalEcosystemMember
-membershipOfLogicalEcosystemMember = membershipOfAggregateMember
+membershipOfLogicalEcosystemMember = make_upwardNestingRelation "logicalEcosystemMember membership" "nested logicalEcosystemMember"
 
 -- Aggregation relation
 aggregationOfConceptualAgentLogicalEcosystemMember :  Linkage LogicalEcosystemMember ConceptualAgent
-aggregationOfConceptualAgentLogicalEcosystemMember = aggregationOfBuildingBlock
+aggregationOfConceptualAgentLogicalEcosystemMember = make_Relation "ConceptualAgent aggregation" "aggregated ConceptualAgent"
 
 {- logicalEcosystemMember : derived relation obtained by composing
    membershipOfLogicalEcosystemMember and aggregationOfConceptualAgentLogicalEcosystemMember
@@ -44,3 +47,7 @@ aggregationOfConceptualAgentLogicalEcosystemMember = aggregationOfBuildingBlock
 -}
 logicalEcosystemMember : Linkage ConceptualEcosystem ConceptualAgent
 logicalEcosystemMember = membershipOfLogicalEcosystemMember  ∘  aggregationOfConceptualAgentLogicalEcosystemMember
+
+postulate -- logicalEcosystemMember is subTypeOf enterpriseEcosystemPart
+  st-f97e3fde632b3462-f8e6b83c621fffe6  : logicalEcosystemMember   ⊏⋆ᵣ  enterpriseEcosystemPart 
+

@@ -5,6 +5,9 @@
 
 Skill Map: 
 Family of Skills associated to an activity domain or to an Enterprise.
+
+Documentation : https://framework.sysfeat.com/pages/dd26f21668a0b0fd.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,8 +22,8 @@ SkillMap : PropertyType
 SkillMap = ClassOfProperty
 
 --  SkillMap is subTypeOf BusinessResourceCapabilityMap
-st-d98b27bf632368c6 : SkillMap ⊏ₑ BusinessResourceCapabilityMap
-st-d98b27bf632368c6 = polySubTypeOf-identity
+st-dd26f21668a0b0fd-dd2638ba68a073a8 : SkillMap ⊏ₑ BusinessResourceCapabilityMap
+st-dd26f21668a0b0fd-dd2638ba68a073a8 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -31,11 +34,11 @@ SkillMember = ClassOfIndividual
 
 -- Membership relation
 membershipOfSkillMember :  Linkage SkillMap SkillMember
-membershipOfSkillMember = membershipOfAggregateMember
+membershipOfSkillMember = make_upwardNestingRelation "skillMember membership" "nested skillMember"
 
 -- Aggregation relation
 aggregationOfSkillSkillMember :  Linkage SkillMember Skill
-aggregationOfSkillSkillMember = aggregationOfBuildingBlock
+aggregationOfSkillSkillMember = make_Relation "Skill aggregation" "aggregated Skill"
 
 {- skillMember : derived relation obtained by composing
    membershipOfSkillMember and aggregationOfSkillSkillMember
@@ -44,3 +47,7 @@ aggregationOfSkillSkillMember = aggregationOfBuildingBlock
 -}
 skillMember : Linkage SkillMap Skill
 skillMember = membershipOfSkillMember  ∘  aggregationOfSkillSkillMember
+
+postulate -- skillMember is subTypeOf businessResourceCapabilityMember
+  st-dd26f2ca68a0b1a0-dd26a8b568a1f5be  : skillMember   ⊏⋆ᵣ  businessResourceCapabilityMember 
+

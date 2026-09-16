@@ -5,6 +5,9 @@
 
 Architecture Project: 
 An Architecture Project project consists in a set of modeling tasks entrusted to a Team Committee in order develop or update architecture artifacts (Asset Blocks) so as to achieve a specific objective.Architecture Projects are often sub-initiatives of larger enterprise transformation endeavors.
+
+Documentation : https://framework.sysfeat.com/pages/d34222c65b131d09.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,18 +23,18 @@ ArchitectureProject : ClassOfBoundedIndividual
 ArchitectureProject = BoundedIndividual
 
 --  ArchitectureProject is subTypeOf GovernanceActivity
-st-09965a07620e601f : ArchitectureProject ⊏ₑ GovernanceActivity
-st-09965a07620e601f = polySubTypeOf-identity
+st-d34222c65b131d09-1737b76a5fe28204 : ArchitectureProject ⊏ₑ GovernanceActivity
+st-d34222c65b131d09-1737b76a5fe28204 = polySubTypeOf-identity
 
 --  ArchitectureProject is subTypeOf GoverningTeam
-st-d329b787617b60a3 : ArchitectureProject ⊏ₑ GoverningTeam
-st-d329b787617b60a3 = polySubTypeOf-identity
+st-d34222c65b131d09-ff0501b65b253fdd : ArchitectureProject ⊏ₑ GoverningTeam
+st-d34222c65b131d09-ff0501b65b253fdd = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Sub-Project: -}
 subProject :  Linkage ArchitectureProject ArchitectureProject
-subProject = make_holonymyRelation "Sub-Project" "subProject"
+subProject = make_holonymyRelation "Sub-Project" "Sub-Project"
 
 postulate -- subProject is subTypeOf subTeam
   st-09965180620e5b60-ac98b16e60a38cbc  : subProject   ⊏⋆ᵣ  subTeam 
@@ -44,11 +47,11 @@ ArchitectureDeliverable u = AggregateMember u
 
 -- Membership relation
 membershipOfArchitectureDeliverable : ∀ {u} →  Linkage ArchitectureProject (ArchitectureDeliverable u)
-membershipOfArchitectureDeliverable = membershipOfAggregateMember
+membershipOfArchitectureDeliverable = make_upwardNestingRelation "architectureDeliverable membership" "nested architectureDeliverable"
 
 -- Aggregation relation
 aggregationOfAssetBlockArchitectureDeliverable : ∀ {u v} →  Linkage (ArchitectureDeliverable u) (AssetBlock v)
-aggregationOfAssetBlockArchitectureDeliverable = aggregationOfBuildingBlock
+aggregationOfAssetBlockArchitectureDeliverable = make_Relation "AssetBlock aggregation" "aggregated AssetBlock"
 
 {- architectureDeliverable : derived relation obtained by composing
    membershipOfArchitectureDeliverable and aggregationOfAssetBlockArchitectureDeliverable
@@ -57,3 +60,9 @@ aggregationOfAssetBlockArchitectureDeliverable = aggregationOfBuildingBlock
 -}
 architectureDeliverable : ∀ {u w} → Linkage ArchitectureProject (AssetBlock w)
 architectureDeliverable {u} {w}  = membershipOfArchitectureDeliverable {u}   ∘  aggregationOfAssetBlockArchitectureDeliverable {w} 
+
+postulate -- architectureDeliverable is subTypeOf unboundedMember
+  st-6bf178f2685976d3-8cfaf71a6852b042  : architectureDeliverable {lzero}  ⊏⋆ᵣ  unboundedMember {lzero} {lzero}
+postulate -- architectureDeliverable is subTypeOf blockMember
+  st-6bf178f2685976d3-fb660d4b68699ec2  : architectureDeliverable {lzero}  ⊏⋆ᵣ  blockMember {lzero} {lzero}
+

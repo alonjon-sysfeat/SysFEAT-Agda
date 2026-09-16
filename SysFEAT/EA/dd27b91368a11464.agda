@@ -5,6 +5,9 @@
 
 Software Technology Capability Map: 
 A Software Technology Capability Map is a family of Software Software Technology Capabilitys and their dependencies that, together, provide Software Technology Capability scope for an Asset Portfolio Stage.
+
+Documentation : https://framework.sysfeat.com/pages/dd27b91368a11464.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ SOftwareTechnologyCapabilityMap : PropertyType
 SOftwareTechnologyCapabilityMap = ClassOfProperty
 
 --  SOftwareTechnologyCapabilityMap is subTypeOf TechnologyCapabilityMap
-st-09d113ca679e5e13 : SOftwareTechnologyCapabilityMap ⊏ₑ TechnologyCapabilityMap
-st-09d113ca679e5e13 = polySubTypeOf-identity
+st-dd27b91368a11464-dd27b40768a112f8 : SOftwareTechnologyCapabilityMap ⊏ₑ TechnologyCapabilityMap
+st-dd27b91368a11464-dd27b40768a112f8 = polySubTypeOf-identity
 
 -- == Relationships =======================

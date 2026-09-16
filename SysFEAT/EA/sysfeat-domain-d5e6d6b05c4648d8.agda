@@ -1,10 +1,18 @@
 ﻿{- ============================== 
-   Copyright (c) 2026 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
+   Copyright (c) 2025 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
    This work is released under the MIT License.
    framework.sysfeat.com
 
 Application Functional Architecture: 
 The Application Functional Architecture domain is used to describe the functional structure and behavior of Business Software Systems.SysFEAT provides three level of granularity to represent software systems:1) Macro Business Software Systems are represented by Application Systems.2) Mezzo Business Software Systems are represented by Applications, which compose Application Systems.3) Micro Business Software Systems are represented by Application Components and MicroServices which compose Applications.All Business Software Systems provide Functionalitys, expose APIs by means of Application Interfaces, have a data scope defined by Physical Data Domains, perform System Processes and have their interactions described by Software System Scenarios.
+
+Documentation : https://framework.sysfeat.com/pages/d5e6d6b05c4648d8.htm
+
+External references:
+  C4 Model - Level 1 - System Context Diagram: https://c4model.com/#SystemContextDiagram
+  Gartner - Application Architecture: https://www.gartner.com/en/information-technology/glossary/application-architecture-aa
+  Martin Fowler - Application Architecture: https://martinfowler.com/tags/application%20architecture.html
+  Martin Fowler - Micro-Service Guide: https://martinfowler.com/microservices
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

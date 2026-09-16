@@ -5,6 +5,9 @@
 
 Resource Rule: 
 A Resource Rule is a Behavioral Rule that is enforced by Resource Operating Assets.
+
+Documentation : https://framework.sysfeat.com/pages/07b60b4168a50438.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ ResourceRule : PropertyType
 ResourceRule = ClassOfProperty
 
 --  ResourceRule is subTypeOf BehavioralRule
-st-3be69dda63037c85 : ResourceRule ⊏ₑ BehavioralRule
-st-3be69dda63037c85 = polySubTypeOf-identity
+st-07b60b4168a50438-190c74f868966584 : ResourceRule ⊏ₑ BehavioralRule
+st-07b60b4168a50438-190c74f868966584 = polySubTypeOf-identity
 
 -- == Relationships =======================

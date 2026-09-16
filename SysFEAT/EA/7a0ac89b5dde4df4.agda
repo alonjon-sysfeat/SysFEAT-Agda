@@ -5,6 +5,9 @@
 
 Operational Risk Management System: 
 A Operational Risk Management System is an Assurance System that ensures risk prevention and management, application of internal operating rules, respect a law or regulation
+
+Documentation : https://framework.sysfeat.com/pages/7a0ac89b5dde4df4.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,17 +23,17 @@ OperationalRiskManagementSystem : ClassOfBoundedIndividual
 OperationalRiskManagementSystem = BoundedIndividual
 
 --  OperationalRiskManagementSystem is subTypeOf AssuranceSystem
-st-29df393260084390 : OperationalRiskManagementSystem ⊏ₑ AssuranceSystem
-st-29df393260084390 = polySubTypeOf-identity
+st-7a0ac89b5dde4df4-07ca18d25dd85477 : OperationalRiskManagementSystem ⊏ₑ AssuranceSystem
+st-7a0ac89b5dde4df4-07ca18d25dd85477 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Controled Framework: -}
-controledFramework :  Linkage OperationalRiskManagementSystem PolicyFramework
-controledFramework = make_Relation "Controled Framework" "controledFramework"
+controledFramework : ∀ {u} →  Linkage OperationalRiskManagementSystem (PolicyFramework u)
+controledFramework = make_Relation "Controled Framework" "Controled Framework"
 
 postulate -- controledFramework is subTypeOf enforcedPolicyFramework
-  st-4b94750068a48e57-4b945cc368a47e39  : controledFramework   ⊏⋆ᵣ  enforcedPolicyFramework 
+  st-4b94750068a48e57-4b945cc368a47e39  : controledFramework  {lzero}  ⊏⋆ᵣ  enforcedPolicyFramework  {lzero}
 
 {- Operational Policy in Scope: -}
 -- Aggregate Member : Operational Policy in Scope
@@ -39,11 +42,11 @@ OperationalPolicyinScope = ClassOfIndividual
 
 -- Membership relation
 membershipOfOperationalPolicyinScope :  Linkage OperationalRiskManagementSystem OperationalPolicyinScope
-membershipOfOperationalPolicyinScope = membershipOfAggregateMember
+membershipOfOperationalPolicyinScope = make_upwardNestingRelation "operationalPolicyinScope membership" "nested operationalPolicyinScope"
 
 -- Aggregation relation
 aggregationOfPolicyOperationalPolicyinScope :  Linkage OperationalPolicyinScope Policy
-aggregationOfPolicyOperationalPolicyinScope = aggregationOfBuildingBlock
+aggregationOfPolicyOperationalPolicyinScope = make_Relation "Policy aggregation" "aggregated Policy"
 
 {- operationalPolicyinScope : derived relation obtained by composing
    membershipOfOperationalPolicyinScope and aggregationOfPolicyOperationalPolicyinScope
@@ -52,3 +55,5 @@ aggregationOfPolicyOperationalPolicyinScope = aggregationOfBuildingBlock
 -}
 operationalPolicyinScope : Linkage OperationalRiskManagementSystem Policy
 operationalPolicyinScope = membershipOfOperationalPolicyinScope  ∘  aggregationOfPolicyOperationalPolicyinScope
+
+

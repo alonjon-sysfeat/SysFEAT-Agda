@@ -5,6 +5,9 @@
 
 Data Set Snapshot: 
 A Data Set Snapshot is status of a NoSQL Dataset a the time of data discovery. It provides factual information on the NoSQL Dataset such as Number of Unique Values, Number of Entities, Number of Completed Records, etc.Data Set Snapshots are used for quality assessments in data governance.
+
+Documentation : https://framework.sysfeat.com/pages/affeb4955f6054cd.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,12 +23,12 @@ DataSetSnapshot : ClassOfBoundedIndividual
 DataSetSnapshot = BoundedIndividual
 
 --  DataSetSnapshot is subTypeOf DeployedBusinessSystem
-st-e6f236d05f7781b2 : DataSetSnapshot ⊏ₑ DeployedBusinessSystem
-st-e6f236d05f7781b2 = polySubTypeOf-identity
+st-affeb4955f6054cd-3642454f6007e80e : DataSetSnapshot ⊏ₑ DeployedBusinessSystem
+st-affeb4955f6054cd-3642454f6007e80e = polySubTypeOf-identity
 
 --  DataSetSnapshot is subTypeOf DataSourceSnaphotItem
-st-762586745f6be7ac : DataSetSnapshot ⊏ₑ DataSourceSnaphotItem
-st-762586745f6be7ac = polySubTypeOf-identity
+st-affeb4955f6054cd-762580705f6bd560 : DataSetSnapshot ⊏ₑ DataSourceSnaphotItem
+st-affeb4955f6054cd-762580705f6bd560 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -37,11 +40,11 @@ DataFieldSnapshot = AggregateMember (lsuc(lzero))
 
 -- Membership relation
 membershipOfDataFieldSnapshot :  Linkage DataSetSnapshot DataFieldSnapshot
-membershipOfDataFieldSnapshot = membershipOfAggregateMember
+membershipOfDataFieldSnapshot = make_upwardNestingRelation "dataFieldSnapshot membership" "nested dataFieldSnapshot"
 
 -- Aggregation relation
 aggregationOfDataSetSnapshotDataFieldSnapshot :  Linkage DataFieldSnapshot DataSetSnapshot
-aggregationOfDataSetSnapshotDataFieldSnapshot = aggregationOfBuildingBlock
+aggregationOfDataSetSnapshotDataFieldSnapshot = make_Relation "DataSetSnapshot aggregation" "aggregated DataSetSnapshot"
 
 {- dataFieldSnapshot : derived relation obtained by composing
    membershipOfDataFieldSnapshot and aggregationOfDataSetSnapshotDataFieldSnapshot
@@ -50,3 +53,5 @@ aggregationOfDataSetSnapshotDataFieldSnapshot = aggregationOfBuildingBlock
 -}
 dataFieldSnapshot : Linkage DataSetSnapshot DataSetSnapshot
 dataFieldSnapshot = membershipOfDataFieldSnapshot  ∘  aggregationOfDataSetSnapshotDataFieldSnapshot
+
+

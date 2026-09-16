@@ -5,6 +5,9 @@
 
 Relational Schema: 
 A Relational Schema is a set of relational Table , keys, indexes and associated items that represent the structure of a relational database. A relational database can have multiple schemas.
+
+Documentation : https://framework.sysfeat.com/pages/362f3c7e5b3b22f8.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,12 +23,12 @@ RelationalSchema : ClassOfClassOfBoundedIndividual
 RelationalSchema = ClassOfBoundedIndividual
 
 --  RelationalSchema is subTypeOf PhysicalDataDomain
-st-028f04325b4f56b8 : RelationalSchema ⊏ₑ PhysicalDataDomain
-st-028f04325b4f56b8 = polySubTypeOf-identity
+st-362f3c7e5b3b22f8-028f03ff5b4f55ee : RelationalSchema ⊏ₑ PhysicalDataDomain
+st-362f3c7e5b3b22f8-028f03ff5b4f55ee = polySubTypeOf-identity
 
 --  RelationalSchema is subTypeOf RelationalDatabLOCK
-st-77318b7862167b75 : RelationalSchema ⊏⋆ₑ RelationalDatabLOCK
-st-77318b7862167b75 = polySubTypeOf-identity
+st-362f3c7e5b3b22f8-7731894d62166495 : RelationalSchema ⊏⋆ₑ RelationalDatabLOCK
+st-362f3c7e5b3b22f8-7731894d62166495 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -36,11 +39,11 @@ RelationStorePart = ClassOfIndividual
 
 -- Membership relation
 membershipOfRelationStorePart :  Linkage RelationalSchema RelationStorePart
-membershipOfRelationStorePart = membershipOfAggregateMember
+membershipOfRelationStorePart = make_upwardNestingRelation "relationStorePart membership" "nested relationStorePart"
 
 -- Aggregation relation
 aggregationOfRelationalEntityRelationStorePart :  Linkage RelationStorePart RelationalEntity
-aggregationOfRelationalEntityRelationStorePart = aggregationOfBuildingBlock
+aggregationOfRelationalEntityRelationStorePart = make_Relation "RelationalEntity aggregation" "aggregated RelationalEntity"
 
 {- relationStorePart : derived relation obtained by composing
    membershipOfRelationStorePart and aggregationOfRelationalEntityRelationStorePart
@@ -50,6 +53,10 @@ aggregationOfRelationalEntityRelationStorePart = aggregationOfBuildingBlock
 relationStorePart : Linkage RelationalSchema RelationalEntity
 relationStorePart = membershipOfRelationStorePart  ∘  aggregationOfRelationalEntityRelationStorePart
 
+postulate -- relationStorePart is subTypeOf physicalDomainObject
+  st-137d23d85ee2ced6-e6f223f55f771b8d  : relationStorePart   ⊏⋆ᵣ  physicalDomainObject 
+
+
 {- Sub Data Area: -}
 -- Aggregate Member : Sub Data Area
 SubDataArea : ClassOfClassOfIndividual
@@ -57,11 +64,11 @@ SubDataArea = ClassOfIndividual
 
 -- Membership relation
 membershipOfSubDataArea :  Linkage RelationalSchema SubDataArea
-membershipOfSubDataArea = membershipOfAggregateMember
+membershipOfSubDataArea = make_upwardNestingRelation "subDataArea membership" "nested subDataArea"
 
 -- Aggregation relation
 aggregationOfRelationalEntitySubDataArea :  Linkage SubDataArea RelationalEntity
-aggregationOfRelationalEntitySubDataArea = aggregationOfBuildingBlock
+aggregationOfRelationalEntitySubDataArea = make_Relation "RelationalEntity aggregation" "aggregated RelationalEntity"
 
 {- subDataArea : derived relation obtained by composing
    membershipOfSubDataArea and aggregationOfRelationalEntitySubDataArea
@@ -70,3 +77,5 @@ aggregationOfRelationalEntitySubDataArea = aggregationOfBuildingBlock
 -}
 subDataArea : Linkage RelationalSchema RelationalEntity
 subDataArea = membershipOfSubDataArea  ∘  aggregationOfRelationalEntitySubDataArea
+
+

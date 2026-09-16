@@ -5,6 +5,9 @@
 
 Cloud Service: 
 A Cloud Service is a Software Technology System that is also a Computing Systems that can run software.
+
+Documentation : https://framework.sysfeat.com/pages/02f515ba641c82e4.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,11 +22,11 @@ CloudService : ClassOfClassOfBoundedIndividual
 CloudService = ClassOfBoundedIndividual
 
 --  CloudService is subTypeOf SOftwareTechnologySystem
-st-02f515cd641c832c : CloudService ⊏ₑ SOftwareTechnologySystem
-st-02f515cd641c832c = polySubTypeOf-identity
+st-02f515ba641c82e4-0463ea9a63fd8b6c : CloudService ⊏ₑ SOftwareTechnologySystem
+st-02f515ba641c82e4-0463ea9a63fd8b6c = polySubTypeOf-identity
 
 --  CloudService is subTypeOf ComputingSystem
-st-02f515e7641c838f : CloudService ⊏ₑ ComputingSystem
-st-02f515e7641c838f = polySubTypeOf-identity
+st-02f515ba641c82e4-f4be0eda5ee1d6c0 : CloudService ⊏ₑ ComputingSystem
+st-02f515ba641c82e4-f4be0eda5ee1d6c0 = polySubTypeOf-identity
 
 -- == Relationships =======================

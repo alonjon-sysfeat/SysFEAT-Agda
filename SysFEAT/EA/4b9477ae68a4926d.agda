@@ -5,6 +5,9 @@
 
 Control Asset: 
 A Control Asset is a Policy Asset that is part of a Control Framework.
+
+Documentation : https://framework.sysfeat.com/pages/4b9477ae68a4926d.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ ControlAsset : ∀ (u : Level) → ClassOfMixedOrderEntity u
 ControlAsset u = MixedOrderEntity u
 
 --  ControlAsset is subTypeOf PolicyAsset
-st-4b9478d268a4944f : ∀ {u v} → (ControlAsset u) ⊏⋆ₑ (PolicyAsset v)
-st-4b9478d268a4944f = trivialPolySubTypeOfEntity
+st-4b9477ae68a4926d-9397c3d86877842f : ∀ {u v} → (ControlAsset u) ⊏⋆ₑ (PolicyAsset v)
+st-4b9477ae68a4926d-9397c3d86877842f = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

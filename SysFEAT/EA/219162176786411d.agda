@@ -5,6 +5,9 @@
 
 Conceptual Service Interface: 
 A Conceptual Service Interface is a communication behavior that describes a typical course of interactions intended to produce Conceptual Outcome Events, through the involvement of Conceptual Agents.
+
+Documentation : https://framework.sysfeat.com/pages/219162176786411d.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,12 +23,12 @@ ConceptualServiceInterface : ClassOfClassOfIndividual
 ConceptualServiceInterface = ClassOfIndividual
 
 --  ConceptualServiceInterface is subTypeOf ServiceInterface
-st-2191622767864183 : ConceptualServiceInterface ⊏ₑ ServiceInterface
-st-2191622767864183 = polySubTypeOf-identity
+st-219162176786411d-24ae31b55ed1c66d : ConceptualServiceInterface ⊏ₑ ServiceInterface
+st-219162176786411d-24ae31b55ed1c66d = polySubTypeOf-identity
 
 --  ConceptualServiceInterface is subTypeOf ConceptualBehavior
-st-cb94f21f68185f4c : ConceptualServiceInterface ⊏ₑ ConceptualBehavior
-st-cb94f21f68185f4c = polySubTypeOf-identity
+st-219162176786411d-f97e3119632b25f8 : ConceptualServiceInterface ⊏ₑ ConceptualBehavior
+st-219162176786411d-f97e3119632b25f8 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -38,11 +41,11 @@ ConceptualFlow = ClassOfIndividual
 
 -- Membership relation
 membershipOfConceptualFlow :  Linkage ConceptualServiceInterface ConceptualFlow
-membershipOfConceptualFlow = membershipOfAggregateMember
+membershipOfConceptualFlow = make_upwardNestingRelation "conceptualFlow membership" "nested conceptualFlow"
 
 -- Aggregation relation
 aggregationOfConceptualOutcomeEventConceptualFlow :  Linkage ConceptualFlow ConceptualOutcomeEvent
-aggregationOfConceptualOutcomeEventConceptualFlow = aggregationOfBuildingBlock
+aggregationOfConceptualOutcomeEventConceptualFlow = make_Relation "ConceptualOutcomeEvent aggregation" "aggregated ConceptualOutcomeEvent"
 
 {- conceptualFlow : derived relation obtained by composing
    membershipOfConceptualFlow and aggregationOfConceptualOutcomeEventConceptualFlow
@@ -51,3 +54,7 @@ aggregationOfConceptualOutcomeEventConceptualFlow = aggregationOfBuildingBlock
 -}
 conceptualFlow : Linkage ConceptualServiceInterface ConceptualOutcomeEvent
 conceptualFlow = membershipOfConceptualFlow  ∘  aggregationOfConceptualOutcomeEventConceptualFlow
+
+postulate -- conceptualFlow is subTypeOf flowConnection
+  st-7726791c68180b49-c561d7e4680f69ce  : conceptualFlow   ⊏⋆ᵣ  flowConnection 
+

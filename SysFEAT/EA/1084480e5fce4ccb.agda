@@ -5,6 +5,11 @@
 
 Application System Deployment Architecture: 
 An Application System Deployment Architecture describes one possible deployment configuration of an Application System. It contains chosen deployment architectures for component applications and identifies communication protocols (and port numbers) they use to communicate with each other.
+
+Documentation : https://framework.sysfeat.com/pages/1084480e5fce4ccb.htm
+
+External references:
+  C4 Model - Level 1 - System Context Diagram: https://c4model.com/#SystemContextDiagram
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,14 +25,14 @@ ApplicationSystemDeploymentArchitecture : ClassOfClassOfBoundedIndividual
 ApplicationSystemDeploymentArchitecture = ClassOfBoundedIndividual
 
 --  ApplicationSystemDeploymentArchitecture is subTypeOf SOftwareDeploymentArchitecture
-st-10844d125fce5059 : ApplicationSystemDeploymentArchitecture ⊏ₑ SOftwareDeploymentArchitecture
-st-10844d125fce5059 = polySubTypeOf-identity
+st-1084480e5fce4ccb-10844c325fce4e80 : ApplicationSystemDeploymentArchitecture ⊏ₑ SOftwareDeploymentArchitecture
+st-1084480e5fce4ccb-10844c325fce4e80 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Deployable Application System: -}
 deployableApplicationSystem :  Linkage ApplicationSystemDeploymentArchitecture ApplicationSystem
-deployableApplicationSystem = make_subTypeOf "Deployable Application System" "deployableApplicationSystem"
+deployableApplicationSystem = make_subTypeOf "Deployable Application System" "Deployable Application System"
 
 postulate -- deployableApplicationSystem is subTypeOf deployableSOftwareSystem
   st-ca58cb69684f73f8-ca58cad6684f737d  : deployableApplicationSystem   ⊏⋆ᵣ  deployableSOftwareSystem 
@@ -39,11 +44,11 @@ SystemArchitectureMember = ClassOfIndividual
 
 -- Membership relation
 membershipOfSystemArchitectureMember :  Linkage ApplicationSystemDeploymentArchitecture SystemArchitectureMember
-membershipOfSystemArchitectureMember = membershipOfAggregateMember
+membershipOfSystemArchitectureMember = make_upwardNestingRelation "systemArchitectureMember membership" "nested systemArchitectureMember"
 
 -- Aggregation relation
 aggregationOfApplicationDeploymentArchitectureSystemArchitectureMember :  Linkage SystemArchitectureMember ApplicationDeploymentArchitecture
-aggregationOfApplicationDeploymentArchitectureSystemArchitectureMember = aggregationOfBuildingBlock
+aggregationOfApplicationDeploymentArchitectureSystemArchitectureMember = make_Relation "ApplicationDeploymentArchitecture aggregation" "aggregated ApplicationDeploymentArchitecture"
 
 {- systemArchitectureMember : derived relation obtained by composing
    membershipOfSystemArchitectureMember and aggregationOfApplicationDeploymentArchitectureSystemArchitectureMember
@@ -53,6 +58,10 @@ aggregationOfApplicationDeploymentArchitectureSystemArchitectureMember = aggrega
 systemArchitectureMember : Linkage ApplicationSystemDeploymentArchitecture ApplicationDeploymentArchitecture
 systemArchitectureMember = membershipOfSystemArchitectureMember  ∘  aggregationOfApplicationDeploymentArchitectureSystemArchitectureMember
 
+postulate -- systemArchitectureMember is subTypeOf deployableSOftwareMember
+  st-10845e385fce6ce2-624e6cab5ed977a2  : systemArchitectureMember   ⊏⋆ᵣ  deployableSOftwareMember 
+
+
 {- Application Deployment Member: -}
 -- Aggregate Member : Application Deployment Member
 ApplicationDeploymentMember : ClassOfClassOfIndividual
@@ -60,11 +69,11 @@ ApplicationDeploymentMember = ClassOfIndividual
 
 -- Membership relation
 membershipOfApplicationDeploymentMember :  Linkage ApplicationSystemDeploymentArchitecture ApplicationDeploymentMember
-membershipOfApplicationDeploymentMember = membershipOfAggregateMember
+membershipOfApplicationDeploymentMember = make_upwardNestingRelation "applicationDeploymentMember membership" "nested applicationDeploymentMember"
 
 -- Aggregation relation
 aggregationOfApplicationDeploymentArchitectureApplicationDeploymentMember :  Linkage ApplicationDeploymentMember ApplicationDeploymentArchitecture
-aggregationOfApplicationDeploymentArchitectureApplicationDeploymentMember = aggregationOfBuildingBlock
+aggregationOfApplicationDeploymentArchitectureApplicationDeploymentMember = make_Relation "ApplicationDeploymentArchitecture aggregation" "aggregated ApplicationDeploymentArchitecture"
 
 {- applicationDeploymentMember : derived relation obtained by composing
    membershipOfApplicationDeploymentMember and aggregationOfApplicationDeploymentArchitectureApplicationDeploymentMember
@@ -73,3 +82,7 @@ aggregationOfApplicationDeploymentArchitectureApplicationDeploymentMember = aggr
 -}
 applicationDeploymentMember : Linkage ApplicationSystemDeploymentArchitecture ApplicationDeploymentArchitecture
 applicationDeploymentMember = membershipOfApplicationDeploymentMember  ∘  aggregationOfApplicationDeploymentArchitectureApplicationDeploymentMember
+
+postulate -- applicationDeploymentMember is subTypeOf deployableSOftwareMember
+  st-37b77384602a0acc-624e6cab5ed977a2  : applicationDeploymentMember   ⊏⋆ᵣ  deployableSOftwareMember 
+

@@ -5,6 +5,9 @@
 
 Asset Management Initiative: 
 An Asset Management Initiative is Management Initiative aimed at developing and maintaining in operational conditions a set of Business Operating Assets delivering functionalities required by Business Operations.
+
+Documentation : https://framework.sysfeat.com/pages/05201bc866475765.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ AssetManagementInitiative : ClassOfBoundedIndividual
 AssetManagementInitiative = BoundedIndividual
 
 --  AssetManagementInitiative is subTypeOf ManagementInitiative
-st-24f82bb366475bae : AssetManagementInitiative ⊏ₑ ManagementInitiative
-st-24f82bb366475bae = polySubTypeOf-identity
+st-05201bc866475765-05201b936647570a : AssetManagementInitiative ⊏ₑ ManagementInitiative
+st-05201bc866475765-05201b936647570a = polySubTypeOf-identity
 
 -- == Relationships =======================

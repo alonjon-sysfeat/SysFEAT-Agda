@@ -5,6 +5,9 @@
 
 Individual Business Asset: 
 
+
+Documentation : https://framework.sysfeat.com/pages/62ff75f363765899.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,7 +22,7 @@ IndividualBusinessAsset : ClassOfBoundedIndividual
 IndividualBusinessAsset = BoundedIndividual
 
 --  IndividualBusinessAsset is subTypeOf IndividualResourceAsset
-st-fe1c2aa367880b34 : IndividualBusinessAsset ⊏ₑ IndividualResourceAsset
-st-fe1c2aa367880b34 = polySubTypeOf-identity
+st-62ff75f363765899-fe1c24fa6788036e : IndividualBusinessAsset ⊏ₑ IndividualResourceAsset
+st-62ff75f363765899-fe1c24fa6788036e = polySubTypeOf-identity
 
 -- == Relationships =======================

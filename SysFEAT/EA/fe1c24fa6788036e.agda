@@ -5,6 +5,9 @@
 
 Individual Resource Asset: 
 An Individual Resource Asset is a Functional Asset that describes the way Outcomes are produced and consumed: how (Individual Processes) and by whom (Individual Agents).
+
+Documentation : https://framework.sysfeat.com/pages/fe1c24fa6788036e.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,8 +22,8 @@ IndividualResourceAsset : ClassOfBoundedIndividual
 IndividualResourceAsset = BoundedIndividual
 
 --  IndividualResourceAsset is subTypeOf IndividualOperatingAsset
-st-fe1c255f6788049e : IndividualResourceAsset ⊏ₑ IndividualOperatingAsset
-st-fe1c255f6788049e = polySubTypeOf-identity
+st-fe1c24fa6788036e-9f61cf9166833fb7 : IndividualResourceAsset ⊏ₑ IndividualOperatingAsset
+st-fe1c24fa6788036e-9f61cf9166833fb7 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -28,7 +31,7 @@ st-fe1c255f6788049e = polySubTypeOf-identity
 Set of Resource Capabilitys that an Individual Resource Asset exhibits.
 -}
 exhibitedResourceCapability :  Linkage IndividualResourceAsset ResourceCapability
-exhibitedResourceCapability = make_instanceOf "Exhibited Resource Capability" "exhibitedResourceCapability"
+exhibitedResourceCapability = make_instanceOf "Exhibited Resource Capability" "Exhibited Resource Capability"
 
 postulate -- exhibitedResourceCapability is subTypeOf exhibitedCapability
   st-e44105a768d5bf7a-e44104b768d586bb  : exhibitedResourceCapability   ⊏⋆ᵣ  exhibitedCapability 

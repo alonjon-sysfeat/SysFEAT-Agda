@@ -5,6 +5,9 @@
 
 Business Asset: 
 Business Assets are Resource Functional Assets that define how Business Outcome Events are specified, produced and consumed.
+
+Documentation : https://framework.sysfeat.com/pages/6a70b9f6678763db.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,8 +22,8 @@ BusinessAsset : ClassOfClassOfBoundedIndividual
 BusinessAsset = ClassOfBoundedIndividual
 
 --  BusinessAsset is subTypeOf ResourceFunctionalAsset
-st-6a70bb636787650b : BusinessAsset ⊏ₑ ResourceFunctionalAsset
-st-6a70bb636787650b = polySubTypeOf-identity
+st-6a70b9f6678763db-9bec9fbf66fb0d6f : BusinessAsset ⊏ₑ ResourceFunctionalAsset
+st-6a70b9f6678763db-9bec9fbf66fb0d6f = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -33,11 +36,11 @@ OperationalRisk = SecondOrderClass
 
 -- Membership relation
 membershipOfOperationalRisk :  Linkage BusinessAsset OperationalRisk
-membershipOfOperationalRisk = membershipOfAggregateMember
+membershipOfOperationalRisk = make_upwardNestingRelation "operationalRisk membership" "nested operationalRisk"
 
 -- Aggregation relation
 aggregationOfOperationalRiskTypeOperationalRisk :  Linkage OperationalRisk OperationalRiskType
-aggregationOfOperationalRiskTypeOperationalRisk = aggregationOfBuildingBlock
+aggregationOfOperationalRiskTypeOperationalRisk = make_Relation "OperationalRiskType aggregation" "aggregated OperationalRiskType"
 
 {- operationalRisk : derived relation obtained by composing
    membershipOfOperationalRisk and aggregationOfOperationalRiskTypeOperationalRisk
@@ -46,3 +49,7 @@ aggregationOfOperationalRiskTypeOperationalRisk = aggregationOfBuildingBlock
 -}
 operationalRisk : Linkage BusinessAsset OperationalRiskType
 operationalRisk = membershipOfOperationalRisk  ∘  aggregationOfOperationalRiskTypeOperationalRisk
+
+postulate -- operationalRisk is subTypeOf risk
+  st-332c41e366f16621-0e55219466f11fd7  : operationalRisk   ⊏⋆ᵣ  risk 
+

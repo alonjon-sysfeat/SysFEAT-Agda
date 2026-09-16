@@ -5,6 +5,11 @@
 
 Physical Data Entity: 
 A Physical Data Entity is a representation the physical structure of a Data Entity as it will be stored in a DBMS.A Physical Data Entity has an independent existence and can be uniquely identified.A Physical Data Entity is characterized by Physical Relationships it has with other Physical Data Entity(ies) and by Physical Data Property(ies).
+
+Documentation : https://framework.sysfeat.com/pages/762582bb5f6bd659.htm
+
+External references:
+  DDD - Glossary - Entity: https://www.dddcommunity.org/resources/ddd_terms?[entity]
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,18 +25,18 @@ PhysicalDataEntity : ClassOfClassOfBoundedIndividual
 PhysicalDataEntity = ClassOfBoundedIndividual
 
 --  PhysicalDataEntity is subTypeOf PhysicalDataAsset
-st-e6f230fb5f777969 : PhysicalDataEntity ⊏ₑ PhysicalDataAsset
-st-e6f230fb5f777969 = polySubTypeOf-identity
+st-762582bb5f6bd659-7d37d08d5fd07aaa : PhysicalDataEntity ⊏ₑ PhysicalDataAsset
+st-762582bb5f6bd659-7d37d08d5fd07aaa = polySubTypeOf-identity
 
 --  PhysicalDataEntity is subTypeOf DataEntity
-st-b6e3df105fbb719d : PhysicalDataEntity ⊏ₑ DataEntity
-st-b6e3df105fbb719d = polySubTypeOf-identity
+st-762582bb5f6bd659-325c32fc5eb02d02 : PhysicalDataEntity ⊏ₑ DataEntity
+st-762582bb5f6bd659-325c32fc5eb02d02 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Specialized Physical Entity: -}
 specializedPhysicalEntity :  Linkage PhysicalDataEntity PhysicalDataEntity
-specializedPhysicalEntity = make_subTypeOf "Specialized Physical Entity" "specializedPhysicalEntity"
+specializedPhysicalEntity = make_subTypeOf "Specialized Physical Entity" "Specialized Physical Entity"
 
 postulate -- specializedPhysicalEntity is subTypeOf specializedDataEntity
   st-325a375866f33f11-325a380d66f350dd  : specializedPhysicalEntity   ⊏⋆ᵣ  specializedDataEntity 
@@ -45,11 +50,11 @@ PhysicalDataSlot = ClassOfIndividual
 
 -- Membership relation
 membershipOfPhysicalDataSlot :  Linkage PhysicalDataEntity PhysicalDataSlot
-membershipOfPhysicalDataSlot = membershipOfAggregateMember
+membershipOfPhysicalDataSlot = make_upwardNestingRelation "physicalDataSlot membership" "nested physicalDataSlot"
 
 -- Aggregation relation
 aggregationOfPhysicalDataPropertyPhysicalDataSlot :  Linkage PhysicalDataSlot PhysicalDataProperty
-aggregationOfPhysicalDataPropertyPhysicalDataSlot = aggregationOfBuildingBlock
+aggregationOfPhysicalDataPropertyPhysicalDataSlot = make_Relation "PhysicalDataProperty aggregation" "aggregated PhysicalDataProperty"
 
 {- physicalDataSlot : derived relation obtained by composing
    membershipOfPhysicalDataSlot and aggregationOfPhysicalDataPropertyPhysicalDataSlot
@@ -59,6 +64,10 @@ aggregationOfPhysicalDataPropertyPhysicalDataSlot = aggregationOfBuildingBlock
 physicalDataSlot : Linkage PhysicalDataEntity PhysicalDataProperty
 physicalDataSlot = membershipOfPhysicalDataSlot  ∘  aggregationOfPhysicalDataPropertyPhysicalDataSlot
 
+postulate -- physicalDataSlot is subTypeOf attribute
+  st-e6f222845f771913-8f1c9ad668ca8db4  : physicalDataSlot   ⊏⋆ᵣ  attribute 
+
+
 {- Physical Relationship: -}
 -- Aggregate Member : Physical Relationship
 PhysicalRelationship : ClassOfClassOfIndividual
@@ -66,11 +75,11 @@ PhysicalRelationship = ClassOfIndividual
 
 -- Membership relation
 membershipOfPhysicalRelationship :  Linkage PhysicalDataEntity PhysicalRelationship
-membershipOfPhysicalRelationship = membershipOfAggregateMember
+membershipOfPhysicalRelationship = make_upwardNestingRelation "physicalRelationship membership" "nested physicalRelationship"
 
 -- Aggregation relation
 aggregationOfPhysicalDataEntityPhysicalRelationship :  Linkage PhysicalRelationship PhysicalDataEntity
-aggregationOfPhysicalDataEntityPhysicalRelationship = aggregationOfBuildingBlock
+aggregationOfPhysicalDataEntityPhysicalRelationship = make_Relation "PhysicalDataEntity aggregation" "aggregated PhysicalDataEntity"
 
 {- physicalRelationship : derived relation obtained by composing
    membershipOfPhysicalRelationship and aggregationOfPhysicalDataEntityPhysicalRelationship
@@ -79,3 +88,9 @@ aggregationOfPhysicalDataEntityPhysicalRelationship = aggregationOfBuildingBlock
 -}
 physicalRelationship : Linkage PhysicalDataEntity PhysicalDataEntity
 physicalRelationship = membershipOfPhysicalRelationship  ∘  aggregationOfPhysicalDataEntityPhysicalRelationship
+
+postulate -- physicalRelationship is subTypeOf physicalDataMember
+  st-b6e3df8e5fbb724d-163c29e85fda678c  : physicalRelationship   ⊏⋆ᵣ  physicalDataMember 
+postulate -- physicalRelationship is subTypeOf relationship
+  st-b6e3df8e5fbb724d-b6e3cc7a5fbb6878  : physicalRelationship   ⊏⋆ᵣ  relationship 
+

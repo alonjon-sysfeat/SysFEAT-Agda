@@ -1,10 +1,17 @@
 ﻿{- ============================== 
-   Copyright (c) 2026 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
+   Copyright (c) 2025 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
    This work is released under the MIT License.
    framework.sysfeat.com
 
 Enterprise Architecting & Management: 
 The Enterprise Architecting &amp; Management domain provides the concepts and tools required for Agile@Scale transformation Initiatives and associated Management Systems, along with their governing bodies (Governing Team).
+
+Documentation : https://framework.sysfeat.com/pages/76147feb6182230a.htm
+
+External references:
+  SysFEAT - Systemic Levels: ../resources/framework/SysFEAT-ModelingFramework-12-SystemicLevels.gif
+  SAFe© - Portfolio SAFe: https://www.scaledagileframework.com/portfolio-safe/
+  Felipe Castro - The Beginner’s Guide to OKRs: https://felipecastro.com/en/okr/what-is-okr/
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

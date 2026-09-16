@@ -5,6 +5,11 @@
 
 BCM System: 
 A BCM System is an Assurance System that establishes, implements, operates, monitors, reviews , maintains and improves business continuity.
+
+Documentation : https://framework.sysfeat.com/pages/8dbd8f17609b4a70.htm
+
+External references:
+  ISO - 22301:2019 - Business continuity management system: https://www.iso.org/obp/ui/#iso:std:iso:22301:ed-2:v1:en
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -21,8 +26,8 @@ BCMSystem : ClassOfBoundedIndividual
 BCMSystem = BoundedIndividual
 
 --  BCMSystem is subTypeOf AssuranceSystem
-st-8dbd8f8d609b4afe : BCMSystem ⊏ₑ AssuranceSystem
-st-8dbd8f8d609b4afe = polySubTypeOf-identity
+st-8dbd8f17609b4a70-07ca18d25dd85477 : BCMSystem ⊏ₑ AssuranceSystem
+st-8dbd8f17609b4a70-07ca18d25dd85477 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -33,11 +38,11 @@ CriticalProcess = ClassOfIndividual
 
 -- Membership relation
 membershipOfCriticalProcess :  Linkage BCMSystem CriticalProcess
-membershipOfCriticalProcess = membershipOfAggregateMember
+membershipOfCriticalProcess = make_upwardNestingRelation "criticalProcess membership" "nested criticalProcess"
 
 -- Aggregation relation
 aggregationOfProcessFamilyCriticalProcess :  Linkage CriticalProcess ProcessFamily
-aggregationOfProcessFamilyCriticalProcess = aggregationOfBuildingBlock
+aggregationOfProcessFamilyCriticalProcess = make_Relation "ProcessFamily aggregation" "aggregated ProcessFamily"
 
 {- criticalProcess : derived relation obtained by composing
    membershipOfCriticalProcess and aggregationOfProcessFamilyCriticalProcess
@@ -47,6 +52,8 @@ aggregationOfProcessFamilyCriticalProcess = aggregationOfBuildingBlock
 criticalProcess : Linkage BCMSystem ProcessFamily
 criticalProcess = membershipOfCriticalProcess  ∘  aggregationOfProcessFamilyCriticalProcess
 
+
+
 {- Critical Operating Asset: -}
 -- Aggregate Member : Critical Operating Asset
 CriticalOperatingAsset : ClassOfClassOfIndividual
@@ -54,11 +61,11 @@ CriticalOperatingAsset = ClassOfIndividual
 
 -- Membership relation
 membershipOfCriticalOperatingAsset :  Linkage BCMSystem CriticalOperatingAsset
-membershipOfCriticalOperatingAsset = membershipOfAggregateMember
+membershipOfCriticalOperatingAsset = make_upwardNestingRelation "criticalOperatingAsset membership" "nested criticalOperatingAsset"
 
 -- Aggregation relation
 aggregationOfBusinessOperatingAssetCriticalOperatingAsset :  Linkage CriticalOperatingAsset BusinessOperatingAsset
-aggregationOfBusinessOperatingAssetCriticalOperatingAsset = aggregationOfBuildingBlock
+aggregationOfBusinessOperatingAssetCriticalOperatingAsset = make_Relation "BusinessOperatingAsset aggregation" "aggregated BusinessOperatingAsset"
 
 {- criticalOperatingAsset : derived relation obtained by composing
    membershipOfCriticalOperatingAsset and aggregationOfBusinessOperatingAssetCriticalOperatingAsset
@@ -68,6 +75,8 @@ aggregationOfBusinessOperatingAssetCriticalOperatingAsset = aggregationOfBuildin
 criticalOperatingAsset : Linkage BCMSystem BusinessOperatingAsset
 criticalOperatingAsset = membershipOfCriticalOperatingAsset  ∘  aggregationOfBusinessOperatingAssetCriticalOperatingAsset
 
+
+
 {- Critical Activity: -}
 -- Aggregate Member : Critical Activity
 CriticalActivity : ClassOfClassOfIndividual
@@ -75,11 +84,11 @@ CriticalActivity = ClassOfIndividual
 
 -- Membership relation
 membershipOfCriticalActivity :  Linkage BCMSystem CriticalActivity
-membershipOfCriticalActivity = membershipOfAggregateMember
+membershipOfCriticalActivity = make_upwardNestingRelation "criticalActivity membership" "nested criticalActivity"
 
 -- Aggregation relation
 aggregationOfBusinessProcessCriticalActivity :  Linkage CriticalActivity BusinessProcess
-aggregationOfBusinessProcessCriticalActivity = aggregationOfBuildingBlock
+aggregationOfBusinessProcessCriticalActivity = make_Relation "BusinessProcess aggregation" "aggregated BusinessProcess"
 
 {- criticalActivity : derived relation obtained by composing
    membershipOfCriticalActivity and aggregationOfBusinessProcessCriticalActivity
@@ -88,3 +97,5 @@ aggregationOfBusinessProcessCriticalActivity = aggregationOfBuildingBlock
 -}
 criticalActivity : Linkage BCMSystem BusinessProcess
 criticalActivity = membershipOfCriticalActivity  ∘  aggregationOfBusinessProcessCriticalActivity
+
+

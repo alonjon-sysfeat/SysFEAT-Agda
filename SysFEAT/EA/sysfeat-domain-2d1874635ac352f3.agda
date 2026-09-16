@@ -1,10 +1,19 @@
 ﻿{- ============================== 
-   Copyright (c) 2026 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
+   Copyright (c) 2024 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
    This work is released under the MIT License.
    framework.sysfeat.com
 
 Business Operations: 
 The Business Operations domain describes how business units operate to deliver products (goods and services) that fit their customers needs (value).This includes:1) the management structure that organizes responsibility and accountability : People &amp; Accountability.2) the processes that describe the end to end delivery of goods and services: Organization &amp; Processes.The Business Operations domain has dependencies with domains providing Business Systems used to support and automate operations: Software System ArcOps and Hardware System ArcOps.
+
+Documentation : https://framework.sysfeat.com/pages/2d1874635ac352f3.htm
+
+External references:
+  OpenGroup - OAA - Operating System: https://pubs.opengroup.org/architecture/o-aa-standard/definitions.html#operating-sys
+  UCF Glossary Operating Model: https://compliancedictionary.com/term/383042
+  OpenGroup - OAA - Operations Architecture: https://pubs.opengroup.org/architecture/o-aa-standard/operating-system.html
+  Gartner - Operating Model: https://www.gartner.com/en/information-technology/glossary/operating-model
+  Wikipedia - Operating Model: https://en.wikipedia.org/wiki/Operating_model
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

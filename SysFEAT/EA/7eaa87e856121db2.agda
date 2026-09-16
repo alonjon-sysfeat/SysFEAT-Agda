@@ -5,6 +5,9 @@
 
 Logical Data Dictionary: 
 Dictionary of Logical Data Entity.
+
+Documentation : https://framework.sysfeat.com/pages/7eaa87e856121db2.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -12,19 +15,19 @@ Dictionary of Logical Data Entity.
 module SysFEAT.EA.7eaa87e856121db2 where -- ========== Logical Data Dictionary
 
 open import Agda.Primitive
-open import SysFEAT.EA.8f1c920168ca7fcd public -- Data Dictionary
+open import SysFEAT.EA.67d376e36aa45056 public -- Data Dictionary
 open import SysFEAT.EA.fd1bf2a45fbc64fb public -- Logical Data Asset
 
 LogicalDataDictionary : ClassOfBoundedIndividual
 LogicalDataDictionary = BoundedIndividual
 
 --  LogicalDataDictionary is subTypeOf DataDictionary
-st-9152d8dc5ed74523 : LogicalDataDictionary ⊏ₑ DataDictionary
-st-9152d8dc5ed74523 = polySubTypeOf-identity
+st-7eaa87e856121db2-67d376e36aa45056 : LogicalDataDictionary ⊏ₑ DataDictionary
+st-7eaa87e856121db2-67d376e36aa45056 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Owned Logical  Data Block: -}
 ownedLogicalDataBlock :  Linkage LogicalDataDictionary LogicalDataAsset
-ownedLogicalDataBlock = make_Relation "Owned Logical  Data Block" "ownedLogicalDataBlock"
+ownedLogicalDataBlock = make_Relation "Owned Logical  Data Block" "Owned Logical  Data Block"
 

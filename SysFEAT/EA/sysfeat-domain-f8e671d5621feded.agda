@@ -1,10 +1,19 @@
 ﻿{- ============================== 
-   Copyright (c) 2026 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
+   Copyright (c) 2025 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
    This work is released under the MIT License.
    framework.sysfeat.com
 
 Business System ArcOps: 
 The Business System ArcOps domain describes a set of concepts used in practices that combines Business Systems architecture (Arc), development (Dev) and Business Systems operations (Ops).It aims to shorten the systems development life cycle and provide continuous delivery with high system quality. Business System ArcOps is complementary with Agile development; several DevOps aspects came from the Agile methodology.
+
+Documentation : https://framework.sysfeat.com/pages/f8e671d5621feded.htm
+
+External references:
+  Martin Fowler - Products over Projects: https://martinfowler.com/articles/products-over-projects.html
+  Wikipedia - DevOps: https://en.wikipedia.org/wiki/DevOps
+  SAFe© - DevOps: https://www.scaledagileframework.com/devops/
+  Accelerate - State of devops 2019: https://services.google.com/fh/files/misc/state-of-devops-2019.pdf
+  OpenGroup - OAA - Product Architecture: https://pubs.opengroup.org/architecture/o-aa-standard/product-architecture.html
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

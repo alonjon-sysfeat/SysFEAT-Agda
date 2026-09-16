@@ -5,6 +5,11 @@
 
 Software Deployment Architecture: 
 
+
+Documentation : https://framework.sysfeat.com/pages/10844c325fce4e80.htm
+
+External references:
+  C4 Model - Level 1 - System Context Diagram: https://c4model.com/#SystemContextDiagram
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +23,7 @@ SOftwareDeploymentArchitecture : ClassOfClassOfBoundedIndividual
 SOftwareDeploymentArchitecture = ClassOfBoundedIndividual
 
 --  SOftwareDeploymentArchitecture is subTypeOf DeployableSOftwareSystem
-st-10844c3a5fce4eec : SOftwareDeploymentArchitecture ⊏ₑ DeployableSOftwareSystem
-st-10844c3a5fce4eec = polySubTypeOf-identity
+st-10844c325fce4e80-d5e6d8015c464b40 : SOftwareDeploymentArchitecture ⊏ₑ DeployableSOftwareSystem
+st-10844c325fce4e80-d5e6d8015c464b40 = polySubTypeOf-identity
 
 -- == Relationships =======================

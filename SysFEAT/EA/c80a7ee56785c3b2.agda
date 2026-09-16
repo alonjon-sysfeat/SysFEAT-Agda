@@ -5,6 +5,9 @@
 
 Deployed Hardware Equipment: 
 
+
+Documentation : https://framework.sysfeat.com/pages/c80a7ee56785c3b2.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,14 +22,14 @@ DeployedHardwareEquipment : ClassOfBoundedIndividual
 DeployedHardwareEquipment = BoundedIndividual
 
 --  DeployedHardwareEquipment is subTypeOf DeployedHardwareSystem
-st-c80a83506785c556 : DeployedHardwareEquipment ⊏ₑ DeployedHardwareSystem
-st-c80a83506785c556 = polySubTypeOf-identity
+st-c80a7ee56785c3b2-c80a7be56785c09b : DeployedHardwareEquipment ⊏ₑ DeployedHardwareSystem
+st-c80a7ee56785c3b2-c80a7be56785c09b = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Hardware Equipment: -}
 hardwareEquipment :  Linkage DeployedHardwareEquipment HardwareEquipment
-hardwareEquipment = make_instanceOf "Hardware Equipment" "hardwareEquipment"
+hardwareEquipment = make_instanceOf "Hardware Equipment" "Hardware Equipment"
 
 postulate -- hardwareEquipment is subTypeOf hardwareType
   st-c80a83856785c5ac-c80a7d4f6785c18f  : hardwareEquipment   ⊏⋆ᵣ  hardwareType 

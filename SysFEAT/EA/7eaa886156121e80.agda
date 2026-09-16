@@ -5,6 +5,9 @@
 
 Logical Data View: 
 A Logical Data View a collection of filtered Logical Data Entitys.
+
+Documentation : https://framework.sysfeat.com/pages/7eaa886156121e80.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,12 +23,12 @@ LogicalDataView : ClassOfClassOfBoundedIndividual
 LogicalDataView = ClassOfBoundedIndividual
 
 --  LogicalDataView is subTypeOf LogicalDataElement
-st-2b58597c5eec556d : LogicalDataView ⊏ₑ LogicalDataElement
-st-2b58597c5eec556d = polySubTypeOf-identity
+st-7eaa886156121e80-2b5858b85eec51d9 : LogicalDataView ⊏ₑ LogicalDataElement
+st-7eaa886156121e80-2b5858b85eec51d9 = polySubTypeOf-identity
 
 --  LogicalDataView is subTypeOf DataEntity
-st-4478c335603c1b8c : LogicalDataView ⊏ₑ DataEntity
-st-4478c335603c1b8c = polySubTypeOf-identity
+st-7eaa886156121e80-325c32fc5eb02d02 : LogicalDataView ⊏ₑ DataEntity
+st-7eaa886156121e80-325c32fc5eb02d02 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -36,11 +39,11 @@ RootDataEntity = ClassOfIndividual
 
 -- Membership relation
 membershipOfRootDataEntity :  Linkage LogicalDataView RootDataEntity
-membershipOfRootDataEntity = membershipOfAggregateMember
+membershipOfRootDataEntity = make_upwardNestingRelation "rootDataEntity membership" "nested rootDataEntity"
 
 -- Aggregation relation
 aggregationOfLogicalDataEntityRootDataEntity :  Linkage RootDataEntity LogicalDataEntity
-aggregationOfLogicalDataEntityRootDataEntity = aggregationOfBuildingBlock
+aggregationOfLogicalDataEntityRootDataEntity = make_Relation "LogicalDataEntity aggregation" "aggregated LogicalDataEntity"
 
 {- rootDataEntity : derived relation obtained by composing
    membershipOfRootDataEntity and aggregationOfLogicalDataEntityRootDataEntity
@@ -50,6 +53,8 @@ aggregationOfLogicalDataEntityRootDataEntity = aggregationOfBuildingBlock
 rootDataEntity : Linkage LogicalDataView LogicalDataEntity
 rootDataEntity = membershipOfRootDataEntity  ∘  aggregationOfLogicalDataEntityRootDataEntity
 
+
+
 {- Embedded Data Object: -}
 -- Aggregate Member : Embedded Data Object
 EmbeddedDataObject : ClassOfClassOfIndividual
@@ -57,11 +62,11 @@ EmbeddedDataObject = ClassOfIndividual
 
 -- Membership relation
 membershipOfEmbeddedDataObject :  Linkage LogicalDataView EmbeddedDataObject
-membershipOfEmbeddedDataObject = membershipOfAggregateMember
+membershipOfEmbeddedDataObject = make_upwardNestingRelation "embeddedDataObject membership" "nested embeddedDataObject"
 
 -- Aggregation relation
 aggregationOfLogicalDataElementEmbeddedDataObject :  Linkage EmbeddedDataObject LogicalDataElement
-aggregationOfLogicalDataElementEmbeddedDataObject = aggregationOfBuildingBlock
+aggregationOfLogicalDataElementEmbeddedDataObject = make_Relation "LogicalDataElement aggregation" "aggregated LogicalDataElement"
 
 {- embeddedDataObject : derived relation obtained by composing
    membershipOfEmbeddedDataObject and aggregationOfLogicalDataElementEmbeddedDataObject
@@ -71,6 +76,10 @@ aggregationOfLogicalDataElementEmbeddedDataObject = aggregationOfBuildingBlock
 embeddedDataObject : Linkage LogicalDataView LogicalDataElement
 embeddedDataObject = membershipOfEmbeddedDataObject  ∘  aggregationOfLogicalDataElementEmbeddedDataObject
 
+postulate -- embeddedDataObject is subTypeOf attribute
+  st-2b58627c5eec61ec-8f1c9ad668ca8db4  : embeddedDataObject   ⊏⋆ᵣ  attribute 
+
+
 {- Referenced Entity: -}
 -- Aggregate Member : Referenced Entity
 ReferencedEntity : ClassOfClassOfIndividual
@@ -78,11 +87,11 @@ ReferencedEntity = ClassOfIndividual
 
 -- Membership relation
 membershipOfReferencedEntity :  Linkage LogicalDataView ReferencedEntity
-membershipOfReferencedEntity = membershipOfAggregateMember
+membershipOfReferencedEntity = make_upwardNestingRelation "referencedEntity membership" "nested referencedEntity"
 
 -- Aggregation relation
 aggregationOfLogicalDataEntityReferencedEntity :  Linkage ReferencedEntity LogicalDataEntity
-aggregationOfLogicalDataEntityReferencedEntity = aggregationOfBuildingBlock
+aggregationOfLogicalDataEntityReferencedEntity = make_Relation "LogicalDataEntity aggregation" "aggregated LogicalDataEntity"
 
 {- referencedEntity : derived relation obtained by composing
    membershipOfReferencedEntity and aggregationOfLogicalDataEntityReferencedEntity
@@ -91,3 +100,9 @@ aggregationOfLogicalDataEntityReferencedEntity = aggregationOfBuildingBlock
 -}
 referencedEntity : Linkage LogicalDataView LogicalDataEntity
 referencedEntity = membershipOfReferencedEntity  ∘  aggregationOfLogicalDataEntityReferencedEntity
+
+postulate -- referencedEntity is subTypeOf logicalDataMember
+  st-2b5862e95eec6337-e7e3fa0a5fbb0ddb  : referencedEntity   ⊏⋆ᵣ  logicalDataMember 
+postulate -- referencedEntity is subTypeOf relationship
+  st-2b5862e95eec6337-b6e3cc7a5fbb6878  : referencedEntity   ⊏⋆ᵣ  relationship 
+

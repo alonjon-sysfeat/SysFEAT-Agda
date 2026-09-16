@@ -5,6 +5,9 @@
 
 Data Quality Policy: 
 
+
+Documentation : https://framework.sysfeat.com/pages/98159f6b5f682d1e.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -21,22 +24,22 @@ DataQualityPolicy : ClassOfClassOfBoundedIndividual
 DataQualityPolicy = ClassOfBoundedIndividual
 
 --  DataQualityPolicy is subTypeOf Policy
-st-76259c6b5f6c88e8 : DataQualityPolicy ⊏ₑ Policy
-st-76259c6b5f6c88e8 = polySubTypeOf-identity
+st-98159f6b5f682d1e-190c7429689664b5 : DataQualityPolicy ⊏ₑ Policy
+st-98159f6b5f682d1e-190c7429689664b5 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Target Threshold: -}
 targetThreshold :  Linkage DataQualityPolicy DataQualityMeasureValue
-targetThreshold = make_classOfHolonymy "Target Threshold" "targetThreshold"
+targetThreshold = make_classOfHolonymy "Target Threshold" "Target Threshold"
 
 
 {- Dimension: -}
 dimension :  Linkage DataQualityPolicy MeasurableDataQuality
-dimension = make_classOfHolonymy "Dimension" "dimension"
+dimension = make_classOfHolonymy "Dimension" "Dimension"
 
 
 {- Concerned Information Entity: -}
 concernedInformationEntity :  Linkage DataQualityPolicy InformationEntity
-concernedInformationEntity = make_classOfHolonymy "Concerned Information Entity" "concernedInformationEntity"
+concernedInformationEntity = make_classOfHolonymy "Concerned Information Entity" "Concerned Information Entity"
 

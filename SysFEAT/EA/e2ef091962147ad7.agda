@@ -5,6 +5,9 @@
 
 Resource Agent Type: 
 A Resource Agent Type is an entity type which instance belongs to the physical space, and comprises Human Agent Categorys, Hardware System Categorys, Software System Categorys and Natural Resource Categorys. Resource Agent Type is the supertype of all types of Agent Types that produce and react to Resource Outcome Events.This includes:1) Business Agent Types which represent  physical resources that produce and react to Business Outcome Events of the enterprise.2) Technology Systems which represents enabling systems that produce and react to  Technology Outcome Events.
+
+Documentation : https://framework.sysfeat.com/pages/e2ef091962147ad7.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -23,18 +26,18 @@ ResourceAgentType : ClassOfClassOfBoundedIndividual
 ResourceAgentType = ClassOfBoundedIndividual
 
 --  ResourceAgentType is subTypeOf ResourceOperatingAsset
-st-f8e61e88621dba12 : ResourceAgentType ⊏ₑ ResourceOperatingAsset
-st-f8e61e88621dba12 = polySubTypeOf-identity
+st-e2ef091962147ad7-f8e61da0621db6fa : ResourceAgentType ⊏ₑ ResourceOperatingAsset
+st-e2ef091962147ad7-f8e61da0621db6fa = polySubTypeOf-identity
 
 --  ResourceAgentType is subTypeOf AgentType
-st-7c348ff066f1991c : ResourceAgentType ⊏ₑ AgentType
-st-7c348ff066f1991c = polySubTypeOf-identity
+st-e2ef091962147ad7-79368381561716a6 : ResourceAgentType ⊏ₑ AgentType
+st-e2ef091962147ad7-79368381561716a6 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Specialized Business Operating Agent: -}
 specializedBusinessOperatingAgent :  Linkage ResourceAgentType ResourceAgentType
-specializedBusinessOperatingAgent = make_subTypeOf "Specialized Business Operating Agent" "specializedBusinessOperatingAgent"
+specializedBusinessOperatingAgent = make_subTypeOf "Specialized Business Operating Agent" "Specialized Business Operating Agent"
 
 postulate -- specializedBusinessOperatingAgent is subTypeOf specializedAgent
   st-325a377166f3470f-2b5b440b66ed56d4  : specializedBusinessOperatingAgent   ⊏⋆ᵣ  specializedAgent 
@@ -48,11 +51,11 @@ ResourceConnection = ClassOfIndividual
 
 -- Membership relation
 membershipOfResourceConnection :  Linkage ResourceAgentType ResourceConnection
-membershipOfResourceConnection = membershipOfAggregateMember
+membershipOfResourceConnection = make_upwardNestingRelation "resourceConnection membership" "nested resourceConnection"
 
 -- Aggregation relation
 aggregationOfResourceServiceInterfaceResourceConnection :  Linkage ResourceConnection ResourceServiceInterface
-aggregationOfResourceServiceInterfaceResourceConnection = aggregationOfBuildingBlock
+aggregationOfResourceServiceInterfaceResourceConnection = make_Relation "ResourceServiceInterface aggregation" "aggregated ResourceServiceInterface"
 
 {- resourceConnection : derived relation obtained by composing
    membershipOfResourceConnection and aggregationOfResourceServiceInterfaceResourceConnection
@@ -62,6 +65,10 @@ aggregationOfResourceServiceInterfaceResourceConnection = aggregationOfBuildingB
 resourceConnection : Linkage ResourceAgentType ResourceServiceInterface
 resourceConnection = membershipOfResourceConnection  ∘  aggregationOfResourceServiceInterfaceResourceConnection
 
+postulate -- resourceConnection is subTypeOf interactionChannel
+  st-e2c5927d61dee3e7-24ae34bb5ed1cb17  : resourceConnection   ⊏⋆ᵣ  interactionChannel 
+
+
 {- Resource Agent Part: -}
 -- Aggregate Member : Resource Agent Part
 ResourceAgentPart : ClassOfClassOfIndividual
@@ -69,11 +76,11 @@ ResourceAgentPart = ClassOfIndividual
 
 -- Membership relation
 membershipOfResourceAgentPart :  Linkage ResourceAgentType ResourceAgentPart
-membershipOfResourceAgentPart = membershipOfAggregateMember
+membershipOfResourceAgentPart = make_upwardNestingRelation "resourceAgentPart membership" "nested resourceAgentPart"
 
 -- Aggregation relation
 aggregationOfResourceAgentTypeResourceAgentPart :  Linkage ResourceAgentPart ResourceAgentType
-aggregationOfResourceAgentTypeResourceAgentPart = aggregationOfBuildingBlock
+aggregationOfResourceAgentTypeResourceAgentPart = make_Relation "ResourceAgentType aggregation" "aggregated ResourceAgentType"
 
 {- resourceAgentPart : derived relation obtained by composing
    membershipOfResourceAgentPart and aggregationOfResourceAgentTypeResourceAgentPart
@@ -82,6 +89,12 @@ aggregationOfResourceAgentTypeResourceAgentPart = aggregationOfBuildingBlock
 -}
 resourceAgentPart : Linkage ResourceAgentType ResourceAgentType
 resourceAgentPart = membershipOfResourceAgentPart  ∘  aggregationOfResourceAgentTypeResourceAgentPart
+
+postulate -- resourceAgentPart is subTypeOf agentPart
+  st-e2ef09de62147eb7-1da6216a5ebc65f7  : resourceAgentPart   ⊏⋆ᵣ  agentPart 
+postulate -- resourceAgentPart is subTypeOf resourceOperatingAssetPart
+  st-e2ef09de62147eb7-b776bf0868b0fbb3  : resourceAgentPart   ⊏⋆ᵣ  resourceOperatingAssetPart 
+
 
 {- Performed Resource Scenario: 
 A Performed Resource Scenario is a Resource Interaction Process operated by a Resource Agent Type.
@@ -92,11 +105,11 @@ PerformedResourceScenario = ClassOfIndividual
 
 -- Membership relation
 membershipOfPerformedResourceScenario :  Linkage ResourceAgentType PerformedResourceScenario
-membershipOfPerformedResourceScenario = membershipOfAggregateMember
+membershipOfPerformedResourceScenario = make_upwardNestingRelation "performedResourceScenario membership" "nested performedResourceScenario"
 
 -- Aggregation relation
 aggregationOfResourceInteractionProcessPerformedResourceScenario :  Linkage PerformedResourceScenario ResourceInteractionProcess
-aggregationOfResourceInteractionProcessPerformedResourceScenario = aggregationOfBuildingBlock
+aggregationOfResourceInteractionProcessPerformedResourceScenario = make_Relation "ResourceInteractionProcess aggregation" "aggregated ResourceInteractionProcess"
 
 {- performedResourceScenario : derived relation obtained by composing
    membershipOfPerformedResourceScenario and aggregationOfResourceInteractionProcessPerformedResourceScenario
@@ -105,6 +118,10 @@ aggregationOfResourceInteractionProcessPerformedResourceScenario = aggregationOf
 -}
 performedResourceScenario : Linkage ResourceAgentType ResourceInteractionProcess
 performedResourceScenario = membershipOfPerformedResourceScenario  ∘  aggregationOfResourceInteractionProcessPerformedResourceScenario
+
+postulate -- performedResourceScenario is subTypeOf performedInteraction
+  st-7d330fcd62824acd-07e737925eccd8f1  : performedResourceScenario   ⊏⋆ᵣ  performedInteraction 
+
 
 {- Performed Resource Process: 
 A Performed Resource Process is a Resource Action Process operated by a Resource Agent Type.
@@ -115,11 +132,11 @@ PerformedResourceProcess = ClassOfIndividual
 
 -- Membership relation
 membershipOfPerformedResourceProcess :  Linkage ResourceAgentType PerformedResourceProcess
-membershipOfPerformedResourceProcess = membershipOfAggregateMember
+membershipOfPerformedResourceProcess = make_upwardNestingRelation "performedResourceProcess membership" "nested performedResourceProcess"
 
 -- Aggregation relation
 aggregationOfResourceActionProcessPerformedResourceProcess :  Linkage PerformedResourceProcess ResourceActionProcess
-aggregationOfResourceActionProcessPerformedResourceProcess = aggregationOfBuildingBlock
+aggregationOfResourceActionProcessPerformedResourceProcess = make_Relation "ResourceActionProcess aggregation" "aggregated ResourceActionProcess"
 
 {- performedResourceProcess : derived relation obtained by composing
    membershipOfPerformedResourceProcess and aggregationOfResourceActionProcessPerformedResourceProcess
@@ -129,6 +146,10 @@ aggregationOfResourceActionProcessPerformedResourceProcess = aggregationOfBuildi
 performedResourceProcess : Linkage ResourceAgentType ResourceActionProcess
 performedResourceProcess = membershipOfPerformedResourceProcess  ∘  aggregationOfResourceActionProcessPerformedResourceProcess
 
+postulate -- performedResourceProcess is subTypeOf performedProcess
+  st-f8e61c7f621db43d-004b03b15ebd0fdb  : performedResourceProcess   ⊏⋆ᵣ  performedProcess 
+
+
 {- Resource Store: -}
 -- Aggregate Member : Resource Store
 ResourceStore : ClassOfClassOfIndividual
@@ -136,11 +157,11 @@ ResourceStore = ClassOfIndividual
 
 -- Membership relation
 membershipOfResourceStore :  Linkage ResourceAgentType ResourceStore
-membershipOfResourceStore = membershipOfAggregateMember
+membershipOfResourceStore = make_upwardNestingRelation "resourceStore membership" "nested resourceStore"
 
 -- Aggregation relation
 aggregationOfInformationDomainResourceStore :  Linkage ResourceStore InformationDomain
-aggregationOfInformationDomainResourceStore = aggregationOfBuildingBlock
+aggregationOfInformationDomainResourceStore = make_Relation "InformationDomain aggregation" "aggregated InformationDomain"
 
 {- resourceStore : derived relation obtained by composing
    membershipOfResourceStore and aggregationOfInformationDomainResourceStore
@@ -149,3 +170,7 @@ aggregationOfInformationDomainResourceStore = aggregationOfBuildingBlock
 -}
 resourceStore : Linkage ResourceAgentType InformationDomain
 resourceStore = membershipOfResourceStore  ∘  aggregationOfInformationDomainResourceStore
+
+postulate -- resourceStore is subTypeOf informationStore
+  st-f8e7df39621f14b6-f4bee5925ee1be5b  : resourceStore   ⊏⋆ᵣ  informationStore 
+

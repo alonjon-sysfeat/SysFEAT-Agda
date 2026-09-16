@@ -5,6 +5,9 @@
 
 Privacy Assessment: 
 
+
+Documentation : https://framework.sysfeat.com/pages/8a9f9fe55ee0a603.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,12 +22,12 @@ PrivacyAssessment : ClassOfBoundedIndividual
 PrivacyAssessment = BoundedIndividual
 
 --  PrivacyAssessment is subTypeOf Assessment
-st-8a9fa84c5ee075b8 : PrivacyAssessment ⊏ₑ Assessment
-st-8a9fa84c5ee075b8 = polySubTypeOf-identity
+st-8a9f9fe55ee0a603-3b539cbb551e4c2a : PrivacyAssessment ⊏ₑ Assessment
+st-8a9f9fe55ee0a603-3b539cbb551e4c2a = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- assessed processing activity: -}
 assessedprocessingactivity :  Linkage PrivacyAssessment PrivacyProcessing
-assessedprocessingactivity = make_Relation "assessed processing activity" "assessedprocessingactivity"
+assessedprocessingactivity = make_Relation "assessed processing activity" "assessed processing activity"
 

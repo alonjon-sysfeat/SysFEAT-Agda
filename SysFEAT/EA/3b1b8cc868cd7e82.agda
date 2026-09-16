@@ -5,6 +5,9 @@
 
 Individual Hardware System: 
 An Individual Hardware System is a physical, material Artifact engineered to produce and consume physical effects.
+
+Documentation : https://framework.sysfeat.com/pages/3b1b8cc868cd7e82.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,11 +22,11 @@ IndividualHardwareSystem : ClassOfBoundedIndividual
 IndividualHardwareSystem = BoundedIndividual
 
 --  IndividualHardwareSystem is subTypeOf IndividualArtifact
-st-3b1b907868cd82da : IndividualHardwareSystem ⊏ₑ IndividualArtifact
-st-3b1b907868cd82da = polySubTypeOf-identity
+st-3b1b8cc868cd7e82-3b1b91ea68cd8733 : IndividualHardwareSystem ⊏ₑ IndividualArtifact
+st-3b1b8cc868cd7e82-3b1b91ea68cd8733 = polySubTypeOf-identity
 
 --  IndividualHardwareSystem is subTypeOf IndividualPhysicalResourceAgent
-st-3b1bb78a68cd9ea0 : IndividualHardwareSystem ⊏ₑ IndividualPhysicalResourceAgent
-st-3b1bb78a68cd9ea0 = polySubTypeOf-identity
+st-3b1b8cc868cd7e82-3b1bb56c68cd9bfa : IndividualHardwareSystem ⊏ₑ IndividualPhysicalResourceAgent
+st-3b1b8cc868cd7e82-3b1bb56c68cd9bfa = polySubTypeOf-identity
 
 -- == Relationships =======================

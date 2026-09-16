@@ -5,6 +5,9 @@
 
 Network Interface: 
 A Network Interface is a set of rules and conventions that govern the communication between devices on a Computer Network.
+
+Documentation : https://framework.sysfeat.com/pages/d160042562e08353.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ NetworkInterface : ClassOfClassOfIndividual
 NetworkInterface = ClassOfIndividual
 
 --  NetworkInterface is subTypeOf TechnologyInterface
-st-d160042c62e08396 : NetworkInterface ⊏ₑ TechnologyInterface
-st-d160042c62e08396 = polySubTypeOf-identity
+st-d160042562e08353-26b8382f5eeae265 : NetworkInterface ⊏ₑ TechnologyInterface
+st-d160042562e08353-26b8382f5eeae265 = polySubTypeOf-identity
 
 -- == Relationships =======================

@@ -1,9 +1,12 @@
 ﻿{- ============================== 
-   Copyright (c) 2026 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
+   Copyright (c) 2022 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
    This work is released under the MIT License.
    framework.sysfeat.com
 
 Facility Asset Architecture: 
+
+
+Documentation : https://framework.sysfeat.com/pages/a951ee816194126b.htm
 
  - ============================== -}
 

@@ -5,6 +5,11 @@
 
 Scenario of Application System Environment: 
 A Scenario of Application System Environment presents the flow exchanged between the IT services or the micro-services used by this application. A scenario can represent a specific use case of this application or, globally, the set of all flows exchanged inside this application.
+
+Documentation : https://framework.sysfeat.com/pages/7a0afca35dde94f5.htm
+
+External references:
+  OpenGroup - ArchiMate - Application Interaction: https://pubs.opengroup.org/architecture/archimate32-doc/ch-Application-Layer.html#sec-Application-Interaction
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,8 +24,8 @@ ScenarioOfApplicationSystemEnvironment : ClassOfClassOfBoundedIndividual
 ScenarioOfApplicationSystemEnvironment = ClassOfBoundedIndividual
 
 --  ScenarioOfApplicationSystemEnvironment is subTypeOf SOftwareSystemEnvironmentScenario
-st-c334dbb15ecb6dec : ScenarioOfApplicationSystemEnvironment ⊏ₑ SOftwareSystemEnvironmentScenario
-st-c334dbb15ecb6dec = polySubTypeOf-identity
+st-7a0afca35dde94f5-25c0a10061e2fc12 : ScenarioOfApplicationSystemEnvironment ⊏ₑ SOftwareSystemEnvironmentScenario
+st-7a0afca35dde94f5-25c0a10061e2fc12 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -31,11 +36,11 @@ SubjectApplicationSystem = ClassOfIndividual
 
 -- Membership relation
 membershipOfSubjectApplicationSystem :  Linkage ScenarioOfApplicationSystemEnvironment SubjectApplicationSystem
-membershipOfSubjectApplicationSystem = membershipOfAggregateMember
+membershipOfSubjectApplicationSystem = make_upwardNestingRelation "subjectApplicationSystem membership" "nested subjectApplicationSystem"
 
 -- Aggregation relation
 aggregationOfApplicationSystemSubjectApplicationSystem :  Linkage SubjectApplicationSystem ApplicationSystem
-aggregationOfApplicationSystemSubjectApplicationSystem = aggregationOfBuildingBlock
+aggregationOfApplicationSystemSubjectApplicationSystem = make_Relation "ApplicationSystem aggregation" "aggregated ApplicationSystem"
 
 {- subjectApplicationSystem : derived relation obtained by composing
    membershipOfSubjectApplicationSystem and aggregationOfApplicationSystemSubjectApplicationSystem
@@ -45,6 +50,10 @@ aggregationOfApplicationSystemSubjectApplicationSystem = aggregationOfBuildingBl
 subjectApplicationSystem : Linkage ScenarioOfApplicationSystemEnvironment ApplicationSystem
 subjectApplicationSystem = membershipOfSubjectApplicationSystem  ∘  aggregationOfApplicationSystemSubjectApplicationSystem
 
+postulate -- subjectApplicationSystem is subTypeOf subjectSOftwareSystem
+  st-48d4f27b63b6a466-25c1a55461e20430  : subjectApplicationSystem   ⊏⋆ᵣ  subjectSOftwareSystem 
+
+
 {- Participant Application System: -}
 -- Aggregate Member : Participant Application System
 ParticipantApplicationSystem : ClassOfClassOfIndividual
@@ -52,11 +61,11 @@ ParticipantApplicationSystem = ClassOfIndividual
 
 -- Membership relation
 membershipOfParticipantApplicationSystem :  Linkage ScenarioOfApplicationSystemEnvironment ParticipantApplicationSystem
-membershipOfParticipantApplicationSystem = membershipOfAggregateMember
+membershipOfParticipantApplicationSystem = make_upwardNestingRelation "participantApplicationSystem membership" "nested participantApplicationSystem"
 
 -- Aggregation relation
 aggregationOfApplicationSystemParticipantApplicationSystem :  Linkage ParticipantApplicationSystem ApplicationSystem
-aggregationOfApplicationSystemParticipantApplicationSystem = aggregationOfBuildingBlock
+aggregationOfApplicationSystemParticipantApplicationSystem = make_Relation "ApplicationSystem aggregation" "aggregated ApplicationSystem"
 
 {- participantApplicationSystem : derived relation obtained by composing
    membershipOfParticipantApplicationSystem and aggregationOfApplicationSystemParticipantApplicationSystem
@@ -65,3 +74,7 @@ aggregationOfApplicationSystemParticipantApplicationSystem = aggregationOfBuildi
 -}
 participantApplicationSystem : Linkage ScenarioOfApplicationSystemEnvironment ApplicationSystem
 participantApplicationSystem = membershipOfParticipantApplicationSystem  ∘  aggregationOfApplicationSystemParticipantApplicationSystem
+
+postulate -- participantApplicationSystem is subTypeOf partnerSOftwareSystem
+  st-48d4f34363b6a573-25c1a53f61e20355  : participantApplicationSystem   ⊏⋆ᵣ  partnerSOftwareSystem 
+

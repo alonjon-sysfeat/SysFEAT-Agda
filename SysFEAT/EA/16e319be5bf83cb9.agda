@@ -5,6 +5,9 @@
 
 Processing Activity: 
 Any operation or set of operations performed upon personal data, whether or not by automatic means, such as collection, recording, organization, storage, adaptation or alteration, retrieval, consultation, use, disclosure by transmission, dissemination or otherwise making available, alignment or combination, blocking, erasure or destruction.
+
+Documentation : https://framework.sysfeat.com/pages/16e319be5bf83cb9.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -21,8 +24,8 @@ ProcessingActivity : ClassOfClassOfBoundedIndividual
 ProcessingActivity = ClassOfBoundedIndividual
 
 --  ProcessingActivity is subTypeOf PrivacyProcessing
-st-16e319d55bf83ce4 : ProcessingActivity ⊏ₑ PrivacyProcessing
-st-16e319d55bf83ce4 = polySubTypeOf-identity
+st-16e319be5bf83cb9-426a57325aeb3d76 : ProcessingActivity ⊏ₑ PrivacyProcessing
+st-16e319be5bf83cb9-426a57325aeb3d76 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -33,11 +36,11 @@ TransferSafeGuard = ClassOfIndividual
 
 -- Membership relation
 1B0468F869F8558C :  Linkage ProcessingActivity TransferSafeGuard
-1B0468F869F8558C = membershipOfAggregateMember
+1B0468F869F8558C = make_upwardNestingRelation "transferSafeGuard membership" "nested transferSafeGuard"
 
 -- Aggregation relation
 aggregationOfTransferSafeGuardTransferSafeGuard :  Linkage TransferSafeGuard TransferSafeGuard
-aggregationOfTransferSafeGuardTransferSafeGuard = aggregationOfBuildingBlock
+aggregationOfTransferSafeGuardTransferSafeGuard = make_Relation "TransferSafeGuard aggregation" "aggregated TransferSafeGuard"
 
 {- transferSafeGuard : derived relation obtained by composing
    1B0468F869F8558C and aggregationOfTransferSafeGuardTransferSafeGuard
@@ -46,6 +49,8 @@ aggregationOfTransferSafeGuardTransferSafeGuard = aggregationOfBuildingBlock
 -}
 transferSafeGuard : Linkage ProcessingActivity TransferSafeGuard
 transferSafeGuard = 1B0468F869F8558C  ∘  aggregationOfTransferSafeGuardTransferSafeGuard
+
+
 
 {- Business Processing Activity: 
 Any  human activity which, for a given purpose of the enterprise, manipulates personal data, including collection, use, recording, etc.
@@ -56,11 +61,11 @@ BusinessProcessingActivity = ClassOfIndividual
 
 -- Membership relation
 membershipOfBusinessProcessingActivity :  Linkage ProcessingActivity BusinessProcessingActivity
-membershipOfBusinessProcessingActivity = membershipOfAggregateMember
+membershipOfBusinessProcessingActivity = make_upwardNestingRelation "businessProcessingActivity membership" "nested businessProcessingActivity"
 
 -- Aggregation relation
 aggregationOfBusinessProcessBusinessProcessingActivity :  Linkage BusinessProcessingActivity BusinessProcess
-aggregationOfBusinessProcessBusinessProcessingActivity = aggregationOfBuildingBlock
+aggregationOfBusinessProcessBusinessProcessingActivity = make_Relation "BusinessProcess aggregation" "aggregated BusinessProcess"
 
 {- businessProcessingActivity : derived relation obtained by composing
    membershipOfBusinessProcessingActivity and aggregationOfBusinessProcessBusinessProcessingActivity
@@ -69,6 +74,8 @@ aggregationOfBusinessProcessBusinessProcessingActivity = aggregationOfBuildingBl
 -}
 businessProcessingActivity : Linkage ProcessingActivity BusinessProcess
 businessProcessingActivity = membershipOfBusinessProcessingActivity  ∘  aggregationOfBusinessProcessBusinessProcessingActivity
+
+
 
 {- IT Processing Activity: 
 Any  IT activity which, for a given purpose of the enterprise, manipulates personal data, including collection, use, recording, etc.
@@ -79,11 +86,11 @@ ITProcessingActivity = ClassOfIndividual
 
 -- Membership relation
 membershipOfITProcessingActivity :  Linkage ProcessingActivity ITProcessingActivity
-membershipOfITProcessingActivity = membershipOfAggregateMember
+membershipOfITProcessingActivity = make_upwardNestingRelation "iTProcessingActivity membership" "nested iTProcessingActivity"
 
 -- Aggregation relation
 aggregationOfApplicationITProcessingActivity :  Linkage ITProcessingActivity Application
-aggregationOfApplicationITProcessingActivity = aggregationOfBuildingBlock
+aggregationOfApplicationITProcessingActivity = make_Relation "Application aggregation" "aggregated Application"
 
 {- iTProcessingActivity : derived relation obtained by composing
    membershipOfITProcessingActivity and aggregationOfApplicationITProcessingActivity
@@ -92,3 +99,5 @@ aggregationOfApplicationITProcessingActivity = aggregationOfBuildingBlock
 -}
 iTProcessingActivity : Linkage ProcessingActivity Application
 iTProcessingActivity = membershipOfITProcessingActivity  ∘  aggregationOfApplicationITProcessingActivity
+
+

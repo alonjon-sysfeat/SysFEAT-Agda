@@ -5,6 +5,9 @@
 
 Architecture Principle Category: 
 An Architecture Principle Category defines a classification of related Architecture principles.
+
+Documentation : https://framework.sysfeat.com/pages/952eab2a67285b02.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ ArchitecturePrincipleCategory : ThirdOrderClass
 ArchitecturePrincipleCategory = SecondOrderClass
 
 --  ArchitecturePrincipleCategory is subTypeOf PolicyFrameworkCategory
-st-af6622fc6307d904 : ArchitecturePrincipleCategory ⊏ₑ PolicyFrameworkCategory
-st-af6622fc6307d904 = polySubTypeOf-identity
+st-952eab2a67285b02-952eaada67285ac3 : ArchitecturePrincipleCategory ⊏ₑ PolicyFrameworkCategory
+st-952eab2a67285b02-952eaada67285ac3 = polySubTypeOf-identity
 
 -- == Relationships =======================

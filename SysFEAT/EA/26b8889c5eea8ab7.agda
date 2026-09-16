@@ -5,6 +5,9 @@
 
 Asset Portfolio: 
 An Asset Portfolio is a Management System aimed at developing and maintaining in operational conditions a set of Mezzo Resource Operating Assets, delivering Resource Capabilitys required by Business Operations.The purpose of Asset Portfolios is efficiency: Managed Resource Assets must provide expected Resource Capabilitys in the best cost / performance ratio.
+
+Documentation : https://framework.sysfeat.com/pages/26b8889c5eea8ab7.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -23,16 +26,16 @@ AssetPortfolio : ClassOfBoundedIndividual
 AssetPortfolio = BoundedIndividual
 
 --  AssetPortfolio is subTypeOf ManagementSystem
-st-6934759f60051ca1 : AssetPortfolio ⊏ₑ ManagementSystem
-st-6934759f60051ca1 = polySubTypeOf-identity
+st-26b8889c5eea8ab7-29df3f4060084c07 : AssetPortfolio ⊏ₑ ManagementSystem
+st-26b8889c5eea8ab7-29df3f4060084c07 = polySubTypeOf-identity
 
 --  AssetPortfolio is subTypeOf OperationalTransformation
-st-299e8e8e6848944e : AssetPortfolio ⊏ₑ OperationalTransformation
-st-299e8e8e6848944e = polySubTypeOf-identity
+st-26b8889c5eea8ab7-299e882b68488d2c : AssetPortfolio ⊏ₑ OperationalTransformation
+st-26b8889c5eea8ab7-299e882b68488d2c = polySubTypeOf-identity
 
 --  AssetPortfolio is subTypeOf AssetManagementInitiative
-st-cb75eb04695f65b5 : AssetPortfolio ⊏ₑ AssetManagementInitiative
-st-cb75eb04695f65b5 = polySubTypeOf-identity
+st-26b8889c5eea8ab7-05201bc866475765 : AssetPortfolio ⊏ₑ AssetManagementInitiative
+st-26b8889c5eea8ab7-05201bc866475765 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -40,14 +43,14 @@ st-cb75eb04695f65b5 = polySubTypeOf-identity
 Set of all Asset Portfolio Stages of an Asset Portfolio that , in conjunction with coordinating initiative milestones, establishes the roadmap for the Business Operating Assets under its supervision.
 -}
 portfolioRoadmap :  Linkage AssetPortfolio AssetPortfolioStage
-portfolioRoadmap = make_holonymyRelation "Portfolio Roadmap" "portfolioRoadmap"
+portfolioRoadmap = make_holonymyRelation "Portfolio Roadmap" "Portfolio Roadmap"
 
 postulate -- portfolioRoadmap is subTypeOf /ManagementRoadmap
   st-f277fa24601bef67-612367e761dd7a42  : portfolioRoadmap   ⊏⋆ᵣ  /ManagementRoadmap 
 
 {- Portfolio Functional Scope: -}
 portfolioFunctionalScope :  Linkage AssetPortfolio ResourceCapabilityMap
-portfolioFunctionalScope = make_instanceOf "Portfolio Functional Scope" "portfolioFunctionalScope"
+portfolioFunctionalScope = make_instanceOf "Portfolio Functional Scope" "Portfolio Functional Scope"
 
 postulate -- portfolioFunctionalScope is subTypeOf functionalScope
   st-dd2630ca68a0669f-01f1214c689b6e0f  : portfolioFunctionalScope   ⊏⋆ᵣ  functionalScope 
@@ -61,11 +64,11 @@ ManagedResourceAsset = ClassOfIndividual
 
 -- Membership relation
 membershipOfManagedResourceAsset :  Linkage AssetPortfolio ManagedResourceAsset
-membershipOfManagedResourceAsset = membershipOfAggregateMember
+membershipOfManagedResourceAsset = make_upwardNestingRelation "managedResourceAsset membership" "nested managedResourceAsset"
 
 -- Aggregation relation
 aggregationOfMezzoResourceOperatingAssetManagedResourceAsset :  Linkage ManagedResourceAsset MezzoResourceOperatingAsset
-aggregationOfMezzoResourceOperatingAssetManagedResourceAsset = aggregationOfBuildingBlock
+aggregationOfMezzoResourceOperatingAssetManagedResourceAsset = make_Relation "MezzoResourceOperatingAsset aggregation" "aggregated MezzoResourceOperatingAsset"
 
 {- managedResourceAsset : derived relation obtained by composing
    membershipOfManagedResourceAsset and aggregationOfMezzoResourceOperatingAssetManagedResourceAsset
@@ -74,3 +77,7 @@ aggregationOfMezzoResourceOperatingAssetManagedResourceAsset = aggregationOfBuil
 -}
 managedResourceAsset : Linkage AssetPortfolio MezzoResourceOperatingAsset
 managedResourceAsset = membershipOfManagedResourceAsset  ∘  aggregationOfMezzoResourceOperatingAssetManagedResourceAsset
+
+postulate -- managedResourceAsset is subTypeOf managementSystemSubject
+  st-f57af6ca62d21904-6bf17ffc68598c26  : managedResourceAsset   ⊏⋆ᵣ  managementSystemSubject  {lzero}
+

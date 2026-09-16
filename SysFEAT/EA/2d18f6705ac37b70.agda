@@ -5,6 +5,9 @@
 
 Projet Risk Type: 
 
+
+Documentation : https://framework.sysfeat.com/pages/2d18f6705ac37b70.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,11 +22,11 @@ ProjetRiskType : ClassOfClassOfBoundedIndividual
 ProjetRiskType = ClassOfBoundedIndividual
 
 --  ProjetRiskType withAspect ModelPropertyBlock
-st-2b588a025ef08ba6 : ProjetRiskType ⊏ₐₑ (ModelPropertyBlock (lsuc(lzero)))
-st-2b588a025ef08ba6 = polySubTypeOf-identity
+st-2d18f6705ac37b70-0eb97aff6855cd23 : ProjetRiskType ⊏ₐₑ (ModelPropertyBlock (lsuc(lzero)))
+st-2d18f6705ac37b70-0eb97aff6855cd23 = polySubTypeOf-identity
 
 --  ProjetRiskType is subTypeOf ProgramAsset
-st-2b588a4d5ef08c83 : ProjetRiskType ⊏⋆ₑ ProgramAsset
-st-2b588a4d5ef08c83 = polySubTypeOf-identity
+st-2d18f6705ac37b70-2b5887d05ef07b3b : ProjetRiskType ⊏⋆ₑ ProgramAsset
+st-2d18f6705ac37b70-2b5887d05ef07b3b = polySubTypeOf-identity
 
 

@@ -5,6 +5,9 @@
 
 Individual Capability Configuration: 
 An Individual Capability Configuration is an Individual Business Agent combines Org-Units and Business Systems along with networking capabilities in order to provide Business Capability(ies).There are two levels of granularity of Capability Configurations: System of Systems and System of Resources.
+
+Documentation : https://framework.sysfeat.com/pages/c80a3f9d67859211.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,16 +23,16 @@ IndividualCapabilityConfiguration : ClassOfBoundedIndividual
 IndividualCapabilityConfiguration = BoundedIndividual
 
 --  IndividualCapabilityConfiguration is subTypeOf IndividualBusinessAgent
-st-c80a3fd167859285 : IndividualCapabilityConfiguration ⊏ₑ IndividualBusinessAgent
-st-c80a3fd167859285 = polySubTypeOf-identity
+st-c80a3f9d67859211-66f8685a620b1440 : IndividualCapabilityConfiguration ⊏ₑ IndividualBusinessAgent
+st-c80a3f9d67859211-66f8685a620b1440 = polySubTypeOf-identity
 
 --  IndividualCapabilityConfiguration is subTypeOf IndividualResourceAgentConfiguration
-st-3b1bb95a68cda285 : IndividualCapabilityConfiguration ⊏ₑ IndividualResourceAgentConfiguration
-st-3b1bb95a68cda285 = polySubTypeOf-identity
+st-c80a3f9d67859211-3b1b936468cd8851 : IndividualCapabilityConfiguration ⊏ₑ IndividualResourceAgentConfiguration
+st-c80a3f9d67859211-3b1b936468cd8851 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Configuration Type: -}
 configurationType :  Linkage IndividualCapabilityConfiguration CapabilityConfiguration
-configurationType = make_instanceOf "Configuration Type" "configurationType"
+configurationType = make_instanceOf "Configuration Type" "Configuration Type"
 

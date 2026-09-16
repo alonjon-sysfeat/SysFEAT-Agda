@@ -5,6 +5,9 @@
 
 Program Asset: 
 A Program Asset is a resource used in the context of project management such as Project, Projet Risk Type, Project Portfolio,etc.
+
+Documentation : https://framework.sysfeat.com/pages/2b5887d05ef07b3b.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ ProgramAsset : ClassOfBoundedIndividual
 ProgramAsset = BoundedIndividual
 
 --  ProgramAsset withAspect InitiativeInstrument
-st-2b5887e05ef07c21 : ProgramAsset ⊏ₐₑ (InitiativeInstrument lzero)
-st-2b5887e05ef07c21 = polySubTypeOf-identity
+st-2b5887d05ef07b3b-01ce05606859794a : ProgramAsset ⊏ₐₑ (InitiativeInstrument lzero)
+st-2b5887d05ef07b3b-01ce05606859794a = polySubTypeOf-identity
 
 -- == Relationships =======================

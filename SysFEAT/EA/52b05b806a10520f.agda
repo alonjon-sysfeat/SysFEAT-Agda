@@ -5,6 +5,9 @@
 
 Resource Level: 
 The  Resource Level classifies Operating Assets describing resources used to implement the operating model of the enterprise.
+
+Documentation : https://framework.sysfeat.com/pages/52b05b806a10520f.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ ResourceLevel : ∀ (u : Level) → MixedOrderMetaClass u
 ResourceLevel u = ClassOfMixedOrderEntity u
 
 --  ResourceLevel is subTypeOf ConceptualizationLevel
-st-52b05b916a105276 : ∀ {u v} → (ResourceLevel u) ⊏⋆ₑ (ConceptualizationLevel v)
-st-52b05b916a105276 = trivialPolySubTypeOfEntity
+st-52b05b806a10520f-52b05a616a104fab : ∀ {u v} → (ResourceLevel u) ⊏⋆ₑ (ConceptualizationLevel v)
+st-52b05b806a10520f-52b05a616a104fab = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

@@ -5,6 +5,13 @@
 
 Project: 
 A Project is a course of action that is being executed or has been selected for execution. An enterprises Initiatives represent the choices the enterprise has made about how to pursue the change that allows it to achieve its objectives.
+
+Documentation : https://framework.sysfeat.com/pages/91be97ff54882d9f.htm
+
+External references:
+  OMG - UAF - ActualProject: https://www.omg.org/spec/UAF/1.2/Beta1/DMM/PDF#ActualProject
+  OpenGroup - TOGAF - Definitions - Work Package: https://pubs.opengroup.org/togaf-standard/introduction/chap04.html#tag_04_88
+  Martin Fowler - Products over Projects: https://martinfowler.com/articles/products-over-projects.html
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -24,27 +31,27 @@ Project : ClassOfBoundedIndividual
 Project = BoundedIndividual
 
 --  Project is subTypeOf ManagementInitiative
-st-24f828f866475703 : Project ⊏ₑ ManagementInitiative
-st-24f828f866475703 = polySubTypeOf-identity
+st-91be97ff54882d9f-05201b936647570a : Project ⊏ₑ ManagementInitiative
+st-91be97ff54882d9f-05201b936647570a = polySubTypeOf-identity
 
 --  Project is subTypeOf ProgramAsset
-st-2b5888175ef07cee : Project ⊏ₑ ProgramAsset
-st-2b5888175ef07cee = polySubTypeOf-identity
+st-91be97ff54882d9f-2b5887d05ef07b3b : Project ⊏ₑ ProgramAsset
+st-91be97ff54882d9f-2b5887d05ef07b3b = polySubTypeOf-identity
 
 --  Project is subTypeOf Epic
-st-0ffefd28600be783 : Project ⊏ₑ Epic
-st-0ffefd28600be783 = polySubTypeOf-identity
+st-91be97ff54882d9f-84c799c1664d8b2f : Project ⊏ₑ Epic
+st-91be97ff54882d9f-84c799c1664d8b2f = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Project Risk: -}
 projectRisk :  Linkage Project ProjetRiskType
-projectRisk = make_Relation "Project Risk" "projectRisk"
+projectRisk = make_Relation "Project Risk" "Project Risk"
 
 
 {- Project Classification: -}
 projectClassification :  Linkage Project ProjectType
-projectClassification = make_instanceOf "Project Classification" "projectClassification"
+projectClassification = make_instanceOf "Project Classification" "Project Classification"
 
 
 {- Project Dependency: -}
@@ -55,11 +62,11 @@ ProjectDependency = AggregateMember (lsuc(lzero))
 
 -- Membership relation
 membershipOfProjectDependency :  Linkage Project ProjectDependency
-membershipOfProjectDependency = membershipOfAggregateMember
+membershipOfProjectDependency = make_upwardNestingRelation "projectDependency membership" "nested projectDependency"
 
 -- Aggregation relation
 aggregationOfProjectProjectDependency :  Linkage ProjectDependency Project
-aggregationOfProjectProjectDependency = aggregationOfBuildingBlock
+aggregationOfProjectProjectDependency = make_Relation "Project aggregation" "aggregated Project"
 
 {- projectDependency : derived relation obtained by composing
    membershipOfProjectDependency and aggregationOfProjectProjectDependency
@@ -69,6 +76,8 @@ aggregationOfProjectProjectDependency = aggregationOfBuildingBlock
 projectDependency : Linkage Project Project
 projectDependency = membershipOfProjectDependency  ∘  aggregationOfProjectProjectDependency
 
+
+
 {- Project Purpose: -}
 -- Aggregate Member : Project Purpose
 ProjectPurpose : ClassOfClassOfIndividual
@@ -76,11 +85,11 @@ ProjectPurpose = ClassOfIndividual
 
 -- Membership relation
 membershipOfProjectPurpose :  Linkage Project ProjectPurpose
-membershipOfProjectPurpose = membershipOfAggregateMember
+membershipOfProjectPurpose = make_upwardNestingRelation "projectPurpose membership" "nested projectPurpose"
 
 -- Aggregation relation
 aggregationOfBusinessCapabilityProjectPurpose :  Linkage ProjectPurpose BusinessCapability
-aggregationOfBusinessCapabilityProjectPurpose = aggregationOfBuildingBlock
+aggregationOfBusinessCapabilityProjectPurpose = make_Relation "BusinessCapability aggregation" "aggregated BusinessCapability"
 
 {- projectPurpose : derived relation obtained by composing
    membershipOfProjectPurpose and aggregationOfBusinessCapabilityProjectPurpose
@@ -90,6 +99,8 @@ aggregationOfBusinessCapabilityProjectPurpose = aggregationOfBuildingBlock
 projectPurpose : Linkage Project BusinessCapability
 projectPurpose = membershipOfProjectPurpose  ∘  aggregationOfBusinessCapabilityProjectPurpose
 
+
+
 {- Project Deliverable: -}
 -- Aggregate Member : Project Deliverable
 ProjectDeliverable : ClassOfClassOfIndividual
@@ -97,11 +108,11 @@ ProjectDeliverable = ClassOfIndividual
 
 -- Membership relation
 membershipOfProjectDeliverable :  Linkage Project ProjectDeliverable
-membershipOfProjectDeliverable = membershipOfAggregateMember
+membershipOfProjectDeliverable = make_upwardNestingRelation "projectDeliverable membership" "nested projectDeliverable"
 
 -- Aggregation relation
 aggregationOfResourceOperatingAssetProjectDeliverable :  Linkage ProjectDeliverable ResourceOperatingAsset
-aggregationOfResourceOperatingAssetProjectDeliverable = aggregationOfBuildingBlock
+aggregationOfResourceOperatingAssetProjectDeliverable = make_Relation "ResourceOperatingAsset aggregation" "aggregated ResourceOperatingAsset"
 
 {- projectDeliverable : derived relation obtained by composing
    membershipOfProjectDeliverable and aggregationOfResourceOperatingAssetProjectDeliverable
@@ -111,6 +122,10 @@ aggregationOfResourceOperatingAssetProjectDeliverable = aggregationOfBuildingBlo
 projectDeliverable : Linkage Project ResourceOperatingAsset
 projectDeliverable = membershipOfProjectDeliverable  ∘  aggregationOfResourceOperatingAssetProjectDeliverable
 
+postulate -- projectDeliverable is subTypeOf initiativeSubject
+  st-3c8b5d236283cb99-0f642fd06859b0d5  : projectDeliverable   ⊏⋆ᵣ  initiativeSubject  {lzero}
+
+
 {- Project Risk: -}
 -- Aggregate Member : Project Risk
 ProjectRisk : ClassOfClassOfIndividual
@@ -118,11 +133,11 @@ ProjectRisk = ClassOfIndividual
 
 -- Membership relation
 membershipOfProjectRisk :  Linkage Project ProjectRisk
-membershipOfProjectRisk = membershipOfAggregateMember
+membershipOfProjectRisk = make_upwardNestingRelation "projectRisk membership" "nested projectRisk"
 
 -- Aggregation relation
 aggregationOfProjetRiskTypeProjectRisk :  Linkage ProjectRisk ProjetRiskType
-aggregationOfProjetRiskTypeProjectRisk = aggregationOfBuildingBlock
+aggregationOfProjetRiskTypeProjectRisk = make_Relation "ProjetRiskType aggregation" "aggregated ProjetRiskType"
 
 {- projectRisk : derived relation obtained by composing
    membershipOfProjectRisk and aggregationOfProjetRiskTypeProjectRisk
@@ -131,3 +146,5 @@ aggregationOfProjetRiskTypeProjectRisk = aggregationOfBuildingBlock
 -}
 projectRisk : Linkage Project ProjetRiskType
 projectRisk = membershipOfProjectRisk  ∘  aggregationOfProjetRiskTypeProjectRisk
+
+

@@ -5,6 +5,9 @@
 
 Vendor Catalog: 
 A Vendor Catalog is a package of resources offered by a Vendor.
+
+Documentation : https://framework.sysfeat.com/pages/81c3ab5a6054f637.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -12,19 +15,19 @@ A Vendor Catalog is a package of resources offered by a Vendor.
 module SysFEAT.EA.81c3ab5a6054f637 where -- ========== Vendor Catalog
 
 open import Agda.Primitive
-open import SysFEAT.SOF.0f6418e568598b38 public -- Reference Dictionary
+open import SysFEAT.SOF.3aca50c46aa63f3b public -- Reference Dictionary
 open import SysFEAT.EA.8d8d242467a32a6f public -- Vendor
 
 VendorCatalog : ClassOfBoundedIndividual
 VendorCatalog = BoundedIndividual
 
 --  VendorCatalog is subTypeOf ReferenceDictionary
-st-81c3ab746054f6a1 : VendorCatalog ⊏ₑ ReferenceDictionary
-st-81c3ab746054f6a1 = polySubTypeOf-identity
+st-81c3ab5a6054f637-3aca50c46aa63f3b : VendorCatalog ⊏ₑ ReferenceDictionary
+st-81c3ab5a6054f637-3aca50c46aa63f3b = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Provider: -}
 provider :  Linkage VendorCatalog Vendor
-provider = make_holonymyRelation "Provider" "provider"
+provider = make_holonymyRelation "Provider" "Provider"
 

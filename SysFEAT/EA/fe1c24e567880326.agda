@@ -5,6 +5,9 @@
 
 Individual Resource Process: 
 Individual Resource Process is the root instance of processes performed by Individual Resource Agents.
+
+Documentation : https://framework.sysfeat.com/pages/fe1c24e567880326.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,16 +23,16 @@ IndividualResourceProcess : ClassOfBoundedIndividual
 IndividualResourceProcess = BoundedIndividual
 
 --  IndividualResourceProcess is subTypeOf IndividualResourceBehavior
-st-fe1c27cb6788081c : IndividualResourceProcess ⊏ₑ IndividualResourceBehavior
-st-fe1c27cb6788081c = polySubTypeOf-identity
+st-fe1c24e567880326-fe1c250d678803b6 : IndividualResourceProcess ⊏ₑ IndividualResourceBehavior
+st-fe1c24e567880326-fe1c250d678803b6 = polySubTypeOf-identity
 
 --  IndividualResourceProcess is subTypeOf IndividualProcess
-st-fe1c258d6788052e : IndividualResourceProcess ⊏ₑ IndividualProcess
-st-fe1c258d6788052e = polySubTypeOf-identity
+st-fe1c24e567880326-a273b4f465b7a81f : IndividualResourceProcess ⊏ₑ IndividualProcess
+st-fe1c24e567880326-a273b4f465b7a81f = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Resource Process Type: -}
 resourceProcessType :  Linkage IndividualResourceProcess ResourceActionProcess
-resourceProcessType = make_instanceOf "Resource Process Type" "resourceProcessType"
+resourceProcessType = make_instanceOf "Resource Process Type" "Resource Process Type"
 

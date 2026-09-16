@@ -5,6 +5,9 @@
 
 Data Inventory Snapshot: 
 A Data Inventory Snapshot the state a Deployed Data Store at a given period.This state comprises the status of all monitored NoSQL Datasets and of the value slot owned by these NoSQL Datasets.
+
+Documentation : https://framework.sysfeat.com/pages/affeb4425f6053d9.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -21,21 +24,21 @@ DataInventorySnapshot : ClassOfBoundedIndividual
 DataInventorySnapshot = BoundedIndividual
 
 --  DataInventorySnapshot is subTypeOf DeployedBusinessSystem
-st-364209516008fc07 : DataInventorySnapshot ⊏ₑ DeployedBusinessSystem
-st-364209516008fc07 = polySubTypeOf-identity
+st-affeb4425f6053d9-3642454f6007e80e : DataInventorySnapshot ⊏ₑ DeployedBusinessSystem
+st-affeb4425f6053d9-3642454f6007e80e = polySubTypeOf-identity
 
 --  DataInventorySnapshot withAspect ModelContainer
-st-6699fcdf60492b56 : DataInventorySnapshot ⊏ₐₑ (ModelContainer lzero)
-st-6699fcdf60492b56 = polySubTypeOf-identity
+st-affeb4425f6053d9-0eb95dce6855be2e : DataInventorySnapshot ⊏ₐₑ (ModelContainer lzero)
+st-affeb4425f6053d9-0eb95dce6855be2e = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- registered snapshot: -}
 registeredsnapshot :  Linkage DataInventorySnapshot DeployedDataStore
-registeredsnapshot = make_holonymyRelation "registered snapshot" "registeredsnapshot"
+registeredsnapshot = make_holonymyRelation "registered snapshot" "registered snapshot"
 
 
 {- Owned Data Set Snapshot: -}
 ownedDataSetSnapshot :  Linkage DataInventorySnapshot DataSetSnapshot
-ownedDataSetSnapshot = make_holonymyRelation "Owned Data Set Snapshot" "ownedDataSetSnapshot"
+ownedDataSetSnapshot = make_holonymyRelation "Owned Data Set Snapshot" "Owned Data Set Snapshot"
 

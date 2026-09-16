@@ -5,6 +5,9 @@
 
 Policy Framework Category: 
 Policy Framework Category is a place holder for Policy Category(ies) that are managed (owned by) in a Policy Framework.
+
+Documentation : https://framework.sysfeat.com/pages/952eaada67285ac3.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ PolicyFrameworkCategory : ThirdOrderClass
 PolicyFrameworkCategory = SecondOrderClass
 
 --  PolicyFrameworkCategory is subTypeOf PolicyCategory
-st-af6622c96307d876 : PolicyFrameworkCategory ⊏ₑ PolicyCategory
-st-af6622c96307d876 = polySubTypeOf-identity
+st-952eaada67285ac3-952ea6c467285821 : PolicyFrameworkCategory ⊏ₑ PolicyCategory
+st-952eaada67285ac3-952ea6c467285821 = polySubTypeOf-identity
 
 -- == Relationships =======================

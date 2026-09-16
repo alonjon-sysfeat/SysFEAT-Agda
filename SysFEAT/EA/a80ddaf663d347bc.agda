@@ -5,6 +5,9 @@
 
 Simple Field: 
 A Simple Field is a NoSQL Field that represent a single piece of data. A Simple Field cannot be decomposed.Simple Fields are often described by their name, primitive type and length.For instance,  customer name ,  customer id  and  stree number  are usually considered as Simple Fields.
+
+Documentation : https://framework.sysfeat.com/pages/a80ddaf663d347bc.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ SimpleField : ClassOfClassOfBoundedIndividual
 SimpleField = ClassOfBoundedIndividual
 
 --  SimpleField is subTypeOf NoSQLField
-st-a80ddb4f63d34870 : SimpleField ⊏ₑ NoSQLField
-st-a80ddb4f63d34870 = polySubTypeOf-identity
+st-a80ddaf663d347bc-254e4dd45f7f8749 : SimpleField ⊏ₑ NoSQLField
+st-a80ddaf663d347bc-254e4dd45f7f8749 = polySubTypeOf-identity
 
 -- == Relationships =======================

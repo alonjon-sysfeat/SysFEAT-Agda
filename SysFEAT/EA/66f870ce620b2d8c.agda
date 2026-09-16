@@ -5,6 +5,9 @@
 
 Individual Business Software System: 
 
+
+Documentation : https://framework.sysfeat.com/pages/66f870ce620b2d8c.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,14 +22,14 @@ IndividualBusinessSOftwareSystem : ClassOfBoundedIndividual
 IndividualBusinessSOftwareSystem = BoundedIndividual
 
 --  IndividualBusinessSOftwareSystem is subTypeOf DeployedBusinessSystem
-st-66f87105620b2eee : IndividualBusinessSOftwareSystem ⊏ₑ DeployedBusinessSystem
-st-66f87105620b2eee = polySubTypeOf-identity
+st-66f870ce620b2d8c-3642454f6007e80e : IndividualBusinessSOftwareSystem ⊏ₑ DeployedBusinessSystem
+st-66f870ce620b2d8c-3642454f6007e80e = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Software System Type: -}
 sOftwareSystemType :  Linkage IndividualBusinessSOftwareSystem BusinessSOftwareSystem
-sOftwareSystemType = make_instanceOf "Software System Type" "sOftwareSystemType"
+sOftwareSystemType = make_instanceOf "Software System Type" "Software System Type"
 
 postulate -- sOftwareSystemType is subTypeOf businessSystemType
   st-e2dc060266fd4c0c-e2dc074666fd6d03  : sOftwareSystemType   ⊏⋆ᵣ  businessSystemType 
@@ -39,11 +42,11 @@ DeployedSOftwareComponent = AggregateMember (lsuc(lzero))
 
 -- Membership relation
 membershipOfDeployedSOftwareComponent :  Linkage IndividualBusinessSOftwareSystem DeployedSOftwareComponent
-membershipOfDeployedSOftwareComponent = membershipOfAggregateMember
+membershipOfDeployedSOftwareComponent = make_upwardNestingRelation "deployedSOftwareComponent membership" "nested deployedSOftwareComponent"
 
 -- Aggregation relation
 aggregationOfIndividualBusinessSOftwareSystemDeployedSOftwareComponent :  Linkage DeployedSOftwareComponent IndividualBusinessSOftwareSystem
-aggregationOfIndividualBusinessSOftwareSystemDeployedSOftwareComponent = aggregationOfBuildingBlock
+aggregationOfIndividualBusinessSOftwareSystemDeployedSOftwareComponent = make_Relation "IndividualBusinessSOftwareSystem aggregation" "aggregated IndividualBusinessSOftwareSystem"
 
 {- deployedSOftwareComponent : derived relation obtained by composing
    membershipOfDeployedSOftwareComponent and aggregationOfIndividualBusinessSOftwareSystemDeployedSOftwareComponent
@@ -52,3 +55,7 @@ aggregationOfIndividualBusinessSOftwareSystemDeployedSOftwareComponent = aggrega
 -}
 deployedSOftwareComponent : Linkage IndividualBusinessSOftwareSystem IndividualBusinessSOftwareSystem
 deployedSOftwareComponent = membershipOfDeployedSOftwareComponent  ∘  aggregationOfIndividualBusinessSOftwareSystemDeployedSOftwareComponent
+
+postulate -- deployedSOftwareComponent is subTypeOf deployedSystemComponent
+  st-66f87126620b2f4d-9d38a3d061c41a2b  : deployedSOftwareComponent   ⊏⋆ᵣ  deployedSystemComponent 
+

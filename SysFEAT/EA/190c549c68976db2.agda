@@ -5,6 +5,11 @@
 
 Business Policy: 
 A Business Policy is a Policy that is not directly enforceable whose purpose is to govern or guide the enterprise.
+
+Documentation : https://framework.sysfeat.com/pages/190c549c68976db2.htm
+
+External references:
+  OMG - BMM - Business Policy: https://www.omg.org/spec/BMM/1.3/PDF#page=45
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,12 +24,12 @@ BusinessPolicy : PropertyType
 BusinessPolicy = ClassOfProperty
 
 --  BusinessPolicy withAspect PolicyFrameworkAsset
-st-4b94611f68a48567 : BusinessPolicy ⊏ₐₑ (PolicyFrameworkAsset (lsuc(lzero)))
-st-4b94611f68a48567 = polySubTypeOf-identity
+st-190c549c68976db2-4b945e8668a47f80 : BusinessPolicy ⊏ₐₑ (PolicyFrameworkAsset (lsuc(lzero)))
+st-190c549c68976db2-4b945e8668a47f80 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Business Policy Category: -}
 businessPolicyCategory :  Linkage BusinessPolicy BusinessPolicyCategory
-businessPolicyCategory = make_instanceOf "Business Policy Category" "businessPolicyCategory"
+businessPolicyCategory = make_instanceOf "Business Policy Category" "Business Policy Category"
 

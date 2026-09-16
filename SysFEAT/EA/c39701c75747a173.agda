@@ -5,6 +5,11 @@
 
 Concept Type: 
 A Concept Type is a class of concepts which have Concepts as instances: Concept Types classify Concepts.
+
+Documentation : https://framework.sysfeat.com/pages/c39701c75747a173.htm
+
+External references:
+  Russell Ackoff - Choice & Communication - Concept: ../resources/external-references/Ackoff-1967-Choice-Communication-and-Conflict.pdf#Concept
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,18 +25,18 @@ ConceptType : ClassOfClassOfBoundedIndividual
 ConceptType = ClassOfBoundedIndividual
 
 --  ConceptType is subTypeOf InformationEntity
-st-3a0e3bed63ce3320 : ConceptType ⊏ₑ InformationEntity
-st-3a0e3bed63ce3320 = polySubTypeOf-identity
+st-c39701c75747a173-d6cd2cea5ab98e5f : ConceptType ⊏ₑ InformationEntity
+st-c39701c75747a173-d6cd2cea5ab98e5f = polySubTypeOf-identity
 
 --  ConceptType is subTypeOf ClassOfConceptualEntity
-st-5e4060eb5b528622 : ConceptType ⊏ₑ ClassOfConceptualEntity
-st-5e4060eb5b528622 = polySubTypeOf-identity
+st-c39701c75747a173-267b28fc66757618 : ConceptType ⊏ₑ ClassOfConceptualEntity
+st-c39701c75747a173-267b28fc66757618 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Power Component: -}
 powerComponent :  Linkage ConceptType Concept
-powerComponent = make_classOfHolonymy "Power Component" "powerComponent"
+powerComponent = make_classOfHolonymy "Power Component" "Power Component"
 
 
 {- Concept Type Relationship: -}
@@ -41,11 +46,11 @@ ConceptTypeRelationship = ClassOfIndividual
 
 -- Membership relation
 membershipOfConceptTypeRelationship :  Linkage ConceptType ConceptTypeRelationship
-membershipOfConceptTypeRelationship = membershipOfAggregateMember
+membershipOfConceptTypeRelationship = make_upwardNestingRelation "conceptTypeRelationship membership" "nested conceptTypeRelationship"
 
 -- Aggregation relation
 aggregationOfConceptTypeConceptTypeRelationship :  Linkage ConceptTypeRelationship ConceptType
-aggregationOfConceptTypeConceptTypeRelationship = aggregationOfBuildingBlock
+aggregationOfConceptTypeConceptTypeRelationship = make_Relation "ConceptType aggregation" "aggregated ConceptType"
 
 {- conceptTypeRelationship : derived relation obtained by composing
    membershipOfConceptTypeRelationship and aggregationOfConceptTypeConceptTypeRelationship
@@ -54,3 +59,9 @@ aggregationOfConceptTypeConceptTypeRelationship = aggregationOfBuildingBlock
 -}
 conceptTypeRelationship : Linkage ConceptType ConceptType
 conceptTypeRelationship = membershipOfConceptTypeRelationship  ∘  aggregationOfConceptTypeConceptTypeRelationship
+
+postulate -- conceptTypeRelationship is subTypeOf conceptualAssetRelationship
+  st-e8bff3315ebb87aa-18eb202f5fdb706c  : conceptTypeRelationship   ⊏⋆ᵣ  conceptualAssetRelationship 
+postulate -- conceptTypeRelationship is subTypeOf informationRelationship
+  st-e8bff3315ebb87aa-dfa4e2305ebb4d2b  : conceptTypeRelationship   ⊏⋆ᵣ  informationRelationship 
+

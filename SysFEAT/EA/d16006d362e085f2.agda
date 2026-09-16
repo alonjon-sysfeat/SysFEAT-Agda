@@ -5,6 +5,9 @@
 
 Technology Operating Asset: 
 A Technology Operating Asset is an Operating Asset Type that describes the way Technology Outcome Events are produced and consumed: how technologies (Behaviors) and by whom (Technology System).Technology Operating Assets include Technology Systems and their Behaviors (Technology Processes, Technology Interfaces and Interaction Scenarios).
+
+Documentation : https://framework.sysfeat.com/pages/d16006d362e085f2.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -21,21 +24,46 @@ TechnologyOperatingAsset : ClassOfClassOfBoundedIndividual
 TechnologyOperatingAsset = ClassOfBoundedIndividual
 
 --  TechnologyOperatingAsset is subTypeOf ResourceOperatingAsset
-st-6a70dc4a67878db0 : TechnologyOperatingAsset ⊏ₑ ResourceOperatingAsset
-st-6a70dc4a67878db0 = polySubTypeOf-identity
+st-d16006d362e085f2-f8e61da0621db6fa : TechnologyOperatingAsset ⊏ₑ ResourceOperatingAsset
+st-d16006d362e085f2-f8e61da0621db6fa = polySubTypeOf-identity
 
 --  TechnologyOperatingAsset is subTypeOf TechnologyFunctionalAsset
-st-669af8d56654ea96 : TechnologyOperatingAsset ⊏ₑ TechnologyFunctionalAsset
-st-669af8d56654ea96 = polySubTypeOf-identity
+st-d16006d362e085f2-669abc806654e803 : TechnologyOperatingAsset ⊏ₑ TechnologyFunctionalAsset
+st-d16006d362e085f2-669abc806654e803 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Fulfilled Technology Capability: -}
 fulfilledTechnologyCapability :  Linkage TechnologyOperatingAsset TechnologyCapability
-fulfilledTechnologyCapability = make_subTypeOf "Fulfilled Technology Capability" "fulfilledTechnologyCapability"
+fulfilledTechnologyCapability = make_subTypeOf "Fulfilled Technology Capability" "Fulfilled Technology Capability"
 
 postulate -- fulfilledTechnologyCapability is subTypeOf fulfilledResourceCapability
   st-dd27b1d668a10d0a-dd265468689f5a22  : fulfilledTechnologyCapability   ⊏⋆ᵣ  fulfilledResourceCapability 
+
+{- Technology Operating Asset Part: -}
+-- Aggregate Member : Technology Operating Asset Part
+TechnologyOperatingAssetPart : ClassOfClassOfIndividual
+TechnologyOperatingAssetPart = ClassOfIndividual
+
+-- Membership relation
+membershipOfTechnologyOperatingAssetPart :  Linkage TechnologyOperatingAsset TechnologyOperatingAssetPart
+membershipOfTechnologyOperatingAssetPart = make_upwardNestingRelation "technologyOperatingAssetPart membership" "nested technologyOperatingAssetPart"
+
+-- Aggregation relation
+aggregationOfTechnologyOperatingAssetTechnologyOperatingAssetPart :  Linkage TechnologyOperatingAssetPart TechnologyOperatingAsset
+aggregationOfTechnologyOperatingAssetTechnologyOperatingAssetPart = make_Relation "TechnologyOperatingAsset aggregation" "aggregated TechnologyOperatingAsset"
+
+{- technologyOperatingAssetPart : derived relation obtained by composing
+   membershipOfTechnologyOperatingAssetPart and aggregationOfTechnologyOperatingAssetTechnologyOperatingAssetPart
+   It directly links an Technology Operating Asset to the final aggregated TechnologyOperatingAsset
+   hiding the reifying TechnologyOperatingAssetPart
+-}
+technologyOperatingAssetPart : Linkage TechnologyOperatingAsset TechnologyOperatingAsset
+technologyOperatingAssetPart = membershipOfTechnologyOperatingAssetPart  ∘  aggregationOfTechnologyOperatingAssetTechnologyOperatingAssetPart
+
+postulate -- technologyOperatingAssetPart is subTypeOf resourceOperatingAssetPart
+  st-d265d98e68b13ce4-b776bf0868b0fbb3  : technologyOperatingAssetPart   ⊏⋆ᵣ  resourceOperatingAssetPart 
+
 
 {- Technology Rule Enforcement: -}
 -- Aggregate Member : Technology Rule Enforcement
@@ -44,11 +72,11 @@ TechnologyRuleEnforcement = ClassOfIndividual
 
 -- Membership relation
 membershipOfTechnologyRuleEnforcement :  Linkage TechnologyOperatingAsset TechnologyRuleEnforcement
-membershipOfTechnologyRuleEnforcement = membershipOfAggregateMember
+membershipOfTechnologyRuleEnforcement = make_upwardNestingRelation "technologyRuleEnforcement membership" "nested technologyRuleEnforcement"
 
 -- Aggregation relation
 aggregationOfTechnologyRuleTechnologyRuleEnforcement :  Linkage TechnologyRuleEnforcement TechnologyRule
-aggregationOfTechnologyRuleTechnologyRuleEnforcement = aggregationOfBuildingBlock
+aggregationOfTechnologyRuleTechnologyRuleEnforcement = make_Relation "TechnologyRule aggregation" "aggregated TechnologyRule"
 
 {- technologyRuleEnforcement : derived relation obtained by composing
    membershipOfTechnologyRuleEnforcement and aggregationOfTechnologyRuleTechnologyRuleEnforcement
@@ -58,23 +86,6 @@ aggregationOfTechnologyRuleTechnologyRuleEnforcement = aggregationOfBuildingBloc
 technologyRuleEnforcement : Linkage TechnologyOperatingAsset TechnologyRule
 technologyRuleEnforcement = membershipOfTechnologyRuleEnforcement  ∘  aggregationOfTechnologyRuleTechnologyRuleEnforcement
 
-{- Technology Operating Asset Part: -}
--- Aggregate Member : Technology Operating Asset Part
-TechnologyOperatingAssetPart : ClassOfClassOfIndividual
-TechnologyOperatingAssetPart = ClassOfIndividual
+postulate -- technologyRuleEnforcement is subTypeOf resourceRuleEnforcement
+  st-d265d83268b13b1d-07b60bd468a50731  : technologyRuleEnforcement   ⊏⋆ᵣ  resourceRuleEnforcement 
 
--- Membership relation
-membershipOfTechnologyOperatingAssetPart :  Linkage TechnologyOperatingAsset TechnologyOperatingAssetPart
-membershipOfTechnologyOperatingAssetPart = membershipOfAggregateMember
-
--- Aggregation relation
-aggregationOfTechnologyOperatingAssetTechnologyOperatingAssetPart :  Linkage TechnologyOperatingAssetPart TechnologyOperatingAsset
-aggregationOfTechnologyOperatingAssetTechnologyOperatingAssetPart = aggregationOfBuildingBlock
-
-{- technologyOperatingAssetPart : derived relation obtained by composing
-   membershipOfTechnologyOperatingAssetPart and aggregationOfTechnologyOperatingAssetTechnologyOperatingAssetPart
-   It directly links an Technology Operating Asset to the final aggregated TechnologyOperatingAsset
-   hiding the reifying TechnologyOperatingAssetPart
--}
-technologyOperatingAssetPart : Linkage TechnologyOperatingAsset TechnologyOperatingAsset
-technologyOperatingAssetPart = membershipOfTechnologyOperatingAssetPart  ∘  aggregationOfTechnologyOperatingAssetTechnologyOperatingAssetPart

@@ -5,6 +5,9 @@
 
 Data Quality Risk Type: 
 A Data Quality Risk Type is a Data Risk Type is a 
+
+Documentation : https://framework.sysfeat.com/pages/582e7ac266f6b8ef.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ DataQualityRiskType : ThirdOrderClass
 DataQualityRiskType = SecondOrderClass
 
 --  DataQualityRiskType is subTypeOf DataRiskType
-st-582e7d4566f6c087 : DataQualityRiskType ⊏ₑ DataRiskType
-st-582e7d4566f6c087 = polySubTypeOf-identity
+st-582e7ac266f6b8ef-582e785466f6b36f : DataQualityRiskType ⊏ₑ DataRiskType
+st-582e7ac266f6b8ef-582e785466f6b36f = polySubTypeOf-identity
 
--- == Relationships =======================
+

@@ -5,6 +5,9 @@
 
 Vendor: 
 Legal Entity who provides and maintains resources used in the enterprise operating system.
+
+Documentation : https://framework.sysfeat.com/pages/8d8d242467a32a6f.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,7 +22,7 @@ Vendor = StateConcept
 
 
 --  Vendor is subTypeOf LegalEntity
-st-8d8d23ef67a32a4d : Vendor ⊏ₑ LegalEntity
-st-8d8d23ef67a32a4d = polySubTypeOf-identity
+st-8d8d242467a32a6f-e78cee446618815a : Vendor ⊏ₑ LegalEntity
+st-8d8d242467a32a6f-e78cee446618815a = polySubTypeOf-identity
 
 -- == Relationships =======================

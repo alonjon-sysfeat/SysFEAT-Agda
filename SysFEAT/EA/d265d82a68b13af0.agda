@@ -5,6 +5,9 @@
 
 Technology Rule: 
 
+
+Documentation : https://framework.sysfeat.com/pages/d265d82a68b13af0.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ TechnologyRule : PropertyType
 TechnologyRule = ClassOfProperty
 
 --  TechnologyRule is subTypeOf BehavioralRule
-st-97889f5866176346 : TechnologyRule ⊏ₑ BehavioralRule
-st-97889f5866176346 = polySubTypeOf-identity
+st-d265d82a68b13af0-190c74f868966584 : TechnologyRule ⊏ₑ BehavioralRule
+st-d265d82a68b13af0-190c74f868966584 = polySubTypeOf-identity
 
 -- == Relationships =======================

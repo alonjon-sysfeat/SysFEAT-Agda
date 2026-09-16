@@ -5,6 +5,9 @@
 
 Individual Artifact: 
 
+
+Documentation : https://framework.sysfeat.com/pages/3b1b91ea68cd8733.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,7 +22,7 @@ IndividualArtifact : ClassOfBoundedIndividual
 IndividualArtifact = BoundedIndividual
 
 --  IndividualArtifact is subTypeOf IndividualResourceAgent
-st-3b1b920068cd8784 : IndividualArtifact ⊏ₑ IndividualResourceAgent
-st-3b1b920068cd8784 = polySubTypeOf-identity
+st-3b1b91ea68cd8733-fe1c231267880201 : IndividualArtifact ⊏ₑ IndividualResourceAgent
+st-3b1b91ea68cd8733-fe1c231267880201 = polySubTypeOf-identity
 
 -- == Relationships =======================

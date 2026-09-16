@@ -5,6 +5,9 @@
 
 Individual Concept: 
 An Individual Concept is an instance of a Concept.For example,  John Doe  is an instance of the  Person  Concept.
+
+Documentation : https://framework.sysfeat.com/pages/362ff6c05b3c47a3.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,12 +22,12 @@ IndividualConcept : ClassOfBoundedIndividual
 IndividualConcept = BoundedIndividual
 
 --  IndividualConcept is subTypeOf ConceptualIndividual
-st-1d51addf63532470 : IndividualConcept ⊏ₑ ConceptualIndividual
-st-1d51addf63532470 = polySubTypeOf-identity
+st-362ff6c05b3c47a3-346a3677655b5325 : IndividualConcept ⊏ₑ ConceptualIndividual
+st-362ff6c05b3c47a3-346a3677655b5325 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Individual Relationship: -}
 individualRelationship :  Linkage IndividualConcept IndividualConcept
-individualRelationship = make_holonymyRelation "Individual Relationship" "individualRelationship"
+individualRelationship = make_holonymyRelation "Individual Relationship" "Individual Relationship"
 

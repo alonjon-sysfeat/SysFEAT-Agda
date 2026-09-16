@@ -5,6 +5,9 @@
 
 Vision: 
 A Vision describes the future state of the enterprise, without regard to how it is to be achieved.A Vision is the ultimate, possibly unattainable, state the enterprise would like to achieve.
+
+Documentation : https://framework.sysfeat.com/pages/42bb811762d2fec6.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

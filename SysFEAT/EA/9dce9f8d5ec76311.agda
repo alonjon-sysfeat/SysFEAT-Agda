@@ -5,6 +5,16 @@
 
 Application Interface: 
 An Application Interface is a Business Service Interface that occurs between Business Software Systems.The interface is described by messages exchanged between endpoints (provider, consumer..).
+
+Documentation : https://framework.sysfeat.com/pages/9dce9f8d5ec76311.htm
+
+External references:
+  OpenGroup - ArchiMate - Application Service: https://pubs.opengroup.org/architecture/archimate32-doc/ch-Application-Layer.html#sec-Application-Service
+  OpenGroup - IT4IT - Defining Service Reference Architecture: https://publications.opengroup.org/w161
+  EIP - messaging: https://www.enterpriseintegrationpatterns.com/patterns/messaging
+  Microsoft - Architecture Design - RESTful web API design: https://learn.microsoft.com/en-us/azure/architecture/best-practices/api-design
+  Martin Fowler - Richardson Maturity Model: https://martinfowler.com/articles/richardsonMaturityModel.html
+  Martin Fowler - API Design: https://martinfowler.com/tags/API%20design.html
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,8 +29,8 @@ ApplicationInterface : ClassOfClassOfIndividual
 ApplicationInterface = ClassOfIndividual
 
 --  ApplicationInterface is subTypeOf BusinessServiceInterface
-st-e2c5970c61dee9da : ApplicationInterface ⊏ₑ BusinessServiceInterface
-st-e2c5970c61dee9da = polySubTypeOf-identity
+st-9dce9f8d5ec76311-9dcea2655ec768ee : ApplicationInterface ⊏ₑ BusinessServiceInterface
+st-9dce9f8d5ec76311-9dcea2655ec768ee = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -33,11 +43,11 @@ InformationFlowConnection = ClassOfIndividual
 
 -- Membership relation
 membershipOfInformationFlowConnection :  Linkage ApplicationInterface InformationFlowConnection
-membershipOfInformationFlowConnection = membershipOfAggregateMember
+membershipOfInformationFlowConnection = make_upwardNestingRelation "informationFlowConnection membership" "nested informationFlowConnection"
 
 -- Aggregation relation
 aggregationOfInformationOutcomeEventInformationFlowConnection :  Linkage InformationFlowConnection InformationOutcomeEvent
-aggregationOfInformationOutcomeEventInformationFlowConnection = aggregationOfBuildingBlock
+aggregationOfInformationOutcomeEventInformationFlowConnection = make_Relation "InformationOutcomeEvent aggregation" "aggregated InformationOutcomeEvent"
 
 {- informationFlowConnection : derived relation obtained by composing
    membershipOfInformationFlowConnection and aggregationOfInformationOutcomeEventInformationFlowConnection
@@ -46,3 +56,7 @@ aggregationOfInformationOutcomeEventInformationFlowConnection = aggregationOfBui
 -}
 informationFlowConnection : Linkage ApplicationInterface InformationOutcomeEvent
 informationFlowConnection = membershipOfInformationFlowConnection  ∘  aggregationOfInformationOutcomeEventInformationFlowConnection
+
+postulate -- informationFlowConnection is subTypeOf businessFlowConnection
+  st-c561e9dc680f8339-c561d97c680f6e84  : informationFlowConnection   ⊏⋆ᵣ  businessFlowConnection 
+

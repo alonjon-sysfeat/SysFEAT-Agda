@@ -5,6 +5,11 @@
 
 Data Block: 
 A Data Block is an Information Block used for the description of data consumed and produced by Software System Categorys.They are defined in Data Dictionary(ies).
+
+Documentation : https://framework.sysfeat.com/pages/8f1c937168ca8195.htm
+
+External references:
+  NIST - Data Asset: https://csrc.nist.gov/glossary/term/data_asset
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +23,7 @@ DataBlock : ∀ (u : Level) → ClassOfMixedOrderEntity u
 DataBlock u = MixedOrderEntity u
 
 --  DataBlock is subTypeOf InformationBlock
-st-30efb19661f37541 : ∀ {u v} → (DataBlock u) ⊏⋆ₑ (InformationBlock v)
-st-30efb19661f37541 = trivialPolySubTypeOfEntity
+st-8f1c937168ca8195-6c5f80e468587f06 : ∀ {u v} → (DataBlock u) ⊏⋆ₑ (InformationBlock v)
+st-8f1c937168ca8195-6c5f80e468587f06 = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

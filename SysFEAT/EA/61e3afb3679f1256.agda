@@ -5,6 +5,9 @@
 
 Mezzo Resource Operating Asset: 
 A Mezzo Resource Operating Asset is a Resource Operating Asset that corresponds to the mezzo systemic level.
+
+Documentation : https://framework.sysfeat.com/pages/61e3afb3679f1256.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,11 +22,11 @@ MezzoResourceOperatingAsset : ClassOfClassOfBoundedIndividual
 MezzoResourceOperatingAsset = ClassOfBoundedIndividual
 
 --  MezzoResourceOperatingAsset withAspect MezzoOperatingAsset
-st-90d698046a038a47 : MezzoResourceOperatingAsset ⊏ₐₑ (MezzoOperatingAsset (lsuc(lzero)))
-st-90d698046a038a47 = polySubTypeOf-identity
+st-61e3afb3679f1256-0c45104d6a032286 : MezzoResourceOperatingAsset ⊏ₐₑ (MezzoOperatingAsset (lsuc(lzero)))
+st-61e3afb3679f1256-0c45104d6a032286 = polySubTypeOf-identity
 
 --  MezzoResourceOperatingAsset is subTypeOf ResourceOperatingAsset
-st-61e3afc9679f12a3 : MezzoResourceOperatingAsset ⊏ₑ ResourceOperatingAsset
-st-61e3afc9679f12a3 = polySubTypeOf-identity
+st-61e3afb3679f1256-f8e61da0621db6fa : MezzoResourceOperatingAsset ⊏ₑ ResourceOperatingAsset
+st-61e3afb3679f1256-f8e61da0621db6fa = polySubTypeOf-identity
 
 -- == Relationships =======================

@@ -5,6 +5,9 @@
 
 Physical Outcome Event: 
 A Physical Outcome Event is a Business Outcome Event that signals the happening of a change in the state of a Physical Business Agent, produced by a Physical Business Agent for the benefits of an internal or external consumer.
+
+Documentation : https://framework.sysfeat.com/pages/c334e2925ecb8db4.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,8 +22,8 @@ PhysicalOutcomeEvent : ClassOfClassOfIndividual
 PhysicalOutcomeEvent = ClassOfIndividual
 
 --  PhysicalOutcomeEvent is subTypeOf BusinessOutcomeEvent
-st-07e708a75ecc05c1 : PhysicalOutcomeEvent ⊏ₑ BusinessOutcomeEvent
-st-07e708a75ecc05c1 = polySubTypeOf-identity
+st-c334e2925ecb8db4-9dcea4535ec76e6c : PhysicalOutcomeEvent ⊏ₑ BusinessOutcomeEvent
+st-c334e2925ecb8db4-9dcea4535ec76e6c = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -33,11 +36,11 @@ PhysicalOutcome = ClassOfIndividual
 
 -- Membership relation
 membershipOfPhysicalOutcome :  Linkage PhysicalOutcomeEvent PhysicalOutcome
-membershipOfPhysicalOutcome = membershipOfAggregateMember
+membershipOfPhysicalOutcome = make_upwardNestingRelation "physicalOutcome membership" "nested physicalOutcome"
 
 -- Aggregation relation
 aggregationOfPhysicalBusinessAgentPhysicalOutcome :  Linkage PhysicalOutcome PhysicalBusinessAgent
-aggregationOfPhysicalBusinessAgentPhysicalOutcome = aggregationOfBuildingBlock
+aggregationOfPhysicalBusinessAgentPhysicalOutcome = make_Relation "PhysicalBusinessAgent aggregation" "aggregated PhysicalBusinessAgent"
 
 {- physicalOutcome : derived relation obtained by composing
    membershipOfPhysicalOutcome and aggregationOfPhysicalBusinessAgentPhysicalOutcome
@@ -46,3 +49,7 @@ aggregationOfPhysicalBusinessAgentPhysicalOutcome = aggregationOfBuildingBlock
 -}
 physicalOutcome : Linkage PhysicalOutcomeEvent PhysicalBusinessAgent
 physicalOutcome = membershipOfPhysicalOutcome  ∘  aggregationOfPhysicalBusinessAgentPhysicalOutcome
+
+postulate -- physicalOutcome is subTypeOf businessOutcome
+  st-be94eb36655c95ea-be94e0c4655c85b4  : physicalOutcome   ⊏⋆ᵣ  businessOutcome 
+

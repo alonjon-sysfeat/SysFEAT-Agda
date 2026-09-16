@@ -5,6 +5,12 @@
 
 Individual Physical Resource Agent: 
 An Individual Physical Resource Agent is any identifiable and tangible Individual Resource Agent that exists in the physical universe that can cast a shadow.It is characterized by its ability to occupy space, possess mass, and interact with other Individual Physical Resource Agents through fundamental forces. Individual Physical Resource Agents are subject to the laws of physics and can be observed, measured, and analyzed using scientific methods.
+
+Documentation : https://framework.sysfeat.com/pages/3b1bb56c68cd9bfa.htm
+
+External references:
+  ISO 15926 - PhysicalObject: https://15926.blog/topics/data-model/index.htm#PhysicalObject
+  WordNet - Physical Object: https://en-word.net/ili/i35549
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,7 +25,7 @@ IndividualPhysicalResourceAgent : ClassOfBoundedIndividual
 IndividualPhysicalResourceAgent = BoundedIndividual
 
 --  IndividualPhysicalResourceAgent is subTypeOf IndividualResourceAgent
-st-3b1bb59268cd9c87 : IndividualPhysicalResourceAgent ⊏ₑ IndividualResourceAgent
-st-3b1bb59268cd9c87 = polySubTypeOf-identity
+st-3b1bb56c68cd9bfa-fe1c231267880201 : IndividualPhysicalResourceAgent ⊏ₑ IndividualResourceAgent
+st-3b1bb56c68cd9bfa-fe1c231267880201 = polySubTypeOf-identity
 
 -- == Relationships =======================

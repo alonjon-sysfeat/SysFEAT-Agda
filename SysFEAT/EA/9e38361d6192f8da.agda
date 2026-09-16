@@ -5,6 +5,11 @@
 
 Infrastructure Landscape: 
 An Infrastructure Landscape is a set of human and physical resources (hardware and software) required for the existence, operation and management of an enterprise in its environment.
+
+Documentation : https://framework.sysfeat.com/pages/9e38361d6192f8da.htm
+
+External references:
+  C4 Model - Supplementary diagrams - System Landscape diagram: https://c4model.com/#SystemLandscapeDiagram
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,17 +25,17 @@ InfrastructureLandscape : ClassOfBoundedIndividual
 InfrastructureLandscape = BoundedIndividual
 
 --  InfrastructureLandscape is subTypeOf IndividualBusinessAgent
-st-66f8703f620b2b5d : InfrastructureLandscape ⊏ₑ IndividualBusinessAgent
-st-66f8703f620b2b5d = polySubTypeOf-identity
+st-9e38361d6192f8da-66f8685a620b1440 : InfrastructureLandscape ⊏ₑ IndividualBusinessAgent
+st-9e38361d6192f8da-66f8685a620b1440 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Owned Data Center: -}
 ownedDataCenter :  Linkage InfrastructureLandscape DataCenter
-ownedDataCenter = make_holonymyRelation "Owned Data Center" "ownedDataCenter"
+ownedDataCenter = make_holonymyRelation "Owned Data Center" "Owned Data Center"
 
 
 {- Infrastructure Type: -}
 infrastructureType :  Linkage InfrastructureLandscape SystemOfSystems
-infrastructureType = make_instanceOf "Infrastructure Type" "infrastructureType"
+infrastructureType = make_instanceOf "Infrastructure Type" "Infrastructure Type"
 

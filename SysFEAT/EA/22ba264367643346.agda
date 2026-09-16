@@ -5,6 +5,9 @@
 
 Technology Portfolio Stage: 
 
+
+Documentation : https://framework.sysfeat.com/pages/22ba264367643346.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,7 +22,7 @@ TechnologyPortfolioStage = StateConcept
 
 
 --  TechnologyPortfolioStage is subTypeOf TechnologyManagementInitiative
-st-22ba260567643324 : TechnologyPortfolioStage ⊏ₑ TechnologyManagementInitiative
-st-22ba260567643324 = polySubTypeOf-identity
+st-22ba264367643346-22ba23ea67643262 : TechnologyPortfolioStage ⊏ₑ TechnologyManagementInitiative
+st-22ba264367643346-22ba23ea67643262 = polySubTypeOf-identity
 
 -- == Relationships =======================

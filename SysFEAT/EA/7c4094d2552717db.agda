@@ -5,6 +5,15 @@
 
 Business Function: 
 A Business Function is a Mezzo unit within the enterprises functional division of labor. It is used to shape the enterprise management structure in regard to how it produces, consumes or processes Business Outcome Events: information, energy, materiel.A Business Function specifies Skills and Functionality(ies) required to perform their activities effectively.
+
+Documentation : https://framework.sysfeat.com/pages/7c4094d2552717db.htm
+
+External references:
+  Russell Ackoff - System of concepts - FunctionalDivisionOfLabor: ../resources/external-references/Ackoff-1971-Towards-a-system-of-systems-concepts.pdf#FunctionalDivisionOfLabor
+  Christensen Institute - Modularity: https://www.christenseninstitute.org/theory/modularity
+  OpenGroup - TOGAF 9 - Definition - Business Function: https://pubs.opengroup.org/architecture/togaf9-doc/m/chap03.html#tag_03_26
+  OpenGroup - TOGAF - Definition - Business Function: https://pubs.opengroup.org/togaf-standard/introduction/chap04.html#tag_04_29
+  OMG - UAF - OperationalPerformer: https://www.omg.org/spec/UAF/1.2/Beta1/DMM/PDF#OperationalPerformer
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,14 +27,14 @@ BusinessFunction : ClassOfClassOfBoundedIndividual
 BusinessFunction = ClassOfBoundedIndividual
 
 --  BusinessFunction is subTypeOf ConceptualAgent
-st-7c4098f155271f5c : BusinessFunction ⊏ₑ ConceptualAgent
-st-7c4098f155271f5c = polySubTypeOf-identity
+st-7c4094d2552717db-7c40987055271d04 : BusinessFunction ⊏ₑ ConceptualAgent
+st-7c4094d2552717db-7c40987055271d04 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Specialized Business Function: -}
 specializedBusinessFunction :  Linkage BusinessFunction BusinessFunction
-specializedBusinessFunction = make_subTypeOf "Specialized Business Function" "specializedBusinessFunction"
+specializedBusinessFunction = make_subTypeOf "Specialized Business Function" "Specialized Business Function"
 
 postulate -- specializedBusinessFunction is subTypeOf specializedAgent
   st-325a380c66f35081-2b5b440b66ed56d4  : specializedBusinessFunction   ⊏⋆ᵣ  specializedAgent 
@@ -39,11 +48,11 @@ subbusinessfunction = ClassOfIndividual
 
 -- Membership relation
 membershipOfsubbusinessfunction :  Linkage BusinessFunction subbusinessfunction
-membershipOfsubbusinessfunction = membershipOfAggregateMember
+membershipOfsubbusinessfunction = make_upwardNestingRelation "subbusinessfunction membership" "nested subbusinessfunction"
 
 -- Aggregation relation
 aggregationOfBusinessFunctionsubbusinessfunction :  Linkage subbusinessfunction BusinessFunction
-aggregationOfBusinessFunctionsubbusinessfunction = aggregationOfBuildingBlock
+aggregationOfBusinessFunctionsubbusinessfunction = make_Relation "BusinessFunction aggregation" "aggregated BusinessFunction"
 
 {- subbusinessfunction : derived relation obtained by composing
    membershipOfsubbusinessfunction and aggregationOfBusinessFunctionsubbusinessfunction
@@ -52,3 +61,7 @@ aggregationOfBusinessFunctionsubbusinessfunction = aggregationOfBuildingBlock
 -}
 subbusinessfunction : Linkage BusinessFunction BusinessFunction
 subbusinessfunction = membershipOfsubbusinessfunction  ∘  aggregationOfBusinessFunctionsubbusinessfunction
+
+postulate -- subbusinessfunction is subTypeOf conceptualAgentPart
+  st-4150b7705eccc24e-258c36965fd28288  : subbusinessfunction   ⊏⋆ᵣ  conceptualAgentPart 
+

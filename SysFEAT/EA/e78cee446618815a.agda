@@ -5,6 +5,15 @@
 
 Legal Entity: 
 A Legal Entity is a Macro Organization that is a lawful or legally standing association, corporation, partnership, proprietorship, trust, or individual that has the legal capacity to: enter into agreements or contracts; assume obligations; incur and pay debts; sue and be sued in its own right; and to be accountable for illegal activities.
+
+Documentation : https://framework.sysfeat.com/pages/e78cee446618815a.htm
+
+External references:
+  OpenGroup - ArchiMate - Business-Actor: https://pubs.opengroup.org/architecture/archimate32-doc/ch-Business-Layer.html#sec-Business-Actor
+  OpenGroup - ArchiMate - Business-Collaboration: https://pubs.opengroup.org/architecture/archimate32-doc/ch-Business-Layer.html#sec-Business-Collaboration
+  The Law Dictionary - legal-entity: https://thelawdictionary.org/legal-entity
+  Russell Ackoff - Transformational leadership - Social System: ../resources/external-references/Ackoff-1987-A-System-view-of-transformational-leadership.pdf#SocialSystem
+  UCF Glossary - Legal Entity: https://compliancedictionary.com/term/256534
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,7 +28,7 @@ LegalEntity : ClassOfBoundedIndividual
 LegalEntity = BoundedIndividual
 
 --  LegalEntity is subTypeOf Organization
-st-e78cee4a661881a3 : LegalEntity ⊏ₑ Organization
-st-e78cee4a661881a3 = polySubTypeOf-identity
+st-e78cee446618815a-910196ca550a2ec2 : LegalEntity ⊏ₑ Organization
+st-e78cee446618815a-910196ca550a2ec2 = polySubTypeOf-identity
 
 -- == Relationships =======================

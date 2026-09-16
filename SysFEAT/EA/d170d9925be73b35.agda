@@ -5,6 +5,9 @@
 
 Pain Point (Type): 
 A customers pain point is the emotion they feel when they think of a specific need, problem, weakness, struggle, or an unfulfilled desire they didnt find a solution for yet.
+
+Documentation : https://framework.sysfeat.com/pages/d170d9925be73b35.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ PainPointType : ClassOfClassOfBoundedIndividual
 PainPointType = ClassOfBoundedIndividual
 
 --  PainPointType is subTypeOf AssetProperty
-st-d170da015be73c58 : PainPointType ⊏ₑ AssetProperty
-st-d170da015be73c58 = polySubTypeOf-identity
+st-d170d9925be73b35-515c6a856893324e : PainPointType ⊏ₑ AssetProperty
+st-d170d9925be73b35-515c6a856893324e = polySubTypeOf-identity
 
 -- == Relationships =======================

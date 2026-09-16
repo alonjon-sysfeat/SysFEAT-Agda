@@ -5,6 +5,9 @@
 
 Individual Resource Configuration: 
 An Individual Resource Configuration is a generic Individual System of Resources that represents Individual System of Resources that are not Individual Facilitys.(Data centers, Factories, Outlets).Examples: - The configured nuclear power plant of (with operating teams),  - The configured aircraft carrier number 3424 (with crew#1) on flight 2501 to LA.When specific characteristics need to be considered for a given type of Individual Resource Configuration, it is recommended to create a new sub-type of Individual System of Resources to capture these characteristics.
+
+Documentation : https://framework.sysfeat.com/pages/c80a432b678596c7.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,14 +22,14 @@ IndividualResourceConfiguration : ClassOfBoundedIndividual
 IndividualResourceConfiguration = BoundedIndividual
 
 --  IndividualResourceConfiguration is subTypeOf IndividualSystemOfResources
-st-c80a43386785970f : IndividualResourceConfiguration ⊏ₑ IndividualSystemOfResources
-st-c80a43386785970f = polySubTypeOf-identity
+st-c80a432b678596c7-c80a41b7678595bb : IndividualResourceConfiguration ⊏ₑ IndividualSystemOfResources
+st-c80a432b678596c7-c80a41b7678595bb = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Resource Configuration: -}
 resourceConfiguration :  Linkage IndividualResourceConfiguration ResourceConfiguration
-resourceConfiguration = make_instanceOf "Resource Configuration" "resourceConfiguration"
+resourceConfiguration = make_instanceOf "Resource Configuration" "Resource Configuration"
 
 postulate -- resourceConfiguration is subTypeOf systemOfResourceType
   st-c80a43566785973a-c80a436c67859774  : resourceConfiguration   ⊏⋆ᵣ  systemOfResourceType 

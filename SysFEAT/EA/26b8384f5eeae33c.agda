@@ -5,6 +5,9 @@
 
 Networking System: 
 Networking System is Technology Operating Asset that provides networking capabilites through the use of Network Interfaces.
+
+Documentation : https://framework.sysfeat.com/pages/26b8384f5eeae33c.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,8 +22,8 @@ NetworkingSystem : ClassOfClassOfBoundedIndividual
 NetworkingSystem = ClassOfBoundedIndividual
 
 --  NetworkingSystem is subTypeOf TechnologyOperatingAsset
-st-02f5152a641c8237 : NetworkingSystem ⊏ₑ TechnologyOperatingAsset
-st-02f5152a641c8237 = polySubTypeOf-identity
+st-26b8384f5eeae33c-d16006d362e085f2 : NetworkingSystem ⊏ₑ TechnologyOperatingAsset
+st-26b8384f5eeae33c-d16006d362e085f2 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -33,11 +36,11 @@ NetworkConnection = ClassOfIndividual
 
 -- Membership relation
 membershipOfNetworkConnection :  Linkage NetworkingSystem NetworkConnection
-membershipOfNetworkConnection = membershipOfAggregateMember
+membershipOfNetworkConnection = make_upwardNestingRelation "networkConnection membership" "nested networkConnection"
 
 -- Aggregation relation
 aggregationOfNetworkInterfaceNetworkConnection :  Linkage NetworkConnection NetworkInterface
-aggregationOfNetworkInterfaceNetworkConnection = aggregationOfBuildingBlock
+aggregationOfNetworkInterfaceNetworkConnection = make_Relation "NetworkInterface aggregation" "aggregated NetworkInterface"
 
 {- networkConnection : derived relation obtained by composing
    membershipOfNetworkConnection and aggregationOfNetworkInterfaceNetworkConnection
@@ -47,6 +50,10 @@ aggregationOfNetworkInterfaceNetworkConnection = aggregationOfBuildingBlock
 networkConnection : Linkage NetworkingSystem NetworkInterface
 networkConnection = membershipOfNetworkConnection  ∘  aggregationOfNetworkInterfaceNetworkConnection
 
+postulate -- networkConnection is subTypeOf technologyConnection
+  st-26b839785eeae7d2-d1600add62e090a8  : networkConnection   ⊏⋆ᵣ  technologyConnection 
+
+
 {- Networking Part: -}
 -- Aggregate Member : Networking Part
 NetworkingPart : ClassOfClassOfIndividual
@@ -54,11 +61,11 @@ NetworkingPart = ClassOfIndividual
 
 -- Membership relation
 membershipOfNetworkingPart :  Linkage NetworkingSystem NetworkingPart
-membershipOfNetworkingPart = membershipOfAggregateMember
+membershipOfNetworkingPart = make_upwardNestingRelation "networkingPart membership" "nested networkingPart"
 
 -- Aggregation relation
 aggregationOfNetworkingSystemNetworkingPart :  Linkage NetworkingPart NetworkingSystem
-aggregationOfNetworkingSystemNetworkingPart = aggregationOfBuildingBlock
+aggregationOfNetworkingSystemNetworkingPart = make_Relation "NetworkingSystem aggregation" "aggregated NetworkingSystem"
 
 {- networkingPart : derived relation obtained by composing
    membershipOfNetworkingPart and aggregationOfNetworkingSystemNetworkingPart
@@ -67,3 +74,7 @@ aggregationOfNetworkingSystemNetworkingPart = aggregationOfBuildingBlock
 -}
 networkingPart : Linkage NetworkingSystem NetworkingSystem
 networkingPart = membershipOfNetworkingPart  ∘  aggregationOfNetworkingSystemNetworkingPart
+
+postulate -- networkingPart is subTypeOf technologySystemMember
+  st-26b8386e5eeae4a4-d1600a8f62e08fb2  : networkingPart   ⊏⋆ᵣ  technologySystemMember 
+

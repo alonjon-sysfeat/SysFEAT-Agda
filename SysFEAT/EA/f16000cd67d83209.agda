@@ -5,6 +5,9 @@
 
 Compliance Case: 
 A Compliance Case is an Assurance Case (a claim) that a particular set of Resource Operating Assets (Systems or Processes) adequately mitigates certain identified Compliance Risk Types by means of appropriated controls.A Compliance Case shall provide confidence that the concerned assets will function as intended in their environment of use.
+
+Documentation : https://framework.sysfeat.com/pages/f16000cd67d83209.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -21,8 +24,8 @@ ComplianceCase : ClassOfClassOfBoundedIndividual
 ComplianceCase = ClassOfBoundedIndividual
 
 --  ComplianceCase is subTypeOf AssuranceCase
-st-f16000e167d83288 : ComplianceCase ⊏ₑ AssuranceCase
-st-f16000e167d83288 = polySubTypeOf-identity
+st-f16000cd67d83209-07ca19e95dd854e9 : ComplianceCase ⊏ₑ AssuranceCase
+st-f16000cd67d83209-07ca19e95dd854e9 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -30,7 +33,7 @@ st-f16000e167d83288 = polySubTypeOf-identity
 Business Directive covered by the Compliance Case.
 -}
 constrainingRegulation :  Linkage ComplianceCase RegulationArticle
-constrainingRegulation = make_subTypeOf "Constraining Regulation" "constrainingRegulation"
+constrainingRegulation = make_subTypeOf "Constraining Regulation" "Constraining Regulation"
 
 postulate -- constrainingRegulation is subTypeOf contrainingOperationalPolicy
   st-4b947fdd68a4a331-01f1120d689b5a99  : constrainingRegulation   ⊏⋆ᵣ  contrainingOperationalPolicy 
@@ -42,11 +45,11 @@ InvolvedOperatingAsset = ClassOfIndividual
 
 -- Membership relation
 membershipOfInvolvedOperatingAsset :  Linkage ComplianceCase InvolvedOperatingAsset
-membershipOfInvolvedOperatingAsset = membershipOfAggregateMember
+membershipOfInvolvedOperatingAsset = make_upwardNestingRelation "involvedOperatingAsset membership" "nested involvedOperatingAsset"
 
 -- Aggregation relation
 aggregationOfResourceOperationalAssetInvolvedOperatingAsset :  Linkage InvolvedOperatingAsset ResourceOperationalAsset
-aggregationOfResourceOperationalAssetInvolvedOperatingAsset = aggregationOfBuildingBlock
+aggregationOfResourceOperationalAssetInvolvedOperatingAsset = make_Relation "ResourceOperationalAsset aggregation" "aggregated ResourceOperationalAsset"
 
 {- involvedOperatingAsset : derived relation obtained by composing
    membershipOfInvolvedOperatingAsset and aggregationOfResourceOperationalAssetInvolvedOperatingAsset
@@ -55,6 +58,10 @@ aggregationOfResourceOperationalAssetInvolvedOperatingAsset = aggregationOfBuild
 -}
 involvedOperatingAsset : Linkage ComplianceCase ResourceOperationalAsset
 involvedOperatingAsset = membershipOfInvolvedOperatingAsset  ∘  aggregationOfResourceOperationalAssetInvolvedOperatingAsset
+
+postulate -- involvedOperatingAsset is subTypeOf involvedAsset
+  st-f160085467d83915-9152e6975ed764d3  : involvedOperatingAsset   ⊏⋆ᵣ  involvedAsset 
+
 
 {- Mitigated Compliance Risk: 
 Set of Compliance Risk Types that are claimed to be identified and mitgated by appropriate Control Measures.
@@ -65,11 +72,11 @@ MitigatedComplianceRisk = SecondOrderClass
 
 -- Membership relation
 membershipOfMitigatedComplianceRisk :  Linkage ComplianceCase MitigatedComplianceRisk
-membershipOfMitigatedComplianceRisk = membershipOfAggregateMember
+membershipOfMitigatedComplianceRisk = make_upwardNestingRelation "mitigatedComplianceRisk membership" "nested mitigatedComplianceRisk"
 
 -- Aggregation relation
 aggregationOfComplianceRiskTypeMitigatedComplianceRisk :  Linkage MitigatedComplianceRisk ComplianceRiskType
-aggregationOfComplianceRiskTypeMitigatedComplianceRisk = aggregationOfBuildingBlock
+aggregationOfComplianceRiskTypeMitigatedComplianceRisk = make_Relation "ComplianceRiskType aggregation" "aggregated ComplianceRiskType"
 
 {- mitigatedComplianceRisk : derived relation obtained by composing
    membershipOfMitigatedComplianceRisk and aggregationOfComplianceRiskTypeMitigatedComplianceRisk
@@ -78,3 +85,7 @@ aggregationOfComplianceRiskTypeMitigatedComplianceRisk = aggregationOfBuildingBl
 -}
 mitigatedComplianceRisk : Linkage ComplianceCase ComplianceRiskType
 mitigatedComplianceRisk = membershipOfMitigatedComplianceRisk  ∘  aggregationOfComplianceRiskTypeMitigatedComplianceRisk
+
+postulate -- mitigatedComplianceRisk is subTypeOf mitigatedRisk
+  st-f16002d967d8356d-582e770166f6a8cf  : mitigatedComplianceRisk   ⊏⋆ᵣ  mitigatedRisk 
+

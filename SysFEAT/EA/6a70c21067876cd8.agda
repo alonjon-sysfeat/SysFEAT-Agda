@@ -5,6 +5,9 @@
 
 Resource Service Interface: 
 A Resource Service Interface is a kind of Service Interface that represents a typical course of interactions, coordinated by Resource Events and Resource Outcome Events, and intended to produce Resource Outcome Events through the involvement of Resource Agent Types.
+
+Documentation : https://framework.sysfeat.com/pages/6a70c21067876cd8.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,12 +23,12 @@ ResourceServiceInterface : ClassOfClassOfIndividual
 ResourceServiceInterface = ClassOfIndividual
 
 --  ResourceServiceInterface is subTypeOf ServiceInterface
-st-6a70c21667876d02 : ResourceServiceInterface ⊏ₑ ServiceInterface
-st-6a70c21667876d02 = polySubTypeOf-identity
+st-6a70c21067876cd8-24ae31b55ed1c66d : ResourceServiceInterface ⊏ₑ ServiceInterface
+st-6a70c21067876cd8-24ae31b55ed1c66d = polySubTypeOf-identity
 
 --  ResourceServiceInterface is subTypeOf ResourceBehavior
-st-6a70e0cf6787931f : ResourceServiceInterface ⊏ₑ ResourceBehavior
-st-6a70e0cf6787931f = polySubTypeOf-identity
+st-6a70c21067876cd8-0185cd936221bd72 : ResourceServiceInterface ⊏ₑ ResourceBehavior
+st-6a70c21067876cd8-0185cd936221bd72 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -36,11 +39,11 @@ ResourceFlowConnection = ClassOfIndividual
 
 -- Membership relation
 membershipOfResourceFlowConnection :  Linkage ResourceServiceInterface ResourceFlowConnection
-membershipOfResourceFlowConnection = membershipOfAggregateMember
+membershipOfResourceFlowConnection = make_upwardNestingRelation "resourceFlowConnection membership" "nested resourceFlowConnection"
 
 -- Aggregation relation
 aggregationOfResourceOutcomeEventResourceFlowConnection :  Linkage ResourceFlowConnection ResourceOutcomeEvent
-aggregationOfResourceOutcomeEventResourceFlowConnection = aggregationOfBuildingBlock
+aggregationOfResourceOutcomeEventResourceFlowConnection = make_Relation "ResourceOutcomeEvent aggregation" "aggregated ResourceOutcomeEvent"
 
 {- resourceFlowConnection : derived relation obtained by composing
    membershipOfResourceFlowConnection and aggregationOfResourceOutcomeEventResourceFlowConnection
@@ -49,3 +52,7 @@ aggregationOfResourceOutcomeEventResourceFlowConnection = aggregationOfBuildingB
 -}
 resourceFlowConnection : Linkage ResourceServiceInterface ResourceOutcomeEvent
 resourceFlowConnection = membershipOfResourceFlowConnection  ∘  aggregationOfResourceOutcomeEventResourceFlowConnection
+
+postulate -- resourceFlowConnection is subTypeOf flowConnection
+  st-c561e339680f761e-c561d7e4680f69ce  : resourceFlowConnection   ⊏⋆ᵣ  flowConnection 
+

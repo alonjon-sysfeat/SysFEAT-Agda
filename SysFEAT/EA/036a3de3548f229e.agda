@@ -5,6 +5,9 @@
 
 Enterprise Initiative: 
 An Enterprise Initiative is a past, current or future state of the enterprise. Each stage represents an initiative comprising a purposeful set of activities whose primary purpose is focused on achieving a set of clearly defined objectives that may transcend organisational boundaries and consequently require integrated team working under the direction of an Architecture Governance Committee.
+
+Documentation : https://framework.sysfeat.com/pages/036a3de3548f229e.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -25,8 +28,8 @@ EnterpriseInitiative : ClassOfBoundedIndividual
 EnterpriseInitiative = BoundedIndividual
 
 --  EnterpriseInitiative is subTypeOf Initiative
-st-18a827fa5eeb6ed2 : EnterpriseInitiative ⊏ₑ Initiative
-st-18a827fa5eeb6ed2 = polySubTypeOf-identity
+st-036a3de3548f229e-0ffeec41600be08a : EnterpriseInitiative ⊏ₑ Initiative
+st-036a3de3548f229e-0ffeec41600be08a = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -34,26 +37,26 @@ st-18a827fa5eeb6ed2 = polySubTypeOf-identity
 Top level concept map of the enterprise or of one its transformation stages.
 -}
 enterpriseConceptMap :  Linkage EnterpriseInitiative ConceptDomainMap
-enterpriseConceptMap = make_Relation "Enterprise Concept Map" "enterpriseConceptMap"
+enterpriseConceptMap = make_Relation "Enterprise Concept Map" "Enterprise Concept Map"
 
 
 {- Enterprise IT Ecosystem: 
 Software System Environment of the enterprise or of one of its transformation stage.
 -}
 enterpriseITEcosystem :  Linkage EnterpriseInitiative SOftwareSystemEnvironment
-enterpriseITEcosystem = make_Relation "Enterprise IT Ecosystem" "enterpriseITEcosystem"
+enterpriseITEcosystem = make_Relation "Enterprise IT Ecosystem" "Enterprise IT Ecosystem"
 
 
 {- Enterprise Conceptual Environment: 
 Conceptual Environment of the enterprise or of one of its transformation stages.This Conceptual Environment defines the enterprise Conceptual Environments ()
 -}
 enterpriseConceptualEnvironment :  Linkage EnterpriseInitiative ConceptualEnvironment
-enterpriseConceptualEnvironment = make_Relation "Enterprise Conceptual Environment" "enterpriseConceptualEnvironment"
+enterpriseConceptualEnvironment = make_Relation "Enterprise Conceptual Environment" "Enterprise Conceptual Environment"
 
 
 {- Enterprise Capability Map: -}
 enterpriseCapabilityMap :  Linkage EnterpriseInitiative BusinessCapabilityMap
-enterpriseCapabilityMap = make_instanceOf "Enterprise Capability Map" "enterpriseCapabilityMap"
+enterpriseCapabilityMap = make_instanceOf "Enterprise Capability Map" "Enterprise Capability Map"
 
 postulate -- enterpriseCapabilityMap is subTypeOf functionalScope
   st-c189f8fd68ae5ba0-01f1214c689b6e0f  : enterpriseCapabilityMap   ⊏⋆ᵣ  functionalScope 
@@ -68,11 +71,11 @@ EnterpriseCourseOfAction = AggregateMember (lsuc(lzero))
 
 -- Membership relation
 membershipOfEnterpriseCourseOfAction :  Linkage EnterpriseInitiative EnterpriseCourseOfAction
-membershipOfEnterpriseCourseOfAction = membershipOfAggregateMember
+membershipOfEnterpriseCourseOfAction = make_upwardNestingRelation "enterpriseCourseOfAction membership" "nested enterpriseCourseOfAction"
 
 -- Aggregation relation
 aggregationOfIndividualResourceBehaviorEnterpriseCourseOfAction :  Linkage EnterpriseCourseOfAction IndividualResourceBehavior
-aggregationOfIndividualResourceBehaviorEnterpriseCourseOfAction = aggregationOfBuildingBlock
+aggregationOfIndividualResourceBehaviorEnterpriseCourseOfAction = make_Relation "IndividualResourceBehavior aggregation" "aggregated IndividualResourceBehavior"
 
 {- enterpriseCourseOfAction : derived relation obtained by composing
    membershipOfEnterpriseCourseOfAction and aggregationOfIndividualResourceBehaviorEnterpriseCourseOfAction
@@ -82,6 +85,10 @@ aggregationOfIndividualResourceBehaviorEnterpriseCourseOfAction = aggregationOfB
 enterpriseCourseOfAction : Linkage EnterpriseInitiative IndividualResourceBehavior
 enterpriseCourseOfAction = membershipOfEnterpriseCourseOfAction  ∘  aggregationOfIndividualResourceBehaviorEnterpriseCourseOfAction
 
+postulate -- enterpriseCourseOfAction is subTypeOf courseOfAction
+  st-dd2696c768a1d406-a56baa0c689c4e7a  : enterpriseCourseOfAction   ⊏⋆ᵣ  courseOfAction 
+
+
 {- Enterprise Desired Result: -}
 -- Aggregate Member : Enterprise Desired Result
 EnterpriseDesiredResult : ClassOfClassOfIndividual
@@ -89,11 +96,11 @@ EnterpriseDesiredResult = ClassOfIndividual
 
 -- Membership relation
 membershipOfEnterpriseDesiredResult :  Linkage EnterpriseInitiative EnterpriseDesiredResult
-membershipOfEnterpriseDesiredResult = membershipOfAggregateMember
+membershipOfEnterpriseDesiredResult = make_upwardNestingRelation "enterpriseDesiredResult membership" "nested enterpriseDesiredResult"
 
 -- Aggregation relation
 aggregationOfValuePropositionEnterpriseDesiredResult :  Linkage EnterpriseDesiredResult ValueProposition
-aggregationOfValuePropositionEnterpriseDesiredResult = aggregationOfBuildingBlock
+aggregationOfValuePropositionEnterpriseDesiredResult = make_Relation "ValueProposition aggregation" "aggregated ValueProposition"
 
 {- enterpriseDesiredResult : derived relation obtained by composing
    membershipOfEnterpriseDesiredResult and aggregationOfValuePropositionEnterpriseDesiredResult
@@ -103,6 +110,10 @@ aggregationOfValuePropositionEnterpriseDesiredResult = aggregationOfBuildingBloc
 enterpriseDesiredResult : Linkage EnterpriseInitiative ValueProposition
 enterpriseDesiredResult = membershipOfEnterpriseDesiredResult  ∘  aggregationOfValuePropositionEnterpriseDesiredResult
 
+postulate -- enterpriseDesiredResult is subTypeOf desiredResult
+  st-dd26979d68a1d56f-a56ba5d1689c4ba1  : enterpriseDesiredResult   ⊏⋆ᵣ  desiredResult 
+
+
 {- Product: -}
 -- Aggregate Member : Product
 Product : ClassOfClassOfIndividual
@@ -110,11 +121,11 @@ Product = ClassOfIndividual
 
 -- Membership relation
 membershipOfProduct :  Linkage EnterpriseInitiative Product
-membershipOfProduct = membershipOfAggregateMember
+membershipOfProduct = make_upwardNestingRelation "product membership" "nested product"
 
 -- Aggregation relation
 aggregationOfProductProduct :  Linkage Product Product
-aggregationOfProductProduct = aggregationOfBuildingBlock
+aggregationOfProductProduct = make_Relation "Product aggregation" "aggregated Product"
 
 {- product : derived relation obtained by composing
    membershipOfProduct and aggregationOfProductProduct
@@ -123,3 +134,7 @@ aggregationOfProductProduct = aggregationOfBuildingBlock
 -}
 product : Linkage EnterpriseInitiative Product
 product = membershipOfProduct  ∘  aggregationOfProductProduct
+
+postulate -- product is subTypeOf initiativeSubject
+  st-dd269ae968a1db15-0f642fd06859b0d5  : product   ⊏⋆ᵣ  initiativeSubject  {lzero}
+

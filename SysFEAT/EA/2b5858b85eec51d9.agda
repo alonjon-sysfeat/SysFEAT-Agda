@@ -5,6 +5,9 @@
 
 Logical Data Element: 
 A Logical Data Element represents the logical structure of any kind of data that can be memorized by a Business Software System.A Logical Data Element is either a Logical Data Entity or a Logical Data Property.Only Logical Data Entitys can have identity and can be referenced by Logical Relationships. Logical Data Propertys only handle raw data.
+
+Documentation : https://framework.sysfeat.com/pages/2b5858b85eec51d9.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,12 +22,12 @@ LogicalDataElement : ClassOfClassOfBoundedIndividual
 LogicalDataElement = ClassOfBoundedIndividual
 
 --  LogicalDataElement is subTypeOf LogicalDataAsset
-st-2b5858d65eec52b9 : LogicalDataElement ⊏ₑ LogicalDataAsset
-st-2b5858d65eec52b9 = polySubTypeOf-identity
+st-2b5858b85eec51d9-fd1bf2a45fbc64fb : LogicalDataElement ⊏ₑ LogicalDataAsset
+st-2b5858b85eec51d9-fd1bf2a45fbc64fb = polySubTypeOf-identity
 
 --  LogicalDataElement is subTypeOf DataAsset
-st-2b5862455eec6147 : LogicalDataElement ⊏ₑ DataAsset
-st-2b5862455eec6147 = polySubTypeOf-identity
+st-2b5858b85eec51d9-6d2b7c935fbb6270 : LogicalDataElement ⊏ₑ DataAsset
+st-2b5858b85eec51d9-6d2b7c935fbb6270 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -35,11 +38,11 @@ LogicalDataMember = ClassOfIndividual
 
 -- Membership relation
 membershipOfLogicalDataMember :  Linkage LogicalDataElement LogicalDataMember
-membershipOfLogicalDataMember = membershipOfAggregateMember
+membershipOfLogicalDataMember = make_upwardNestingRelation "logicalDataMember membership" "nested logicalDataMember"
 
 -- Aggregation relation
 aggregationOfLogicalDataElementLogicalDataMember :  Linkage LogicalDataMember LogicalDataElement
-aggregationOfLogicalDataElementLogicalDataMember = aggregationOfBuildingBlock
+aggregationOfLogicalDataElementLogicalDataMember = make_Relation "LogicalDataElement aggregation" "aggregated LogicalDataElement"
 
 {- logicalDataMember : derived relation obtained by composing
    membershipOfLogicalDataMember and aggregationOfLogicalDataElementLogicalDataMember
@@ -48,3 +51,7 @@ aggregationOfLogicalDataElementLogicalDataMember = aggregationOfBuildingBlock
 -}
 logicalDataMember : Linkage LogicalDataElement LogicalDataElement
 logicalDataMember = membershipOfLogicalDataMember  ∘  aggregationOfLogicalDataElementLogicalDataMember
+
+postulate -- logicalDataMember is subTypeOf dataObjectMember
+  st-e7e3fa0a5fbb0ddb-b6e3cdf35fbb6ad1  : logicalDataMember   ⊏⋆ᵣ  dataObjectMember 
+

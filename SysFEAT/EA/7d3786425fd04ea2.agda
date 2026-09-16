@@ -5,6 +5,9 @@
 
 Privacy Block: 
 
+
+Documentation : https://framework.sysfeat.com/pages/7d3786425fd04ea2.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ PrivacyBlock : ClassOfBoundedIndividual
 PrivacyBlock = BoundedIndividual
 
 --  PrivacyBlock is subTypeOf DataAssuranceInstrument
-st-258c68c35fd256f2 : PrivacyBlock ⊏ₑ DataAssuranceInstrument
-st-258c68c35fd256f2 = polySubTypeOf-identity
+st-7d3786425fd04ea2-44226d6561819b50 : PrivacyBlock ⊏ₑ DataAssuranceInstrument
+st-7d3786425fd04ea2-44226d6561819b50 = polySubTypeOf-identity
 
 -- == Relationships =======================

@@ -5,6 +5,9 @@
 
 Column Type: 
 An Column Type is specification of the content of a Column such as  customer name ,  order date ,  address .
+
+Documentation : https://framework.sysfeat.com/pages/137d21d35ee2c7f3.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ ColumnType : ClassOfClassOfBoundedIndividual
 ColumnType = ClassOfBoundedIndividual
 
 --  ColumnType is subTypeOf PhysicalDataProperty
-st-e6f22cb65f771ec0 : ColumnType ⊏ₑ PhysicalDataProperty
-st-e6f22cb65f771ec0 = polySubTypeOf-identity
+st-137d21d35ee2c7f3-e6f220d45f771837 : ColumnType ⊏ₑ PhysicalDataProperty
+st-137d21d35ee2c7f3-e6f220d45f771837 = polySubTypeOf-identity
 
 -- == Relationships =======================

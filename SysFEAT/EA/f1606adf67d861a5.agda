@@ -5,6 +5,9 @@
 
 Operating Risk Type: 
 An Operating Risk Type is a kind of Operational Risk Type that refers to the potential for loss resulting from inadequate or failed internal processes, people, and systems, or from external events.
+
+Documentation : https://framework.sysfeat.com/pages/f1606adf67d861a5.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ OperatingRiskType : ThirdOrderClass
 OperatingRiskType = SecondOrderClass
 
 --  OperatingRiskType is subTypeOf OperationalRiskType
-st-f1606b0367d861fc : OperatingRiskType ⊏ₑ OperationalRiskType
-st-f1606b0367d861fc = polySubTypeOf-identity
+st-f1606adf67d861a5-0e55230266f12252 : OperatingRiskType ⊏ₑ OperationalRiskType
+st-f1606adf67d861a5-0e55230266f12252 = polySubTypeOf-identity
 
--- == Relationships =======================
+

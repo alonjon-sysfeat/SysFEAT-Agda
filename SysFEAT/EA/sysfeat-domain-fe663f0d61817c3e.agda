@@ -1,9 +1,12 @@
 ﻿{- ============================== 
-   Copyright (c) 2026 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
+   Copyright (c) 2021 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
    This work is released under the MIT License.
    framework.sysfeat.com
 
 Asset Portfolio Pattern: 
+
+
+Documentation : https://framework.sysfeat.com/pages/fe663f0d61817c3e.htm
 
  - ============================== -}
 

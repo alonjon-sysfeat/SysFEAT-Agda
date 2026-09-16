@@ -5,6 +5,9 @@
 
 Concept Lineage: 
 Concept Lineage is about tracking the flow of information.It is necessary to guarantee the quality, usability and security of business data.For large organizations, it is also a key conformity legal requirement: BCBS 239, Solvency II.Business Data Lineage is defined as a business data life cycle that describes the source of business data and where it moves over time.
+
+Documentation : https://framework.sysfeat.com/pages/7d37c0565fd067ce.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,8 +23,8 @@ ConceptLineage : ClassOfClassOfBoundedIndividual
 ConceptLineage = ClassOfBoundedIndividual
 
 --  ConceptLineage is subTypeOf DataLineage
-st-7d37c0615fd06838 : ConceptLineage ⊏ₑ DataLineage
-st-7d37c0615fd06838 = polySubTypeOf-identity
+st-7d37c0565fd067ce-23ab2e945da829b8 : ConceptLineage ⊏ₑ DataLineage
+st-7d37c0565fd067ce-23ab2e945da829b8 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -32,11 +35,11 @@ ConceptLineageFlow = ClassOfIndividual
 
 -- Membership relation
 membershipOfConceptLineageFlow :  Linkage ConceptLineage ConceptLineageFlow
-membershipOfConceptLineageFlow = membershipOfAggregateMember
+membershipOfConceptLineageFlow = make_upwardNestingRelation "conceptLineageFlow membership" "nested conceptLineageFlow"
 
 -- Aggregation relation
 aggregationOfBehavioralEventConceptLineageFlow :  Linkage ConceptLineageFlow BehavioralEvent
-aggregationOfBehavioralEventConceptLineageFlow = aggregationOfBuildingBlock
+aggregationOfBehavioralEventConceptLineageFlow = make_Relation "BehavioralEvent aggregation" "aggregated BehavioralEvent"
 
 {- conceptLineageFlow : derived relation obtained by composing
    membershipOfConceptLineageFlow and aggregationOfBehavioralEventConceptLineageFlow
@@ -46,6 +49,8 @@ aggregationOfBehavioralEventConceptLineageFlow = aggregationOfBuildingBlock
 conceptLineageFlow : Linkage ConceptLineage BehavioralEvent
 conceptLineageFlow = membershipOfConceptLineageFlow  ∘  aggregationOfBehavioralEventConceptLineageFlow
 
+
+
 {- Final Business Object: -}
 -- Aggregate Member : Final Business Object
 FinalBusinessObject : ClassOfClassOfIndividual
@@ -53,11 +58,11 @@ FinalBusinessObject = ClassOfIndividual
 
 -- Membership relation
 membershipOfFinalBusinessObject :  Linkage ConceptLineage FinalBusinessObject
-membershipOfFinalBusinessObject = membershipOfAggregateMember
+membershipOfFinalBusinessObject = make_upwardNestingRelation "finalBusinessObject membership" "nested finalBusinessObject"
 
 -- Aggregation relation
 aggregationOfConceptualEntityFinalBusinessObject :  Linkage FinalBusinessObject ConceptualEntity
-aggregationOfConceptualEntityFinalBusinessObject = aggregationOfBuildingBlock
+aggregationOfConceptualEntityFinalBusinessObject = make_Relation "ConceptualEntity aggregation" "aggregated ConceptualEntity"
 
 {- finalBusinessObject : derived relation obtained by composing
    membershipOfFinalBusinessObject and aggregationOfConceptualEntityFinalBusinessObject
@@ -67,6 +72,10 @@ aggregationOfConceptualEntityFinalBusinessObject = aggregationOfBuildingBlock
 finalBusinessObject : Linkage ConceptLineage ConceptualEntity
 finalBusinessObject = membershipOfFinalBusinessObject  ∘  aggregationOfConceptualEntityFinalBusinessObject
 
+postulate -- finalBusinessObject is subTypeOf finalEntity
+  st-acb4b7e762457faf-acb4b3b562457c32  : finalBusinessObject   ⊏⋆ᵣ  finalEntity 
+
+
 {- Origin Business Object: -}
 -- Aggregate Member : Origin Business Object
 OriginBusinessObject : ClassOfClassOfIndividual
@@ -74,11 +83,11 @@ OriginBusinessObject = ClassOfIndividual
 
 -- Membership relation
 membershipOfOriginBusinessObject :  Linkage ConceptLineage OriginBusinessObject
-membershipOfOriginBusinessObject = membershipOfAggregateMember
+membershipOfOriginBusinessObject = make_upwardNestingRelation "originBusinessObject membership" "nested originBusinessObject"
 
 -- Aggregation relation
 aggregationOfConceptualEntityOriginBusinessObject :  Linkage OriginBusinessObject ConceptualEntity
-aggregationOfConceptualEntityOriginBusinessObject = aggregationOfBuildingBlock
+aggregationOfConceptualEntityOriginBusinessObject = make_Relation "ConceptualEntity aggregation" "aggregated ConceptualEntity"
 
 {- originBusinessObject : derived relation obtained by composing
    membershipOfOriginBusinessObject and aggregationOfConceptualEntityOriginBusinessObject
@@ -88,6 +97,10 @@ aggregationOfConceptualEntityOriginBusinessObject = aggregationOfBuildingBlock
 originBusinessObject : Linkage ConceptLineage ConceptualEntity
 originBusinessObject = membershipOfOriginBusinessObject  ∘  aggregationOfConceptualEntityOriginBusinessObject
 
+postulate -- originBusinessObject is subTypeOf originEntity
+  st-acb4b81362458092-acb4af8462457ab3  : originBusinessObject   ⊏⋆ᵣ  originEntity 
+
+
 {- Business Object Store: -}
 -- Aggregate Member : Business Object Store
 BusinessObjectStore : ClassOfClassOfIndividual
@@ -95,11 +108,11 @@ BusinessObjectStore = ClassOfIndividual
 
 -- Membership relation
 membershipOfBusinessObjectStore :  Linkage ConceptLineage BusinessObjectStore
-membershipOfBusinessObjectStore = membershipOfAggregateMember
+membershipOfBusinessObjectStore = make_upwardNestingRelation "businessObjectStore membership" "nested businessObjectStore"
 
 -- Aggregation relation
 aggregationOfConceptualEntityBusinessObjectStore :  Linkage BusinessObjectStore ConceptualEntity
-aggregationOfConceptualEntityBusinessObjectStore = aggregationOfBuildingBlock
+aggregationOfConceptualEntityBusinessObjectStore = make_Relation "ConceptualEntity aggregation" "aggregated ConceptualEntity"
 
 {- businessObjectStore : derived relation obtained by composing
    membershipOfBusinessObjectStore and aggregationOfConceptualEntityBusinessObjectStore
@@ -108,3 +121,7 @@ aggregationOfConceptualEntityBusinessObjectStore = aggregationOfBuildingBlock
 -}
 businessObjectStore : Linkage ConceptLineage ConceptualEntity
 businessObjectStore = membershipOfBusinessObjectStore  ∘  aggregationOfConceptualEntityBusinessObjectStore
+
+postulate -- businessObjectStore is subTypeOf intermediateEntity
+  st-acb4b83f6245816d-acb4b3f162457d1a  : businessObjectStore   ⊏⋆ᵣ  intermediateEntity 
+

@@ -5,6 +5,9 @@
 
 Resource Outcome Event: 
 A Resource Outcome Event is an Outcome Event that signals the Resource Output of a Resource Asset or state of Resource Asset by a producer Resource Behavior, ready to be used as a Resource Input by a consumer Resource Behavior.
+
+Documentation : https://framework.sysfeat.com/pages/6a70c0b36787698c.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,12 +23,12 @@ ResourceOutcomeEvent : ClassOfClassOfIndividual
 ResourceOutcomeEvent = ClassOfIndividual
 
 --  ResourceOutcomeEvent is subTypeOf ResourceEvent
-st-6a70c4b967877219 : ResourceOutcomeEvent ⊏ₑ ResourceEvent
-st-6a70c4b967877219 = polySubTypeOf-identity
+st-6a70c0b36787698c-6a70c0c8678769d3 : ResourceOutcomeEvent ⊏ₑ ResourceEvent
+st-6a70c0b36787698c-6a70c0c8678769d3 = polySubTypeOf-identity
 
 --  ResourceOutcomeEvent is subTypeOf OutcomeEvent
-st-6a70c1f267876c65 : ResourceOutcomeEvent ⊏ₑ OutcomeEvent
-st-6a70c1f267876c65 = polySubTypeOf-identity
+st-6a70c0b36787698c-30223b5c5ec90c01 : ResourceOutcomeEvent ⊏ₑ OutcomeEvent
+st-6a70c0b36787698c-30223b5c5ec90c01 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -38,11 +41,11 @@ ResourceOutcome = ClassOfIndividual
 
 -- Membership relation
 membershipOfResourceOutcome :  Linkage ResourceOutcomeEvent ResourceOutcome
-membershipOfResourceOutcome = membershipOfAggregateMember
+membershipOfResourceOutcome = make_upwardNestingRelation "resourceOutcome membership" "nested resourceOutcome"
 
 -- Aggregation relation
 aggregationOfResourceAssetResourceOutcome :  Linkage ResourceOutcome ResourceAsset
-aggregationOfResourceAssetResourceOutcome = aggregationOfBuildingBlock
+aggregationOfResourceAssetResourceOutcome = make_Relation "ResourceAsset aggregation" "aggregated ResourceAsset"
 
 {- resourceOutcome : derived relation obtained by composing
    membershipOfResourceOutcome and aggregationOfResourceAssetResourceOutcome
@@ -51,3 +54,7 @@ aggregationOfResourceAssetResourceOutcome = aggregationOfBuildingBlock
 -}
 resourceOutcome : Linkage ResourceOutcomeEvent ResourceAsset
 resourceOutcome = membershipOfResourceOutcome  ∘  aggregationOfResourceAssetResourceOutcome
+
+postulate -- resourceOutcome is subTypeOf outcome
+  st-6a70e2636787968e-af41ed1265ea77e5  : resourceOutcome   ⊏⋆ᵣ  outcome 
+

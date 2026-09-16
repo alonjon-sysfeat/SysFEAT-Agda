@@ -5,6 +5,13 @@
 
 Data Property: 
 A Data Property is a Data Asset that is fundamentally defined by its value. It doesnt evolve over time is thereby immutable.It represents a logical view of a data structure that stored in data stores.Examples:. customer name . address
+
+Documentation : https://framework.sysfeat.com/pages/8f1c991068ca8a23.htm
+
+External references:
+  DDD - Glossary - Value Object: https://www.dddcommunity.org/resources/ddd_terms?valueobject
+  Martin Fowler - Value Object: https://martinfowler.com/bliki/ValueObject.html
+  UCF Glossary - Data Field: https://compliancedictionary.com/term/2971
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,16 +26,16 @@ DataProperty : PropertyType
 DataProperty = ClassOfProperty
 
 --  DataProperty is subTypeOf DataAsset
-st-6d2b7fd55fbb6a31 : DataProperty ⊏ₑ DataAsset
-st-6d2b7fd55fbb6a31 = polySubTypeOf-identity
+st-8f1c991068ca8a23-6d2b7c935fbb6270 : DataProperty ⊏ₑ DataAsset
+st-8f1c991068ca8a23-6d2b7c935fbb6270 = polySubTypeOf-identity
 
 --  DataProperty is subTypeOf InformationProperty
-st-e7e3f6d05fbb05df : DataProperty ⊏ₑ InformationProperty
-st-e7e3f6d05fbb05df = polySubTypeOf-identity
+st-8f1c991068ca8a23-c189d5f068ae4d75 : DataProperty ⊏ₑ InformationProperty
+st-8f1c991068ca8a23-c189d5f068ae4d75 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Specialized Data Property: -}
 specializedDataProperty :  Linkage DataProperty DataProperty
-specializedDataProperty = make_subTypeOf "Specialized Data Property" "specializedDataProperty"
+specializedDataProperty = make_subTypeOf "Specialized Data Property" "Specialized Data Property"
 

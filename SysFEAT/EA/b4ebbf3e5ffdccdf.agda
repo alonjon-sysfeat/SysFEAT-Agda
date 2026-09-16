@@ -5,6 +5,9 @@
 
 Business Behavior: 
 A Business Behavior is a Business Operating Asset that describes any action or reaction of a Business Agent Type to external or internal circumstances. This includes Business Resource Processes (actions), Business Resource Interaction Processs (stories) or service interactions (Business Service Interface).
+
+Documentation : https://framework.sysfeat.com/pages/b4ebbf3e5ffdccdf.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -22,18 +25,18 @@ BusinessBehavior : ClassOfClassOfBoundedIndividual
 BusinessBehavior = ClassOfBoundedIndividual
 
 --  BusinessBehavior is subTypeOf BusinessOperatingAsset
-st-d69191b26228ecc1 : BusinessBehavior ⊏ₑ BusinessOperatingAsset
-st-d69191b26228ecc1 = polySubTypeOf-identity
+st-b4ebbf3e5ffdccdf-62466ea661b80d09 : BusinessBehavior ⊏ₑ BusinessOperatingAsset
+st-b4ebbf3e5ffdccdf-62466ea661b80d09 = polySubTypeOf-identity
 
 --  BusinessBehavior is subTypeOf ResourceBehavior
-st-6a70c78167877432 : BusinessBehavior ⊏ₑ ResourceBehavior
-st-6a70c78167877432 = polySubTypeOf-identity
+st-b4ebbf3e5ffdccdf-0185cd936221bd72 : BusinessBehavior ⊏ₑ ResourceBehavior
+st-b4ebbf3e5ffdccdf-0185cd936221bd72 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Specialized Business Resource Behavior: -}
 specializedBusinessResourceBehavior :  Linkage BusinessBehavior BusinessBehavior
-specializedBusinessResourceBehavior = make_subTypeOf "Specialized Business Resource Behavior" "specializedBusinessResourceBehavior"
+specializedBusinessResourceBehavior = make_subTypeOf "Specialized Business Resource Behavior" "Specialized Business Resource Behavior"
 
 postulate -- specializedBusinessResourceBehavior is subTypeOf specializedResourceBehavior
   st-325a37b666f34b83-325a376866f343d3  : specializedBusinessResourceBehavior   ⊏⋆ᵣ  specializedResourceBehavior 
@@ -42,7 +45,7 @@ postulate -- specializedBusinessResourceBehavior is subTypeOf specializedResourc
 
 {- Supported Process Family: -}
 supportedProcessFamily :  Linkage BusinessBehavior ProcessFamily
-supportedProcessFamily = make_instanceOf "Supported Process Family" "supportedProcessFamily"
+supportedProcessFamily = make_instanceOf "Supported Process Family" "Supported Process Family"
 
 
 {- Resource Behavior Participant: 
@@ -54,11 +57,11 @@ ResourceBehaviorParticipant = ClassOfIndividual
 
 -- Membership relation
 membershipOfResourceBehaviorParticipant :  Linkage BusinessBehavior ResourceBehaviorParticipant
-membershipOfResourceBehaviorParticipant = membershipOfAggregateMember
+membershipOfResourceBehaviorParticipant = make_upwardNestingRelation "resourceBehaviorParticipant membership" "nested resourceBehaviorParticipant"
 
 -- Aggregation relation
 aggregationOfBusinessAgentTypeResourceBehaviorParticipant :  Linkage ResourceBehaviorParticipant BusinessAgentType
-aggregationOfBusinessAgentTypeResourceBehaviorParticipant = aggregationOfBuildingBlock
+aggregationOfBusinessAgentTypeResourceBehaviorParticipant = make_Relation "BusinessAgentType aggregation" "aggregated BusinessAgentType"
 
 {- resourceBehaviorParticipant : derived relation obtained by composing
    membershipOfResourceBehaviorParticipant and aggregationOfBusinessAgentTypeResourceBehaviorParticipant
@@ -68,6 +71,10 @@ aggregationOfBusinessAgentTypeResourceBehaviorParticipant = aggregationOfBuildin
 resourceBehaviorParticipant : Linkage BusinessBehavior BusinessAgentType
 resourceBehaviorParticipant = membershipOfResourceBehaviorParticipant  ∘  aggregationOfBusinessAgentTypeResourceBehaviorParticipant
 
+postulate -- resourceBehaviorParticipant is subTypeOf resourceBehaviorParticipant
+  st-e0e87af46578a950-e0e874626578a341  : resourceBehaviorParticipant   ⊏⋆ᵣ  resourceBehaviorParticipant 
+
+
 {- Business Behavior Part: -}
 -- Aggregate Member : Business Behavior Part
 BusinessBehaviorPart : ClassOfClassOfIndividual
@@ -75,11 +82,11 @@ BusinessBehaviorPart = ClassOfIndividual
 
 -- Membership relation
 membershipOfBusinessBehaviorPart :  Linkage BusinessBehavior BusinessBehaviorPart
-membershipOfBusinessBehaviorPart = membershipOfAggregateMember
+membershipOfBusinessBehaviorPart = make_upwardNestingRelation "businessBehaviorPart membership" "nested businessBehaviorPart"
 
 -- Aggregation relation
 aggregationOfBusinessBehaviorBusinessBehaviorPart :  Linkage BusinessBehaviorPart BusinessBehavior
-aggregationOfBusinessBehaviorBusinessBehaviorPart = aggregationOfBuildingBlock
+aggregationOfBusinessBehaviorBusinessBehaviorPart = make_Relation "BusinessBehavior aggregation" "aggregated BusinessBehavior"
 
 {- businessBehaviorPart : derived relation obtained by composing
    membershipOfBusinessBehaviorPart and aggregationOfBusinessBehaviorBusinessBehaviorPart
@@ -89,6 +96,10 @@ aggregationOfBusinessBehaviorBusinessBehaviorPart = aggregationOfBuildingBlock
 businessBehaviorPart : Linkage BusinessBehavior BusinessBehavior
 businessBehaviorPart = membershipOfBusinessBehaviorPart  ∘  aggregationOfBusinessBehaviorBusinessBehaviorPart
 
+postulate -- businessBehaviorPart is subTypeOf businessOperatingAssetPart
+  st-b777c1de68b07336-b777c10368b071b8  : businessBehaviorPart   ⊏⋆ᵣ  businessOperatingAssetPart 
+
+
 {- Business Data Store: -}
 -- Aggregate Member : Business Data Store
 BusinessDataStore : ClassOfClassOfIndividual
@@ -96,11 +107,11 @@ BusinessDataStore = ClassOfIndividual
 
 -- Membership relation
 membershipOfBusinessDataStore :  Linkage BusinessBehavior BusinessDataStore
-membershipOfBusinessDataStore = membershipOfAggregateMember
+membershipOfBusinessDataStore = make_upwardNestingRelation "businessDataStore membership" "nested businessDataStore"
 
 -- Aggregation relation
 aggregationOfDataDomainBusinessDataStore :  Linkage BusinessDataStore DataDomain
-aggregationOfDataDomainBusinessDataStore = aggregationOfBuildingBlock
+aggregationOfDataDomainBusinessDataStore = make_Relation "DataDomain aggregation" "aggregated DataDomain"
 
 {- businessDataStore : derived relation obtained by composing
    membershipOfBusinessDataStore and aggregationOfDataDomainBusinessDataStore
@@ -109,3 +120,7 @@ aggregationOfDataDomainBusinessDataStore = aggregationOfBuildingBlock
 -}
 businessDataStore : Linkage BusinessBehavior DataDomain
 businessDataStore = membershipOfBusinessDataStore  ∘  aggregationOfDataDomainBusinessDataStore
+
+postulate -- businessDataStore is subTypeOf operatingProcessStore
+  st-b4ebd0e45ffdef12-d69196306228f16e  : businessDataStore   ⊏⋆ᵣ  operatingProcessStore 
+

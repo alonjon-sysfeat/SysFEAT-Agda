@@ -5,6 +5,9 @@
 
 Benefit (Type): 
 
+
+Documentation : https://framework.sysfeat.com/pages/d1701e155be84834.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ BenefitType : ClassOfClassOfBoundedIndividual
 BenefitType = ClassOfBoundedIndividual
 
 --  BenefitType is subTypeOf AssetProperty
-st-d1701e265be848b2 : BenefitType ⊏ₑ AssetProperty
-st-d1701e265be848b2 = polySubTypeOf-identity
+st-d1701e155be84834-515c6a856893324e : BenefitType ⊏ₑ AssetProperty
+st-d1701e155be84834-515c6a856893324e = polySubTypeOf-identity
 
 -- == Relationships =======================

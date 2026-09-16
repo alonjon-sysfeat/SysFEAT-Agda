@@ -5,6 +5,13 @@
 
 Operating Domain: 
 An Operating Domain is a Macro functional division of labor within an enterprise, acting as a Conceptual Agent.It embodies a collection of interrelated  Business Functions which collaboratively provide one or more Business Capability(ies).Operating Domains serve as the highest hierarchical grouping of Business Functions within the enterprises Conceptual Environment.
+
+Documentation : https://framework.sysfeat.com/pages/9810b060551137d0.htm
+
+External references:
+  Russell Ackoff - System of concepts - FunctionalDivisionOfLabor: ../resources/external-references/Ackoff-1971-Towards-a-system-of-systems-concepts.pdf#FunctionalDivisionOfLabor
+  Christensen Institute - Modularity: https://www.christenseninstitute.org/theory/modularity
+  OMG - UAF - OperationalPerformer: https://www.omg.org/spec/UAF/1.2/Beta1/DMM/PDF#OperationalPerformer
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,8 +26,8 @@ OperatingDomain : ClassOfClassOfBoundedIndividual
 OperatingDomain = ClassOfBoundedIndividual
 
 --  OperatingDomain is subTypeOf ConceptualAgent
-st-50d3515a5f8745c4 : OperatingDomain ⊏ₑ ConceptualAgent
-st-50d3515a5f8745c4 = polySubTypeOf-identity
+st-9810b060551137d0-7c40987055271d04 : OperatingDomain ⊏ₑ ConceptualAgent
+st-9810b060551137d0-7c40987055271d04 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -28,7 +35,7 @@ st-50d3515a5f8745c4 = polySubTypeOf-identity
 Composition of a sub Business Function Architecture in a parent Business Function Architecture .
 -}
 specializedBusinessDomain :  Linkage OperatingDomain OperatingDomain
-specializedBusinessDomain = make_subTypeOf "Specialized Business Domain" "specializedBusinessDomain"
+specializedBusinessDomain = make_subTypeOf "Specialized Business Domain" "Specialized Business Domain"
 
 postulate -- specializedBusinessDomain is subTypeOf specializedAgent
   st-325a37b366f349dd-2b5b440b66ed56d4  : specializedBusinessDomain   ⊏⋆ᵣ  specializedAgent 
@@ -42,11 +49,11 @@ subbusinessfunction = ClassOfIndividual
 
 -- Membership relation
 membershipOfsubbusinessfunction :  Linkage OperatingDomain subbusinessfunction
-membershipOfsubbusinessfunction = membershipOfAggregateMember
+membershipOfsubbusinessfunction = make_upwardNestingRelation "subbusinessfunction membership" "nested subbusinessfunction"
 
 -- Aggregation relation
 aggregationOfBusinessFunctionsubbusinessfunction :  Linkage subbusinessfunction BusinessFunction
-aggregationOfBusinessFunctionsubbusinessfunction = aggregationOfBuildingBlock
+aggregationOfBusinessFunctionsubbusinessfunction = make_Relation "BusinessFunction aggregation" "aggregated BusinessFunction"
 
 {- subbusinessfunction : derived relation obtained by composing
    membershipOfsubbusinessfunction and aggregationOfBusinessFunctionsubbusinessfunction
@@ -55,6 +62,10 @@ aggregationOfBusinessFunctionsubbusinessfunction = aggregationOfBuildingBlock
 -}
 subbusinessfunction : Linkage OperatingDomain BusinessFunction
 subbusinessfunction = membershipOfsubbusinessfunction  ∘  aggregationOfBusinessFunctionsubbusinessfunction
+
+postulate -- subbusinessfunction is subTypeOf conceptualAgentPart
+  st-e8bfed085ebb8227-258c36965fd28288  : subbusinessfunction   ⊏⋆ᵣ  conceptualAgentPart 
+
 
 {- Sub Activity Domain: 
 Usage of a Business Functional Area which is internal to the considered environment.
@@ -65,11 +76,11 @@ SubActivityDomain = ClassOfIndividual
 
 -- Membership relation
 membershipOfSubActivityDomain :  Linkage OperatingDomain SubActivityDomain
-membershipOfSubActivityDomain = membershipOfAggregateMember
+membershipOfSubActivityDomain = make_upwardNestingRelation "subActivityDomain membership" "nested subActivityDomain"
 
 -- Aggregation relation
 aggregationOfOperatingDomainSubActivityDomain :  Linkage SubActivityDomain OperatingDomain
-aggregationOfOperatingDomainSubActivityDomain = aggregationOfBuildingBlock
+aggregationOfOperatingDomainSubActivityDomain = make_Relation "OperatingDomain aggregation" "aggregated OperatingDomain"
 
 {- subActivityDomain : derived relation obtained by composing
    membershipOfSubActivityDomain and aggregationOfOperatingDomainSubActivityDomain
@@ -78,3 +89,7 @@ aggregationOfOperatingDomainSubActivityDomain = aggregationOfBuildingBlock
 -}
 subActivityDomain : Linkage OperatingDomain OperatingDomain
 subActivityDomain = membershipOfSubActivityDomain  ∘  aggregationOfOperatingDomainSubActivityDomain
+
+postulate -- subActivityDomain is subTypeOf conceptualAgentPart
+  st-e8bfed275ebb82ac-258c36965fd28288  : subActivityDomain   ⊏⋆ᵣ  conceptualAgentPart 
+

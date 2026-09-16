@@ -5,6 +5,9 @@
 
 Data Processor: 
 A Data Processor is the collection and manipulation of items of data to produce meaningful information.In this sense it can be considered a subset of information processing, the change (processing) of information in any manner detectable by an observer.
+
+Documentation : https://framework.sysfeat.com/pages/72fe99b65e985953.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,12 +22,12 @@ DataProcessor : ClassOfClassOfBoundedIndividual
 DataProcessor = ClassOfBoundedIndividual
 
 --  DataProcessor is subTypeOf DataAssuranceInstrument
-st-36420c59600802de : DataProcessor ⊏⋆ₑ DataAssuranceInstrument
-st-36420c59600802de = polySubTypeOf-identity
+st-72fe99b65e985953-44226d6561819b50 : DataProcessor ⊏⋆ₑ DataAssuranceInstrument
+st-72fe99b65e985953-44226d6561819b50 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Data Processing Category: -}
 dataProcessingCategory :  Linkage DataProcessor DataProcessingCategory
-dataProcessingCategory = make_classOfHolonymy "Data Processing Category" "dataProcessingCategory"
+dataProcessingCategory = make_classOfHolonymy "Data Processing Category" "Data Processing Category"
 
