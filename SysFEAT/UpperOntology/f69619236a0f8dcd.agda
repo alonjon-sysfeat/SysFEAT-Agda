@@ -34,7 +34,8 @@ st-f69619236a0f8dcd-20702bc568e969f4 = trivialPolySubTypeOfEntity
 st-f69619236a0f8dcd-23d5c5fc685142de : ∀ {u v} → (Category u) ⊏⋆ₑ (ElementaryBlock v)
 st-f69619236a0f8dcd-23d5c5fc685142de = trivialPolySubTypeOfEntity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Specialized Category: -}
 specializedCategory : ∀ {u v} →  Linkage (Category u) (Category v)

@@ -30,4 +30,5 @@ st-b85efd0868df48b1-4df9512266826e23 = polySubTypeOf-identity
 st-b85efd0868df48b1-23d5a9ea68513ced : PropertyValue ⊏ₐₑ (BuildingBlock lzero)
 st-b85efd0868df48b1-23d5a9ea68513ced = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

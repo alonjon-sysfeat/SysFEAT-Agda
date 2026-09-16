@@ -26,7 +26,8 @@ ClassOfClassOfIndividual = MetaClass lzero
 st-608767a668de7fb6-a599a7e46aa370fb : ClassOfClassOfIndividual ⊏ₑ SecondOrderClass
 st-608767a668de7fb6-a599a7e46aa370fb = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Super Class of Class of Individual: -}
 superClassOfClassOfIndividual :  Linkage ClassOfClassOfIndividual ClassOfClassOfIndividual

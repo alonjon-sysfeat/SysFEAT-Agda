@@ -29,7 +29,8 @@ ClassOfIndividual = FirstOrderClass
 st-6aa8cbcb65b32971-c463c6106aa23c35 : ClassOfIndividual ⊏ₑ FirstOrderClass
 st-6aa8cbcb65b32971-c463c6106aa23c35 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Specialized Class of Individual: 
 Specialization relationship between Class of Individual.

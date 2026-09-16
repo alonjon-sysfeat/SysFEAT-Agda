@@ -25,4 +25,5 @@ AbstractEntity = Individual
 st-3aca52346aa6418d-5425a2df6aa225cf : AbstractEntity ⊏ₑ FirstOrderEntity
 st-3aca52346aa6418d-5425a2df6aa225cf = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

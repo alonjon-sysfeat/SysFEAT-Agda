@@ -25,4 +25,5 @@ ClassOfAbstractEntity = ClassOfIndividual
 st-3aca55ee6aa645c2-c463c6106aa23c35 : ClassOfAbstractEntity ⊏ₑ FirstOrderClass
 st-3aca55ee6aa645c2-c463c6106aa23c35 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

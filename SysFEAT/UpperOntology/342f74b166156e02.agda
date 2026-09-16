@@ -28,4 +28,5 @@ WholeLifeIndividual = BoundedIndividual
 st-342f74b166156e02-28f07b2354be0d69 : WholeLifeIndividual ⊏ₑ BoundedIndividual
 st-342f74b166156e02-28f07b2354be0d69 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

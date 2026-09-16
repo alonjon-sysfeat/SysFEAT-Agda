@@ -30,7 +30,8 @@ Container u = MixedOrderEntity u
 st-0eb93b4268549a66-23d5c494685141b5 : ∀ {u v} → (Container u) ⊏⋆ₑ (BlockLexicalScope v)
 st-0eb93b4268549a66-23d5c494685141b5 = trivialPolySubTypeOfEntity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Packaged Building Block: -}
 packagedBuildingBlock : ∀ {u v} →  Linkage (Container u) (BuildingBlock v)

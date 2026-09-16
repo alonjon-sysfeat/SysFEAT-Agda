@@ -32,7 +32,8 @@ st-23d5c494685141b5-23d5aa4868513f43 = trivialPolySubTypeOfEntity
 st-23d5c494685141b5-a39aaa7f685e5118 : ∀ {u v} → (BlockLexicalScope u) ⊏⋆ₑ (LexicalScope v)
 st-23d5c494685141b5-a39aaa7f685e5118 = trivialPolySubTypeOfEntity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Scoped Building Block: 
 Nesting Relation that asserts the existence of a set of Building Blocks in the context of a given Block Lexical Scope.A Building Block belongs to one and one one Block Lexical Scope.

@@ -35,7 +35,8 @@ st-3492c53e619642ed-6aa8cbcb65b32971 = polySubTypeOf-identity
 st-3492c53e619642ed-8cfa941b6852781f : ClassOfBoundedIndividual ⊏ₐₑ (BoundedAggregate (lsuc(lzero)))
 st-3492c53e619642ed-8cfa941b6852781f = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Specialized Class of Bounded Individual: -}
 specializedClassOfBoundedIndividual :  Linkage ClassOfBoundedIndividual ClassOfBoundedIndividual

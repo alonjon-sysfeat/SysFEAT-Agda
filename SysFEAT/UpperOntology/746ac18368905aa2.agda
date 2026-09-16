@@ -36,7 +36,8 @@ st-746ac18368905aa2-6aa8cbcb65b32971 = polySubTypeOf-identity
 st-746ac18368905aa2-23d5a9ea68513ced : Property ⊏ₐₑ (BuildingBlock (lsuc(lzero)))
 st-746ac18368905aa2-23d5a9ea68513ced = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Property Classification: 
 Property Classification is a classification of Propertys by Property Types.

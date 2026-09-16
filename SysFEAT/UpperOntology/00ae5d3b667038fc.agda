@@ -24,4 +24,5 @@ WholeLifeClass = ClassOfBoundedIndividual
 st-00ae5d3b667038fc-3492c53e619642ed : WholeLifeClass ⊏ₑ ClassOfBoundedIndividual
 st-00ae5d3b667038fc-3492c53e619642ed = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

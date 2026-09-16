@@ -29,4 +29,5 @@ BuildingBlock u = MixedOrderEntity u
 st-23d5a9ea68513ced-6ef572f868f1366f : ∀ {u v} → (BuildingBlock u) ⊏⋆ₑ (MixedOrderEntity v)
 st-23d5a9ea68513ced-6ef572f868f1366f = trivialPolySubTypeOfEntity
 
--- == Relationships =======================
+
+-- == Relations =======================

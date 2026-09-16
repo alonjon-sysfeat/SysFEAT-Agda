@@ -24,4 +24,5 @@ UnboundedAggregate u = MixedOrderEntity u
 st-8cfa942f68527849-23d56d9868525869 : ∀ {u v} → (UnboundedAggregate u) ⊏⋆ₑ (AggregateEntityBlock v)
 st-8cfa942f68527849-23d56d9868525869 = trivialPolySubTypeOfEntity
 
--- == Relationships =======================
+
+-- == Relations =======================

@@ -29,4 +29,5 @@ st-9429979a66823f90-6aa8cbcb65b32971 = polySubTypeOf-identity
 st-9429979a66823f90-23d5eaba68515533 : TemporalBoundingType ⊏ₐₑ (OrderingConnection (lsuc(lzero)))
 st-9429979a66823f90-23d5eaba68515533 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

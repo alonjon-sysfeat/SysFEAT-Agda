@@ -26,7 +26,8 @@ PropertyType = ClassOfClassOfIndividual
 st-87d3062666e33965-608767a668de7fb6 : PropertyType ⊏ₑ ClassOfClassOfIndividual
 st-87d3062666e33965-608767a668de7fb6 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Property Type Holonymy: -}
 propertyTypeHolonymy :  Linkage PropertyType PropertyType

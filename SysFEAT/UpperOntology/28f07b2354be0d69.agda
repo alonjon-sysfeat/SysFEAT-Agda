@@ -22,8 +22,8 @@ module SysFEAT.UpperOntology.28f07b2354be0d69 where -- ========== Bounded Indivi
 open import Agda.Primitive
 open import SysFEAT.UpperOntology.4df9512266826e23 public -- Individual
 open import SysFEAT.UpperOntology.8cfa941b6852781f public -- Bounded Aggregate
-open import SysFEAT.UpperOntology.746ac18368905aa2 public -- Property
 open import SysFEAT.UpperOntology.3492c53e619642ed public -- Class of Bounded Individual
+open import SysFEAT.UpperOntology.746ac18368905aa2 public -- Property
 open import SysFEAT.UpperOntology.267b6a126675a0b9 public -- Temporal Bounding
 
 BoundedIndividual : ClassOfBoundedIndividual
@@ -37,7 +37,12 @@ st-28f07b2354be0d69-4df9512266826e23 = polySubTypeOf-identity
 st-28f07b2354be0d69-8cfa941b6852781f : BoundedIndividual ⊏ₐₑ (BoundedAggregate lzero)
 st-28f07b2354be0d69-8cfa941b6852781f = polySubTypeOf-identity
 
--- == Relationships =======================
+postulate -- BoundedIndividualis PowerInstanceOf Class of Bounded Individual
+  96a19b6566e85713 : BoundedIndividual ∷ₚₑ ClassOfBoundedIndividual
+postulate -- ClassOfBoundedIndividual is ReflexivePowerType 
+  f4a3f54f6aa68175 : ClassOfBoundedIndividual ⊏ₘₑ BoundedIndividual
+
+-- == Relations =======================
 
 {- Reference Holonymy: 
 Reference Holonymy is a non-reified Holonymy Relation where the composed Bounded Individual is referenced (Reference Relation) as a part of the source Bounded Individual.
