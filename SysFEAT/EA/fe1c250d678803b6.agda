@@ -5,6 +5,9 @@
 
 Individual Resource Behavior: 
 
+
+Documentation : https://framework.sysfeat.com/pages/fe1c250d678803b6.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,10 +21,12 @@ open import SysFEAT.SOF.e9af119866e86785 public -- Individual Behavior
 IndividualResourceBehavior : ClassOfBoundedIndividual
 IndividualResourceBehavior = BoundedIndividual
 
-postulate --  IndividualResourceBehavior is subTypeOf IndividualResourceAsset
-  st-fe1c27c6678807f1 : IndividualResourceBehavior ⊏ₑ IndividualResourceAsset
+--  IndividualResourceBehavior is subTypeOf IndividualResourceAsset
+st-fe1c250d678803b6-fe1c24fa6788036e : IndividualResourceBehavior ⊏ₑ IndividualResourceAsset
+st-fe1c250d678803b6-fe1c24fa6788036e = polySubTypeOf-identity
 
-postulate --  IndividualResourceBehavior is subTypeOf IndividualBehavior
-  st-fe1c25bf67880591 : IndividualResourceBehavior ⊏ₑ IndividualBehavior
+--  IndividualResourceBehavior is subTypeOf IndividualBehavior
+st-fe1c250d678803b6-e9af119866e86785 : IndividualResourceBehavior ⊏ₑ IndividualBehavior
+st-fe1c250d678803b6-e9af119866e86785 = polySubTypeOf-identity
 
 -- == Relationships =======================

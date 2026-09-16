@@ -5,6 +5,9 @@
 
 Event Concept: 
  An Event Concept is a Conceptual Entity Asset that represents a type of change used to draw the temporal boundaries of Conceptual Entitys.Examples:- order placing- order delivery- birth- death
+
+Documentation : https://framework.sysfeat.com/pages/362ff4b55b3c45e6.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,14 +21,15 @@ open import SysFEAT.SOF.362ff9085b3c4933 public -- Period Type
 EventConcept : ClassOfClassOfBoundedIndividual
 EventConcept = ClassOfBoundedIndividual
 
-postulate --  EventConcept is subTypeOf ConceptualEntityAsset
-  st-5e4060fc5b528656 : EventConcept ⊏ₑ ConceptualEntityAsset
+--  EventConcept is subTypeOf ConceptualEntityAsset
+st-362ff4b55b3c45e6-362fc8045b3c3e65 : EventConcept ⊏ₑ ConceptualEntityAsset
+st-362ff4b55b3c45e6-362fc8045b3c3e65 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Specialized Event: -}
 specializedEvent :  Linkage EventConcept EventConcept
-specializedEvent = make_subTypeOf "Specialized Event" "specializedEvent"
+specializedEvent = make_subTypeOf "Specialized Event" "Specialized Event"
 
 postulate -- specializedEvent is subTypeOf specializedBusinessObject
   st-325a375f66f34126-325a375966f33f85  : specializedEvent   ⊏⋆ᵣ  specializedBusinessObject 
@@ -37,11 +41,11 @@ Periodization = ClassOfIndividual
 
 -- Membership relation
 membershipOfPeriodization :  Linkage EventConcept Periodization
-membershipOfPeriodization = membershipOfAggregateMember
+membershipOfPeriodization = make_upwardNestingRelation "periodization membership" "nested periodization"
 
 -- Aggregation relation
 aggregationOfPeriodTypePeriodization :  Linkage Periodization PeriodType
-aggregationOfPeriodTypePeriodization = aggregationOfBuildingBlock
+aggregationOfPeriodTypePeriodization = make_Relation "PeriodType aggregation" "aggregated PeriodType"
 
 {- periodization : derived relation obtained by composing
    membershipOfPeriodization and aggregationOfPeriodTypePeriodization
@@ -51,6 +55,8 @@ aggregationOfPeriodTypePeriodization = aggregationOfBuildingBlock
 periodization : Linkage EventConcept PeriodType
 periodization = membershipOfPeriodization  ∘  aggregationOfPeriodTypePeriodization
 
+
+
 {- Event Part: -}
 -- Aggregate Member : Event Part
 EventPart : ClassOfClassOfIndividual
@@ -58,11 +64,11 @@ EventPart = ClassOfIndividual
 
 -- Membership relation
 membershipOfEventPart :  Linkage EventConcept EventPart
-membershipOfEventPart = membershipOfAggregateMember
+membershipOfEventPart = make_upwardNestingRelation "eventPart membership" "nested eventPart"
 
 -- Aggregation relation
 aggregationOfEventConceptEventPart :  Linkage EventPart EventConcept
-aggregationOfEventConceptEventPart = aggregationOfBuildingBlock
+aggregationOfEventConceptEventPart = make_Relation "EventConcept aggregation" "aggregated EventConcept"
 
 {- eventPart : derived relation obtained by composing
    membershipOfEventPart and aggregationOfEventConceptEventPart
@@ -71,3 +77,7 @@ aggregationOfEventConceptEventPart = aggregationOfBuildingBlock
 -}
 eventPart : Linkage EventConcept EventConcept
 eventPart = membershipOfEventPart  ∘  aggregationOfEventConceptEventPart
+
+postulate -- eventPart is subTypeOf conceptualAssetRelationship
+  st-0f9210135ebc154d-18eb202f5fdb706c  : eventPart   ⊏⋆ᵣ  conceptualAssetRelationship 
+

@@ -5,6 +5,11 @@
 
 Resource Action Process: 
 A Resource Action Process is a Action Process Type that describes a typical course of action intended to produce and react to Resource Outcome Events, through the involvement of Resource Agent Types (Participant Resource Agent).During its course of action, a Resource Action Process consumes or produces Resource Assets.1) It may memorize or access Resource Assets to and from its Process Stores.2) It may receive Resource Assets at its boundary: Resource Outcome Consumptions.3) It may signal the production of Resource Assets at its boundary: Resource Outcome Productions.The course of actions of an Resource Action Process is constrained by the application of rules (Resource Rule Enforcement) that define what is allowed and not allowed to do.Within SysFEAT, we can examine Resource Action Processes from two distinct perspectives:a) An operations business perspective is offered by Business Processes.c) An automated viewpoint is provided by System Processes.
+
+Documentation : https://framework.sysfeat.com/pages/e2ef095b62147bf9.htm
+
+External references:
+  OMG - UAF - Function: https://www.omg.org/spec/UAF/1.2/Beta1/DMM/PDF#Function
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -22,17 +27,19 @@ open import SysFEAT.SOF.d6cd116d5ab97525 public -- Information Domain
 ResourceActionProcess : ClassOfClassOfBoundedIndividual
 ResourceActionProcess = ClassOfBoundedIndividual
 
-postulate --  ResourceActionProcess is subTypeOf ResourceBehavior
-  st-f8e623e2621dc7d0 : ResourceActionProcess ⊏ₑ ResourceBehavior
+--  ResourceActionProcess is subTypeOf ResourceBehavior
+st-e2ef095b62147bf9-0185cd936221bd72 : ResourceActionProcess ⊏ₑ ResourceBehavior
+st-e2ef095b62147bf9-0185cd936221bd72 = polySubTypeOf-identity
 
-postulate --  ResourceActionProcess is subTypeOf ActionProcessType
-  st-79707a05665941de : ResourceActionProcess ⊏ₑ ActionProcessType
+--  ResourceActionProcess is subTypeOf ActionProcessType
+st-e2ef095b62147bf9-d682ef5e56144e77 : ResourceActionProcess ⊏ₑ ActionProcessType
+st-e2ef095b62147bf9-d682ef5e56144e77 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Specialized Resource Process: -}
 specializedResourceProcess :  Linkage ResourceActionProcess ResourceActionProcess
-specializedResourceProcess = make_subTypeOf "Specialized Resource Process" "specializedResourceProcess"
+specializedResourceProcess = make_subTypeOf "Specialized Resource Process" "Specialized Resource Process"
 
 postulate -- specializedResourceProcess is subTypeOf specializedProcess
   st-325a39d966f353be-325a376e66f345e2  : specializedResourceProcess   ⊏⋆ᵣ  specializedProcess 
@@ -41,7 +48,7 @@ postulate -- specializedResourceProcess is subTypeOf specializedResourceBehavior
 
 {- Realized Operating Process: -}
 realizedOperatingProcess :  Linkage ResourceActionProcess ResourceActionProcess
-realizedOperatingProcess = make_subTypeOf "Realized Operating Process" "realizedOperatingProcess"
+realizedOperatingProcess = make_subTypeOf "Realized Operating Process" "Realized Operating Process"
 
 postulate -- realizedOperatingProcess is subTypeOf realizedProces
   st-325a3a1666f35c35-325a3a1466f35b22  : realizedOperatingProcess   ⊏⋆ᵣ  realizedProces 
@@ -53,11 +60,11 @@ SequenceFlow = ClassOfIndividual
 
 -- Membership relation
 membershipOfSequenceFlow :  Linkage ResourceActionProcess SequenceFlow
-membershipOfSequenceFlow = membershipOfAggregateMember
+membershipOfSequenceFlow = make_upwardNestingRelation "sequenceFlow membership" "nested sequenceFlow"
 
 -- Aggregation relation
 aggregationOfBusinessEventSequenceFlow :  Linkage SequenceFlow BusinessEvent
-aggregationOfBusinessEventSequenceFlow = aggregationOfBuildingBlock
+aggregationOfBusinessEventSequenceFlow = make_Relation "BusinessEvent aggregation" "aggregated BusinessEvent"
 
 {- sequenceFlow : derived relation obtained by composing
    membershipOfSequenceFlow and aggregationOfBusinessEventSequenceFlow
@@ -67,6 +74,10 @@ aggregationOfBusinessEventSequenceFlow = aggregationOfBuildingBlock
 sequenceFlow : Linkage ResourceActionProcess BusinessEvent
 sequenceFlow = membershipOfSequenceFlow  ∘  aggregationOfBusinessEventSequenceFlow
 
+postulate -- sequenceFlow is subTypeOf sequenceFlow
+  st-018518ea6222cfa8-40d5416b5ee36739  : sequenceFlow   ⊏⋆ᵣ  sequenceFlow 
+
+
 {- Resource Object Flow: -}
 -- Aggregate Member : Resource Object Flow
 ResourceObjectFlow : ClassOfClassOfIndividual
@@ -74,11 +85,11 @@ ResourceObjectFlow = ClassOfIndividual
 
 -- Membership relation
 membershipOfResourceObjectFlow :  Linkage ResourceActionProcess ResourceObjectFlow
-membershipOfResourceObjectFlow = membershipOfAggregateMember
+membershipOfResourceObjectFlow = make_upwardNestingRelation "resourceObjectFlow membership" "nested resourceObjectFlow"
 
 -- Aggregation relation
 aggregationOfResourceOutcomeEventResourceObjectFlow :  Linkage ResourceObjectFlow ResourceOutcomeEvent
-aggregationOfResourceOutcomeEventResourceObjectFlow = aggregationOfBuildingBlock
+aggregationOfResourceOutcomeEventResourceObjectFlow = make_Relation "ResourceOutcomeEvent aggregation" "aggregated ResourceOutcomeEvent"
 
 {- resourceObjectFlow : derived relation obtained by composing
    membershipOfResourceObjectFlow and aggregationOfResourceOutcomeEventResourceObjectFlow
@@ -88,6 +99,10 @@ aggregationOfResourceOutcomeEventResourceObjectFlow = aggregationOfBuildingBlock
 resourceObjectFlow : Linkage ResourceActionProcess ResourceOutcomeEvent
 resourceObjectFlow = membershipOfResourceObjectFlow  ∘  aggregationOfResourceOutcomeEventResourceObjectFlow
 
+postulate -- resourceObjectFlow is subTypeOf objectFlow
+  st-0185194e6222d13a-e4c0fff75ed0ec45  : resourceObjectFlow   ⊏⋆ᵣ  objectFlow 
+
+
 {- Participant Resource Agent: -}
 -- Aggregate Member : Participant Resource Agent
 ParticipantResourceAgent : ClassOfClassOfIndividual
@@ -95,11 +110,11 @@ ParticipantResourceAgent = ClassOfIndividual
 
 -- Membership relation
 membershipOfParticipantResourceAgent :  Linkage ResourceActionProcess ParticipantResourceAgent
-membershipOfParticipantResourceAgent = membershipOfAggregateMember
+membershipOfParticipantResourceAgent = make_upwardNestingRelation "participantResourceAgent membership" "nested participantResourceAgent"
 
 -- Aggregation relation
 aggregationOfResourceAgentTypeParticipantResourceAgent :  Linkage ParticipantResourceAgent ResourceAgentType
-aggregationOfResourceAgentTypeParticipantResourceAgent = aggregationOfBuildingBlock
+aggregationOfResourceAgentTypeParticipantResourceAgent = make_Relation "ResourceAgentType aggregation" "aggregated ResourceAgentType"
 
 {- participantResourceAgent : derived relation obtained by composing
    membershipOfParticipantResourceAgent and aggregationOfResourceAgentTypeParticipantResourceAgent
@@ -109,6 +124,12 @@ aggregationOfResourceAgentTypeParticipantResourceAgent = aggregationOfBuildingBl
 participantResourceAgent : Linkage ResourceActionProcess ResourceAgentType
 participantResourceAgent = membershipOfParticipantResourceAgent  ∘  aggregationOfResourceAgentTypeParticipantResourceAgent
 
+postulate -- participantResourceAgent is subTypeOf resourceBehaviorParticipant
+  st-f8e61ffd621dbebc-e0e874626578a341  : participantResourceAgent   ⊏⋆ᵣ  resourceBehaviorParticipant 
+postulate -- participantResourceAgent is subTypeOf activeParticipant
+  st-f8e61ffd621dbebc-004b041f5ebd1119  : participantResourceAgent   ⊏⋆ᵣ  activeParticipant 
+
+
 {- Resource Process Step: -}
 -- Aggregate Member : Resource Process Step
 ResourceProcessStep : ClassOfClassOfIndividual
@@ -116,11 +137,11 @@ ResourceProcessStep = ClassOfIndividual
 
 -- Membership relation
 membershipOfResourceProcessStep :  Linkage ResourceActionProcess ResourceProcessStep
-membershipOfResourceProcessStep = membershipOfAggregateMember
+membershipOfResourceProcessStep = make_upwardNestingRelation "resourceProcessStep membership" "nested resourceProcessStep"
 
 -- Aggregation relation
 aggregationOfResourceActionProcessResourceProcessStep :  Linkage ResourceProcessStep ResourceActionProcess
-aggregationOfResourceActionProcessResourceProcessStep = aggregationOfBuildingBlock
+aggregationOfResourceActionProcessResourceProcessStep = make_Relation "ResourceActionProcess aggregation" "aggregated ResourceActionProcess"
 
 {- resourceProcessStep : derived relation obtained by composing
    membershipOfResourceProcessStep and aggregationOfResourceActionProcessResourceProcessStep
@@ -130,6 +151,10 @@ aggregationOfResourceActionProcessResourceProcessStep = aggregationOfBuildingBlo
 resourceProcessStep : Linkage ResourceActionProcess ResourceActionProcess
 resourceProcessStep = membershipOfResourceProcessStep  ∘  aggregationOfResourceActionProcessResourceProcessStep
 
+postulate -- resourceProcessStep is subTypeOf processStep
+  st-f8e62045621dbffb-8e1390925ebe3db7  : resourceProcessStep   ⊏⋆ᵣ  processStep 
+
+
 {- Operating Process Store: -}
 -- Aggregate Member : Operating Process Store
 OperatingProcessStore : ClassOfClassOfIndividual
@@ -137,11 +162,11 @@ OperatingProcessStore = ClassOfIndividual
 
 -- Membership relation
 membershipOfOperatingProcessStore :  Linkage ResourceActionProcess OperatingProcessStore
-membershipOfOperatingProcessStore = membershipOfAggregateMember
+membershipOfOperatingProcessStore = make_upwardNestingRelation "operatingProcessStore membership" "nested operatingProcessStore"
 
 -- Aggregation relation
 aggregationOfInformationDomainOperatingProcessStore :  Linkage OperatingProcessStore InformationDomain
-aggregationOfInformationDomainOperatingProcessStore = aggregationOfBuildingBlock
+aggregationOfInformationDomainOperatingProcessStore = make_Relation "InformationDomain aggregation" "aggregated InformationDomain"
 
 {- operatingProcessStore : derived relation obtained by composing
    membershipOfOperatingProcessStore and aggregationOfInformationDomainOperatingProcessStore
@@ -150,3 +175,7 @@ aggregationOfInformationDomainOperatingProcessStore = aggregationOfBuildingBlock
 -}
 operatingProcessStore : Linkage ResourceActionProcess InformationDomain
 operatingProcessStore = membershipOfOperatingProcessStore  ∘  aggregationOfInformationDomainOperatingProcessStore
+
+postulate -- operatingProcessStore is subTypeOf processStore
+  st-d69196306228f16e-e4c003255ed1f037  : operatingProcessStore   ⊏⋆ᵣ  processStore 
+

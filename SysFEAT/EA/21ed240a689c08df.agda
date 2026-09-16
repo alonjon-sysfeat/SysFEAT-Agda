@@ -5,6 +5,13 @@
 
 Value Proposition: 
 A Value Proposition is a distinctive Asset Property that outlines a set of specific benefits a Product (whether goods or services) delivers to its Customers, emphasizing how it satisfies their needs and offers value. It is essentially a promise made by the Enterprise to its target Customers that its Products will fit their need when performing their Job-to-be-done.A Value Proposition is a characteristic of a Product (a Product Characteristic) and is defined by:1) its Functional Value expressed as qualified and quantified Business Capabilitys and their Business Outcome Events,2) its Non Functional Value expressed by Condition Propertys.
+
+Documentation : https://framework.sysfeat.com/pages/21ed240a689c08df.htm
+
+External references:
+  Strategyzer - Value Proposition Canvas (YouTube): https://www.youtube.com/watch?v=ReM1uqmVfP0&ab_channel=Strategyzer
+  Investopedia - Value Proposition: https://www.investopedia.com/terms/v/valueproposition.asp
+  OMG - BACM - Value Proposition: https://www.omg.org/spec/BACM/1.0/PDF#page=64
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,8 +26,9 @@ open import SysFEAT.SOF.21ed231d689c0679 public -- Condition Property
 ValueProposition : PropertyType
 ValueProposition = ClassOfProperty
 
-postulate --  ValueProposition is subTypeOf AssetProperty
-  st-21ed4b52689c16c6 : ValueProposition ⊏ₑ AssetProperty
+--  ValueProposition is subTypeOf AssetProperty
+st-21ed240a689c08df-515c6a856893324e : ValueProposition ⊏ₑ AssetProperty
+st-21ed240a689c08df-515c6a856893324e = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -33,11 +41,11 @@ FunctionalValue = ClassOfIndividual
 
 -- Membership relation
 membershipOfFunctionalValue :  Linkage ValueProposition FunctionalValue
-membershipOfFunctionalValue = membershipOfAggregateMember
+membershipOfFunctionalValue = make_upwardNestingRelation "functionalValue membership" "nested functionalValue"
 
 -- Aggregation relation
 aggregationOfBusinessCapabilityFunctionalValue :  Linkage FunctionalValue BusinessCapability
-aggregationOfBusinessCapabilityFunctionalValue = aggregationOfBuildingBlock
+aggregationOfBusinessCapabilityFunctionalValue = make_Relation "BusinessCapability aggregation" "aggregated BusinessCapability"
 
 {- functionalValue : derived relation obtained by composing
    membershipOfFunctionalValue and aggregationOfBusinessCapabilityFunctionalValue
@@ -46,6 +54,8 @@ aggregationOfBusinessCapabilityFunctionalValue = aggregationOfBuildingBlock
 -}
 functionalValue : Linkage ValueProposition BusinessCapability
 functionalValue = membershipOfFunctionalValue  ∘  aggregationOfBusinessCapabilityFunctionalValue
+
+
 
 {- Non Functional Value: 
 The set of Condition Propertys that expresses the non-functional characteristics of a Value Proposition.
@@ -56,11 +66,11 @@ NonFunctionalValue = ClassOfIndividual
 
 -- Membership relation
 membershipOfNonFunctionalValue :  Linkage ValueProposition NonFunctionalValue
-membershipOfNonFunctionalValue = membershipOfAggregateMember
+membershipOfNonFunctionalValue = make_upwardNestingRelation "nonFunctionalValue membership" "nested nonFunctionalValue"
 
 -- Aggregation relation
 aggregationOfConditionPropertyNonFunctionalValue :  Linkage NonFunctionalValue ConditionProperty
-aggregationOfConditionPropertyNonFunctionalValue = aggregationOfBuildingBlock
+aggregationOfConditionPropertyNonFunctionalValue = make_Relation "ConditionProperty aggregation" "aggregated ConditionProperty"
 
 {- nonFunctionalValue : derived relation obtained by composing
    membershipOfNonFunctionalValue and aggregationOfConditionPropertyNonFunctionalValue
@@ -69,3 +79,5 @@ aggregationOfConditionPropertyNonFunctionalValue = aggregationOfBuildingBlock
 -}
 nonFunctionalValue : Linkage ValueProposition ConditionProperty
 nonFunctionalValue = membershipOfNonFunctionalValue  ∘  aggregationOfConditionPropertyNonFunctionalValue
+
+

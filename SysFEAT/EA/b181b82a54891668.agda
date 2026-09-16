@@ -5,6 +5,15 @@
 
 Enterprise: 
 An Enterprise is a macro Enduring Initiative that delivers added-value Products (goods &amp; services) to its target Customers.It requires a formal organization of groups of people and resources to achieve its purposes.
+
+Documentation : https://framework.sysfeat.com/pages/b181b82a54891668.htm
+
+External references:
+  SAFe© - Enterprise: https://www.scaledagileframework.com/enterprise/
+  OpenGroup - TOGAF - Definition - Enterprise: https://pubs.opengroup.org/togaf-standard/introduction/chap04.html#tag_04_42
+  WordNet - Enterprise: https://en-word.net/ili/i39592
+  OMG - UAF - WholeLifeEnterprise: https://www.omg.org/spec/UAF/1.2/Beta1/DMM/PDF#WholeLifeEnterprise
+  SAFe© - Portfolio SAFe: https://www.scaledagileframework.com/portfolio-safe/
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -27,25 +36,28 @@ open import SysFEAT.EA.21ed240a689c08df public -- Value Proposition
 Enterprise : ClassOfBoundedIndividual
 Enterprise = BoundedIndividual
 
-postulate --  Enterprise is subTypeOf EnterpriseInitiative
-  st-fafa25986646fca8 : Enterprise ⊏ₑ EnterpriseInitiative
+--  Enterprise is subTypeOf EnterpriseInitiative
+st-b181b82a54891668-036a3de3548f229e : Enterprise ⊏ₑ EnterpriseInitiative
+st-b181b82a54891668-036a3de3548f229e = polySubTypeOf-identity
 
-postulate --  Enterprise is subTypeOf OperationalTransformation
-  st-dd269f0968a1e50f : Enterprise ⊏ₑ OperationalTransformation
+--  Enterprise is subTypeOf OperationalTransformation
+st-b181b82a54891668-299e882b68488d2c : Enterprise ⊏ₑ OperationalTransformation
+st-b181b82a54891668-299e882b68488d2c = polySubTypeOf-identity
 
-postulate --  Enterprise withAspect ArchitectureContainer
-  st-dd269ffd68a1e860 : Enterprise ⊏ₐₑ (ArchitectureContainer lzero)
+--  Enterprise withAspect ArchitectureContainer
+st-b181b82a54891668-0eb95f1b6855bf64 : Enterprise ⊏ₐₑ (ArchitectureContainer lzero)
+st-b181b82a54891668-0eb95f1b6855bf64 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Owned Landscape: -}
 ownedLandscape :  Linkage Enterprise InfrastructureLandscape
-ownedLandscape = make_holonymyRelation "Owned Landscape" "ownedLandscape"
+ownedLandscape = make_holonymyRelation "Owned Landscape" "Owned Landscape"
 
 
 {- Enterprise Roadmap: -}
 enterpriseRoadmap :  Linkage Enterprise EnterpriseInitiative
-enterpriseRoadmap = make_holonymyRelation "Enterprise Roadmap" "enterpriseRoadmap"
+enterpriseRoadmap = make_holonymyRelation "Enterprise Roadmap" "Enterprise Roadmap"
 
 postulate -- enterpriseRoadmap is subTypeOf roadmap
   st-d770dd345ef4c14f-29df685860086c52  : enterpriseRoadmap   ⊏⋆ᵣ  roadmap 
@@ -54,19 +66,19 @@ postulate -- enterpriseRoadmap is subTypeOf roadmap
 Management System coordinated at the enterprise scale.
 -}
 coordinatedManagementSystem :  Linkage Enterprise ManagementSystem
-coordinatedManagementSystem = make_holonymyRelation "Coordinated Management System" "coordinatedManagementSystem"
+coordinatedManagementSystem = make_holonymyRelation "Coordinated Management System" "Coordinated Management System"
 
 postulate -- coordinatedManagementSystem is subTypeOf subInitiative
   st-a67ddf8d5f8ecf44-5b7a0ecf61f5650a  : coordinatedManagementSystem   ⊏⋆ᵣ  subInitiative 
 
 {- Enterprise Data Map: -}
 enterpriseDataMap :  Linkage Enterprise PhysicalDataMap
-enterpriseDataMap = make_Relation "Enterprise Data Map" "enterpriseDataMap"
+enterpriseDataMap = make_Relation "Enterprise Data Map" "Enterprise Data Map"
 
 
 {- Enterprise IT System Map: -}
 enterpriseITSystemMap :  Linkage Enterprise ApplicationSystemEnvironment
-enterpriseITSystemMap = make_Relation "Enterprise IT System Map" "enterpriseITSystemMap"
+enterpriseITSystemMap = make_Relation "Enterprise IT System Map" "Enterprise IT System Map"
 
 postulate -- enterpriseITSystemMap is subTypeOf functionalScope
   st-82af91565ee335ec-01f1214c689b6e0f  : enterpriseITSystemMap   ⊏⋆ᵣ  functionalScope 
@@ -75,7 +87,7 @@ postulate -- enterpriseITSystemMap is subTypeOf functionalScope
 Family of Skill of an Enterprise.
 -}
 enterpriseSkillMap :  Linkage Enterprise SkillMap
-enterpriseSkillMap = make_instanceOf "Enterprise Skill Map" "enterpriseSkillMap"
+enterpriseSkillMap = make_instanceOf "Enterprise Skill Map" "Enterprise Skill Map"
 
 
 {- Legal Structure: -}
@@ -86,11 +98,11 @@ LegalStructure = AggregateMember (lsuc(lzero))
 
 -- Membership relation
 membershipOfLegalStructure :  Linkage Enterprise LegalStructure
-membershipOfLegalStructure = membershipOfAggregateMember
+membershipOfLegalStructure = make_upwardNestingRelation "legalStructure membership" "nested legalStructure"
 
 -- Aggregation relation
 aggregationOfLegalEntityLegalStructure :  Linkage LegalStructure LegalEntity
-aggregationOfLegalEntityLegalStructure = aggregationOfBuildingBlock
+aggregationOfLegalEntityLegalStructure = make_Relation "LegalEntity aggregation" "aggregated LegalEntity"
 
 {- legalStructure : derived relation obtained by composing
    membershipOfLegalStructure and aggregationOfLegalEntityLegalStructure
@@ -99,6 +111,12 @@ aggregationOfLegalEntityLegalStructure = aggregationOfBuildingBlock
 -}
 legalStructure : Linkage Enterprise LegalEntity
 legalStructure = membershipOfLegalStructure  ∘  aggregationOfLegalEntityLegalStructure
+
+postulate -- legalStructure is subTypeOf boundedMember
+  st-a7ac82b45ff545ba-0eb999956855e070  : legalStructure   ⊏⋆ᵣ  boundedMember {lzero} {lzero}
+postulate -- legalStructure is subTypeOf steeringAuthority
+  st-a7ac82b45ff545ba-b2f2d64d5f47e364  : legalStructure   ⊏⋆ᵣ  steeringAuthority 
+
 
 {- Strategy: 
  A Strategy is one component of the plan for the Mission. A Strategy represents the essential Course of Action to achieve Ends (Goals in particular). A Strategy usually channels efforts towards those Goals.A Strategy is more than simply a resource, skill, or competency that the enterprise can call upon; rather, a Strategy is accepted by the enterprise as the right approach to achieve its Goals, given the environmental constraints and risks.(From BMM).
@@ -110,11 +128,11 @@ Strategy = AggregateMember (lsuc(lzero))
 
 -- Membership relation
 membershipOfStrategy :  Linkage Enterprise Strategy
-membershipOfStrategy = membershipOfAggregateMember
+membershipOfStrategy = make_upwardNestingRelation "strategy membership" "nested strategy"
 
 -- Aggregation relation
 aggregationOfIndividualResourceBehaviorStrategy :  Linkage Strategy IndividualResourceBehavior
-aggregationOfIndividualResourceBehaviorStrategy = aggregationOfBuildingBlock
+aggregationOfIndividualResourceBehaviorStrategy = make_Relation "IndividualResourceBehavior aggregation" "aggregated IndividualResourceBehavior"
 
 {- strategy : derived relation obtained by composing
    membershipOfStrategy and aggregationOfIndividualResourceBehaviorStrategy
@@ -123,6 +141,10 @@ aggregationOfIndividualResourceBehaviorStrategy = aggregationOfBuildingBlock
 -}
 strategy : Linkage Enterprise IndividualResourceBehavior
 strategy = membershipOfStrategy  ∘  aggregationOfIndividualResourceBehaviorStrategy
+
+postulate -- strategy is subTypeOf enterpriseCourseOfAction
+  st-dd26e09968a0a0b7-dd2696c768a1d406  : strategy   ⊏⋆ᵣ  enterpriseCourseOfAction 
+
 
 {- Enterprise Goal: 
 An Enterprise Goal is an ideal target Value Proposition that tends to be longer term, and is defined qualitatively rather than quantitatively. It should be sufficiently  narrow-focused so that Objectives can be defined for it.
@@ -133,11 +155,11 @@ EnterpriseGoal = ClassOfIndividual
 
 -- Membership relation
 membershipOfEnterpriseGoal :  Linkage Enterprise EnterpriseGoal
-membershipOfEnterpriseGoal = membershipOfAggregateMember
+membershipOfEnterpriseGoal = make_upwardNestingRelation "enterpriseGoal membership" "nested enterpriseGoal"
 
 -- Aggregation relation
 aggregationOfValuePropositionEnterpriseGoal :  Linkage EnterpriseGoal ValueProposition
-aggregationOfValuePropositionEnterpriseGoal = aggregationOfBuildingBlock
+aggregationOfValuePropositionEnterpriseGoal = make_Relation "ValueProposition aggregation" "aggregated ValueProposition"
 
 {- enterpriseGoal : derived relation obtained by composing
    membershipOfEnterpriseGoal and aggregationOfValuePropositionEnterpriseGoal
@@ -146,3 +168,7 @@ aggregationOfValuePropositionEnterpriseGoal = aggregationOfBuildingBlock
 -}
 enterpriseGoal : Linkage Enterprise ValueProposition
 enterpriseGoal = membershipOfEnterpriseGoal  ∘  aggregationOfValuePropositionEnterpriseGoal
+
+postulate -- enterpriseGoal is subTypeOf goal
+  st-dd2685ea68a1c117-21eda43c689c2ab3  : enterpriseGoal   ⊏⋆ᵣ  goal 
+

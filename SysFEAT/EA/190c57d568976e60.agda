@@ -5,6 +5,9 @@
 
 Regulation Article: 
 Compulsory Policy, define by law, that is not directly enforceable whose purpose is guide enterprise activities.Regulation Articles are classified by Regulation section in the context of a Regulatory Framework.
+
+Documentation : https://framework.sysfeat.com/pages/190c57d568976e60.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,22 +22,24 @@ open import SysFEAT.EA.952eb284672864df public -- Regulation section
 RegulationArticle : PropertyType
 RegulationArticle = ClassOfProperty
 
-postulate --  RegulationArticle is subTypeOf Policy
-  st-af66197a6307d559 : RegulationArticle ⊏ₑ Policy
+--  RegulationArticle is subTypeOf Policy
+st-190c57d568976e60-190c7429689664b5 : RegulationArticle ⊏ₑ Policy
+st-190c57d568976e60-190c7429689664b5 = polySubTypeOf-identity
 
-postulate --  RegulationArticle withAspect RegulatoryAsset
-  st-4b947ee068a4a05d : RegulationArticle ⊏ₐₑ (RegulatoryAsset (lsuc(lzero)))
+--  RegulationArticle withAspect RegulatoryAsset
+st-190c57d568976e60-4b947d2068a49dbb : RegulationArticle ⊏ₐₑ (RegulatoryAsset (lsuc(lzero)))
+st-190c57d568976e60-4b947d2068a49dbb = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Parent Section: -}
 parentSection :  Linkage RegulationArticle Regulationsection
-parentSection = make_instanceOf "Parent Section" "parentSection"
+parentSection = make_instanceOf "Parent Section" "Parent Section"
 
 
 {- Specialized Article: -}
 specializedArticle :  Linkage RegulationArticle RegulationArticle
-specializedArticle = make_subTypeOf "Specialized Article" "specializedArticle"
+specializedArticle = make_subTypeOf "Specialized Article" "Specialized Article"
 
 postulate -- specializedArticle is subTypeOf specializedPolicy
   st-4b9480c968a4a3d1-01f10d80689b50a2  : specializedArticle   ⊏⋆ᵣ  specializedPolicy 

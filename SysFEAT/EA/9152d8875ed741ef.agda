@@ -5,6 +5,9 @@
 
 Data Catalog: 
 A Data Catalog is an Assurance System of Data Assets, ensuring understanding,  trust, compliance and confidence of enterprise data. This includes:1. Relationship with Enterprise Glossary to provide business context to metadata.2. Data policy definition and enforcement to ensure data quality.3. Data Lineage to master data provenance: where data comes from, how data is transformed, and where it is used.
+
+Documentation : https://framework.sysfeat.com/pages/9152d8875ed741ef.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -23,33 +26,34 @@ open import SysFEAT.EA.98159f6b5f682d1e public -- Data Quality Policy
 DataCatalog : ClassOfBoundedIndividual
 DataCatalog = BoundedIndividual
 
-postulate --  DataCatalog is subTypeOf AssuranceSystem
-  st-c830d018617a4c38 : DataCatalog ⊏ₑ AssuranceSystem
+--  DataCatalog is subTypeOf AssuranceSystem
+st-9152d8875ed741ef-07ca18d25dd85477 : DataCatalog ⊏ₑ AssuranceSystem
+st-9152d8875ed741ef-07ca18d25dd85477 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Owned Data Resource: -}
 ownedDataResource :  Linkage DataCatalog DataAssuranceInstrument
-ownedDataResource = make_holonymyRelation "Owned Data Resource" "ownedDataResource"
+ownedDataResource = make_holonymyRelation "Owned Data Resource" "Owned Data Resource"
 
 postulate -- ownedDataResource is subTypeOf packagedAssuranceInstrument
   st-fe6323de6181763a-561f36fc68d68770  : ownedDataResource   ⊏⋆ᵣ  packagedAssuranceInstrument 
 
 {- Managed Data Store: -}
 managedDataStore :  Linkage DataCatalog DeployedDataStore
-managedDataStore = make_holonymyRelation "Managed Data Store" "managedDataStore"
+managedDataStore = make_holonymyRelation "Managed Data Store" "Managed Data Store"
 
 
 {- Business Concept Scope: -}
 businessConceptScope :  Linkage DataCatalog ConceptDomainMap
-businessConceptScope = make_Relation "Business Concept Scope" "businessConceptScope"
+businessConceptScope = make_Relation "Business Concept Scope" "Business Concept Scope"
 
 postulate -- businessConceptScope is subTypeOf functionalScope
   st-d326dc90617a5e08-01f1214c689b6e0f  : businessConceptScope   ⊏⋆ᵣ  functionalScope 
 
 {- Owned Data Assurance Case: -}
 ownedDataAssuranceCase :  Linkage DataCatalog DataAssuranceCase
-ownedDataAssuranceCase = make_Relation "Owned Data Assurance Case" "ownedDataAssuranceCase"
+ownedDataAssuranceCase = make_Relation "Owned Data Assurance Case" "Owned Data Assurance Case"
 
 postulate -- ownedDataAssuranceCase is subTypeOf ownedAssuranceCase
   st-b90ae7db600e5e7a-0b950f8868e54f9f  : ownedDataAssuranceCase   ⊏⋆ᵣ  ownedAssuranceCase 
@@ -61,11 +65,11 @@ EnforcedPolicy = ClassOfIndividual
 
 -- Membership relation
 membershipOfEnforcedPolicy :  Linkage DataCatalog EnforcedPolicy
-membershipOfEnforcedPolicy = membershipOfAggregateMember
+membershipOfEnforcedPolicy = make_upwardNestingRelation "enforcedPolicy membership" "nested enforcedPolicy"
 
 -- Aggregation relation
 aggregationOfPolicyEnforcedPolicy :  Linkage EnforcedPolicy Policy
-aggregationOfPolicyEnforcedPolicy = aggregationOfBuildingBlock
+aggregationOfPolicyEnforcedPolicy = make_Relation "Policy aggregation" "aggregated Policy"
 
 {- enforcedPolicy : derived relation obtained by composing
    membershipOfEnforcedPolicy and aggregationOfPolicyEnforcedPolicy
@@ -75,6 +79,10 @@ aggregationOfPolicyEnforcedPolicy = aggregationOfBuildingBlock
 enforcedPolicy : Linkage DataCatalog Policy
 enforcedPolicy = membershipOfEnforcedPolicy  ∘  aggregationOfPolicyEnforcedPolicy
 
+postulate -- enforcedPolicy is subTypeOf managementSystemSubject
+  st-d330da24689a1b3b-6bf17ffc68598c26  : enforcedPolicy   ⊏⋆ᵣ  managementSystemSubject  {lzero}
+
+
 {- Controled Data Policy: -}
 -- Aggregate Member : Controled Data Policy
 ControledDataPolicy : ClassOfClassOfIndividual
@@ -82,11 +90,11 @@ ControledDataPolicy = ClassOfIndividual
 
 -- Membership relation
 membershipOfControledDataPolicy :  Linkage DataCatalog ControledDataPolicy
-membershipOfControledDataPolicy = membershipOfAggregateMember
+membershipOfControledDataPolicy = make_upwardNestingRelation "controledDataPolicy membership" "nested controledDataPolicy"
 
 -- Aggregation relation
 aggregationOfDataQualityPolicyControledDataPolicy :  Linkage ControledDataPolicy DataQualityPolicy
-aggregationOfDataQualityPolicyControledDataPolicy = aggregationOfBuildingBlock
+aggregationOfDataQualityPolicyControledDataPolicy = make_Relation "DataQualityPolicy aggregation" "aggregated DataQualityPolicy"
 
 {- controledDataPolicy : derived relation obtained by composing
    membershipOfControledDataPolicy and aggregationOfDataQualityPolicyControledDataPolicy
@@ -95,3 +103,5 @@ aggregationOfDataQualityPolicyControledDataPolicy = aggregationOfBuildingBlock
 -}
 controledDataPolicy : Linkage DataCatalog DataQualityPolicy
 controledDataPolicy = membershipOfControledDataPolicy  ∘  aggregationOfDataQualityPolicyControledDataPolicy
+
+

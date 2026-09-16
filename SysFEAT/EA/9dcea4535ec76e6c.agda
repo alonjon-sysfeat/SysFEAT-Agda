@@ -5,6 +5,15 @@
 
 Business Outcome Event: 
 A Business Outcome Event is a Business Event that signals the happening of a change in the state of a Business Operating Asset, produced by the Business Behavior of a Business Agent Type, for the benefits of an internal or external consumer (especially Customers).
+
+Documentation : https://framework.sysfeat.com/pages/9dcea4535ec76e6c.htm
+
+External references:
+  OMG - UAF - Effect: https://www.omg.org/spec/UAF/1.2/Beta1/DMM/PDF#Effect
+  OpenGroup - OAA - Definition - Outcome: https://pubs.opengroup.org/architecture/o-aa-standard/definitions.html#Outcome
+  OpenGroup - IT4IT - Defining Service Reference Architecture: https://publications.opengroup.org/w161
+  OMG - UAF - OperationalSignal: https://www.omg.org/spec/UAF/1.2/Beta1/DMM/PDF#operationalsignal
+  OMG - BACM - Outcome: https://www.omg.org/spec/BACM/1.0/PDF#page=51
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,11 +28,13 @@ open import SysFEAT.EA.62466ea661b80d09 public -- Business Operating Asset
 BusinessOutcomeEvent : ClassOfClassOfIndividual
 BusinessOutcomeEvent = ClassOfIndividual
 
-postulate --  BusinessOutcomeEvent is subTypeOf BusinessEvent
-  st-be94de86655c8306 : BusinessOutcomeEvent ⊏ₑ BusinessEvent
+--  BusinessOutcomeEvent is subTypeOf BusinessEvent
+st-9dcea4535ec76e6c-0185cc626221bb37 : BusinessOutcomeEvent ⊏ₑ BusinessEvent
+st-9dcea4535ec76e6c-0185cc626221bb37 = polySubTypeOf-identity
 
-postulate --  BusinessOutcomeEvent is subTypeOf ResourceOutcomeEvent
-  st-6a70e46d678799ac : BusinessOutcomeEvent ⊏ₑ ResourceOutcomeEvent
+--  BusinessOutcomeEvent is subTypeOf ResourceOutcomeEvent
+st-9dcea4535ec76e6c-6a70c0b36787698c : BusinessOutcomeEvent ⊏ₑ ResourceOutcomeEvent
+st-9dcea4535ec76e6c-6a70c0b36787698c = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -36,11 +47,11 @@ BusinessOutcome = ClassOfIndividual
 
 -- Membership relation
 membershipOfBusinessOutcome :  Linkage BusinessOutcomeEvent BusinessOutcome
-membershipOfBusinessOutcome = membershipOfAggregateMember
+membershipOfBusinessOutcome = make_upwardNestingRelation "businessOutcome membership" "nested businessOutcome"
 
 -- Aggregation relation
 aggregationOfBusinessOperatingAssetBusinessOutcome :  Linkage BusinessOutcome BusinessOperatingAsset
-aggregationOfBusinessOperatingAssetBusinessOutcome = aggregationOfBuildingBlock
+aggregationOfBusinessOperatingAssetBusinessOutcome = make_Relation "BusinessOperatingAsset aggregation" "aggregated BusinessOperatingAsset"
 
 {- businessOutcome : derived relation obtained by composing
    membershipOfBusinessOutcome and aggregationOfBusinessOperatingAssetBusinessOutcome
@@ -49,3 +60,7 @@ aggregationOfBusinessOperatingAssetBusinessOutcome = aggregationOfBuildingBlock
 -}
 businessOutcome : Linkage BusinessOutcomeEvent BusinessOperatingAsset
 businessOutcome = membershipOfBusinessOutcome  ∘  aggregationOfBusinessOperatingAssetBusinessOutcome
+
+postulate -- businessOutcome is subTypeOf resourceOutcome
+  st-be94e0c4655c85b4-6a70e2636787968e  : businessOutcome   ⊏⋆ᵣ  resourceOutcome 
+

@@ -5,6 +5,11 @@
 
 Artifact: 
 An Artifact is a man made  Resource Agent Type that can actively participate to Resource Behaviors.
+
+Documentation : https://framework.sysfeat.com/pages/ffdf5eb7686083b4.htm
+
+External references:
+  WordNet - Artifact: https://en-word.net/ili/i35572
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -17,7 +22,8 @@ open import SysFEAT.EA.e2ef091962147ad7 public -- Resource Agent Type
 Artifact : ClassOfClassOfBoundedIndividual
 Artifact = ClassOfBoundedIndividual
 
-postulate --  Artifact is subTypeOf ResourceAgentType
-  st-ffdf607b68608649 : Artifact ⊏ₑ ResourceAgentType
+--  Artifact is subTypeOf ResourceAgentType
+st-ffdf5eb7686083b4-e2ef091962147ad7 : Artifact ⊏ₑ ResourceAgentType
+st-ffdf5eb7686083b4-e2ef091962147ad7 = polySubTypeOf-identity
 
 -- == Relationships =======================
