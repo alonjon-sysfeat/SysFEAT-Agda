@@ -5,6 +5,9 @@
 
 Individual System of Resources: 
 A Individual System of Resources is a Mezzo Individual Capability Configuration that combines Org-Units, Hardware Systems and Software Systems to provide a Business Capability.Examples:- Factory (with workers), - Data center (with opetators)- Hospital (with doctors and nurses)- Configured aircraft carrier (with crew),- Configured rescue ship (with rescue team).
+
+Documentation : https://framework.sysfeat.com/pages/c80a41b7678595bb.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,14 +22,14 @@ IndividualSystemOfResources : ClassOfBoundedIndividual
 IndividualSystemOfResources = BoundedIndividual
 
 --  IndividualSystemOfResources is subTypeOf IndividualCapabilityConfiguration
-st-c80a42be67859650 : IndividualSystemOfResources ⊏ₑ IndividualCapabilityConfiguration
-st-c80a42be67859650 = polySubTypeOf-identity
+st-c80a41b7678595bb-c80a3f9d67859211 : IndividualSystemOfResources ⊏ₑ IndividualCapabilityConfiguration
+st-c80a41b7678595bb-c80a3f9d67859211 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- System of Resource Type: -}
 systemOfResourceType :  Linkage IndividualSystemOfResources SystemOfResources
-systemOfResourceType = make_instanceOf "System of Resource Type" "systemOfResourceType"
+systemOfResourceType = make_instanceOf "System of Resource Type" "System of Resource Type"
 
 postulate -- systemOfResourceType is subTypeOf configurationType
   st-c80a436c67859774-c80a400d67859303  : systemOfResourceType   ⊏⋆ᵣ  configurationType 

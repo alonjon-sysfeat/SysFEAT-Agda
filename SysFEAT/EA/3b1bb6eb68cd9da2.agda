@@ -5,6 +5,11 @@
 
 Individual Intangible Resource Agent: 
 An Individual Intangible Resource Agent is a Individual Resource Agent that does not have physical substance.Example:- Individual Software System.- Social groups,
+
+Documentation : https://framework.sysfeat.com/pages/3b1bb6eb68cd9da2.htm
+
+External references:
+  WordNet - Intangible Asset: https://en-word.net/ili/i106769
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,7 +24,7 @@ IndividualIntangibleResourceAgent : ClassOfBoundedIndividual
 IndividualIntangibleResourceAgent = BoundedIndividual
 
 --  IndividualIntangibleResourceAgent is subTypeOf IndividualResourceAgent
-st-3b1bb6fe68cd9deb : IndividualIntangibleResourceAgent ⊏ₑ IndividualResourceAgent
-st-3b1bb6fe68cd9deb = polySubTypeOf-identity
+st-3b1bb6eb68cd9da2-fe1c231267880201 : IndividualIntangibleResourceAgent ⊏ₑ IndividualResourceAgent
+st-3b1bb6eb68cd9da2-fe1c231267880201 = polySubTypeOf-identity
 
 -- == Relationships =======================

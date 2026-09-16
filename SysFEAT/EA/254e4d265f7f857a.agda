@@ -5,6 +5,9 @@
 
 MetaData Schema: 
 
+
+Documentation : https://framework.sysfeat.com/pages/254e4d265f7f857a.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,12 +23,12 @@ MetaDataSchema : ClassOfClassOfBoundedIndividual
 MetaDataSchema = ClassOfBoundedIndividual
 
 --  MetaDataSchema is subTypeOf PhysicalDataDomain
-st-ae2430e26039035d : MetaDataSchema ⊏ₑ PhysicalDataDomain
-st-ae2430e26039035d = polySubTypeOf-identity
+st-254e4d265f7f857a-028f03ff5b4f55ee : MetaDataSchema ⊏ₑ PhysicalDataDomain
+st-254e4d265f7f857a-028f03ff5b4f55ee = polySubTypeOf-identity
 
 --  MetaDataSchema is subTypeOf NoSQLDataAsset
-st-77318d6262167ffa : MetaDataSchema ⊏⋆ₑ NoSQLDataAsset
-st-77318d6262167ffa = polySubTypeOf-identity
+st-254e4d265f7f857a-77318c6c62167dd7 : MetaDataSchema ⊏⋆ₑ NoSQLDataAsset
+st-254e4d265f7f857a-77318c6c62167dd7 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -38,11 +41,11 @@ DataSet = ClassOfIndividual
 
 -- Membership relation
 membershipOfDataSet :  Linkage MetaDataSchema DataSet
-membershipOfDataSet = membershipOfAggregateMember
+membershipOfDataSet = make_upwardNestingRelation "dataSet membership" "nested dataSet"
 
 -- Aggregation relation
 aggregationOfNoSQLElementDataSet :  Linkage DataSet NoSQLElement
-aggregationOfNoSQLElementDataSet = aggregationOfBuildingBlock
+aggregationOfNoSQLElementDataSet = make_Relation "NoSQLElement aggregation" "aggregated NoSQLElement"
 
 {- dataSet : derived relation obtained by composing
    membershipOfDataSet and aggregationOfNoSQLElementDataSet
@@ -51,3 +54,7 @@ aggregationOfNoSQLElementDataSet = aggregationOfBuildingBlock
 -}
 dataSet : Linkage MetaDataSchema NoSQLElement
 dataSet = membershipOfDataSet  ∘  aggregationOfNoSQLElementDataSet
+
+postulate -- dataSet is subTypeOf physicalDomainObject
+  st-ae242ff3603900b2-e6f223f55f771b8d  : dataSet   ⊏⋆ᵣ  physicalDomainObject 
+

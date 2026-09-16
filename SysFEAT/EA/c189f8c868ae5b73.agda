@@ -5,6 +5,9 @@
 
 Business Capability Map: 
 A Business Capability Map is a top level assembly of Business Capability(ies) and their dependencies that, together, provide a Business Capability scope for an Enterprise Initiative.
+
+Documentation : https://framework.sysfeat.com/pages/c189f8c868ae5b73.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,8 +22,8 @@ BusinessCapabilityMap : PropertyType
 BusinessCapabilityMap = ClassOfProperty
 
 --  BusinessCapabilityMap is subTypeOf CapabilityMap
-st-09d10e83679e4e15 : BusinessCapabilityMap ⊏ₑ CapabilityMap
-st-09d10e83679e4e15 = polySubTypeOf-identity
+st-c189f8c868ae5b73-01f12127689b6de2 : BusinessCapabilityMap ⊏ₑ CapabilityMap
+st-c189f8c868ae5b73-01f12127689b6de2 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -31,11 +34,11 @@ MemberBusinessCapability = ClassOfIndividual
 
 -- Membership relation
 membershipOfMemberBusinessCapability :  Linkage BusinessCapabilityMap MemberBusinessCapability
-membershipOfMemberBusinessCapability = membershipOfAggregateMember
+membershipOfMemberBusinessCapability = make_upwardNestingRelation "memberBusinessCapability membership" "nested memberBusinessCapability"
 
 -- Aggregation relation
 aggregationOfBusinessCapabilityMemberBusinessCapability :  Linkage MemberBusinessCapability BusinessCapability
-aggregationOfBusinessCapabilityMemberBusinessCapability = aggregationOfBuildingBlock
+aggregationOfBusinessCapabilityMemberBusinessCapability = make_Relation "BusinessCapability aggregation" "aggregated BusinessCapability"
 
 {- memberBusinessCapability : derived relation obtained by composing
    membershipOfMemberBusinessCapability and aggregationOfBusinessCapabilityMemberBusinessCapability
@@ -44,3 +47,7 @@ aggregationOfBusinessCapabilityMemberBusinessCapability = aggregationOfBuildingB
 -}
 memberBusinessCapability : Linkage BusinessCapabilityMap BusinessCapability
 memberBusinessCapability = membershipOfMemberBusinessCapability  ∘  aggregationOfBusinessCapabilityMemberBusinessCapability
+
+postulate -- memberBusinessCapability is subTypeOf capabilityMember
+  st-c189fcfa68ae5fa0-01f12228689b6efa  : memberBusinessCapability   ⊏⋆ᵣ  capabilityMember 
+

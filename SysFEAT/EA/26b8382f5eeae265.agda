@@ -5,6 +5,11 @@
 
 Technology Interface: 
 A Technology Interface is a Resource Service Interface that describes a typical course of interactions intended to produce Technology Outcome Events, through the involvement of Technology Systems.
+
+Documentation : https://framework.sysfeat.com/pages/26b8382f5eeae265.htm
+
+External references:
+  OpenGroup - ArchiMate -Technology-Service: https://pubs.opengroup.org/architecture/archimate32-doc/ch-Technology-Layer.html#sec-Technology-Service
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,12 +25,12 @@ TechnologyInterface : ClassOfClassOfIndividual
 TechnologyInterface = ClassOfIndividual
 
 --  TechnologyInterface is subTypeOf TechnologyBehavior
-st-97889ea0661761e9 : TechnologyInterface ⊏ₑ TechnologyBehavior
-st-97889ea0661761e9 = polySubTypeOf-identity
+st-26b8382f5eeae265-97f89a8865ae5279 : TechnologyInterface ⊏ₑ TechnologyBehavior
+st-26b8382f5eeae265-97f89a8865ae5279 = polySubTypeOf-identity
 
 --  TechnologyInterface is subTypeOf ResourceServiceInterface
-st-6a70d23c678780e6 : TechnologyInterface ⊏ₑ ResourceServiceInterface
-st-6a70d23c678780e6 = polySubTypeOf-identity
+st-26b8382f5eeae265-6a70c21067876cd8 : TechnologyInterface ⊏ₑ ResourceServiceInterface
+st-26b8382f5eeae265-6a70c21067876cd8 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -36,11 +41,11 @@ TechnologyFlowConnection = ClassOfIndividual
 
 -- Membership relation
 membershipOfTechnologyFlowConnection :  Linkage TechnologyInterface TechnologyFlowConnection
-membershipOfTechnologyFlowConnection = membershipOfAggregateMember
+membershipOfTechnologyFlowConnection = make_upwardNestingRelation "technologyFlowConnection membership" "nested technologyFlowConnection"
 
 -- Aggregation relation
 aggregationOfTechnologyOutcomeEventTechnologyFlowConnection :  Linkage TechnologyFlowConnection TechnologyOutcomeEvent
-aggregationOfTechnologyOutcomeEventTechnologyFlowConnection = aggregationOfBuildingBlock
+aggregationOfTechnologyOutcomeEventTechnologyFlowConnection = make_Relation "TechnologyOutcomeEvent aggregation" "aggregated TechnologyOutcomeEvent"
 
 {- technologyFlowConnection : derived relation obtained by composing
    membershipOfTechnologyFlowConnection and aggregationOfTechnologyOutcomeEventTechnologyFlowConnection
@@ -49,3 +54,7 @@ aggregationOfTechnologyOutcomeEventTechnologyFlowConnection = aggregationOfBuild
 -}
 technologyFlowConnection : Linkage TechnologyInterface TechnologyOutcomeEvent
 technologyFlowConnection = membershipOfTechnologyFlowConnection  ∘  aggregationOfTechnologyOutcomeEventTechnologyFlowConnection
+
+postulate -- technologyFlowConnection is subTypeOf resourceFlowConnection
+  st-ce82d0ff68106fdf-c561e339680f761e  : technologyFlowConnection   ⊏⋆ᵣ  resourceFlowConnection 
+

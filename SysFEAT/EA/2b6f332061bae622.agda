@@ -5,6 +5,9 @@
 
 Business Resource Ecosystem: 
 A Business Resource Ecosystem is an Operating Eco-System  that describes the operating context in which a Business Agent Type exists or lives for a specific purpose.
+
+Documentation : https://framework.sysfeat.com/pages/2b6f332061bae622.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -21,14 +24,14 @@ BusinessResourceEcosystem : ClassOfClassOfBoundedIndividual
 BusinessResourceEcosystem = ClassOfBoundedIndividual
 
 --  BusinessResourceEcosystem is subTypeOf ResourceOperatingEcosystem
-st-f8e64099621fe1a3 : BusinessResourceEcosystem ⊏ₑ ResourceOperatingEcosystem
-st-f8e64099621fe1a3 = polySubTypeOf-identity
+st-2b6f332061bae622-f8e64b51621dd3f3 : BusinessResourceEcosystem ⊏ₑ ResourceOperatingEcosystem
+st-2b6f332061bae622-f8e64b51621dd3f3 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Realized Conceptual Environment: -}
 realizedConceptualEnvironment :  Linkage BusinessResourceEcosystem ConceptualEnvironment
-realizedConceptualEnvironment = make_subTypeOf "Realized Conceptual Environment" "realizedConceptualEnvironment"
+realizedConceptualEnvironment = make_subTypeOf "Realized Conceptual Environment" "Realized Conceptual Environment"
 
 
 {- Business Ecosystem Connection: -}
@@ -38,11 +41,11 @@ BusinessEcosystemConnection = ClassOfIndividual
 
 -- Membership relation
 membershipOfBusinessEcosystemConnection :  Linkage BusinessResourceEcosystem BusinessEcosystemConnection
-membershipOfBusinessEcosystemConnection = membershipOfAggregateMember
+membershipOfBusinessEcosystemConnection = make_upwardNestingRelation "businessEcosystemConnection membership" "nested businessEcosystemConnection"
 
 -- Aggregation relation
 aggregationOfOperatingConnectionBusinessEcosystemConnection :  Linkage BusinessEcosystemConnection OperatingConnection
-aggregationOfOperatingConnectionBusinessEcosystemConnection = aggregationOfBuildingBlock
+aggregationOfOperatingConnectionBusinessEcosystemConnection = make_Relation "OperatingConnection aggregation" "aggregated OperatingConnection"
 
 {- businessEcosystemConnection : derived relation obtained by composing
    membershipOfBusinessEcosystemConnection and aggregationOfOperatingConnectionBusinessEcosystemConnection
@@ -52,6 +55,10 @@ aggregationOfOperatingConnectionBusinessEcosystemConnection = aggregationOfBuild
 businessEcosystemConnection : Linkage BusinessResourceEcosystem OperatingConnection
 businessEcosystemConnection = membershipOfBusinessEcosystemConnection  ∘  aggregationOfOperatingConnectionBusinessEcosystemConnection
 
+postulate -- businessEcosystemConnection is subTypeOf enterpriseEcosystemConnection
+  st-f8e7db56621f0cef-f8e7b91f621f01e9  : businessEcosystemConnection   ⊏⋆ᵣ  enterpriseEcosystemConnection 
+
+
 {- Resource Ecosystem Part: -}
 -- Aggregate Member : Resource Ecosystem Part
 ResourceEcosystemPart : ClassOfClassOfIndividual
@@ -59,11 +66,11 @@ ResourceEcosystemPart = ClassOfIndividual
 
 -- Membership relation
 membershipOfResourceEcosystemPart :  Linkage BusinessResourceEcosystem ResourceEcosystemPart
-membershipOfResourceEcosystemPart = membershipOfAggregateMember
+membershipOfResourceEcosystemPart = make_upwardNestingRelation "resourceEcosystemPart membership" "nested resourceEcosystemPart"
 
 -- Aggregation relation
 aggregationOfBusinessOperatingAssetResourceEcosystemPart :  Linkage ResourceEcosystemPart BusinessOperatingAsset
-aggregationOfBusinessOperatingAssetResourceEcosystemPart = aggregationOfBuildingBlock
+aggregationOfBusinessOperatingAssetResourceEcosystemPart = make_Relation "BusinessOperatingAsset aggregation" "aggregated BusinessOperatingAsset"
 
 {- resourceEcosystemPart : derived relation obtained by composing
    membershipOfResourceEcosystemPart and aggregationOfBusinessOperatingAssetResourceEcosystemPart
@@ -72,3 +79,7 @@ aggregationOfBusinessOperatingAssetResourceEcosystemPart = aggregationOfBuilding
 -}
 resourceEcosystemPart : Linkage BusinessResourceEcosystem BusinessOperatingAsset
 resourceEcosystemPart = membershipOfResourceEcosystemPart  ∘  aggregationOfBusinessOperatingAssetResourceEcosystemPart
+
+postulate -- resourceEcosystemPart is subTypeOf enterpriseEcosystemPart
+  st-95129626620b544c-f8e6b83c621fffe6  : resourceEcosystemPart   ⊏⋆ᵣ  enterpriseEcosystemPart 
+

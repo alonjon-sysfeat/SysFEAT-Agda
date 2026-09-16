@@ -5,6 +5,9 @@
 
 Individual Resource Agent Configuration: 
 An Individual Resource Agent Configuration is a Individual Resource Agent that is combination of Individual Human Agents and Individual Artifacts.
+
+Documentation : https://framework.sysfeat.com/pages/3b1b936468cd8851.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,7 +22,7 @@ IndividualResourceAgentConfiguration : ClassOfBoundedIndividual
 IndividualResourceAgentConfiguration = BoundedIndividual
 
 --  IndividualResourceAgentConfiguration is subTypeOf IndividualResourceAgent
-st-3b1bb2cd68cd95fc : IndividualResourceAgentConfiguration ⊏ₑ IndividualResourceAgent
-st-3b1bb2cd68cd95fc = polySubTypeOf-identity
+st-3b1b936468cd8851-fe1c231267880201 : IndividualResourceAgentConfiguration ⊏ₑ IndividualResourceAgent
+st-3b1b936468cd8851-fe1c231267880201 = polySubTypeOf-identity
 
 -- == Relationships =======================

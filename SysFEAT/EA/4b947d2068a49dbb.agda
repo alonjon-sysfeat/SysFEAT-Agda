@@ -5,6 +5,9 @@
 
 Regulatory Asset: 
 A Regulatory Asset is a Policy Asset that is part of of a Regulatory Framework.
+
+Documentation : https://framework.sysfeat.com/pages/4b947d2068a49dbb.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ RegulatoryAsset : ∀ (u : Level) → ClassOfMixedOrderEntity u
 RegulatoryAsset u = MixedOrderEntity u
 
 --  RegulatoryAsset is subTypeOf PolicyAsset
-st-4b947d3668a49e1f : ∀ {u v} → (RegulatoryAsset u) ⊏⋆ₑ (PolicyAsset v)
-st-4b947d3668a49e1f = trivialPolySubTypeOfEntity
+st-4b947d2068a49dbb-9397c3d86877842f : ∀ {u v} → (RegulatoryAsset u) ⊏⋆ₑ (PolicyAsset v)
+st-4b947d2068a49dbb-9397c3d86877842f = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

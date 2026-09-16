@@ -5,6 +5,9 @@
 
 System Rule: 
 
+
+Documentation : https://framework.sysfeat.com/pages/23bf9a5368ad2bdd.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,8 +22,8 @@ SystemRule : PropertyType
 SystemRule = ClassOfProperty
 
 --  SystemRule is subTypeOf BusinessResourceRule
-st-83bb9d4e5b378aa7 : SystemRule ⊏ₑ BusinessResourceRule
-st-83bb9d4e5b378aa7 = polySubTypeOf-identity
+st-23bf9a5368ad2bdd-23bf9a7868ad2d94 : SystemRule ⊏ₑ BusinessResourceRule
+st-23bf9a5368ad2bdd-23bf9a7868ad2d94 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -31,11 +34,11 @@ SystemRuleSubject = ClassOfIndividual
 
 -- Membership relation
 membershipOfSystemRuleSubject :  Linkage SystemRule SystemRuleSubject
-membershipOfSystemRuleSubject = membershipOfAggregateMember
+membershipOfSystemRuleSubject = make_upwardNestingRelation "systemRuleSubject membership" "nested systemRuleSubject"
 
 -- Aggregation relation
 aggregationOfDataAssetSystemRuleSubject :  Linkage SystemRuleSubject DataAsset
-aggregationOfDataAssetSystemRuleSubject = aggregationOfBuildingBlock
+aggregationOfDataAssetSystemRuleSubject = make_Relation "DataAsset aggregation" "aggregated DataAsset"
 
 {- systemRuleSubject : derived relation obtained by composing
    membershipOfSystemRuleSubject and aggregationOfDataAssetSystemRuleSubject
@@ -44,3 +47,5 @@ aggregationOfDataAssetSystemRuleSubject = aggregationOfBuildingBlock
 -}
 systemRuleSubject : Linkage SystemRule DataAsset
 systemRuleSubject = membershipOfSystemRuleSubject  ∘  aggregationOfDataAssetSystemRuleSubject
+
+

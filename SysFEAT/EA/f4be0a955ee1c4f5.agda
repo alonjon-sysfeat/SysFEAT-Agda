@@ -5,6 +5,9 @@
 
 Technology Outcome Event: 
 A Technology Outcome Event is an Outcome Event that indicates the availability of an expected change in the state of some Technology Functional Asset produced by a Technology System .
+
+Documentation : https://framework.sysfeat.com/pages/f4be0a955ee1c4f5.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,12 +22,12 @@ TechnologyOutcomeEvent : ClassOfClassOfIndividual
 TechnologyOutcomeEvent = ClassOfIndividual
 
 --  TechnologyOutcomeEvent is subTypeOf TechnologyFunctionalAsset
-st-83c718b567561123 : TechnologyOutcomeEvent ⊏ₑ TechnologyFunctionalAsset
-st-83c718b567561123 = polySubTypeOf-identity
+st-f4be0a955ee1c4f5-669abc806654e803 : TechnologyOutcomeEvent ⊏ₑ TechnologyFunctionalAsset
+st-f4be0a955ee1c4f5-669abc806654e803 = polySubTypeOf-identity
 
 --  TechnologyOutcomeEvent is subTypeOf ResourceOutcomeEvent
-st-6a70d2b86787815d : TechnologyOutcomeEvent ⊏ₑ ResourceOutcomeEvent
-st-6a70d2b86787815d = polySubTypeOf-identity
+st-f4be0a955ee1c4f5-6a70c0b36787698c : TechnologyOutcomeEvent ⊏ₑ ResourceOutcomeEvent
+st-f4be0a955ee1c4f5-6a70c0b36787698c = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -37,11 +40,11 @@ TechnologyOutcome = ClassOfIndividual
 
 -- Membership relation
 membershipOfTechnologyOutcome :  Linkage TechnologyOutcomeEvent TechnologyOutcome
-membershipOfTechnologyOutcome = membershipOfAggregateMember
+membershipOfTechnologyOutcome = make_upwardNestingRelation "technologyOutcome membership" "nested technologyOutcome"
 
 -- Aggregation relation
 aggregationOfTechnologyFunctionalAssetTechnologyOutcome :  Linkage TechnologyOutcome TechnologyFunctionalAsset
-aggregationOfTechnologyFunctionalAssetTechnologyOutcome = aggregationOfBuildingBlock
+aggregationOfTechnologyFunctionalAssetTechnologyOutcome = make_Relation "TechnologyFunctionalAsset aggregation" "aggregated TechnologyFunctionalAsset"
 
 {- technologyOutcome : derived relation obtained by composing
    membershipOfTechnologyOutcome and aggregationOfTechnologyFunctionalAssetTechnologyOutcome
@@ -50,3 +53,7 @@ aggregationOfTechnologyFunctionalAssetTechnologyOutcome = aggregationOfBuildingB
 -}
 technologyOutcome : Linkage TechnologyOutcomeEvent TechnologyFunctionalAsset
 technologyOutcome = membershipOfTechnologyOutcome  ∘  aggregationOfTechnologyFunctionalAssetTechnologyOutcome
+
+postulate -- technologyOutcome is subTypeOf resourceOutcome
+  st-97880965661870b1-6a70e2636787968e  : technologyOutcome   ⊏⋆ᵣ  resourceOutcome 
+

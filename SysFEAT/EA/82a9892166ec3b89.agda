@@ -5,6 +5,9 @@
 
 Process Family: 
 A Process Family is a categorization of Business Operating Assets used to assert that a Business Operating Asset belongs to a specific process domain.
+
+Documentation : https://framework.sysfeat.com/pages/82a9892166ec3b89.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ ProcessFamily : ThirdOrderClass
 ProcessFamily = SecondOrderClass
 
 --  ProcessFamily withAspect AssetCategory
-st-ba91cbbd5fe0896c : ProcessFamily ⊏ₐₑ (AssetCategory (lsuc(lsuc(lzero))))
-st-ba91cbbd5fe0896c = polySubTypeOf-identity
+st-82a9892166ec3b89-f69620466a0f9c2f : ProcessFamily ⊏ₐₑ (AssetCategory (lsuc(lsuc(lzero))))
+st-82a9892166ec3b89-f69620466a0f9c2f = polySubTypeOf-identity
 
 -- == Relationships =======================

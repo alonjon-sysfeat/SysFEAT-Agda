@@ -5,6 +5,12 @@
 
 Physical Resource Agent: 
 A Physical Resource Agent is any identifiable and tangible Resource Agent Type that exists in the physical universe that can cast a shadow, or more generally, that occupies a region of space from which other material entities are excluded.It is characterized by its ability to occupy space, possess mass, and interacts with other Physical Resource Agents through fundamental forces. Physical Resource Agents are subject to the laws of physics and can be observed, measured, and analyzed using scientific methods. 
+
+Documentation : https://framework.sysfeat.com/pages/340f52dc686212f5.htm
+
+External references:
+  ISO 15926 - PhysicalObject: https://15926.blog/topics/data-model/index.htm#PhysicalObject
+  WordNet - Physical Object: https://en-word.net/ili/i35549
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +24,7 @@ PhysicalResourceAgent : ClassOfClassOfBoundedIndividual
 PhysicalResourceAgent = ClassOfBoundedIndividual
 
 --  PhysicalResourceAgent is subTypeOf ResourceAgentType
-st-340f52e96862133c : PhysicalResourceAgent ⊏ₑ ResourceAgentType
-st-340f52e96862133c = polySubTypeOf-identity
+st-340f52dc686212f5-e2ef091962147ad7 : PhysicalResourceAgent ⊏ₑ ResourceAgentType
+st-340f52dc686212f5-e2ef091962147ad7 = polySubTypeOf-identity
 
 -- == Relationships =======================

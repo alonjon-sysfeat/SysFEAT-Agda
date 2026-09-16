@@ -5,6 +5,9 @@
 
 Privacy Endpoint: 
 It represents an establishment. It allows to add a geographic location to an organization. This is a minimum requirement to use the organization when documenting a data flow.
+
+Documentation : https://framework.sysfeat.com/pages/5ef269cd5a2a6de8.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,12 +22,12 @@ PrivacyEndpoint : ClassOfBoundedIndividual
 PrivacyEndpoint = BoundedIndividual
 
 --  PrivacyEndpoint is subTypeOf PrivacyBlock
-st-364214b360080a59 : PrivacyEndpoint ⊏ₑ PrivacyBlock
-st-364214b360080a59 = polySubTypeOf-identity
+st-5ef269cd5a2a6de8-7d3786425fd04ea2 : PrivacyEndpoint ⊏ₑ PrivacyBlock
+st-5ef269cd5a2a6de8-7d3786425fd04ea2 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Location: -}
 location :  Linkage PrivacyEndpoint Location
-location = make_holonymyRelation "Location" "location"
+location = make_holonymyRelation "Location" "Location"
 

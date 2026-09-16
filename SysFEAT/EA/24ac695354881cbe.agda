@@ -5,6 +5,11 @@
 
 Project Type: 
 A category of project.
+
+Documentation : https://framework.sysfeat.com/pages/24ac695354881cbe.htm
+
+External references:
+  OMG - UAF - Project: https://www.omg.org/spec/UAF/1.2/Beta1/DMM/PDF#Project
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,11 +24,11 @@ ProjectType : ClassOfClassOfBoundedIndividual
 ProjectType = ClassOfBoundedIndividual
 
 --  ProjectType is subTypeOf ProgramAsset
-st-2b588a8a5ef08cde : ProjectType ⊏⋆ₑ ProgramAsset
-st-2b588a8a5ef08cde = polySubTypeOf-identity
+st-24ac695354881cbe-2b5887d05ef07b3b : ProjectType ⊏⋆ₑ ProgramAsset
+st-24ac695354881cbe-2b5887d05ef07b3b = polySubTypeOf-identity
 
 --  ProjectType withAspect ModelPropertyBlock
-st-2b588aad5ef08d50 : ProjectType ⊏ₐₑ (ModelPropertyBlock (lsuc(lzero)))
-st-2b588aad5ef08d50 = polySubTypeOf-identity
+st-24ac695354881cbe-0eb97aff6855cd23 : ProjectType ⊏ₐₑ (ModelPropertyBlock (lsuc(lzero)))
+st-24ac695354881cbe-0eb97aff6855cd23 = polySubTypeOf-identity
 
 

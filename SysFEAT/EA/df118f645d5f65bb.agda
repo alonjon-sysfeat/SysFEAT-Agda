@@ -5,6 +5,11 @@
 
 Computer Server: 
 A Computer Server is a Computing Device which provides processing, storage, and network connectivity services to other Computing Devices on a Computer Network.As a Computing System, it can host data and run Application code..
+
+Documentation : https://framework.sysfeat.com/pages/df118f645d5f65bb.htm
+
+External references:
+  UCF Glossary - Server: https://compliancedictionary.com/term/1610
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +23,7 @@ ComputerServer : ClassOfClassOfBoundedIndividual
 ComputerServer = ClassOfBoundedIndividual
 
 --  ComputerServer is subTypeOf ComputingDevice
-st-f4be0f745ee1d8ab : ComputerServer ⊏ₑ ComputingDevice
-st-f4be0f745ee1d8ab = polySubTypeOf-identity
+st-df118f645d5f65bb-02f51209641c7ea4 : ComputerServer ⊏ₑ ComputingDevice
+st-df118f645d5f65bb-02f51209641c7ea4 = polySubTypeOf-identity
 
 -- == Relationships =======================

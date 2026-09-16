@@ -5,6 +5,9 @@
 
 Physical Data Asset: 
 A Physical Data Asset  represents the physical structure of any kind of data that can be memorized by a Business Software System.A Physical Data Asset is either a Physical Data Entity or a Physical Data Property.Only Physical Data Entitys can have an identity can by be referenced by Physical Relationship. Physical Data Property only handle raw data.
+
+Documentation : https://framework.sysfeat.com/pages/7d37d08d5fd07aaa.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,25 +22,25 @@ PhysicalDataAsset : ClassOfClassOfBoundedIndividual
 PhysicalDataAsset = ClassOfBoundedIndividual
 
 --  PhysicalDataAsset is subTypeOf DataAsset
-st-7d37d09a5fd07b1a : PhysicalDataAsset ⊏ₑ DataAsset
-st-7d37d09a5fd07b1a = polySubTypeOf-identity
+st-7d37d08d5fd07aaa-6d2b7c935fbb6270 : PhysicalDataAsset ⊏ₑ DataAsset
+st-7d37d08d5fd07aaa-6d2b7c935fbb6270 = polySubTypeOf-identity
 
 --  PhysicalDataAsset withAspect PhysicalDataBlock
-st-8f1cb95d68cab1b1 : PhysicalDataAsset ⊏ₐₑ (PhysicalDataBlock (lsuc(lzero)))
-st-8f1cb95d68cab1b1 = polySubTypeOf-identity
+st-7d37d08d5fd07aaa-8f1cad7d68ca9df0 : PhysicalDataAsset ⊏ₐₑ (PhysicalDataBlock (lsuc(lzero)))
+st-7d37d08d5fd07aaa-8f1cad7d68ca9df0 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Specialized Physical Object: -}
 specializedPhysicalObject :  Linkage PhysicalDataAsset PhysicalDataAsset
-specializedPhysicalObject = make_subTypeOf "Specialized Physical Object" "specializedPhysicalObject"
+specializedPhysicalObject = make_subTypeOf "Specialized Physical Object" "Specialized Physical Object"
 
 postulate -- specializedPhysicalObject is subTypeOf specializedDataObject
   st-325a375566f33e9b-325a380d66f3515e  : specializedPhysicalObject   ⊏⋆ᵣ  specializedDataObject 
 
 {- Realized Data Asset: -}
 realizedDataAsset :  Linkage PhysicalDataAsset DataAsset
-realizedDataAsset = make_subTypeOf "Realized Data Asset" "realizedDataAsset"
+realizedDataAsset = make_subTypeOf "Realized Data Asset" "Realized Data Asset"
 
 postulate -- realizedDataAsset is subTypeOf realizedInformationAsset
   st-325a3a1166f358c9-325a3a0b66f354a7  : realizedDataAsset   ⊏⋆ᵣ  realizedInformationAsset 
@@ -51,11 +54,11 @@ PhysicalDataMember = ClassOfIndividual
 
 -- Membership relation
 membershipOfPhysicalDataMember :  Linkage PhysicalDataAsset PhysicalDataMember
-membershipOfPhysicalDataMember = membershipOfAggregateMember
+membershipOfPhysicalDataMember = make_upwardNestingRelation "physicalDataMember membership" "nested physicalDataMember"
 
 -- Aggregation relation
 aggregationOfPhysicalDataAssetPhysicalDataMember :  Linkage PhysicalDataMember PhysicalDataAsset
-aggregationOfPhysicalDataAssetPhysicalDataMember = aggregationOfBuildingBlock
+aggregationOfPhysicalDataAssetPhysicalDataMember = make_Relation "PhysicalDataAsset aggregation" "aggregated PhysicalDataAsset"
 
 {- physicalDataMember : derived relation obtained by composing
    membershipOfPhysicalDataMember and aggregationOfPhysicalDataAssetPhysicalDataMember
@@ -64,3 +67,7 @@ aggregationOfPhysicalDataAssetPhysicalDataMember = aggregationOfBuildingBlock
 -}
 physicalDataMember : Linkage PhysicalDataAsset PhysicalDataAsset
 physicalDataMember = membershipOfPhysicalDataMember  ∘  aggregationOfPhysicalDataAssetPhysicalDataMember
+
+postulate -- physicalDataMember is subTypeOf dataObjectMember
+  st-163c29e85fda678c-b6e3cdf35fbb6ad1  : physicalDataMember   ⊏⋆ᵣ  dataObjectMember 
+

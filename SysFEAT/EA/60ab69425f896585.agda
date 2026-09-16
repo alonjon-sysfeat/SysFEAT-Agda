@@ -5,6 +5,9 @@
 
 Business Capability Assessment: 
 Assessment of business capabilities.
+
+Documentation : https://framework.sysfeat.com/pages/60ab69425f896585.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,14 +22,14 @@ BusinessCapabilityAssessment : ClassOfBoundedIndividual
 BusinessCapabilityAssessment = BoundedIndividual
 
 --  BusinessCapabilityAssessment is subTypeOf Assessment
-st-60ab694b5f8965f1 : BusinessCapabilityAssessment ⊏ₑ Assessment
-st-60ab694b5f8965f1 = polySubTypeOf-identity
+st-60ab69425f896585-3b539cbb551e4c2a : BusinessCapabilityAssessment ⊏ₑ Assessment
+st-60ab69425f896585-3b539cbb551e4c2a = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Assessed Business Capability: -}
 assessedBusinessCapability :  Linkage BusinessCapabilityAssessment ValueProposition
-assessedBusinessCapability = make_Relation "Assessed Business Capability" "assessedBusinessCapability"
+assessedBusinessCapability = make_Relation "Assessed Business Capability" "Assessed Business Capability"
 
 postulate -- assessedBusinessCapability is subTypeOf assessedAsset
   st-6d3ca59b5f89b3c1-6bf1843a68599028  : assessedBusinessCapability   ⊏⋆ᵣ  assessedAsset  {lzero}

@@ -1,10 +1,18 @@
 ﻿{- ============================== 
-   Copyright (c) 2026 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
+   Copyright (c) 2025 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
    This work is released under the MIT License.
    framework.sysfeat.com
 
 Conceptual Operating Model: 
 A Conceptual Operating Model serves as a strategic framework for the enterprise, directing its functional division of labor to fulfill its missions and purposes.This model provides an ideal configuration of key Operating Domains and their value-added behaviors (Value Streams) to deliver enterprise Business Outcome Events.Unlike a reflection of the current state of operations, a Conceptual Operating Model envisions the ideal operation landscape. It is a blueprint for the optimal functioning of Business Operations.While it is sometimes referred to as a  business capability  model (see Gartner reference below), a Conceptual Operating Model is not to be confused with a Business Capability Map. Despite their shared aim of framing business operations, they are different tools and serve distinct purposes:a) A Business Capability Map is used to frame the services that business operations aimed to provide to internal or external customers. This aspect is often termed the  WHAT  in the architecture landscape.b) A Conceptual Operating Model is used to frame the strategic way the enterprise should  function  to fulfill these Business Capabilitys. This aspect is often termed the  HOW  of the architecture landscape.Its important to recognize that these HOW and WHAT aspects are contextual and should be viewed in conjunction with the Conceptualization Levels classifications. For example, the Conceptual Operating Model is seen as the  HOW  at the Conceptual level, but is considered as the  WHAT  at the Resource level.
+
+Documentation : https://framework.sysfeat.com/pages/19dc1a30555649d9.htm
+
+External references:
+  Russell Ackoff - System of concepts - FunctionalDivisionOfLabor: ../resources/external-references/Ackoff-1971-Towards-a-system-of-systems-concepts.pdf#FunctionalDivisionOfLabor
+  OMG - UAF - View - Operational Views: https://www.omg.org/spec/UAF/1.2/Beta1/DMM/PDF#page=50
+  UCF Glossary - Business Model: https://compliancedictionary.com/term/6683
+  Gartner - business-capability-modeling: https://www.gartner.com/en/information-technology/glossary/business-capability-modeling
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

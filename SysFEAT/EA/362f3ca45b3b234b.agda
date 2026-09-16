@@ -5,6 +5,11 @@
 
 Relational Entity: 
 A Relational Entity is a relational data structure that is either a Table or a Table View.A Relational Entity is accessible by means of a primary key, and if necessary foreign keys; it is described by an ordered sequence of Columns.
+
+Documentation : https://framework.sysfeat.com/pages/362f3ca45b3b234b.htm
+
+External references:
+  DDD - Glossary - Entity: https://www.dddcommunity.org/resources/ddd_terms?[entity]
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,12 +25,12 @@ RelationalEntity : ClassOfClassOfBoundedIndividual
 RelationalEntity = ClassOfBoundedIndividual
 
 --  RelationalEntity is subTypeOf PhysicalDataEntity
-st-137d24225ee2cfa3 : RelationalEntity ⊏ₑ PhysicalDataEntity
-st-137d24225ee2cfa3 = polySubTypeOf-identity
+st-362f3ca45b3b234b-762582bb5f6bd659 : RelationalEntity ⊏ₑ PhysicalDataEntity
+st-362f3ca45b3b234b-762582bb5f6bd659 = polySubTypeOf-identity
 
 --  RelationalEntity is subTypeOf RelationalDatabLOCK
-st-77318b7d62167bbb : RelationalEntity ⊏⋆ₑ RelationalDatabLOCK
-st-77318b7d62167bbb = polySubTypeOf-identity
+st-362f3ca45b3b234b-7731894d62166495 : RelationalEntity ⊏⋆ₑ RelationalDatabLOCK
+st-362f3ca45b3b234b-7731894d62166495 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -38,11 +43,11 @@ Column = ClassOfIndividual
 
 -- Membership relation
 membershipOfColumn :  Linkage RelationalEntity Column
-membershipOfColumn = membershipOfAggregateMember
+membershipOfColumn = make_upwardNestingRelation "column membership" "nested column"
 
 -- Aggregation relation
 aggregationOfColumnTypeColumn :  Linkage Column ColumnType
-aggregationOfColumnTypeColumn = aggregationOfBuildingBlock
+aggregationOfColumnTypeColumn = make_Relation "ColumnType aggregation" "aggregated ColumnType"
 
 {- column : derived relation obtained by composing
    membershipOfColumn and aggregationOfColumnTypeColumn
@@ -51,3 +56,9 @@ aggregationOfColumnTypeColumn = aggregationOfBuildingBlock
 -}
 column : Linkage RelationalEntity ColumnType
 column = membershipOfColumn  ∘  aggregationOfColumnTypeColumn
+
+postulate -- column is subTypeOf physicalDataSlot
+  st-137d21e95ee2c954-e6f222845f771913  : column   ⊏⋆ᵣ  physicalDataSlot 
+postulate -- column is subTypeOf physicalRelationship
+  st-137d21e95ee2c954-b6e3df8e5fbb724d  : column   ⊏⋆ᵣ  physicalRelationship 
+

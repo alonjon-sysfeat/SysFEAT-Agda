@@ -5,6 +5,11 @@
 
 Functionality Map: 
 Family of Functionalitys and their dependencies that, together, defines the scope of a hardware or software architecture.
+
+Documentation : https://framework.sysfeat.com/pages/dd26389d68a071f0.htm
+
+External references:
+  Modern Analyst - Using Feature Trees to Depict Scope: https://www.modernanalyst.com/Resources/Articles/tabid/115/ID/6061/Using-Feature-Trees-to-Depict-Scope.aspx
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,8 +24,8 @@ FunctionalityMap : PropertyType
 FunctionalityMap = ClassOfProperty
 
 --  FunctionalityMap is subTypeOf BusinessResourceCapabilityMap
-st-7c40a1a855272883 : FunctionalityMap ⊏ₑ BusinessResourceCapabilityMap
-st-7c40a1a855272883 = polySubTypeOf-identity
+st-dd26389d68a071f0-dd2638ba68a073a8 : FunctionalityMap ⊏ₑ BusinessResourceCapabilityMap
+st-dd26389d68a071f0-dd2638ba68a073a8 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -33,11 +38,11 @@ ScopedFunctionality = ClassOfIndividual
 
 -- Membership relation
 membershipOfScopedFunctionality :  Linkage FunctionalityMap ScopedFunctionality
-membershipOfScopedFunctionality = membershipOfAggregateMember
+membershipOfScopedFunctionality = make_upwardNestingRelation "scopedFunctionality membership" "nested scopedFunctionality"
 
 -- Aggregation relation
 aggregationOfFunctionalityScopedFunctionality :  Linkage ScopedFunctionality Functionality
-aggregationOfFunctionalityScopedFunctionality = aggregationOfBuildingBlock
+aggregationOfFunctionalityScopedFunctionality = make_Relation "Functionality aggregation" "aggregated Functionality"
 
 {- scopedFunctionality : derived relation obtained by composing
    membershipOfScopedFunctionality and aggregationOfFunctionalityScopedFunctionality
@@ -46,3 +51,7 @@ aggregationOfFunctionalityScopedFunctionality = aggregationOfBuildingBlock
 -}
 scopedFunctionality : Linkage FunctionalityMap Functionality
 scopedFunctionality = membershipOfScopedFunctionality  ∘  aggregationOfFunctionalityScopedFunctionality
+
+postulate -- scopedFunctionality is subTypeOf businessResourceCapabilityMember
+  st-dd26abe268a1ffbc-dd26a8b568a1f5be  : scopedFunctionality   ⊏⋆ᵣ  businessResourceCapabilityMember 
+

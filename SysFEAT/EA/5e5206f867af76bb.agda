@@ -5,6 +5,9 @@
 
 Person State: 
 A particular state of a Person.
+
+Documentation : https://framework.sysfeat.com/pages/5e5206f867af76bb.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,7 +22,7 @@ PersonState = StateConcept
 
 
 --  PersonState is subTypeOf Person
-st-5e5206a867af76b0 : PersonState ⊏ₑ Person
-st-5e5206a867af76b0 = polySubTypeOf-identity
+st-5e5206f867af76bb-c7dad43c5ae92d25 : PersonState ⊏ₑ Person
+st-5e5206f867af76bb-c7dad43c5ae92d25 = polySubTypeOf-identity
 
 -- == Relationships =======================

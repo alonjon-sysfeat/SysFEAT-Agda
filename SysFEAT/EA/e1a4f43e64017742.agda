@@ -5,6 +5,9 @@
 
 Switch: 
 A Switch is a Network Device used to connect multiple devices within a Computer Network, enabling them to communicate with each other.A Switch operates at the data link layer (Layer 2) of the OSI model, and it uses MAC (Media Access Control) addresses to forward data between Networking Systems.
+
+Documentation : https://framework.sysfeat.com/pages/e1a4f43e64017742.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ Switch : ClassOfClassOfBoundedIndividual
 Switch = ClassOfBoundedIndividual
 
 --  Switch is subTypeOf NetworkDevice
-st-e1a4f45f640177b1 : Switch ⊏ₑ NetworkDevice
-st-e1a4f45f640177b1 = polySubTypeOf-identity
+st-e1a4f43e64017742-f4be0fba5ee1d935 : Switch ⊏ₑ NetworkDevice
+st-e1a4f43e64017742-f4be0fba5ee1d935 = polySubTypeOf-identity
 
 -- == Relationships =======================

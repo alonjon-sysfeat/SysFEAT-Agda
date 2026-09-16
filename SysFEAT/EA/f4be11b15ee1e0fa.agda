@@ -5,6 +5,13 @@
 
 System of Resources: 
 A System of Resources is a Mezzo Capability Configuration that combines Org-Unit Types, Concrete Hardware Systems and Business Software Systems to provide a Business Capability.Examples:- Factory (with workers), - Data center (with opetators)- Hospital (with doctors and nurses)- Configured aircraft carrier (with crew),- Configured rescue ship (with rescue team).
+
+Documentation : https://framework.sysfeat.com/pages/f4be11b15ee1e0fa.htm
+
+External references:
+  Wikipedia - System of systems: https://en.wikipedia.org/wiki/System_of_systems
+  Systems_of_Systems_(SoS): https://www.sebokwiki.org/wikihttps://www.sebokwiki.org/wiki/Systems_of_Systems_(SoS)
+  DAU - Glossary - System of Systems: https://www.dau.edu/glossary/system-systems
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +25,7 @@ SystemOfResources : ClassOfClassOfBoundedIndividual
 SystemOfResources = ClassOfBoundedIndividual
 
 --  SystemOfResources is subTypeOf CapabilityConfiguration
-st-d1600d4462e09513 : SystemOfResources ⊏ₑ CapabilityConfiguration
-st-d1600d4462e09513 = polySubTypeOf-identity
+st-f4be11b15ee1e0fa-d1600c7062e093eb : SystemOfResources ⊏ₑ CapabilityConfiguration
+st-f4be11b15ee1e0fa-d1600c7062e093eb = polySubTypeOf-identity
 
 -- == Relationships =======================

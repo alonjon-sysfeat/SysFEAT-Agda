@@ -5,6 +5,9 @@
 
 Hardware Equipment: 
 A Hardware Equipments are tangible assets (e.g., machinery, tools, IT hardware, vehicles, or production systems) used to execute enterprise operations, deliver services, or produce goods. a Micro Concrete Hardware System.Examples:- Fridge compressor- Car Engine
+
+Documentation : https://framework.sysfeat.com/pages/9788a1fe661765ee.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ HardwareEquipment : ClassOfClassOfBoundedIndividual
 HardwareEquipment = ClassOfBoundedIndividual
 
 --  HardwareEquipment is subTypeOf ConcreteHardwareSystem
-st-9788a20a66176636 : HardwareEquipment ⊏ₑ ConcreteHardwareSystem
-st-9788a20a66176636 = polySubTypeOf-identity
+st-9788a1fe661765ee-c30bf4015a5da72b : HardwareEquipment ⊏ₑ ConcreteHardwareSystem
+st-9788a1fe661765ee-c30bf4015a5da72b = polySubTypeOf-identity
 
 -- == Relationships =======================

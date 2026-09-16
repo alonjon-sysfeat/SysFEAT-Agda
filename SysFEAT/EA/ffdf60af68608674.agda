@@ -5,6 +5,9 @@
 
 Hardware System Category: 
 A Hardware System Category is a type of physical, material Artifact engineered to produce and consume physical effects.
+
+Documentation : https://framework.sysfeat.com/pages/ffdf60af68608674.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,11 +22,11 @@ HardwareSystemCategory : ClassOfClassOfBoundedIndividual
 HardwareSystemCategory = ClassOfBoundedIndividual
 
 --  HardwareSystemCategory is subTypeOf Artifact
-st-ffdf60b9686086bb : HardwareSystemCategory ⊏ₑ Artifact
-st-ffdf60b9686086bb = polySubTypeOf-identity
+st-ffdf60af68608674-ffdf5eb7686083b4 : HardwareSystemCategory ⊏ₑ Artifact
+st-ffdf60af68608674-ffdf5eb7686083b4 = polySubTypeOf-identity
 
 --  HardwareSystemCategory is subTypeOf PhysicalResourceAgent
-st-340f5377686213d8 : HardwareSystemCategory ⊏ₑ PhysicalResourceAgent
-st-340f5377686213d8 = polySubTypeOf-identity
+st-ffdf60af68608674-340f52dc686212f5 : HardwareSystemCategory ⊏ₑ PhysicalResourceAgent
+st-ffdf60af68608674-340f52dc686212f5 = polySubTypeOf-identity
 
 -- == Relationships =======================

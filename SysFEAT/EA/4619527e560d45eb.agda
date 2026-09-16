@@ -5,6 +5,13 @@
 
 Logical Data Entity: 
 A Logical Data Entity is a logical structure of a Data Entity. As any Data Entity, it has an independent existence and can be uniquely identified.A Logical Data Entity is characterized by Logical Relationships it has with other Logical Data Entity(ies) and by its Attributes.
+
+Documentation : https://framework.sysfeat.com/pages/4619527e560d45eb.htm
+
+External references:
+  DDD - Glossary - Entity: https://www.dddcommunity.org/resources/ddd_terms?[entity]
+  OMG - UAF - ResourceInformation: https://www.omg.org/spec/UAF/1.2/Beta1/DMM/PDF#ResourceInformation
+  OpenGroup - TOGAF - Definition - Data Element: https://pubs.opengroup.org/togaf-standard/introduction/apdxb.html#tag_06_10
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,18 +27,18 @@ LogicalDataEntity : ClassOfClassOfBoundedIndividual
 LogicalDataEntity = ClassOfBoundedIndividual
 
 --  LogicalDataEntity is subTypeOf LogicalDataElement
-st-2b5859115eec5326 : LogicalDataEntity ⊏ₑ LogicalDataElement
-st-2b5859115eec5326 = polySubTypeOf-identity
+st-4619527e560d45eb-2b5858b85eec51d9 : LogicalDataEntity ⊏ₑ LogicalDataElement
+st-4619527e560d45eb-2b5858b85eec51d9 = polySubTypeOf-identity
 
 --  LogicalDataEntity is subTypeOf DataEntity
-st-e7e3fb2c5fbb10f8 : LogicalDataEntity ⊏ₑ DataEntity
-st-e7e3fb2c5fbb10f8 = polySubTypeOf-identity
+st-4619527e560d45eb-325c32fc5eb02d02 : LogicalDataEntity ⊏ₑ DataEntity
+st-4619527e560d45eb-325c32fc5eb02d02 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Specialized Logical Entity: -}
 specializedLogicalEntity :  Linkage LogicalDataEntity LogicalDataEntity
-specializedLogicalEntity = make_subTypeOf "Specialized Logical Entity" "specializedLogicalEntity"
+specializedLogicalEntity = make_subTypeOf "Specialized Logical Entity" "Specialized Logical Entity"
 
 postulate -- specializedLogicalEntity is subTypeOf specializedDataEntity
   st-325a39d866f35355-325a380d66f350dd  : specializedLogicalEntity   ⊏⋆ᵣ  specializedDataEntity 
@@ -47,11 +54,11 @@ Attribute = ClassOfIndividual
 
 -- Membership relation
 membershipOfAttribute :  Linkage LogicalDataEntity Attribute
-membershipOfAttribute = membershipOfAggregateMember
+membershipOfAttribute = make_upwardNestingRelation "attribute membership" "nested attribute"
 
 -- Aggregation relation
 aggregationOfLogicalDataPropertyAttribute :  Linkage Attribute LogicalDataProperty
-aggregationOfLogicalDataPropertyAttribute = aggregationOfBuildingBlock
+aggregationOfLogicalDataPropertyAttribute = make_Relation "LogicalDataProperty aggregation" "aggregated LogicalDataProperty"
 
 {- attribute : derived relation obtained by composing
    membershipOfAttribute and aggregationOfLogicalDataPropertyAttribute
@@ -60,6 +67,10 @@ aggregationOfLogicalDataPropertyAttribute = aggregationOfBuildingBlock
 -}
 attribute : Linkage LogicalDataEntity LogicalDataProperty
 attribute = membershipOfAttribute  ∘  aggregationOfLogicalDataPropertyAttribute
+
+postulate -- attribute is subTypeOf attribute
+  st-f4be36695ee1c7fa-8f1c9ad668ca8db4  : attribute   ⊏⋆ᵣ  attribute 
+
 
 {- Logical Relationship: 
 A part of a class, a component, etc. or a role of a collaboration.
@@ -70,11 +81,11 @@ LogicalRelationship = ClassOfIndividual
 
 -- Membership relation
 membershipOfLogicalRelationship :  Linkage LogicalDataEntity LogicalRelationship
-membershipOfLogicalRelationship = membershipOfAggregateMember
+membershipOfLogicalRelationship = make_upwardNestingRelation "logicalRelationship membership" "nested logicalRelationship"
 
 -- Aggregation relation
 aggregationOfLogicalDataEntityLogicalRelationship :  Linkage LogicalRelationship LogicalDataEntity
-aggregationOfLogicalDataEntityLogicalRelationship = aggregationOfBuildingBlock
+aggregationOfLogicalDataEntityLogicalRelationship = make_Relation "LogicalDataEntity aggregation" "aggregated LogicalDataEntity"
 
 {- logicalRelationship : derived relation obtained by composing
    membershipOfLogicalRelationship and aggregationOfLogicalDataEntityLogicalRelationship
@@ -83,3 +94,9 @@ aggregationOfLogicalDataEntityLogicalRelationship = aggregationOfBuildingBlock
 -}
 logicalRelationship : Linkage LogicalDataEntity LogicalDataEntity
 logicalRelationship = membershipOfLogicalRelationship  ∘  aggregationOfLogicalDataEntityLogicalRelationship
+
+postulate -- logicalRelationship is subTypeOf logicalDataMember
+  st-f4be36b65ee1c923-e7e3fa0a5fbb0ddb  : logicalRelationship   ⊏⋆ᵣ  logicalDataMember 
+postulate -- logicalRelationship is subTypeOf relationship
+  st-f4be36b65ee1c923-b6e3cc7a5fbb6878  : logicalRelationship   ⊏⋆ᵣ  relationship 
+

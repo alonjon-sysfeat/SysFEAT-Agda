@@ -5,6 +5,9 @@
 
 Configured Technology System: 
 A Configured Technology System is a Technology System that is a combination of Networking Systems and Computing Systems.
+
+Documentation : https://framework.sysfeat.com/pages/27a456b46407c665.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ ConfiguredTechnologySystem : ClassOfClassOfBoundedIndividual
 ConfiguredTechnologySystem = ClassOfBoundedIndividual
 
 --  ConfiguredTechnologySystem is subTypeOf TechnologySystem
-st-27a456dd6407c6d1 : ConfiguredTechnologySystem ⊏ₑ TechnologySystem
-st-27a456dd6407c6d1 = polySubTypeOf-identity
+st-27a456b46407c665-0cbd1fa663fe18ac : ConfiguredTechnologySystem ⊏ₑ TechnologySystem
+st-27a456b46407c665-0cbd1fa663fe18ac = polySubTypeOf-identity
 
 -- == Relationships =======================

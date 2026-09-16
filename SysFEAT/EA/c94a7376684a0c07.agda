@@ -5,6 +5,9 @@
 
 Resource Operational Asset: 
 A Resource Operational Asset is a kind of Resource Operating Asset (agent or behavior) that is involved in core operations, as distinct from Resource Operating Assets that govern their security and reliability (Control Measures).
+
+Documentation : https://framework.sysfeat.com/pages/c94a7376684a0c07.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ ResourceOperationalAsset : ClassOfClassOfBoundedIndividual
 ResourceOperationalAsset = ClassOfBoundedIndividual
 
 --  ResourceOperationalAsset is subTypeOf ResourceOperatingAsset
-st-c94a73a0684a0c5b : ResourceOperationalAsset ⊏ₑ ResourceOperatingAsset
-st-c94a73a0684a0c5b = polySubTypeOf-identity
+st-c94a7376684a0c07-f8e61da0621db6fa : ResourceOperationalAsset ⊏ₑ ResourceOperatingAsset
+st-c94a7376684a0c07-f8e61da0621db6fa = polySubTypeOf-identity
 
 -- == Relationships =======================

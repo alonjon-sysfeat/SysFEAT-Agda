@@ -5,6 +5,9 @@
 
 Data Control Execution: 
 Execution dun data control effectué dans le cadre dun data catalog.
+
+Documentation : https://framework.sysfeat.com/pages/d7f9fbd45f720d19.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -22,26 +25,26 @@ DataControlExecution : ClassOfBoundedIndividual
 DataControlExecution = BoundedIndividual
 
 --  DataControlExecution is subTypeOf DataGovernanceBlock
-st-02f7096b600f9fa7 : DataControlExecution ⊏ₑ DataGovernanceBlock
-st-02f7096b600f9fa7 = polySubTypeOf-identity
+st-d7f9fbd45f720d19-b90ac213600e39bb : DataControlExecution ⊏ₑ DataGovernanceBlock
+st-d7f9fbd45f720d19-b90ac213600e39bb = polySubTypeOf-identity
 
 --  DataControlExecution is subTypeOf GovernanceActivity
-st-d7f90bc15f737111 : DataControlExecution ⊏ₑ GovernanceActivity
-st-d7f90bc15f737111 = polySubTypeOf-identity
+st-d7f9fbd45f720d19-1737b76a5fe28204 : DataControlExecution ⊏ₑ GovernanceActivity
+st-d7f9fbd45f720d19-1737b76a5fe28204 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Control Result: -}
 controlResult :  Linkage DataControlExecution DataQualityIndicator
-controlResult = make_holonymyRelation "Control Result" "controlResult"
+controlResult = make_holonymyRelation "Control Result" "Control Result"
 
 
 {- Identified Data Issue: -}
 identifiedDataIssue :  Linkage DataControlExecution DataIssue
-identifiedDataIssue = make_holonymyRelation "Identified Data Issue" "identifiedDataIssue"
+identifiedDataIssue = make_holonymyRelation "Identified Data Issue" "Identified Data Issue"
 
 
 {- Tested Assurance Case: -}
 testedAssuranceCase :  Linkage DataControlExecution DataAssuranceCase
-testedAssuranceCase = make_Relation "Tested Assurance Case" "testedAssuranceCase"
+testedAssuranceCase = make_Relation "Tested Assurance Case" "Tested Assurance Case"
 

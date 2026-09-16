@@ -5,6 +5,9 @@
 
 NoSQL Element: 
 A NoSQL Element is Physical Data Asset that represents an element of a physical schema as it will be stored in relational or non relational DBMS (NoSQL, triple store, document store, flat files, etc.).A NoSQL Element is either a NoSQL Dataset or a NoSQL Field.
+
+Documentation : https://framework.sysfeat.com/pages/8180baa3600110c8.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,12 +22,12 @@ NoSQLElement : ClassOfClassOfBoundedIndividual
 NoSQLElement = ClassOfBoundedIndividual
 
 --  NoSQLElement is subTypeOf NoSQLDataAsset
-st-77318e3462168198 : NoSQLElement ⊏⋆ₑ NoSQLDataAsset
-st-77318e3462168198 = polySubTypeOf-identity
+st-8180baa3600110c8-77318c6c62167dd7 : NoSQLElement ⊏⋆ₑ NoSQLDataAsset
+st-8180baa3600110c8-77318c6c62167dd7 = polySubTypeOf-identity
 
 --  NoSQLElement is subTypeOf PhysicalDataAsset
-st-8180babc60011187 : NoSQLElement ⊏ₑ PhysicalDataAsset
-st-8180babc60011187 = polySubTypeOf-identity
+st-8180baa3600110c8-7d37d08d5fd07aaa : NoSQLElement ⊏ₑ PhysicalDataAsset
+st-8180baa3600110c8-7d37d08d5fd07aaa = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -37,11 +40,11 @@ MetaDataObjectMember = ClassOfIndividual
 
 -- Membership relation
 membershipOfMetaDataObjectMember :  Linkage NoSQLElement MetaDataObjectMember
-membershipOfMetaDataObjectMember = membershipOfAggregateMember
+membershipOfMetaDataObjectMember = make_upwardNestingRelation "metaDataObjectMember membership" "nested metaDataObjectMember"
 
 -- Aggregation relation
 aggregationOfNoSQLElementMetaDataObjectMember :  Linkage MetaDataObjectMember NoSQLElement
-aggregationOfNoSQLElementMetaDataObjectMember = aggregationOfBuildingBlock
+aggregationOfNoSQLElementMetaDataObjectMember = make_Relation "NoSQLElement aggregation" "aggregated NoSQLElement"
 
 {- metaDataObjectMember : derived relation obtained by composing
    membershipOfMetaDataObjectMember and aggregationOfNoSQLElementMetaDataObjectMember
@@ -50,3 +53,7 @@ aggregationOfNoSQLElementMetaDataObjectMember = aggregationOfBuildingBlock
 -}
 metaDataObjectMember : Linkage NoSQLElement NoSQLElement
 metaDataObjectMember = membershipOfMetaDataObjectMember  ∘  aggregationOfNoSQLElementMetaDataObjectMember
+
+postulate -- metaDataObjectMember is subTypeOf physicalDataMember
+  st-05b0b95c6006bc80-163c29e85fda678c  : metaDataObjectMember   ⊏⋆ᵣ  physicalDataMember 
+

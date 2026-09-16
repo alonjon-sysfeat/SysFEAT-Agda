@@ -1,10 +1,23 @@
 ﻿{- ============================== 
-   Copyright (c) 2026 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
+   Copyright (c) 2022 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
    This work is released under the MIT License.
    framework.sysfeat.com
 
 People & Accountability: 
 The People &amp; Accountability domain defines the roles that organizational members perform, so that everyone understands their responsibilities to the group.How individuals are organized around work and responsibilities matters greatly for any organization.Accountability charts provide more clarity around responsibilities and also show how people and teams are organized according to geography, Business Functions, product, or customer type. A key component of an accountability chart is the greater detail it provides about responsibilities and Business Outcome Events.
+
+Documentation : https://framework.sysfeat.com/pages/1ce356355c48c0e2.htm
+
+External references:
+  Russell Ackoff - System of concepts - FunctionalDivisionOfLabor: ../resources/external-references/Ackoff-1971-Towards-a-system-of-systems-concepts.pdf#FunctionalDivisionOfLabor
+  System Thinking Alliance - Russell Ackoff: https://systemsthinkingalliance.org/russell-ackoff
+  System Thinking Alliance - Socio-Technical Systems (STS): https://systemsthinkingalliance.org/glossary/#s
+  Accountability Charts vs. Org Charts: A Primer: https://pingboard.com/blog/accountability-charts-vs-org-charts/
+  SAFe© - Organizational Agility: https://www.scaledagileframework.com/organizational-agility/
+  Russell Ackoff - System of Concepts - Organizations: ../resources/external-references/Ackoff-1971-Towards-a-system-of-systems-concepts.pdf#Organizations
+  Holacracy: https://www.holacracy.org/
+  Felipe Castro - The Beginner’s Guide to OKRs: https://felipecastro.com/en/okr/what-is-okr/
+  Wikipedia - OKR - Objectives and key results: https://en.wikipedia.org/wiki/OKR
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

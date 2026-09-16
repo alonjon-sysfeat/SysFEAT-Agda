@@ -5,6 +5,9 @@
 
 Inventory Period: 
 
+
+Documentation : https://framework.sysfeat.com/pages/762579ee5f6b8724.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

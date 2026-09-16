@@ -5,6 +5,9 @@
 
 Individual Natural Resource: 
 An Individual Natural Resource is an Individual Business Agent that refers to any material or substance that occurs naturally in the environment and can be used by humans for various purposes. These resources are derived from the Earth and include a wide range of physical entities such as water, minerals, forests, fossil fuels, soil, and air. 
+
+Documentation : https://framework.sysfeat.com/pages/c80a3bc867858386.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,11 +23,11 @@ IndividualNaturalResource : ClassOfBoundedIndividual
 IndividualNaturalResource = BoundedIndividual
 
 --  IndividualNaturalResource is subTypeOf IndividualResourceAgent
-st-3b1b907f68cd8302 : IndividualNaturalResource ⊏ₑ IndividualResourceAgent
-st-3b1b907f68cd8302 = polySubTypeOf-identity
+st-c80a3bc867858386-fe1c231267880201 : IndividualNaturalResource ⊏ₑ IndividualResourceAgent
+st-c80a3bc867858386-fe1c231267880201 = polySubTypeOf-identity
 
 --  IndividualNaturalResource is subTypeOf IndividualPhysicalResourceAgent
-st-3b1bb7ce68cd9f2d : IndividualNaturalResource ⊏ₑ IndividualPhysicalResourceAgent
-st-3b1bb7ce68cd9f2d = polySubTypeOf-identity
+st-c80a3bc867858386-3b1bb56c68cd9bfa : IndividualNaturalResource ⊏ₑ IndividualPhysicalResourceAgent
+st-c80a3bc867858386-3b1bb56c68cd9bfa = polySubTypeOf-identity
 
 -- == Relationships =======================

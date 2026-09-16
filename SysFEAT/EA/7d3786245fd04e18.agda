@@ -5,6 +5,9 @@
 
 Privacy Representative: 
 A National Representative is a representative of the legal entity in one of the Member States where the data subjects, whose personal data are processed, are located.
+
+Documentation : https://framework.sysfeat.com/pages/7d3786245fd04e18.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,12 +22,12 @@ PrivacyRepresentative : ClassOfBoundedIndividual
 PrivacyRepresentative = BoundedIndividual
 
 --  PrivacyRepresentative is subTypeOf PrivacyBlock
-st-364214f660080aa9 : PrivacyRepresentative ⊏ₑ PrivacyBlock
-st-364214f660080aa9 = polySubTypeOf-identity
+st-7d3786245fd04e18-7d3786425fd04ea2 : PrivacyRepresentative ⊏ₑ PrivacyBlock
+st-7d3786245fd04e18-7d3786425fd04ea2 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Person: -}
 person :  Linkage PrivacyRepresentative Person
-person = make_holonymyRelation "Person" "person"
+person = make_holonymyRelation "Person" "Person"
 

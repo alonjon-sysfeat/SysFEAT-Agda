@@ -5,6 +5,9 @@
 
 Business Partner: 
 A Business Partner is a state of a Resource Agent Type, who acts as a party interacting with the enterprise in the context its operating eco-system (the Resource Operating Ecosystem).Example : Private Sector Customer, Regulation Authority, Public health Authority.
+
+Documentation : https://framework.sysfeat.com/pages/08d17cde678a2b47.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ BusinessPartner : ClassOfClassOfBoundedIndividual
 BusinessPartner = ClassOfBoundedIndividual
 
 --  BusinessPartner is subTypeOf BusinessAgentType
-st-8f1cd6df68cabad4 : BusinessPartner ⊏ₑ BusinessAgentType
-st-8f1cd6df68cabad4 = polySubTypeOf-identity
+st-08d17cde678a2b47-bcebd31f5491302c : BusinessPartner ⊏ₑ BusinessAgentType
+st-08d17cde678a2b47-bcebd31f5491302c = polySubTypeOf-identity
 
 -- == Relationships =======================

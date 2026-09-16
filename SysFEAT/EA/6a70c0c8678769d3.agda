@@ -5,6 +5,9 @@
 
 Resource Event: 
 A Resource Event is a Behavioral Event produced and consumed by Resource Behaviors.
+
+Documentation : https://framework.sysfeat.com/pages/6a70c0c8678769d3.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,11 +22,11 @@ ResourceEvent : ClassOfClassOfIndividual
 ResourceEvent = ClassOfIndividual
 
 --  ResourceEvent is subTypeOf ResourceFunctionalAsset
-st-6a70f7786787b838 : ResourceEvent ⊏ₑ ResourceFunctionalAsset
-st-6a70f7786787b838 = polySubTypeOf-identity
+st-6a70c0c8678769d3-9bec9fbf66fb0d6f : ResourceEvent ⊏ₑ ResourceFunctionalAsset
+st-6a70c0c8678769d3-9bec9fbf66fb0d6f = polySubTypeOf-identity
 
 --  ResourceEvent is subTypeOf BehavioralEvent
-st-6a70c1e867876c3d : ResourceEvent ⊏ₑ BehavioralEvent
-st-6a70c1e867876c3d = polySubTypeOf-identity
+st-6a70c0c8678769d3-24ae31d75ed1c747 : ResourceEvent ⊏ₑ BehavioralEvent
+st-6a70c0c8678769d3-24ae31d75ed1c747 = polySubTypeOf-identity
 
 -- == Relationships =======================

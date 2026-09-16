@@ -5,6 +5,9 @@
 
 Business Line: 
 A Business Line is a high level classification of the main activities of the enterprise. It corresponds for example to major product segments or to distribution channels.It can be used to classify Business Processes, Organizational Units or Applications that serve a specific product and/or a specific market.Regulatory Frameworks in some industries impose their own list of Business Lines.
+
+Documentation : https://framework.sysfeat.com/pages/ae7c99be60234bcf.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ BusinessLine : ClassOfClassOfBoundedIndividual
 BusinessLine = ClassOfBoundedIndividual
 
 --  BusinessLine withAspect AssetCategory
-st-ae7c99fd60234d45 : BusinessLine ⊏ₐₑ (AssetCategory (lsuc(lzero)))
-st-ae7c99fd60234d45 = polySubTypeOf-identity
+st-ae7c99be60234bcf-f69620466a0f9c2f : BusinessLine ⊏ₐₑ (AssetCategory (lsuc(lzero)))
+st-ae7c99be60234bcf-f69620466a0f9c2f = polySubTypeOf-identity
 
 -- == Relationships =======================

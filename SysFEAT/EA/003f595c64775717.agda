@@ -5,6 +5,9 @@
 
 Data Quality Indicator: 
 
+
+Documentation : https://framework.sysfeat.com/pages/003f595c64775717.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,8 +22,8 @@ DataQualityIndicator : ClassOfBoundedIndividual
 DataQualityIndicator = BoundedIndividual
 
 --  DataQualityIndicator is subTypeOf KeyIndicator
-st-003f596b64775773 : DataQualityIndicator ⊏ₑ KeyIndicator
-st-003f596b64775773 = polySubTypeOf-identity
+st-003f595c64775717-8f46e8eb64b7719a : DataQualityIndicator ⊏ₑ KeyIndicator
+st-003f595c64775717-8f46e8eb64b7719a = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -31,11 +34,11 @@ MonitoredDataAssuranceCase = ClassOfIndividual
 
 -- Membership relation
 membershipOfMonitoredDataAssuranceCase :  Linkage DataQualityIndicator MonitoredDataAssuranceCase
-membershipOfMonitoredDataAssuranceCase = membershipOfAggregateMember
+membershipOfMonitoredDataAssuranceCase = make_upwardNestingRelation "monitoredDataAssuranceCase membership" "nested monitoredDataAssuranceCase"
 
 -- Aggregation relation
 aggregationOfDataAssuranceCaseMonitoredDataAssuranceCase :  Linkage MonitoredDataAssuranceCase DataAssuranceCase
-aggregationOfDataAssuranceCaseMonitoredDataAssuranceCase = aggregationOfBuildingBlock
+aggregationOfDataAssuranceCaseMonitoredDataAssuranceCase = make_Relation "DataAssuranceCase aggregation" "aggregated DataAssuranceCase"
 
 {- monitoredDataAssuranceCase : derived relation obtained by composing
    membershipOfMonitoredDataAssuranceCase and aggregationOfDataAssuranceCaseMonitoredDataAssuranceCase
@@ -44,3 +47,5 @@ aggregationOfDataAssuranceCaseMonitoredDataAssuranceCase = aggregationOfBuilding
 -}
 monitoredDataAssuranceCase : Linkage DataQualityIndicator DataAssuranceCase
 monitoredDataAssuranceCase = membershipOfMonitoredDataAssuranceCase  ∘  aggregationOfDataAssuranceCaseMonitoredDataAssuranceCase
+
+

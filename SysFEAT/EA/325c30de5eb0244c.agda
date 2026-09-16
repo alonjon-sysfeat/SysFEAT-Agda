@@ -5,6 +5,9 @@
 
 Logical Data Map: 
 
+
+Documentation : https://framework.sysfeat.com/pages/325c30de5eb0244c.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,12 +23,12 @@ LogicalDataMap : ClassOfClassOfBoundedIndividual
 LogicalDataMap = ClassOfBoundedIndividual
 
 --  LogicalDataMap is subTypeOf DataMap
-st-137d21275ee2c50c : LogicalDataMap ⊏ₑ DataMap
-st-137d21275ee2c50c = polySubTypeOf-identity
+st-325c30de5eb0244c-6d2b80db5fbb700b : LogicalDataMap ⊏ₑ DataMap
+st-325c30de5eb0244c-6d2b80db5fbb700b = polySubTypeOf-identity
 
 --  LogicalDataMap is subTypeOf LogicalDataAsset
-st-fd1bf2e55fbc659b : LogicalDataMap ⊏ₑ LogicalDataAsset
-st-fd1bf2e55fbc659b = polySubTypeOf-identity
+st-325c30de5eb0244c-fd1bf2a45fbc64fb : LogicalDataMap ⊏ₑ LogicalDataAsset
+st-325c30de5eb0244c-fd1bf2a45fbc64fb = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -36,11 +39,11 @@ ExternalDataDomainPart = ClassOfIndividual
 
 -- Membership relation
 membershipOfExternalDataDomainPart :  Linkage LogicalDataMap ExternalDataDomainPart
-membershipOfExternalDataDomainPart = membershipOfAggregateMember
+membershipOfExternalDataDomainPart = make_upwardNestingRelation "externalDataDomainPart membership" "nested externalDataDomainPart"
 
 -- Aggregation relation
 aggregationOfLogicalDataDomainExternalDataDomainPart :  Linkage ExternalDataDomainPart LogicalDataDomain
-aggregationOfLogicalDataDomainExternalDataDomainPart = aggregationOfBuildingBlock
+aggregationOfLogicalDataDomainExternalDataDomainPart = make_Relation "LogicalDataDomain aggregation" "aggregated LogicalDataDomain"
 
 {- externalDataDomainPart : derived relation obtained by composing
    membershipOfExternalDataDomainPart and aggregationOfLogicalDataDomainExternalDataDomainPart
@@ -50,6 +53,12 @@ aggregationOfLogicalDataDomainExternalDataDomainPart = aggregationOfBuildingBloc
 externalDataDomainPart : Linkage LogicalDataMap LogicalDataDomain
 externalDataDomainPart = membershipOfExternalDataDomainPart  ∘  aggregationOfLogicalDataDomainExternalDataDomainPart
 
+postulate -- externalDataDomainPart is subTypeOf externalInformationArea
+  st-cb08cf795ed040b2-dfa4e2b35ebb4ee8  : externalDataDomainPart   ⊏⋆ᵣ  externalInformationArea 
+postulate -- externalDataDomainPart is subTypeOf externalDataArea
+  st-cb08cf795ed040b2-fd1bf5b05fbc6c5a  : externalDataDomainPart   ⊏⋆ᵣ  externalDataArea 
+
+
 {- Logical Data Area Member: -}
 -- Aggregate Member : Logical Data Area Member
 LogicalDataAreaMember : ClassOfClassOfIndividual
@@ -57,11 +66,11 @@ LogicalDataAreaMember = ClassOfIndividual
 
 -- Membership relation
 membershipOfLogicalDataAreaMember :  Linkage LogicalDataMap LogicalDataAreaMember
-membershipOfLogicalDataAreaMember = membershipOfAggregateMember
+membershipOfLogicalDataAreaMember = make_upwardNestingRelation "logicalDataAreaMember membership" "nested logicalDataAreaMember"
 
 -- Aggregation relation
 aggregationOfLogicalDataDomainLogicalDataAreaMember :  Linkage LogicalDataAreaMember LogicalDataDomain
-aggregationOfLogicalDataDomainLogicalDataAreaMember = aggregationOfBuildingBlock
+aggregationOfLogicalDataDomainLogicalDataAreaMember = make_Relation "LogicalDataDomain aggregation" "aggregated LogicalDataDomain"
 
 {- logicalDataAreaMember : derived relation obtained by composing
    membershipOfLogicalDataAreaMember and aggregationOfLogicalDataDomainLogicalDataAreaMember
@@ -70,3 +79,7 @@ aggregationOfLogicalDataDomainLogicalDataAreaMember = aggregationOfBuildingBlock
 -}
 logicalDataAreaMember : Linkage LogicalDataMap LogicalDataDomain
 logicalDataAreaMember = membershipOfLogicalDataAreaMember  ∘  aggregationOfLogicalDataDomainLogicalDataAreaMember
+
+postulate -- logicalDataAreaMember is subTypeOf dataDomainMember
+  st-fd1bf4d65fbc69be-6d2b81965fbb71ad  : logicalDataAreaMember   ⊏⋆ᵣ  dataDomainMember 
+

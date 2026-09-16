@@ -5,6 +5,9 @@
 
 Average Value: 
 
+
+Documentation : https://framework.sysfeat.com/pages/affecbd45f607a8c.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

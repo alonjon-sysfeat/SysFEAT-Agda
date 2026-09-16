@@ -5,6 +5,9 @@
 
 Syncrhonization: 
 
+
+Documentation : https://framework.sysfeat.com/pages/762577d85f6b7dcc.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

@@ -5,6 +5,9 @@
 
 Conceptual Functional Asset: 
 Conceptual Functional Assets are Functional Assets used to describe the Conceptual Operating Model of an enterprise to shape its functional division of labor.
+
+Documentation : https://framework.sysfeat.com/pages/cb94ec53681855c2.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,11 +22,11 @@ ConceptualFunctionalAsset : ClassOfClassOfBoundedIndividual
 ConceptualFunctionalAsset = ClassOfBoundedIndividual
 
 --  ConceptualFunctionalAsset is subTypeOf FunctionalAsset
-st-cb94f01e68185c66 : ConceptualFunctionalAsset ⊏ₑ FunctionalAsset
-st-cb94f01e68185c66 = polySubTypeOf-identity
+st-cb94ec53681855c2-a44fb6bc6748b088 : ConceptualFunctionalAsset ⊏ₑ FunctionalAsset
+st-cb94ec53681855c2-a44fb6bc6748b088 = polySubTypeOf-identity
 
 --  ConceptualFunctionalAsset is subTypeOf ConceptualAsset
-st-d9f67812688e21da : ConceptualFunctionalAsset ⊏ₑ ConceptualAsset
-st-d9f67812688e21da = polySubTypeOf-identity
+st-cb94ec53681855c2-d9f677bb688e2127 : ConceptualFunctionalAsset ⊏ₑ ConceptualAsset
+st-cb94ec53681855c2-d9f677bb688e2127 = polySubTypeOf-identity
 
 -- == Relationships =======================

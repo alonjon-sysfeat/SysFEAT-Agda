@@ -5,6 +5,9 @@
 
 Resource Capability Map: 
 Top level assembly of Resource Capabilitys and their dependencies which, together, provide a scope of added value (Outcomes) pursued by Asset Management Initiatives.
+
+Documentation : https://framework.sysfeat.com/pages/dd26307668a065f5.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,8 +22,8 @@ ResourceCapabilityMap : PropertyType
 ResourceCapabilityMap = ClassOfProperty
 
 --  ResourceCapabilityMap is subTypeOf CapabilityMap
-st-09d10a07679e4626 : ResourceCapabilityMap ⊏ₑ CapabilityMap
-st-09d10a07679e4626 = polySubTypeOf-identity
+st-dd26307668a065f5-01f12127689b6de2 : ResourceCapabilityMap ⊏ₑ CapabilityMap
+st-dd26307668a065f5-01f12127689b6de2 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -31,11 +34,11 @@ ResourceCapabilityMember = ClassOfIndividual
 
 -- Membership relation
 membershipOfResourceCapabilityMember :  Linkage ResourceCapabilityMap ResourceCapabilityMember
-membershipOfResourceCapabilityMember = membershipOfAggregateMember
+membershipOfResourceCapabilityMember = make_upwardNestingRelation "resourceCapabilityMember membership" "nested resourceCapabilityMember"
 
 -- Aggregation relation
 aggregationOfResourceCapabilityResourceCapabilityMember :  Linkage ResourceCapabilityMember ResourceCapability
-aggregationOfResourceCapabilityResourceCapabilityMember = aggregationOfBuildingBlock
+aggregationOfResourceCapabilityResourceCapabilityMember = make_Relation "ResourceCapability aggregation" "aggregated ResourceCapability"
 
 {- resourceCapabilityMember : derived relation obtained by composing
    membershipOfResourceCapabilityMember and aggregationOfResourceCapabilityResourceCapabilityMember
@@ -44,3 +47,7 @@ aggregationOfResourceCapabilityResourceCapabilityMember = aggregationOfBuildingB
 -}
 resourceCapabilityMember : Linkage ResourceCapabilityMap ResourceCapability
 resourceCapabilityMember = membershipOfResourceCapabilityMember  ∘  aggregationOfResourceCapabilityResourceCapabilityMember
+
+postulate -- resourceCapabilityMember is subTypeOf capabilityMember
+  st-dd26325f68a0682c-01f12228689b6efa  : resourceCapabilityMember   ⊏⋆ᵣ  capabilityMember 
+

@@ -5,6 +5,9 @@
 
 Primitive Type: 
 A Primitive Type is a NoSQL Field that represents a data format such as  string ,  integer .
+
+Documentation : https://framework.sysfeat.com/pages/7326bf5e63d77585.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ PrimitiveType : ClassOfClassOfBoundedIndividual
 PrimitiveType = ClassOfBoundedIndividual
 
 --  PrimitiveType is subTypeOf NoSQLField
-st-7326bf6563d775c9 : PrimitiveType ⊏ₑ NoSQLField
-st-7326bf6563d775c9 = polySubTypeOf-identity
+st-7326bf5e63d77585-254e4dd45f7f8749 : PrimitiveType ⊏ₑ NoSQLField
+st-7326bf5e63d77585-254e4dd45f7f8749 = polySubTypeOf-identity
 
 -- == Relationships =======================

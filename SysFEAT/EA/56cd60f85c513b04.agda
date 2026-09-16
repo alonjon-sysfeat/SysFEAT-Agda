@@ -5,6 +5,9 @@
 
 Deployed Server: 
 A Deployed Server is a Computer Server deployed in a Data Center or another facility.
+
+Documentation : https://framework.sysfeat.com/pages/56cd60f85c513b04.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -22,29 +25,29 @@ DeployedServer : ClassOfBoundedIndividual
 DeployedServer = BoundedIndividual
 
 --  DeployedServer is subTypeOf DeployedBusinessSystem
-st-4d12965361b07a55 : DeployedServer ⊏ₑ DeployedBusinessSystem
-st-4d12965361b07a55 = polySubTypeOf-identity
+st-56cd60f85c513b04-3642454f6007e80e : DeployedServer ⊏ₑ DeployedBusinessSystem
+st-56cd60f85c513b04-3642454f6007e80e = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Hosted Data Store: -}
 hostedDataStore :  Linkage DeployedServer DeployedDataStore
-hostedDataStore = make_holonymyRelation "Hosted Data Store" "hostedDataStore"
+hostedDataStore = make_holonymyRelation "Hosted Data Store" "Hosted Data Store"
 
 
 {- Hosted Application: -}
 hostedApplication :  Linkage DeployedServer DeployedApplication
-hostedApplication = make_holonymyRelation "Hosted Application" "hostedApplication"
+hostedApplication = make_holonymyRelation "Hosted Application" "Hosted Application"
 
 
 {- Hosted Technology: -}
 hostedTechnology :  Linkage DeployedServer DeployedSOftwareTechnology
-hostedTechnology = make_holonymyRelation "Hosted Technology" "hostedTechnology"
+hostedTechnology = make_holonymyRelation "Hosted Technology" "Hosted Technology"
 
 
 {- Server Type: -}
 serverType :  Linkage DeployedServer ComputerServer
-serverType = make_instanceOf "Server Type" "serverType"
+serverType = make_instanceOf "Server Type" "Server Type"
 
 postulate -- serverType is subTypeOf businessSystemType
   st-e2dc103a66fd7e38-e2dc074666fd6d03  : serverType   ⊏⋆ᵣ  businessSystemType 

@@ -5,6 +5,14 @@
 
 Legal Entity Type: 
 A Legal Entity Type is a Macro Org-Unit Type that is a type of lawful or legally standing association, corporation, partnership, proprietorship, trust, or individual that has the legal capacity to: enter into agreements or contracts; assume obligations; incur and pay debts; sue and be sued in its own right; and to be accountable for illegal activities.
+
+Documentation : https://framework.sysfeat.com/pages/c0a3c7c666417665.htm
+
+External references:
+  OpenGroup - TOGAF - Enterprise Metamodel - Actor: https://pubs.opengroup.org/togaf-standard/architecture-content/chap02.html#tag_02_04
+  OpenGroup - ArchiMate - Business-Actor: https://pubs.opengroup.org/architecture/archimate32-doc/ch-Business-Layer.html#sec-Business-Actor
+  OpenGroup - ArchiMate - Business-Collaboration: https://pubs.opengroup.org/architecture/archimate32-doc/ch-Business-Layer.html#sec-Business-Collaboration
+  OpenGroup - TOGAF - Definition - Actor: https://pubs.opengroup.org/togaf-standard/introduction/chap04.html#tag_04_02
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,8 +27,8 @@ LegalEntityType : ClassOfClassOfBoundedIndividual
 LegalEntityType = ClassOfBoundedIndividual
 
 --  LegalEntityType is subTypeOf OrgUnitType
-st-c0a3caa9664178c9 : LegalEntityType ⊏ₑ OrgUnitType
-st-c0a3caa9664178c9 = polySubTypeOf-identity
+st-c0a3c7c666417665-076d15425a5e158c : LegalEntityType ⊏ₑ OrgUnitType
+st-c0a3c7c666417665-076d15425a5e158c = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -31,11 +39,11 @@ DepartmentType = ClassOfIndividual
 
 -- Membership relation
 membershipOfDepartmentType :  Linkage LegalEntityType DepartmentType
-membershipOfDepartmentType = membershipOfAggregateMember
+membershipOfDepartmentType = make_upwardNestingRelation "departmentType membership" "nested departmentType"
 
 -- Aggregation relation
 aggregationOfDepartmentTypeDepartmentType :  Linkage DepartmentType DepartmentType
-aggregationOfDepartmentTypeDepartmentType = aggregationOfBuildingBlock
+aggregationOfDepartmentTypeDepartmentType = make_Relation "DepartmentType aggregation" "aggregated DepartmentType"
 
 {- departmentType : derived relation obtained by composing
    membershipOfDepartmentType and aggregationOfDepartmentTypeDepartmentType
@@ -44,3 +52,5 @@ aggregationOfDepartmentTypeDepartmentType = aggregationOfBuildingBlock
 -}
 departmentType : Linkage LegalEntityType DepartmentType
 departmentType = membershipOfDepartmentType  ∘  aggregationOfDepartmentTypeDepartmentType
+
+

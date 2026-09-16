@@ -5,6 +5,9 @@
 
 Architectural Driver: 
 An Architectural Driver is a kind of Endogenous Driver which is a change in some aspects of Functional Assets of the Enterprise (defect, obsolescence, attrition, etc.), which will have significant impacts on the Enterprises activities and goals.
+
+Documentation : https://framework.sysfeat.com/pages/91be945354882b15.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,14 +22,14 @@ ArchitecturalDriver : ClassOfBoundedIndividual
 ArchitecturalDriver = BoundedIndividual
 
 --  ArchitecturalDriver is subTypeOf EndogenousDriver
-st-bcebd062549128bc : ArchitecturalDriver ⊏ₑ EndogenousDriver
-st-bcebd062549128bc = polySubTypeOf-identity
+st-91be945354882b15-7a717b8455962a34 : ArchitecturalDriver ⊏ₑ EndogenousDriver
+st-91be945354882b15-7a717b8455962a34 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Subject Asset: -}
 subjectAsset : ∀ {u} →  Linkage ArchitecturalDriver (AssetBlock u)
-subjectAsset = make_Relation "Subject Asset" "subjectAsset"
+subjectAsset = make_Relation "Subject Asset" "Subject Asset"
 
 postulate -- subjectAsset is subTypeOf driverSubject
   st-4b945c6868a47d9d-4b945a6e68a47bdf  : subjectAsset  {lzero}  ⊏⋆ᵣ  driverSubject  {lzero}

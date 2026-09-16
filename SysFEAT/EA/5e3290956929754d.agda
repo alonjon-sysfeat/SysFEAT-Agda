@@ -5,6 +5,9 @@
 
 Simple Data Property: 
 A Simple Data Property is a Data Property that is a leaf Data Property.
+
+Documentation : https://framework.sysfeat.com/pages/5e3290956929754d.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ SimpleDataProperty : PropertyType
 SimpleDataProperty = ClassOfProperty
 
 --  SimpleDataProperty is subTypeOf DataProperty
-st-5e32932469297b55 : SimpleDataProperty ⊏ₑ DataProperty
-st-5e32932469297b55 = polySubTypeOf-identity
+st-5e3290956929754d-8f1c991068ca8a23 : SimpleDataProperty ⊏ₑ DataProperty
+st-5e3290956929754d-8f1c991068ca8a23 = polySubTypeOf-identity
 
 -- == Relationships =======================

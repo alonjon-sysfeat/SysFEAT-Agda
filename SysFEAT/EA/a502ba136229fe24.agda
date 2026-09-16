@@ -5,6 +5,9 @@
 
 Physical Service Interface: 
 A Physical Service Interface is a Business Service Interface that describes a typical course of interactions intended to produce and consume Physical Outcome Events through the involvement of Concrete Hardware Systems.
+
+Documentation : https://framework.sysfeat.com/pages/a502ba136229fe24.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,8 +22,8 @@ PhysicalServiceInterface : ClassOfClassOfIndividual
 PhysicalServiceInterface = ClassOfIndividual
 
 --  PhysicalServiceInterface is subTypeOf BusinessServiceInterface
-st-a502ba276229fe85 : PhysicalServiceInterface ⊏ₑ BusinessServiceInterface
-st-a502ba276229fe85 = polySubTypeOf-identity
+st-a502ba136229fe24-9dcea2655ec768ee : PhysicalServiceInterface ⊏ₑ BusinessServiceInterface
+st-a502ba136229fe24-9dcea2655ec768ee = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -31,11 +34,11 @@ ChoreographedMaterialOutcome = ClassOfIndividual
 
 -- Membership relation
 membershipOfChoreographedMaterialOutcome :  Linkage PhysicalServiceInterface ChoreographedMaterialOutcome
-membershipOfChoreographedMaterialOutcome = membershipOfAggregateMember
+membershipOfChoreographedMaterialOutcome = make_upwardNestingRelation "choreographedMaterialOutcome membership" "nested choreographedMaterialOutcome"
 
 -- Aggregation relation
 aggregationOfPhysicalOutcomeEventChoreographedMaterialOutcome :  Linkage ChoreographedMaterialOutcome PhysicalOutcomeEvent
-aggregationOfPhysicalOutcomeEventChoreographedMaterialOutcome = aggregationOfBuildingBlock
+aggregationOfPhysicalOutcomeEventChoreographedMaterialOutcome = make_Relation "PhysicalOutcomeEvent aggregation" "aggregated PhysicalOutcomeEvent"
 
 {- choreographedMaterialOutcome : derived relation obtained by composing
    membershipOfChoreographedMaterialOutcome and aggregationOfPhysicalOutcomeEventChoreographedMaterialOutcome
@@ -44,3 +47,7 @@ aggregationOfPhysicalOutcomeEventChoreographedMaterialOutcome = aggregationOfBui
 -}
 choreographedMaterialOutcome : Linkage PhysicalServiceInterface PhysicalOutcomeEvent
 choreographedMaterialOutcome = membershipOfChoreographedMaterialOutcome  ∘  aggregationOfPhysicalOutcomeEventChoreographedMaterialOutcome
+
+postulate -- choreographedMaterialOutcome is subTypeOf businessFlowConnection
+  st-c561eaa0680f8632-c561d97c680f6e84  : choreographedMaterialOutcome   ⊏⋆ᵣ  businessFlowConnection 
+

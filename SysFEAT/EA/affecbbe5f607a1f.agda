@@ -5,6 +5,9 @@
 
 Minimum Value: 
 
+
+Documentation : https://framework.sysfeat.com/pages/affecbbe5f607a1f.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

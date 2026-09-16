@@ -1,10 +1,13 @@
 ﻿{- ============================== 
-   Copyright (c) 2026 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
+   Copyright (c) 2024 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
    This work is released under the MIT License.
    framework.sysfeat.com
 
 Business Continuity: 
 The Business Continuity domain defines the concepts use by functions of an enterprise in charge of the continuous delivery of its Products (goods and services) within acceptable time frames at predefined capacity during a disruption.
+
+Documentation : https://framework.sysfeat.com/pages/8dbd8edf609b488c.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

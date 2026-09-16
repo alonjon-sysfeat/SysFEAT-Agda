@@ -5,6 +5,9 @@
 
 Software Technology Outcome Event: 
 A Software Technology Outcome Event is a Technology Outcome Event that indicates the availability of an expected change of a software resource, produced by a Software Technology System.
+
+Documentation : https://framework.sysfeat.com/pages/a24da7786408781d.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ SOftwareTechnologyOutcomeEvent : ClassOfClassOfIndividual
 SOftwareTechnologyOutcomeEvent = ClassOfIndividual
 
 --  SOftwareTechnologyOutcomeEvent is subTypeOf TechnologyOutcomeEvent
-st-a24da7a864087881 : SOftwareTechnologyOutcomeEvent ⊏ₑ TechnologyOutcomeEvent
-st-a24da7a864087881 = polySubTypeOf-identity
+st-a24da7786408781d-f4be0a955ee1c4f5 : SOftwareTechnologyOutcomeEvent ⊏ₑ TechnologyOutcomeEvent
+st-a24da7786408781d-f4be0a955ee1c4f5 = polySubTypeOf-identity
 
 -- == Relationships =======================

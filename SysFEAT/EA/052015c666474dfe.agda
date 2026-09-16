@@ -5,6 +5,9 @@
 
 Application Portfolio Stage: 
 
+
+Documentation : https://framework.sysfeat.com/pages/052015c666474dfe.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,11 +23,11 @@ ApplicationPortfolioStage = StateConcept
 
 
 --  ApplicationPortfolioStage is subTypeOf AssetPortfolioStage
-st-052015cf66474e52 : ApplicationPortfolioStage ⊏ₑ AssetPortfolioStage
-st-052015cf66474e52 = polySubTypeOf-identity
+st-052015c666474dfe-0520133e66474954 : ApplicationPortfolioStage ⊏ₑ AssetPortfolioStage
+st-052015c666474dfe-0520133e66474954 = polySubTypeOf-identity
 
 --  ApplicationPortfolioStage is subTypeOf ApplicationManagementInitiative
-st-052015a866474dfb : ApplicationPortfolioStage ⊏ₑ ApplicationManagementInitiative
-st-052015a866474dfb = polySubTypeOf-identity
+st-052015c666474dfe-24f82e8c66475e9c : ApplicationPortfolioStage ⊏ₑ ApplicationManagementInitiative
+st-052015c666474dfe-24f82e8c66475e9c = polySubTypeOf-identity
 
 -- == Relationships =======================

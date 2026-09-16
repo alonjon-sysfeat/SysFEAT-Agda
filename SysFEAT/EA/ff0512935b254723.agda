@@ -5,6 +5,9 @@
 
 Architecture Governance Committee: 
 An Architecture Governance Committee is an organization of resources and people (persons and committees) who make up a body for the purpose of administering an Enterprise.Enterprise stakeholders draw up the rules that govern the actions and conduct of an enterprise and ensure that these rules are followed.An Architecture Governance Committee includes sets of dedicated resources and activities that support interactions and decision-making among the stakeholders involved in architecting the Enterprise.
+
+Documentation : https://framework.sysfeat.com/pages/ff0512935b254723.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,21 +23,21 @@ ArchitectureGovernanceCommittee : ClassOfBoundedIndividual
 ArchitectureGovernanceCommittee = BoundedIndividual
 
 --  ArchitectureGovernanceCommittee is subTypeOf GoverningTeam
-st-ff0512a95b254756 : ArchitectureGovernanceCommittee ⊏ₑ GoverningTeam
-st-ff0512a95b254756 = polySubTypeOf-identity
+st-ff0512935b254723-ff0501b65b253fdd : ArchitectureGovernanceCommittee ⊏ₑ GoverningTeam
+st-ff0512935b254723-ff0501b65b253fdd = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Governed Enterprise: -}
 governedEnterprise :  Linkage ArchitectureGovernanceCommittee Enterprise
-governedEnterprise = make_holonymyRelation "Governed Enterprise" "governedEnterprise"
+governedEnterprise = make_holonymyRelation "Governed Enterprise" "Governed Enterprise"
 
 postulate -- governedEnterprise is subTypeOf governedInitiative
   st-c77f7ead5b275de9-18a81ed15eeb5d60  : governedEnterprise   ⊏⋆ᵣ  governedInitiative 
 
 {- Sub-Enterprise Team: -}
 subEnterpriseTeam :  Linkage ArchitectureGovernanceCommittee ManagementInitiativeCommittee
-subEnterpriseTeam = make_holonymyRelation "Sub-Enterprise Team" "subEnterpriseTeam"
+subEnterpriseTeam = make_holonymyRelation "Sub-Enterprise Team" "Sub-Enterprise Team"
 
 postulate -- subEnterpriseTeam is subTypeOf subTeam
   st-26b88ab85eea935e-ac98b16e60a38cbc  : subEnterpriseTeam   ⊏⋆ᵣ  subTeam 

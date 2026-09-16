@@ -5,6 +5,17 @@
 
 Organization: 
 An Organization is a group of people who share a common purpose and establish a functional division of labor in pursuit of their common purpose.It is the relationships between its members in the pursuit of their common purpose that give unity and identity to an organization.
+
+Documentation : https://framework.sysfeat.com/pages/910196ca550a2ec2.htm
+
+External references:
+  Russell Ackoff - System of concepts - FunctionalDivisionOfLabor: ../resources/external-references/Ackoff-1971-Towards-a-system-of-systems-concepts.pdf#FunctionalDivisionOfLabor
+  OpenGroup - ArchiMate - Business Internal Active Structure Element: https://pubs.opengroup.org/architecture/archimate32-doc/ch-Business-Layer.html#sec-business-Active-Structure-Elements
+  SAFe© - Organizational Agility: https://www.scaledagileframework.com/organizational-agility/
+  Russell Ackoff - System of Concepts - Organizations: ../resources/external-references/Ackoff-1971-Towards-a-system-of-systems-concepts.pdf#Organizations
+  OMG - BMM - Organizational Unit: https://www.omg.org/spec/BMM/1.3/PDF#page=63
+  Russell Ackoff - Transformational leadership - Social System: ../resources/external-references/Ackoff-1987-A-System-view-of-transformational-leadership.pdf#SocialSystem
+  OMG - UAF - ActualOrganization: https://www.omg.org/spec/UAF/1.2/Beta1/DMM/PDF#ActualOrganization
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -21,12 +32,12 @@ Organization : ClassOfBoundedIndividual
 Organization = BoundedIndividual
 
 --  Organization is subTypeOf ResponsibleHumanEntity
-st-c334e7635ecb9fea : Organization ⊏ₑ ResponsibleHumanEntity
-st-c334e7635ecb9fea = polySubTypeOf-identity
+st-910196ca550a2ec2-c7dad03f5ae92ae9 : Organization ⊏ₑ ResponsibleHumanEntity
+st-910196ca550a2ec2-c7dad03f5ae92ae9 = polySubTypeOf-identity
 
 --  Organization is subTypeOf IndividualBusinessAgent
-st-c80a3e6567858e70 : Organization ⊏ₑ IndividualBusinessAgent
-st-c80a3e6567858e70 = polySubTypeOf-identity
+st-910196ca550a2ec2-66f8685a620b1440 : Organization ⊏ₑ IndividualBusinessAgent
+st-910196ca550a2ec2-66f8685a620b1440 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -38,11 +49,11 @@ SubContractor = AggregateMember (lsuc(lzero))
 
 -- Membership relation
 membershipOfSubContractor :  Linkage Organization SubContractor
-membershipOfSubContractor = membershipOfAggregateMember
+membershipOfSubContractor = make_upwardNestingRelation "subContractor membership" "nested subContractor"
 
 -- Aggregation relation
 aggregationOfOrganizationSubContractor :  Linkage SubContractor Organization
-aggregationOfOrganizationSubContractor = aggregationOfBuildingBlock
+aggregationOfOrganizationSubContractor = make_Relation "Organization aggregation" "aggregated Organization"
 
 {- subContractor : derived relation obtained by composing
    membershipOfSubContractor and aggregationOfOrganizationSubContractor
@@ -52,6 +63,8 @@ aggregationOfOrganizationSubContractor = aggregationOfBuildingBlock
 subContractor : Linkage Organization Organization
 subContractor = membershipOfSubContractor  ∘  aggregationOfOrganizationSubContractor
 
+
+
 {- Organizational Position: -}
 -- Aggregate Member : Organizational Position
 OrganizationalPosition : ClassOfOrderedEntity (lsuc(lzero))
@@ -60,11 +73,11 @@ OrganizationalPosition = AggregateMember (lsuc(lzero))
 
 -- Membership relation
 membershipOfOrganizationalPosition :  Linkage Organization OrganizationalPosition
-membershipOfOrganizationalPosition = membershipOfAggregateMember
+membershipOfOrganizationalPosition = make_upwardNestingRelation "organizationalPosition membership" "nested organizationalPosition"
 
 -- Aggregation relation
 aggregationOfPersonOrganizationalPosition :  Linkage OrganizationalPosition Person
-aggregationOfPersonOrganizationalPosition = aggregationOfBuildingBlock
+aggregationOfPersonOrganizationalPosition = make_Relation "Person aggregation" "aggregated Person"
 
 {- organizationalPosition : derived relation obtained by composing
    membershipOfOrganizationalPosition and aggregationOfPersonOrganizationalPosition
@@ -74,6 +87,8 @@ aggregationOfPersonOrganizationalPosition = aggregationOfBuildingBlock
 organizationalPosition : Linkage Organization Person
 organizationalPosition = membershipOfOrganizationalPosition  ∘  aggregationOfPersonOrganizationalPosition
 
+
+
 {- Organizational Reponsibility: -}
 -- Aggregate Member : Organizational Reponsibility
 OrganizationalReponsibility : ClassOfOrderedEntity (lsuc(lzero))
@@ -82,11 +97,11 @@ OrganizationalReponsibility = AggregateMember (lsuc(lzero))
 
 -- Membership relation
 membershipOfOrganizationalReponsibility :  Linkage Organization OrganizationalReponsibility
-membershipOfOrganizationalReponsibility = membershipOfAggregateMember
+membershipOfOrganizationalReponsibility = make_upwardNestingRelation "organizationalReponsibility membership" "nested organizationalReponsibility"
 
 -- Aggregation relation
 aggregationOfPersonOrganizationalReponsibility :  Linkage OrganizationalReponsibility Person
-aggregationOfPersonOrganizationalReponsibility = aggregationOfBuildingBlock
+aggregationOfPersonOrganizationalReponsibility = make_Relation "Person aggregation" "aggregated Person"
 
 {- organizationalReponsibility : derived relation obtained by composing
    membershipOfOrganizationalReponsibility and aggregationOfPersonOrganizationalReponsibility
@@ -96,6 +111,8 @@ aggregationOfPersonOrganizationalReponsibility = aggregationOfBuildingBlock
 organizationalReponsibility : Linkage Organization Person
 organizationalReponsibility = membershipOfOrganizationalReponsibility  ∘  aggregationOfPersonOrganizationalReponsibility
 
+
+
 {- Sub-Unit: -}
 -- Aggregate Member : Sub-Unit
 SubUnit : ClassOfOrderedEntity (lsuc(lzero))
@@ -104,11 +121,11 @@ SubUnit = AggregateMember (lsuc(lzero))
 
 -- Membership relation
 membershipOfSubUnit :  Linkage Organization SubUnit
-membershipOfSubUnit = membershipOfAggregateMember
+membershipOfSubUnit = make_upwardNestingRelation "subUnit membership" "nested subUnit"
 
 -- Aggregation relation
 aggregationOfOrganizationSubUnit :  Linkage SubUnit Organization
-aggregationOfOrganizationSubUnit = aggregationOfBuildingBlock
+aggregationOfOrganizationSubUnit = make_Relation "Organization aggregation" "aggregated Organization"
 
 {- subUnit : derived relation obtained by composing
    membershipOfSubUnit and aggregationOfOrganizationSubUnit
@@ -117,3 +134,5 @@ aggregationOfOrganizationSubUnit = aggregationOfBuildingBlock
 -}
 subUnit : Linkage Organization Organization
 subUnit = membershipOfSubUnit  ∘  aggregationOfOrganizationSubUnit
+
+

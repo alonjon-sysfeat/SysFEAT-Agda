@@ -5,6 +5,11 @@
 
 NoSQL Dataset: 
 A NoSQL Dataset is a Physical Data Entity that represents the structure of a collection of related data held in a data source. The represented data structure can be relational (Table) or NoSQL (triple store, document store, flat files, etc.).A NoSQL Dataset consists of three types of NoSQL Field:1) An Identification MetaField, sometimes called  primary key .2) Relationship MetaFields used to represent relationships with other NoSQL Datasets.3) Value MetaFields used to store values in the NoSQL Dataset.NoSQL Datasets can be defined at design time in the context of data architecture activities. They can also be imported automatically through data discovery.
+
+Documentation : https://framework.sysfeat.com/pages/254e46f95f7f83ec.htm
+
+External references:
+  DDD - Glossary - Entity: https://www.dddcommunity.org/resources/ddd_terms?[entity]
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,12 +25,12 @@ NoSQLDataset : ClassOfClassOfBoundedIndividual
 NoSQLDataset = ClassOfBoundedIndividual
 
 --  NoSQLDataset is subTypeOf PhysicalDataEntity
-st-254e471e5f7f84b9 : NoSQLDataset ⊏ₑ PhysicalDataEntity
-st-254e471e5f7f84b9 = polySubTypeOf-identity
+st-254e46f95f7f83ec-762582bb5f6bd659 : NoSQLDataset ⊏ₑ PhysicalDataEntity
+st-254e46f95f7f83ec-762582bb5f6bd659 = polySubTypeOf-identity
 
 --  NoSQLDataset is subTypeOf NoSQLElement
-st-cd7a529e5ff3e61b : NoSQLDataset ⊏ₑ NoSQLElement
-st-cd7a529e5ff3e61b = polySubTypeOf-identity
+st-254e46f95f7f83ec-8180baa3600110c8 : NoSQLDataset ⊏ₑ NoSQLElement
+st-254e46f95f7f83ec-8180baa3600110c8 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -38,11 +43,11 @@ ValueMetaField = ClassOfIndividual
 
 -- Membership relation
 membershipOfValueMetaField :  Linkage NoSQLDataset ValueMetaField
-membershipOfValueMetaField = membershipOfAggregateMember
+membershipOfValueMetaField = make_upwardNestingRelation "valueMetaField membership" "nested valueMetaField"
 
 -- Aggregation relation
 aggregationOfNoSQLFieldValueMetaField :  Linkage ValueMetaField NoSQLField
-aggregationOfNoSQLFieldValueMetaField = aggregationOfBuildingBlock
+aggregationOfNoSQLFieldValueMetaField = make_Relation "NoSQLField aggregation" "aggregated NoSQLField"
 
 {- valueMetaField : derived relation obtained by composing
    membershipOfValueMetaField and aggregationOfNoSQLFieldValueMetaField
@@ -51,6 +56,12 @@ aggregationOfNoSQLFieldValueMetaField = aggregationOfBuildingBlock
 -}
 valueMetaField : Linkage NoSQLDataset NoSQLField
 valueMetaField = membershipOfValueMetaField  ∘  aggregationOfNoSQLFieldValueMetaField
+
+postulate -- valueMetaField is subTypeOf physicalDataSlot
+  st-254e1b8d5f809015-e6f222845f771913  : valueMetaField   ⊏⋆ᵣ  physicalDataSlot 
+postulate -- valueMetaField is subTypeOf metaDatasetMember
+  st-254e1b8d5f809015-a80dfa5063d34f48  : valueMetaField   ⊏⋆ᵣ  metaDatasetMember 
+
 
 {- Relationship MetaField: 
 A Relationship MetaField is a NoSQL Field used to establish a relationship with another NoSQL Dataset.
@@ -61,11 +72,11 @@ RelationshipMetaField = ClassOfIndividual
 
 -- Membership relation
 membershipOfRelationshipMetaField :  Linkage NoSQLDataset RelationshipMetaField
-membershipOfRelationshipMetaField = membershipOfAggregateMember
+membershipOfRelationshipMetaField = make_upwardNestingRelation "relationshipMetaField membership" "nested relationshipMetaField"
 
 -- Aggregation relation
 aggregationOfNoSQLFieldRelationshipMetaField :  Linkage RelationshipMetaField NoSQLField
-aggregationOfNoSQLFieldRelationshipMetaField = aggregationOfBuildingBlock
+aggregationOfNoSQLFieldRelationshipMetaField = make_Relation "NoSQLField aggregation" "aggregated NoSQLField"
 
 {- relationshipMetaField : derived relation obtained by composing
    membershipOfRelationshipMetaField and aggregationOfNoSQLFieldRelationshipMetaField
@@ -74,6 +85,12 @@ aggregationOfNoSQLFieldRelationshipMetaField = aggregationOfBuildingBlock
 -}
 relationshipMetaField : Linkage NoSQLDataset NoSQLField
 relationshipMetaField = membershipOfRelationshipMetaField  ∘  aggregationOfNoSQLFieldRelationshipMetaField
+
+postulate -- relationshipMetaField is subTypeOf physicalRelationship
+  st-254e1c7e5f8090eb-b6e3df8e5fbb724d  : relationshipMetaField   ⊏⋆ᵣ  physicalRelationship 
+postulate -- relationshipMetaField is subTypeOf metaDatasetMember
+  st-254e1c7e5f8090eb-a80dfa5063d34f48  : relationshipMetaField   ⊏⋆ᵣ  metaDatasetMember 
+
 
 {- Identification MetaField: 
 An Identification MetaField is a NoSQL Field that is is the identifier of a NoSQL Dataset.It is sometimes called the Primary Key of its NoSQL Dataset.A NoSQL Field can be the Identification MetaField of one and only one NoSQL Dataset.
@@ -84,11 +101,11 @@ IdentificationMetaField = ClassOfIndividual
 
 -- Membership relation
 membershipOfIdentificationMetaField :  Linkage NoSQLDataset IdentificationMetaField
-membershipOfIdentificationMetaField = membershipOfAggregateMember
+membershipOfIdentificationMetaField = make_upwardNestingRelation "identificationMetaField membership" "nested identificationMetaField"
 
 -- Aggregation relation
 aggregationOfNoSQLFieldIdentificationMetaField :  Linkage IdentificationMetaField NoSQLField
-aggregationOfNoSQLFieldIdentificationMetaField = aggregationOfBuildingBlock
+aggregationOfNoSQLFieldIdentificationMetaField = make_Relation "NoSQLField aggregation" "aggregated NoSQLField"
 
 {- identificationMetaField : derived relation obtained by composing
    membershipOfIdentificationMetaField and aggregationOfNoSQLFieldIdentificationMetaField
@@ -97,3 +114,7 @@ aggregationOfNoSQLFieldIdentificationMetaField = aggregationOfBuildingBlock
 -}
 identificationMetaField : Linkage NoSQLDataset NoSQLField
 identificationMetaField = membershipOfIdentificationMetaField  ∘  aggregationOfNoSQLFieldIdentificationMetaField
+
+postulate -- identificationMetaField is subTypeOf metaDatasetMember
+  st-a80df86163d34c47-a80dfa5063d34f48  : identificationMetaField   ⊏⋆ᵣ  metaDatasetMember 
+

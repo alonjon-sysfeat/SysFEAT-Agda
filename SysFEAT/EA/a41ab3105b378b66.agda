@@ -5,6 +5,12 @@
 
 IT Infrastructure System: 
 An IT Infrastructure System is an assembly of  Computing Systems and Network Devices required to to run Business Systems and Business Operations.An IT Infrastructure System is either an IT Infrastructure or an Computer Network.
+
+Documentation : https://framework.sysfeat.com/pages/a41ab3105b378b66.htm
+
+External references:
+  OpenGroup - OAA - Software Defined Infrastructure: https://pubs.opengroup.org/architecture/o-aa-standard/hardware-architecture.html
+  UCF Glossary - IT Infrastructure: https://compliancedictionary.com/term/3127
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,8 +25,8 @@ ITInfrastructureSystem : ClassOfClassOfBoundedIndividual
 ITInfrastructureSystem = ClassOfBoundedIndividual
 
 --  ITInfrastructureSystem is subTypeOf NetworkingSystem
-st-26b83a985eeaeb10 : ITInfrastructureSystem ⊏ₑ NetworkingSystem
-st-26b83a985eeaeb10 = polySubTypeOf-identity
+st-a41ab3105b378b66-26b8384f5eeae33c : ITInfrastructureSystem ⊏ₑ NetworkingSystem
+st-a41ab3105b378b66-26b8384f5eeae33c = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -33,11 +39,11 @@ ComputingNode = ClassOfIndividual
 
 -- Membership relation
 membershipOfComputingNode :  Linkage ITInfrastructureSystem ComputingNode
-membershipOfComputingNode = membershipOfAggregateMember
+membershipOfComputingNode = make_upwardNestingRelation "computingNode membership" "nested computingNode"
 
 -- Aggregation relation
 aggregationOfComputingDeviceComputingNode :  Linkage ComputingNode ComputingDevice
-aggregationOfComputingDeviceComputingNode = aggregationOfBuildingBlock
+aggregationOfComputingDeviceComputingNode = make_Relation "ComputingDevice aggregation" "aggregated ComputingDevice"
 
 {- computingNode : derived relation obtained by composing
    membershipOfComputingNode and aggregationOfComputingDeviceComputingNode
@@ -46,3 +52,7 @@ aggregationOfComputingDeviceComputingNode = aggregationOfBuildingBlock
 -}
 computingNode : Linkage ITInfrastructureSystem ComputingDevice
 computingNode = membershipOfComputingNode  ∘  aggregationOfComputingDeviceComputingNode
+
+postulate -- computingNode is subTypeOf networkingPart
+  st-f4be0f185ee1d804-26b8386e5eeae4a4  : computingNode   ⊏⋆ᵣ  networkingPart 
+

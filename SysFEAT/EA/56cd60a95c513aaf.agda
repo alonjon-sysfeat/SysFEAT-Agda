@@ -5,6 +5,9 @@
 
 Deployed Application: 
 A Deployed Application offers a set of functionalities to users.
+
+Documentation : https://framework.sysfeat.com/pages/56cd60a95c513aaf.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,19 +23,19 @@ DeployedApplication : ClassOfBoundedIndividual
 DeployedApplication = BoundedIndividual
 
 --  DeployedApplication is subTypeOf IndividualBusinessSOftwareSystem
-st-66f87217620b3317 : DeployedApplication ⊏ₑ IndividualBusinessSOftwareSystem
-st-66f87217620b3317 = polySubTypeOf-identity
+st-56cd60a95c513aaf-66f870ce620b2d8c : DeployedApplication ⊏ₑ IndividualBusinessSOftwareSystem
+st-56cd60a95c513aaf-66f870ce620b2d8c = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Technology Installation Used: -}
 technologyInstallationUsed :  Linkage DeployedApplication DeployedSOftwareTechnology
-technologyInstallationUsed = make_holonymyRelation "Technology Installation Used" "technologyInstallationUsed"
+technologyInstallationUsed = make_holonymyRelation "Technology Installation Used" "Technology Installation Used"
 
 
 {- Application Type: -}
 applicationType :  Linkage DeployedApplication Application
-applicationType = make_instanceOf "Application Type" "applicationType"
+applicationType = make_instanceOf "Application Type" "Application Type"
 
 postulate -- applicationType is subTypeOf sOftwareSystemType
   st-e2dc054b66fd4a63-e2dc060266fd4c0c  : applicationType   ⊏⋆ᵣ  sOftwareSystemType 

@@ -5,6 +5,12 @@
 
 Application Scenario: 
 An Application Scenario is a story involving the components of an Application (Application Component or MicroService), interacting in order to produce Information Outcome Events.This includes:1) A course of events represented by Application Flows depicting the story towards the delivery of expected Information Outcome Events.2) Interacting Application Components who participate to the story.
+
+Documentation : https://framework.sysfeat.com/pages/6246167661ba2d05.htm
+
+External references:
+  OpenGroup - ArchiMate - Application Interaction: https://pubs.opengroup.org/architecture/archimate32-doc/ch-Application-Layer.html#sec-Application-Interaction
+  C4 Model - Supplementary diagrams -Dynamic Diagram: https://c4model.com/#DynamicDiagram
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,8 +26,8 @@ ApplicationScenario : ClassOfClassOfBoundedIndividual
 ApplicationScenario = ClassOfBoundedIndividual
 
 --  ApplicationScenario is subTypeOf SOftwareSystemScenario
-st-624616c661ba2d8a : ApplicationScenario ⊏ₑ SOftwareSystemScenario
-st-624616c661ba2d8a = polySubTypeOf-identity
+st-6246167661ba2d05-25c09cb461e2efd3 : ApplicationScenario ⊏ₑ SOftwareSystemScenario
+st-6246167661ba2d05-25c09cb461e2efd3 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -32,11 +38,11 @@ ParticipantITService = ClassOfIndividual
 
 -- Membership relation
 membershipOfParticipantITService :  Linkage ApplicationScenario ParticipantITService
-membershipOfParticipantITService = membershipOfAggregateMember
+membershipOfParticipantITService = make_upwardNestingRelation "participantITService membership" "nested participantITService"
 
 -- Aggregation relation
 aggregationOfMicroServiceParticipantITService :  Linkage ParticipantITService MicroService
-aggregationOfMicroServiceParticipantITService = aggregationOfBuildingBlock
+aggregationOfMicroServiceParticipantITService = make_Relation "MicroService aggregation" "aggregated MicroService"
 
 {- participantITService : derived relation obtained by composing
    membershipOfParticipantITService and aggregationOfMicroServiceParticipantITService
@@ -46,6 +52,10 @@ aggregationOfMicroServiceParticipantITService = aggregationOfBuildingBlock
 participantITService : Linkage ApplicationScenario MicroService
 participantITService = membershipOfParticipantITService  ∘  aggregationOfMicroServiceParticipantITService
 
+postulate -- participantITService is subTypeOf participantSOftware
+  st-6246173661ba2ed4-25c1b19061e21ed1  : participantITService   ⊏⋆ᵣ  participantSOftware 
+
+
 {- Performed Scenario: -}
 -- Aggregate Member : Performed Scenario
 PerformedScenario : ClassOfClassOfIndividual
@@ -53,11 +63,11 @@ PerformedScenario = ClassOfIndividual
 
 -- Membership relation
 membershipOfPerformedScenario :  Linkage ApplicationScenario PerformedScenario
-membershipOfPerformedScenario = membershipOfAggregateMember
+membershipOfPerformedScenario = make_upwardNestingRelation "performedScenario membership" "nested performedScenario"
 
 -- Aggregation relation
 aggregationOfApplicationPerformedScenario :  Linkage PerformedScenario Application
-aggregationOfApplicationPerformedScenario = aggregationOfBuildingBlock
+aggregationOfApplicationPerformedScenario = make_Relation "Application aggregation" "aggregated Application"
 
 {- performedScenario : derived relation obtained by composing
    membershipOfPerformedScenario and aggregationOfApplicationPerformedScenario
@@ -66,3 +76,7 @@ aggregationOfApplicationPerformedScenario = aggregationOfBuildingBlock
 -}
 performedScenario : Linkage ApplicationScenario Application
 performedScenario = membershipOfPerformedScenario  ∘  aggregationOfApplicationPerformedScenario
+
+postulate -- performedScenario is subTypeOf performedSOftwareSystemScenario
+  st-25c1bac961e23189-25c1b2d361e22368  : performedScenario   ⊏⋆ᵣ  performedSOftwareSystemScenario 
+

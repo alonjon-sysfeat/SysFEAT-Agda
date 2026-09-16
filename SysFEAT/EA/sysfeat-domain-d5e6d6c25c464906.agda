@@ -1,10 +1,15 @@
 ﻿{- ============================== 
-   Copyright (c) 2026 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
+   Copyright (c) 2023 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
    This work is released under the MIT License.
    framework.sysfeat.com
 
 Application Deployment Architecture: 
 The Application Deployment Architecture domain defines concepts used to organize Applications in Deployable Packages.It comprises:1) software code packages (Deployable Application Packages) 2) Data packages (Deployable Data Packages).3) Prescribed type of hosting4) required technical connections (with communication protocols, port numbers...)  to communicate with each other.
+
+Documentation : https://framework.sysfeat.com/pages/d5e6d6c25c464906.htm
+
+External references:
+  C4 Model - Level 2 - Container Diagram: https://c4model.com/#ContainerDiagram
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

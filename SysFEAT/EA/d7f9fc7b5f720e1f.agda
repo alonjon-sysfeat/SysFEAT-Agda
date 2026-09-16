@@ -5,6 +5,9 @@
 
 Data Issue: 
 An issue is an event or difficulty encountered in the context of a business process, application or enterpise strategy. Issues are processed within the framework of projects as a function of objectives aiming at their resolution.  
+
+Documentation : https://framework.sysfeat.com/pages/d7f9fc7b5f720e1f.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,11 +22,11 @@ DataIssue : ClassOfBoundedIndividual
 DataIssue = BoundedIndividual
 
 --  DataIssue is subTypeOf Incident
-st-d7f90bf85f737234 : DataIssue ⊏ₑ Incident
-st-d7f90bf85f737234 = polySubTypeOf-identity
+st-d7f9fc7b5f720e1f-d059da695ef11294 : DataIssue ⊏ₑ Incident
+st-d7f9fc7b5f720e1f-d059da695ef11294 = polySubTypeOf-identity
 
 --  DataIssue is subTypeOf DataGovernanceBlock
-st-b90ac27d600e3a8a : DataIssue ⊏ₑ DataGovernanceBlock
-st-b90ac27d600e3a8a = polySubTypeOf-identity
+st-d7f9fc7b5f720e1f-b90ac213600e39bb : DataIssue ⊏ₑ DataGovernanceBlock
+st-d7f9fc7b5f720e1f-b90ac213600e39bb = polySubTypeOf-identity
 
 -- == Relationships =======================

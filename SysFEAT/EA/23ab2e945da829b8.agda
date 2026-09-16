@@ -5,6 +5,9 @@
 
 Data Lineage: 
 A Data Lineage is about tracking the flow of information from source Information Assets to final Information Assets.It is necessary to guarantee the quality, usability and security of business data.For large organizations, it is also a key conformity legal requirement, for instance in BCBS 239 and Solvency II.Business Data Lineage is defined as a business data life cycle that describes the source of business data and where it moves over time.
+
+Documentation : https://framework.sysfeat.com/pages/23ab2e945da829b8.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -26,14 +29,14 @@ DataLineage : ClassOfClassOfBoundedIndividual
 DataLineage = ClassOfBoundedIndividual
 
 --  DataLineage is subTypeOf DataAssuranceCase
-st-36420b6d6008022f : DataLineage ⊏ₑ DataAssuranceCase
-st-36420b6d6008022f = polySubTypeOf-identity
+st-23ab2e945da829b8-b90aeac8600e619f : DataLineage ⊏ₑ DataAssuranceCase
+st-23ab2e945da829b8-b90aeac8600e619f = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Realized Data Lineage: -}
 realizedDataLineage :  Linkage DataLineage DataLineage
-realizedDataLineage = make_subTypeOf "Realized Data Lineage" "realizedDataLineage"
+realizedDataLineage = make_subTypeOf "Realized Data Lineage" "Realized Data Lineage"
 
 
 {- Data Lineage Flow: -}
@@ -43,11 +46,11 @@ DataLineageFlow = ClassOfIndividual
 
 -- Membership relation
 membershipOfDataLineageFlow :  Linkage DataLineage DataLineageFlow
-membershipOfDataLineageFlow = membershipOfAggregateMember
+membershipOfDataLineageFlow = make_upwardNestingRelation "dataLineageFlow membership" "nested dataLineageFlow"
 
 -- Aggregation relation
 aggregationOfBehavioralEventDataLineageFlow :  Linkage DataLineageFlow BehavioralEvent
-aggregationOfBehavioralEventDataLineageFlow = aggregationOfBuildingBlock
+aggregationOfBehavioralEventDataLineageFlow = make_Relation "BehavioralEvent aggregation" "aggregated BehavioralEvent"
 
 {- dataLineageFlow : derived relation obtained by composing
    membershipOfDataLineageFlow and aggregationOfBehavioralEventDataLineageFlow
@@ -57,6 +60,8 @@ aggregationOfBehavioralEventDataLineageFlow = aggregationOfBuildingBlock
 dataLineageFlow : Linkage DataLineage BehavioralEvent
 dataLineageFlow = membershipOfDataLineageFlow  ∘  aggregationOfBehavioralEventDataLineageFlow
 
+
+
 {- Data Processing: -}
 -- Aggregate Member : Data Processing
 DataProcessing : ClassOfClassOfIndividual
@@ -64,11 +69,11 @@ DataProcessing = ClassOfIndividual
 
 -- Membership relation
 membershipOfDataProcessing :  Linkage DataLineage DataProcessing
-membershipOfDataProcessing = membershipOfAggregateMember
+membershipOfDataProcessing = make_upwardNestingRelation "dataProcessing membership" "nested dataProcessing"
 
 -- Aggregation relation
 aggregationOfDataProcessorDataProcessing :  Linkage DataProcessing DataProcessor
-aggregationOfDataProcessorDataProcessing = aggregationOfBuildingBlock
+aggregationOfDataProcessorDataProcessing = make_Relation "DataProcessor aggregation" "aggregated DataProcessor"
 
 {- dataProcessing : derived relation obtained by composing
    membershipOfDataProcessing and aggregationOfDataProcessorDataProcessing
@@ -78,6 +83,10 @@ aggregationOfDataProcessorDataProcessing = aggregationOfBuildingBlock
 dataProcessing : Linkage DataLineage DataProcessor
 dataProcessing = membershipOfDataProcessing  ∘  aggregationOfDataProcessorDataProcessing
 
+postulate -- dataProcessing is subTypeOf assetInvolvement
+  st-137d42a35ee25d48-8f6d910868e36ddc  : dataProcessing   ⊏⋆ᵣ  assetInvolvement 
+
+
 {- Data Quality Node: -}
 -- Aggregate Member : Data Quality Node
 DataQualityNode : ClassOfClassOfIndividual
@@ -85,11 +94,11 @@ DataQualityNode = ClassOfIndividual
 
 -- Membership relation
 membershipOfDataQualityNode :  Linkage DataLineage DataQualityNode
-membershipOfDataQualityNode = membershipOfAggregateMember
+membershipOfDataQualityNode = make_upwardNestingRelation "dataQualityNode membership" "nested dataQualityNode"
 
 -- Aggregation relation
 aggregationOfDataQualityMeasureDataQualityNode :  Linkage DataQualityNode DataQualityMeasure
-aggregationOfDataQualityMeasureDataQualityNode = aggregationOfBuildingBlock
+aggregationOfDataQualityMeasureDataQualityNode = make_Relation "DataQualityMeasure aggregation" "aggregated DataQualityMeasure"
 
 {- dataQualityNode : derived relation obtained by composing
    membershipOfDataQualityNode and aggregationOfDataQualityMeasureDataQualityNode
@@ -99,6 +108,12 @@ aggregationOfDataQualityMeasureDataQualityNode = aggregationOfBuildingBlock
 dataQualityNode : Linkage DataLineage DataQualityMeasure
 dataQualityNode = membershipOfDataQualityNode  ∘  aggregationOfDataQualityMeasureDataQualityNode
 
+postulate -- dataQualityNode is subTypeOf assetInvolvement
+  st-137d43985ee2f548-8f6d910868e36ddc  : dataQualityNode   ⊏⋆ᵣ  assetInvolvement 
+postulate -- dataQualityNode is subTypeOf appliedControlMeasure
+  st-137d43985ee2f548-f1600eb767d84743  : dataQualityNode   ⊏⋆ᵣ  appliedControlMeasure 
+
+
 {- Asset Involvement: -}
 -- Aggregate Member : Asset Involvement
 AssetInvolvement : ClassOfClassOfIndividual
@@ -106,11 +121,11 @@ AssetInvolvement = ClassOfIndividual
 
 -- Membership relation
 membershipOfAssetInvolvement :  Linkage DataLineage AssetInvolvement
-membershipOfAssetInvolvement = membershipOfAggregateMember
+membershipOfAssetInvolvement = make_upwardNestingRelation "assetInvolvement membership" "nested assetInvolvement"
 
 -- Aggregation relation
 aggregationOfFunctionalAssetAssetInvolvement :  Linkage AssetInvolvement FunctionalAsset
-aggregationOfFunctionalAssetAssetInvolvement = aggregationOfBuildingBlock
+aggregationOfFunctionalAssetAssetInvolvement = make_Relation "FunctionalAsset aggregation" "aggregated FunctionalAsset"
 
 {- assetInvolvement : derived relation obtained by composing
    membershipOfAssetInvolvement and aggregationOfFunctionalAssetAssetInvolvement
@@ -120,6 +135,10 @@ aggregationOfFunctionalAssetAssetInvolvement = aggregationOfBuildingBlock
 assetInvolvement : Linkage DataLineage FunctionalAsset
 assetInvolvement = membershipOfAssetInvolvement  ∘  aggregationOfFunctionalAssetAssetInvolvement
 
+postulate -- assetInvolvement is subTypeOf involvedAsset
+  st-8f6d910868e36ddc-9152e6975ed764d3  : assetInvolvement   ⊏⋆ᵣ  involvedAsset 
+
+
 {- Origin Entity: -}
 -- Aggregate Member : Origin Entity
 OriginEntity : ClassOfClassOfIndividual
@@ -127,11 +146,11 @@ OriginEntity = ClassOfIndividual
 
 -- Membership relation
 membershipOfOriginEntity :  Linkage DataLineage OriginEntity
-membershipOfOriginEntity = membershipOfAggregateMember
+membershipOfOriginEntity = make_upwardNestingRelation "originEntity membership" "nested originEntity"
 
 -- Aggregation relation
 aggregationOfInformationEntityOriginEntity :  Linkage OriginEntity InformationEntity
-aggregationOfInformationEntityOriginEntity = aggregationOfBuildingBlock
+aggregationOfInformationEntityOriginEntity = make_Relation "InformationEntity aggregation" "aggregated InformationEntity"
 
 {- originEntity : derived relation obtained by composing
    membershipOfOriginEntity and aggregationOfInformationEntityOriginEntity
@@ -141,6 +160,10 @@ aggregationOfInformationEntityOriginEntity = aggregationOfBuildingBlock
 originEntity : Linkage DataLineage InformationEntity
 originEntity = membershipOfOriginEntity  ∘  aggregationOfInformationEntityOriginEntity
 
+postulate -- originEntity is subTypeOf assetInvolvement
+  st-acb4af8462457ab3-8f6d910868e36ddc  : originEntity   ⊏⋆ᵣ  assetInvolvement 
+
+
 {- External Source: -}
 -- Aggregate Member : External Source
 ExternalSource : ClassOfClassOfIndividual
@@ -148,11 +171,11 @@ ExternalSource = ClassOfIndividual
 
 -- Membership relation
 membershipOfExternalSource :  Linkage DataLineage ExternalSource
-membershipOfExternalSource = membershipOfAggregateMember
+membershipOfExternalSource = make_upwardNestingRelation "externalSource membership" "nested externalSource"
 
 -- Aggregation relation
 aggregationOfSOftwareTechnologyExternalSource :  Linkage ExternalSource SOftwareTechnology
-aggregationOfSOftwareTechnologyExternalSource = aggregationOfBuildingBlock
+aggregationOfSOftwareTechnologyExternalSource = make_Relation "SOftwareTechnology aggregation" "aggregated SOftwareTechnology"
 
 {- externalSource : derived relation obtained by composing
    membershipOfExternalSource and aggregationOfSOftwareTechnologyExternalSource
@@ -162,6 +185,8 @@ aggregationOfSOftwareTechnologyExternalSource = aggregationOfBuildingBlock
 externalSource : Linkage DataLineage SOftwareTechnology
 externalSource = membershipOfExternalSource  ∘  aggregationOfSOftwareTechnologyExternalSource
 
+
+
 {- Data Source: -}
 -- Aggregate Member : Data Source
 DataSource : ClassOfClassOfIndividual
@@ -169,11 +194,11 @@ DataSource = ClassOfIndividual
 
 -- Membership relation
 membershipOfDataSource :  Linkage DataLineage DataSource
-membershipOfDataSource = membershipOfAggregateMember
+membershipOfDataSource = make_upwardNestingRelation "dataSource membership" "nested dataSource"
 
 -- Aggregation relation
 aggregationOfBusinessSOftwareSystemDataSource :  Linkage DataSource BusinessSOftwareSystem
-aggregationOfBusinessSOftwareSystemDataSource = aggregationOfBuildingBlock
+aggregationOfBusinessSOftwareSystemDataSource = make_Relation "BusinessSOftwareSystem aggregation" "aggregated BusinessSOftwareSystem"
 
 {- dataSource : derived relation obtained by composing
    membershipOfDataSource and aggregationOfBusinessSOftwareSystemDataSource
@@ -183,6 +208,8 @@ aggregationOfBusinessSOftwareSystemDataSource = aggregationOfBuildingBlock
 dataSource : Linkage DataLineage BusinessSOftwareSystem
 dataSource = membershipOfDataSource  ∘  aggregationOfBusinessSOftwareSystemDataSource
 
+
+
 {- Final Entity: -}
 -- Aggregate Member : Final Entity
 FinalEntity : ClassOfClassOfIndividual
@@ -190,11 +217,11 @@ FinalEntity = ClassOfIndividual
 
 -- Membership relation
 membershipOfFinalEntity :  Linkage DataLineage FinalEntity
-membershipOfFinalEntity = membershipOfAggregateMember
+membershipOfFinalEntity = make_upwardNestingRelation "finalEntity membership" "nested finalEntity"
 
 -- Aggregation relation
 aggregationOfInformationEntityFinalEntity :  Linkage FinalEntity InformationEntity
-aggregationOfInformationEntityFinalEntity = aggregationOfBuildingBlock
+aggregationOfInformationEntityFinalEntity = make_Relation "InformationEntity aggregation" "aggregated InformationEntity"
 
 {- finalEntity : derived relation obtained by composing
    membershipOfFinalEntity and aggregationOfInformationEntityFinalEntity
@@ -204,6 +231,10 @@ aggregationOfInformationEntityFinalEntity = aggregationOfBuildingBlock
 finalEntity : Linkage DataLineage InformationEntity
 finalEntity = membershipOfFinalEntity  ∘  aggregationOfInformationEntityFinalEntity
 
+postulate -- finalEntity is subTypeOf concernedInformation
+  st-acb4b3b562457c32-b90afa69600e715c  : finalEntity   ⊏⋆ᵣ  concernedInformation 
+
+
 {- Intermediate Entity: -}
 -- Aggregate Member : Intermediate Entity
 IntermediateEntity : ClassOfClassOfIndividual
@@ -211,11 +242,11 @@ IntermediateEntity = ClassOfIndividual
 
 -- Membership relation
 membershipOfIntermediateEntity :  Linkage DataLineage IntermediateEntity
-membershipOfIntermediateEntity = membershipOfAggregateMember
+membershipOfIntermediateEntity = make_upwardNestingRelation "intermediateEntity membership" "nested intermediateEntity"
 
 -- Aggregation relation
 aggregationOfInformationEntityIntermediateEntity :  Linkage IntermediateEntity InformationEntity
-aggregationOfInformationEntityIntermediateEntity = aggregationOfBuildingBlock
+aggregationOfInformationEntityIntermediateEntity = make_Relation "InformationEntity aggregation" "aggregated InformationEntity"
 
 {- intermediateEntity : derived relation obtained by composing
    membershipOfIntermediateEntity and aggregationOfInformationEntityIntermediateEntity
@@ -224,6 +255,10 @@ aggregationOfInformationEntityIntermediateEntity = aggregationOfBuildingBlock
 -}
 intermediateEntity : Linkage DataLineage InformationEntity
 intermediateEntity = membershipOfIntermediateEntity  ∘  aggregationOfInformationEntityIntermediateEntity
+
+postulate -- intermediateEntity is subTypeOf assetInvolvement
+  st-acb4b3f162457d1a-8f6d910868e36ddc  : intermediateEntity   ⊏⋆ᵣ  assetInvolvement 
+
 
 {- Participant Organization: 
 The Data Lineage Participant helps to define where the data lineage node (Processing, Control..). occurs.It can represent an Organization or Position Type.
@@ -234,11 +269,11 @@ ParticipantOrganization = ClassOfIndividual
 
 -- Membership relation
 membershipOfParticipantOrganization :  Linkage DataLineage ParticipantOrganization
-membershipOfParticipantOrganization = membershipOfAggregateMember
+membershipOfParticipantOrganization = make_upwardNestingRelation "participantOrganization membership" "nested participantOrganization"
 
 -- Aggregation relation
 aggregationOfOrgUnitTypeParticipantOrganization :  Linkage ParticipantOrganization OrgUnitType
-aggregationOfOrgUnitTypeParticipantOrganization = aggregationOfBuildingBlock
+aggregationOfOrgUnitTypeParticipantOrganization = make_Relation "OrgUnitType aggregation" "aggregated OrgUnitType"
 
 {- participantOrganization : derived relation obtained by composing
    membershipOfParticipantOrganization and aggregationOfOrgUnitTypeParticipantOrganization
@@ -247,3 +282,5 @@ aggregationOfOrgUnitTypeParticipantOrganization = aggregationOfBuildingBlock
 -}
 participantOrganization : Linkage DataLineage OrgUnitType
 participantOrganization = membershipOfParticipantOrganization  ∘  aggregationOfOrgUnitTypeParticipantOrganization
+
+

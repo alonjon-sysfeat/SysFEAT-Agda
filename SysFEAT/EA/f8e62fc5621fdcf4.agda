@@ -5,6 +5,11 @@
 
 Resource Operating Environment: 
 A Resource Operating Environment is an operating context which defines the interactions (Business Service Channel) of an Resource Agent Type with its partners (Partner Resource Agent).
+
+Documentation : https://framework.sysfeat.com/pages/f8e62fc5621fdcf4.htm
+
+External references:
+  Russell Ackoff - System of Concepts - Environment of a system: ../resources/external-references/Ackoff-1971-Towards-a-system-of-systems-concepts.pdf#EnvironmentOfaSystem
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -21,25 +26,25 @@ ResourceOperatingEnvironment : ClassOfClassOfBoundedIndividual
 ResourceOperatingEnvironment = ClassOfBoundedIndividual
 
 --  ResourceOperatingEnvironment is subTypeOf AgentTypeEnvironment
-st-f8e62ff2621fdd8d : ResourceOperatingEnvironment ⊏ₑ AgentTypeEnvironment
-st-f8e62ff2621fdd8d = polySubTypeOf-identity
+st-f8e62fc5621fdcf4-d6cd0fd95ab9744b : ResourceOperatingEnvironment ⊏ₑ AgentTypeEnvironment
+st-f8e62fc5621fdcf4-d6cd0fd95ab9744b = polySubTypeOf-identity
 
 --  ResourceOperatingEnvironment is subTypeOf ResourceOperatingEcosystem
-st-f8e7d787621f0427 : ResourceOperatingEnvironment ⊏ₑ ResourceOperatingEcosystem
-st-f8e7d787621f0427 = polySubTypeOf-identity
+st-f8e62fc5621fdcf4-f8e64b51621dd3f3 : ResourceOperatingEnvironment ⊏ₑ ResourceOperatingEcosystem
+st-f8e62fc5621fdcf4-f8e64b51621dd3f3 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Specialized Enterprise Environment: -}
 specializedEnterpriseEnvironment :  Linkage ResourceOperatingEnvironment ResourceOperatingEnvironment
-specializedEnterpriseEnvironment = make_subTypeOf "Specialized Enterprise Environment" "specializedEnterpriseEnvironment"
+specializedEnterpriseEnvironment = make_subTypeOf "Specialized Enterprise Environment" "Specialized Enterprise Environment"
 
 postulate -- specializedEnterpriseEnvironment is subTypeOf specializedOperatingEnvironment
   st-325a377166f34785-325a373d66f33dca  : specializedEnterpriseEnvironment   ⊏⋆ᵣ  specializedOperatingEnvironment 
 
 {- Realized Enterprise Environment: -}
 realizedEnterpriseEnvironment :  Linkage ResourceOperatingEnvironment ResourceOperatingEnvironment
-realizedEnterpriseEnvironment = make_subTypeOf "Realized Enterprise Environment" "realizedEnterpriseEnvironment"
+realizedEnterpriseEnvironment = make_subTypeOf "Realized Enterprise Environment" "Realized Enterprise Environment"
 
 postulate -- realizedEnterpriseEnvironment is subTypeOf realizedOperatingEnvironment
   st-325a3a1766f35d1f-325a3a1066f35860  : realizedEnterpriseEnvironment   ⊏⋆ᵣ  realizedOperatingEnvironment 
@@ -51,11 +56,11 @@ BusinessServiceChannel = ClassOfIndividual
 
 -- Membership relation
 membershipOfBusinessServiceChannel :  Linkage ResourceOperatingEnvironment BusinessServiceChannel
-membershipOfBusinessServiceChannel = membershipOfAggregateMember
+membershipOfBusinessServiceChannel = make_upwardNestingRelation "businessServiceChannel membership" "nested businessServiceChannel"
 
 -- Aggregation relation
 aggregationOfResourceServiceInterfaceBusinessServiceChannel :  Linkage BusinessServiceChannel ResourceServiceInterface
-aggregationOfResourceServiceInterfaceBusinessServiceChannel = aggregationOfBuildingBlock
+aggregationOfResourceServiceInterfaceBusinessServiceChannel = make_Relation "ResourceServiceInterface aggregation" "aggregated ResourceServiceInterface"
 
 {- businessServiceChannel : derived relation obtained by composing
    membershipOfBusinessServiceChannel and aggregationOfResourceServiceInterfaceBusinessServiceChannel
@@ -65,6 +70,14 @@ aggregationOfResourceServiceInterfaceBusinessServiceChannel = aggregationOfBuild
 businessServiceChannel : Linkage ResourceOperatingEnvironment ResourceServiceInterface
 businessServiceChannel = membershipOfBusinessServiceChannel  ∘  aggregationOfResourceServiceInterfaceBusinessServiceChannel
 
+postulate -- businessServiceChannel is subTypeOf serviceChannel
+  st-2b6f436f61bafb0b-80be29065fc2a83d  : businessServiceChannel   ⊏⋆ᵣ  serviceChannel 
+postulate -- businessServiceChannel is subTypeOf enterpriseEcosystemConnection
+  st-2b6f436f61bafb0b-f8e7b91f621f01e9  : businessServiceChannel   ⊏⋆ᵣ  enterpriseEcosystemConnection 
+postulate -- businessServiceChannel is subTypeOf businessEcosystemConnection
+  st-2b6f436f61bafb0b-f8e7db56621f0cef  : businessServiceChannel   ⊏⋆ᵣ  businessEcosystemConnection 
+
+
 {- Subject Resource Agent: -}
 -- Aggregate Member : Subject Resource Agent
 SubjectResourceAgent : ClassOfClassOfIndividual
@@ -72,11 +85,11 @@ SubjectResourceAgent = ClassOfIndividual
 
 -- Membership relation
 membershipOfSubjectResourceAgent :  Linkage ResourceOperatingEnvironment SubjectResourceAgent
-membershipOfSubjectResourceAgent = membershipOfAggregateMember
+membershipOfSubjectResourceAgent = make_upwardNestingRelation "subjectResourceAgent membership" "nested subjectResourceAgent"
 
 -- Aggregation relation
 aggregationOfResourceAgentTypeSubjectResourceAgent :  Linkage SubjectResourceAgent ResourceAgentType
-aggregationOfResourceAgentTypeSubjectResourceAgent = aggregationOfBuildingBlock
+aggregationOfResourceAgentTypeSubjectResourceAgent = make_Relation "ResourceAgentType aggregation" "aggregated ResourceAgentType"
 
 {- subjectResourceAgent : derived relation obtained by composing
    membershipOfSubjectResourceAgent and aggregationOfResourceAgentTypeSubjectResourceAgent
@@ -86,6 +99,12 @@ aggregationOfResourceAgentTypeSubjectResourceAgent = aggregationOfBuildingBlock
 subjectResourceAgent : Linkage ResourceOperatingEnvironment ResourceAgentType
 subjectResourceAgent = membershipOfSubjectResourceAgent  ∘  aggregationOfResourceAgentTypeSubjectResourceAgent
 
+postulate -- subjectResourceAgent is subTypeOf subjectAgent
+  st-f8e6390c621fddf1-fa4ffc205ec86201  : subjectResourceAgent   ⊏⋆ᵣ  subjectAgent 
+postulate -- subjectResourceAgent is subTypeOf participantEnterpriseAgent
+  st-f8e6390c621fddf1-2b6f42fc61baf9b7  : subjectResourceAgent   ⊏⋆ᵣ  participantEnterpriseAgent 
+
+
 {- Partner Resource Agent: -}
 -- Aggregate Member : Partner Resource Agent
 PartnerResourceAgent : ClassOfClassOfIndividual
@@ -93,11 +112,11 @@ PartnerResourceAgent = ClassOfIndividual
 
 -- Membership relation
 membershipOfPartnerResourceAgent :  Linkage ResourceOperatingEnvironment PartnerResourceAgent
-membershipOfPartnerResourceAgent = membershipOfAggregateMember
+membershipOfPartnerResourceAgent = make_upwardNestingRelation "partnerResourceAgent membership" "nested partnerResourceAgent"
 
 -- Aggregation relation
 aggregationOfResourceAgentTypePartnerResourceAgent :  Linkage PartnerResourceAgent ResourceAgentType
-aggregationOfResourceAgentTypePartnerResourceAgent = aggregationOfBuildingBlock
+aggregationOfResourceAgentTypePartnerResourceAgent = make_Relation "ResourceAgentType aggregation" "aggregated ResourceAgentType"
 
 {- partnerResourceAgent : derived relation obtained by composing
    membershipOfPartnerResourceAgent and aggregationOfResourceAgentTypePartnerResourceAgent
@@ -107,6 +126,12 @@ aggregationOfResourceAgentTypePartnerResourceAgent = aggregationOfBuildingBlock
 partnerResourceAgent : Linkage ResourceOperatingEnvironment ResourceAgentType
 partnerResourceAgent = membershipOfPartnerResourceAgent  ∘  aggregationOfResourceAgentTypePartnerResourceAgent
 
+postulate -- partnerResourceAgent is subTypeOf partnerAgent
+  st-f8e63939621fdefd-fa4ffc235ec86276  : partnerResourceAgent   ⊏⋆ᵣ  partnerAgent 
+postulate -- partnerResourceAgent is subTypeOf participantEnterpriseAgent
+  st-f8e63939621fdefd-2b6f42fc61baf9b7  : partnerResourceAgent   ⊏⋆ᵣ  participantEnterpriseAgent 
+
+
 {- Participant Enterprise Agent: -}
 -- Aggregate Member : Participant Enterprise Agent
 ParticipantEnterpriseAgent : ClassOfClassOfIndividual
@@ -114,11 +139,11 @@ ParticipantEnterpriseAgent = ClassOfIndividual
 
 -- Membership relation
 membershipOfParticipantEnterpriseAgent :  Linkage ResourceOperatingEnvironment ParticipantEnterpriseAgent
-membershipOfParticipantEnterpriseAgent = membershipOfAggregateMember
+membershipOfParticipantEnterpriseAgent = make_upwardNestingRelation "participantEnterpriseAgent membership" "nested participantEnterpriseAgent"
 
 -- Aggregation relation
 aggregationOfResourceAgentTypeParticipantEnterpriseAgent :  Linkage ParticipantEnterpriseAgent ResourceAgentType
-aggregationOfResourceAgentTypeParticipantEnterpriseAgent = aggregationOfBuildingBlock
+aggregationOfResourceAgentTypeParticipantEnterpriseAgent = make_Relation "ResourceAgentType aggregation" "aggregated ResourceAgentType"
 
 {- participantEnterpriseAgent : derived relation obtained by composing
    membershipOfParticipantEnterpriseAgent and aggregationOfResourceAgentTypeParticipantEnterpriseAgent
@@ -127,3 +152,11 @@ aggregationOfResourceAgentTypeParticipantEnterpriseAgent = aggregationOfBuilding
 -}
 participantEnterpriseAgent : Linkage ResourceOperatingEnvironment ResourceAgentType
 participantEnterpriseAgent = membershipOfParticipantEnterpriseAgent  ∘  aggregationOfResourceAgentTypeParticipantEnterpriseAgent
+
+postulate -- participantEnterpriseAgent is subTypeOf participantAgent
+  st-2b6f42fc61baf9b7-80be28965fc2a6b8  : participantEnterpriseAgent   ⊏⋆ᵣ  participantAgent 
+postulate -- participantEnterpriseAgent is subTypeOf enterpriseEcosystemPart
+  st-2b6f42fc61baf9b7-f8e6b83c621fffe6  : participantEnterpriseAgent   ⊏⋆ᵣ  enterpriseEcosystemPart 
+postulate -- participantEnterpriseAgent is subTypeOf resourceEcosystemPart
+  st-2b6f42fc61baf9b7-95129626620b544c  : participantEnterpriseAgent   ⊏⋆ᵣ  resourceEcosystemPart 
+

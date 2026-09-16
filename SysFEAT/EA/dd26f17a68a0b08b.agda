@@ -5,6 +5,13 @@
 
 Skill: 
 A Skill is an ability of a human resource to produce Business Outcome Events.Skills are acquired and refined through training and practice.
+
+Documentation : https://framework.sysfeat.com/pages/dd26f17a68a0b08b.htm
+
+External references:
+  OpenGroup - ArchiMate - Capability: https://pubs.opengroup.org/architecture/archimate32-doc/ch-Strategy-Layer.html#sec-Capability
+  Wordnet - Skill: https://en-word.net/ili/i66539
+  OMG - UAF - Competence: https://www.omg.org/spec/UAF/1.2/Beta1/DMM/PDF#Competence
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,14 +25,14 @@ Skill : PropertyType
 Skill = ClassOfProperty
 
 --  Skill is subTypeOf BusinessResourceCapability
-st-215c6677606d4f5b : Skill ⊏ₑ BusinessResourceCapability
-st-215c6677606d4f5b = polySubTypeOf-identity
+st-dd26f17a68a0b08b-dd26288968a05d00 : Skill ⊏ₑ BusinessResourceCapability
+st-dd26f17a68a0b08b-dd26288968a05d00 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Specialized Skill: -}
 specializedSkill :  Linkage Skill Skill
-specializedSkill = make_subTypeOf "Specialized Skill" "specializedSkill"
+specializedSkill = make_subTypeOf "Specialized Skill" "Specialized Skill"
 
 postulate -- specializedSkill is subTypeOf specializedBusinessResourceCapability
   st-dd27d78968a12593-dd2683b668a1bbb3  : specializedSkill   ⊏⋆ᵣ  specializedBusinessResourceCapability 
@@ -37,11 +44,11 @@ SkillPart = ClassOfIndividual
 
 -- Membership relation
 membershipOfSkillPart :  Linkage Skill SkillPart
-membershipOfSkillPart = membershipOfAggregateMember
+membershipOfSkillPart = make_upwardNestingRelation "skillPart membership" "nested skillPart"
 
 -- Aggregation relation
 aggregationOfSkillSkillPart :  Linkage SkillPart Skill
-aggregationOfSkillSkillPart = aggregationOfBuildingBlock
+aggregationOfSkillSkillPart = make_Relation "Skill aggregation" "aggregated Skill"
 
 {- skillPart : derived relation obtained by composing
    membershipOfSkillPart and aggregationOfSkillSkillPart
@@ -50,3 +57,7 @@ aggregationOfSkillSkillPart = aggregationOfBuildingBlock
 -}
 skillPart : Linkage Skill Skill
 skillPart = membershipOfSkillPart  ∘  aggregationOfSkillSkillPart
+
+postulate -- skillPart is subTypeOf businessResourceCapabilityPart
+  st-dd26f40f68a0b32f-dd27af0168a10530  : skillPart   ⊏⋆ᵣ  businessResourceCapabilityPart 
+

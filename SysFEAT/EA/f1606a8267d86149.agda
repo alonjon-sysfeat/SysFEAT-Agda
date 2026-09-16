@@ -5,6 +5,9 @@
 
 Operational Assurance Case: 
 
+
+Documentation : https://framework.sysfeat.com/pages/f1606a8267d86149.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,8 +23,8 @@ OperationalAssuranceCase : ClassOfClassOfBoundedIndividual
 OperationalAssuranceCase = ClassOfBoundedIndividual
 
 --  OperationalAssuranceCase is subTypeOf AssuranceCase
-st-f1606b7c67d862c3 : OperationalAssuranceCase ⊏ₑ AssuranceCase
-st-f1606b7c67d862c3 = polySubTypeOf-identity
+st-f1606a8267d86149-07ca19e95dd854e9 : OperationalAssuranceCase ⊏ₑ AssuranceCase
+st-f1606a8267d86149-07ca19e95dd854e9 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -32,11 +35,11 @@ ResourceOperatingAsset = ClassOfIndividual
 
 -- Membership relation
 membershipOfResourceOperatingAsset :  Linkage OperationalAssuranceCase ResourceOperatingAsset
-membershipOfResourceOperatingAsset = membershipOfAggregateMember
+membershipOfResourceOperatingAsset = make_upwardNestingRelation "resourceOperatingAsset membership" "nested resourceOperatingAsset"
 
 -- Aggregation relation
 aggregationOfResourceOperatingAssetResourceOperatingAsset :  Linkage ResourceOperatingAsset ResourceOperatingAsset
-aggregationOfResourceOperatingAssetResourceOperatingAsset = aggregationOfBuildingBlock
+aggregationOfResourceOperatingAssetResourceOperatingAsset = make_Relation "ResourceOperatingAsset aggregation" "aggregated ResourceOperatingAsset"
 
 {- resourceOperatingAsset : derived relation obtained by composing
    membershipOfResourceOperatingAsset and aggregationOfResourceOperatingAssetResourceOperatingAsset
@@ -46,6 +49,10 @@ aggregationOfResourceOperatingAssetResourceOperatingAsset = aggregationOfBuildin
 resourceOperatingAsset : Linkage OperationalAssuranceCase ResourceOperatingAsset
 resourceOperatingAsset = membershipOfResourceOperatingAsset  ∘  aggregationOfResourceOperatingAssetResourceOperatingAsset
 
+postulate -- resourceOperatingAsset is subTypeOf involvedAsset
+  st-f1606bb067d86473-9152e6975ed764d3  : resourceOperatingAsset   ⊏⋆ᵣ  involvedAsset 
+
+
 {- Mitigated Operational Risk: -}
 -- Aggregate Member : Mitigated Operational Risk
 MitigatedOperationalRisk : ThirdOrderClass
@@ -53,11 +60,11 @@ MitigatedOperationalRisk = SecondOrderClass
 
 -- Membership relation
 membershipOfMitigatedOperationalRisk :  Linkage OperationalAssuranceCase MitigatedOperationalRisk
-membershipOfMitigatedOperationalRisk = membershipOfAggregateMember
+membershipOfMitigatedOperationalRisk = make_upwardNestingRelation "mitigatedOperationalRisk membership" "nested mitigatedOperationalRisk"
 
 -- Aggregation relation
 aggregationOfOperatingRiskTypeMitigatedOperationalRisk :  Linkage MitigatedOperationalRisk OperatingRiskType
-aggregationOfOperatingRiskTypeMitigatedOperationalRisk = aggregationOfBuildingBlock
+aggregationOfOperatingRiskTypeMitigatedOperationalRisk = make_Relation "OperatingRiskType aggregation" "aggregated OperatingRiskType"
 
 {- mitigatedOperationalRisk : derived relation obtained by composing
    membershipOfMitigatedOperationalRisk and aggregationOfOperatingRiskTypeMitigatedOperationalRisk
@@ -66,3 +73,7 @@ aggregationOfOperatingRiskTypeMitigatedOperationalRisk = aggregationOfBuildingBl
 -}
 mitigatedOperationalRisk : Linkage OperationalAssuranceCase OperatingRiskType
 mitigatedOperationalRisk = membershipOfMitigatedOperationalRisk  ∘  aggregationOfOperatingRiskTypeMitigatedOperationalRisk
+
+postulate -- mitigatedOperationalRisk is subTypeOf mitigatedRisk
+  st-f1606c2967d86662-582e770166f6a8cf  : mitigatedOperationalRisk   ⊏⋆ᵣ  mitigatedRisk 
+

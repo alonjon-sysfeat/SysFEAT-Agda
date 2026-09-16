@@ -5,6 +5,9 @@
 
 State Concept Type: 
 A State Concept Type is Class of Conceptual Entity which is a state type of another Class of Conceptual Entity.Example:- Employee is a state of Person. Its temporal boundaries are  hiring  and  departure  (see Event Concept).
+
+Documentation : https://framework.sysfeat.com/pages/267b2ba866757a82.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ StateConceptType : ClassOfClassOfBoundedIndividual
 StateConceptType = ClassOfBoundedIndividual
 
 --  StateConceptType is subTypeOf ClassOfConceptualEntity
-st-267b2bb366757ac9 : StateConceptType ⊏ₑ ClassOfConceptualEntity
-st-267b2bb366757ac9 = polySubTypeOf-identity
+st-267b2ba866757a82-267b28fc66757618 : StateConceptType ⊏ₑ ClassOfConceptualEntity
+st-267b2ba866757a82-267b28fc66757618 = polySubTypeOf-identity
 
 -- == Relationships =======================

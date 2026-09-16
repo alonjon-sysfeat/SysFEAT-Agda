@@ -5,6 +5,9 @@
 
 Data Control: 
 A Data Control is about tracking the quality of information as defined by Data Quality Policy(ies).
+
+Documentation : https://framework.sysfeat.com/pages/9815a0dc5f682fa1.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,17 +23,17 @@ DataControl : ClassOfClassOfBoundedIndividual
 DataControl = ClassOfBoundedIndividual
 
 --  DataControl is subTypeOf DataAssuranceInstrument
-st-fe63247161817738 : DataControl ⊏⋆ₑ DataAssuranceInstrument
-st-fe63247161817738 = polySubTypeOf-identity
+st-9815a0dc5f682fa1-44226d6561819b50 : DataControl ⊏⋆ₑ DataAssuranceInstrument
+st-9815a0dc5f682fa1-44226d6561819b50 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Controled Data Policy: -}
 controledDataPolicy :  Linkage DataControl DataQualityPolicy
-controledDataPolicy = make_classOfHolonymy "Controled Data Policy" "controledDataPolicy"
+controledDataPolicy = make_classOfHolonymy "Controled Data Policy" "Controled Data Policy"
 
 
 {- Implemented Measure: -}
 implementedMeasure :  Linkage DataControl DataQualityMeasure
-implementedMeasure = make_classOfHolonymy "Implemented Measure" "implementedMeasure"
+implementedMeasure = make_classOfHolonymy "Implemented Measure" "Implemented Measure"
 

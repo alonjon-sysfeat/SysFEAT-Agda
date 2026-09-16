@@ -5,6 +5,9 @@
 
 Computing Device: 
 A Computing Device is a physical or virtual computer that can host and run software code. Together with their Deployable Application Packages, they provide Information Outcomes.Examples: Computer Device, Computer Server.
+
+Documentation : https://framework.sysfeat.com/pages/02f51209641c7ea4.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -23,12 +26,12 @@ ComputingDevice : ClassOfClassOfBoundedIndividual
 ComputingDevice = ClassOfBoundedIndividual
 
 --  ComputingDevice is subTypeOf NetworkingSystem
-st-02f5121d641c7ef7 : ComputingDevice ⊏ₑ NetworkingSystem
-st-02f5121d641c7ef7 = polySubTypeOf-identity
+st-02f51209641c7ea4-26b8384f5eeae33c : ComputingDevice ⊏ₑ NetworkingSystem
+st-02f51209641c7ea4-26b8384f5eeae33c = polySubTypeOf-identity
 
 --  ComputingDevice is subTypeOf ComputingSystem
-st-02f5155c641c8262 : ComputingDevice ⊏ₑ ComputingSystem
-st-02f5155c641c8262 = polySubTypeOf-identity
+st-02f51209641c7ea4-f4be0eda5ee1d6c0 : ComputingDevice ⊏ₑ ComputingSystem
+st-02f51209641c7ea4-f4be0eda5ee1d6c0 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -41,11 +44,11 @@ HostedApplicationPackage = ClassOfIndividual
 
 -- Membership relation
 membershipOfHostedApplicationPackage :  Linkage ComputingDevice HostedApplicationPackage
-membershipOfHostedApplicationPackage = membershipOfAggregateMember
+membershipOfHostedApplicationPackage = make_upwardNestingRelation "hostedApplicationPackage membership" "nested hostedApplicationPackage"
 
 -- Aggregation relation
 aggregationOfDeployableApplicationPackageHostedApplicationPackage :  Linkage HostedApplicationPackage DeployableApplicationPackage
-aggregationOfDeployableApplicationPackageHostedApplicationPackage = aggregationOfBuildingBlock
+aggregationOfDeployableApplicationPackageHostedApplicationPackage = make_Relation "DeployableApplicationPackage aggregation" "aggregated DeployableApplicationPackage"
 
 {- hostedApplicationPackage : derived relation obtained by composing
    membershipOfHostedApplicationPackage and aggregationOfDeployableApplicationPackageHostedApplicationPackage
@@ -54,6 +57,12 @@ aggregationOfDeployableApplicationPackageHostedApplicationPackage = aggregationO
 -}
 hostedApplicationPackage : Linkage ComputingDevice DeployableApplicationPackage
 hostedApplicationPackage = membershipOfHostedApplicationPackage  ∘  aggregationOfDeployableApplicationPackageHostedApplicationPackage
+
+postulate -- hostedApplicationPackage is subTypeOf hostedSOftware
+  st-f4be10485ee1dbcc-70ba9b2e64224962  : hostedApplicationPackage   ⊏⋆ᵣ  hostedSOftware 
+postulate -- hostedApplicationPackage is subTypeOf networkingPart
+  st-f4be10485ee1dbcc-26b8386e5eeae4a4  : hostedApplicationPackage   ⊏⋆ᵣ  networkingPart 
+
 
 {- Hosted Micro-Service: 
 Hosting of a MicroService in a Computing System.
@@ -64,11 +73,11 @@ HostedMicroService = ClassOfIndividual
 
 -- Membership relation
 membershipOfHostedMicroService :  Linkage ComputingDevice HostedMicroService
-membershipOfHostedMicroService = membershipOfAggregateMember
+membershipOfHostedMicroService = make_upwardNestingRelation "hostedMicroService membership" "nested hostedMicroService"
 
 -- Aggregation relation
 aggregationOfMicroServiceHostedMicroService :  Linkage HostedMicroService MicroService
-aggregationOfMicroServiceHostedMicroService = aggregationOfBuildingBlock
+aggregationOfMicroServiceHostedMicroService = make_Relation "MicroService aggregation" "aggregated MicroService"
 
 {- hostedMicroService : derived relation obtained by composing
    membershipOfHostedMicroService and aggregationOfMicroServiceHostedMicroService
@@ -77,6 +86,10 @@ aggregationOfMicroServiceHostedMicroService = aggregationOfBuildingBlock
 -}
 hostedMicroService : Linkage ComputingDevice MicroService
 hostedMicroService = membershipOfHostedMicroService  ∘  aggregationOfMicroServiceHostedMicroService
+
+postulate -- hostedMicroService is subTypeOf networkingPart
+  st-26b830735eeadc36-26b8386e5eeae4a4  : hostedMicroService   ⊏⋆ᵣ  networkingPart 
+
 
 {- Hosted Data: 
 Hosting a set of Physical Data Assets in a data store of a Computing System.
@@ -87,11 +100,11 @@ HostedData = ClassOfIndividual
 
 -- Membership relation
 membershipOfHostedData :  Linkage ComputingDevice HostedData
-membershipOfHostedData = membershipOfAggregateMember
+membershipOfHostedData = make_upwardNestingRelation "hostedData membership" "nested hostedData"
 
 -- Aggregation relation
 aggregationOfPhysicalDataDomainHostedData :  Linkage HostedData PhysicalDataDomain
-aggregationOfPhysicalDataDomainHostedData = aggregationOfBuildingBlock
+aggregationOfPhysicalDataDomainHostedData = make_Relation "PhysicalDataDomain aggregation" "aggregated PhysicalDataDomain"
 
 {- hostedData : derived relation obtained by composing
    membershipOfHostedData and aggregationOfPhysicalDataDomainHostedData
@@ -100,6 +113,10 @@ aggregationOfPhysicalDataDomainHostedData = aggregationOfBuildingBlock
 -}
 hostedData : Linkage ComputingDevice PhysicalDataDomain
 hostedData = membershipOfHostedData  ∘  aggregationOfPhysicalDataDomainHostedData
+
+postulate -- hostedData is subTypeOf networkingPart
+  st-26b831345eeadddc-26b8386e5eeae4a4  : hostedData   ⊏⋆ᵣ  networkingPart 
+
 
 {- Hosted Software Technology: 
 Hosting of a Software Technology in a Computing Device.
@@ -110,11 +127,11 @@ HostedSOftwareTechnology = ClassOfIndividual
 
 -- Membership relation
 membershipOfHostedSOftwareTechnology :  Linkage ComputingDevice HostedSOftwareTechnology
-membershipOfHostedSOftwareTechnology = membershipOfAggregateMember
+membershipOfHostedSOftwareTechnology = make_upwardNestingRelation "hostedSOftwareTechnology membership" "nested hostedSOftwareTechnology"
 
 -- Aggregation relation
 aggregationOfSOftwareTechnologyHostedSOftwareTechnology :  Linkage HostedSOftwareTechnology SOftwareTechnology
-aggregationOfSOftwareTechnologyHostedSOftwareTechnology = aggregationOfBuildingBlock
+aggregationOfSOftwareTechnologyHostedSOftwareTechnology = make_Relation "SOftwareTechnology aggregation" "aggregated SOftwareTechnology"
 
 {- hostedSOftwareTechnology : derived relation obtained by composing
    membershipOfHostedSOftwareTechnology and aggregationOfSOftwareTechnologyHostedSOftwareTechnology
@@ -123,3 +140,7 @@ aggregationOfSOftwareTechnologyHostedSOftwareTechnology = aggregationOfBuildingB
 -}
 hostedSOftwareTechnology : Linkage ComputingDevice SOftwareTechnology
 hostedSOftwareTechnology = membershipOfHostedSOftwareTechnology  ∘  aggregationOfSOftwareTechnologyHostedSOftwareTechnology
+
+postulate -- hostedSOftwareTechnology is subTypeOf networkingPart
+  st-26b847ee5eea002d-26b8386e5eeae4a4  : hostedSOftwareTechnology   ⊏⋆ᵣ  networkingPart 
+

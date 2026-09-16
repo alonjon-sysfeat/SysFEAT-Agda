@@ -5,6 +5,9 @@
 
 Business Policy Category: 
 A Business Policy Category defines a classification of related Business Policys.
+
+Documentation : https://framework.sysfeat.com/pages/952ead2b67285cfd.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ BusinessPolicyCategory : ThirdOrderClass
 BusinessPolicyCategory = SecondOrderClass
 
 --  BusinessPolicyCategory is subTypeOf PolicyFrameworkCategory
-st-af6622e66307d8d1 : BusinessPolicyCategory ⊏ₑ PolicyFrameworkCategory
-st-af6622e66307d8d1 = polySubTypeOf-identity
+st-952ead2b67285cfd-952eaada67285ac3 : BusinessPolicyCategory ⊏ₑ PolicyFrameworkCategory
+st-952ead2b67285cfd-952eaada67285ac3 = polySubTypeOf-identity
 
 -- == Relationships =======================

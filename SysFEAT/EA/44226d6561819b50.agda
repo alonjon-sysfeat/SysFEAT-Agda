@@ -5,6 +5,9 @@
 
 Data Assurance Instrument: 
 A Data Assurance Instrument is a resource or course of actions used by an Data Catalog to achieve its objectives.For instance:Actions plans are course of actions aimed at solving Data breaches.Data Controls are mechanisms used to ensure data quality and data integrityData Processors are used to processings involved in Data Lineages.
+
+Documentation : https://framework.sysfeat.com/pages/44226d6561819b50.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ DataAssuranceInstrument : ClassOfBoundedIndividual
 DataAssuranceInstrument = BoundedIndividual
 
 --  DataAssuranceInstrument is subTypeOf AssuranceInstrument
-st-44226d9a61819c30 : DataAssuranceInstrument ⊏ₑ AssuranceInstrument
-st-44226d9a61819c30 = polySubTypeOf-identity
+st-44226d6561819b50-7d3786ff5fd052e7 : DataAssuranceInstrument ⊏ₑ AssuranceInstrument
+st-44226d6561819b50-7d3786ff5fd052e7 = polySubTypeOf-identity
 
 -- == Relationships =======================

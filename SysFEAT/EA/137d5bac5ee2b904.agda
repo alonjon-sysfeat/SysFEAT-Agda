@@ -5,6 +5,9 @@
 
 Hardware Portolio: 
 A Hardware Portolio is an Asset Portfolio aimed at developing and maintaining in operational conditions a set of Concrete Hardware Systems delivering Hardware Capabilitys required by Business Operations.The purpose of  Hardware Portolios is efficiency of Managed Hardwares, which must provide expected Hardware Capabilitys in the best cost / performance ratio.
+
+Documentation : https://framework.sysfeat.com/pages/137d5bac5ee2b904.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -21,12 +24,12 @@ HardwarePortolio : ClassOfBoundedIndividual
 HardwarePortolio = BoundedIndividual
 
 --  HardwarePortolio is subTypeOf AssetPortfolio
-st-6ce6246b5ef388d7 : HardwarePortolio ⊏ₑ AssetPortfolio
-st-6ce6246b5ef388d7 = polySubTypeOf-identity
+st-137d5bac5ee2b904-26b8889c5eea8ab7 : HardwarePortolio ⊏ₑ AssetPortfolio
+st-137d5bac5ee2b904-26b8889c5eea8ab7 = polySubTypeOf-identity
 
 --  HardwarePortolio is subTypeOf HardwareManagementInitiative
-st-92a7f53367ce57b1 : HardwarePortolio ⊏ₑ HardwareManagementInitiative
-st-92a7f53367ce57b1 = polySubTypeOf-identity
+st-137d5bac5ee2b904-24f8475766477e0a : HardwarePortolio ⊏ₑ HardwareManagementInitiative
+st-137d5bac5ee2b904-24f8475766477e0a = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -34,7 +37,7 @@ st-92a7f53367ce57b1 = polySubTypeOf-identity
 Set of all Hardware Portfolio Stage of an Asset Portfolio that , coordinated by initiative milestones, establishes the roadmap for the Concrete Hardware System Assets under its supervision.
 -}
 roadmap :  Linkage HardwarePortolio HardwarePortfolioStage
-roadmap = make_holonymyRelation "Roadmap" "roadmap"
+roadmap = make_holonymyRelation "Roadmap" "Roadmap"
 
 postulate -- roadmap is subTypeOf portfolioRoadmap
   st-24f849ac6647844d-f277fa24601bef67  : roadmap   ⊏⋆ᵣ  portfolioRoadmap 
@@ -48,11 +51,11 @@ ManagedHardware = ClassOfIndividual
 
 -- Membership relation
 membershipOfManagedHardware :  Linkage HardwarePortolio ManagedHardware
-membershipOfManagedHardware = membershipOfAggregateMember
+membershipOfManagedHardware = make_upwardNestingRelation "managedHardware membership" "nested managedHardware"
 
 -- Aggregation relation
 aggregationOfConcreteHardwareSystemManagedHardware :  Linkage ManagedHardware ConcreteHardwareSystem
-aggregationOfConcreteHardwareSystemManagedHardware = aggregationOfBuildingBlock
+aggregationOfConcreteHardwareSystemManagedHardware = make_Relation "ConcreteHardwareSystem aggregation" "aggregated ConcreteHardwareSystem"
 
 {- managedHardware : derived relation obtained by composing
    membershipOfManagedHardware and aggregationOfConcreteHardwareSystemManagedHardware
@@ -61,3 +64,7 @@ aggregationOfConcreteHardwareSystemManagedHardware = aggregationOfBuildingBlock
 -}
 managedHardware : Linkage HardwarePortolio ConcreteHardwareSystem
 managedHardware = membershipOfManagedHardware  ∘  aggregationOfConcreteHardwareSystemManagedHardware
+
+postulate -- managedHardware is subTypeOf managedResourceAsset
+  st-26b850db5eeaaa33-f57af6ca62d21904  : managedHardware   ⊏⋆ᵣ  managedResourceAsset 
+

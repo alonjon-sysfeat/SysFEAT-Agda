@@ -5,6 +5,9 @@
 
 Table View: 
 A Table View is a virtual table based on the result-set of an SQL statement. A Table View contains rows and columns, just like a real Table. 
+
+Documentation : https://framework.sysfeat.com/pages/137d24905ee2d0ca.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ TableView : ClassOfClassOfBoundedIndividual
 TableView = ClassOfBoundedIndividual
 
 --  TableView is subTypeOf RelationalEntity
-st-137d24975ee2d1a3 : TableView ⊏ₑ RelationalEntity
-st-137d24975ee2d1a3 = polySubTypeOf-identity
+st-137d24905ee2d0ca-362f3ca45b3b234b : TableView ⊏ₑ RelationalEntity
+st-137d24905ee2d0ca-362f3ca45b3b234b = polySubTypeOf-identity
 
 -- == Relationships =======================

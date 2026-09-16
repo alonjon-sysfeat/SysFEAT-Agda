@@ -5,6 +5,9 @@
 
 Technology Portfolio: 
 Technology Portfolios are Asset Portfolios aimed at managing a set of Software Technologys delivering functionalities required by enterprise operations.The purpose of Technology Portfolios is efficiency: managed Managed Software Technologys must provide expected Software Technology Capabilitys in the best cost / performance ratio.
+
+Documentation : https://framework.sysfeat.com/pages/6ce61b9d5ef382cf.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,14 +23,14 @@ TechnologyPortfolio : ClassOfBoundedIndividual
 TechnologyPortfolio = BoundedIndividual
 
 --  TechnologyPortfolio is subTypeOf AssetPortfolio
-st-6ce61bac5ef383d0 : TechnologyPortfolio ⊏ₑ AssetPortfolio
-st-6ce61bac5ef383d0 = polySubTypeOf-identity
+st-6ce61b9d5ef382cf-26b8889c5eea8ab7 : TechnologyPortfolio ⊏ₑ AssetPortfolio
+st-6ce61b9d5ef382cf-26b8889c5eea8ab7 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Functional Scope: -}
 functionalScope :  Linkage TechnologyPortfolio SOftwareTechnologyCapabilityMap
-functionalScope = make_instanceOf "Functional Scope" "functionalScope"
+functionalScope = make_instanceOf "Functional Scope" "Functional Scope"
 
 postulate -- functionalScope is subTypeOf portfolioFunctionalScope
   st-dd27b95768a114e1-dd2630ca68a0669f  : functionalScope   ⊏⋆ᵣ  portfolioFunctionalScope 
@@ -41,11 +44,11 @@ ManagedSOftwareTechnology = ClassOfIndividual
 
 -- Membership relation
 membershipOfManagedSOftwareTechnology :  Linkage TechnologyPortfolio ManagedSOftwareTechnology
-membershipOfManagedSOftwareTechnology = membershipOfAggregateMember
+membershipOfManagedSOftwareTechnology = make_upwardNestingRelation "managedSOftwareTechnology membership" "nested managedSOftwareTechnology"
 
 -- Aggregation relation
 aggregationOfSOftwareTechnologyManagedSOftwareTechnology :  Linkage ManagedSOftwareTechnology SOftwareTechnology
-aggregationOfSOftwareTechnologyManagedSOftwareTechnology = aggregationOfBuildingBlock
+aggregationOfSOftwareTechnologyManagedSOftwareTechnology = make_Relation "SOftwareTechnology aggregation" "aggregated SOftwareTechnology"
 
 {- managedSOftwareTechnology : derived relation obtained by composing
    membershipOfManagedSOftwareTechnology and aggregationOfSOftwareTechnologyManagedSOftwareTechnology
@@ -54,3 +57,9 @@ aggregationOfSOftwareTechnologyManagedSOftwareTechnology = aggregationOfBuilding
 -}
 managedSOftwareTechnology : Linkage TechnologyPortfolio SOftwareTechnology
 managedSOftwareTechnology = membershipOfManagedSOftwareTechnology  ∘  aggregationOfSOftwareTechnologyManagedSOftwareTechnology
+
+postulate -- managedSOftwareTechnology is subTypeOf managementSystemSubject
+  st-e9b802705f51200e-6bf17ffc68598c26  : managedSOftwareTechnology   ⊏⋆ᵣ  managementSystemSubject  {lzero}
+postulate -- managedSOftwareTechnology is subTypeOf managedResourceAsset
+  st-e9b802705f51200e-f57af6ca62d21904  : managedSOftwareTechnology   ⊏⋆ᵣ  managedResourceAsset 
+

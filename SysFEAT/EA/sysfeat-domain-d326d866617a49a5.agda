@@ -1,10 +1,13 @@
 ﻿{- ============================== 
-   Copyright (c) 2026 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
+   Copyright (c) 2023 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
    This work is released under the MIT License.
    framework.sysfeat.com
 
 Data Provenance & Reliability Assurance: 
 Data Provenance &amp; Reliability Assurance establishes trust in the provenance of Conceptual Entity Assets.It uses Data Lineage as a means to track data provenance.
+
+Documentation : https://framework.sysfeat.com/pages/d326d866617a49a5.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

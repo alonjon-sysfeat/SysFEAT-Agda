@@ -5,6 +5,9 @@
 
 Business System Asset: 
 A Business System Asset is man made resource that is a means to achieve Business Outcome Events.
+
+Documentation : https://framework.sysfeat.com/pages/6246927f61b81996.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -21,29 +24,54 @@ BusinessSystemAsset : ClassOfClassOfBoundedIndividual
 BusinessSystemAsset = ClassOfBoundedIndividual
 
 --  BusinessSystemAsset is subTypeOf BusinessOperatingAsset
-st-6246928861b819ee : BusinessSystemAsset ⊏ₑ BusinessOperatingAsset
-st-6246928861b819ee = polySubTypeOf-identity
+st-6246927f61b81996-62466ea661b80d09 : BusinessSystemAsset ⊏ₑ BusinessOperatingAsset
+st-6246927f61b81996-62466ea661b80d09 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Specialized Business System Asset: -}
 specializedBusinessSystemAsset :  Linkage BusinessSystemAsset BusinessSystemAsset
-specializedBusinessSystemAsset = make_subTypeOf "Specialized Business System Asset" "specializedBusinessSystemAsset"
+specializedBusinessSystemAsset = make_subTypeOf "Specialized Business System Asset" "Specialized Business System Asset"
 
 postulate -- specializedBusinessSystemAsset is subTypeOf specializedResourceAsset
   st-325a37b966f34e1e-325a380e66f351f6  : specializedBusinessSystemAsset   ⊏⋆ᵣ  specializedResourceAsset 
 
 {- Fulfilled Requirement: -}
 fulfilledRequirement :  Linkage BusinessSystemAsset Requirement
-fulfilledRequirement = make_subTypeOf "Fulfilled Requirement" "fulfilledRequirement"
+fulfilledRequirement = make_subTypeOf "Fulfilled Requirement" "Fulfilled Requirement"
 
 
 {- Fulfilled Functionality: -}
 fulfilledFunctionality :  Linkage BusinessSystemAsset Functionality
-fulfilledFunctionality = make_subTypeOf "Fulfilled Functionality" "fulfilledFunctionality"
+fulfilledFunctionality = make_subTypeOf "Fulfilled Functionality" "Fulfilled Functionality"
 
 postulate -- fulfilledFunctionality is subTypeOf fulfilledBusinessResourceCapability
   st-dd26ab3968a1fa4a-dd2681a968a1b9d1  : fulfilledFunctionality   ⊏⋆ᵣ  fulfilledBusinessResourceCapability 
+
+{- Business System Asset Part: -}
+-- Aggregate Member : Business System Asset Part
+BusinessSystemAssetPart : ClassOfClassOfIndividual
+BusinessSystemAssetPart = ClassOfIndividual
+
+-- Membership relation
+membershipOfBusinessSystemAssetPart :  Linkage BusinessSystemAsset BusinessSystemAssetPart
+membershipOfBusinessSystemAssetPart = make_upwardNestingRelation "businessSystemAssetPart membership" "nested businessSystemAssetPart"
+
+-- Aggregation relation
+aggregationOfBusinessSystemAssetBusinessSystemAssetPart :  Linkage BusinessSystemAssetPart BusinessSystemAsset
+aggregationOfBusinessSystemAssetBusinessSystemAssetPart = make_Relation "BusinessSystemAsset aggregation" "aggregated BusinessSystemAsset"
+
+{- businessSystemAssetPart : derived relation obtained by composing
+   membershipOfBusinessSystemAssetPart and aggregationOfBusinessSystemAssetBusinessSystemAssetPart
+   It directly links an Business System Asset to the final aggregated BusinessSystemAsset
+   hiding the reifying BusinessSystemAssetPart
+-}
+businessSystemAssetPart : Linkage BusinessSystemAsset BusinessSystemAsset
+businessSystemAssetPart = membershipOfBusinessSystemAssetPart  ∘  aggregationOfBusinessSystemAssetBusinessSystemAssetPart
+
+postulate -- businessSystemAssetPart is subTypeOf businessOperatingAssetPart
+  st-9e0fedcf68be6cd9-b777c10368b071b8  : businessSystemAssetPart   ⊏⋆ᵣ  businessOperatingAssetPart 
+
 
 {- System Rule Enforcement: -}
 -- Aggregate Member : System Rule Enforcement
@@ -52,11 +80,11 @@ SystemRuleEnforcement = ClassOfIndividual
 
 -- Membership relation
 membershipOfSystemRuleEnforcement :  Linkage BusinessSystemAsset SystemRuleEnforcement
-membershipOfSystemRuleEnforcement = membershipOfAggregateMember
+membershipOfSystemRuleEnforcement = make_upwardNestingRelation "systemRuleEnforcement membership" "nested systemRuleEnforcement"
 
 -- Aggregation relation
 aggregationOfSystemRuleSystemRuleEnforcement :  Linkage SystemRuleEnforcement SystemRule
-aggregationOfSystemRuleSystemRuleEnforcement = aggregationOfBuildingBlock
+aggregationOfSystemRuleSystemRuleEnforcement = make_Relation "SystemRule aggregation" "aggregated SystemRule"
 
 {- systemRuleEnforcement : derived relation obtained by composing
    membershipOfSystemRuleEnforcement and aggregationOfSystemRuleSystemRuleEnforcement
@@ -66,23 +94,4 @@ aggregationOfSystemRuleSystemRuleEnforcement = aggregationOfBuildingBlock
 systemRuleEnforcement : Linkage BusinessSystemAsset SystemRule
 systemRuleEnforcement = membershipOfSystemRuleEnforcement  ∘  aggregationOfSystemRuleSystemRuleEnforcement
 
-{- Business System Asset Part: -}
--- Aggregate Member : Business System Asset Part
-BusinessSystemAssetPart : ClassOfClassOfIndividual
-BusinessSystemAssetPart = ClassOfIndividual
 
--- Membership relation
-membershipOfBusinessSystemAssetPart :  Linkage BusinessSystemAsset BusinessSystemAssetPart
-membershipOfBusinessSystemAssetPart = membershipOfAggregateMember
-
--- Aggregation relation
-aggregationOfBusinessSystemAssetBusinessSystemAssetPart :  Linkage BusinessSystemAssetPart BusinessSystemAsset
-aggregationOfBusinessSystemAssetBusinessSystemAssetPart = aggregationOfBuildingBlock
-
-{- businessSystemAssetPart : derived relation obtained by composing
-   membershipOfBusinessSystemAssetPart and aggregationOfBusinessSystemAssetBusinessSystemAssetPart
-   It directly links an Business System Asset to the final aggregated BusinessSystemAsset
-   hiding the reifying BusinessSystemAssetPart
--}
-businessSystemAssetPart : Linkage BusinessSystemAsset BusinessSystemAsset
-businessSystemAssetPart = membershipOfBusinessSystemAssetPart  ∘  aggregationOfBusinessSystemAssetBusinessSystemAssetPart

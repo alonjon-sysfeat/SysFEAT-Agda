@@ -5,6 +5,9 @@
 
 Deployed Cloud Service: 
 
+
+Documentation : https://framework.sysfeat.com/pages/c80a7aaf6785beb6.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,14 +22,14 @@ DeployedCloudService : ClassOfBoundedIndividual
 DeployedCloudService = BoundedIndividual
 
 --  DeployedCloudService is subTypeOf DeployedSOftwareTechnologySystem
-st-c80a7ac26785bf29 : DeployedCloudService ⊏ₑ DeployedSOftwareTechnologySystem
-st-c80a7ac26785bf29 = polySubTypeOf-identity
+st-c80a7aaf6785beb6-2c93304a6764424d : DeployedCloudService ⊏ₑ DeployedSOftwareTechnologySystem
+st-c80a7aaf6785beb6-2c93304a6764424d = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Cloud Service Type: -}
 cloudServiceType :  Linkage DeployedCloudService CloudService
-cloudServiceType = make_instanceOf "Cloud Service Type" "cloudServiceType"
+cloudServiceType = make_instanceOf "Cloud Service Type" "Cloud Service Type"
 
 postulate -- cloudServiceType is subTypeOf sOftwareTechnologyType
   st-219134a867862275-2c9330e06764470a  : cloudServiceType   ⊏⋆ᵣ  sOftwareTechnologyType 

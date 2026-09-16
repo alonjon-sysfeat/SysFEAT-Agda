@@ -5,6 +5,9 @@
 
 Person Type: 
 
+
+Documentation : https://framework.sysfeat.com/pages/41b8e49f65ee66ec.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,11 +22,11 @@ PersonType : ClassOfClassOfBoundedIndividual
 PersonType = ClassOfBoundedIndividual
 
 --  PersonType is subTypeOf HumanResource
-st-e9af2d7366e87611 : PersonType ⊏ₑ HumanResource
-st-e9af2d7366e87611 = polySubTypeOf-identity
+st-41b8e49f65ee66ec-2c93337b67644a6a : PersonType ⊏ₑ HumanResource
+st-41b8e49f65ee66ec-2c93337b67644a6a = polySubTypeOf-identity
 
 --  PersonType is subTypeOf PhysicalBusinessAgent
-st-c80a219e67855ab1 : PersonType ⊏ₑ PhysicalBusinessAgent
-st-c80a219e67855ab1 = polySubTypeOf-identity
+st-41b8e49f65ee66ec-be94e82f655c90e7 : PersonType ⊏ₑ PhysicalBusinessAgent
+st-41b8e49f65ee66ec-be94e82f655c90e7 = polySubTypeOf-identity
 
 -- == Relationships =======================

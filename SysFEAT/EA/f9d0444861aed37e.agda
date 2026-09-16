@@ -5,6 +5,9 @@
 
 Firewall: 
 A Firewall is a network security device that monitors and controls incoming and outgoing network traffic based on predetermined security rules. Its primary function is to prevent unauthorized access to or from a private network by blocking or allowing network traffic.
+
+Documentation : https://framework.sysfeat.com/pages/f9d0444861aed37e.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ Firewall : ClassOfClassOfBoundedIndividual
 Firewall = ClassOfBoundedIndividual
 
 --  Firewall is subTypeOf NetworkDevice
-st-f9d0445261aed3d6 : Firewall ⊏ₑ NetworkDevice
-st-f9d0445261aed3d6 = polySubTypeOf-identity
+st-f9d0444861aed37e-f4be0fba5ee1d935 : Firewall ⊏ₑ NetworkDevice
+st-f9d0444861aed37e-f4be0fba5ee1d935 = polySubTypeOf-identity
 
 -- == Relationships =======================

@@ -5,6 +5,9 @@
 
 Application System Environment: 
 An Application System Environment is an operating context in which an Application System defines its interactions with its partners (Partner System) in the form of API connections (Software Connection).It also represents End Users that interact with the system.
+
+Documentation : https://framework.sysfeat.com/pages/d6cd260b5ab9886c.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,14 +22,14 @@ ApplicationSystemEnvironment : ClassOfClassOfBoundedIndividual
 ApplicationSystemEnvironment = ClassOfBoundedIndividual
 
 --  ApplicationSystemEnvironment is subTypeOf SOftwareSystemEnvironment
-st-d6cd266f5ab988af : ApplicationSystemEnvironment ⊏ₑ SOftwareSystemEnvironment
-st-d6cd266f5ab988af = polySubTypeOf-identity
+st-d6cd260b5ab9886c-25c0a25061e2fd5a : ApplicationSystemEnvironment ⊏ₑ SOftwareSystemEnvironment
+st-d6cd260b5ab9886c-25c0a25061e2fd5a = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Specialized System Environment: -}
 specializedSystemEnvironment :  Linkage ApplicationSystemEnvironment ApplicationSystemEnvironment
-specializedSystemEnvironment = make_subTypeOf "Specialized System Environment" "specializedSystemEnvironment"
+specializedSystemEnvironment = make_subTypeOf "Specialized System Environment" "Specialized System Environment"
 
 
 {- Subject System: -}
@@ -36,11 +39,11 @@ SubjectSystem = ClassOfIndividual
 
 -- Membership relation
 membershipOfSubjectSystem :  Linkage ApplicationSystemEnvironment SubjectSystem
-membershipOfSubjectSystem = membershipOfAggregateMember
+membershipOfSubjectSystem = make_upwardNestingRelation "subjectSystem membership" "nested subjectSystem"
 
 -- Aggregation relation
 aggregationOfApplicationSystemSubjectSystem :  Linkage SubjectSystem ApplicationSystem
-aggregationOfApplicationSystemSubjectSystem = aggregationOfBuildingBlock
+aggregationOfApplicationSystemSubjectSystem = make_Relation "ApplicationSystem aggregation" "aggregated ApplicationSystem"
 
 {- subjectSystem : derived relation obtained by composing
    membershipOfSubjectSystem and aggregationOfApplicationSystemSubjectSystem
@@ -50,6 +53,12 @@ aggregationOfApplicationSystemSubjectSystem = aggregationOfBuildingBlock
 subjectSystem : Linkage ApplicationSystemEnvironment ApplicationSystem
 subjectSystem = membershipOfSubjectSystem  ∘  aggregationOfApplicationSystemSubjectSystem
 
+postulate -- subjectSystem is subTypeOf participantSOftware
+  st-173f4a805eb8c14e-25c1a63d61e206d7  : subjectSystem   ⊏⋆ᵣ  participantSOftware 
+postulate -- subjectSystem is subTypeOf subjectSOftwareSystem
+  st-173f4a805eb8c14e-25c1a65861e2077a  : subjectSystem   ⊏⋆ᵣ  subjectSOftwareSystem 
+
+
 {- Partner System: -}
 -- Aggregate Member : Partner System
 PartnerSystem : ClassOfClassOfIndividual
@@ -57,11 +66,11 @@ PartnerSystem = ClassOfIndividual
 
 -- Membership relation
 membershipOfPartnerSystem :  Linkage ApplicationSystemEnvironment PartnerSystem
-membershipOfPartnerSystem = membershipOfAggregateMember
+membershipOfPartnerSystem = make_upwardNestingRelation "partnerSystem membership" "nested partnerSystem"
 
 -- Aggregation relation
 aggregationOfApplicationSystemPartnerSystem :  Linkage PartnerSystem ApplicationSystem
-aggregationOfApplicationSystemPartnerSystem = aggregationOfBuildingBlock
+aggregationOfApplicationSystemPartnerSystem = make_Relation "ApplicationSystem aggregation" "aggregated ApplicationSystem"
 
 {- partnerSystem : derived relation obtained by composing
    membershipOfPartnerSystem and aggregationOfApplicationSystemPartnerSystem
@@ -70,3 +79,9 @@ aggregationOfApplicationSystemPartnerSystem = aggregationOfBuildingBlock
 -}
 partnerSystem : Linkage ApplicationSystemEnvironment ApplicationSystem
 partnerSystem = membershipOfPartnerSystem  ∘  aggregationOfApplicationSystemPartnerSystem
+
+postulate -- partnerSystem is subTypeOf participantSOftware
+  st-173f4ad15eb8c1f5-25c1a63d61e206d7  : partnerSystem   ⊏⋆ᵣ  participantSOftware 
+postulate -- partnerSystem is subTypeOf partnerSOftwareSystem
+  st-173f4ad15eb8c1f5-25c1a6bc61e20826  : partnerSystem   ⊏⋆ᵣ  partnerSOftwareSystem 
+

@@ -5,6 +5,9 @@
 
 Micro Resource Operating Asset: 
 
+
+Documentation : https://framework.sysfeat.com/pages/61e3b04c679f13de.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ MicroResourceOperatingAsset : ClassOfClassOfBoundedIndividual
 MicroResourceOperatingAsset = ClassOfBoundedIndividual
 
 --  MicroResourceOperatingAsset is subTypeOf ResourceOperatingAsset
-st-61e3b079679f1440 : MicroResourceOperatingAsset ⊏ₑ ResourceOperatingAsset
-st-61e3b079679f1440 = polySubTypeOf-identity
+st-61e3b04c679f13de-f8e61da0621db6fa : MicroResourceOperatingAsset ⊏ₑ ResourceOperatingAsset
+st-61e3b04c679f13de-f8e61da0621db6fa = polySubTypeOf-identity
 
 -- == Relationships =======================

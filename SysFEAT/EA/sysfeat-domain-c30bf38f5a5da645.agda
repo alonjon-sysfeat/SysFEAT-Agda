@@ -1,10 +1,13 @@
 ﻿{- ============================== 
-   Copyright (c) 2026 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
+   Copyright (c) 2025 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
    This work is released under the MIT License.
    framework.sysfeat.com
 
 Hardware System ArcOps: 
 The Hardware System ArcOps domain describes a set of concepts used in practices that combines Concrete Hardware System architecture, Concrete Hardware System development (Dev) and Concrete Hardware System operations (Ops). It aims to shorten the systems development life cycle and provide continuous delivery with high system quality. DevOps is complementary with Agile software development; several DevOps aspects came from the Agile methodology.
+
+Documentation : https://framework.sysfeat.com/pages/c30bf38f5a5da645.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

@@ -1,10 +1,13 @@
 ﻿{- ============================== 
-   Copyright (c) 2026 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
+   Copyright (c) 2023 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
    This work is released under the MIT License.
    framework.sysfeat.com
 
 Data Asset Assurance: 
 Data Asset Assurance establishes trust in the quality of Information Assets by means of Business Object Assurance Cases.
+
+Documentation : https://framework.sysfeat.com/pages/7c3aae72617a2499.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

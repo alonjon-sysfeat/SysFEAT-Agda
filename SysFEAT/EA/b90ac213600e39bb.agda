@@ -5,6 +5,9 @@
 
 Data Governance Block: 
 Governance Resource uses in the context of Data Governance.
+
+Documentation : https://framework.sysfeat.com/pages/b90ac213600e39bb.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ DataGovernanceBlock : ClassOfBoundedIndividual
 DataGovernanceBlock = BoundedIndividual
 
 --  DataGovernanceBlock withAspect GovernanceInstrument
-st-b90ac251600e3a34 : DataGovernanceBlock ⊏ₐₑ (GovernanceInstrument lzero)
-st-b90ac251600e3a34 = polySubTypeOf-identity
+st-b90ac213600e39bb-6662916b68dd5f84 : DataGovernanceBlock ⊏ₐₑ (GovernanceInstrument lzero)
+st-b90ac213600e39bb-6662916b68dd5f84 = polySubTypeOf-identity
 
 -- == Relationships =======================

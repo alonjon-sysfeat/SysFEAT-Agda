@@ -5,6 +5,9 @@
 
 Technology Capability Map: 
 Family of Technology Capabilitys used to scope technology portfolios.
+
+Documentation : https://framework.sysfeat.com/pages/dd27b40768a112f8.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,8 +22,8 @@ TechnologyCapabilityMap : PropertyType
 TechnologyCapabilityMap = ClassOfProperty
 
 --  TechnologyCapabilityMap is subTypeOf ResourceCapabilityMap
-st-09d112a2679e58c5 : TechnologyCapabilityMap ⊏ₑ ResourceCapabilityMap
-st-09d112a2679e58c5 = polySubTypeOf-identity
+st-dd27b40768a112f8-dd26307668a065f5 : TechnologyCapabilityMap ⊏ₑ ResourceCapabilityMap
+st-dd27b40768a112f8-dd26307668a065f5 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -31,11 +34,11 @@ TehnologyCapabilityMember = ClassOfIndividual
 
 -- Membership relation
 membershipOfTehnologyCapabilityMember :  Linkage TechnologyCapabilityMap TehnologyCapabilityMember
-membershipOfTehnologyCapabilityMember = membershipOfAggregateMember
+membershipOfTehnologyCapabilityMember = make_upwardNestingRelation "tehnologyCapabilityMember membership" "nested tehnologyCapabilityMember"
 
 -- Aggregation relation
 aggregationOfTechnologyCapabilityTehnologyCapabilityMember :  Linkage TehnologyCapabilityMember TechnologyCapability
-aggregationOfTechnologyCapabilityTehnologyCapabilityMember = aggregationOfBuildingBlock
+aggregationOfTechnologyCapabilityTehnologyCapabilityMember = make_Relation "TechnologyCapability aggregation" "aggregated TechnologyCapability"
 
 {- tehnologyCapabilityMember : derived relation obtained by composing
    membershipOfTehnologyCapabilityMember and aggregationOfTechnologyCapabilityTehnologyCapabilityMember
@@ -44,3 +47,7 @@ aggregationOfTechnologyCapabilityTehnologyCapabilityMember = aggregationOfBuildi
 -}
 tehnologyCapabilityMember : Linkage TechnologyCapabilityMap TechnologyCapability
 tehnologyCapabilityMember = membershipOfTehnologyCapabilityMember  ∘  aggregationOfTechnologyCapabilityTehnologyCapabilityMember
+
+postulate -- tehnologyCapabilityMember is subTypeOf resourceCapabilityMember
+  st-dd27d05d68a11646-dd26325f68a0682c  : tehnologyCapabilityMember   ⊏⋆ᵣ  resourceCapabilityMember 
+

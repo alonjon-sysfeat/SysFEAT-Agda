@@ -5,6 +5,9 @@
 
 Physical Data Block: 
 
+
+Documentation : https://framework.sysfeat.com/pages/8f1cad7d68ca9df0.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ PhysicalDataBlock : ∀ (u : Level) → ClassOfMixedOrderEntity u
 PhysicalDataBlock u = MixedOrderEntity u
 
 --  PhysicalDataBlock is subTypeOf DataBlock
-st-75ef4eb0620fb3f7 : ∀ {u v} → (PhysicalDataBlock u) ⊏⋆ₑ (DataBlock v)
-st-75ef4eb0620fb3f7 = trivialPolySubTypeOfEntity
+st-8f1cad7d68ca9df0-8f1c937168ca8195 : ∀ {u v} → (PhysicalDataBlock u) ⊏⋆ₑ (DataBlock v)
+st-8f1cad7d68ca9df0-8f1c937168ca8195 = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

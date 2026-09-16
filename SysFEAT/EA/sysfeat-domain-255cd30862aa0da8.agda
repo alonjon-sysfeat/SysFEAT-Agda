@@ -1,10 +1,13 @@
 ﻿{- ============================== 
-   Copyright (c) 2026 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
+   Copyright (c) 2025 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
    This work is released under the MIT License.
    framework.sysfeat.com
 
 SOF - Business System Operating Pattern: 
 The SOF - Business System Operating Pattern domain defines concepts and relationships used to model how a Business System operates/functions in its Operating Eco-System..It includes Business Systems, System Processes, Business System Interaction Processs, System Rules, Functionality(ies), Information Outcome Events.
+
+Documentation : https://framework.sysfeat.com/pages/255cd30862aa0da8.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

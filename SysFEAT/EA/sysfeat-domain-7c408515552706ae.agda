@@ -1,10 +1,16 @@
 ﻿{- ============================== 
-   Copyright (c) 2026 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
+   Copyright (c) 2025 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
    This work is released under the MIT License.
    framework.sysfeat.com
 
 Software System ArcOps: 
 The Software System ArcOps domain describes a set of concepts used in practices that combines Business Software System development (Dev) and Business Software System operations (Ops). It aims to shorten the development life cycle of Business Software Systems and provide continuous delivery with high system quality. DevOps is complementary with Agile software development; several DevOps aspects came from the Agile methodology.
+
+Documentation : https://framework.sysfeat.com/pages/7c408515552706ae.htm
+
+External references:
+  SAFe© - DevOps: https://www.scaledagileframework.com/devops/
+  OpenGroup - OAA - Software Architecture: https://pubs.opengroup.org/architecture/o-aa-standard/software-architecture.html
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

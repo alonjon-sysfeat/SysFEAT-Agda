@@ -5,6 +5,9 @@
 
 Information Entity Component Data Type: 
 
+
+Documentation : https://framework.sysfeat.com/pages/affecaa25f60782d.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

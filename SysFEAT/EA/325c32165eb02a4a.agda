@@ -5,6 +5,9 @@
 
 Data Domain: 
 A Data Domain is subset of the enterprises data that are meant to be manipulated together in the context of business operations.For instance, a  Sales  Data Domain contains at least the following entities: Customers, Orders, Products.Each Data Entity in a Data Domain has CRUD characteristics. For instance, Products are read-only in a  Sales  Data Domain, while Customers and Orders have all CRUD characteristics.Data Domains define functional data boundaries used both for Data Allocation to Business Systems (see Data Stores) and Data Governance for data stewardship (Data Catalogs).
+
+Documentation : https://framework.sysfeat.com/pages/325c32165eb02a4a.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -21,25 +24,25 @@ DataDomain : ClassOfClassOfBoundedIndividual
 DataDomain = ClassOfBoundedIndividual
 
 --  DataDomain withAspect DataBlock
-st-30efb3c561f37d21 : DataDomain ⊏ₐₑ (DataBlock (lsuc(lzero)))
-st-30efb3c561f37d21 = polySubTypeOf-identity
+st-325c32165eb02a4a-8f1c937168ca8195 : DataDomain ⊏ₐₑ (DataBlock (lsuc(lzero)))
+st-325c32165eb02a4a-8f1c937168ca8195 = polySubTypeOf-identity
 
 --  DataDomain is subTypeOf InformationDomain
-st-cbd9df655fb7dbfb : DataDomain ⊏ₑ InformationDomain
-st-cbd9df655fb7dbfb = polySubTypeOf-identity
+st-325c32165eb02a4a-d6cd116d5ab97525 : DataDomain ⊏ₑ InformationDomain
+st-325c32165eb02a4a-d6cd116d5ab97525 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Specialized Data Area: -}
 specializedDataArea :  Linkage DataDomain DataDomain
-specializedDataArea = make_subTypeOf "Specialized Data Area" "specializedDataArea"
+specializedDataArea = make_subTypeOf "Specialized Data Area" "Specialized Data Area"
 
 postulate -- specializedDataArea is subTypeOf specializedInformationDomain
   st-325a376f66f346b3-325a380a66f34efb  : specializedDataArea   ⊏⋆ᵣ  specializedInformationDomain 
 
 {- Realized Concept Domain: -}
 realizedConceptDomain :  Linkage DataDomain ConceptDomain
-realizedConceptDomain = make_subTypeOf "Realized Concept Domain" "realizedConceptDomain"
+realizedConceptDomain = make_subTypeOf "Realized Concept Domain" "Realized Concept Domain"
 
 postulate -- realizedConceptDomain is subTypeOf realizedInformationDomain
   st-325a3a1566f35bda-325a3a0e66f3562c  : realizedConceptDomain   ⊏⋆ᵣ  realizedInformationDomain 
@@ -51,11 +54,11 @@ DomainDataObject = ClassOfIndividual
 
 -- Membership relation
 membershipOfDomainDataObject :  Linkage DataDomain DomainDataObject
-membershipOfDomainDataObject = membershipOfAggregateMember
+membershipOfDomainDataObject = make_upwardNestingRelation "domainDataObject membership" "nested domainDataObject"
 
 -- Aggregation relation
 aggregationOfDataAssetDomainDataObject :  Linkage DomainDataObject DataAsset
-aggregationOfDataAssetDomainDataObject = aggregationOfBuildingBlock
+aggregationOfDataAssetDomainDataObject = make_Relation "DataAsset aggregation" "aggregated DataAsset"
 
 {- domainDataObject : derived relation obtained by composing
    membershipOfDomainDataObject and aggregationOfDataAssetDomainDataObject
@@ -65,6 +68,10 @@ aggregationOfDataAssetDomainDataObject = aggregationOfBuildingBlock
 domainDataObject : Linkage DataDomain DataAsset
 domainDataObject = membershipOfDomainDataObject  ∘  aggregationOfDataAssetDomainDataObject
 
+postulate -- domainDataObject is subTypeOf domainAsset
+  st-6d2b7d9e5fbb65f3-24ae4a405ed16bcf  : domainDataObject   ⊏⋆ᵣ  domainAsset 
+
+
 {- Sub-Data Area: -}
 -- Aggregate Member : Sub-Data Area
 SubDataArea : ClassOfClassOfIndividual
@@ -72,11 +79,11 @@ SubDataArea = ClassOfIndividual
 
 -- Membership relation
 membershipOfSubDataArea :  Linkage DataDomain SubDataArea
-membershipOfSubDataArea = membershipOfAggregateMember
+membershipOfSubDataArea = make_upwardNestingRelation "subDataArea membership" "nested subDataArea"
 
 -- Aggregation relation
 aggregationOfDataDomainSubDataArea :  Linkage SubDataArea DataDomain
-aggregationOfDataDomainSubDataArea = aggregationOfBuildingBlock
+aggregationOfDataDomainSubDataArea = make_Relation "DataDomain aggregation" "aggregated DataDomain"
 
 {- subDataArea : derived relation obtained by composing
    membershipOfSubDataArea and aggregationOfDataDomainSubDataArea
@@ -85,3 +92,7 @@ aggregationOfDataDomainSubDataArea = aggregationOfBuildingBlock
 -}
 subDataArea : Linkage DataDomain DataDomain
 subDataArea = membershipOfSubDataArea  ∘  aggregationOfDataDomainSubDataArea
+
+postulate -- subDataArea is subTypeOf subInformationArea
+  st-cbd9dff65fb7dd57-24ae4a625ed16c60  : subDataArea   ⊏⋆ᵣ  subInformationArea 
+

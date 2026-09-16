@@ -5,6 +5,9 @@
 
 Regulation section: 
 A Regulation section is a classification of Regulation Articles.Regulation sections can be themselves organized as a classification hierarchy.
+
+Documentation : https://framework.sysfeat.com/pages/952eb284672864df.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,11 +22,11 @@ Regulationsection : ThirdOrderClass
 Regulationsection = SecondOrderClass
 
 --  Regulationsection is subTypeOf PolicyCategory
-st-9152e8905ed76ae9 : Regulationsection ⊏ₑ PolicyCategory
-st-9152e8905ed76ae9 = polySubTypeOf-identity
+st-952eb284672864df-952ea6c467285821 : Regulationsection ⊏ₑ PolicyCategory
+st-952eb284672864df-952ea6c467285821 = polySubTypeOf-identity
 
 --  Regulationsection withAspect RegulatoryAsset
-st-4b947e9c68a4a008 : Regulationsection ⊏ₐₑ (RegulatoryAsset (lsuc(lsuc(lzero))))
-st-4b947e9c68a4a008 = polySubTypeOf-identity
+st-952eb284672864df-4b947d2068a49dbb : Regulationsection ⊏ₐₑ (RegulatoryAsset (lsuc(lsuc(lzero))))
+st-952eb284672864df-4b947d2068a49dbb = polySubTypeOf-identity
 
 -- == Relationships =======================

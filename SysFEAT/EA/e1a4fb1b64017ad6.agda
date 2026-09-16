@@ -5,6 +5,9 @@
 
 Wifi Hotspot: 
 A Wifi Hotspot is Network Device that allows multiple devices to connect to a Wi-Fi network.
+
+Documentation : https://framework.sysfeat.com/pages/e1a4fb1b64017ad6.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ WifiHotspot : ClassOfClassOfBoundedIndividual
 WifiHotspot = ClassOfBoundedIndividual
 
 --  WifiHotspot is subTypeOf NetworkDevice
-st-e1a4012b64027d18 : WifiHotspot ⊏ₑ NetworkDevice
-st-e1a4012b64027d18 = polySubTypeOf-identity
+st-e1a4fb1b64017ad6-f4be0fba5ee1d935 : WifiHotspot ⊏ₑ NetworkDevice
+st-e1a4fb1b64017ad6-f4be0fba5ee1d935 = polySubTypeOf-identity
 
 -- == Relationships =======================

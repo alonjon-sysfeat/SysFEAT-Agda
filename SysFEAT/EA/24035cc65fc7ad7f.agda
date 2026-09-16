@@ -5,6 +5,9 @@
 
 Concrete Software System: 
 A Concrete Software System is a Software System Category that is the concrete implementation of an Business Software System.
+
+Documentation : https://framework.sysfeat.com/pages/24035cc65fc7ad7f.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,19 +23,19 @@ ConcreteSOftwareSystem : ClassOfClassOfBoundedIndividual
 ConcreteSOftwareSystem = ClassOfBoundedIndividual
 
 --  ConcreteSOftwareSystem is subTypeOf SOftwareSystemCategory
-st-340f5b0c686219d3 : ConcreteSOftwareSystem ⊏ₑ SOftwareSystemCategory
-st-340f5b0c686219d3 = polySubTypeOf-identity
+st-24035cc65fc7ad7f-ffdf5e1f68608352 : ConcreteSOftwareSystem ⊏ₑ SOftwareSystemCategory
+st-24035cc65fc7ad7f-ffdf5e1f68608352 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Realized Software System: -}
 realizedSOftwareSystem :  Linkage ConcreteSOftwareSystem BusinessSOftwareSystem
-realizedSOftwareSystem = make_subTypeOf "Realized Software System" "realizedSOftwareSystem"
+realizedSOftwareSystem = make_subTypeOf "Realized Software System" "Realized Software System"
 
 
 {- Fulfilled Technology Capability: -}
 fulfilledTechnologyCapability :  Linkage ConcreteSOftwareSystem SOftwareTechnologyCapability
-fulfilledTechnologyCapability = make_subTypeOf "Fulfilled Technology Capability" "fulfilledTechnologyCapability"
+fulfilledTechnologyCapability = make_subTypeOf "Fulfilled Technology Capability" "Fulfilled Technology Capability"
 
 postulate -- fulfilledTechnologyCapability is subTypeOf fulfilledTechnologyCapability
   st-dd27d12668a11786-dd27b1d668a10d0a  : fulfilledTechnologyCapability   ⊏⋆ᵣ  fulfilledTechnologyCapability 

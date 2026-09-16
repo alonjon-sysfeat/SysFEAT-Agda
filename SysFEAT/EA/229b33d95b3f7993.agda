@@ -5,6 +5,9 @@
 
 Concept View: 
 A Concept View specifies an aspect of a Conceptual Entity based on the selection of characteristics and relationship of this Conceptual Entity that matter for a particular processing.
+
+Documentation : https://framework.sysfeat.com/pages/229b33d95b3f7993.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,14 +22,14 @@ ConceptView : ClassOfClassOfBoundedIndividual
 ConceptView = ClassOfBoundedIndividual
 
 --  ConceptView is subTypeOf ConceptualEntityAsset
-st-dfa4e1d35ebb4a34 : ConceptView ⊏ₑ ConceptualEntityAsset
-st-dfa4e1d35ebb4a34 = polySubTypeOf-identity
+st-229b33d95b3f7993-362fc8045b3c3e65 : ConceptView ⊏ₑ ConceptualEntityAsset
+st-229b33d95b3f7993-362fc8045b3c3e65 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- View Specification: -}
 viewSpecification :  Linkage ConceptView ConceptualEntity
-viewSpecification = make_classOfHolonymy "View Specification" "viewSpecification"
+viewSpecification = make_classOfHolonymy "View Specification" "View Specification"
 
 
 {- Embedding Member: -}
@@ -36,11 +39,11 @@ EmbeddingMember = ClassOfIndividual
 
 -- Membership relation
 membershipOfEmbeddingMember :  Linkage ConceptView EmbeddingMember
-membershipOfEmbeddingMember = membershipOfAggregateMember
+membershipOfEmbeddingMember = make_upwardNestingRelation "embeddingMember membership" "nested embeddingMember"
 
 -- Aggregation relation
 aggregationOfConceptualEntityAssetEmbeddingMember :  Linkage EmbeddingMember ConceptualEntityAsset
-aggregationOfConceptualEntityAssetEmbeddingMember = aggregationOfBuildingBlock
+aggregationOfConceptualEntityAssetEmbeddingMember = make_Relation "ConceptualEntityAsset aggregation" "aggregated ConceptualEntityAsset"
 
 {- embeddingMember : derived relation obtained by composing
    membershipOfEmbeddingMember and aggregationOfConceptualEntityAssetEmbeddingMember
@@ -50,6 +53,8 @@ aggregationOfConceptualEntityAssetEmbeddingMember = aggregationOfBuildingBlock
 embeddingMember : Linkage ConceptView ConceptualEntityAsset
 embeddingMember = membershipOfEmbeddingMember  ∘  aggregationOfConceptualEntityAssetEmbeddingMember
 
+
+
 {- Referencing Member: -}
 -- Aggregate Member : Referencing Member
 ReferencingMember : ClassOfClassOfIndividual
@@ -57,11 +62,11 @@ ReferencingMember = ClassOfIndividual
 
 -- Membership relation
 membershipOfReferencingMember :  Linkage ConceptView ReferencingMember
-membershipOfReferencingMember = membershipOfAggregateMember
+membershipOfReferencingMember = make_upwardNestingRelation "referencingMember membership" "nested referencingMember"
 
 -- Aggregation relation
 aggregationOfConceptualEntityAssetReferencingMember :  Linkage ReferencingMember ConceptualEntityAsset
-aggregationOfConceptualEntityAssetReferencingMember = aggregationOfBuildingBlock
+aggregationOfConceptualEntityAssetReferencingMember = make_Relation "ConceptualEntityAsset aggregation" "aggregated ConceptualEntityAsset"
 
 {- referencingMember : derived relation obtained by composing
    membershipOfReferencingMember and aggregationOfConceptualEntityAssetReferencingMember
@@ -70,3 +75,5 @@ aggregationOfConceptualEntityAssetReferencingMember = aggregationOfBuildingBlock
 -}
 referencingMember : Linkage ConceptView ConceptualEntityAsset
 referencingMember = membershipOfReferencingMember  ∘  aggregationOfConceptualEntityAssetReferencingMember
+
+

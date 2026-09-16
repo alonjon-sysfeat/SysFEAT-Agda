@@ -5,6 +5,9 @@
 
 Physical Data Domain: 
 A Physical Data Domain is subset of the metadata of an enterprises data store.For instance, a  Sales  Physical Data Domain contains a  Client  Table and a  Order  Table.Each Physical Data Entity in a Physical Data Domain has CRUD characteristics. For instance, the  Client  Table in the  Sales  Physical Data Domain, has all CRUD characteristics.Physical Data Domains define functional data boundaries used both for Data Allocation to Business Systems (see Resource Agent Store) and data governance for data stewardship (see Data Catalog).
+
+Documentation : https://framework.sysfeat.com/pages/028f03ff5b4f55ee.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,12 +23,12 @@ PhysicalDataDomain : ClassOfClassOfBoundedIndividual
 PhysicalDataDomain = ClassOfBoundedIndividual
 
 --  PhysicalDataDomain is subTypeOf DataDomain
-st-f4be48c55ee18226 : PhysicalDataDomain ⊏ₑ DataDomain
-st-f4be48c55ee18226 = polySubTypeOf-identity
+st-028f03ff5b4f55ee-325c32165eb02a4a : PhysicalDataDomain ⊏ₑ DataDomain
+st-028f03ff5b4f55ee-325c32165eb02a4a = polySubTypeOf-identity
 
 --  PhysicalDataDomain withAspect PhysicalDataBlock
-st-8f1cb95668cab189 : PhysicalDataDomain ⊏ₐₑ (PhysicalDataBlock (lsuc(lzero)))
-st-8f1cb95668cab189 = polySubTypeOf-identity
+st-028f03ff5b4f55ee-8f1cad7d68ca9df0 : PhysicalDataDomain ⊏ₐₑ (PhysicalDataBlock (lsuc(lzero)))
+st-028f03ff5b4f55ee-8f1cad7d68ca9df0 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -36,11 +39,11 @@ PhysicalDomainObject = ClassOfIndividual
 
 -- Membership relation
 membershipOfPhysicalDomainObject :  Linkage PhysicalDataDomain PhysicalDomainObject
-membershipOfPhysicalDomainObject = membershipOfAggregateMember
+membershipOfPhysicalDomainObject = make_upwardNestingRelation "physicalDomainObject membership" "nested physicalDomainObject"
 
 -- Aggregation relation
 aggregationOfPhysicalDataAssetPhysicalDomainObject :  Linkage PhysicalDomainObject PhysicalDataAsset
-aggregationOfPhysicalDataAssetPhysicalDomainObject = aggregationOfBuildingBlock
+aggregationOfPhysicalDataAssetPhysicalDomainObject = make_Relation "PhysicalDataAsset aggregation" "aggregated PhysicalDataAsset"
 
 {- physicalDomainObject : derived relation obtained by composing
    membershipOfPhysicalDomainObject and aggregationOfPhysicalDataAssetPhysicalDomainObject
@@ -49,3 +52,7 @@ aggregationOfPhysicalDataAssetPhysicalDomainObject = aggregationOfBuildingBlock
 -}
 physicalDomainObject : Linkage PhysicalDataDomain PhysicalDataAsset
 physicalDomainObject = membershipOfPhysicalDomainObject  ∘  aggregationOfPhysicalDataAssetPhysicalDomainObject
+
+postulate -- physicalDomainObject is subTypeOf domainDataObject
+  st-e6f223f55f771b8d-6d2b7d9e5fbb65f3  : physicalDomainObject   ⊏⋆ᵣ  domainDataObject 
+

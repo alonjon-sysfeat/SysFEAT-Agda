@@ -1,10 +1,13 @@
 ﻿{- ============================== 
-   Copyright (c) 2026 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
+   Copyright (c) 2021 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
    This work is released under the MIT License.
    framework.sysfeat.com
 
 IT Asset Management: 
 IT asset management (also known as ITAM) is the process of ensuring an organizations assets are accounted for, deployed, maintained, upgraded, and disposed of when the time comes. ... Defined simply, an IT asset includes hardware, software systems, or information an organization values.
+
+Documentation : https://framework.sysfeat.com/pages/1ce330355c4878d7.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

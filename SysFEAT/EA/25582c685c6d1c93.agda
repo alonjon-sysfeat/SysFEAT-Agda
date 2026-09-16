@@ -5,6 +5,9 @@
 
 Logical Operating Environment: 
 A Logical Operating Environment presents a logical application system use context. It describes the interactions between the Logical Application System and its external partners, which allows it to fulfill its mission and ensure the expected functionalities.
+
+Documentation : https://framework.sysfeat.com/pages/25582c685c6d1c93.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,8 +22,8 @@ LogicalOperatingEnvironment : ClassOfClassOfBoundedIndividual
 LogicalOperatingEnvironment = ClassOfBoundedIndividual
 
 --  LogicalOperatingEnvironment is subTypeOf SOftwareSystemEnvironment
-st-2b585f5d5ef0fe20 : LogicalOperatingEnvironment ⊏ₑ SOftwareSystemEnvironment
-st-2b585f5d5ef0fe20 = polySubTypeOf-identity
+st-25582c685c6d1c93-25c0a25061e2fd5a : LogicalOperatingEnvironment ⊏ₑ SOftwareSystemEnvironment
+st-25582c685c6d1c93-25c0a25061e2fd5a = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -31,11 +34,11 @@ PartnerLogicalPart = ClassOfIndividual
 
 -- Membership relation
 membershipOfPartnerLogicalPart :  Linkage LogicalOperatingEnvironment PartnerLogicalPart
-membershipOfPartnerLogicalPart = membershipOfAggregateMember
+membershipOfPartnerLogicalPart = make_upwardNestingRelation "partnerLogicalPart membership" "nested partnerLogicalPart"
 
 -- Aggregation relation
 aggregationOfLogicalApplicationSystemPartnerLogicalPart :  Linkage PartnerLogicalPart LogicalApplicationSystem
-aggregationOfLogicalApplicationSystemPartnerLogicalPart = aggregationOfBuildingBlock
+aggregationOfLogicalApplicationSystemPartnerLogicalPart = make_Relation "LogicalApplicationSystem aggregation" "aggregated LogicalApplicationSystem"
 
 {- partnerLogicalPart : derived relation obtained by composing
    membershipOfPartnerLogicalPart and aggregationOfLogicalApplicationSystemPartnerLogicalPart
@@ -45,6 +48,10 @@ aggregationOfLogicalApplicationSystemPartnerLogicalPart = aggregationOfBuildingB
 partnerLogicalPart : Linkage LogicalOperatingEnvironment LogicalApplicationSystem
 partnerLogicalPart = membershipOfPartnerLogicalPart  ∘  aggregationOfLogicalApplicationSystemPartnerLogicalPart
 
+postulate -- partnerLogicalPart is subTypeOf partnerSOftwareSystem
+  st-137d1fdb5ee2c266-25c1a6bc61e20826  : partnerLogicalPart   ⊏⋆ᵣ  partnerSOftwareSystem 
+
+
 {- Subject Logical Member: -}
 -- Aggregate Member : Subject Logical Member
 SubjectLogicalMember : ClassOfClassOfIndividual
@@ -52,11 +59,11 @@ SubjectLogicalMember = ClassOfIndividual
 
 -- Membership relation
 membershipOfSubjectLogicalMember :  Linkage LogicalOperatingEnvironment SubjectLogicalMember
-membershipOfSubjectLogicalMember = membershipOfAggregateMember
+membershipOfSubjectLogicalMember = make_upwardNestingRelation "subjectLogicalMember membership" "nested subjectLogicalMember"
 
 -- Aggregation relation
 aggregationOfLogicalApplicationSystemSubjectLogicalMember :  Linkage SubjectLogicalMember LogicalApplicationSystem
-aggregationOfLogicalApplicationSystemSubjectLogicalMember = aggregationOfBuildingBlock
+aggregationOfLogicalApplicationSystemSubjectLogicalMember = make_Relation "LogicalApplicationSystem aggregation" "aggregated LogicalApplicationSystem"
 
 {- subjectLogicalMember : derived relation obtained by composing
    membershipOfSubjectLogicalMember and aggregationOfLogicalApplicationSystemSubjectLogicalMember
@@ -65,3 +72,7 @@ aggregationOfLogicalApplicationSystemSubjectLogicalMember = aggregationOfBuildin
 -}
 subjectLogicalMember : Linkage LogicalOperatingEnvironment LogicalApplicationSystem
 subjectLogicalMember = membershipOfSubjectLogicalMember  ∘  aggregationOfLogicalApplicationSystemSubjectLogicalMember
+
+postulate -- subjectLogicalMember is subTypeOf subjectSOftwareSystem
+  st-137d20165ee2c309-25c1a65861e2077a  : subjectLogicalMember   ⊏⋆ᵣ  subjectSOftwareSystem 
+

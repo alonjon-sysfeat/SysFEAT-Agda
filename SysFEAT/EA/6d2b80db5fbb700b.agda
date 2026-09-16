@@ -5,6 +5,9 @@
 
 Data Map: 
 A Data Map is an urbanization tool for Data Asset. It represents a set of Data Domains in a particular context.
+
+Documentation : https://framework.sysfeat.com/pages/6d2b80db5fbb700b.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,12 +23,12 @@ DataMap : ClassOfClassOfBoundedIndividual
 DataMap = ClassOfBoundedIndividual
 
 --  DataMap is subTypeOf InformationMap
-st-6d2b80ed5fbb7082 : DataMap ⊏ₑ InformationMap
-st-6d2b80ed5fbb7082 = polySubTypeOf-identity
+st-6d2b80db5fbb700b-d6cd2d8e5ab98edc : DataMap ⊏ₑ InformationMap
+st-6d2b80db5fbb700b-d6cd2d8e5ab98edc = polySubTypeOf-identity
 
 --  DataMap withAspect DataBlock
-st-30efb3d161f37d79 : DataMap ⊏ₐₑ (DataBlock (lsuc(lzero)))
-st-30efb3d161f37d79 = polySubTypeOf-identity
+st-6d2b80db5fbb700b-8f1c937168ca8195 : DataMap ⊏ₐₑ (DataBlock (lsuc(lzero)))
+st-6d2b80db5fbb700b-8f1c937168ca8195 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -38,11 +41,11 @@ DataDomainMember = ClassOfIndividual
 
 -- Membership relation
 membershipOfDataDomainMember :  Linkage DataMap DataDomainMember
-membershipOfDataDomainMember = membershipOfAggregateMember
+membershipOfDataDomainMember = make_upwardNestingRelation "dataDomainMember membership" "nested dataDomainMember"
 
 -- Aggregation relation
 aggregationOfDataDomainDataDomainMember :  Linkage DataDomainMember DataDomain
-aggregationOfDataDomainDataDomainMember = aggregationOfBuildingBlock
+aggregationOfDataDomainDataDomainMember = make_Relation "DataDomain aggregation" "aggregated DataDomain"
 
 {- dataDomainMember : derived relation obtained by composing
    membershipOfDataDomainMember and aggregationOfDataDomainDataDomainMember
@@ -52,6 +55,10 @@ aggregationOfDataDomainDataDomainMember = aggregationOfBuildingBlock
 dataDomainMember : Linkage DataMap DataDomain
 dataDomainMember = membershipOfDataDomainMember  ∘  aggregationOfDataDomainDataDomainMember
 
+postulate -- dataDomainMember is subTypeOf informationDomainMember
+  st-6d2b81965fbb71ad-dfa4e2865ebb4e38  : dataDomainMember   ⊏⋆ᵣ  informationDomainMember 
+
+
 {- External Data Area: -}
 -- Aggregate Member : External Data Area
 ExternalDataArea : ClassOfClassOfIndividual
@@ -59,11 +66,11 @@ ExternalDataArea = ClassOfIndividual
 
 -- Membership relation
 membershipOfExternalDataArea :  Linkage DataMap ExternalDataArea
-membershipOfExternalDataArea = membershipOfAggregateMember
+membershipOfExternalDataArea = make_upwardNestingRelation "externalDataArea membership" "nested externalDataArea"
 
 -- Aggregation relation
 aggregationOfDataDomainExternalDataArea :  Linkage ExternalDataArea DataDomain
-aggregationOfDataDomainExternalDataArea = aggregationOfBuildingBlock
+aggregationOfDataDomainExternalDataArea = make_Relation "DataDomain aggregation" "aggregated DataDomain"
 
 {- externalDataArea : derived relation obtained by composing
    membershipOfExternalDataArea and aggregationOfDataDomainExternalDataArea
@@ -72,3 +79,7 @@ aggregationOfDataDomainExternalDataArea = aggregationOfBuildingBlock
 -}
 externalDataArea : Linkage DataMap DataDomain
 externalDataArea = membershipOfExternalDataArea  ∘  aggregationOfDataDomainExternalDataArea
+
+postulate -- externalDataArea is subTypeOf externalInformationArea
+  st-fd1bf5b05fbc6c5a-dfa4e2b35ebb4ee8  : externalDataArea   ⊏⋆ᵣ  externalInformationArea 
+

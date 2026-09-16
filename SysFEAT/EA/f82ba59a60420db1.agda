@@ -5,6 +5,9 @@
 
 Software Technology Configuration: 
 A Software Technology Configuration is a set of Software Technology(ies) that form a consistent platform backbone.
+
+Documentation : https://framework.sysfeat.com/pages/f82ba59a60420db1.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,8 +22,8 @@ SOftwareTechnologyConfiguration : ClassOfClassOfBoundedIndividual
 SOftwareTechnologyConfiguration = ClassOfBoundedIndividual
 
 --  SOftwareTechnologyConfiguration is subTypeOf SOftwareTechnologySystem
-st-f82ba5bf60420e69 : SOftwareTechnologyConfiguration ⊏ₑ SOftwareTechnologySystem
-st-f82ba5bf60420e69 = polySubTypeOf-identity
+st-f82ba59a60420db1-0463ea9a63fd8b6c : SOftwareTechnologyConfiguration ⊏ₑ SOftwareTechnologySystem
+st-f82ba59a60420db1-0463ea9a63fd8b6c = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -31,11 +34,11 @@ SOftwareTechnologyPart = ClassOfIndividual
 
 -- Membership relation
 membershipOfSOftwareTechnologyPart :  Linkage SOftwareTechnologyConfiguration SOftwareTechnologyPart
-membershipOfSOftwareTechnologyPart = membershipOfAggregateMember
+membershipOfSOftwareTechnologyPart = make_upwardNestingRelation "sOftwareTechnologyPart membership" "nested sOftwareTechnologyPart"
 
 -- Aggregation relation
 aggregationOfSOftwareTechnologySOftwareTechnologyPart :  Linkage SOftwareTechnologyPart SOftwareTechnology
-aggregationOfSOftwareTechnologySOftwareTechnologyPart = aggregationOfBuildingBlock
+aggregationOfSOftwareTechnologySOftwareTechnologyPart = make_Relation "SOftwareTechnology aggregation" "aggregated SOftwareTechnology"
 
 {- sOftwareTechnologyPart : derived relation obtained by composing
    membershipOfSOftwareTechnologyPart and aggregationOfSOftwareTechnologySOftwareTechnologyPart
@@ -44,3 +47,7 @@ aggregationOfSOftwareTechnologySOftwareTechnologyPart = aggregationOfBuildingBlo
 -}
 sOftwareTechnologyPart : Linkage SOftwareTechnologyConfiguration SOftwareTechnology
 sOftwareTechnologyPart = membershipOfSOftwareTechnologyPart  ∘  aggregationOfSOftwareTechnologySOftwareTechnologyPart
+
+postulate -- sOftwareTechnologyPart is subTypeOf sOftwareSystemPart
+  st-f82ba64460420f69-24035e705fc7afb1  : sOftwareTechnologyPart   ⊏⋆ᵣ  sOftwareSystemPart 
+

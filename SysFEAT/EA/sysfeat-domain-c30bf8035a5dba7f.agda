@@ -1,10 +1,15 @@
 ﻿{- ============================== 
-   Copyright (c) 2026 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
+   Copyright (c) 2022 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
    This work is released under the MIT License.
    framework.sysfeat.com
 
 Organization & Processes: 
 The Organization &amp; Processes domain is used to shape how business units operate to deliver the goods and services for which they are responsible.
+
+Documentation : https://framework.sysfeat.com/pages/c30bf8035a5dba7f.htm
+
+External references:
+  Lean.org - Value Stream Mapping: https://www.lean.org/lexicon-terms/value-stream-mapping/
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

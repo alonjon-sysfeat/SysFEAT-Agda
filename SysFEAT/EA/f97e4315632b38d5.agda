@@ -5,6 +5,9 @@
 
 Conceptual Environment Scenario: 
 As part of the enterprise Conceptual Operating Model, a Conceptual Environment Scenario is a story that describes how an Operating Domain interacts with its partners (Business Partner) to achieve Business Outcome Events in a specific Conceptual Environment..This includes:1) A course of events represented by Resource Object Flows depicting the story towards the delivery of expected Business Outcome Events.2) Interacting partners who participate to the story in the considered Conceptual Environment.
+
+Documentation : https://framework.sysfeat.com/pages/f97e4315632b38d5.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -21,12 +24,12 @@ ConceptualEnvironmentScenario : ClassOfClassOfBoundedIndividual
 ConceptualEnvironmentScenario = ClassOfBoundedIndividual
 
 --  ConceptualEnvironmentScenario is subTypeOf ConceptualEcosystem
-st-f97e48b8632b4006 : ConceptualEnvironmentScenario ⊏ₑ ConceptualEcosystem
-st-f97e48b8632b4006 = polySubTypeOf-identity
+st-f97e4315632b38d5-f97e3e30632b31c1 : ConceptualEnvironmentScenario ⊏ₑ ConceptualEcosystem
+st-f97e4315632b38d5-f97e3e30632b31c1 = polySubTypeOf-identity
 
 --  ConceptualEnvironmentScenario is subTypeOf EnvironmentInteractionProcessType
-st-6a70b907678762e9 : ConceptualEnvironmentScenario ⊏ₑ EnvironmentInteractionProcessType
-st-6a70b907678762e9 = polySubTypeOf-identity
+st-f97e4315632b38d5-ca3513af5fc59413 : ConceptualEnvironmentScenario ⊏ₑ EnvironmentInteractionProcessType
+st-f97e4315632b38d5-ca3513af5fc59413 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -37,11 +40,11 @@ SubjectActivityDomain = ClassOfIndividual
 
 -- Membership relation
 membershipOfSubjectActivityDomain :  Linkage ConceptualEnvironmentScenario SubjectActivityDomain
-membershipOfSubjectActivityDomain = membershipOfAggregateMember
+membershipOfSubjectActivityDomain = make_upwardNestingRelation "subjectActivityDomain membership" "nested subjectActivityDomain"
 
 -- Aggregation relation
 aggregationOfOperatingDomainSubjectActivityDomain :  Linkage SubjectActivityDomain OperatingDomain
-aggregationOfOperatingDomainSubjectActivityDomain = aggregationOfBuildingBlock
+aggregationOfOperatingDomainSubjectActivityDomain = make_Relation "OperatingDomain aggregation" "aggregated OperatingDomain"
 
 {- subjectActivityDomain : derived relation obtained by composing
    membershipOfSubjectActivityDomain and aggregationOfOperatingDomainSubjectActivityDomain
@@ -51,6 +54,14 @@ aggregationOfOperatingDomainSubjectActivityDomain = aggregationOfBuildingBlock
 subjectActivityDomain : Linkage ConceptualEnvironmentScenario OperatingDomain
 subjectActivityDomain = membershipOfSubjectActivityDomain  ∘  aggregationOfOperatingDomainSubjectActivityDomain
 
+postulate -- subjectActivityDomain is subTypeOf subjectAgent
+  st-f97e4605632b3b80-ca3514125fc59538  : subjectActivityDomain   ⊏⋆ᵣ  subjectAgent 
+postulate -- subjectActivityDomain is subTypeOf participantEnterpriseAgent
+  st-f97e4605632b3b80-2b6f3bf061baf60a  : subjectActivityDomain   ⊏⋆ᵣ  participantEnterpriseAgent 
+postulate -- subjectActivityDomain is subTypeOf logicalEcosystemMember
+  st-f97e4605632b3b80-f97e3fde632b3462  : subjectActivityDomain   ⊏⋆ᵣ  logicalEcosystemMember 
+
+
 {- Business Partner: -}
 -- Aggregate Member : Business Partner
 BusinessPartner : ClassOfClassOfIndividual
@@ -58,11 +69,11 @@ BusinessPartner = ClassOfIndividual
 
 -- Membership relation
 membershipOfBusinessPartner :  Linkage ConceptualEnvironmentScenario BusinessPartner
-membershipOfBusinessPartner = membershipOfAggregateMember
+membershipOfBusinessPartner = make_upwardNestingRelation "businessPartner membership" "nested businessPartner"
 
 -- Aggregation relation
 aggregationOfBusinessPartnerBusinessPartner :  Linkage BusinessPartner BusinessPartner
-aggregationOfBusinessPartnerBusinessPartner = aggregationOfBuildingBlock
+aggregationOfBusinessPartnerBusinessPartner = make_Relation "BusinessPartner aggregation" "aggregated BusinessPartner"
 
 {- businessPartner : derived relation obtained by composing
    membershipOfBusinessPartner and aggregationOfBusinessPartnerBusinessPartner
@@ -71,3 +82,9 @@ aggregationOfBusinessPartnerBusinessPartner = aggregationOfBuildingBlock
 -}
 businessPartner : Linkage ConceptualEnvironmentScenario BusinessPartner
 businessPartner = membershipOfBusinessPartner  ∘  aggregationOfBusinessPartnerBusinessPartner
+
+postulate -- businessPartner is subTypeOf partnerAgent
+  st-f97e4689632b3cad-ca35159e5fc5978d  : businessPartner   ⊏⋆ᵣ  partnerAgent 
+postulate -- businessPartner is subTypeOf participantEnterpriseAgent
+  st-f97e4689632b3cad-2b6f3bf061baf60a  : businessPartner   ⊏⋆ᵣ  participantEnterpriseAgent 
+

@@ -5,6 +5,9 @@
 
 Conceptual Outcome Event: 
 An Conceptual Outcome Event is a conceptual Conceptual Event that signals the happening of a change in the state of a Conceptual Entity Asset (Conceptual Outcome), produced by a Conceptual Agent, for the benefits of an internal or external consumer (especially Customers).
+
+Documentation : https://framework.sysfeat.com/pages/21916383678642d1.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,8 +22,8 @@ ConceptualOutcomeEvent : ClassOfClassOfIndividual
 ConceptualOutcomeEvent = ClassOfIndividual
 
 --  ConceptualOutcomeEvent is subTypeOf OutcomeEvent
-st-21918fa267865879 : ConceptualOutcomeEvent ⊏ₑ OutcomeEvent
-st-21918fa267865879 = polySubTypeOf-identity
+st-21916383678642d1-30223b5c5ec90c01 : ConceptualOutcomeEvent ⊏ₑ OutcomeEvent
+st-21916383678642d1-30223b5c5ec90c01 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -33,11 +36,11 @@ ConceptualOutcome = ClassOfIndividual
 
 -- Membership relation
 membershipOfConceptualOutcome :  Linkage ConceptualOutcomeEvent ConceptualOutcome
-membershipOfConceptualOutcome = membershipOfAggregateMember
+membershipOfConceptualOutcome = make_upwardNestingRelation "conceptualOutcome membership" "nested conceptualOutcome"
 
 -- Aggregation relation
 aggregationOfConceptualEntityAssetConceptualOutcome :  Linkage ConceptualOutcome ConceptualEntityAsset
-aggregationOfConceptualEntityAssetConceptualOutcome = aggregationOfBuildingBlock
+aggregationOfConceptualEntityAssetConceptualOutcome = make_Relation "ConceptualEntityAsset aggregation" "aggregated ConceptualEntityAsset"
 
 {- conceptualOutcome : derived relation obtained by composing
    membershipOfConceptualOutcome and aggregationOfConceptualEntityAssetConceptualOutcome
@@ -46,3 +49,7 @@ aggregationOfConceptualEntityAssetConceptualOutcome = aggregationOfBuildingBlock
 -}
 conceptualOutcome : Linkage ConceptualOutcomeEvent ConceptualEntityAsset
 conceptualOutcome = membershipOfConceptualOutcome  ∘  aggregationOfConceptualEntityAssetConceptualOutcome
+
+postulate -- conceptualOutcome is subTypeOf outcome
+  st-a135a5e467863584-af41ed1265ea77e5  : conceptualOutcome   ⊏⋆ᵣ  outcome 
+

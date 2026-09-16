@@ -5,6 +5,12 @@
 
 Conceptual Business Rule: 
 A Conceptual Business Rule is a rule that is under business jurisdiction. A rules being under business jurisdiction means that it is under the jurisdiction of the semantic community that it governs or guides - that the semantic community can opt to change or discard the rule. Laws of physics may be relevant to a company (or other semantic community); legislation and regulations may be imposed on it; external standards and best Semantics of Business Vocabulary and Business Rules, v1.0 161 practices may be adopted. These things are not business rules from the companys perspective, since it does not have the authority to change them. The company will decide how to react to laws and regulations, and will create business rules to ensure compliance with them. Similarly, it will create business rules to ensure that standards or best practices are implemented as intended. 
+
+Documentation : https://framework.sysfeat.com/pages/dd269a5468a09a74.htm
+
+External references:
+  OMG - BMM - Business Rule: https://www.omg.org/spec/BMM/1.3/PDF#page=46
+  OMG - UAF - Operational Constraint: https://www.omg.org/spec/UAF/1.2/Beta1/DMM/PDF#OperationalConstraint
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +24,7 @@ ConceptualBusinessRule : PropertyType
 ConceptualBusinessRule = ClassOfProperty
 
 --  ConceptualBusinessRule is subTypeOf BehavioralRule
-st-6a70954867875110 : ConceptualBusinessRule ⊏ₑ BehavioralRule
-st-6a70954867875110 = polySubTypeOf-identity
+st-dd269a5468a09a74-190c74f868966584 : ConceptualBusinessRule ⊏ₑ BehavioralRule
+st-dd269a5468a09a74-190c74f868966584 = polySubTypeOf-identity
 
 -- == Relationships =======================

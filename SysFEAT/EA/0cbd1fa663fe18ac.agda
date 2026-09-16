@@ -5,6 +5,13 @@
 
 Technology System: 
 A Technology System is a Resource Agent Type which produces and reacts to Technology Outcome Events through Technology Interfaces. Technology Systems are enablers of Business Systems. They do not directly deliver Business Outcome Events to internal or external customers. They deliver Technology Outcome Events required by Business Systems to operate.
+
+Documentation : https://framework.sysfeat.com/pages/0cbd1fa663fe18ac.htm
+
+External references:
+  OpenGroup - ArchiMate - Technology Internal Active Structure Element: https://pubs.opengroup.org/architecture/archimate32-doc/ch-Technology-Layer.html#sec-technology-Active-Structure-Elements
+  OpenGroup - OAA - Digital Technology: https://pubs.opengroup.org/architecture/o-aa-standard/definitions.html#_digital_technology
+  OMG - UAF - Technology: https://www.omg.org/spec/UAF/1.2/Beta1/DMM/PDF#Technology
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,12 +27,12 @@ TechnologySystem : ClassOfClassOfBoundedIndividual
 TechnologySystem = ClassOfBoundedIndividual
 
 --  TechnologySystem is subTypeOf TechnologyOperatingAsset
-st-0cbd21f463fe18f3 : TechnologySystem ⊏ₑ TechnologyOperatingAsset
-st-0cbd21f463fe18f3 = polySubTypeOf-identity
+st-0cbd1fa663fe18ac-d16006d362e085f2 : TechnologySystem ⊏ₑ TechnologyOperatingAsset
+st-0cbd1fa663fe18ac-d16006d362e085f2 = polySubTypeOf-identity
 
 --  TechnologySystem is subTypeOf ResourceAgentType
-st-6a70d20d6787808c : TechnologySystem ⊏ₑ ResourceAgentType
-st-6a70d20d6787808c = polySubTypeOf-identity
+st-0cbd1fa663fe18ac-e2ef091962147ad7 : TechnologySystem ⊏ₑ ResourceAgentType
+st-0cbd1fa663fe18ac-e2ef091962147ad7 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -36,11 +43,11 @@ TechnologyConnection = ClassOfIndividual
 
 -- Membership relation
 membershipOfTechnologyConnection :  Linkage TechnologySystem TechnologyConnection
-membershipOfTechnologyConnection = membershipOfAggregateMember
+membershipOfTechnologyConnection = make_upwardNestingRelation "technologyConnection membership" "nested technologyConnection"
 
 -- Aggregation relation
 aggregationOfTechnologyInterfaceTechnologyConnection :  Linkage TechnologyConnection TechnologyInterface
-aggregationOfTechnologyInterfaceTechnologyConnection = aggregationOfBuildingBlock
+aggregationOfTechnologyInterfaceTechnologyConnection = make_Relation "TechnologyInterface aggregation" "aggregated TechnologyInterface"
 
 {- technologyConnection : derived relation obtained by composing
    membershipOfTechnologyConnection and aggregationOfTechnologyInterfaceTechnologyConnection
@@ -50,6 +57,8 @@ aggregationOfTechnologyInterfaceTechnologyConnection = aggregationOfBuildingBloc
 technologyConnection : Linkage TechnologySystem TechnologyInterface
 technologyConnection = membershipOfTechnologyConnection  ∘  aggregationOfTechnologyInterfaceTechnologyConnection
 
+
+
 {- Technology System Member: -}
 -- Aggregate Member : Technology System Member
 TechnologySystemMember : ClassOfClassOfIndividual
@@ -57,11 +66,11 @@ TechnologySystemMember = ClassOfIndividual
 
 -- Membership relation
 membershipOfTechnologySystemMember :  Linkage TechnologySystem TechnologySystemMember
-membershipOfTechnologySystemMember = membershipOfAggregateMember
+membershipOfTechnologySystemMember = make_upwardNestingRelation "technologySystemMember membership" "nested technologySystemMember"
 
 -- Aggregation relation
 aggregationOfTechnologyOperatingAssetTechnologySystemMember :  Linkage TechnologySystemMember TechnologyOperatingAsset
-aggregationOfTechnologyOperatingAssetTechnologySystemMember = aggregationOfBuildingBlock
+aggregationOfTechnologyOperatingAssetTechnologySystemMember = make_Relation "TechnologyOperatingAsset aggregation" "aggregated TechnologyOperatingAsset"
 
 {- technologySystemMember : derived relation obtained by composing
    membershipOfTechnologySystemMember and aggregationOfTechnologyOperatingAssetTechnologySystemMember
@@ -70,3 +79,9 @@ aggregationOfTechnologyOperatingAssetTechnologySystemMember = aggregationOfBuild
 -}
 technologySystemMember : Linkage TechnologySystem TechnologyOperatingAsset
 technologySystemMember = membershipOfTechnologySystemMember  ∘  aggregationOfTechnologyOperatingAssetTechnologySystemMember
+
+postulate -- technologySystemMember is subTypeOf technologyOperatingAssetPart
+  st-d1600a8f62e08fb2-d265d98e68b13ce4  : technologySystemMember   ⊏⋆ᵣ  technologyOperatingAssetPart 
+postulate -- technologySystemMember is subTypeOf resourceAgentPart
+  st-d1600a8f62e08fb2-e2ef09de62147eb7  : technologySystemMember   ⊏⋆ᵣ  resourceAgentPart 
+

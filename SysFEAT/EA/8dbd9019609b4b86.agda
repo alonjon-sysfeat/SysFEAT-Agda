@@ -5,6 +5,9 @@
 
 Business Impact Analysis: 
 Business Impact Analysis is the process of analysing the impact over time of a disruption on the sub-set of tthe activities of the enterprise.
+
+Documentation : https://framework.sysfeat.com/pages/8dbd9019609b4b86.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,17 +23,17 @@ BusinessImpactAnalysis : ClassOfBoundedIndividual
 BusinessImpactAnalysis = BoundedIndividual
 
 --  BusinessImpactAnalysis is subTypeOf GovernanceActivity
-st-8cd0937b609b1bdf : BusinessImpactAnalysis ⊏ₑ GovernanceActivity
-st-8cd0937b609b1bdf = polySubTypeOf-identity
+st-8dbd9019609b4b86-1737b76a5fe28204 : BusinessImpactAnalysis ⊏ₑ GovernanceActivity
+st-8dbd9019609b4b86-1737b76a5fe28204 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Portoflio Scope: -}
 portOflioScope :  Linkage BusinessImpactAnalysis BCMSystem
-portOflioScope = make_holonymyRelation "Portoflio Scope" "portOflioScope"
+portOflioScope = make_holonymyRelation "Portoflio Scope" "Portoflio Scope"
 
 
 {- Processs Analyis Scope: -}
 processsAnalyisScope :  Linkage BusinessImpactAnalysis ProcessFamily
-processsAnalyisScope = make_Relation "Processs Analyis Scope" "processsAnalyisScope"
+processsAnalyisScope = make_Relation "Processs Analyis Scope" "Processs Analyis Scope"
 

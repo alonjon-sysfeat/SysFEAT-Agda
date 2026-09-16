@@ -5,6 +5,11 @@
 
 Business Event: 
 A Business Event is a type of business change that is used to coordinate Business Behaviors.
+
+Documentation : https://framework.sysfeat.com/pages/0185cc626221bb37.htm
+
+External references:
+  OpenGroup - TOGAF - Enterprise Metamodel - Event: https://pubs.opengroup.org/togaf-standard/architecture-content/chap02.html#tag_02_04
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,11 +24,11 @@ BusinessEvent : ClassOfClassOfIndividual
 BusinessEvent = ClassOfIndividual
 
 --  BusinessEvent is subTypeOf BusinessAsset
-st-a74ba98067567059 : BusinessEvent ⊏ₑ BusinessAsset
-st-a74ba98067567059 = polySubTypeOf-identity
+st-0185cc626221bb37-6a70b9f6678763db : BusinessEvent ⊏ₑ BusinessAsset
+st-0185cc626221bb37-6a70b9f6678763db = polySubTypeOf-identity
 
 --  BusinessEvent is subTypeOf BehavioralEvent
-st-0185cc816221bbd2 : BusinessEvent ⊏ₑ BehavioralEvent
-st-0185cc816221bbd2 = polySubTypeOf-identity
+st-0185cc626221bb37-24ae31d75ed1c747 : BusinessEvent ⊏ₑ BehavioralEvent
+st-0185cc626221bb37-24ae31d75ed1c747 = polySubTypeOf-identity
 
 -- == Relationships =======================

@@ -1,10 +1,18 @@
 ﻿{- ============================== 
-   Copyright (c) 2026 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
+   Copyright (c) 2022 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
    This work is released under the MIT License.
    framework.sysfeat.com
 
 Enterprise Strategy & Roadmapping: 
 The Enterprise Strategy &amp; Roadmapping domain supports the process of analysing and optimising the delivery of Enterprise Capability(ies) in line with the Enterprise market analysis and strategic intent. Enterprise Strategy &amp; Roadmapping achieves this by capturing the capability policy / concepts, decomposing this into a capability taxonomy supported by appropriate measures of effectiveness that can be used for capability audit and gap / overlap analysis. 
+
+Documentation : https://framework.sysfeat.com/pages/57df58ab55091a58.htm
+
+External references:
+  Gartner - strategic-planning: https://www.gartner.com/en/finance/glossary/strategic-planning
+  OMG - UAF - View - Strategic Views: https://www.omg.org/spec/UAF/1.2/Beta1/DMM/PDF#page=40
+  SAFe© - Portfolio SAFe: https://www.scaledagileframework.com/portfolio-safe/
+  Felipe Castro - The Beginner’s Guide to OKRs: https://felipecastro.com/en/okr/what-is-okr/
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

@@ -5,6 +5,9 @@
 
 Dictionary Lexical Scope: 
 A Dictionary Lexical Scope is a kind of Information Lexical Scope for Dictionary Blocks.
+
+Documentation : https://framework.sysfeat.com/pages/6c5f6da668587c34.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ DictionaryLexicalScope : ∀ (u : Level) → ClassOfMixedOrderEntity u
 DictionaryLexicalScope u = MixedOrderEntity u
 
 --  DictionaryLexicalScope is subTypeOf InformationLexicalScope
-st-6bf191b16859b6e0 : ∀ {u v} → (DictionaryLexicalScope u) ⊏⋆ₑ (InformationLexicalScope v)
-st-6bf191b16859b6e0 = trivialPolySubTypeOfEntity
+st-6c5f6da668587c34-6c5f808b68587e49 : ∀ {u v} → (DictionaryLexicalScope u) ⊏⋆ₑ (InformationLexicalScope v)
+st-6c5f6da668587c34-6c5f808b68587e49 = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

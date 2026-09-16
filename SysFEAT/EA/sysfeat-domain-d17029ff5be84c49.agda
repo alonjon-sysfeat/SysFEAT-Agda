@@ -5,6 +5,21 @@
 
 Product & Customer Experience: 
 Product &amp; Customer Experience domain describes the overall impression Customers have of the company based on their interactions across multiple Touch Points (CX: customer experience) as well as the perception Customers have of the enterprises Product based on their engagement with the Products (PX: product experience).
+
+Documentation : https://framework.sysfeat.com/pages/d17029ff5be84c49.htm
+
+External references:
+  HBR - Understanding Customer Experience: https://hbr.org/2007/02/understanding-customer-experience
+  Wikipedia - Customer Experience: https://en.wikipedia.org/wiki/Customer_experience
+  CX University - Inside Out vs. Outside In Thinking: https://cxuniversity.com/inside-out-vs-outside-in-thinking/
+  OpenGroup - OAA - Customer Experience: https://pubs.opengroup.org/architecture/o-aa-standard/definitions.html#_customer_experience
+  Strategyzer - Value Proposition Canvas (YouTube): https://www.youtube.com/watch?v=ReM1uqmVfP0&ab_channel=Strategyzer
+  UCF Glossary - Business Model: https://compliancedictionary.com/term/6683
+  Interaction-design.org - User Experience and Customer Experience: https://www.interaction-design.org/literature/article/user-experience-and-customer-experience-what-s-the-difference?utm_source=newsletter&utm_medium=email&utm_campaign=Non-Member+Automated+Chain&utm_content=What+s+the+difference+between+CX+and+UX+
+  Semantic Studios - User Experience Design: https://semanticstudios.com/user_experience_design
+  OpenGroup - OAA - Product Architecture: https://pubs.opengroup.org/architecture/o-aa-standard/product-architecture.html
+  OpenGroup - OAA - Experience Design: https://pubs.opengroup.org/architecture/o-aa-standard/experience-design.html
+  OpenGroup - OAA - Journey Mapping: https://pubs.opengroup.org/architecture/o-aa-standard/journey-mapping.html
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

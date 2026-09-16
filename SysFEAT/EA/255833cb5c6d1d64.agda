@@ -5,6 +5,9 @@
 
 Logical Application System: 
 A Logical Application Architecture is an assembly of other Logical Application Architectures, of Logical Applications and of end users, in order to realize one of more functionalities. 
+
+Documentation : https://framework.sysfeat.com/pages/255833cb5c6d1d64.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,8 +23,8 @@ LogicalApplicationSystem : ClassOfClassOfBoundedIndividual
 LogicalApplicationSystem = ClassOfBoundedIndividual
 
 --  LogicalApplicationSystem is subTypeOf LogicalSOftwareSystem
-st-255833dc5c6d1d8c : LogicalApplicationSystem ⊏ₑ LogicalSOftwareSystem
-st-255833dc5c6d1d8c = polySubTypeOf-identity
+st-255833cb5c6d1d64-2558338d5c6d1d1b : LogicalApplicationSystem ⊏ₑ LogicalSOftwareSystem
+st-255833cb5c6d1d64-2558338d5c6d1d1b = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -32,11 +35,11 @@ LogicalDataStore = ClassOfIndividual
 
 -- Membership relation
 membershipOfLogicalDataStore :  Linkage LogicalApplicationSystem LogicalDataStore
-membershipOfLogicalDataStore = membershipOfAggregateMember
+membershipOfLogicalDataStore = make_upwardNestingRelation "logicalDataStore membership" "nested logicalDataStore"
 
 -- Aggregation relation
 aggregationOfLogicalDataDomainLogicalDataStore :  Linkage LogicalDataStore LogicalDataDomain
-aggregationOfLogicalDataDomainLogicalDataStore = aggregationOfBuildingBlock
+aggregationOfLogicalDataDomainLogicalDataStore = make_Relation "LogicalDataDomain aggregation" "aggregated LogicalDataDomain"
 
 {- logicalDataStore : derived relation obtained by composing
    membershipOfLogicalDataStore and aggregationOfLogicalDataDomainLogicalDataStore
@@ -45,6 +48,8 @@ aggregationOfLogicalDataDomainLogicalDataStore = aggregationOfBuildingBlock
 -}
 logicalDataStore : Linkage LogicalApplicationSystem LogicalDataDomain
 logicalDataStore = membershipOfLogicalDataStore  ∘  aggregationOfLogicalDataDomainLogicalDataStore
+
+
 
 {- Logical Application System Part: 
 Role of an IT Service architecture in a composition relationship that links it to a parent IT Service architecture. 
@@ -55,11 +60,11 @@ LogicalApplicationSystemPart = ClassOfIndividual
 
 -- Membership relation
 membershipOfLogicalApplicationSystemPart :  Linkage LogicalApplicationSystem LogicalApplicationSystemPart
-membershipOfLogicalApplicationSystemPart = membershipOfAggregateMember
+membershipOfLogicalApplicationSystemPart = make_upwardNestingRelation "logicalApplicationSystemPart membership" "nested logicalApplicationSystemPart"
 
 -- Aggregation relation
 aggregationOfLogicalApplicationSystemLogicalApplicationSystemPart :  Linkage LogicalApplicationSystemPart LogicalApplicationSystem
-aggregationOfLogicalApplicationSystemLogicalApplicationSystemPart = aggregationOfBuildingBlock
+aggregationOfLogicalApplicationSystemLogicalApplicationSystemPart = make_Relation "LogicalApplicationSystem aggregation" "aggregated LogicalApplicationSystem"
 
 {- logicalApplicationSystemPart : derived relation obtained by composing
    membershipOfLogicalApplicationSystemPart and aggregationOfLogicalApplicationSystemLogicalApplicationSystemPart
@@ -68,6 +73,8 @@ aggregationOfLogicalApplicationSystemLogicalApplicationSystemPart = aggregationO
 -}
 logicalApplicationSystemPart : Linkage LogicalApplicationSystem LogicalApplicationSystem
 logicalApplicationSystemPart = membershipOfLogicalApplicationSystemPart  ∘  aggregationOfLogicalApplicationSystemLogicalApplicationSystemPart
+
+
 
 {- Logical Application Part: 
 A Logical Application Component defines how a Logical Application breakdowns into a sub-Logical Application
@@ -78,11 +85,11 @@ LogicalApplicationPart = ClassOfIndividual
 
 -- Membership relation
 membershipOfLogicalApplicationPart :  Linkage LogicalApplicationSystem LogicalApplicationPart
-membershipOfLogicalApplicationPart = membershipOfAggregateMember
+membershipOfLogicalApplicationPart = make_upwardNestingRelation "logicalApplicationPart membership" "nested logicalApplicationPart"
 
 -- Aggregation relation
 aggregationOfLogicalApplicationLogicalApplicationPart :  Linkage LogicalApplicationPart LogicalApplication
-aggregationOfLogicalApplicationLogicalApplicationPart = aggregationOfBuildingBlock
+aggregationOfLogicalApplicationLogicalApplicationPart = make_Relation "LogicalApplication aggregation" "aggregated LogicalApplication"
 
 {- logicalApplicationPart : derived relation obtained by composing
    membershipOfLogicalApplicationPart and aggregationOfLogicalApplicationLogicalApplicationPart
@@ -91,3 +98,5 @@ aggregationOfLogicalApplicationLogicalApplicationPart = aggregationOfBuildingBlo
 -}
 logicalApplicationPart : Linkage LogicalApplicationSystem LogicalApplication
 logicalApplicationPart = membershipOfLogicalApplicationPart  ∘  aggregationOfLogicalApplicationLogicalApplicationPart
+
+

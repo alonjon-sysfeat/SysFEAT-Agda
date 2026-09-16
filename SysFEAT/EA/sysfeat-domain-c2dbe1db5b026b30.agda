@@ -1,10 +1,15 @@
 ﻿{- ============================== 
-   Copyright (c) 2026 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
+   Copyright (c) 2025 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
    This work is released under the MIT License.
    framework.sysfeat.com
 
 Software Technology ArcOps: 
 The Software Technology ArcOps domain describes a set of concepts used in practices that combines Software Technology System development (Dev) and Software Technology System operations (Ops). It aims to shorten the development life cycle of Software Technology Systems and provide continuous delivery with high system quality. DevOps is complementary with Agile software development; several DevOps aspects came from the Agile methodology.
+
+Documentation : https://framework.sysfeat.com/pages/c2dbe1db5b026b30.htm
+
+External references:
+  Martin Fowler- Software Architecture: https://martinfowler.com/architecture
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

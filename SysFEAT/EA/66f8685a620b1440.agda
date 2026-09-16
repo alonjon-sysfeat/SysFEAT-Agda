@@ -5,6 +5,9 @@
 
 Individual Business Agent: 
 An Individual Business Agent is an Individual Resource Agent which produces Business Outcome Events of the enterprise.
+
+Documentation : https://framework.sysfeat.com/pages/66f8685a620b1440.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,12 +23,12 @@ IndividualBusinessAgent : ClassOfBoundedIndividual
 IndividualBusinessAgent = BoundedIndividual
 
 --  IndividualBusinessAgent is subTypeOf IndividualBusinessAsset
-st-62ff764263765920 : IndividualBusinessAgent ⊏ₑ IndividualBusinessAsset
-st-62ff764263765920 = polySubTypeOf-identity
+st-66f8685a620b1440-62ff75f363765899 : IndividualBusinessAgent ⊏ₑ IndividualBusinessAsset
+st-66f8685a620b1440-62ff75f363765899 = polySubTypeOf-identity
 
 --  IndividualBusinessAgent is subTypeOf IndividualResourceAgent
-st-fe1c2cb167880dfe : IndividualBusinessAgent ⊏ₑ IndividualResourceAgent
-st-fe1c2cb167880dfe = polySubTypeOf-identity
+st-66f8685a620b1440-fe1c231267880201 : IndividualBusinessAgent ⊏ₑ IndividualResourceAgent
+st-66f8685a620b1440-fe1c231267880201 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -37,11 +40,11 @@ DeployedBusinessAgentPart = AggregateMember (lsuc(lzero))
 
 -- Membership relation
 membershipOfDeployedBusinessAgentPart :  Linkage IndividualBusinessAgent DeployedBusinessAgentPart
-membershipOfDeployedBusinessAgentPart = membershipOfAggregateMember
+membershipOfDeployedBusinessAgentPart = make_upwardNestingRelation "deployedBusinessAgentPart membership" "nested deployedBusinessAgentPart"
 
 -- Aggregation relation
 aggregationOfIndividualBusinessAgentDeployedBusinessAgentPart :  Linkage DeployedBusinessAgentPart IndividualBusinessAgent
-aggregationOfIndividualBusinessAgentDeployedBusinessAgentPart = aggregationOfBuildingBlock
+aggregationOfIndividualBusinessAgentDeployedBusinessAgentPart = make_Relation "IndividualBusinessAgent aggregation" "aggregated IndividualBusinessAgent"
 
 {- deployedBusinessAgentPart : derived relation obtained by composing
    membershipOfDeployedBusinessAgentPart and aggregationOfIndividualBusinessAgentDeployedBusinessAgentPart
@@ -50,3 +53,7 @@ aggregationOfIndividualBusinessAgentDeployedBusinessAgentPart = aggregationOfBui
 -}
 deployedBusinessAgentPart : Linkage IndividualBusinessAgent IndividualBusinessAgent
 deployedBusinessAgentPart = membershipOfDeployedBusinessAgentPart  ∘  aggregationOfIndividualBusinessAgentDeployedBusinessAgentPart
+
+postulate -- deployedBusinessAgentPart is subTypeOf individualResourceAgentPart
+  st-66f868de620b14e6-fe1c2ae667880c06  : deployedBusinessAgentPart   ⊏⋆ᵣ  individualResourceAgentPart 
+

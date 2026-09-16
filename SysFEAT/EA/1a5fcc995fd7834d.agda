@@ -5,6 +5,9 @@
 
 Customer Journey Phase: 
 A Customer Journey Phase is a group of client journey steps that are used to reach a specific global objective.
+
+Documentation : https://framework.sysfeat.com/pages/1a5fcc995fd7834d.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

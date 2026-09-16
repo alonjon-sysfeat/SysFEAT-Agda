@@ -5,6 +5,9 @@
 
 Macro Resource Operating Asset: 
 
+
+Documentation : https://framework.sysfeat.com/pages/61e3ae8f679f0e2d.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ MacroResourceOperatingAsset : ClassOfClassOfBoundedIndividual
 MacroResourceOperatingAsset = ClassOfBoundedIndividual
 
 --  MacroResourceOperatingAsset is subTypeOf ResourceOperatingAsset
-st-61e3af9c679f122e : MacroResourceOperatingAsset ⊏ₑ ResourceOperatingAsset
-st-61e3af9c679f122e = polySubTypeOf-identity
+st-61e3ae8f679f0e2d-f8e61da0621db6fa : MacroResourceOperatingAsset ⊏ₑ ResourceOperatingAsset
+st-61e3ae8f679f0e2d-f8e61da0621db6fa = polySubTypeOf-identity
 
 -- == Relationships =======================

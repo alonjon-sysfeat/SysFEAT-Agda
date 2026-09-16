@@ -5,6 +5,9 @@
 
 Operational Risk Assessment: 
 A Operational Risk Assessment is an assessment carried out over a determined time period. When an assessment session is published, an assessment questionnaire containing questions is sent to targeted assessors.
+
+Documentation : https://framework.sysfeat.com/pages/d059db765ef118fc.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,12 +22,12 @@ OperationalRiskAssessment : ClassOfBoundedIndividual
 OperationalRiskAssessment = BoundedIndividual
 
 --  OperationalRiskAssessment is subTypeOf Assessment
-st-442546586182bb36 : OperationalRiskAssessment ⊏ₑ Assessment
-st-442546586182bb36 = polySubTypeOf-identity
+st-d059db765ef118fc-3b539cbb551e4c2a : OperationalRiskAssessment ⊏ₑ Assessment
+st-d059db765ef118fc-3b539cbb551e4c2a = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Assessed Risk: -}
 assessedRisk :  Linkage OperationalRiskAssessment OperationalAssuranceCase
-assessedRisk = make_Relation "Assessed Risk" "assessedRisk"
+assessedRisk = make_Relation "Assessed Risk" "Assessed Risk"
 

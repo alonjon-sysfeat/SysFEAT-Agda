@@ -5,6 +5,9 @@
 
 Customer Activity: 
 A Customer Activity represents specific behavior done by Customers in the context of their work.
+
+Documentation : https://framework.sysfeat.com/pages/8a5c926e5c0d632c.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -23,7 +26,7 @@ CustomerActivity = ClassOfBoundedIndividual
 The customer who job activities (Job-to-be-done, Customer Journey) are described.
 -}
 portrayedCustomer :  Linkage CustomerActivity Customer
-portrayedCustomer = make_classOfHolonymy "Portrayed Customer" "portrayedCustomer"
+portrayedCustomer = make_classOfHolonymy "Portrayed Customer" "Portrayed Customer"
 
 
 {- Customer Activity Member: 
@@ -35,11 +38,11 @@ CustomerActivityMember = ClassOfIndividual
 
 -- Membership relation
 membershipOfCustomerActivityMember :  Linkage CustomerActivity CustomerActivityMember
-membershipOfCustomerActivityMember = membershipOfAggregateMember
+membershipOfCustomerActivityMember = make_upwardNestingRelation "customerActivityMember membership" "nested customerActivityMember"
 
 -- Aggregation relation
 aggregationOfCustomerActivityCustomerActivityMember :  Linkage CustomerActivityMember CustomerActivity
-aggregationOfCustomerActivityCustomerActivityMember = aggregationOfBuildingBlock
+aggregationOfCustomerActivityCustomerActivityMember = make_Relation "CustomerActivity aggregation" "aggregated CustomerActivity"
 
 {- customerActivityMember : derived relation obtained by composing
    membershipOfCustomerActivityMember and aggregationOfCustomerActivityCustomerActivityMember
@@ -48,3 +51,5 @@ aggregationOfCustomerActivityCustomerActivityMember = aggregationOfBuildingBlock
 -}
 customerActivityMember : Linkage CustomerActivity CustomerActivity
 customerActivityMember = membershipOfCustomerActivityMember  ∘  aggregationOfCustomerActivityCustomerActivityMember
+
+

@@ -5,6 +5,9 @@
 
 Resource Asset: 
 A Resource Asset is concrete Asset Type.
+
+Documentation : https://framework.sysfeat.com/pages/d9f4dcc5688d5969.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ ResourceAsset : ClassOfClassOfBoundedIndividual
 ResourceAsset = ClassOfBoundedIndividual
 
 --  ResourceAsset is subTypeOf AssetType
-st-d9f4dd21688d5a14 : ResourceAsset ⊏ₑ AssetType
-st-d9f4dd21688d5a14 = polySubTypeOf-identity
+st-d9f4dcc5688d5969-a4a5b3f855585ce1 : ResourceAsset ⊏ₑ AssetType
+st-d9f4dcc5688d5969-a4a5b3f855585ce1 = polySubTypeOf-identity
 
 -- == Relationships =======================

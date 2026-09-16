@@ -5,6 +5,11 @@
 
 Endogenous Driver: 
 Endogenous Drivers are those which subject of concern are within an enterprise that can impact its employment of Means or achievement of Ends.
+
+Documentation : https://framework.sysfeat.com/pages/7a717b8455962a34.htm
+
+External references:
+  OMG - BMM - Internal Influencer: https://www.omg.org/spec/BMM/1.3/PDF#page=49
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +23,7 @@ EndogenousDriver : ClassOfBoundedIndividual
 EndogenousDriver = BoundedIndividual
 
 --  EndogenousDriver is subTypeOf Driver
-st-7a717b9155962aa8 : EndogenousDriver ⊏ₑ Driver
-st-7a717b9155962aa8 = polySubTypeOf-identity
+st-7a717b8455962a34-bcebd0565491287e : EndogenousDriver ⊏ₑ Driver
+st-7a717b8455962a34-bcebd0565491287e = polySubTypeOf-identity
 
 -- == Relationships =======================

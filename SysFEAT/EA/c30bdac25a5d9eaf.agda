@@ -5,6 +5,12 @@
 
 Software Module: 
 A Software Module is a Business Software System that is part of an application system. A Software Module is either an Application, Application Component or a MicroService. All share the ability to be composed of sub-Application Components and have dependencies to enabling Software Technology(ies).
+
+Documentation : https://framework.sysfeat.com/pages/c30bdac25a5d9eaf.htm
+
+External references:
+  OMG - UAF - Software: https://www.omg.org/spec/UAF/1.2/Beta1/DMM/PDF#Software
+  OpenGroup - TOGAF - Definition - Application Software: https://pubs.opengroup.org/togaf-standard/introduction/apdxb.html#tag_06
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,8 +26,8 @@ SOftwareModule : ClassOfClassOfBoundedIndividual
 SOftwareModule = ClassOfBoundedIndividual
 
 --  SOftwareModule is subTypeOf BusinessSOftwareSystem
-st-d6cd03115ab96736 : SOftwareModule ⊏ₑ BusinessSOftwareSystem
-st-d6cd03115ab96736 = polySubTypeOf-identity
+st-c30bdac25a5d9eaf-d6cd02865ab966e8 : SOftwareModule ⊏ₑ BusinessSOftwareSystem
+st-c30bdac25a5d9eaf-d6cd02865ab966e8 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -29,7 +35,7 @@ st-d6cd03115ab96736 = polySubTypeOf-identity
 Set of Software Technology(ies) on which a Software Module is based.
 -}
 requiredsOftwaretechnology :  Linkage SOftwareModule SOftwareTechnology
-requiredsOftwaretechnology = make_classOfHolonymy "Required software technology" "requiredsOftwaretechnology"
+requiredsOftwaretechnology = make_classOfHolonymy "Required software technology" "Required software technology"
 
 postulate -- requiredsOftwaretechnology is subTypeOf enablerTechnologySystem
   st-d5e6eac35c4665f3-fe1b423f6712709d  : requiredsOftwaretechnology   ⊏⋆ᵣ  enablerTechnologySystem 
@@ -43,11 +49,11 @@ ComponentPart = ClassOfIndividual
 
 -- Membership relation
 membershipOfComponentPart :  Linkage SOftwareModule ComponentPart
-membershipOfComponentPart = membershipOfAggregateMember
+membershipOfComponentPart = make_upwardNestingRelation "componentPart membership" "nested componentPart"
 
 -- Aggregation relation
 aggregationOfApplicationComponentComponentPart :  Linkage ComponentPart ApplicationComponent
-aggregationOfApplicationComponentComponentPart = aggregationOfBuildingBlock
+aggregationOfApplicationComponentComponentPart = make_Relation "ApplicationComponent aggregation" "aggregated ApplicationComponent"
 
 {- componentPart : derived relation obtained by composing
    membershipOfComponentPart and aggregationOfApplicationComponentComponentPart
@@ -56,3 +62,7 @@ aggregationOfApplicationComponentComponentPart = aggregationOfBuildingBlock
 -}
 componentPart : Linkage SOftwareModule ApplicationComponent
 componentPart = membershipOfComponentPart  ∘  aggregationOfApplicationComponentComponentPart
+
+postulate -- componentPart is subTypeOf sOftwarePart
+  st-8109f9be5eb8bd66-173f4d015eb8c686  : componentPart   ⊏⋆ᵣ  sOftwarePart 
+

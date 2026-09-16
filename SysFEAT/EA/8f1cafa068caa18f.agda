@@ -5,6 +5,9 @@
 
 Relational Dictionary: 
 A Relational Dictionary is a Physical Data Dictionary of relational entities (Tables, Keys, Indexes, etc.) and of Relational Schema referencing theses entites.
+
+Documentation : https://framework.sysfeat.com/pages/8f1cafa068caa18f.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -15,19 +18,18 @@ open import Agda.Primitive
 open import SysFEAT.EA.8f1caa7f68ca98cc public -- Physical Data Dictionary
 open import SysFEAT.EA.7731894d62166495 public -- Relational Data bLOCK
 
-RelationalDictionary : FirstOrderClass
-RelationalDictionary = FirstOrderEntity
-
+RelationalDictionary : ∀ (u : Level) → ClassOfMixedOrderEntity u
+RelationalDictionary u = MixedOrderEntity u
 
 --  RelationalDictionary is subTypeOf PhysicalDataDictionary
-st-8f1cafa968caa1bc : RelationalDictionary ⊏ₑ PhysicalDataDictionary
-st-8f1cafa968caa1bc = polySubTypeOf-identity
+st-8f1cafa068caa18f-8f1caa7f68ca98cc : ∀ {u v} → (RelationalDictionary u) ⊏⋆ₑ (PhysicalDataDictionary v)
+st-8f1cafa068caa18f-8f1caa7f68ca98cc = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================
 
 {- Packaged Relational Block: -}
-packagedRelationalBlock :  Linkage RelationalDictionary RelationalDatabLOCK
-packagedRelationalBlock = make_nestingRelation "Packaged Relational Block" "packagedRelationalBlock"
+packagedRelationalBlock : ∀ {u} →  Linkage (RelationalDictionary u) RelationalDatabLOCK
+packagedRelationalBlock = make_nestingRelation "Packaged Relational Block" "Packaged Relational Block"
 
 postulate -- packagedRelationalBlock is subTypeOf packagedPhysicalDataBlock
-  st-8f1caff468caa22b-8f1caca768ca9d38  : packagedRelationalBlock   ⊏⋆ᵣ  packagedPhysicalDataBlock  {lzero}
+  st-8f1caff468caa22b-8f1caca768ca9d38  : packagedRelationalBlock {u}  ⊏⋆ᵣ  packagedPhysicalDataBlock {u} {v}

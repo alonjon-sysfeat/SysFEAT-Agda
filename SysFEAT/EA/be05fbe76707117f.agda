@@ -5,6 +5,11 @@
 
 Customer Segment: 
 A Customer Segment is a category of Customers that are related from a marketing or demographic perspective. For example, a business that practices customer segmentation might group its current or potential customers according to their gender, buying tendencies, age group, and special interests.
+
+Documentation : https://framework.sysfeat.com/pages/be05fbe76707117f.htm
+
+External references:
+  Business Dictionary - Customer segmentation: https://www.bussinessdictionary.com/definition/customer-segmentation.html
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,14 +23,14 @@ CustomerSegment : ThirdOrderClass
 CustomerSegment = SecondOrderClass
 
 --  CustomerSegment withAspect AssetCategory
-st-dc9409c16025ff00 : CustomerSegment ⊏ₐₑ (AssetCategory (lsuc(lsuc(lzero))))
-st-dc9409c16025ff00 = polySubTypeOf-identity
+st-be05fbe76707117f-f69620466a0f9c2f : CustomerSegment ⊏ₐₑ (AssetCategory (lsuc(lsuc(lzero))))
+st-be05fbe76707117f-f69620466a0f9c2f = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Parent Customer Segment: -}
 parentCustomerSegment :  Linkage CustomerSegment CustomerSegment
-parentCustomerSegment = make_subTypeOf "Parent Customer Segment" "parentCustomerSegment"
+parentCustomerSegment = make_subTypeOf "Parent Customer Segment" "Parent Customer Segment"
 
 postulate -- parentCustomerSegment is subTypeOf specializedCategory
   st-be05fdb9670712db-24f72cf56a0f4ec7  : parentCustomerSegment   ⊏⋆ᵣ  specializedCategory {lsuc(lsuc(lzero))}

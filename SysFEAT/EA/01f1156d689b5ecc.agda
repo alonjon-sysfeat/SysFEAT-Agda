@@ -5,6 +5,13 @@
 
 Control Directive: 
 A Control Directive is a kind of Policy that provides recommendations on how to comply with Regulation Articles.Once implemented, Control Directives enforces any Regulatory Framework your enterprise has to comply with.
+
+Documentation : https://framework.sysfeat.com/pages/01f1156d689b5ecc.htm
+
+External references:
+  UCF - What are Common Controls: https://www.unifiedcompliance.com/education/common-control/
+  GRCschema.org - Control: https://grcschema.org/Thing/Control
+  UCF Glossary - Common Control: https://compliancedictionary.com/term/7990
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,16 +27,16 @@ ControlDirective : PropertyType
 ControlDirective = ClassOfProperty
 
 --  ControlDirective is subTypeOf Policy
-st-4906e610635b7a34 : ControlDirective ⊏ₑ Policy
-st-4906e610635b7a34 = polySubTypeOf-identity
+st-01f1156d689b5ecc-190c7429689664b5 : ControlDirective ⊏ₑ Policy
+st-01f1156d689b5ecc-190c7429689664b5 = polySubTypeOf-identity
 
 --  ControlDirective withAspect ControlAsset
-st-4b94790868a494c6 : ControlDirective ⊏ₐₑ (ControlAsset (lsuc(lzero)))
-st-4b94790868a494c6 = polySubTypeOf-identity
+st-01f1156d689b5ecc-4b9477ae68a4926d : ControlDirective ⊏ₐₑ (ControlAsset (lsuc(lzero)))
+st-01f1156d689b5ecc-4b9477ae68a4926d = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Fulfilled Regulation: -}
 fulfilledRegulation :  Linkage ControlDirective RegulationArticle
-fulfilledRegulation = make_subTypeOf "Fulfilled Regulation" "fulfilledRegulation"
+fulfilledRegulation = make_subTypeOf "Fulfilled Regulation" "Fulfilled Regulation"
 

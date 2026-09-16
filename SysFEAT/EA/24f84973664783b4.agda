@@ -5,6 +5,9 @@
 
 Hardware Portfolio Stage: 
 
+
+Documentation : https://framework.sysfeat.com/pages/24f84973664783b4.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,7 +22,7 @@ HardwarePortfolioStage = StateConcept
 
 
 --  HardwarePortfolioStage is subTypeOf HardwareManagementInitiative
-st-24f8494e664783af : HardwarePortfolioStage ⊏ₑ HardwareManagementInitiative
-st-24f8494e664783af = polySubTypeOf-identity
+st-24f84973664783b4-24f8475766477e0a : HardwarePortfolioStage ⊏ₑ HardwareManagementInitiative
+st-24f84973664783b4-24f8475766477e0a = polySubTypeOf-identity
 
 -- == Relationships =======================

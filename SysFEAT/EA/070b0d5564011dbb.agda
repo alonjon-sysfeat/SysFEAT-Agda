@@ -5,6 +5,9 @@
 
 Networking System: 
 A Networking System is a Technology System that provides networking capabilities offered through Network Interfaces.
+
+Documentation : https://framework.sysfeat.com/pages/070b0d5564011dbb.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,11 +22,11 @@ NetworkingSystem : ClassOfClassOfBoundedIndividual
 NetworkingSystem = ClassOfBoundedIndividual
 
 --  NetworkingSystem is subTypeOf NetworkingSystem
-st-070b0d8064011e09 : NetworkingSystem ⊏ₑ NetworkingSystem
-st-070b0d8064011e09 = polySubTypeOf-identity
+st-070b0d5564011dbb-26b8384f5eeae33c : NetworkingSystem ⊏ₑ NetworkingSystem
+st-070b0d5564011dbb-26b8384f5eeae33c = polySubTypeOf-identity
 
 --  NetworkingSystem is subTypeOf TechnologySystem
-st-070b0e1164011e9b : NetworkingSystem ⊏ₑ TechnologySystem
-st-070b0e1164011e9b = polySubTypeOf-identity
+st-070b0d5564011dbb-0cbd1fa663fe18ac : NetworkingSystem ⊏ₑ TechnologySystem
+st-070b0d5564011dbb-0cbd1fa663fe18ac = polySubTypeOf-identity
 
 -- == Relationships =======================

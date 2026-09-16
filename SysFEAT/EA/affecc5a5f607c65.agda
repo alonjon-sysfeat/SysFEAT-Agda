@@ -5,6 +5,9 @@
 
 Number of Distinct Values: 
 
+
+Documentation : https://framework.sysfeat.com/pages/affecc5a5f607c65.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

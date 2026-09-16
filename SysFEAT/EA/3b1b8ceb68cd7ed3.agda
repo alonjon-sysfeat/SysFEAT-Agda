@@ -5,6 +5,9 @@
 
 Individual Software System: 
 v
+
+Documentation : https://framework.sysfeat.com/pages/3b1b8ceb68cd7ed3.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,11 +22,11 @@ IndividualSOftwareSystem : ClassOfBoundedIndividual
 IndividualSOftwareSystem = BoundedIndividual
 
 --  IndividualSOftwareSystem is subTypeOf IndividualArtifact
-st-3b1b907168cd82b0 : IndividualSOftwareSystem ⊏ₑ IndividualArtifact
-st-3b1b907168cd82b0 = polySubTypeOf-identity
+st-3b1b8ceb68cd7ed3-3b1b91ea68cd8733 : IndividualSOftwareSystem ⊏ₑ IndividualArtifact
+st-3b1b8ceb68cd7ed3-3b1b91ea68cd8733 = polySubTypeOf-identity
 
 --  IndividualSOftwareSystem is subTypeOf IndividualIntangibleResourceAgent
-st-3b1bb79e68cd9ed2 : IndividualSOftwareSystem ⊏ₑ IndividualIntangibleResourceAgent
-st-3b1bb79e68cd9ed2 = polySubTypeOf-identity
+st-3b1b8ceb68cd7ed3-3b1bb6eb68cd9da2 : IndividualSOftwareSystem ⊏ₑ IndividualIntangibleResourceAgent
+st-3b1b8ceb68cd7ed3-3b1bb6eb68cd9da2 = polySubTypeOf-identity
 
 -- == Relationships =======================

@@ -5,6 +5,9 @@
 
 Customer Task: 
 Activity done by a Customer in context of its duty and for which he/she expresses his/her needs and painpoints.
+
+Documentation : https://framework.sysfeat.com/pages/d170d24a5be72d09.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,17 +23,17 @@ CustomerTask : ClassOfClassOfBoundedIndividual
 CustomerTask = ClassOfBoundedIndividual
 
 --  CustomerTask is subTypeOf CustomerActivity
-st-ce31f05e5d5b3098 : CustomerTask ⊏ₑ CustomerActivity
-st-ce31f05e5d5b3098 = polySubTypeOf-identity
+st-d170d24a5be72d09-8a5c926e5c0d632c : CustomerTask ⊏ₑ CustomerActivity
+st-d170d24a5be72d09-8a5c926e5c0d632c = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Expressed Need: -}
 expressedNeed :  Linkage CustomerTask CustomerNeed
-expressedNeed = make_classOfHolonymy "Expressed Need" "expressedNeed"
+expressedNeed = make_classOfHolonymy "Expressed Need" "Expressed Need"
 
 
 {- felt paint point: -}
 feltpaintpoint :  Linkage CustomerTask PainPointType
-feltpaintpoint = make_classOfHolonymy "felt paint point" "feltpaintpoint"
+feltpaintpoint = make_classOfHolonymy "felt paint point" "felt paint point"
 

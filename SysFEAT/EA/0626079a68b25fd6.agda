@@ -5,6 +5,9 @@
 
 Individual State Concept: 
 An Individual State Concept is an instance of a State Concept.Example:-  John Doe employe at Concoso Corporation in 2010  is a state of the  John Doe  Individual Concept.
+
+Documentation : https://framework.sysfeat.com/pages/0626079a68b25fd6.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,7 +23,7 @@ IndividualStateConcept = StateConcept
 
 
 --  IndividualStateConcept is subTypeOf ConceptualIndividual
-st-0626078468b25fd3 : IndividualStateConcept ⊏ₑ ConceptualIndividual
-st-0626078468b25fd3 = polySubTypeOf-identity
+st-0626079a68b25fd6-346a3677655b5325 : IndividualStateConcept ⊏ₑ ConceptualIndividual
+st-0626079a68b25fd6-346a3677655b5325 = polySubTypeOf-identity
 
 -- == Relationships =======================

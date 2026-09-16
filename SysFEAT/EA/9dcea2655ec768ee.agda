@@ -5,6 +5,13 @@
 
 Business Service Interface: 
 A Business Service Interface is a communication behavior that describes a typical course of interactions intended to produce Business Outcome Events, through the involvement of Business Agent Types.
+
+Documentation : https://framework.sysfeat.com/pages/9dcea2655ec768ee.htm
+
+External references:
+  OpenGroup - IT4IT - Defining Service Reference Architecture: https://publications.opengroup.org/w161
+  OMG - UAF - Operational Interface: https://www.omg.org/spec/UAF/1.2/Beta1/DMM/PDF#OperationalInterface
+  OpenGroup - ArchiMate - Business-Service: https://pubs.opengroup.org/architecture/archimate32-doc/ch-Business-Layer.html#sec-Business-Service
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,8 +26,8 @@ BusinessServiceInterface : ClassOfClassOfIndividual
 BusinessServiceInterface = ClassOfIndividual
 
 --  BusinessServiceInterface is subTypeOf ResourceServiceInterface
-st-6a70dea8678791c9 : BusinessServiceInterface ⊏ₑ ResourceServiceInterface
-st-6a70dea8678791c9 = polySubTypeOf-identity
+st-9dcea2655ec768ee-6a70c21067876cd8 : BusinessServiceInterface ⊏ₑ ResourceServiceInterface
+st-9dcea2655ec768ee-6a70c21067876cd8 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -33,11 +40,11 @@ BusinessFlowConnection = ClassOfIndividual
 
 -- Membership relation
 membershipOfBusinessFlowConnection :  Linkage BusinessServiceInterface BusinessFlowConnection
-membershipOfBusinessFlowConnection = membershipOfAggregateMember
+membershipOfBusinessFlowConnection = make_upwardNestingRelation "businessFlowConnection membership" "nested businessFlowConnection"
 
 -- Aggregation relation
 aggregationOfBusinessOutcomeEventBusinessFlowConnection :  Linkage BusinessFlowConnection BusinessOutcomeEvent
-aggregationOfBusinessOutcomeEventBusinessFlowConnection = aggregationOfBuildingBlock
+aggregationOfBusinessOutcomeEventBusinessFlowConnection = make_Relation "BusinessOutcomeEvent aggregation" "aggregated BusinessOutcomeEvent"
 
 {- businessFlowConnection : derived relation obtained by composing
    membershipOfBusinessFlowConnection and aggregationOfBusinessOutcomeEventBusinessFlowConnection
@@ -46,3 +53,7 @@ aggregationOfBusinessOutcomeEventBusinessFlowConnection = aggregationOfBuildingB
 -}
 businessFlowConnection : Linkage BusinessServiceInterface BusinessOutcomeEvent
 businessFlowConnection = membershipOfBusinessFlowConnection  ∘  aggregationOfBusinessOutcomeEventBusinessFlowConnection
+
+postulate -- businessFlowConnection is subTypeOf resourceFlowConnection
+  st-c561d97c680f6e84-c561e339680f761e  : businessFlowConnection   ⊏⋆ᵣ  resourceFlowConnection 
+

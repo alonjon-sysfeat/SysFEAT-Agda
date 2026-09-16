@@ -5,6 +5,9 @@
 
 Business Ecosystem: 
 A Business Ecosystem is a Business Resource Ecosystem used to describe the operating context in which a Business-Entity (Department Type) exists or lives for a specific purpose. For instance, the Business Ecosystem of a company includes its customers and suppliers.
+
+Documentation : https://framework.sysfeat.com/pages/2b705f2661ba04de.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,8 +23,8 @@ BusinessEcosystem : ClassOfClassOfBoundedIndividual
 BusinessEcosystem = ClassOfBoundedIndividual
 
 --  BusinessEcosystem is subTypeOf BusinessResourceEcosystem
-st-2b705f2f61ba0536 : BusinessEcosystem ⊏ₑ BusinessResourceEcosystem
-st-2b705f2f61ba0536 = polySubTypeOf-identity
+st-2b705f2661ba04de-2b6f332061bae622 : BusinessEcosystem ⊏ₑ BusinessResourceEcosystem
+st-2b705f2661ba04de-2b6f332061bae622 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -32,11 +35,11 @@ BusinessEcosystemConnection = ClassOfIndividual
 
 -- Membership relation
 membershipOfBusinessEcosystemConnection :  Linkage BusinessEcosystem BusinessEcosystemConnection
-membershipOfBusinessEcosystemConnection = membershipOfAggregateMember
+membershipOfBusinessEcosystemConnection = make_upwardNestingRelation "businessEcosystemConnection membership" "nested businessEcosystemConnection"
 
 -- Aggregation relation
 aggregationOfOperatingConnectionBusinessEcosystemConnection :  Linkage BusinessEcosystemConnection OperatingConnection
-aggregationOfOperatingConnectionBusinessEcosystemConnection = aggregationOfBuildingBlock
+aggregationOfOperatingConnectionBusinessEcosystemConnection = make_Relation "OperatingConnection aggregation" "aggregated OperatingConnection"
 
 {- businessEcosystemConnection : derived relation obtained by composing
    membershipOfBusinessEcosystemConnection and aggregationOfOperatingConnectionBusinessEcosystemConnection
@@ -46,6 +49,10 @@ aggregationOfOperatingConnectionBusinessEcosystemConnection = aggregationOfBuild
 businessEcosystemConnection : Linkage BusinessEcosystem OperatingConnection
 businessEcosystemConnection = membershipOfBusinessEcosystemConnection  ∘  aggregationOfOperatingConnectionBusinessEcosystemConnection
 
+postulate -- businessEcosystemConnection is subTypeOf businessEcosystemConnection
+  st-a813ce0063567e9b-f8e7db56621f0cef  : businessEcosystemConnection   ⊏⋆ᵣ  businessEcosystemConnection 
+
+
 {- Business Ecosystem Part: -}
 -- Aggregate Member : Business Ecosystem Part
 BusinessEcosystemPart : ClassOfClassOfIndividual
@@ -53,11 +60,11 @@ BusinessEcosystemPart = ClassOfIndividual
 
 -- Membership relation
 membershipOfBusinessEcosystemPart :  Linkage BusinessEcosystem BusinessEcosystemPart
-membershipOfBusinessEcosystemPart = membershipOfAggregateMember
+membershipOfBusinessEcosystemPart = make_upwardNestingRelation "businessEcosystemPart membership" "nested businessEcosystemPart"
 
 -- Aggregation relation
 aggregationOfOrgUnitTypeBusinessEcosystemPart :  Linkage BusinessEcosystemPart OrgUnitType
-aggregationOfOrgUnitTypeBusinessEcosystemPart = aggregationOfBuildingBlock
+aggregationOfOrgUnitTypeBusinessEcosystemPart = make_Relation "OrgUnitType aggregation" "aggregated OrgUnitType"
 
 {- businessEcosystemPart : derived relation obtained by composing
    membershipOfBusinessEcosystemPart and aggregationOfOrgUnitTypeBusinessEcosystemPart
@@ -66,3 +73,7 @@ aggregationOfOrgUnitTypeBusinessEcosystemPart = aggregationOfBuildingBlock
 -}
 businessEcosystemPart : Linkage BusinessEcosystem OrgUnitType
 businessEcosystemPart = membershipOfBusinessEcosystemPart  ∘  aggregationOfOrgUnitTypeBusinessEcosystemPart
+
+postulate -- businessEcosystemPart is subTypeOf resourceEcosystemPart
+  st-a813cb556356781f-95129626620b544c  : businessEcosystemPart   ⊏⋆ᵣ  resourceEcosystemPart 
+

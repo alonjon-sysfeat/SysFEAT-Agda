@@ -5,6 +5,9 @@
 
 Software System Environment: 
 A Software System Environment is an operating context in which a Business Software System defines its interactions with its partners (Partner System) in the form of API connections (Software Connection).It also represents End Users who interact with the system.
+
+Documentation : https://framework.sysfeat.com/pages/25c0a25061e2fd5a.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -21,8 +24,8 @@ SOftwareSystemEnvironment : ClassOfClassOfBoundedIndividual
 SOftwareSystemEnvironment = ClassOfBoundedIndividual
 
 --  SOftwareSystemEnvironment is subTypeOf BusinessSystemEnvironment
-st-25c0a27261e2fe02 : SOftwareSystemEnvironment ⊏ₑ BusinessSystemEnvironment
-st-25c0a27261e2fe02 = polySubTypeOf-identity
+st-25c0a25061e2fd5a-c450d4c261de5f07 : SOftwareSystemEnvironment ⊏ₑ BusinessSystemEnvironment
+st-25c0a25061e2fd5a-c450d4c261de5f07 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -33,11 +36,11 @@ SOftwareConnection = ClassOfIndividual
 
 -- Membership relation
 membershipOfSOftwareConnection :  Linkage SOftwareSystemEnvironment SOftwareConnection
-membershipOfSOftwareConnection = membershipOfAggregateMember
+membershipOfSOftwareConnection = make_upwardNestingRelation "sOftwareConnection membership" "nested sOftwareConnection"
 
 -- Aggregation relation
 aggregationOfApplicationInterfaceSOftwareConnection :  Linkage SOftwareConnection ApplicationInterface
-aggregationOfApplicationInterfaceSOftwareConnection = aggregationOfBuildingBlock
+aggregationOfApplicationInterfaceSOftwareConnection = make_Relation "ApplicationInterface aggregation" "aggregated ApplicationInterface"
 
 {- sOftwareConnection : derived relation obtained by composing
    membershipOfSOftwareConnection and aggregationOfApplicationInterfaceSOftwareConnection
@@ -47,6 +50,10 @@ aggregationOfApplicationInterfaceSOftwareConnection = aggregationOfBuildingBlock
 sOftwareConnection : Linkage SOftwareSystemEnvironment ApplicationInterface
 sOftwareConnection = membershipOfSOftwareConnection  ∘  aggregationOfApplicationInterfaceSOftwareConnection
 
+postulate -- sOftwareConnection is subTypeOf businessServiceChannel
+  st-25c1a7cd61e20b29-2b6f436f61bafb0b  : sOftwareConnection   ⊏⋆ᵣ  businessServiceChannel 
+
+
 {- Participant Software: -}
 -- Aggregate Member : Participant Software
 ParticipantSOftware : ClassOfClassOfIndividual
@@ -54,11 +61,11 @@ ParticipantSOftware = ClassOfIndividual
 
 -- Membership relation
 membershipOfParticipantSOftware :  Linkage SOftwareSystemEnvironment ParticipantSOftware
-membershipOfParticipantSOftware = membershipOfAggregateMember
+membershipOfParticipantSOftware = make_upwardNestingRelation "participantSOftware membership" "nested participantSOftware"
 
 -- Aggregation relation
 aggregationOfBusinessSOftwareSystemParticipantSOftware :  Linkage ParticipantSOftware BusinessSOftwareSystem
-aggregationOfBusinessSOftwareSystemParticipantSOftware = aggregationOfBuildingBlock
+aggregationOfBusinessSOftwareSystemParticipantSOftware = make_Relation "BusinessSOftwareSystem aggregation" "aggregated BusinessSOftwareSystem"
 
 {- participantSOftware : derived relation obtained by composing
    membershipOfParticipantSOftware and aggregationOfBusinessSOftwareSystemParticipantSOftware
@@ -68,6 +75,12 @@ aggregationOfBusinessSOftwareSystemParticipantSOftware = aggregationOfBuildingBl
 participantSOftware : Linkage SOftwareSystemEnvironment BusinessSOftwareSystem
 participantSOftware = membershipOfParticipantSOftware  ∘  aggregationOfBusinessSOftwareSystemParticipantSOftware
 
+postulate -- participantSOftware is subTypeOf participantBusinessSystem
+  st-25c1a63d61e206d7-c450d63661de652a  : participantSOftware   ⊏⋆ᵣ  participantBusinessSystem 
+postulate -- participantSOftware is subTypeOf participantEnterpriseAgent
+  st-25c1a63d61e206d7-2b6f42fc61baf9b7  : participantSOftware   ⊏⋆ᵣ  participantEnterpriseAgent 
+
+
 {- Subject Software System: -}
 -- Aggregate Member : Subject Software System
 SubjectSOftwareSystem : ClassOfClassOfIndividual
@@ -75,11 +88,11 @@ SubjectSOftwareSystem = ClassOfIndividual
 
 -- Membership relation
 membershipOfSubjectSOftwareSystem :  Linkage SOftwareSystemEnvironment SubjectSOftwareSystem
-membershipOfSubjectSOftwareSystem = membershipOfAggregateMember
+membershipOfSubjectSOftwareSystem = make_upwardNestingRelation "subjectSOftwareSystem membership" "nested subjectSOftwareSystem"
 
 -- Aggregation relation
 aggregationOfBusinessSOftwareSystemSubjectSOftwareSystem :  Linkage SubjectSOftwareSystem BusinessSOftwareSystem
-aggregationOfBusinessSOftwareSystemSubjectSOftwareSystem = aggregationOfBuildingBlock
+aggregationOfBusinessSOftwareSystemSubjectSOftwareSystem = make_Relation "BusinessSOftwareSystem aggregation" "aggregated BusinessSOftwareSystem"
 
 {- subjectSOftwareSystem : derived relation obtained by composing
    membershipOfSubjectSOftwareSystem and aggregationOfBusinessSOftwareSystemSubjectSOftwareSystem
@@ -89,6 +102,12 @@ aggregationOfBusinessSOftwareSystemSubjectSOftwareSystem = aggregationOfBuilding
 subjectSOftwareSystem : Linkage SOftwareSystemEnvironment BusinessSOftwareSystem
 subjectSOftwareSystem = membershipOfSubjectSOftwareSystem  ∘  aggregationOfBusinessSOftwareSystemSubjectSOftwareSystem
 
+postulate -- subjectSOftwareSystem is subTypeOf subjectSystem
+  st-25c1a65861e2077a-c450d59061de6127  : subjectSOftwareSystem   ⊏⋆ᵣ  subjectSystem 
+postulate -- subjectSOftwareSystem is subTypeOf participantSOftware
+  st-25c1a65861e2077a-25c1a63d61e206d7  : subjectSOftwareSystem   ⊏⋆ᵣ  participantSOftware 
+
+
 {- Partner Software System: -}
 -- Aggregate Member : Partner Software System
 PartnerSOftwareSystem : ClassOfClassOfIndividual
@@ -96,11 +115,11 @@ PartnerSOftwareSystem = ClassOfIndividual
 
 -- Membership relation
 membershipOfPartnerSOftwareSystem :  Linkage SOftwareSystemEnvironment PartnerSOftwareSystem
-membershipOfPartnerSOftwareSystem = membershipOfAggregateMember
+membershipOfPartnerSOftwareSystem = make_upwardNestingRelation "partnerSOftwareSystem membership" "nested partnerSOftwareSystem"
 
 -- Aggregation relation
 aggregationOfBusinessSOftwareSystemPartnerSOftwareSystem :  Linkage PartnerSOftwareSystem BusinessSOftwareSystem
-aggregationOfBusinessSOftwareSystemPartnerSOftwareSystem = aggregationOfBuildingBlock
+aggregationOfBusinessSOftwareSystemPartnerSOftwareSystem = make_Relation "BusinessSOftwareSystem aggregation" "aggregated BusinessSOftwareSystem"
 
 {- partnerSOftwareSystem : derived relation obtained by composing
    membershipOfPartnerSOftwareSystem and aggregationOfBusinessSOftwareSystemPartnerSOftwareSystem
@@ -109,6 +128,12 @@ aggregationOfBusinessSOftwareSystemPartnerSOftwareSystem = aggregationOfBuilding
 -}
 partnerSOftwareSystem : Linkage SOftwareSystemEnvironment BusinessSOftwareSystem
 partnerSOftwareSystem = membershipOfPartnerSOftwareSystem  ∘  aggregationOfBusinessSOftwareSystemPartnerSOftwareSystem
+
+postulate -- partnerSOftwareSystem is subTypeOf partnerSystem
+  st-25c1a6bc61e20826-c450d5b361de622e  : partnerSOftwareSystem   ⊏⋆ᵣ  partnerSystem 
+postulate -- partnerSOftwareSystem is subTypeOf participantSOftware
+  st-25c1a6bc61e20826-25c1a63d61e206d7  : partnerSOftwareSystem   ⊏⋆ᵣ  participantSOftware 
+
 
 {- End User: 
 An End User is a Org-Unit Type who actually uses a particular Business Software System.
@@ -119,11 +144,11 @@ EndUser = ClassOfIndividual
 
 -- Membership relation
 membershipOfEndUser :  Linkage SOftwareSystemEnvironment EndUser
-membershipOfEndUser = membershipOfAggregateMember
+membershipOfEndUser = make_upwardNestingRelation "endUser membership" "nested endUser"
 
 -- Aggregation relation
 aggregationOfOrgUnitTypeEndUser :  Linkage EndUser OrgUnitType
-aggregationOfOrgUnitTypeEndUser = aggregationOfBuildingBlock
+aggregationOfOrgUnitTypeEndUser = make_Relation "OrgUnitType aggregation" "aggregated OrgUnitType"
 
 {- endUser : derived relation obtained by composing
    membershipOfEndUser and aggregationOfOrgUnitTypeEndUser
@@ -132,3 +157,7 @@ aggregationOfOrgUnitTypeEndUser = aggregationOfBuildingBlock
 -}
 endUser : Linkage SOftwareSystemEnvironment OrgUnitType
 endUser = membershipOfEndUser  ∘  aggregationOfOrgUnitTypeEndUser
+
+postulate -- endUser is subTypeOf participantSOftware
+  st-2dcea8705fc4827c-25c1a63d61e206d7  : endUser   ⊏⋆ᵣ  participantSOftware 
+

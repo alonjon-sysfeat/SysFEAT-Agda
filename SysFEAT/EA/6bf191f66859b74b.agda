@@ -20,13 +20,11 @@ BusinessDictionary : FirstOrderClass
 BusinessDictionary = FirstOrderEntity
 
 
---  BusinessDictionary is subTypeOf InformationDictionary
-st-6bf192296859b7d4 : BusinessDictionary ⊏ₑ InformationDictionary
-st-6bf192296859b7d4 = polySubTypeOf-identity
+postulate --  BusinessDictionary is subTypeOf InformationDictionary
+  st-6bf192296859b7d4 : BusinessDictionary ⊏ₑ InformationDictionary
 
---  BusinessDictionary withAspect DictionaryVocabulary
-st-6bf192326859b80e : BusinessDictionary ⊏ₐₑ (DictionaryVocabulary lzero)
-st-6bf192326859b80e = polySubTypeOf-identity
+postulate --  BusinessDictionary withAspect DictionaryVocabulary
+  st-6bf192326859b80e : BusinessDictionary ⊏ₐₑ (DictionaryVocabulary lzero)
 
 -- == Relationships =======================
 

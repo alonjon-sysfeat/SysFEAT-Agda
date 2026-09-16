@@ -5,6 +5,11 @@
 
 Project Portfolio: 
 A Project Portfolio gathers all the projects of a given Project Domain in the defined project state (Demands, Candidate Projects, Ongoing Projects).In a Portfolio, Projects can be assessed and compared against several criteria:- Projects Criteria: these are derived from projects information (e.g. costs) or from project qualitative assessment (e.g. strategic alignment level, business value level)- Portfolio criteria: these are additional criteria which can be defined at portfolio level on top of the projects criteria (ex : score, priority, rank)The project workflow can be actioned from the project portfolio lines.
+
+Documentation : https://framework.sysfeat.com/pages/d26b6b685fe0c6b9.htm
+
+External references:
+  OMG - UAF - ProjectKind: https://www.omg.org/spec/UAF/1.2/Beta1/UAFML/PDF#ProjectKind
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,8 +24,8 @@ ProjectPortfolio : ClassOfBoundedIndividual
 ProjectPortfolio = BoundedIndividual
 
 --  ProjectPortfolio is subTypeOf ProgramAsset
-st-d26b6b725fe0c724 : ProjectPortfolio ⊏ₑ ProgramAsset
-st-d26b6b725fe0c724 = polySubTypeOf-identity
+st-d26b6b685fe0c6b9-2b5887d05ef07b3b : ProjectPortfolio ⊏ₑ ProgramAsset
+st-d26b6b685fe0c6b9-2b5887d05ef07b3b = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -34,11 +39,11 @@ PortfolioLine = AggregateMember (lsuc(lzero))
 
 -- Membership relation
 membershipOfPortfolioLine :  Linkage ProjectPortfolio PortfolioLine
-membershipOfPortfolioLine = membershipOfAggregateMember
+membershipOfPortfolioLine = make_upwardNestingRelation "portfolioLine membership" "nested portfolioLine"
 
 -- Aggregation relation
 aggregationOfProjectPortfolioLine :  Linkage PortfolioLine Project
-aggregationOfProjectPortfolioLine = aggregationOfBuildingBlock
+aggregationOfProjectPortfolioLine = make_Relation "Project aggregation" "aggregated Project"
 
 {- portfolioLine : derived relation obtained by composing
    membershipOfPortfolioLine and aggregationOfProjectPortfolioLine
@@ -47,3 +52,5 @@ aggregationOfProjectPortfolioLine = aggregationOfBuildingBlock
 -}
 portfolioLine : Linkage ProjectPortfolio Project
 portfolioLine = membershipOfPortfolioLine  ∘  aggregationOfProjectPortfolioLine
+
+

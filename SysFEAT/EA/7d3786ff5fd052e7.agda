@@ -5,6 +5,9 @@
 
 Assurance Instrument: 
 An Assurance Instrument is a resource or course of actions used by an Assurance System to achieve its objectives.For instance:Actions plans are course of actions aimed at solving incidents.Data Controls are mechanisms used to ensure data quality and data integrityPrivacy Representatives are used to identify national entities in charge of privacy.
+
+Documentation : https://framework.sysfeat.com/pages/7d3786ff5fd052e7.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ AssuranceInstrument : ClassOfBoundedIndividual
 AssuranceInstrument = BoundedIndividual
 
 --  AssuranceInstrument withAspect InitiativeInstrument
-st-7d3787535fd053cd : AssuranceInstrument ⊏ₐₑ (InitiativeInstrument lzero)
-st-7d3787535fd053cd = polySubTypeOf-identity
+st-7d3786ff5fd052e7-01ce05606859794a : AssuranceInstrument ⊏ₐₑ (InitiativeInstrument lzero)
+st-7d3786ff5fd052e7-01ce05606859794a = polySubTypeOf-identity
 
 -- == Relationships =======================

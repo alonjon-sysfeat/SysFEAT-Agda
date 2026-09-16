@@ -5,6 +5,9 @@
 
 Application Portfolio: 
 Application Portfolios are Enduring Initiatives aimed at managing a set of Applications delivering functionalities required by enterprise operations.The purpose of Application Portfolios is efficiency: managed Applications must provide expected functionalities in the best cost / performance ratio.
+
+Documentation : https://framework.sysfeat.com/pages/1ce3429d5c48982e.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,14 +23,14 @@ ApplicationPortfolio : ClassOfBoundedIndividual
 ApplicationPortfolio = BoundedIndividual
 
 --  ApplicationPortfolio is subTypeOf AssetPortfolio
-st-6ce61b895ef3827b : ApplicationPortfolio ⊏ₑ AssetPortfolio
-st-6ce61b895ef3827b = polySubTypeOf-identity
+st-1ce3429d5c48982e-26b8889c5eea8ab7 : ApplicationPortfolio ⊏ₑ AssetPortfolio
+st-1ce3429d5c48982e-26b8889c5eea8ab7 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Roadmap: -}
 roadmap :  Linkage ApplicationPortfolio ApplicationPortfolioStage
-roadmap = make_holonymyRelation "Roadmap" "roadmap"
+roadmap = make_holonymyRelation "Roadmap" "Roadmap"
 
 postulate -- roadmap is subTypeOf portfolioRoadmap
   st-5b7a06e961f5595c-f277fa24601bef67  : roadmap   ⊏⋆ᵣ  portfolioRoadmap 
@@ -41,11 +44,11 @@ ManagedApplication = ClassOfIndividual
 
 -- Membership relation
 membershipOfManagedApplication :  Linkage ApplicationPortfolio ManagedApplication
-membershipOfManagedApplication = membershipOfAggregateMember
+membershipOfManagedApplication = make_upwardNestingRelation "managedApplication membership" "nested managedApplication"
 
 -- Aggregation relation
 aggregationOfApplicationManagedApplication :  Linkage ManagedApplication Application
-aggregationOfApplicationManagedApplication = aggregationOfBuildingBlock
+aggregationOfApplicationManagedApplication = make_Relation "Application aggregation" "aggregated Application"
 
 {- managedApplication : derived relation obtained by composing
    membershipOfManagedApplication and aggregationOfApplicationManagedApplication
@@ -54,3 +57,7 @@ aggregationOfApplicationManagedApplication = aggregationOfBuildingBlock
 -}
 managedApplication : Linkage ApplicationPortfolio Application
 managedApplication = membershipOfManagedApplication  ∘  aggregationOfApplicationManagedApplication
+
+postulate -- managedApplication is subTypeOf managedResourceAsset
+  st-c334ec9b5ecbb0d4-f57af6ca62d21904  : managedApplication   ⊏⋆ᵣ  managedResourceAsset 
+

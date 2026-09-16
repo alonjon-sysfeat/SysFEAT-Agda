@@ -5,6 +5,9 @@
 
 Logical Software System: 
 A Logical Software System is logical specification of a Business Software System, which is independant from the Business Software System physical implementation.For instance,  Human Resource ERP System  is a Logical Application System, while  SAP HR System ,  Sage HR System ,  Kronos HR System  are Application Systems.
+
+Documentation : https://framework.sysfeat.com/pages/2558338d5c6d1d1b.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,8 +23,8 @@ LogicalSOftwareSystem : ClassOfClassOfBoundedIndividual
 LogicalSOftwareSystem = ClassOfBoundedIndividual
 
 --  LogicalSOftwareSystem is subTypeOf BusinessSOftwareSystem
-st-6c0485af61f2e95e : LogicalSOftwareSystem ⊏ₑ BusinessSOftwareSystem
-st-6c0485af61f2e95e = polySubTypeOf-identity
+st-2558338d5c6d1d1b-d6cd02865ab966e8 : LogicalSOftwareSystem ⊏ₑ BusinessSOftwareSystem
+st-2558338d5c6d1d1b-d6cd02865ab966e8 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -32,11 +35,11 @@ LogicalSOftwareChannel = ClassOfIndividual
 
 -- Membership relation
 membershipOfLogicalSOftwareChannel :  Linkage LogicalSOftwareSystem LogicalSOftwareChannel
-membershipOfLogicalSOftwareChannel = membershipOfAggregateMember
+membershipOfLogicalSOftwareChannel = make_upwardNestingRelation "logicalSOftwareChannel membership" "nested logicalSOftwareChannel"
 
 -- Aggregation relation
 aggregationOfApplicationInterfaceLogicalSOftwareChannel :  Linkage LogicalSOftwareChannel ApplicationInterface
-aggregationOfApplicationInterfaceLogicalSOftwareChannel = aggregationOfBuildingBlock
+aggregationOfApplicationInterfaceLogicalSOftwareChannel = make_Relation "ApplicationInterface aggregation" "aggregated ApplicationInterface"
 
 {- logicalSOftwareChannel : derived relation obtained by composing
    membershipOfLogicalSOftwareChannel and aggregationOfApplicationInterfaceLogicalSOftwareChannel
@@ -46,6 +49,10 @@ aggregationOfApplicationInterfaceLogicalSOftwareChannel = aggregationOfBuildingB
 logicalSOftwareChannel : Linkage LogicalSOftwareSystem ApplicationInterface
 logicalSOftwareChannel = membershipOfLogicalSOftwareChannel  ∘  aggregationOfApplicationInterfaceLogicalSOftwareChannel
 
+postulate -- logicalSOftwareChannel is subTypeOf sOftwareConnection
+  st-139318a2607f2589-9dcea1235ec76646  : logicalSOftwareChannel   ⊏⋆ᵣ  sOftwareConnection 
+
+
 {- Logical Data Store: -}
 -- Aggregate Member : Logical Data Store
 LogicalDataStore : ClassOfClassOfIndividual
@@ -53,11 +60,11 @@ LogicalDataStore = ClassOfIndividual
 
 -- Membership relation
 membershipOfLogicalDataStore :  Linkage LogicalSOftwareSystem LogicalDataStore
-membershipOfLogicalDataStore = membershipOfAggregateMember
+membershipOfLogicalDataStore = make_upwardNestingRelation "logicalDataStore membership" "nested logicalDataStore"
 
 -- Aggregation relation
 aggregationOfLogicalDataDomainLogicalDataStore :  Linkage LogicalDataStore LogicalDataDomain
-aggregationOfLogicalDataDomainLogicalDataStore = aggregationOfBuildingBlock
+aggregationOfLogicalDataDomainLogicalDataStore = make_Relation "LogicalDataDomain aggregation" "aggregated LogicalDataDomain"
 
 {- logicalDataStore : derived relation obtained by composing
    membershipOfLogicalDataStore and aggregationOfLogicalDataDomainLogicalDataStore
@@ -67,6 +74,10 @@ aggregationOfLogicalDataDomainLogicalDataStore = aggregationOfBuildingBlock
 logicalDataStore : Linkage LogicalSOftwareSystem LogicalDataDomain
 logicalDataStore = membershipOfLogicalDataStore  ∘  aggregationOfLogicalDataDomainLogicalDataStore
 
+postulate -- logicalDataStore is subTypeOf physicaldatastore
+  st-0f0f1277607f70b3-7b8780615eb81b83  : logicalDataStore   ⊏⋆ᵣ  physicaldatastore 
+
+
 {- Logical Software Member: -}
 -- Aggregate Member : Logical Software Member
 LogicalSOftwareMember : ClassOfClassOfIndividual
@@ -74,11 +85,11 @@ LogicalSOftwareMember = ClassOfIndividual
 
 -- Membership relation
 membershipOfLogicalSOftwareMember :  Linkage LogicalSOftwareSystem LogicalSOftwareMember
-membershipOfLogicalSOftwareMember = membershipOfAggregateMember
+membershipOfLogicalSOftwareMember = make_upwardNestingRelation "logicalSOftwareMember membership" "nested logicalSOftwareMember"
 
 -- Aggregation relation
 aggregationOfLogicalSOftwareSystemLogicalSOftwareMember :  Linkage LogicalSOftwareMember LogicalSOftwareSystem
-aggregationOfLogicalSOftwareSystemLogicalSOftwareMember = aggregationOfBuildingBlock
+aggregationOfLogicalSOftwareSystemLogicalSOftwareMember = make_Relation "LogicalSOftwareSystem aggregation" "aggregated LogicalSOftwareSystem"
 
 {- logicalSOftwareMember : derived relation obtained by composing
    membershipOfLogicalSOftwareMember and aggregationOfLogicalSOftwareSystemLogicalSOftwareMember
@@ -87,3 +98,7 @@ aggregationOfLogicalSOftwareSystemLogicalSOftwareMember = aggregationOfBuildingB
 -}
 logicalSOftwareMember : Linkage LogicalSOftwareSystem LogicalSOftwareSystem
 logicalSOftwareMember = membershipOfLogicalSOftwareMember  ∘  aggregationOfLogicalSOftwareSystemLogicalSOftwareMember
+
+postulate -- logicalSOftwareMember is subTypeOf sOftwarePart
+  st-13931800607f240a-173f4d015eb8c686  : logicalSOftwareMember   ⊏⋆ᵣ  sOftwarePart 
+

@@ -5,6 +5,9 @@
 
 Business Driver: 
 A Business Driver is a kind of Exogenous Driver which expresses expectations coming from Business Partners (customers or suppliers) who interact directly with the enterprise.
+
+Documentation : https://framework.sysfeat.com/pages/a10ab13f54886125.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,8 +22,8 @@ BusinessDriver : ClassOfBoundedIndividual
 BusinessDriver = BoundedIndividual
 
 --  BusinessDriver is subTypeOf ExogenousDriver
-st-bcebd06854912929 : BusinessDriver ⊏ₑ ExogenousDriver
-st-bcebd06854912929 = polySubTypeOf-identity
+st-a10ab13f54886125-7a717ae75596283e : BusinessDriver ⊏ₑ ExogenousDriver
+st-a10ab13f54886125-7a717ae75596283e = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -28,7 +31,7 @@ st-bcebd06854912929 = polySubTypeOf-identity
 Partner Type which is the subject of a business need.
 -}
 subjectPartner :  Linkage BusinessDriver BusinessPartner
-subjectPartner = make_Relation "Subject Partner" "subjectPartner"
+subjectPartner = make_Relation "Subject Partner" "Subject Partner"
 
 postulate -- subjectPartner is subTypeOf driverSubject
   st-2cc9764f55263e70-4b945a6e68a47bdf  : subjectPartner   ⊏⋆ᵣ  driverSubject  {lzero}

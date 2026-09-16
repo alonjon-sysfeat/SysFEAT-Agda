@@ -5,6 +5,14 @@
 
 Conceptual Agent: 
 A Conceptual Agent is an abstract type of Agent Type that depicts a functional division of labor within an enterprise, influencing the formation of its business operating model.The concrete specializations of Conceptual Agent follow the systemic level pattern and come in the form of Operating Domain (a Macro Conceptual Agent) and Business Function (a Mezzo Conceptual Agent).
+
+Documentation : https://framework.sysfeat.com/pages/7c40987055271d04.htm
+
+External references:
+  Russell Ackoff - System of concepts - FunctionalDivisionOfLabor: ../resources/external-references/Ackoff-1971-Towards-a-system-of-systems-concepts.pdf#FunctionalDivisionOfLabor
+  OpenGroup - ArchiMate - Business Internal Active Structure Element: https://pubs.opengroup.org/architecture/archimate32-doc/ch-Business-Layer.html#sec-business-Active-Structure-Elements
+  Christensen Institute - Modularity: https://www.christenseninstitute.org/theory/modularity
+  OMG - UAF - OperationalAgent: https://www.omg.org/spec/UAF/1.2/Beta1/DMM/PDF#OperationalAgent
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -23,18 +31,18 @@ ConceptualAgent : ClassOfClassOfBoundedIndividual
 ConceptualAgent = ClassOfBoundedIndividual
 
 --  ConceptualAgent is subTypeOf ConceptualOperatingAsset
-st-c8b2255861e53a3c : ConceptualAgent ⊏ₑ ConceptualOperatingAsset
-st-c8b2255861e53a3c = polySubTypeOf-identity
+st-7c40987055271d04-c8b2238961e5385a : ConceptualAgent ⊏ₑ ConceptualOperatingAsset
+st-7c40987055271d04-c8b2238961e5385a = polySubTypeOf-identity
 
 --  ConceptualAgent is subTypeOf AgentType
-st-6a70b65467875d23 : ConceptualAgent ⊏ₑ AgentType
-st-6a70b65467875d23 = polySubTypeOf-identity
+st-7c40987055271d04-79368381561716a6 : ConceptualAgent ⊏ₑ AgentType
+st-7c40987055271d04-79368381561716a6 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Specialized Conceptual Agent: -}
 specializedConceptualAgent :  Linkage ConceptualAgent ConceptualAgent
-specializedConceptualAgent = make_subTypeOf "Specialized Conceptual Agent" "specializedConceptualAgent"
+specializedConceptualAgent = make_subTypeOf "Specialized Conceptual Agent" "Specialized Conceptual Agent"
 
 postulate -- specializedConceptualAgent is subTypeOf specializedConceptualAsset
   st-325a37b466f34a9d-325a376066f34181  : specializedConceptualAgent   ⊏⋆ᵣ  specializedConceptualAsset 
@@ -50,11 +58,11 @@ ConceptualInteractionChannel = ClassOfIndividual
 
 -- Membership relation
 membershipOfConceptualInteractionChannel :  Linkage ConceptualAgent ConceptualInteractionChannel
-membershipOfConceptualInteractionChannel = membershipOfAggregateMember
+membershipOfConceptualInteractionChannel = make_upwardNestingRelation "conceptualInteractionChannel membership" "nested conceptualInteractionChannel"
 
 -- Aggregation relation
 aggregationOfConceptualServiceInterfaceConceptualInteractionChannel :  Linkage ConceptualInteractionChannel ConceptualServiceInterface
-aggregationOfConceptualServiceInterfaceConceptualInteractionChannel = aggregationOfBuildingBlock
+aggregationOfConceptualServiceInterfaceConceptualInteractionChannel = make_Relation "ConceptualServiceInterface aggregation" "aggregated ConceptualServiceInterface"
 
 {- conceptualInteractionChannel : derived relation obtained by composing
    membershipOfConceptualInteractionChannel and aggregationOfConceptualServiceInterfaceConceptualInteractionChannel
@@ -64,6 +72,10 @@ aggregationOfConceptualServiceInterfaceConceptualInteractionChannel = aggregatio
 conceptualInteractionChannel : Linkage ConceptualAgent ConceptualServiceInterface
 conceptualInteractionChannel = membershipOfConceptualInteractionChannel  ∘  aggregationOfConceptualServiceInterfaceConceptualInteractionChannel
 
+postulate -- conceptualInteractionChannel is subTypeOf interactionChannel
+  st-258c37235fd283a8-24ae34bb5ed1cb17  : conceptualInteractionChannel   ⊏⋆ᵣ  interactionChannel 
+
+
 {- Conceptual Agent Part: -}
 -- Aggregate Member : Conceptual Agent Part
 ConceptualAgentPart : ClassOfClassOfIndividual
@@ -71,11 +83,11 @@ ConceptualAgentPart = ClassOfIndividual
 
 -- Membership relation
 membershipOfConceptualAgentPart :  Linkage ConceptualAgent ConceptualAgentPart
-membershipOfConceptualAgentPart = membershipOfAggregateMember
+membershipOfConceptualAgentPart = make_upwardNestingRelation "conceptualAgentPart membership" "nested conceptualAgentPart"
 
 -- Aggregation relation
 aggregationOfConceptualAgentConceptualAgentPart :  Linkage ConceptualAgentPart ConceptualAgent
-aggregationOfConceptualAgentConceptualAgentPart = aggregationOfBuildingBlock
+aggregationOfConceptualAgentConceptualAgentPart = make_Relation "ConceptualAgent aggregation" "aggregated ConceptualAgent"
 
 {- conceptualAgentPart : derived relation obtained by composing
    membershipOfConceptualAgentPart and aggregationOfConceptualAgentConceptualAgentPart
@@ -84,6 +96,10 @@ aggregationOfConceptualAgentConceptualAgentPart = aggregationOfBuildingBlock
 -}
 conceptualAgentPart : Linkage ConceptualAgent ConceptualAgent
 conceptualAgentPart = membershipOfConceptualAgentPart  ∘  aggregationOfConceptualAgentConceptualAgentPart
+
+postulate -- conceptualAgentPart is subTypeOf agentPart
+  st-258c36965fd28288-1da6216a5ebc65f7  : conceptualAgentPart   ⊏⋆ᵣ  agentPart 
+
 
 {- Performed Conceptual Scenario: 
 Relationship between a Conceptual Agent and Conceptual Interaction Scenarios that it performs.
@@ -94,11 +110,11 @@ PerformedConceptualScenario = ClassOfIndividual
 
 -- Membership relation
 membershipOfPerformedConceptualScenario :  Linkage ConceptualAgent PerformedConceptualScenario
-membershipOfPerformedConceptualScenario = membershipOfAggregateMember
+membershipOfPerformedConceptualScenario = make_upwardNestingRelation "performedConceptualScenario membership" "nested performedConceptualScenario"
 
 -- Aggregation relation
 aggregationOfConceptualInteractionScenarioPerformedConceptualScenario :  Linkage PerformedConceptualScenario ConceptualInteractionScenario
-aggregationOfConceptualInteractionScenarioPerformedConceptualScenario = aggregationOfBuildingBlock
+aggregationOfConceptualInteractionScenarioPerformedConceptualScenario = make_Relation "ConceptualInteractionScenario aggregation" "aggregated ConceptualInteractionScenario"
 
 {- performedConceptualScenario : derived relation obtained by composing
    membershipOfPerformedConceptualScenario and aggregationOfConceptualInteractionScenarioPerformedConceptualScenario
@@ -107,6 +123,8 @@ aggregationOfConceptualInteractionScenarioPerformedConceptualScenario = aggregat
 -}
 performedConceptualScenario : Linkage ConceptualAgent ConceptualInteractionScenario
 performedConceptualScenario = membershipOfPerformedConceptualScenario  ∘  aggregationOfConceptualInteractionScenarioPerformedConceptualScenario
+
+
 
 {- Performed Value Stream: 
 Relationship between a Conceptual Agent and Conceptual Behaviors that it performs.
@@ -117,11 +135,11 @@ PerformedValueStream = ClassOfIndividual
 
 -- Membership relation
 membershipOfPerformedValueStream :  Linkage ConceptualAgent PerformedValueStream
-membershipOfPerformedValueStream = membershipOfAggregateMember
+membershipOfPerformedValueStream = make_upwardNestingRelation "performedValueStream membership" "nested performedValueStream"
 
 -- Aggregation relation
 aggregationOfValueStreamPerformedValueStream :  Linkage PerformedValueStream ValueStream
-aggregationOfValueStreamPerformedValueStream = aggregationOfBuildingBlock
+aggregationOfValueStreamPerformedValueStream = make_Relation "ValueStream aggregation" "aggregated ValueStream"
 
 {- performedValueStream : derived relation obtained by composing
    membershipOfPerformedValueStream and aggregationOfValueStreamPerformedValueStream
@@ -131,6 +149,10 @@ aggregationOfValueStreamPerformedValueStream = aggregationOfBuildingBlock
 performedValueStream : Linkage ConceptualAgent ValueStream
 performedValueStream = membershipOfPerformedValueStream  ∘  aggregationOfValueStreamPerformedValueStream
 
+postulate -- performedValueStream is subTypeOf performedProcess
+  st-3b4b45eb5ebc3730-004b03b15ebd0fdb  : performedValueStream   ⊏⋆ᵣ  performedProcess 
+
+
 {- Conceptual Store: -}
 -- Aggregate Member : Conceptual Store
 ConceptualStore : ClassOfClassOfIndividual
@@ -138,11 +160,11 @@ ConceptualStore = ClassOfIndividual
 
 -- Membership relation
 membershipOfConceptualStore :  Linkage ConceptualAgent ConceptualStore
-membershipOfConceptualStore = membershipOfAggregateMember
+membershipOfConceptualStore = make_upwardNestingRelation "conceptualStore membership" "nested conceptualStore"
 
 -- Aggregation relation
 aggregationOfConceptDomainConceptualStore :  Linkage ConceptualStore ConceptDomain
-aggregationOfConceptDomainConceptualStore = aggregationOfBuildingBlock
+aggregationOfConceptDomainConceptualStore = make_Relation "ConceptDomain aggregation" "aggregated ConceptDomain"
 
 {- conceptualStore : derived relation obtained by composing
    membershipOfConceptualStore and aggregationOfConceptDomainConceptualStore
@@ -151,3 +173,7 @@ aggregationOfConceptDomainConceptualStore = aggregationOfBuildingBlock
 -}
 conceptualStore : Linkage ConceptualAgent ConceptDomain
 conceptualStore = membershipOfConceptualStore  ∘  aggregationOfConceptDomainConceptualStore
+
+postulate -- conceptualStore is subTypeOf informationStore
+  st-474e48a05ebc2424-f4bee5925ee1be5b  : conceptualStore   ⊏⋆ᵣ  informationStore 
+

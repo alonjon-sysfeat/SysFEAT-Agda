@@ -5,6 +5,9 @@
 
 Compliance System: 
 A Compliance System is an Assurance System aimed at ensuring enterprise compliance and risk mitigation against both Regulatory Frameworks an Control Frameworks. It encompasses processes, policies, and technologies that work in concert to validate the enterprise adherence to regulatory requirements while simultaneously bolstering the enterprises ability to withstand and adapt to various challenges and disruptions.
+
+Documentation : https://framework.sysfeat.com/pages/f160019e67d83391.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -21,21 +24,21 @@ ComplianceSystem : ClassOfBoundedIndividual
 ComplianceSystem = BoundedIndividual
 
 --  ComplianceSystem is subTypeOf AssuranceSystem
-st-f16001b667d83411 : ComplianceSystem ⊏ₑ AssuranceSystem
-st-f16001b667d83411 = polySubTypeOf-identity
+st-f160019e67d83391-07ca18d25dd85477 : ComplianceSystem ⊏ₑ AssuranceSystem
+st-f160019e67d83391-07ca18d25dd85477 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Controlled Regulatory Framework: -}
-controlledRegulatoryFramework :  Linkage ComplianceSystem RegulatoryFramework
-controlledRegulatoryFramework = make_Relation "Controlled Regulatory Framework" "controlledRegulatoryFramework"
+controlledRegulatoryFramework : ∀ {u} →  Linkage ComplianceSystem (RegulatoryFramework u)
+controlledRegulatoryFramework = make_Relation "Controlled Regulatory Framework" "Controlled Regulatory Framework"
 
 postulate -- controlledRegulatoryFramework is subTypeOf enforcedPolicyFramework
-  st-4b9473e068a48c1c-4b945cc368a47e39  : controlledRegulatoryFramework   ⊏⋆ᵣ  enforcedPolicyFramework 
+  st-4b9473e068a48c1c-4b945cc368a47e39  : controlledRegulatoryFramework  {lzero}  ⊏⋆ᵣ  enforcedPolicyFramework  {lzero}
 
 {- Owned Compliance Case: -}
 ownedComplianceCase :  Linkage ComplianceSystem ComplianceCase
-ownedComplianceCase = make_Relation "Owned Compliance Case" "ownedComplianceCase"
+ownedComplianceCase = make_Relation "Owned Compliance Case" "Owned Compliance Case"
 
 postulate -- ownedComplianceCase is subTypeOf ownedAssuranceCase
   st-f160024967d8349a-0b950f8868e54f9f  : ownedComplianceCase   ⊏⋆ᵣ  ownedAssuranceCase 
@@ -47,11 +50,11 @@ RegulationinScope = ClassOfIndividual
 
 -- Membership relation
 membershipOfRegulationinScope :  Linkage ComplianceSystem RegulationinScope
-membershipOfRegulationinScope = membershipOfAggregateMember
+membershipOfRegulationinScope = make_upwardNestingRelation "regulationinScope membership" "nested regulationinScope"
 
 -- Aggregation relation
 aggregationOfRegulationArticleRegulationinScope :  Linkage RegulationinScope RegulationArticle
-aggregationOfRegulationArticleRegulationinScope = aggregationOfBuildingBlock
+aggregationOfRegulationArticleRegulationinScope = make_Relation "RegulationArticle aggregation" "aggregated RegulationArticle"
 
 {- regulationinScope : derived relation obtained by composing
    membershipOfRegulationinScope and aggregationOfRegulationArticleRegulationinScope
@@ -60,3 +63,5 @@ aggregationOfRegulationArticleRegulationinScope = aggregationOfBuildingBlock
 -}
 regulationinScope : Linkage ComplianceSystem RegulationArticle
 regulationinScope = membershipOfRegulationinScope  ∘  aggregationOfRegulationArticleRegulationinScope
+
+

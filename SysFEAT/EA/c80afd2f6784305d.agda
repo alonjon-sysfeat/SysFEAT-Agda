@@ -5,6 +5,11 @@
 
 Intangible Resource Agent: 
 An Intangible Resource Agent is a Resource Agent Type whose instances do not have physical substance.Example:- Software System Category;- Social groups,
+
+Documentation : https://framework.sysfeat.com/pages/c80afd2f6784305d.htm
+
+External references:
+  WordNet - Intangible Asset: https://en-word.net/ili/i106769
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +23,7 @@ IntangibleResourceAgent : ClassOfClassOfBoundedIndividual
 IntangibleResourceAgent = ClassOfBoundedIndividual
 
 --  IntangibleResourceAgent is subTypeOf ResourceAgentType
-st-340f50d9686211f3 : IntangibleResourceAgent ⊏ₑ ResourceAgentType
-st-340f50d9686211f3 = polySubTypeOf-identity
+st-c80afd2f6784305d-e2ef091962147ad7 : IntangibleResourceAgent ⊏ₑ ResourceAgentType
+st-c80afd2f6784305d-e2ef091962147ad7 = polySubTypeOf-identity
 
 -- == Relationships =======================

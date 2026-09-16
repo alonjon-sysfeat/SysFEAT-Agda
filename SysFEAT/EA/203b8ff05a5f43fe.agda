@@ -5,6 +5,9 @@
 
 Concept Domain: 
 A Concept Domain is a subset of the Concepts of a Business Dictionary that are relevant to an Operating Domain.For instance, a  Sales Concept Domain  comprises at least the Concepts of  Customer  and  Order  while a standard  Marketing Concept Domain  comprises at least the Concepts of  Market Segment ,  Product  and  Value Proposition .
+
+Documentation : https://framework.sysfeat.com/pages/203b8ff05a5f43fe.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,12 +23,12 @@ ConceptDomain : ClassOfClassOfBoundedIndividual
 ConceptDomain = ClassOfBoundedIndividual
 
 --  ConceptDomain withAspect DictionaryBlock
-st-7db00d0c61f99ef7 : ConceptDomain ⊏ₐₑ (DictionaryBlock (lsuc(lzero)))
-st-7db00d0c61f99ef7 = polySubTypeOf-identity
+st-203b8ff05a5f43fe-6bf190796859b4ff : ConceptDomain ⊏ₐₑ (DictionaryBlock (lsuc(lzero)))
+st-203b8ff05a5f43fe-6bf190796859b4ff = polySubTypeOf-identity
 
 --  ConceptDomain is subTypeOf InformationDomain
-st-d2a7d5405ee869d8 : ConceptDomain ⊏ₑ InformationDomain
-st-d2a7d5405ee869d8 = polySubTypeOf-identity
+st-203b8ff05a5f43fe-d6cd116d5ab97525 : ConceptDomain ⊏ₑ InformationDomain
+st-203b8ff05a5f43fe-d6cd116d5ab97525 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -36,11 +39,11 @@ SubActivityDomain = ClassOfIndividual
 
 -- Membership relation
 membershipOfSubActivityDomain :  Linkage ConceptDomain SubActivityDomain
-membershipOfSubActivityDomain = membershipOfAggregateMember
+membershipOfSubActivityDomain = make_upwardNestingRelation "subActivityDomain membership" "nested subActivityDomain"
 
 -- Aggregation relation
 aggregationOfConceptDomainSubActivityDomain :  Linkage SubActivityDomain ConceptDomain
-aggregationOfConceptDomainSubActivityDomain = aggregationOfBuildingBlock
+aggregationOfConceptDomainSubActivityDomain = make_Relation "ConceptDomain aggregation" "aggregated ConceptDomain"
 
 {- subActivityDomain : derived relation obtained by composing
    membershipOfSubActivityDomain and aggregationOfConceptDomainSubActivityDomain
@@ -50,6 +53,10 @@ aggregationOfConceptDomainSubActivityDomain = aggregationOfBuildingBlock
 subActivityDomain : Linkage ConceptDomain ConceptDomain
 subActivityDomain = membershipOfSubActivityDomain  ∘  aggregationOfConceptDomainSubActivityDomain
 
+postulate -- subActivityDomain is subTypeOf subInformationArea
+  st-dd25ddee5ebb09a5-24ae4a625ed16c60  : subActivityDomain   ⊏⋆ᵣ  subInformationArea 
+
+
 {- Domain Concept: -}
 -- Aggregate Member : Domain Concept
 DomainConcept : ClassOfClassOfIndividual
@@ -57,11 +64,11 @@ DomainConcept = ClassOfIndividual
 
 -- Membership relation
 membershipOfDomainConcept :  Linkage ConceptDomain DomainConcept
-membershipOfDomainConcept = membershipOfAggregateMember
+membershipOfDomainConcept = make_upwardNestingRelation "domainConcept membership" "nested domainConcept"
 
 -- Aggregation relation
 aggregationOfConceptualEntityAssetDomainConcept :  Linkage DomainConcept ConceptualEntityAsset
-aggregationOfConceptualEntityAssetDomainConcept = aggregationOfBuildingBlock
+aggregationOfConceptualEntityAssetDomainConcept = make_Relation "ConceptualEntityAsset aggregation" "aggregated ConceptualEntityAsset"
 
 {- domainConcept : derived relation obtained by composing
    membershipOfDomainConcept and aggregationOfConceptualEntityAssetDomainConcept
@@ -70,3 +77,7 @@ aggregationOfConceptualEntityAssetDomainConcept = aggregationOfBuildingBlock
 -}
 domainConcept : Linkage ConceptDomain ConceptualEntityAsset
 domainConcept = membershipOfDomainConcept  ∘  aggregationOfConceptualEntityAssetDomainConcept
+
+postulate -- domainConcept is subTypeOf domainAsset
+  st-e3b8e4595ebb40da-24ae4a405ed16bcf  : domainConcept   ⊏⋆ᵣ  domainAsset 
+

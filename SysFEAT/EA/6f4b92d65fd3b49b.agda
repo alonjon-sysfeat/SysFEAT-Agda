@@ -5,6 +5,9 @@
 
 Business Environment: 
 A Business Environment is an operating context which defines the interactions (Business Service Channel) of a Business-Entity (Department Type)  with its partners (Partner Org-Units).
+
+Documentation : https://framework.sysfeat.com/pages/6f4b92d65fd3b49b.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -22,18 +25,18 @@ BusinessEnvironment : ClassOfClassOfBoundedIndividual
 BusinessEnvironment = ClassOfBoundedIndividual
 
 --  BusinessEnvironment is subTypeOf BusinessEcosystem
-st-2b7064c161ba0d39 : BusinessEnvironment ⊏ₑ BusinessEcosystem
-st-2b7064c161ba0d39 = polySubTypeOf-identity
+st-6f4b92d65fd3b49b-2b705f2661ba04de : BusinessEnvironment ⊏ₑ BusinessEcosystem
+st-6f4b92d65fd3b49b-2b705f2661ba04de = polySubTypeOf-identity
 
 --  BusinessEnvironment is subTypeOf BusinessAgentEnvironment
-st-6f4b92e65fd3b512 : BusinessEnvironment ⊏ₑ BusinessAgentEnvironment
-st-6f4b92e65fd3b512 = polySubTypeOf-identity
+st-6f4b92d65fd3b49b-2b6f33a561bae7ab : BusinessEnvironment ⊏ₑ BusinessAgentEnvironment
+st-6f4b92d65fd3b49b-2b6f33a561bae7ab = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Specialized Business Environment: -}
 specializedBusinessEnvironment :  Linkage BusinessEnvironment BusinessEnvironment
-specializedBusinessEnvironment = make_subTypeOf "Specialized Business Environment" "specializedBusinessEnvironment"
+specializedBusinessEnvironment = make_subTypeOf "Specialized Business Environment" "Specialized Business Environment"
 
 postulate -- specializedBusinessEnvironment is subTypeOf specializedResourceAgentEnvironment
   st-325a37b166f348b0-325a376966f34463  : specializedBusinessEnvironment   ⊏⋆ᵣ  specializedResourceAgentEnvironment 
@@ -45,11 +48,11 @@ OperationsServiceChannel = ClassOfIndividual
 
 -- Membership relation
 membershipOfOperationsServiceChannel :  Linkage BusinessEnvironment OperationsServiceChannel
-membershipOfOperationsServiceChannel = membershipOfAggregateMember
+membershipOfOperationsServiceChannel = make_upwardNestingRelation "operationsServiceChannel membership" "nested operationsServiceChannel"
 
 -- Aggregation relation
 aggregationOfBusinessServiceInterfaceOperationsServiceChannel :  Linkage OperationsServiceChannel BusinessServiceInterface
-aggregationOfBusinessServiceInterfaceOperationsServiceChannel = aggregationOfBuildingBlock
+aggregationOfBusinessServiceInterfaceOperationsServiceChannel = make_Relation "BusinessServiceInterface aggregation" "aggregated BusinessServiceInterface"
 
 {- operationsServiceChannel : derived relation obtained by composing
    membershipOfOperationsServiceChannel and aggregationOfBusinessServiceInterfaceOperationsServiceChannel
@@ -59,6 +62,12 @@ aggregationOfBusinessServiceInterfaceOperationsServiceChannel = aggregationOfBui
 operationsServiceChannel : Linkage BusinessEnvironment BusinessServiceInterface
 operationsServiceChannel = membershipOfOperationsServiceChannel  ∘  aggregationOfBusinessServiceInterfaceOperationsServiceChannel
 
+postulate -- operationsServiceChannel is subTypeOf businessServiceChannel
+  st-6f4b99fb5fd3c543-2b6f436f61bafb0b  : operationsServiceChannel   ⊏⋆ᵣ  businessServiceChannel 
+postulate -- operationsServiceChannel is subTypeOf businessEcosystemConnection
+  st-6f4b99fb5fd3c543-a813ce0063567e9b  : operationsServiceChannel   ⊏⋆ᵣ  businessEcosystemConnection 
+
+
 {- Partner Org-Unit: -}
 -- Aggregate Member : Partner Org-Unit
 PartnerOrgUnit : ClassOfClassOfIndividual
@@ -66,11 +75,11 @@ PartnerOrgUnit = ClassOfIndividual
 
 -- Membership relation
 membershipOfPartnerOrgUnit :  Linkage BusinessEnvironment PartnerOrgUnit
-membershipOfPartnerOrgUnit = membershipOfAggregateMember
+membershipOfPartnerOrgUnit = make_upwardNestingRelation "partnerOrgUnit membership" "nested partnerOrgUnit"
 
 -- Aggregation relation
 aggregationOfDepartmentTypePartnerOrgUnit :  Linkage PartnerOrgUnit DepartmentType
-aggregationOfDepartmentTypePartnerOrgUnit = aggregationOfBuildingBlock
+aggregationOfDepartmentTypePartnerOrgUnit = make_Relation "DepartmentType aggregation" "aggregated DepartmentType"
 
 {- partnerOrgUnit : derived relation obtained by composing
    membershipOfPartnerOrgUnit and aggregationOfDepartmentTypePartnerOrgUnit
@@ -80,6 +89,12 @@ aggregationOfDepartmentTypePartnerOrgUnit = aggregationOfBuildingBlock
 partnerOrgUnit : Linkage BusinessEnvironment DepartmentType
 partnerOrgUnit = membershipOfPartnerOrgUnit  ∘  aggregationOfDepartmentTypePartnerOrgUnit
 
+postulate -- partnerOrgUnit is subTypeOf participantDepartment
+  st-0a2620c6601df71a-6f4b989c5fd3c371  : partnerOrgUnit   ⊏⋆ᵣ  participantDepartment 
+postulate -- partnerOrgUnit is subTypeOf partnerResourceAgent
+  st-0a2620c6601df71a-2b6f34c861bae941  : partnerOrgUnit   ⊏⋆ᵣ  partnerResourceAgent 
+
+
 {- Served customer: -}
 -- Aggregate Member : Served customer
 Servedcustomer : ClassOfClassOfIndividual
@@ -87,11 +102,11 @@ Servedcustomer = ClassOfIndividual
 
 -- Membership relation
 membershipOfServedcustomer :  Linkage BusinessEnvironment Servedcustomer
-membershipOfServedcustomer = membershipOfAggregateMember
+membershipOfServedcustomer = make_upwardNestingRelation "servedcustomer membership" "nested servedcustomer"
 
 -- Aggregation relation
 aggregationOfCustomerServedcustomer :  Linkage Servedcustomer Customer
-aggregationOfCustomerServedcustomer = aggregationOfBuildingBlock
+aggregationOfCustomerServedcustomer = make_Relation "Customer aggregation" "aggregated Customer"
 
 {- servedcustomer : derived relation obtained by composing
    membershipOfServedcustomer and aggregationOfCustomerServedcustomer
@@ -101,6 +116,10 @@ aggregationOfCustomerServedcustomer = aggregationOfBuildingBlock
 servedcustomer : Linkage BusinessEnvironment Customer
 servedcustomer = membershipOfServedcustomer  ∘  aggregationOfCustomerServedcustomer
 
+postulate -- servedcustomer is subTypeOf participantDepartment
+  st-4666536c64088070-6f4b989c5fd3c371  : servedcustomer   ⊏⋆ᵣ  participantDepartment 
+
+
 {- Subject-Department: -}
 -- Aggregate Member : Subject-Department
 SubjectDepartment : ClassOfClassOfIndividual
@@ -108,11 +127,11 @@ SubjectDepartment = ClassOfIndividual
 
 -- Membership relation
 membershipOfSubjectDepartment :  Linkage BusinessEnvironment SubjectDepartment
-membershipOfSubjectDepartment = membershipOfAggregateMember
+membershipOfSubjectDepartment = make_upwardNestingRelation "subjectDepartment membership" "nested subjectDepartment"
 
 -- Aggregation relation
 aggregationOfDepartmentTypeSubjectDepartment :  Linkage SubjectDepartment DepartmentType
-aggregationOfDepartmentTypeSubjectDepartment = aggregationOfBuildingBlock
+aggregationOfDepartmentTypeSubjectDepartment = make_Relation "DepartmentType aggregation" "aggregated DepartmentType"
 
 {- subjectDepartment : derived relation obtained by composing
    membershipOfSubjectDepartment and aggregationOfDepartmentTypeSubjectDepartment
@@ -121,3 +140,9 @@ aggregationOfDepartmentTypeSubjectDepartment = aggregationOfBuildingBlock
 -}
 subjectDepartment : Linkage BusinessEnvironment DepartmentType
 subjectDepartment = membershipOfSubjectDepartment  ∘  aggregationOfDepartmentTypeSubjectDepartment
+
+postulate -- subjectDepartment is subTypeOf subjectResourceAgent
+  st-6f4b98595fd3c2be-2b6f350061baea62  : subjectDepartment   ⊏⋆ᵣ  subjectResourceAgent 
+postulate -- subjectDepartment is subTypeOf participantDepartment
+  st-6f4b98595fd3c2be-6f4b989c5fd3c371  : subjectDepartment   ⊏⋆ᵣ  participantDepartment 
+

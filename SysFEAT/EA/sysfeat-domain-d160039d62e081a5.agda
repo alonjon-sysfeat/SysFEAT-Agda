@@ -1,10 +1,15 @@
 ﻿{- ============================== 
-   Copyright (c) 2026 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
+   Copyright (c) 2023 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
    This work is released under the MIT License.
    framework.sysfeat.com
 
 EA Pattern - Technology Operating Pattern: 
 The EA Pattern - Technology Operating Pattern is used to describe the common features of Technology Operating Assets.
+
+Documentation : https://framework.sysfeat.com/pages/d160039d62e081a5.htm
+
+External references:
+  OpenGroup - ArchiMate - Layer - Technology Layer: https://pubs.opengroup.org/architecture/archimate32-doc/ch-Technology-Layer.html
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

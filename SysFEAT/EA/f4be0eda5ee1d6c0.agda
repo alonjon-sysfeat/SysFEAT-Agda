@@ -5,6 +5,9 @@
 
 Computing System: 
 A Computing System is a system that can host and run software code ( Application code or Software Technology code) and to host data.Examples: Computer Devices, Computer Servers, Cloud Services.
+
+Documentation : https://framework.sysfeat.com/pages/f4be0eda5ee1d6c0.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,8 +22,8 @@ ComputingSystem : ClassOfClassOfBoundedIndividual
 ComputingSystem = ClassOfBoundedIndividual
 
 --  ComputingSystem is subTypeOf TechnologyOperatingAsset
-st-d160098862e08e01 : ComputingSystem ⊏ₑ TechnologyOperatingAsset
-st-d160098862e08e01 = polySubTypeOf-identity
+st-f4be0eda5ee1d6c0-d16006d362e085f2 : ComputingSystem ⊏ₑ TechnologyOperatingAsset
+st-f4be0eda5ee1d6c0-d16006d362e085f2 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -31,11 +34,11 @@ HostedSOftware = ClassOfIndividual
 
 -- Membership relation
 membershipOfHostedSOftware :  Linkage ComputingSystem HostedSOftware
-membershipOfHostedSOftware = membershipOfAggregateMember
+membershipOfHostedSOftware = make_upwardNestingRelation "hostedSOftware membership" "nested hostedSOftware"
 
 -- Aggregation relation
 aggregationOfConcreteSOftwareSystemHostedSOftware :  Linkage HostedSOftware ConcreteSOftwareSystem
-aggregationOfConcreteSOftwareSystemHostedSOftware = aggregationOfBuildingBlock
+aggregationOfConcreteSOftwareSystemHostedSOftware = make_Relation "ConcreteSOftwareSystem aggregation" "aggregated ConcreteSOftwareSystem"
 
 {- hostedSOftware : derived relation obtained by composing
    membershipOfHostedSOftware and aggregationOfConcreteSOftwareSystemHostedSOftware
@@ -44,3 +47,5 @@ aggregationOfConcreteSOftwareSystemHostedSOftware = aggregationOfBuildingBlock
 -}
 hostedSOftware : Linkage ComputingSystem ConcreteSOftwareSystem
 hostedSOftware = membershipOfHostedSOftware  ∘  aggregationOfConcreteSOftwareSystemHostedSOftware
+
+

@@ -5,6 +5,9 @@
 
 Epic: 
 An Epic is a time-bound Management Initiative.
+
+Documentation : https://framework.sysfeat.com/pages/84c799c1664d8b2f.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ Epic : ClassOfBoundedIndividual
 Epic = BoundedIndividual
 
 --  Epic is subTypeOf TimeboundInitiative
-st-84c79b8b664d8cfe : Epic ⊏ₑ TimeboundInitiative
-st-84c79b8b664d8cfe = polySubTypeOf-identity
+st-84c799c1664d8b2f-0520200666475f86 : Epic ⊏ₑ TimeboundInitiative
+st-84c799c1664d8b2f-0520200666475f86 = polySubTypeOf-identity
 
 -- == Relationships =======================

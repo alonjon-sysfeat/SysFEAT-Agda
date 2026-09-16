@@ -5,6 +5,9 @@
 
 IT Asset Assessment: 
 
+
+Documentation : https://framework.sysfeat.com/pages/e57e0a415fb820e5.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,14 +22,14 @@ ITAssetAssessment : ClassOfBoundedIndividual
 ITAssetAssessment = BoundedIndividual
 
 --  ITAssetAssessment is subTypeOf Assessment
-st-e57e0a4a5fb82189 : ITAssetAssessment ⊏ₑ Assessment
-st-e57e0a4a5fb82189 = polySubTypeOf-identity
+st-e57e0a415fb820e5-3b539cbb551e4c2a : ITAssetAssessment ⊏ₑ Assessment
+st-e57e0a415fb820e5-3b539cbb551e4c2a = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Assessed Application: -}
 assessedApplication :  Linkage ITAssetAssessment Application
-assessedApplication = make_Relation "Assessed Application" "assessedApplication"
+assessedApplication = make_Relation "Assessed Application" "Assessed Application"
 
 postulate -- assessedApplication is subTypeOf assessedAsset
   st-83bba53b61924743-6bf1843a68599028  : assessedApplication   ⊏⋆ᵣ  assessedAsset  {lzero}

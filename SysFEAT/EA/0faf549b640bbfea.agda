@@ -5,6 +5,9 @@
 
 Application System Deployment Environment: 
 An Application System Deployment Environment  describes one possible integration context for an Application System Deployment Architecture. It contains the subject application deployment architecture and the partner deployment architectures it must be integrated with, meaning it must communicates with via technical connections (with communication protocols, port numbers...).
+
+Documentation : https://framework.sysfeat.com/pages/0faf549b640bbfea.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,8 +22,8 @@ ApplicationSystemDeploymentEnvironment : ClassOfClassOfBoundedIndividual
 ApplicationSystemDeploymentEnvironment = ClassOfBoundedIndividual
 
 --  ApplicationSystemDeploymentEnvironment is subTypeOf SOftwareDeploymentEnvironment
-st-0faf54a2640bc032 : ApplicationSystemDeploymentEnvironment ⊏ₑ SOftwareDeploymentEnvironment
-st-0faf54a2640bc032 = polySubTypeOf-identity
+st-0faf549b640bbfea-108442775fce4918 : ApplicationSystemDeploymentEnvironment ⊏ₑ SOftwareDeploymentEnvironment
+st-0faf549b640bbfea-108442775fce4918 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -31,11 +34,11 @@ PartnerDeploymentArchitecture = ClassOfIndividual
 
 -- Membership relation
 membershipOfPartnerDeploymentArchitecture :  Linkage ApplicationSystemDeploymentEnvironment PartnerDeploymentArchitecture
-membershipOfPartnerDeploymentArchitecture = membershipOfAggregateMember
+membershipOfPartnerDeploymentArchitecture = make_upwardNestingRelation "partnerDeploymentArchitecture membership" "nested partnerDeploymentArchitecture"
 
 -- Aggregation relation
 aggregationOfApplicationSystemDeploymentArchitecturePartnerDeploymentArchitecture :  Linkage PartnerDeploymentArchitecture ApplicationSystemDeploymentArchitecture
-aggregationOfApplicationSystemDeploymentArchitecturePartnerDeploymentArchitecture = aggregationOfBuildingBlock
+aggregationOfApplicationSystemDeploymentArchitecturePartnerDeploymentArchitecture = make_Relation "ApplicationSystemDeploymentArchitecture aggregation" "aggregated ApplicationSystemDeploymentArchitecture"
 
 {- partnerDeploymentArchitecture : derived relation obtained by composing
    membershipOfPartnerDeploymentArchitecture and aggregationOfApplicationSystemDeploymentArchitecturePartnerDeploymentArchitecture
@@ -45,6 +48,8 @@ aggregationOfApplicationSystemDeploymentArchitecturePartnerDeploymentArchitectur
 partnerDeploymentArchitecture : Linkage ApplicationSystemDeploymentEnvironment ApplicationSystemDeploymentArchitecture
 partnerDeploymentArchitecture = membershipOfPartnerDeploymentArchitecture  ∘  aggregationOfApplicationSystemDeploymentArchitecturePartnerDeploymentArchitecture
 
+
+
 {- Subject Application Deployment: -}
 -- Aggregate Member : Subject Application Deployment
 SubjectApplicationDeployment : ClassOfClassOfIndividual
@@ -52,11 +57,11 @@ SubjectApplicationDeployment = ClassOfIndividual
 
 -- Membership relation
 membershipOfSubjectApplicationDeployment :  Linkage ApplicationSystemDeploymentEnvironment SubjectApplicationDeployment
-membershipOfSubjectApplicationDeployment = membershipOfAggregateMember
+membershipOfSubjectApplicationDeployment = make_upwardNestingRelation "subjectApplicationDeployment membership" "nested subjectApplicationDeployment"
 
 -- Aggregation relation
 aggregationOfApplicationSystemDeploymentArchitectureSubjectApplicationDeployment :  Linkage SubjectApplicationDeployment ApplicationSystemDeploymentArchitecture
-aggregationOfApplicationSystemDeploymentArchitectureSubjectApplicationDeployment = aggregationOfBuildingBlock
+aggregationOfApplicationSystemDeploymentArchitectureSubjectApplicationDeployment = make_Relation "ApplicationSystemDeploymentArchitecture aggregation" "aggregated ApplicationSystemDeploymentArchitecture"
 
 {- subjectApplicationDeployment : derived relation obtained by composing
    membershipOfSubjectApplicationDeployment and aggregationOfApplicationSystemDeploymentArchitectureSubjectApplicationDeployment
@@ -65,3 +70,5 @@ aggregationOfApplicationSystemDeploymentArchitectureSubjectApplicationDeployment
 -}
 subjectApplicationDeployment : Linkage ApplicationSystemDeploymentEnvironment ApplicationSystemDeploymentArchitecture
 subjectApplicationDeployment = membershipOfSubjectApplicationDeployment  ∘  aggregationOfApplicationSystemDeploymentArchitectureSubjectApplicationDeployment
+
+

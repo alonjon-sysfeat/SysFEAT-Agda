@@ -5,6 +5,11 @@
 
 Software System Environment Scenario: 
 A Software System Environment Scenario is a story involving the partners of a Business Software System (Partner System), interacting in order to produce Information Outcome Events in a specific Eco-System (Software System Environment).This includes:- A course of events represented by Object Flows depicting the story towards the delivery of expected Information Outcome Events.- Interacting partners who participate to the story in the considered Eco-System.
+
+Documentation : https://framework.sysfeat.com/pages/25c0a10061e2fc12.htm
+
+External references:
+  OpenGroup - ArchiMate - Application Interaction: https://pubs.opengroup.org/architecture/archimate32-doc/ch-Application-Layer.html#sec-Application-Interaction
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -21,14 +26,14 @@ SOftwareSystemEnvironmentScenario : ClassOfClassOfBoundedIndividual
 SOftwareSystemEnvironmentScenario = ClassOfBoundedIndividual
 
 --  SOftwareSystemEnvironmentScenario is subTypeOf BusinessSystemEnvironmentSxcenario
-st-25c0a20d61e2fccf : SOftwareSystemEnvironmentScenario ⊏ₑ BusinessSystemEnvironmentSxcenario
-st-25c0a20d61e2fccf = polySubTypeOf-identity
+st-25c0a10061e2fc12-4edf5eab5fc58ef3 : SOftwareSystemEnvironmentScenario ⊏ₑ BusinessSystemEnvironmentSxcenario
+st-25c0a10061e2fc12-4edf5eab5fc58ef3 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Scenarized Software System Environment: -}
 scenarizedSOftwareSystemEnvironment :  Linkage SOftwareSystemEnvironmentScenario SOftwareSystemEnvironment
-scenarizedSOftwareSystemEnvironment = make_classOfHolonymy "Scenarized Software System Environment" "scenarizedSOftwareSystemEnvironment"
+scenarizedSOftwareSystemEnvironment = make_classOfHolonymy "Scenarized Software System Environment" "Scenarized Software System Environment"
 
 postulate -- scenarizedSOftwareSystemEnvironment is subTypeOf scenarizedSystemEnvironment
   st-25c1a3fc61e201e4-25c1a95361e21158  : scenarizedSOftwareSystemEnvironment   ⊏⋆ᵣ  scenarizedSystemEnvironment 
@@ -40,11 +45,11 @@ ApplicationFlow = ClassOfIndividual
 
 -- Membership relation
 membershipOfApplicationFlow :  Linkage SOftwareSystemEnvironmentScenario ApplicationFlow
-membershipOfApplicationFlow = membershipOfAggregateMember
+membershipOfApplicationFlow = make_upwardNestingRelation "applicationFlow membership" "nested applicationFlow"
 
 -- Aggregation relation
 aggregationOfInformationOutcomeEventApplicationFlow :  Linkage ApplicationFlow InformationOutcomeEvent
-aggregationOfInformationOutcomeEventApplicationFlow = aggregationOfBuildingBlock
+aggregationOfInformationOutcomeEventApplicationFlow = make_Relation "InformationOutcomeEvent aggregation" "aggregated InformationOutcomeEvent"
 
 {- applicationFlow : derived relation obtained by composing
    membershipOfApplicationFlow and aggregationOfInformationOutcomeEventApplicationFlow
@@ -54,6 +59,10 @@ aggregationOfInformationOutcomeEventApplicationFlow = aggregationOfBuildingBlock
 applicationFlow : Linkage SOftwareSystemEnvironmentScenario InformationOutcomeEvent
 applicationFlow = membershipOfApplicationFlow  ∘  aggregationOfInformationOutcomeEventApplicationFlow
 
+postulate -- applicationFlow is subTypeOf resourceObjectFlow
+  st-4edf6e9f5fc5b0b1-2b6f41d961baf74b  : applicationFlow   ⊏⋆ᵣ  resourceObjectFlow 
+
+
 {- Participant Software: -}
 -- Aggregate Member : Participant Software
 ParticipantSOftware : ClassOfClassOfIndividual
@@ -61,11 +70,11 @@ ParticipantSOftware = ClassOfIndividual
 
 -- Membership relation
 membershipOfParticipantSOftware :  Linkage SOftwareSystemEnvironmentScenario ParticipantSOftware
-membershipOfParticipantSOftware = membershipOfAggregateMember
+membershipOfParticipantSOftware = make_upwardNestingRelation "participantSOftware membership" "nested participantSOftware"
 
 -- Aggregation relation
 aggregationOfBusinessSOftwareSystemParticipantSOftware :  Linkage ParticipantSOftware BusinessSOftwareSystem
-aggregationOfBusinessSOftwareSystemParticipantSOftware = aggregationOfBuildingBlock
+aggregationOfBusinessSOftwareSystemParticipantSOftware = make_Relation "BusinessSOftwareSystem aggregation" "aggregated BusinessSOftwareSystem"
 
 {- participantSOftware : derived relation obtained by composing
    membershipOfParticipantSOftware and aggregationOfBusinessSOftwareSystemParticipantSOftware
@@ -75,6 +84,8 @@ aggregationOfBusinessSOftwareSystemParticipantSOftware = aggregationOfBuildingBl
 participantSOftware : Linkage SOftwareSystemEnvironmentScenario BusinessSOftwareSystem
 participantSOftware = membershipOfParticipantSOftware  ∘  aggregationOfBusinessSOftwareSystemParticipantSOftware
 
+
+
 {- Partner Software System: -}
 -- Aggregate Member : Partner Software System
 PartnerSOftwareSystem : ClassOfClassOfIndividual
@@ -82,11 +93,11 @@ PartnerSOftwareSystem = ClassOfIndividual
 
 -- Membership relation
 membershipOfPartnerSOftwareSystem :  Linkage SOftwareSystemEnvironmentScenario PartnerSOftwareSystem
-membershipOfPartnerSOftwareSystem = membershipOfAggregateMember
+membershipOfPartnerSOftwareSystem = make_upwardNestingRelation "partnerSOftwareSystem membership" "nested partnerSOftwareSystem"
 
 -- Aggregation relation
 aggregationOfBusinessSOftwareSystemPartnerSOftwareSystem :  Linkage PartnerSOftwareSystem BusinessSOftwareSystem
-aggregationOfBusinessSOftwareSystemPartnerSOftwareSystem = aggregationOfBuildingBlock
+aggregationOfBusinessSOftwareSystemPartnerSOftwareSystem = make_Relation "BusinessSOftwareSystem aggregation" "aggregated BusinessSOftwareSystem"
 
 {- partnerSOftwareSystem : derived relation obtained by composing
    membershipOfPartnerSOftwareSystem and aggregationOfBusinessSOftwareSystemPartnerSOftwareSystem
@@ -96,6 +107,14 @@ aggregationOfBusinessSOftwareSystemPartnerSOftwareSystem = aggregationOfBuilding
 partnerSOftwareSystem : Linkage SOftwareSystemEnvironmentScenario BusinessSOftwareSystem
 partnerSOftwareSystem = membershipOfPartnerSOftwareSystem  ∘  aggregationOfBusinessSOftwareSystemPartnerSOftwareSystem
 
+postulate -- partnerSOftwareSystem is subTypeOf partnerSystem
+  st-25c1a53f61e20355-4edf5f445fc591d8  : partnerSOftwareSystem   ⊏⋆ᵣ  partnerSystem 
+postulate -- partnerSOftwareSystem is subTypeOf participantSystem
+  st-25c1a53f61e20355-4edf5fa95fc593f0  : partnerSOftwareSystem   ⊏⋆ᵣ  participantSystem 
+postulate -- partnerSOftwareSystem is subTypeOf participantSOftware
+  st-25c1a53f61e20355-25c1a32461e200b5  : partnerSOftwareSystem   ⊏⋆ᵣ  participantSOftware 
+
+
 {- Subject Software System: -}
 -- Aggregate Member : Subject Software System
 SubjectSOftwareSystem : ClassOfClassOfIndividual
@@ -103,11 +122,11 @@ SubjectSOftwareSystem = ClassOfIndividual
 
 -- Membership relation
 membershipOfSubjectSOftwareSystem :  Linkage SOftwareSystemEnvironmentScenario SubjectSOftwareSystem
-membershipOfSubjectSOftwareSystem = membershipOfAggregateMember
+membershipOfSubjectSOftwareSystem = make_upwardNestingRelation "subjectSOftwareSystem membership" "nested subjectSOftwareSystem"
 
 -- Aggregation relation
 aggregationOfBusinessSOftwareSystemSubjectSOftwareSystem :  Linkage SubjectSOftwareSystem BusinessSOftwareSystem
-aggregationOfBusinessSOftwareSystemSubjectSOftwareSystem = aggregationOfBuildingBlock
+aggregationOfBusinessSOftwareSystemSubjectSOftwareSystem = make_Relation "BusinessSOftwareSystem aggregation" "aggregated BusinessSOftwareSystem"
 
 {- subjectSOftwareSystem : derived relation obtained by composing
    membershipOfSubjectSOftwareSystem and aggregationOfBusinessSOftwareSystemSubjectSOftwareSystem
@@ -116,3 +135,9 @@ aggregationOfBusinessSOftwareSystemSubjectSOftwareSystem = aggregationOfBuilding
 -}
 subjectSOftwareSystem : Linkage SOftwareSystemEnvironmentScenario BusinessSOftwareSystem
 subjectSOftwareSystem = membershipOfSubjectSOftwareSystem  ∘  aggregationOfBusinessSOftwareSystemSubjectSOftwareSystem
+
+postulate -- subjectSOftwareSystem is subTypeOf subjectSystem
+  st-25c1a55461e20430-4edf5f1f5fc590f0  : subjectSOftwareSystem   ⊏⋆ᵣ  subjectSystem 
+postulate -- subjectSOftwareSystem is subTypeOf participantSOftware
+  st-25c1a55461e20430-25c1a32461e200b5  : subjectSOftwareSystem   ⊏⋆ᵣ  participantSOftware 
+

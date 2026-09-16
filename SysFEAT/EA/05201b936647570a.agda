@@ -5,6 +5,9 @@
 
 Management Initiative: 
 A Management Initiative is mezzo Initiative that is undertaken or attempted to transform, maintain and/or supersise a set of Functional Architecture Asset on the Enterprise.
+
+Documentation : https://framework.sysfeat.com/pages/05201b936647570a.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ ManagementInitiative : ClassOfBoundedIndividual
 ManagementInitiative = BoundedIndividual
 
 --  ManagementInitiative is subTypeOf Initiative
-st-b07b08ce6763712e : ManagementInitiative ⊏ₑ Initiative
-st-b07b08ce6763712e = polySubTypeOf-identity
+st-05201b936647570a-0ffeec41600be08a : ManagementInitiative ⊏ₑ Initiative
+st-05201b936647570a-0ffeec41600be08a = polySubTypeOf-identity
 
 -- == Relationships =======================

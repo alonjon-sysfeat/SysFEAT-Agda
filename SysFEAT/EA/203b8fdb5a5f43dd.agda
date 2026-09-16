@@ -5,6 +5,9 @@
 
 Concept Domain Map: 
 A Concept Domain Map is a top level assembly of Concept Domains that defines the scope of information that Management System is responsible of.
+
+Documentation : https://framework.sysfeat.com/pages/203b8fdb5a5f43dd.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,12 +23,12 @@ ConceptDomainMap : ClassOfClassOfBoundedIndividual
 ConceptDomainMap = ClassOfBoundedIndividual
 
 --  ConceptDomainMap withAspect DictionaryBlock
-st-7db00d0561f99eb1 : ConceptDomainMap ⊏ₐₑ (DictionaryBlock (lsuc(lzero)))
-st-7db00d0561f99eb1 = polySubTypeOf-identity
+st-203b8fdb5a5f43dd-6bf190796859b4ff : ConceptDomainMap ⊏ₐₑ (DictionaryBlock (lsuc(lzero)))
+st-203b8fdb5a5f43dd-6bf190796859b4ff = polySubTypeOf-identity
 
 --  ConceptDomainMap is subTypeOf InformationMap
-st-d2a7d54f5ee86a7a : ConceptDomainMap ⊏ₑ InformationMap
-st-d2a7d54f5ee86a7a = polySubTypeOf-identity
+st-203b8fdb5a5f43dd-d6cd2d8e5ab98edc : ConceptDomainMap ⊏ₑ InformationMap
+st-203b8fdb5a5f43dd-d6cd2d8e5ab98edc = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -36,11 +39,11 @@ SubActivityDomain = ClassOfIndividual
 
 -- Membership relation
 membershipOfSubActivityDomain :  Linkage ConceptDomainMap SubActivityDomain
-membershipOfSubActivityDomain = membershipOfAggregateMember
+membershipOfSubActivityDomain = make_upwardNestingRelation "subActivityDomain membership" "nested subActivityDomain"
 
 -- Aggregation relation
 aggregationOfConceptDomainSubActivityDomain :  Linkage SubActivityDomain ConceptDomain
-aggregationOfConceptDomainSubActivityDomain = aggregationOfBuildingBlock
+aggregationOfConceptDomainSubActivityDomain = make_Relation "ConceptDomain aggregation" "aggregated ConceptDomain"
 
 {- subActivityDomain : derived relation obtained by composing
    membershipOfSubActivityDomain and aggregationOfConceptDomainSubActivityDomain
@@ -50,6 +53,10 @@ aggregationOfConceptDomainSubActivityDomain = aggregationOfBuildingBlock
 subActivityDomain : Linkage ConceptDomainMap ConceptDomain
 subActivityDomain = membershipOfSubActivityDomain  ∘  aggregationOfConceptDomainSubActivityDomain
 
+postulate -- subActivityDomain is subTypeOf informationDomainMember
+  st-dd25ddb95ebb089b-dfa4e2865ebb4e38  : subActivityDomain   ⊏⋆ᵣ  informationDomainMember 
+
+
 {- External Concept Domain Member: -}
 -- Aggregate Member : External Concept Domain Member
 ExternalConceptDomainMember : ClassOfClassOfIndividual
@@ -57,11 +64,11 @@ ExternalConceptDomainMember = ClassOfIndividual
 
 -- Membership relation
 membershipOfExternalConceptDomainMember :  Linkage ConceptDomainMap ExternalConceptDomainMember
-membershipOfExternalConceptDomainMember = membershipOfAggregateMember
+membershipOfExternalConceptDomainMember = make_upwardNestingRelation "externalConceptDomainMember membership" "nested externalConceptDomainMember"
 
 -- Aggregation relation
 aggregationOfConceptDomainExternalConceptDomainMember :  Linkage ExternalConceptDomainMember ConceptDomain
-aggregationOfConceptDomainExternalConceptDomainMember = aggregationOfBuildingBlock
+aggregationOfConceptDomainExternalConceptDomainMember = make_Relation "ConceptDomain aggregation" "aggregated ConceptDomain"
 
 {- externalConceptDomainMember : derived relation obtained by composing
    membershipOfExternalConceptDomainMember and aggregationOfConceptDomainExternalConceptDomainMember
@@ -70,3 +77,7 @@ aggregationOfConceptDomainExternalConceptDomainMember = aggregationOfBuildingBlo
 -}
 externalConceptDomainMember : Linkage ConceptDomainMap ConceptDomain
 externalConceptDomainMember = membershipOfExternalConceptDomainMember  ∘  aggregationOfConceptDomainExternalConceptDomainMember
+
+postulate -- externalConceptDomainMember is subTypeOf externalInformationArea
+  st-dd25de465ebb0b45-dfa4e2b35ebb4ee8  : externalConceptDomainMember   ⊏⋆ᵣ  externalInformationArea 
+

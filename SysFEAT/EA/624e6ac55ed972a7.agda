@@ -5,6 +5,9 @@
 
 Physical Software Interface: 
 An Physical Software Interface is a physical specification of an Application Interface to which it adds the following physical characteristics:1) The software communication protocol which defines the format of the data, the procedures for error handling, and the protocols for data transfer. Examples of software communication protocols include HTTP, SOAP, gRPC, 2) Potential specific target port number.3) Optional restrictions on source port number to use .4) Transport protocol (TCP/UDP).Physical Software Interfaces can also represent lower lever APIs supported by Software Technology Systems such as DHCP, SMTP, IMAP, LDAP.
+
+Documentation : https://framework.sysfeat.com/pages/624e6ac55ed972a7.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ PhysicalSOftwareInterface : ClassOfClassOfIndividual
 PhysicalSOftwareInterface = ClassOfIndividual
 
 --  PhysicalSOftwareInterface is subTypeOf ServiceInterface
-st-70ba08ae642364ed : PhysicalSOftwareInterface ⊏ₑ ServiceInterface
-st-70ba08ae642364ed = polySubTypeOf-identity
+st-624e6ac55ed972a7-24ae31b55ed1c66d : PhysicalSOftwareInterface ⊏ₑ ServiceInterface
+st-624e6ac55ed972a7-24ae31b55ed1c66d = polySubTypeOf-identity
 
 -- == Relationships =======================

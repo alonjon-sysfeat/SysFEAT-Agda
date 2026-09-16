@@ -5,6 +5,9 @@
 
 Individual Resource Agent: 
 An Individual Resource Agent is an Individual Operating Asset that exists in space/time and that is able to participate actively to Processes and/or to conduct Processes.
+
+Documentation : https://framework.sysfeat.com/pages/fe1c231267880201.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -20,12 +23,12 @@ IndividualResourceAgent : ClassOfBoundedIndividual
 IndividualResourceAgent = BoundedIndividual
 
 --  IndividualResourceAgent is subTypeOf IndividualResourceAsset
-st-fe1c27c1678807c6 : IndividualResourceAgent ⊏ₑ IndividualResourceAsset
-st-fe1c27c1678807c6 = polySubTypeOf-identity
+st-fe1c231267880201-fe1c24fa6788036e : IndividualResourceAgent ⊏ₑ IndividualResourceAsset
+st-fe1c231267880201-fe1c24fa6788036e = polySubTypeOf-identity
 
 --  IndividualResourceAgent is subTypeOf IndividualAgent
-st-fe1c25b167880564 : IndividualResourceAgent ⊏ₑ IndividualAgent
-st-fe1c25b167880564 = polySubTypeOf-identity
+st-fe1c231267880201-9e3837e46192fcad : IndividualResourceAgent ⊏ₑ IndividualAgent
+st-fe1c231267880201-9e3837e46192fcad = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -37,11 +40,11 @@ IndividualResourceAgentPart = AggregateMember (lsuc(lzero))
 
 -- Membership relation
 membershipOfIndividualResourceAgentPart :  Linkage IndividualResourceAgent IndividualResourceAgentPart
-membershipOfIndividualResourceAgentPart = membershipOfAggregateMember
+membershipOfIndividualResourceAgentPart = make_upwardNestingRelation "individualResourceAgentPart membership" "nested individualResourceAgentPart"
 
 -- Aggregation relation
 aggregationOfIndividualResourceAgentIndividualResourceAgentPart :  Linkage IndividualResourceAgentPart IndividualResourceAgent
-aggregationOfIndividualResourceAgentIndividualResourceAgentPart = aggregationOfBuildingBlock
+aggregationOfIndividualResourceAgentIndividualResourceAgentPart = make_Relation "IndividualResourceAgent aggregation" "aggregated IndividualResourceAgent"
 
 {- individualResourceAgentPart : derived relation obtained by composing
    membershipOfIndividualResourceAgentPart and aggregationOfIndividualResourceAgentIndividualResourceAgentPart
@@ -50,3 +53,7 @@ aggregationOfIndividualResourceAgentIndividualResourceAgentPart = aggregationOfB
 -}
 individualResourceAgentPart : Linkage IndividualResourceAgent IndividualResourceAgent
 individualResourceAgentPart = membershipOfIndividualResourceAgentPart  ∘  aggregationOfIndividualResourceAgentIndividualResourceAgentPart
+
+postulate -- individualResourceAgentPart is subTypeOf agentPart
+  st-fe1c2ae667880c06-9d389f6761c4127d  : individualResourceAgentPart   ⊏⋆ᵣ  agentPart 
+

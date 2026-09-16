@@ -5,6 +5,9 @@
 
 Conceptual Event: 
 An Conceptual Event is a Temporal Bounding Type that establishes a temporal connection between Conceptual Behaviors.An Conceptual Event connects a Previous Behavioral Event, to a Next Behavioral Event.
+
+Documentation : https://framework.sysfeat.com/pages/21918fed6786592c.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,11 +22,11 @@ ConceptualEvent : ClassOfClassOfIndividual
 ConceptualEvent = ClassOfIndividual
 
 --  ConceptualEvent is subTypeOf BehavioralEvent
-st-2191900b67865989 : ConceptualEvent ⊏ₑ BehavioralEvent
-st-2191900b67865989 = polySubTypeOf-identity
+st-21918fed6786592c-24ae31d75ed1c747 : ConceptualEvent ⊏ₑ BehavioralEvent
+st-21918fed6786592c-24ae31d75ed1c747 = polySubTypeOf-identity
 
 --  ConceptualEvent is subTypeOf ConceptualFunctionalAsset
-st-cb94f32e6818623a : ConceptualEvent ⊏ₑ ConceptualFunctionalAsset
-st-cb94f32e6818623a = polySubTypeOf-identity
+st-21918fed6786592c-cb94ec53681855c2 : ConceptualEvent ⊏ₑ ConceptualFunctionalAsset
+st-21918fed6786592c-cb94ec53681855c2 = polySubTypeOf-identity
 
 -- == Relationships =======================

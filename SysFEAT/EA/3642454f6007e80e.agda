@@ -5,6 +5,9 @@
 
 Deployed Business System: 
 A Deployed Business System is a man made Individual Business Agent that delivers business outcomes.
+
+Documentation : https://framework.sysfeat.com/pages/3642454f6007e80e.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,14 +22,14 @@ DeployedBusinessSystem : ClassOfBoundedIndividual
 DeployedBusinessSystem = BoundedIndividual
 
 --  DeployedBusinessSystem is subTypeOf IndividualBusinessAgent
-st-66f86c01620b2071 : DeployedBusinessSystem ⊏ₑ IndividualBusinessAgent
-st-66f86c01620b2071 = polySubTypeOf-identity
+st-3642454f6007e80e-66f8685a620b1440 : DeployedBusinessSystem ⊏ₑ IndividualBusinessAgent
+st-3642454f6007e80e-66f8685a620b1440 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Business System Type: -}
 businessSystemType :  Linkage DeployedBusinessSystem BusinessSystem
-businessSystemType = make_instanceOf "Business System Type" "businessSystemType"
+businessSystemType = make_instanceOf "Business System Type" "Business System Type"
 
 
 {- Deployed System Component: -}
@@ -37,11 +40,11 @@ DeployedSystemComponent = AggregateMember (lsuc(lzero))
 
 -- Membership relation
 membershipOfDeployedSystemComponent :  Linkage DeployedBusinessSystem DeployedSystemComponent
-membershipOfDeployedSystemComponent = membershipOfAggregateMember
+membershipOfDeployedSystemComponent = make_upwardNestingRelation "deployedSystemComponent membership" "nested deployedSystemComponent"
 
 -- Aggregation relation
 aggregationOfDeployedBusinessSystemDeployedSystemComponent :  Linkage DeployedSystemComponent DeployedBusinessSystem
-aggregationOfDeployedBusinessSystemDeployedSystemComponent = aggregationOfBuildingBlock
+aggregationOfDeployedBusinessSystemDeployedSystemComponent = make_Relation "DeployedBusinessSystem aggregation" "aggregated DeployedBusinessSystem"
 
 {- deployedSystemComponent : derived relation obtained by composing
    membershipOfDeployedSystemComponent and aggregationOfDeployedBusinessSystemDeployedSystemComponent
@@ -50,3 +53,7 @@ aggregationOfDeployedBusinessSystemDeployedSystemComponent = aggregationOfBuildi
 -}
 deployedSystemComponent : Linkage DeployedBusinessSystem DeployedBusinessSystem
 deployedSystemComponent = membershipOfDeployedSystemComponent  ∘  aggregationOfDeployedBusinessSystemDeployedSystemComponent
+
+postulate -- deployedSystemComponent is subTypeOf deployedBusinessAgentPart
+  st-9d38a3d061c41a2b-66f868de620b14e6  : deployedSystemComponent   ⊏⋆ᵣ  deployedBusinessAgentPart 
+

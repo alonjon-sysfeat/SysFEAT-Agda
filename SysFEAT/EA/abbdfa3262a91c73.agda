@@ -5,6 +5,9 @@
 
 Hardware Asset Assessment: 
 
+
+Documentation : https://framework.sysfeat.com/pages/abbdfa3262a91c73.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -19,14 +22,14 @@ HardwareAssetAssessment : ClassOfBoundedIndividual
 HardwareAssetAssessment = BoundedIndividual
 
 --  HardwareAssetAssessment is subTypeOf Assessment
-st-abbdfa4262a91cc7 : HardwareAssetAssessment ⊏ₑ Assessment
-st-abbdfa4262a91cc7 = polySubTypeOf-identity
+st-abbdfa3262a91c73-3b539cbb551e4c2a : HardwareAssetAssessment ⊏ₑ Assessment
+st-abbdfa3262a91c73-3b539cbb551e4c2a = polySubTypeOf-identity
 
 -- == Relationships =======================
 
 {- Assessed Hardware Asset: -}
 assessedHardwareAsset :  Linkage HardwareAssetAssessment ConcreteHardwareSystem
-assessedHardwareAsset = make_Relation "Assessed Hardware Asset" "assessedHardwareAsset"
+assessedHardwareAsset = make_Relation "Assessed Hardware Asset" "Assessed Hardware Asset"
 
 postulate -- assessedHardwareAsset is subTypeOf assessedAsset
   st-abbdfaaf62a91d49-6bf1843a68599028  : assessedHardwareAsset   ⊏⋆ᵣ  assessedAsset  {lzero}

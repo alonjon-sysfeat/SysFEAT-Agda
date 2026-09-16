@@ -5,6 +5,9 @@
 
 Assurance System: 
 An Assurance System is a Management System aimed at ensuring enterprise compliance, resilience, and risk mitigation against both internal and external Policys and threats. It encompasses processes, Directives and technologies that work in concert to validate enterprise adherence to policy requirements, industry standards, and internal policies while simultaneously bolstering the enterprises ability to withstand and adapt to various challenges and disruptions.ensuring enterprise compliance and resilience against internal and external constraints:a. Regulation constraints: they defined what is allowed and not allowed by the law (See Regulation Article).b. Internal policies and rules constraints: they defined what is allowed and not allowed by the enterprise (see Business Policy).c. Operational constraints: they maintain operational capacities of the company (maintain ability to produce, maintain quality, ensure product development , ability to hire, to train, etc, see Business Rule).d. Architectural constraints: they guide design decisions and shape the overall structure of a system (see Architecture principle).
+
+Documentation : https://framework.sysfeat.com/pages/07ca18d25dd85477.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -23,12 +26,12 @@ AssuranceSystem : ClassOfBoundedIndividual
 AssuranceSystem = BoundedIndividual
 
 --  AssuranceSystem is subTypeOf ManagementSystem
-st-2b583c505eebd40e : AssuranceSystem ⊏ₑ ManagementSystem
-st-2b583c505eebd40e = polySubTypeOf-identity
+st-07ca18d25dd85477-29df3f4060084c07 : AssuranceSystem ⊏ₑ ManagementSystem
+st-07ca18d25dd85477-29df3f4060084c07 = polySubTypeOf-identity
 
 --  AssuranceSystem is subTypeOf AssuranceInitiative
-st-a632aefb685f85e8 : AssuranceSystem ⊏ₑ AssuranceInitiative
-st-a632aefb685f85e8 = polySubTypeOf-identity
+st-07ca18d25dd85477-299e895568488eb3 : AssuranceSystem ⊏ₑ AssuranceInitiative
+st-07ca18d25dd85477-299e895568488eb3 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -36,14 +39,14 @@ st-a632aefb685f85e8 = polySubTypeOf-identity
 The set of Assurance Cases that a Assurance System is responsible for.
 -}
 ownedAssuranceCase :  Linkage AssuranceSystem AssuranceCase
-ownedAssuranceCase = make_nestingRelation "Owned Assurance Case" "ownedAssuranceCase"
+ownedAssuranceCase = make_nestingRelation "Owned Assurance Case" "Owned Assurance Case"
 
 postulate -- ownedAssuranceCase is subTypeOf packagedAssuranceInstrument
   st-0b950f8868e54f9f-561f36fc68d68770  : ownedAssuranceCase   ⊏⋆ᵣ  packagedAssuranceInstrument 
 
 {- Packaged Assurance Instrument: -}
 packagedAssuranceInstrument :  Linkage AssuranceSystem AssuranceInstrument
-packagedAssuranceInstrument = make_nestingRelation "Packaged Assurance Instrument" "packagedAssuranceInstrument"
+packagedAssuranceInstrument = make_nestingRelation "Packaged Assurance Instrument" "Packaged Assurance Instrument"
 
 postulate -- packagedAssuranceInstrument is subTypeOf packagedInitiativeResource
   st-561f36fc68d68770-01ce058868597974  : packagedAssuranceInstrument   ⊏⋆ᵣ  packagedInitiativeResource  {lzero}
@@ -51,8 +54,8 @@ postulate -- packagedAssuranceInstrument is subTypeOf packagedInitiativeResource
 {- Enforced Policy Framework: 
 The set of Policy Frameworks that an Assurance System is responsible for enforcing and verifying compliance against.
 -}
-enforcedPolicyFramework :  Linkage AssuranceSystem PolicyFramework
-enforcedPolicyFramework = make_Relation "Enforced Policy Framework" "enforcedPolicyFramework"
+enforcedPolicyFramework : ∀ {u} →  Linkage AssuranceSystem (PolicyFramework u)
+enforcedPolicyFramework = make_Relation "Enforced Policy Framework" "Enforced Policy Framework"
 
 
 {- Policy Item in Scope: -}
@@ -62,11 +65,11 @@ PolicyIteminScope = ClassOfIndividual
 
 -- Membership relation
 membershipOfPolicyIteminScope :  Linkage AssuranceSystem PolicyIteminScope
-membershipOfPolicyIteminScope = membershipOfAggregateMember
+membershipOfPolicyIteminScope = make_upwardNestingRelation "policyIteminScope membership" "nested policyIteminScope"
 
 -- Aggregation relation
 aggregationOfPolicyPolicyIteminScope :  Linkage PolicyIteminScope Policy
-aggregationOfPolicyPolicyIteminScope = aggregationOfBuildingBlock
+aggregationOfPolicyPolicyIteminScope = make_Relation "Policy aggregation" "aggregated Policy"
 
 {- policyIteminScope : derived relation obtained by composing
    membershipOfPolicyIteminScope and aggregationOfPolicyPolicyIteminScope
@@ -75,3 +78,5 @@ aggregationOfPolicyPolicyIteminScope = aggregationOfBuildingBlock
 -}
 policyIteminScope : Linkage AssuranceSystem Policy
 policyIteminScope = membershipOfPolicyIteminScope  ∘  aggregationOfPolicyPolicyIteminScope
+
+

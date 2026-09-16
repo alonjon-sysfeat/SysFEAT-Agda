@@ -1,10 +1,13 @@
 ﻿{- ============================== 
-   Copyright (c) 2026 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
+   Copyright (c) 2023 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
    This work is released under the MIT License.
    framework.sysfeat.com
 
 EA Pattern - Physical Software Operating Pattern: 
 The EA Pattern - Physical Software Operating Pattern domain provides abstractions shared by all physical software artifacts.
+
+Documentation : https://framework.sysfeat.com/pages/70ba83a464213bcf.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

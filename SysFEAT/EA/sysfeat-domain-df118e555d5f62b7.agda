@@ -1,10 +1,13 @@
 ﻿{- ============================== 
-   Copyright (c) 2026 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
+   Copyright (c) 2025 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
    This work is released under the MIT License.
    framework.sysfeat.com
 
 Facility & Platform ArcOps: 
 The Facility &amp; Platform ArcOps domain describes a set of concepts used in practices that combines Facility &amp; Platform architecture (Arc), development (Dev) and Facility &amp; Platform operations (Ops). Together, they contribute to the management of facility &amp; platform assets.It aims to shorten the facilities development life cycle and provide continuous delivery with high system quality. DevOps is complementary with Agile development; several DevOps aspects came from the Agile methodology.
+
+Documentation : https://framework.sysfeat.com/pages/df118e555d5f62b7.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}

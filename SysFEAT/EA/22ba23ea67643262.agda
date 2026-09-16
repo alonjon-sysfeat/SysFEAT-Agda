@@ -5,6 +5,9 @@
 
 Technology Management Initiative: 
 
+
+Documentation : https://framework.sysfeat.com/pages/22ba23ea67643262.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ TechnologyManagementInitiative : ClassOfBoundedIndividual
 TechnologyManagementInitiative = BoundedIndividual
 
 --  TechnologyManagementInitiative is subTypeOf AssetManagementInitiative
-st-22ba292367643641 : TechnologyManagementInitiative ⊏ₑ AssetManagementInitiative
-st-22ba292367643641 = polySubTypeOf-identity
+st-22ba23ea67643262-05201bc866475765 : TechnologyManagementInitiative ⊏ₑ AssetManagementInitiative
+st-22ba23ea67643262-05201bc866475765 = polySubTypeOf-identity
 
 -- == Relationships =======================

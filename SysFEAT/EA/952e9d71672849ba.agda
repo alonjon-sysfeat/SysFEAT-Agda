@@ -5,6 +5,9 @@
 
 Customer Journey Category: 
 A Customer Journey Category classifies the journeys that comply with similar criteria.
+
+Documentation : https://framework.sysfeat.com/pages/952e9d71672849ba.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -18,7 +21,7 @@ CustomerJourneyCategory : ThirdOrderClass
 CustomerJourneyCategory = SecondOrderClass
 
 --  CustomerJourneyCategory withAspect AssetCategory
-st-ae7c977e60234942 : CustomerJourneyCategory ⊏ₐₑ (AssetCategory (lsuc(lsuc(lzero))))
-st-ae7c977e60234942 = polySubTypeOf-identity
+st-952e9d71672849ba-f69620466a0f9c2f : CustomerJourneyCategory ⊏ₐₑ (AssetCategory (lsuc(lsuc(lzero))))
+st-952e9d71672849ba-f69620466a0f9c2f = polySubTypeOf-identity
 
 -- == Relationships =======================

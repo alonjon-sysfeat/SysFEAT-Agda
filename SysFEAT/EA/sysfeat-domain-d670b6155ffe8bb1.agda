@@ -1,10 +1,13 @@
 ﻿{- ============================== 
-   Copyright (c) 2026 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
+   Copyright (c) 2025 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
    This work is released under the MIT License.
    framework.sysfeat.com
 
 SOF - Business Resource Operating Pattern (B-SOF): 
 The SOF - Business Resource Operating Pattern (B-SOF) domain defines concepts and relationships used to model how physical resources (Business Operating Assets) operates/functions in Business Resource Ecosystems to deliver Business Outcome Events.Business Operating Asset is an abstraction for Org-Unit Type, Business Software System, Concrete Hardware System and Networking System and their behaviors (Business Resource Process, Business Resource Interaction Process).The SOF - Business Resource Operating Pattern (B-SOF) is used as a template for all concrete operating domains such as People &amp; Accountability or Application Functional Architecture.
+
+Documentation : https://framework.sysfeat.com/pages/d670b6155ffe8bb1.htm
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
