@@ -25,8 +25,8 @@ IndividualProcess : ClassOfBoundedIndividual
 IndividualProcess = BoundedIndividual
 
 --  IndividualProcess is subTypeOf IndividualBehavior
-st-a273b51465b7a880 : IndividualProcess ⊏ₑ IndividualBehavior
-st-a273b51465b7a880 = polySubTypeOf-identity
+st-a273b4f465b7a81f-e9af119866e86785 : IndividualProcess ⊏ₑ IndividualBehavior
+st-a273b4f465b7a81f-e9af119866e86785 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -38,11 +38,11 @@ IndividualProcessPart = AggregateMember (lsuc(lzero))
 
 -- Membership relation
 membershipOfIndividualProcessPart :  Linkage IndividualProcess IndividualProcessPart
-membershipOfIndividualProcessPart = membershipOfAggregateMember
+membershipOfIndividualProcessPart = make_upwardNestingRelation "individualProcessPart membership" "nested individualProcessPart"
 
 -- Aggregation relation
 aggregationOfIndividualProcessIndividualProcessPart :  Linkage IndividualProcessPart IndividualProcess
-aggregationOfIndividualProcessIndividualProcessPart = aggregationOfBuildingBlock
+aggregationOfIndividualProcessIndividualProcessPart = make_Relation "IndividualProcess aggregation" "aggregated IndividualProcess"
 
 {- individualProcessPart : derived relation obtained by composing
    membershipOfIndividualProcessPart and aggregationOfIndividualProcessIndividualProcessPart
@@ -51,6 +51,10 @@ aggregationOfIndividualProcessIndividualProcessPart = aggregationOfBuildingBlock
 -}
 individualProcessPart : Linkage IndividualProcess IndividualProcess
 individualProcessPart = membershipOfIndividualProcessPart  ∘  aggregationOfIndividualProcessIndividualProcessPart
+
+postulate -- individualProcessPart is subTypeOf individualBehaviorPart
+  st-ffb903ac68d37181-ffb9011b68d36c96  : individualProcessPart   ⊏⋆ᵣ  individualBehaviorPart 
+
 
 {- Active Participant: 
 An Active Participant is the Aggregate Holonymy of an Individual Agent that indicates that the aggregated Individual Agent is an active participant of the Individual Process.
@@ -62,11 +66,11 @@ ActiveParticipant = AggregateMember (lsuc(lzero))
 
 -- Membership relation
 membershipOfActiveParticipant :  Linkage IndividualProcess ActiveParticipant
-membershipOfActiveParticipant = membershipOfAggregateMember
+membershipOfActiveParticipant = make_upwardNestingRelation "activeParticipant membership" "nested activeParticipant"
 
 -- Aggregation relation
 aggregationOfIndividualAgentActiveParticipant :  Linkage ActiveParticipant IndividualAgent
-aggregationOfIndividualAgentActiveParticipant = aggregationOfBuildingBlock
+aggregationOfIndividualAgentActiveParticipant = make_Relation "IndividualAgent aggregation" "aggregated IndividualAgent"
 
 {- activeParticipant : derived relation obtained by composing
    membershipOfActiveParticipant and aggregationOfIndividualAgentActiveParticipant
@@ -75,3 +79,7 @@ aggregationOfIndividualAgentActiveParticipant = aggregationOfBuildingBlock
 -}
 activeParticipant : Linkage IndividualProcess IndividualAgent
 activeParticipant = membershipOfActiveParticipant  ∘  aggregationOfIndividualAgentActiveParticipant
+
+postulate -- activeParticipant is subTypeOf individualParticipant
+  st-e9af10cd66e865ee-ffb9014568d36d76  : activeParticipant   ⊏⋆ᵣ  individualParticipant 
+

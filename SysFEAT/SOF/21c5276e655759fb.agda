@@ -21,7 +21,7 @@ OperatingConnection : ClassOfClassOfIndividual
 OperatingConnection = ClassOfIndividual
 
 --  OperatingConnection withAspect OrderingConnection
-st-a4018d4666008d65 : OperatingConnection ⊏ₐₑ (OrderingConnection (lsuc(lzero)))
-st-a4018d4666008d65 = polySubTypeOf-identity
+st-21c5276e655759fb-23d5eaba68515533 : OperatingConnection ⊏ₐₑ (OrderingConnection (lsuc(lzero)))
+st-21c5276e655759fb-23d5eaba68515533 = polySubTypeOf-identity
 
 -- == Relationships =======================

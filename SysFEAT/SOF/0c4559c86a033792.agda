@@ -24,12 +24,12 @@ OperatingAsset : ∀ (u : Level) → ClassOfMixedOrderEntity u
 OperatingAsset u = MixedOrderEntity u
 
 --  OperatingAsset is subTypeOf AssetBlock
-st-0c455d016a033cf0 : ∀ {u v} → (OperatingAsset u) ⊏⋆ₑ (AssetBlock v)
-st-0c455d016a033cf0 = trivialPolySubTypeOfEntity
+st-0c4559c86a033792-0eb95f356855bf94 : ∀ {u v} → (OperatingAsset u) ⊏⋆ₑ (AssetBlock v)
+st-0c4559c86a033792-0eb95f356855bf94 = trivialPolySubTypeOfEntity
 
 --  OperatingAsset is subTypeOf MixedOrderEntity
-st-0212cb0e6a7a0385 : ∀ {u v} → (OperatingAsset u) ⊏⋆ₑ (MixedOrderEntity v)
-st-0212cb0e6a7a0385 = trivialPolySubTypeOfEntity
+st-0c4559c86a033792-6ef572f868f1366f : ∀ {u v} → (OperatingAsset u) ⊏⋆ₑ (MixedOrderEntity v)
+st-0c4559c86a033792-6ef572f868f1366f = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================
 

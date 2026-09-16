@@ -22,11 +22,11 @@ WholeLifeAgentType : ClassOfClassOfBoundedIndividual
 WholeLifeAgentType = ClassOfBoundedIndividual
 
 --  WholeLifeAgentType is subTypeOf AgentType
-st-c80ac883678410ac : WholeLifeAgentType ⊏ₑ AgentType
-st-c80ac883678410ac = polySubTypeOf-identity
+st-c80ac83967840ef1-79368381561716a6 : WholeLifeAgentType ⊏ₑ AgentType
+st-c80ac83967840ef1-79368381561716a6 = polySubTypeOf-identity
 
 --  WholeLifeAgentType is subTypeOf WholeLifeAssetType
-st-c80ac87d67841083 : WholeLifeAgentType ⊏ₑ WholeLifeAssetType
-st-c80ac87d67841083 = polySubTypeOf-identity
+st-c80ac83967840ef1-e13ce1cd678f1111 : WholeLifeAgentType ⊏ₑ WholeLifeAssetType
+st-c80ac83967840ef1-e13ce1cd678f1111 = polySubTypeOf-identity
 
 -- == Relationships =======================

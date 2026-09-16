@@ -1,9 +1,9 @@
 ﻿{- ============================== 
-   Copyright (c) 2025 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
+   Copyright (c) 2026 SysFEAT - Systemic Framework for Enterprise Architecture & Transformation
    This work is released under the MIT License.
    framework.sysfeat.com
 
-Architecture Packaging: 
+Architecture Assets & Packaging: 
 
 
 Documentation : https://framework.sysfeat.com/pages/ab6f0af4681b75db.htm
@@ -11,7 +11,7 @@ Documentation : https://framework.sysfeat.com/pages/ab6f0af4681b75db.htm
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
-module SysFEAT.SOF.sysfeat-domain-ab6f0af4681b75db where -- ========== Architecture Packaging
+module SysFEAT.SOF.sysfeat-domain-ab6f0af4681b75db where -- ========== Architecture Assets & Packaging
 
 open import SysFEAT.UpperOntology.sysfeat-domain-f0fd779f65a18c5d public -- Packaging
 open import SysFEAT.SOF.sysfeat-domain-02af0a4b5a182417 public -- System Operating Framework - SOF

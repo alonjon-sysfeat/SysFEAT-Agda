@@ -25,8 +25,8 @@ BehavioralRule : PropertyType
 BehavioralRule = ClassOfProperty
 
 --  BehavioralRule is subTypeOf Directive
-st-fe2203f05c4f100c : BehavioralRule ⊏ₑ Directive
-st-fe2203f05c4f100c = polySubTypeOf-identity
+st-190c74f868966584-515c6b23689335c3 : BehavioralRule ⊏ₑ Directive
+st-190c74f868966584-515c6b23689335c3 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -46,11 +46,11 @@ PolicyDerivation = ClassOfIndividual
 
 -- Membership relation
 membershipOfPolicyDerivation :  Linkage BehavioralRule PolicyDerivation
-membershipOfPolicyDerivation = membershipOfAggregateMember
+membershipOfPolicyDerivation = make_upwardNestingRelation "policyDerivation membership" "nested policyDerivation"
 
 -- Aggregation relation
 aggregationOfPolicyPolicyDerivation :  Linkage PolicyDerivation Policy
-aggregationOfPolicyPolicyDerivation = aggregationOfBuildingBlock
+aggregationOfPolicyPolicyDerivation = make_Relation "Policy aggregation" "aggregated Policy"
 
 {- policyDerivation : derived relation obtained by composing
    membershipOfPolicyDerivation and aggregationOfPolicyPolicyDerivation
@@ -59,3 +59,9 @@ aggregationOfPolicyPolicyDerivation = aggregationOfBuildingBlock
 -}
 policyDerivation : Linkage BehavioralRule Policy
 policyDerivation = membershipOfPolicyDerivation  ∘  aggregationOfPolicyPolicyDerivation
+
+postulate -- policyDerivation is subTypeOf realizedDirective
+  st-7bc2add56899a8e3-190c7a7f6896696e  : policyDerivation   ⊏⋆ᵣ  realizedDirective 
+postulate -- policyDerivation is subTypeOf unboundedMember
+  st-7bc2add56899a8e3-8cfaf71a6852b042  : policyDerivation   ⊏⋆ᵣ  unboundedMember {lzero} {lzero}
+

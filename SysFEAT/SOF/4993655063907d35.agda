@@ -21,7 +21,7 @@ ReviewNote : ClassOfBoundedIndividual
 ReviewNote = BoundedIndividual
 
 --  ReviewNote is subTypeOf GovernanceEvent
-st-4993655963907d7a : ReviewNote ⊏ₑ GovernanceEvent
-st-4993655963907d7a = polySubTypeOf-identity
+st-4993655063907d35-1737b50b5fe27cba : ReviewNote ⊏ₑ GovernanceEvent
+st-4993655063907d35-1737b50b5fe27cba = polySubTypeOf-identity
 
 -- == Relationships =======================

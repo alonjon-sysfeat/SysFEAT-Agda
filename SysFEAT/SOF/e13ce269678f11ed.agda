@@ -22,11 +22,11 @@ AssetStateType : ClassOfClassOfBoundedIndividual
 AssetStateType = ClassOfBoundedIndividual
 
 --  AssetStateType is subTypeOf StateClass
-st-e13ce5c6678f1777 : AssetStateType ⊏ₑ StateClass
-st-e13ce5c6678f1777 = polySubTypeOf-identity
+st-e13ce269678f11ed-342f43ae66156429 : AssetStateType ⊏ₑ StateClass
+st-e13ce269678f11ed-342f43ae66156429 = polySubTypeOf-identity
 
 --  AssetStateType is subTypeOf AssetType
-st-e13ce272678f1233 : AssetStateType ⊏ₑ AssetType
-st-e13ce272678f1233 = polySubTypeOf-identity
+st-e13ce269678f11ed-a4a5b3f855585ce1 : AssetStateType ⊏ₑ AssetType
+st-e13ce269678f11ed-a4a5b3f855585ce1 = polySubTypeOf-identity
 
 -- == Relationships =======================

@@ -21,7 +21,7 @@ ClassOfSystemicLevel : ∀ (u : Level) → Set (lsuc (lsuc (lsuc u)))
 ClassOfSystemicLevel u = MetaClass u
 
 --  ClassOfSystemicLevel is subTypeOf MetaClassPartition
-st-0c450f126a032125 : ∀ {u v} → (ClassOfSystemicLevel u) ⊏⋆ₑ (MetaClassPartition v)
-st-0c450f126a032125 = trivialPolySubTypeOfEntity
+st-0c450e8c6a032050-8d1cf23968f75847 : ∀ {u v} → (ClassOfSystemicLevel u) ⊏⋆ₑ (MetaClassPartition v)
+st-0c450e8c6a032050-8d1cf23968f75847 = trivialPolySubTypeOfEntity
 
--- == Relationships =======================
+

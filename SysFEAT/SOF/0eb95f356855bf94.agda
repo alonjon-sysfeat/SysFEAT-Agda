@@ -24,7 +24,7 @@ AssetBlock : ∀ (u : Level) → ClassOfMixedOrderEntity u
 AssetBlock u = MixedOrderEntity u
 
 --  AssetBlock is subTypeOf ArchitectureBlock
-st-9397ca1368779299 : ∀ {u v} → (AssetBlock u) ⊏⋆ₑ (ArchitectureBlock v)
-st-9397ca1368779299 = trivialPolySubTypeOfEntity
+st-0eb95f356855bf94-9397b45268777e3b : ∀ {u v} → (AssetBlock u) ⊏⋆ₑ (ArchitectureBlock v)
+st-0eb95f356855bf94-9397b45268777e3b = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

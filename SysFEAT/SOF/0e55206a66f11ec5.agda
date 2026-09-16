@@ -21,8 +21,8 @@ RiskType : ThirdOrderClass
 RiskType = SecondOrderClass
 
 --  RiskType is subTypeOf PropertyType
-st-427c1ca364b5d50a : RiskType ⊏ₑ PropertyType
-st-427c1ca364b5d50a = polySubTypeOf-identity
+st-0e55206a66f11ec5-87d3062666e33965 : RiskType ⊏ₑ PropertyType
+st-0e55206a66f11ec5-87d3062666e33965 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

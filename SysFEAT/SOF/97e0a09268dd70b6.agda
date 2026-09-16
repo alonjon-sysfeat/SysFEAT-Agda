@@ -21,7 +21,7 @@ PolicyDecisionType : ThirdOrderClass
 PolicyDecisionType = SecondOrderClass
 
 --  PolicyDecisionType is subTypeOf DecisionType
-st-97e0a09968dd70fd : PolicyDecisionType ⊏ₑ DecisionType
-st-97e0a09968dd70fd = polySubTypeOf-identity
+st-97e0a09268dd70b6-366c47e1675c1c07 : PolicyDecisionType ⊏ₑ DecisionType
+st-97e0a09268dd70b6-366c47e1675c1c07 = polySubTypeOf-identity
 
 

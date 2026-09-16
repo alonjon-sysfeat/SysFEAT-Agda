@@ -21,7 +21,7 @@ ResolutionType : ThirdOrderClass
 ResolutionType = SecondOrderClass
 
 --  ResolutionType is subTypeOf AppraisalType
-st-e073015661d31bcf : ResolutionType ⊏ₑ AppraisalType
-st-e073015661d31bcf = polySubTypeOf-identity
+st-366c4627675c1aad-366c3ea8675c13e2 : ResolutionType ⊏ₑ AppraisalType
+st-366c4627675c1aad-366c3ea8675c13e2 = polySubTypeOf-identity
 
 -- == Relationships =======================

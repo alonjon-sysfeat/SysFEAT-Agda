@@ -21,7 +21,7 @@ GovernanceInstrument : ∀ (u : Level) → ClassOfMixedOrderEntity u
 GovernanceInstrument u = MixedOrderEntity u
 
 --  GovernanceInstrument is subTypeOf GovernanceBuildingBlock
-st-92a7177667cf5f2c : ∀ {u v} → (GovernanceInstrument u) ⊏⋆ₑ (GovernanceBuildingBlock v)
-st-92a7177667cf5f2c = trivialPolySubTypeOfEntity
+st-6662916b68dd5f84-0f641043685975c9 : ∀ {u v} → (GovernanceInstrument u) ⊏⋆ₑ (GovernanceBuildingBlock v)
+st-6662916b68dd5f84-0f641043685975c9 = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

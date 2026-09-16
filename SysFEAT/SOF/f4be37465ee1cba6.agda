@@ -22,8 +22,8 @@ Audit : ClassOfBoundedIndividual
 Audit = BoundedIndividual
 
 --  Audit is subTypeOf GovernanceActivity
-st-f4be375d5ee1ccbf : Audit ⊏ₑ GovernanceActivity
-st-f4be375d5ee1ccbf = polySubTypeOf-identity
+st-f4be37465ee1cba6-1737b76a5fe28204 : Audit ⊏ₑ GovernanceActivity
+st-f4be37465ee1cba6-1737b76a5fe28204 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -35,11 +35,11 @@ AuditActivity = AggregateMember (lsuc(lzero))
 
 -- Membership relation
 membershipOfAuditActivity :  Linkage Audit AuditActivity
-membershipOfAuditActivity = membershipOfAggregateMember
+membershipOfAuditActivity = make_upwardNestingRelation "auditActivity membership" "nested auditActivity"
 
 -- Aggregation relation
 aggregationOfAuditAuditActivity :  Linkage AuditActivity Audit
-aggregationOfAuditAuditActivity = aggregationOfBuildingBlock
+aggregationOfAuditAuditActivity = make_Relation "Audit aggregation" "aggregated Audit"
 
 {- auditActivity : derived relation obtained by composing
    membershipOfAuditActivity and aggregationOfAuditAuditActivity
@@ -49,6 +49,10 @@ aggregationOfAuditAuditActivity = aggregationOfBuildingBlock
 auditActivity : Linkage Audit Audit
 auditActivity = membershipOfAuditActivity  ∘  aggregationOfAuditAuditActivity
 
+postulate -- auditActivity is subTypeOf governanceActivityPart
+  st-833987cd68e33de9-fee30a85695d0bb0  : auditActivity   ⊏⋆ᵣ  governanceActivityPart 
+
+
 {- Finding: -}
 -- Aggregate Member : Finding
 Finding : ClassOfOrderedEntity (lsuc(lzero))
@@ -57,11 +61,11 @@ Finding = AggregateMember (lsuc(lzero))
 
 -- Membership relation
 membershipOfFinding :  Linkage Audit Finding
-membershipOfFinding = membershipOfAggregateMember
+membershipOfFinding = make_upwardNestingRelation "finding membership" "nested finding"
 
 -- Aggregation relation
 aggregationOfIndividualAssetFinding :  Linkage Finding IndividualAsset
-aggregationOfIndividualAssetFinding = aggregationOfBuildingBlock
+aggregationOfIndividualAssetFinding = make_Relation "IndividualAsset aggregation" "aggregated IndividualAsset"
 
 {- finding : derived relation obtained by composing
    membershipOfFinding and aggregationOfIndividualAssetFinding
@@ -70,3 +74,7 @@ aggregationOfIndividualAssetFinding = aggregationOfBuildingBlock
 -}
 finding : Linkage Audit IndividualAsset
 finding = membershipOfFinding  ∘  aggregationOfIndividualAssetFinding
+
+postulate -- finding is subTypeOf unboundedMember
+  st-8339882968e33e98-8cfaf71a6852b042  : finding   ⊏⋆ᵣ  unboundedMember {lzero} {lzero}
+

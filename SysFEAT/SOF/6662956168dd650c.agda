@@ -22,8 +22,8 @@ AssessmentValue : PropertyType
 AssessmentValue = ClassOfProperty
 
 --  AssessmentValue is subTypeOf AppraisalOption
-st-83bba1556192433e : AssessmentValue ⊏ₑ AppraisalOption
-st-83bba1556192433e = polySubTypeOf-identity
+st-6662956168dd650c-66628b5668dd5a25 : AssessmentValue ⊏ₑ AppraisalOption
+st-6662956168dd650c-66628b5668dd5a25 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

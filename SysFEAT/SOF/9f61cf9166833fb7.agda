@@ -24,16 +24,16 @@ IndividualOperatingAsset : ClassOfBoundedIndividual
 IndividualOperatingAsset = BoundedIndividual
 
 --  IndividualOperatingAsset withAspect AssetBlock
-st-3b1b7e0568cd6e7d : IndividualOperatingAsset ⊏ₐₑ (AssetBlock lzero)
-st-3b1b7e0568cd6e7d = polySubTypeOf-identity
+st-9f61cf9166833fb7-0eb95f356855bf94 : IndividualOperatingAsset ⊏ₐₑ (AssetBlock lzero)
+st-9f61cf9166833fb7-0eb95f356855bf94 = polySubTypeOf-identity
 
 --  IndividualOperatingAsset is subTypeOf IndividualAsset
-st-a44f93a06748a9d5 : IndividualOperatingAsset ⊏ₑ IndividualAsset
-st-a44f93a06748a9d5 = polySubTypeOf-identity
+st-9f61cf9166833fb7-ebcfaeac5ad76ed7 : IndividualOperatingAsset ⊏ₑ IndividualAsset
+st-9f61cf9166833fb7-ebcfaeac5ad76ed7 = polySubTypeOf-identity
 
 --  IndividualOperatingAsset is subTypeOf BoundedIndividual
-st-be75bef768d23a89 : IndividualOperatingAsset ⊏ₑ BoundedIndividual
-st-be75bef768d23a89 = polySubTypeOf-identity
+st-9f61cf9166833fb7-28f07b2354be0d69 : IndividualOperatingAsset ⊏ₑ BoundedIndividual
+st-9f61cf9166833fb7-28f07b2354be0d69 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -56,11 +56,11 @@ IndividualOperatingPart = AggregateMember (lsuc(lzero))
 
 -- Membership relation
 membershipOfIndividualOperatingPart :  Linkage IndividualOperatingAsset IndividualOperatingPart
-membershipOfIndividualOperatingPart = membershipOfAggregateMember
+membershipOfIndividualOperatingPart = make_upwardNestingRelation "individualOperatingPart membership" "nested individualOperatingPart"
 
 -- Aggregation relation
 aggregationOfIndividualOperatingAssetIndividualOperatingPart :  Linkage IndividualOperatingPart IndividualOperatingAsset
-aggregationOfIndividualOperatingAssetIndividualOperatingPart = aggregationOfBuildingBlock
+aggregationOfIndividualOperatingAssetIndividualOperatingPart = make_Relation "IndividualOperatingAsset aggregation" "aggregated IndividualOperatingAsset"
 
 {- individualOperatingPart : derived relation obtained by composing
    membershipOfIndividualOperatingPart and aggregationOfIndividualOperatingAssetIndividualOperatingPart
@@ -69,3 +69,7 @@ aggregationOfIndividualOperatingAssetIndividualOperatingPart = aggregationOfBuil
 -}
 individualOperatingPart : Linkage IndividualOperatingAsset IndividualOperatingAsset
 individualOperatingPart = membershipOfIndividualOperatingPart  ∘  aggregationOfIndividualOperatingAssetIndividualOperatingPart
+
+postulate -- individualOperatingPart is subTypeOf aggregateHolonymy
+  st-d8ee780d68d224c2-c2f2c9a166ea50e2  : individualOperatingPart   ⊏⋆ᵣ  aggregateHolonymy 
+

@@ -22,11 +22,11 @@ TimeboundInitiative : ClassOfBoundedIndividual
 TimeboundInitiative = BoundedIndividual
 
 --  TimeboundInitiative is subTypeOf Initiative
-st-0520203f66475ff9 : TimeboundInitiative ⊏ₑ Initiative
-st-0520203f66475ff9 = polySubTypeOf-identity
+st-0520200666475f86-0ffeec41600be08a : TimeboundInitiative ⊏ₑ Initiative
+st-0520200666475f86-0ffeec41600be08a = polySubTypeOf-identity
 
 --  TimeboundInitiative is subTypeOf WholeLifeIndividual
-st-a44fdca4674590b1 : TimeboundInitiative ⊏ₑ WholeLifeIndividual
-st-a44fdca4674590b1 = polySubTypeOf-identity
+st-0520200666475f86-342f74b166156e02 : TimeboundInitiative ⊏ₑ WholeLifeIndividual
+st-0520200666475f86-342f74b166156e02 = polySubTypeOf-identity
 
 -- == Relationships =======================

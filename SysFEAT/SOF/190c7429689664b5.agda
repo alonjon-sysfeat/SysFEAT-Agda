@@ -24,8 +24,8 @@ Policy : PropertyType
 Policy = ClassOfProperty
 
 --  Policy is subTypeOf Directive
-st-a67dc17c5f8e90ea : Policy ⊏ₑ Directive
-st-a67dc17c5f8e90ea = polySubTypeOf-identity
+st-190c7429689664b5-515c6b23689335c3 : Policy ⊏ₑ Directive
+st-190c7429689664b5-515c6b23689335c3 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

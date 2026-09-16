@@ -23,8 +23,8 @@ OperationalTransformation : ClassOfBoundedIndividual
 OperationalTransformation = BoundedIndividual
 
 --  OperationalTransformation is subTypeOf EnduringInitiative
-st-299e88b568488e01 : OperationalTransformation ⊏ₑ EnduringInitiative
-st-299e88b568488e01 = polySubTypeOf-identity
+st-299e882b68488d2c-d321c226601262ae : OperationalTransformation ⊏ₑ EnduringInitiative
+st-299e882b68488d2c-d321c226601262ae = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -43,11 +43,11 @@ SubjectOperatingAsset u = AggregateMember u
 
 -- Membership relation
 26CB447B69611567 : ∀ {u} →  Linkage OperationalTransformation (SubjectOperatingAsset u)
-26CB447B69611567 = membershipOfAggregateMember
+26CB447B69611567 = make_upwardNestingRelation "subjectOperatingAsset membership" "nested subjectOperatingAsset"
 
 -- Aggregation relation
 aggregationOfAssetBlockSubjectOperatingAsset : ∀ {u v} →  Linkage (SubjectOperatingAsset u) (AssetBlock v)
-aggregationOfAssetBlockSubjectOperatingAsset = aggregationOfBuildingBlock
+aggregationOfAssetBlockSubjectOperatingAsset = make_Relation "AssetBlock aggregation" "aggregated AssetBlock"
 
 {- subjectOperatingAsset : derived relation obtained by composing
    26CB447B69611567 and aggregationOfAssetBlockSubjectOperatingAsset
@@ -56,3 +56,7 @@ aggregationOfAssetBlockSubjectOperatingAsset = aggregationOfBuildingBlock
 -}
 subjectOperatingAsset : ∀ {u w} → Linkage OperationalTransformation (AssetBlock w)
 subjectOperatingAsset {u} {w}  = 26CB447B69611567 {u}   ∘  aggregationOfAssetBlockSubjectOperatingAsset {w} 
+
+postulate -- subjectOperatingAsset is subTypeOf initiativeSubject
+  st-26cb447b69611509-0f642fd06859b0d5  : subjectOperatingAsset {lzero}  ⊏⋆ᵣ  initiativeSubject  {lzero}
+

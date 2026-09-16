@@ -22,8 +22,8 @@ ArchitectureLexicalScope : ∀ (u : Level) → ClassOfMixedOrderEntity u
 ArchitectureLexicalScope u = MixedOrderEntity u
 
 --  ArchitectureLexicalScope is subTypeOf ModelLexicalScope
-st-0eb95f556855c00f : ∀ {u v} → (ArchitectureLexicalScope u) ⊏⋆ₑ (ModelLexicalScope v)
-st-0eb95f556855c00f = trivialPolySubTypeOfEntity
+st-0eb95d786855bbd9-0eb95db46855bdd5 : ∀ {u v} → (ArchitectureLexicalScope u) ⊏⋆ₑ (ModelLexicalScope v)
+st-0eb95d786855bbd9-0eb95db46855bdd5 = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================
 

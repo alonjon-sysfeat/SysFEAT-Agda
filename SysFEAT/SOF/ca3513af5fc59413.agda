@@ -23,8 +23,8 @@ EnvironmentInteractionProcessType : ClassOfClassOfBoundedIndividual
 EnvironmentInteractionProcessType = ClassOfBoundedIndividual
 
 --  EnvironmentInteractionProcessType is subTypeOf OperatingEcoSystem
-st-ca3513df5fc594e3 : EnvironmentInteractionProcessType ⊏ₑ OperatingEcoSystem
-st-ca3513df5fc594e3 = polySubTypeOf-identity
+st-ca3513af5fc59413-ca35f48a5fc48686 : EnvironmentInteractionProcessType ⊏ₑ OperatingEcoSystem
+st-ca3513af5fc59413-ca35f48a5fc48686 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -35,11 +35,11 @@ ObjectFlow = ClassOfIndividual
 
 -- Membership relation
 membershipOfObjectFlow :  Linkage EnvironmentInteractionProcessType ObjectFlow
-membershipOfObjectFlow = membershipOfAggregateMember
+membershipOfObjectFlow = make_upwardNestingRelation "objectFlow membership" "nested objectFlow"
 
 -- Aggregation relation
 aggregationOfOutcomeEventObjectFlow :  Linkage ObjectFlow OutcomeEvent
-aggregationOfOutcomeEventObjectFlow = aggregationOfBuildingBlock
+aggregationOfOutcomeEventObjectFlow = make_Relation "OutcomeEvent aggregation" "aggregated OutcomeEvent"
 
 {- objectFlow : derived relation obtained by composing
    membershipOfObjectFlow and aggregationOfOutcomeEventObjectFlow
@@ -48,6 +48,10 @@ aggregationOfOutcomeEventObjectFlow = aggregationOfBuildingBlock
 -}
 objectFlow : Linkage EnvironmentInteractionProcessType OutcomeEvent
 objectFlow = membershipOfObjectFlow  ∘  aggregationOfOutcomeEventObjectFlow
+
+postulate -- objectFlow is subTypeOf operatingConnector
+  st-ca3519b05fc5a0b2-3d3f4b4062013550  : objectFlow   ⊏⋆ᵣ  operatingConnector 
+
 
 {- Subject Agent: 
 Agent Type that is the subject of the Environment Interaction Process Type.
@@ -58,11 +62,11 @@ SubjectAgent = ClassOfIndividual
 
 -- Membership relation
 membershipOfSubjectAgent :  Linkage EnvironmentInteractionProcessType SubjectAgent
-membershipOfSubjectAgent = membershipOfAggregateMember
+membershipOfSubjectAgent = make_upwardNestingRelation "subjectAgent membership" "nested subjectAgent"
 
 -- Aggregation relation
 aggregationOfAgentTypeSubjectAgent :  Linkage SubjectAgent AgentType
-aggregationOfAgentTypeSubjectAgent = aggregationOfBuildingBlock
+aggregationOfAgentTypeSubjectAgent = make_Relation "AgentType aggregation" "aggregated AgentType"
 
 {- subjectAgent : derived relation obtained by composing
    membershipOfSubjectAgent and aggregationOfAgentTypeSubjectAgent
@@ -71,6 +75,10 @@ aggregationOfAgentTypeSubjectAgent = aggregationOfBuildingBlock
 -}
 subjectAgent : Linkage EnvironmentInteractionProcessType AgentType
 subjectAgent = membershipOfSubjectAgent  ∘  aggregationOfAgentTypeSubjectAgent
+
+postulate -- subjectAgent is subTypeOf scenarioParticipant
+  st-ca3514125fc59538-ca3518a45fc59e76  : subjectAgent   ⊏⋆ᵣ  scenarioParticipant 
+
 
 {- Partner Agent: 
 Agent Types which are partners of the Subject Agent of an Environment Interaction Process Type.
@@ -81,11 +89,11 @@ PartnerAgent = ClassOfIndividual
 
 -- Membership relation
 membershipOfPartnerAgent :  Linkage EnvironmentInteractionProcessType PartnerAgent
-membershipOfPartnerAgent = membershipOfAggregateMember
+membershipOfPartnerAgent = make_upwardNestingRelation "partnerAgent membership" "nested partnerAgent"
 
 -- Aggregation relation
 aggregationOfAgentTypePartnerAgent :  Linkage PartnerAgent AgentType
-aggregationOfAgentTypePartnerAgent = aggregationOfBuildingBlock
+aggregationOfAgentTypePartnerAgent = make_Relation "AgentType aggregation" "aggregated AgentType"
 
 {- partnerAgent : derived relation obtained by composing
    membershipOfPartnerAgent and aggregationOfAgentTypePartnerAgent
@@ -95,6 +103,10 @@ aggregationOfAgentTypePartnerAgent = aggregationOfBuildingBlock
 partnerAgent : Linkage EnvironmentInteractionProcessType AgentType
 partnerAgent = membershipOfPartnerAgent  ∘  aggregationOfAgentTypePartnerAgent
 
+postulate -- partnerAgent is subTypeOf scenarioParticipant
+  st-ca35159e5fc5978d-ca3518a45fc59e76  : partnerAgent   ⊏⋆ᵣ  scenarioParticipant 
+
+
 {- Scenario Participant: -}
 -- Aggregate Member : Scenario Participant
 ScenarioParticipant : ClassOfClassOfIndividual
@@ -102,11 +114,11 @@ ScenarioParticipant = ClassOfIndividual
 
 -- Membership relation
 membershipOfScenarioParticipant :  Linkage EnvironmentInteractionProcessType ScenarioParticipant
-membershipOfScenarioParticipant = membershipOfAggregateMember
+membershipOfScenarioParticipant = make_upwardNestingRelation "scenarioParticipant membership" "nested scenarioParticipant"
 
 -- Aggregation relation
 aggregationOfAgentTypeScenarioParticipant :  Linkage ScenarioParticipant AgentType
-aggregationOfAgentTypeScenarioParticipant = aggregationOfBuildingBlock
+aggregationOfAgentTypeScenarioParticipant = make_Relation "AgentType aggregation" "aggregated AgentType"
 
 {- scenarioParticipant : derived relation obtained by composing
    membershipOfScenarioParticipant and aggregationOfAgentTypeScenarioParticipant
@@ -115,3 +127,7 @@ aggregationOfAgentTypeScenarioParticipant = aggregationOfBuildingBlock
 -}
 scenarioParticipant : Linkage EnvironmentInteractionProcessType AgentType
 scenarioParticipant = membershipOfScenarioParticipant  ∘  aggregationOfAgentTypeScenarioParticipant
+
+postulate -- scenarioParticipant is subTypeOf ecosystemMember
+  st-ca3518a45fc59e76-3d3f4aed6201346c  : scenarioParticipant   ⊏⋆ᵣ  ecosystemMember 
+

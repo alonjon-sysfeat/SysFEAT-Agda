@@ -21,7 +21,7 @@ InitiativeInstrument : ∀ (u : Level) → ClassOfMixedOrderEntity u
 InitiativeInstrument u = MixedOrderEntity u
 
 --  InitiativeInstrument is subTypeOf InitiativeBlock
-st-0b950d3668e54ade : ∀ {u v} → (InitiativeInstrument u) ⊏⋆ₑ (InitiativeBlock v)
-st-0b950d3668e54ade = trivialPolySubTypeOfEntity
+st-01ce05606859794a-01ce05f9685979d8 : ∀ {u v} → (InitiativeInstrument u) ⊏⋆ₑ (InitiativeBlock v)
+st-01ce05606859794a-01ce05f9685979d8 = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

@@ -21,7 +21,7 @@ IndividualStakeholder : ClassOfBoundedIndividual
 IndividualStakeholder = BoundedIndividual
 
 --  IndividualStakeholder is subTypeOf Stakeholder
-st-2cc9718f55263cbd : IndividualStakeholder ⊏ₑ Stakeholder
-st-2cc9718f55263cbd = polySubTypeOf-identity
+st-2cc9718655263c44-bcebd0175491272a : IndividualStakeholder ⊏ₑ Stakeholder
+st-2cc9718655263c44-bcebd0175491272a = polySubTypeOf-identity
 
 -- == Relationships =======================

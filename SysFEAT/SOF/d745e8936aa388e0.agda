@@ -25,12 +25,12 @@ DescriptionNote : ClassOfIndividual
 DescriptionNote = Individual
 
 --  DescriptionNote is subTypeOf AnnotationBlock
-st-d745e8ac6aa38945 : DescriptionNote ⊏ₑ AnnotationBlock
-st-d745e8ac6aa38945 = polySubTypeOf-identity
+st-d745e8936aa388e0-d745e6ea6aa386e5 : DescriptionNote ⊏ₑ AnnotationBlock
+st-d745e8936aa388e0-d745e6ea6aa386e5 = polySubTypeOf-identity
 
 --  DescriptionNote withAspect ElementaryBlock
-st-d745e8d86aa389a6 : DescriptionNote ⊏ₐₑ (ElementaryBlock lzero)
-st-d745e8d86aa389a6 = polySubTypeOf-identity
+st-d745e8936aa388e0-23d5c5fc685142de : DescriptionNote ⊏ₐₑ (ElementaryBlock lzero)
+st-d745e8936aa388e0-23d5c5fc685142de = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -38,3 +38,5 @@ st-d745e8d86aa389a6 = polySubTypeOf-identity
 describedElement : ∀ {u} →  Linkage DescriptionNote (Entity u)
 describedElement = make_Relation "Described Element" "Described Element"
 
+postulate -- describedElement is subTypeOf annotedElement
+  st-3346bfad68785033-3346b23668784855  : describedElement  {lzero}  ⊏⋆ᵣ  annotedElement  {lzero}

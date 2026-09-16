@@ -24,11 +24,11 @@ MeasurementInstrument : ClassOfBoundedIndividual
 MeasurementInstrument = BoundedIndividual
 
 --  MeasurementInstrument withAspect GovernanceInstrument
-st-a66fa9e965a98597 : MeasurementInstrument ⊏ₐₑ (GovernanceInstrument lzero)
-st-a66fa9e965a98597 = polySubTypeOf-identity
+st-173706265fe3f332-6662916b68dd5f84 : MeasurementInstrument ⊏ₐₑ (GovernanceInstrument lzero)
+st-173706265fe3f332-6662916b68dd5f84 = polySubTypeOf-identity
 
 --  MeasurementInstrument is subTypeOf BoundedIndividual
-st-366c3d4a675c1326 : MeasurementInstrument ⊏ₑ BoundedIndividual
-st-366c3d4a675c1326 = polySubTypeOf-identity
+st-173706265fe3f332-28f07b2354be0d69 : MeasurementInstrument ⊏ₑ BoundedIndividual
+st-173706265fe3f332-28f07b2354be0d69 = polySubTypeOf-identity
 
 -- == Relationships =======================

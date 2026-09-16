@@ -23,8 +23,8 @@ ArchitectureDecision : ClassOfBoundedIndividual
 ArchitectureDecision = BoundedIndividual
 
 --  ArchitectureDecision is subTypeOf Decision
-st-366c4d64675c25a1 : ArchitectureDecision ⊏ₑ Decision
-st-366c4d64675c25a1 = polySubTypeOf-identity
+st-366c4d5c675c2559-d7f9fcc95f720ee0 : ArchitectureDecision ⊏ₑ Decision
+st-366c4d5c675c2559-d7f9fcc95f720ee0 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

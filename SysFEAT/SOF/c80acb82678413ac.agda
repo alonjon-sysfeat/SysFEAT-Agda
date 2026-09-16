@@ -21,7 +21,7 @@ AgentLifeCycleEvent : ClassOfClassOfIndividual
 AgentLifeCycleEvent = ClassOfIndividual
 
 --  AgentLifeCycleEvent is subTypeOf TemporalBoundingType
-st-c80acf556784192e : AgentLifeCycleEvent ⊏ₑ TemporalBoundingType
-st-c80acf556784192e = polySubTypeOf-identity
+st-c80acb82678413ac-9429979a66823f90 : AgentLifeCycleEvent ⊏ₑ TemporalBoundingType
+st-c80acb82678413ac-9429979a66823f90 = polySubTypeOf-identity
 
 -- == Relationships =======================

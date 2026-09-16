@@ -21,7 +21,7 @@ ConceptualLevel : ∀ (u : Level) → MixedOrderMetaClass u
 ConceptualLevel u = ClassOfMixedOrderEntity u
 
 --  ConceptualLevel is subTypeOf ConceptualizationLevel
-st-52b05b606a10511c : ∀ {u v} → (ConceptualLevel u) ⊏⋆ₑ (ConceptualizationLevel v)
-st-52b05b606a10511c = trivialPolySubTypeOfEntity
+st-52b05b596a1050ba-52b05a616a104fab : ∀ {u v} → (ConceptualLevel u) ⊏⋆ₑ (ConceptualizationLevel v)
+st-52b05b596a1050ba-52b05a616a104fab = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

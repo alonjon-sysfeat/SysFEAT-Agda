@@ -22,8 +22,8 @@ ArchitectureDecisionOutcome : PropertyType
 ArchitectureDecisionOutcome = ClassOfProperty
 
 --  ArchitectureDecisionOutcome is subTypeOf DecisionOutcome
-st-366c4cff675c24ca : ArchitectureDecisionOutcome ⊏ₑ DecisionOutcome
-st-366c4cff675c24ca = polySubTypeOf-identity
+st-97e09d7e68dd6d87-97e09cde68dd6c0f : ArchitectureDecisionOutcome ⊏ₑ DecisionOutcome
+st-97e09d7e68dd6d87-97e09cde68dd6c0f = polySubTypeOf-identity
 
 -- == Relationships =======================
 

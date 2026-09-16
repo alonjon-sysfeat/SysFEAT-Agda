@@ -22,8 +22,8 @@ DecisionOutcome : PropertyType
 DecisionOutcome = ClassOfProperty
 
 --  DecisionOutcome is subTypeOf ResolutionOutcome
-st-83bb9fa061923c3f : DecisionOutcome ⊏ₑ ResolutionOutcome
-st-83bb9fa061923c3f = polySubTypeOf-identity
+st-97e09cde68dd6c0f-97e09afa68dd69f1 : DecisionOutcome ⊏ₑ ResolutionOutcome
+st-97e09cde68dd6c0f-97e09afa68dd69f1 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

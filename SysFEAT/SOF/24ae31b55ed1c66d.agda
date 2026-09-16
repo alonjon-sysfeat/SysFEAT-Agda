@@ -26,12 +26,12 @@ ServiceInterface : ClassOfClassOfIndividual
 ServiceInterface = ClassOfIndividual
 
 --  ServiceInterface is subTypeOf BehaviorType
-st-56ea58726605a6c8 : ServiceInterface ⊏ₑ BehaviorType
-st-56ea58726605a6c8 = polySubTypeOf-identity
+st-24ae31b55ed1c66d-986cd4ec5ffca3ac : ServiceInterface ⊏ₑ BehaviorType
+st-24ae31b55ed1c66d-986cd4ec5ffca3ac = polySubTypeOf-identity
 
 --  ServiceInterface is subTypeOf OperatingConnection
-st-2b5b46d566ed59cd : ServiceInterface ⊏ₑ OperatingConnection
-st-2b5b46d566ed59cd = polySubTypeOf-identity
+st-24ae31b55ed1c66d-21c5276e655759fb : ServiceInterface ⊏ₑ OperatingConnection
+st-24ae31b55ed1c66d-21c5276e655759fb = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -42,11 +42,11 @@ SubServiceInterface = ClassOfIndividual
 
 -- Membership relation
 membershipOfSubServiceInterface :  Linkage ServiceInterface SubServiceInterface
-membershipOfSubServiceInterface = membershipOfAggregateMember
+membershipOfSubServiceInterface = make_upwardNestingRelation "subServiceInterface membership" "nested subServiceInterface"
 
 -- Aggregation relation
 aggregationOfServiceInterfaceSubServiceInterface :  Linkage SubServiceInterface ServiceInterface
-aggregationOfServiceInterfaceSubServiceInterface = aggregationOfBuildingBlock
+aggregationOfServiceInterfaceSubServiceInterface = make_Relation "ServiceInterface aggregation" "aggregated ServiceInterface"
 
 {- subServiceInterface : derived relation obtained by composing
    membershipOfSubServiceInterface and aggregationOfServiceInterfaceSubServiceInterface
@@ -55,6 +55,10 @@ aggregationOfServiceInterfaceSubServiceInterface = aggregationOfBuildingBlock
 -}
 subServiceInterface : Linkage ServiceInterface ServiceInterface
 subServiceInterface = membershipOfSubServiceInterface  ∘  aggregationOfServiceInterfaceSubServiceInterface
+
+postulate -- subServiceInterface is subTypeOf behaviorPart
+  st-f38134c7687e3c48-b776b92668b04c85  : subServiceInterface   ⊏⋆ᵣ  behaviorPart 
+
 
 {- Flow Connection: 
 A Flow Connection is an Outcome Event event that occurs between the consumer and the provider participant of a Service Interface.
@@ -65,11 +69,11 @@ FlowConnection = ClassOfIndividual
 
 -- Membership relation
 membershipOfFlowConnection :  Linkage ServiceInterface FlowConnection
-membershipOfFlowConnection = membershipOfAggregateMember
+membershipOfFlowConnection = make_upwardNestingRelation "flowConnection membership" "nested flowConnection"
 
 -- Aggregation relation
 aggregationOfOutcomeEventFlowConnection :  Linkage FlowConnection OutcomeEvent
-aggregationOfOutcomeEventFlowConnection = aggregationOfBuildingBlock
+aggregationOfOutcomeEventFlowConnection = make_Relation "OutcomeEvent aggregation" "aggregated OutcomeEvent"
 
 {- flowConnection : derived relation obtained by composing
    membershipOfFlowConnection and aggregationOfOutcomeEventFlowConnection
@@ -78,3 +82,7 @@ aggregationOfOutcomeEventFlowConnection = aggregationOfBuildingBlock
 -}
 flowConnection : Linkage ServiceInterface OutcomeEvent
 flowConnection = membershipOfFlowConnection  ∘  aggregationOfOutcomeEventFlowConnection
+
+postulate -- flowConnection is subTypeOf behaviorPart
+  st-c561d7e4680f69ce-b776b92668b04c85  : flowConnection   ⊏⋆ᵣ  behaviorPart 
+

@@ -23,12 +23,12 @@ Tag : ClassOfIndividual
 Tag = Individual
 
 --  Tag is subTypeOf AnnotationBlock
-st-d745e9b86aa38b12 : Tag ⊏ₑ AnnotationBlock
-st-d745e9b86aa38b12 = polySubTypeOf-identity
+st-d745e99d6aa38a7a-d745e6ea6aa386e5 : Tag ⊏ₑ AnnotationBlock
+st-d745e99d6aa38a7a-d745e6ea6aa386e5 = polySubTypeOf-identity
 
 --  Tag withAspect ElementaryBlock
-st-d745e9b16aa38adf : Tag ⊏ₐₑ (ElementaryBlock lzero)
-st-d745e9b16aa38adf = polySubTypeOf-identity
+st-d745e99d6aa38a7a-23d5c5fc685142de : Tag ⊏ₐₑ (ElementaryBlock lzero)
+st-d745e99d6aa38a7a-23d5c5fc685142de = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -36,3 +36,5 @@ st-d745e9b16aa38adf = polySubTypeOf-identity
 taggedElement : ∀ {u} →  Linkage Tag (Entity u)
 taggedElement = make_Relation "Tagged Element" "Tagged Element"
 
+postulate -- taggedElement is subTypeOf annotedElement
+  st-3346c41a6878530e-3346b23668784855  : taggedElement  {lzero}  ⊏⋆ᵣ  annotedElement  {lzero}

@@ -22,11 +22,11 @@ Waiver : ClassOfBoundedIndividual
 Waiver = BoundedIndividual
 
 --  Waiver is subTypeOf Resolution
-st-e073089661d322b1 : Waiver ⊏ₑ Resolution
-st-e073089661d322b1 = polySubTypeOf-identity
+st-e073084561d32165-e073f9c161d2104a : Waiver ⊏ₑ Resolution
+st-e073084561d32165-e073f9c161d2104a = polySubTypeOf-identity
 
 --  Waiver is subTypeOf PolicyDecision
-st-7327a33d64364b90 : Waiver ⊏ₑ PolicyDecision
-st-7327a33d64364b90 = polySubTypeOf-identity
+st-e073084561d32165-732799d364364423 : Waiver ⊏ₑ PolicyDecision
+st-e073084561d32165-732799d364364423 = polySubTypeOf-identity
 
 -- == Relationships =======================

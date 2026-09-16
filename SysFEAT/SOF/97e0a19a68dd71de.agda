@@ -22,8 +22,8 @@ PolicyapplicabilityStatus : PropertyType
 PolicyapplicabilityStatus = ClassOfProperty
 
 --  PolicyapplicabilityStatus is subTypeOf DecisionOutcome
-st-97e0a1a268dd7226 : PolicyapplicabilityStatus ⊏ₑ DecisionOutcome
-st-97e0a1a268dd7226 = polySubTypeOf-identity
+st-97e0a19a68dd71de-97e09cde68dd6c0f : PolicyapplicabilityStatus ⊏ₑ DecisionOutcome
+st-97e0a19a68dd71de-97e09cde68dd6c0f = polySubTypeOf-identity
 
 -- == Relationships =======================
 

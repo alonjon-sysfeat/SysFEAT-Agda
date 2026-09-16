@@ -22,11 +22,11 @@ AgentStateType : ClassOfClassOfBoundedIndividual
 AgentStateType = ClassOfBoundedIndividual
 
 --  AgentStateType is subTypeOf AssetStateType
-st-c80ac938678411b1 : AgentStateType ⊏ₑ AssetStateType
-st-c80ac938678411b1 = polySubTypeOf-identity
+st-c80ac8f367841131-e13ce269678f11ed : AgentStateType ⊏ₑ AssetStateType
+st-c80ac8f367841131-e13ce269678f11ed = polySubTypeOf-identity
 
 --  AgentStateType is subTypeOf AgentType
-st-c80ac90c67841179 : AgentStateType ⊏ₑ AgentType
-st-c80ac90c67841179 = polySubTypeOf-identity
+st-c80ac8f367841131-79368381561716a6 : AgentStateType ⊏ₑ AgentType
+st-c80ac8f367841131-79368381561716a6 = polySubTypeOf-identity
 
 -- == Relationships =======================

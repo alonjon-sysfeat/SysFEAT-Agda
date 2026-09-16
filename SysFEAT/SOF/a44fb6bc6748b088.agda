@@ -31,8 +31,8 @@ FunctionalAsset : ClassOfClassOfBoundedIndividual
 FunctionalAsset = ClassOfBoundedIndividual
 
 --  FunctionalAsset is subTypeOf AssetType
-st-d059312e5ef2b09c : FunctionalAsset ⊏ₑ AssetType
-st-d059312e5ef2b09c = polySubTypeOf-identity
+st-a44fb6bc6748b088-a4a5b3f855585ce1 : FunctionalAsset ⊏ₑ AssetType
+st-a44fb6bc6748b088-a4a5b3f855585ce1 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -61,11 +61,11 @@ PolicyConformance = ClassOfIndividual
 
 -- Membership relation
 membershipOfPolicyConformance :  Linkage FunctionalAsset PolicyConformance
-membershipOfPolicyConformance = membershipOfAggregateMember
+membershipOfPolicyConformance = make_upwardNestingRelation "policyConformance membership" "nested policyConformance"
 
 -- Aggregation relation
 aggregationOfPolicyPolicyConformance :  Linkage PolicyConformance Policy
-aggregationOfPolicyPolicyConformance = aggregationOfBuildingBlock
+aggregationOfPolicyPolicyConformance = make_Relation "Policy aggregation" "aggregated Policy"
 
 {- policyConformance : derived relation obtained by composing
    membershipOfPolicyConformance and aggregationOfPolicyPolicyConformance
@@ -74,6 +74,10 @@ aggregationOfPolicyPolicyConformance = aggregationOfBuildingBlock
 -}
 policyConformance : Linkage FunctionalAsset Policy
 policyConformance = membershipOfPolicyConformance  ∘  aggregationOfPolicyPolicyConformance
+
+postulate -- policyConformance is subTypeOf aggregateQualification
+  st-01f1189f689b641d-b83e30bc696f51e5  : policyConformance   ⊏⋆ᵣ  aggregateQualification 
+
 
 {- Risk: 
 A  Risk refers to the potential for loss resulting from inadequate structure or behavior of a Functional Asset.
@@ -84,11 +88,11 @@ Risk = SecondOrderClass
 
 -- Membership relation
 membershipOfRisk :  Linkage FunctionalAsset Risk
-membershipOfRisk = membershipOfAggregateMember
+membershipOfRisk = make_upwardNestingRelation "risk membership" "nested risk"
 
 -- Aggregation relation
 aggregationOfRiskTypeRisk :  Linkage Risk RiskType
-aggregationOfRiskTypeRisk = aggregationOfBuildingBlock
+aggregationOfRiskTypeRisk = make_Relation "RiskType aggregation" "aggregated RiskType"
 
 {- risk : derived relation obtained by composing
    membershipOfRisk and aggregationOfRiskTypeRisk
@@ -97,3 +101,9 @@ aggregationOfRiskTypeRisk = aggregationOfBuildingBlock
 -}
 risk : Linkage FunctionalAsset RiskType
 risk = membershipOfRisk  ∘  aggregationOfRiskTypeRisk
+
+postulate -- risk is subTypeOf unboundedMember
+  st-0e55219466f11fd7-8cfaf71a6852b042  : risk   ⊏⋆ᵣ  unboundedMember {lzero} {lzero}
+postulate -- risk is subTypeOf categorization
+  st-0e55219466f11fd7-f69619646a0f8e6c  : risk   ⊏⋆ᵣ  categorization  {lsuc(lsuc(lzero))}
+

@@ -21,7 +21,7 @@ InitiativeBlock : ∀ (u : Level) → ClassOfMixedOrderEntity u
 InitiativeBlock u = MixedOrderEntity u
 
 --  InitiativeBlock is subTypeOf ModelBuildingBlock
-st-01ce061b68597a3a : ∀ {u v} → (InitiativeBlock u) ⊏⋆ₑ (ModelBuildingBlock v)
-st-01ce061b68597a3a = trivialPolySubTypeOfEntity
+st-01ce05f9685979d8-0eb95e566855bed9 : ∀ {u v} → (InitiativeBlock u) ⊏⋆ₑ (ModelBuildingBlock v)
+st-01ce05f9685979d8-0eb95e566855bed9 = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

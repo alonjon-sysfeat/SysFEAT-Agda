@@ -25,12 +25,12 @@ InformationEntity : ClassOfClassOfBoundedIndividual
 InformationEntity = ClassOfBoundedIndividual
 
 --  InformationEntity is subTypeOf InformationAsset
-st-51ae665d5ee7d56c : InformationEntity ⊏ₑ InformationAsset
-st-51ae665d5ee7d56c = polySubTypeOf-identity
+st-d6cd2cea5ab98e5f-e6f250185f772ee1 : InformationEntity ⊏ₑ InformationAsset
+st-d6cd2cea5ab98e5f-e6f250185f772ee1 = polySubTypeOf-identity
 
 --  InformationEntity is subTypeOf ClassOfBoundedIndividual
-st-56ea65136605b505 : InformationEntity ⊏ₑ ClassOfBoundedIndividual
-st-56ea65136605b505 = polySubTypeOf-identity
+st-d6cd2cea5ab98e5f-3492c53e619642ed : InformationEntity ⊏ₑ ClassOfBoundedIndividual
+st-d6cd2cea5ab98e5f-3492c53e619642ed = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -43,27 +43,6 @@ specializedInformationEntity = make_subTypeOf "Specialized Information Entity" "
 postulate -- specializedInformationEntity is subTypeOf specializedInformationAsset
   st-325a37b966f34da2-325a372e66f33bca  : specializedInformationEntity   ⊏⋆ᵣ  specializedInformationAsset 
 
-{- Qualifying Information Property: -}
--- Aggregate Member : Qualifying Information Property
-QualifyingInformationProperty : ClassOfClassOfIndividual
-QualifyingInformationProperty = ClassOfIndividual
-
--- Membership relation
-membershipOfQualifyingInformationProperty :  Linkage InformationEntity QualifyingInformationProperty
-membershipOfQualifyingInformationProperty = membershipOfAggregateMember
-
--- Aggregation relation
-aggregationOfInformationPropertyQualifyingInformationProperty :  Linkage QualifyingInformationProperty InformationProperty
-aggregationOfInformationPropertyQualifyingInformationProperty = aggregationOfBuildingBlock
-
-{- qualifyingInformationProperty : derived relation obtained by composing
-   membershipOfQualifyingInformationProperty and aggregationOfInformationPropertyQualifyingInformationProperty
-   It directly links an Information Entity to the final aggregated InformationProperty
-   hiding the reifying QualifyingInformationProperty
--}
-qualifyingInformationProperty : Linkage InformationEntity InformationProperty
-qualifyingInformationProperty = membershipOfQualifyingInformationProperty  ∘  aggregationOfInformationPropertyQualifyingInformationProperty
-
 {- Information Relationship: 
 An Information Relationship is a characteristic of an Information Entity that represents a relationships to other Information Entity(ies).
 -}
@@ -73,11 +52,11 @@ InformationRelationship = ClassOfIndividual
 
 -- Membership relation
 membershipOfInformationRelationship :  Linkage InformationEntity InformationRelationship
-membershipOfInformationRelationship = membershipOfAggregateMember
+membershipOfInformationRelationship = make_upwardNestingRelation "informationRelationship membership" "nested informationRelationship"
 
 -- Aggregation relation
 aggregationOfInformationEntityInformationRelationship :  Linkage InformationRelationship InformationEntity
-aggregationOfInformationEntityInformationRelationship = aggregationOfBuildingBlock
+aggregationOfInformationEntityInformationRelationship = make_Relation "InformationEntity aggregation" "aggregated InformationEntity"
 
 {- informationRelationship : derived relation obtained by composing
    membershipOfInformationRelationship and aggregationOfInformationEntityInformationRelationship
@@ -86,3 +65,34 @@ aggregationOfInformationEntityInformationRelationship = aggregationOfBuildingBlo
 -}
 informationRelationship : Linkage InformationEntity InformationEntity
 informationRelationship = membershipOfInformationRelationship  ∘  aggregationOfInformationEntityInformationRelationship
+
+postulate -- informationRelationship is subTypeOf informationAssetRelationship
+  st-dfa4e2305ebb4d2b-18eb1f335fdb6e7f  : informationRelationship   ⊏⋆ᵣ  informationAssetRelationship 
+postulate -- informationRelationship is subTypeOf aggregateHolonymyType
+  st-dfa4e2305ebb4d2b-c2f2c83b66ea4d78  : informationRelationship   ⊏⋆ᵣ  aggregateHolonymyType 
+
+
+{- Qualifying Information Property: -}
+-- Aggregate Member : Qualifying Information Property
+QualifyingInformationProperty : ClassOfClassOfIndividual
+QualifyingInformationProperty = ClassOfIndividual
+
+-- Membership relation
+membershipOfQualifyingInformationProperty :  Linkage InformationEntity QualifyingInformationProperty
+membershipOfQualifyingInformationProperty = make_upwardNestingRelation "qualifyingInformationProperty membership" "nested qualifyingInformationProperty"
+
+-- Aggregation relation
+aggregationOfInformationPropertyQualifyingInformationProperty :  Linkage QualifyingInformationProperty InformationProperty
+aggregationOfInformationPropertyQualifyingInformationProperty = make_Relation "InformationProperty aggregation" "aggregated InformationProperty"
+
+{- qualifyingInformationProperty : derived relation obtained by composing
+   membershipOfQualifyingInformationProperty and aggregationOfInformationPropertyQualifyingInformationProperty
+   It directly links an Information Entity to the final aggregated InformationProperty
+   hiding the reifying QualifyingInformationProperty
+-}
+qualifyingInformationProperty : Linkage InformationEntity InformationProperty
+qualifyingInformationProperty = membershipOfQualifyingInformationProperty  ∘  aggregationOfInformationPropertyQualifyingInformationProperty
+
+postulate -- qualifyingInformationProperty is subTypeOf informationAssetRelationship
+  st-c189d89268ae51cd-18eb1f335fdb6e7f  : qualifyingInformationProperty   ⊏⋆ᵣ  informationAssetRelationship 
+

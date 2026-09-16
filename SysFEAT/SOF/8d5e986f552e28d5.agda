@@ -25,8 +25,8 @@ Location : ClassOfBoundedIndividual
 Location = BoundedIndividual
 
 --  Location is subTypeOf BoundedIndividual
-st-a44f94366748aa53 : Location ⊏ₑ BoundedIndividual
-st-a44f94366748aa53 = polySubTypeOf-identity
+st-8d5e986f552e28d5-28f07b2354be0d69 : Location ⊏ₑ BoundedIndividual
+st-8d5e986f552e28d5-28f07b2354be0d69 = polySubTypeOf-identity
 
 -- == Relationships =======================
 

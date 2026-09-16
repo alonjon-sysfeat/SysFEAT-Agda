@@ -22,7 +22,7 @@ SystemicLevel : ∀ (u : Level) → MixedOrderMetaClass u
 SystemicLevel u = ClassOfMixedOrderEntity u
 
 --  SystemicLevel is subTypeOf ClassPartition
-st-0c450f2f6a03216d : ∀ {u v} → (SystemicLevel u) ⊏⋆ₑ (ClassPartition v)
-st-0c450f2f6a03216d = trivialPolySubTypeOfEntity
+st-0c450e776a031ff0-8d1ceeab68f755a5 : ∀ {u v} → (SystemicLevel u) ⊏⋆ₑ (ClassPartition v)
+st-0c450e776a031ff0-8d1ceeab68f755a5 = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================

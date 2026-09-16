@@ -22,8 +22,8 @@ MeasurementValue : PropertyType
 MeasurementValue = ClassOfProperty
 
 --  MeasurementValue is subTypeOf MeasureProperty
-st-3b1bc87f68cdaf0c : MeasurementValue ⊏ₑ MeasureProperty
-st-3b1bc87f68cdaf0c = polySubTypeOf-identity
+st-3b1bc7e968cdac60-21ed2aa6689c12ba : MeasurementValue ⊏ₑ MeasureProperty
+st-3b1bc7e968cdac60-21ed2aa6689c12ba = polySubTypeOf-identity
 
 -- == Relationships =======================
 

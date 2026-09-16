@@ -24,12 +24,12 @@ ArchitectureContainer : ∀ (u : Level) → ClassOfMixedOrderEntity u
 ArchitectureContainer u = MixedOrderEntity u
 
 --  ArchitectureContainer is subTypeOf ArchitectureLexicalScope
-st-0eb95f7b6855c056 : ∀ {u v} → (ArchitectureContainer u) ⊏⋆ₑ (ArchitectureLexicalScope v)
-st-0eb95f7b6855c056 = trivialPolySubTypeOfEntity
+st-0eb95f1b6855bf64-0eb95d786855bbd9 : ∀ {u v} → (ArchitectureContainer u) ⊏⋆ₑ (ArchitectureLexicalScope v)
+st-0eb95f1b6855bf64-0eb95d786855bbd9 = trivialPolySubTypeOfEntity
 
 --  ArchitectureContainer is subTypeOf ModelContainer
-st-9397bc2b6877823c : ∀ {u v} → (ArchitectureContainer u) ⊏⋆ₑ (ModelContainer v)
-st-9397bc2b6877823c = trivialPolySubTypeOfEntity
+st-0eb95f1b6855bf64-0eb95dce6855be2e : ∀ {u v} → (ArchitectureContainer u) ⊏⋆ₑ (ModelContainer v)
+st-0eb95f1b6855bf64-0eb95dce6855be2e = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================
 

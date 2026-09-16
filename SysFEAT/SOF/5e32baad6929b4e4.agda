@@ -21,7 +21,7 @@ Applicable : ClassOfProperty
 Applicable = Property
 
 --  Applicable is subTypeOf PolicityDecisionOption
-st-5e32bab46929b524 : Applicable ⊏ₑ PolicityDecisionOption
-st-5e32bab46929b524 = polySubTypeOf-identity
+st-5e32baad6929b4e4-5e32ba416929b430 : Applicable ⊏ₑ PolicityDecisionOption
+st-5e32baad6929b4e4-5e32ba416929b430 = polySubTypeOf-identity
 
 

@@ -23,8 +23,8 @@ KeyIndicator : ClassOfBoundedIndividual
 KeyIndicator = BoundedIndividual
 
 --  KeyIndicator is subTypeOf MeasurementInstrument
-st-8f46e90164b771f3 : KeyIndicator ⊏ₑ MeasurementInstrument
-st-8f46e90164b771f3 = polySubTypeOf-identity
+st-8f46e8eb64b7719a-173706265fe3f332 : KeyIndicator ⊏ₑ MeasurementInstrument
+st-8f46e8eb64b7719a-173706265fe3f332 = polySubTypeOf-identity
 
 -- == Relationships =======================
 
@@ -46,11 +46,11 @@ Measurement = ClassOfIndividual
 
 -- Membership relation
 membershipOfMeasurement :  Linkage KeyIndicator Measurement
-membershipOfMeasurement = membershipOfAggregateMember
+membershipOfMeasurement = make_upwardNestingRelation "measurement membership" "nested measurement"
 
 -- Aggregation relation
 aggregationOfMeasurementValueMeasurement :  Linkage Measurement MeasurementValue
-aggregationOfMeasurementValueMeasurement = aggregationOfBuildingBlock
+aggregationOfMeasurementValueMeasurement = make_Relation "MeasurementValue aggregation" "aggregated MeasurementValue"
 
 {- measurement : derived relation obtained by composing
    membershipOfMeasurement and aggregationOfMeasurementValueMeasurement
@@ -59,3 +59,7 @@ aggregationOfMeasurementValueMeasurement = aggregationOfBuildingBlock
 -}
 measurement : Linkage KeyIndicator MeasurementValue
 measurement = membershipOfMeasurement  ∘  aggregationOfMeasurementValueMeasurement
+
+postulate -- measurement is subTypeOf hierarchicalMember
+  st-3b1bc7f668cdaca9-fb660a9068699cde  : measurement   ⊏⋆ᵣ  hierarchicalMember {lzero} {lzero}
+

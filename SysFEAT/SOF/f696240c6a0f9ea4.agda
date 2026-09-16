@@ -24,16 +24,16 @@ CategoryPartition : ∀ (u : Level) → Set (lsuc (lsuc (lsuc u)))
 CategoryPartition u = Category u
 
 --  CategoryPartition is subTypeOf ClassPartition
-st-24f72e4d6a0f4fa3 : ∀ {u v} → (CategoryPartition u) ⊏⋆ₑ (ClassPartition v)
-st-24f72e4d6a0f4fa3 = trivialPolySubTypeOfEntity
+st-f696240c6a0f9ea4-8d1ceeab68f755a5 : ∀ {u v} → (CategoryPartition u) ⊏⋆ₑ (ClassPartition v)
+st-f696240c6a0f9ea4-8d1ceeab68f755a5 = trivialPolySubTypeOfEntity
 
 --  CategoryPartition is subTypeOf ModelPropertyBlock
-st-c2f2a60166ea394c : ∀ {u v} → (CategoryPartition u) ⊏⋆ₑ (ModelPropertyBlock v)
-st-c2f2a60166ea394c = trivialPolySubTypeOfEntity
+st-f696240c6a0f9ea4-0eb97aff6855cd23 : ∀ {u v} → (CategoryPartition u) ⊏⋆ₑ (ModelPropertyBlock v)
+st-f696240c6a0f9ea4-0eb97aff6855cd23 = trivialPolySubTypeOfEntity
 
 --  CategoryPartition is subTypeOf Category
-st-e15be9376a10fadc : ∀ {u v} → (CategoryPartition u) ⊏⋆ₑ (Category v)
-st-e15be9376a10fadc = trivialPolySubTypeOfEntity
+st-f696240c6a0f9ea4-f69619236a0f8dcd : ∀ {u v} → (CategoryPartition u) ⊏⋆ₑ (Category v)
+st-f696240c6a0f9ea4-f69619236a0f8dcd = trivialPolySubTypeOfEntity
 
 -- == Relationships =======================
 
