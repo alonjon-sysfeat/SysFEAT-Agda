@@ -19,8 +19,9 @@ open import SysFEAT.UpperOntology.06710aeb68ed2d29 public -- Meta Family of Clas
 open import SysFEAT.SOF.6c5f80e468587f06 public -- Information Block
 open import SysFEAT.SOF.d6cd116d5ab97525 public -- Information Domain
 
-InformationMap : ClassOfClassOfBoundedIndividual
-InformationMap = ClassOfBoundedIndividual
+InformationMap : ClassOfMixedOrderEntity
+InformationMap = MixedOrderEntity
+
 
 --  InformationMap withAspect MetaFamilyOfClass
 st-d6cd2d8e5ab98edc-06710aeb68ed2d29 : InformationMap ⊏ₐₑ (MetaFamilyOfClass (lsuc(lzero)))
@@ -30,7 +31,8 @@ st-d6cd2d8e5ab98edc-06710aeb68ed2d29 = polySubTypeOf-identity
 st-d6cd2d8e5ab98edc-6c5f80e468587f06 : InformationMap ⊏ₐₑ (InformationBlock (lsuc(lzero)))
 st-d6cd2d8e5ab98edc-6c5f80e468587f06 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Information Domain Member: -}
 -- Aggregate Member : Information Domain Member

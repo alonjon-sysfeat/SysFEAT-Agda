@@ -17,11 +17,13 @@ module SysFEAT.SOF.01ce05606859794a where -- ========== Initiative Instrument
 open import Agda.Primitive
 open import SysFEAT.SOF.01ce05f9685979d8 public -- Initiative Block
 
-InitiativeInstrument : ∀ (u : Level) → ClassOfMixedOrderEntity u
-InitiativeInstrument u = MixedOrderEntity u
+InitiativeInstrument : ∀ (u : Level) → ClassOfMixedOrderEntity u 
+InitiativeInstrument u  = MixedOrderEntity u 
+
 
 --  InitiativeInstrument is subTypeOf InitiativeBlock
 st-01ce05606859794a-01ce05f9685979d8 : ∀ {u v} → (InitiativeInstrument u) ⊏⋆ₑ (InitiativeBlock v)
 st-01ce05606859794a-01ce05f9685979d8 = trivialPolySubTypeOfEntity
 
--- == Relationships =======================
+
+-- == Relations =======================

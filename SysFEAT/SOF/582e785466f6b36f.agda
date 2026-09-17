@@ -24,4 +24,5 @@ DataRiskType = SecondOrderClass
 st-582e785466f6b36f-0e55206a66f11ec5 : DataRiskType ⊏ₑ RiskType
 st-582e785466f6b36f-0e55206a66f11ec5 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

@@ -18,14 +18,16 @@ open import Agda.Primitive
 open import SysFEAT.SOF.66628b5668dd5a25 public -- Appraisal Option
 open import SysFEAT.SOF.366c4627675c1aad public -- Resolution Type
 
-ResolutionOutcome : PropertyType
-ResolutionOutcome = ClassOfProperty
+ResolutionOutcome : ClassOfMixedOrderEntity
+ResolutionOutcome = MixedOrderEntity
+
 
 --  ResolutionOutcome is subTypeOf AppraisalOption
 st-97e09afa68dd69f1-66628b5668dd5a25 : ResolutionOutcome ⊏ₑ AppraisalOption
 st-97e09afa68dd69f1-66628b5668dd5a25 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Resolution Type: -}
 resolutionType :  Linkage ResolutionOutcome ResolutionType

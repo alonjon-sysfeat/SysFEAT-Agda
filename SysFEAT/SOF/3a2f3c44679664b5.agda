@@ -26,4 +26,5 @@ AssetState = StateConcept
 st-3a2f3c44679664b5-ebcfaeac5ad76ed7 : AssetState ⊏ₑ IndividualAsset
 st-3a2f3c44679664b5-ebcfaeac5ad76ed7 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

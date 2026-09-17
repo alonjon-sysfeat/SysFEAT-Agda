@@ -33,12 +33,14 @@ st-24ae31b55ed1c66d-986cd4ec5ffca3ac = polySubTypeOf-identity
 st-24ae31b55ed1c66d-21c5276e655759fb : ServiceInterface ⊏ₑ OperatingConnection
 st-24ae31b55ed1c66d-21c5276e655759fb = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Sub Service Interface: -}
 -- Aggregate Member : Sub Service Interface
-SubServiceInterface : ClassOfClassOfIndividual
-SubServiceInterface = ClassOfIndividual
+SubServiceInterface : AggregateHolonymyType
+SubServiceInterface = AggregateHolonymy
+
 
 -- Membership relation
 membershipOfSubServiceInterface :  Linkage ServiceInterface SubServiceInterface
@@ -64,8 +66,9 @@ postulate -- subServiceInterface is subTypeOf behaviorPart
 A Flow Connection is an Outcome Event event that occurs between the consumer and the provider participant of a Service Interface.
 -}
 -- Aggregate Member : Flow Connection
-FlowConnection : ClassOfClassOfIndividual
-FlowConnection = ClassOfIndividual
+FlowConnection : AggregateHolonymyType
+FlowConnection = AggregateHolonymy
+
 
 -- Membership relation
 membershipOfFlowConnection :  Linkage ServiceInterface FlowConnection

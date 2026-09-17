@@ -17,11 +17,13 @@ module SysFEAT.SOF.0c45104d6a032286 where -- ========== Mezzo Operating Asset
 open import Agda.Primitive
 open import SysFEAT.SOF.0c450e776a031ff0 public -- Systemic Level
 
-MezzoOperatingAsset : ∀ (u : Level) → MixedOrderMetaClass u
-MezzoOperatingAsset u = ClassOfMixedOrderEntity u
+MezzoOperatingAsset : ∀ (u : Level) → MixedOrderMetaClass u 
+MezzoOperatingAsset u  = ClassOfMixedOrderEntity u 
+
 
 --  MezzoOperatingAsset is subTypeOf SystemicLevel
 st-0c45104d6a032286-0c450e776a031ff0 : ∀ {u v} → (MezzoOperatingAsset u) ⊏⋆ₑ (SystemicLevel v)
 st-0c45104d6a032286-0c450e776a031ff0 = trivialPolySubTypeOfEntity
 
--- == Relationships =======================
+
+-- == Relations =======================

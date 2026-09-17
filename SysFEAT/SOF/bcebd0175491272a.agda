@@ -25,6 +25,7 @@ open import SysFEAT.SOF.6662916b68dd5f84 public -- Governance Instrument
 Stakeholder : ClassOfBoundedIndividual
 Stakeholder = BoundedIndividual
 
+
 --  Stakeholder is subTypeOf IndividualState
 st-bcebd0175491272a-29cd2db0661546c4 : Stakeholder ⊏ₑ IndividualState
 st-bcebd0175491272a-29cd2db0661546c4 = polySubTypeOf-identity
@@ -33,4 +34,5 @@ st-bcebd0175491272a-29cd2db0661546c4 = polySubTypeOf-identity
 st-bcebd0175491272a-6662916b68dd5f84 : Stakeholder ⊏ₐₑ (GovernanceInstrument lzero)
 st-bcebd0175491272a-6662916b68dd5f84 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

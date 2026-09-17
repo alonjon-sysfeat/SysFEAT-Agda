@@ -25,18 +25,20 @@ open import SysFEAT.SOF.9e3837e46192fcad public -- Individual Agent
 IndividualBehavior : ClassOfBoundedIndividual
 IndividualBehavior = BoundedIndividual
 
+
 --  IndividualBehavior is subTypeOf IndividualOperatingAsset
 st-e9af119866e86785-9f61cf9166833fb7 : IndividualBehavior ⊏ₑ IndividualOperatingAsset
 st-e9af119866e86785-9f61cf9166833fb7 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Individual Behavior Part: 
 An Individual Behavior Part is the Aggregate Holonymy of an Individual Behavior in a parent Individual Behavior.
 -}
 -- Aggregate Member : Individual Behavior Part
-IndividualBehaviorPart : ClassOfOrderedEntity (lsuc(lzero))
-IndividualBehaviorPart = AggregateMember (lsuc(lzero))
+IndividualBehaviorPart : AggregateHolonymyType
+IndividualBehaviorPart = AggregateHolonymy
 
 
 -- Membership relation
@@ -63,8 +65,8 @@ postulate -- individualBehaviorPart is subTypeOf individualOperatingPart
 An  Individual Participant is
 -}
 -- Aggregate Member : Individual Participant
-IndividualParticipant : ClassOfOrderedEntity (lsuc(lzero))
-IndividualParticipant = AggregateMember (lsuc(lzero))
+IndividualParticipant : AggregateHolonymyType
+IndividualParticipant = AggregateHolonymy
 
 
 -- Membership relation

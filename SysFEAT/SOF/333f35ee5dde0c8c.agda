@@ -28,7 +28,8 @@ InteractionProcessType = ClassOfBoundedIndividual
 st-333f35ee5dde0c8c-986cd4ec5ffca3ac : InteractionProcessType ⊏ₑ BehaviorType
 st-333f35ee5dde0c8c-986cd4ec5ffca3ac = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Specialized Scenario: -}
 specializedScenario :  Linkage InteractionProcessType InteractionProcessType
@@ -46,8 +47,9 @@ postulate -- realizedScenario is subTypeOf realizedBehavior
 
 {- Interaction Flow: -}
 -- Aggregate Member : Interaction Flow
-InteractionFlow : ClassOfClassOfIndividual
-InteractionFlow = ClassOfIndividual
+InteractionFlow : AggregateHolonymyType
+InteractionFlow = AggregateHolonymy
+
 
 -- Membership relation
 membershipOfInteractionFlow :  Linkage InteractionProcessType InteractionFlow
@@ -75,8 +77,9 @@ postulate -- interactionFlow is subTypeOf behaviorPart
 A Scenario Participant is a Behavior Participant engaged in Interaction Flow the context of an Interaction Process Type.
 -}
 -- Aggregate Member : Scenario Participant
-ScenarioParticipant : ClassOfClassOfIndividual
-ScenarioParticipant = ClassOfIndividual
+ScenarioParticipant : AggregateHolonymyType
+ScenarioParticipant = AggregateHolonymy
+
 
 -- Membership relation
 membershipOfScenarioParticipant :  Linkage InteractionProcessType ScenarioParticipant

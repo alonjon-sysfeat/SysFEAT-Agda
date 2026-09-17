@@ -22,7 +22,7 @@ open import SysFEAT.UpperOntology.8cfa942f68527849 public -- Unbounded Aggregate
 open import SysFEAT.SOF.e53af87666e37fcd public -- Set of Environmental Condition Type
 
 SetOfConditionProperties : PropertyType
-SetOfConditionProperties = ClassOfProperty
+SetOfConditionProperties = Property
 
 --  SetOfConditionProperties is subTypeOf ConditionProperty
 st-21ed5bf7689c1ca3-21ed231d689c0679 : SetOfConditionProperties ⊏ₑ ConditionProperty
@@ -32,7 +32,8 @@ st-21ed5bf7689c1ca3-21ed231d689c0679 = polySubTypeOf-identity
 st-21ed5bf7689c1ca3-8cfa942f68527849 : SetOfConditionProperties ⊏ₐₑ (UnboundedAggregate (lsuc(lzero)))
 st-21ed5bf7689c1ca3-8cfa942f68527849 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Set of Environmental Condition Type: -}
 setOfEnvironmentalConditionType :  Linkage SetOfConditionProperties SetOfEnvironmentalConditionType

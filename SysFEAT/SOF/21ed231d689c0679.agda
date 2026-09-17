@@ -18,14 +18,16 @@ open import Agda.Primitive
 open import SysFEAT.SOF.515c6a856893324e public -- Asset Property
 open import SysFEAT.SOF.e53af71366e37de2 public -- Condition Property Type
 
-ConditionProperty : PropertyType
-ConditionProperty = ClassOfProperty
+ConditionProperty : ClassOfMixedOrderEntity
+ConditionProperty = MixedOrderEntity
+
 
 --  ConditionProperty is subTypeOf AssetProperty
 st-21ed231d689c0679-515c6a856893324e : ConditionProperty ⊏ₑ AssetProperty
 st-21ed231d689c0679-515c6a856893324e = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Condition Property Type: -}
 conditionPropertyType :  Linkage ConditionProperty ConditionPropertyType

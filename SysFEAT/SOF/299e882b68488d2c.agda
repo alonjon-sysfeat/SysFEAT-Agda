@@ -26,7 +26,8 @@ OperationalTransformation = BoundedIndividual
 st-299e882b68488d2c-d321c226601262ae : OperationalTransformation ⊏ₑ EnduringInitiative
 st-299e882b68488d2c-d321c226601262ae = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Functional Scope: -}
 functionalScope :  Linkage OperationalTransformation CapabilityMap

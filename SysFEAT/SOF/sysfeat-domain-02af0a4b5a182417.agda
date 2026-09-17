@@ -17,9 +17,8 @@ External references:
 {-# OPTIONS --cubical --guardedness #-}
 module SysFEAT.SOF.sysfeat-domain-02af0a4b5a182417 where -- ========== System Operating Framework - SOF
 
-open import SysFEAT.SOF.sysfeat-domain-02f70fdc600f4179 public -- Policies
+open import SysFEAT.SOF.sysfeat-domain-02f70fdc600f4179 public -- Functional Asset and Operating Constraints
 open import SysFEAT.SOF.sysfeat-domain-d6cd2c8b5ab98da5 public -- Information Assets
-open import SysFEAT.SOF.sysfeat-domain-427c1bdb64b5d1c7 public -- Risk & Threat
 open import SysFEAT.SOF.sysfeat-domain-ab6f7f85681a69f1 public -- Architecture Packages
 open import SysFEAT.SOF.sysfeat-domain-0c450d696a031e95 public -- Systemic Levels
 open import SysFEAT.UpperOntology.sysfeat-domain-fb342c5665561f29 public -- 4D Composite Knowledge Graph
@@ -41,7 +40,6 @@ open import SysFEAT.SOF.515c13db68953887 public -- Capability
 open import SysFEAT.SOF.ca35f48a5fc48686 public -- Operating Eco-System
 open import SysFEAT.SOF.ca3513af5fc59413 public -- Environment Interaction Process Type
 open import SysFEAT.SOF.d6cd0fd95ab9744b public -- Agent Type Environment
-open import SysFEAT.SOF.a44fb6bc6748b088 public -- Functional Asset
 open import SysFEAT.SOF.e0e9b20b657864ec public -- Time Event
 open import SysFEAT.SOF.a273b4f465b7a81f public -- Individual Process
 open import SysFEAT.SOF.9f61cf9166833fb7 public -- Individual Operating Asset

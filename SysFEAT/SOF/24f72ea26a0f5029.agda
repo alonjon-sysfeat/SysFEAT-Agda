@@ -18,8 +18,9 @@ open import Agda.Primitive
 open import SysFEAT.UpperOntology.f69619236a0f8dcd public -- Category
 open import SysFEAT.SOF.0eb97aff6855cd23 public -- Model Property Block
 
-FamilyOfCategory : ∀ (u : Level) → Set (lsuc (lsuc (lsuc u)))
-FamilyOfCategory u = Category u
+FamilyOfCategory : ∀ (u : Level) → MetaClass u 
+FamilyOfCategory u  = ClassOfEntity u 
+
 
 --  FamilyOfCategory is subTypeOf Category
 st-24f72ea26a0f5029-f69619236a0f8dcd : ∀ {u v} → (FamilyOfCategory u) ⊏⋆ₑ (Category v)
@@ -29,4 +30,5 @@ st-24f72ea26a0f5029-f69619236a0f8dcd = trivialPolySubTypeOfEntity
 st-24f72ea26a0f5029-0eb97aff6855cd23 : ∀ {u v} → (FamilyOfCategory u) ⊏⋆ₑ (ModelPropertyBlock v)
 st-24f72ea26a0f5029-0eb97aff6855cd23 = trivialPolySubTypeOfEntity
 
--- == Relationships =======================
+
+-- == Relations =======================

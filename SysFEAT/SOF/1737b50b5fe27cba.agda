@@ -22,6 +22,7 @@ open import SysFEAT.SOF.0eb95f356855bf94 public -- Asset Block
 GovernanceEvent : ClassOfBoundedIndividual
 GovernanceEvent = BoundedIndividual
 
+
 --  GovernanceEvent withAspect GovernanceInstrument
 st-1737b50b5fe27cba-6662916b68dd5f84 : GovernanceEvent ⊏ₐₑ (GovernanceInstrument lzero)
 st-1737b50b5fe27cba-6662916b68dd5f84 = polySubTypeOf-identity
@@ -30,7 +31,8 @@ st-1737b50b5fe27cba-6662916b68dd5f84 = polySubTypeOf-identity
 st-1737b50b5fe27cba-28f07b2354be0d69 : GovernanceEvent ⊏ₑ BoundedIndividual
 st-1737b50b5fe27cba-28f07b2354be0d69 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Event Subject: -}
 eventSubject : ∀ {u} →  Linkage GovernanceEvent (AssetBlock u)

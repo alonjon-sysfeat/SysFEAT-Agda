@@ -22,7 +22,7 @@ open import SysFEAT.SOF.e6f250185f772ee1 public -- Information Asset
 open import SysFEAT.UpperOntology.746ac18368905aa2 public -- Property
 
 InformationProperty : PropertyType
-InformationProperty = ClassOfProperty
+InformationProperty = Property
 
 --  InformationProperty is subTypeOf InformationAsset
 st-c189d5f068ae4d75-e6f250185f772ee1 : InformationProperty ⊏ₑ InformationAsset
@@ -32,7 +32,8 @@ st-c189d5f068ae4d75-e6f250185f772ee1 = polySubTypeOf-identity
 st-c189d5f068ae4d75-746ac18368905aa2 : InformationProperty ⊏ₑ Property
 st-c189d5f068ae4d75-746ac18368905aa2 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Specialized Information Property: -}
 specializedInformationProperty :  Linkage InformationProperty InformationProperty

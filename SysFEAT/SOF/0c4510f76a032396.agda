@@ -17,11 +17,13 @@ module SysFEAT.SOF.0c4510f76a032396 where -- ========== Micro Operating Asset
 open import Agda.Primitive
 open import SysFEAT.SOF.0c450e776a031ff0 public -- Systemic Level
 
-MicroOperatingAsset : ∀ (u : Level) → MixedOrderMetaClass u
-MicroOperatingAsset u = ClassOfMixedOrderEntity u
+MicroOperatingAsset : ∀ (u : Level) → MixedOrderMetaClass u 
+MicroOperatingAsset u  = ClassOfMixedOrderEntity u 
+
 
 --  MicroOperatingAsset is subTypeOf SystemicLevel
 st-0c4510f76a032396-0c450e776a031ff0 : ∀ {u v} → (MicroOperatingAsset u) ⊏⋆ₑ (SystemicLevel v)
 st-0c4510f76a032396-0c450e776a031ff0 = trivialPolySubTypeOfEntity
 
--- == Relationships =======================
+
+-- == Relations =======================

@@ -29,7 +29,8 @@ AgentTypeEnvironment = ClassOfBoundedIndividual
 st-d6cd0fd95ab9744b-ca35f48a5fc48686 : AgentTypeEnvironment ⊏ₑ OperatingEcoSystem
 st-d6cd0fd95ab9744b-ca35f48a5fc48686 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Specialized Operating Environment: -}
 specializedOperatingEnvironment :  Linkage AgentTypeEnvironment AgentTypeEnvironment
@@ -99,8 +100,9 @@ postulate -- participantAgent is subTypeOf ecosystemMember
 set of interactions processes performed in the context of an Operating Eco-System.
 -}
 -- Aggregate Member : Performed Interaction
-PerformedInteraction : ClassOfClassOfIndividual
-PerformedInteraction = ClassOfIndividual
+PerformedInteraction : AggregateHolonymyType
+PerformedInteraction = AggregateHolonymy
+
 
 -- Membership relation
 26CB2D596961099C :  Linkage AgentTypeEnvironment PerformedInteraction

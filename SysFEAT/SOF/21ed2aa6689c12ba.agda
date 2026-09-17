@@ -20,14 +20,16 @@ open import Agda.Primitive
 open import SysFEAT.SOF.21ed231d689c0679 public -- Condition Property
 open import SysFEAT.SOF.e53af74b66e37e5d public -- Measure Property Type
 
-MeasureProperty : PropertyType
-MeasureProperty = ClassOfProperty
+MeasureProperty : ClassOfMixedOrderEntity
+MeasureProperty = MixedOrderEntity
+
 
 --  MeasureProperty is subTypeOf ConditionProperty
 st-21ed2aa6689c12ba-21ed231d689c0679 : MeasureProperty ⊏ₑ ConditionProperty
 st-21ed2aa6689c12ba-21ed231d689c0679 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Measure Property Type: -}
 measurePropertyType :  Linkage MeasureProperty MeasurePropertyType

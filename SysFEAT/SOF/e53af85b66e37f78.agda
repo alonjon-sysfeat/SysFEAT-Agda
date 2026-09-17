@@ -18,14 +18,16 @@ open import Agda.Primitive
 open import SysFEAT.SOF.e53af71366e37de2 public -- Condition Property Type
 open import SysFEAT.SOF.6f9c78916a0f34e5 public -- Environmental Condition Type
 
-EnvironmentalPropertyType : ThirdOrderClass
-EnvironmentalPropertyType = SecondOrderClass
+EnvironmentalPropertyType : ClassOfMixedOrderEntity
+EnvironmentalPropertyType = MixedOrderEntity
+
 
 --  EnvironmentalPropertyType is subTypeOf ConditionPropertyType
 st-e53af85b66e37f78-e53af71366e37de2 : EnvironmentalPropertyType ⊏ₑ ConditionPropertyType
 st-e53af85b66e37f78-e53af71366e37de2 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Environmental Condition Type: 
 The Environmental Condition Type that an Environmental Property Type belongs to.For instance,  Economic growth  belongs to the  Policital Factor  category. 

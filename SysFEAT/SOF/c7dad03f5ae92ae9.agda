@@ -19,11 +19,13 @@ module SysFEAT.SOF.c7dad03f5ae92ae9 where -- ========== Responsible Human Entity
 open import Agda.Primitive
 open import SysFEAT.SOF.9e3837e46192fcad public -- Individual Agent
 
-ResponsibleHumanEntity : ClassOfBoundedIndividual
-ResponsibleHumanEntity = BoundedIndividual
+ResponsibleHumanEntity : AgentType
+ResponsibleHumanEntity = IndividualAgent
+
 
 --  ResponsibleHumanEntity is subTypeOf IndividualAgent
 st-c7dad03f5ae92ae9-9e3837e46192fcad : ResponsibleHumanEntity ⊏ₑ IndividualAgent
 st-c7dad03f5ae92ae9-9e3837e46192fcad = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

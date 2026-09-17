@@ -21,6 +21,7 @@ open import SysFEAT.UpperOntology.342f74b166156e02 public -- Whole Life Individu
 GovernanceActivity : ClassOfBoundedIndividual
 GovernanceActivity = BoundedIndividual
 
+
 --  GovernanceActivity withAspect GovernanceInstrument
 st-1737b76a5fe28204-6662916b68dd5f84 : GovernanceActivity ⊏ₐₑ (GovernanceInstrument lzero)
 st-1737b76a5fe28204-6662916b68dd5f84 = polySubTypeOf-identity
@@ -29,12 +30,13 @@ st-1737b76a5fe28204-6662916b68dd5f84 = polySubTypeOf-identity
 st-1737b76a5fe28204-342f74b166156e02 : GovernanceActivity ⊏ₑ WholeLifeIndividual
 st-1737b76a5fe28204-342f74b166156e02 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Governance Activity Part: -}
 -- Aggregate Member : Governance Activity Part
-GovernanceActivityPart : ClassOfOrderedEntity (lsuc(lzero))
-GovernanceActivityPart = AggregateMember (lsuc(lzero))
+GovernanceActivityPart : AggregateHolonymyType
+GovernanceActivityPart = AggregateHolonymy
 
 
 -- Membership relation

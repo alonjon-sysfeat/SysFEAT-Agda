@@ -19,7 +19,6 @@ External references:
 {-# OPTIONS --cubical --guardedness #-}
 
 module SysFEAT.SOF.30223b5c5ec90c01 where -- ========== Outcome Event
-
 open import Agda.Primitive
 open import SysFEAT.SOF.24ae31d75ed1c747 public -- Behavioral Event
 open import SysFEAT.SOF.a4a5b3f855585ce1 public -- Asset Type
@@ -31,7 +30,8 @@ OutcomeEvent = ClassOfIndividual
 st-30223b5c5ec90c01-24ae31d75ed1c747 : OutcomeEvent ⊏ₑ BehavioralEvent
 st-30223b5c5ec90c01-24ae31d75ed1c747 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Outcome: 
 An Outcome is a produced state of an Asset Type that is signaled by an Outcome Event.An Outcome is the result of a Behavior Type of a producer Agent Type and is signaled as an Outcome Event to a consumer Agent Type that reacts to this change event.Examples:- An improved process (Behavior) that is the result of a refactoring activity done by a consulting organization (producer Agent Type) for the benefit of a business unit (user Agent Type).- A new application (Sofware System) that is the result of development and sales activities of a software company (producer Agent) for the benefit of an end user (user Agent Type).- A produced car (Hardware System) that is the result of development, production and sales activities of a car manufacturing company (producer Agent Type) for the benefit of an end user (Retail Customers, Fleet Customers, ...).

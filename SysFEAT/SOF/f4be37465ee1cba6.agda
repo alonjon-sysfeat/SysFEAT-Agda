@@ -21,16 +21,18 @@ open import SysFEAT.SOF.ebcfaeac5ad76ed7 public -- Individual Asset
 Audit : ClassOfBoundedIndividual
 Audit = BoundedIndividual
 
+
 --  Audit is subTypeOf GovernanceActivity
 st-f4be37465ee1cba6-1737b76a5fe28204 : Audit ⊏ₑ GovernanceActivity
 st-f4be37465ee1cba6-1737b76a5fe28204 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Audit Activity: -}
 -- Aggregate Member : Audit Activity
-AuditActivity : ClassOfOrderedEntity (lsuc(lzero))
-AuditActivity = AggregateMember (lsuc(lzero))
+AuditActivity : AggregateHolonymyType
+AuditActivity = AggregateHolonymy
 
 
 -- Membership relation

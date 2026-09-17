@@ -17,11 +17,13 @@ module SysFEAT.SOF.01ce05f9685979d8 where -- ========== Initiative Block
 open import Agda.Primitive
 open import SysFEAT.SOF.0eb95e566855bed9 public -- Model Building Block
 
-InitiativeBlock : ∀ (u : Level) → ClassOfMixedOrderEntity u
-InitiativeBlock u = MixedOrderEntity u
+InitiativeBlock : ∀ (u : Level) → ClassOfMixedOrderEntity u 
+InitiativeBlock u  = MixedOrderEntity u 
+
 
 --  InitiativeBlock is subTypeOf ModelBuildingBlock
 st-01ce05f9685979d8-0eb95e566855bed9 : ∀ {u v} → (InitiativeBlock u) ⊏⋆ₑ (ModelBuildingBlock v)
 st-01ce05f9685979d8-0eb95e566855bed9 = trivialPolySubTypeOfEntity
 
--- == Relationships =======================
+
+-- == Relations =======================

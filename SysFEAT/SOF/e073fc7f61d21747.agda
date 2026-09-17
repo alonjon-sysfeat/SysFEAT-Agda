@@ -20,8 +20,10 @@ open import SysFEAT.SOF.e073f9c161d2104a public -- Resolution
 Advise : ClassOfBoundedIndividual
 Advise = BoundedIndividual
 
+
 --  Advise is subTypeOf Resolution
 st-e073fc7f61d21747-e073f9c161d2104a : Advise ⊏ₑ Resolution
 st-e073fc7f61d21747-e073f9c161d2104a = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

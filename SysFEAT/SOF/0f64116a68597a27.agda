@@ -25,7 +25,8 @@ GovernanceContainer u = MixedOrderEntity u
 st-0f64116a68597a27-0eb95dce6855be2e : ∀ {u v} → (GovernanceContainer u) ⊏⋆ₑ (ModelContainer v)
 st-0f64116a68597a27-0eb95dce6855be2e = trivialPolySubTypeOfEntity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Packaged Governance Block: -}
 packagedGovernanceBlock : ∀ {u v} →  Linkage (GovernanceContainer u) (GovernanceBuildingBlock v)

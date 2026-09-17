@@ -21,14 +21,16 @@ open import Agda.Primitive
 open import SysFEAT.SOF.e53af71366e37de2 public -- Condition Property Type
 open import SysFEAT.SOF.6f9c701b6a0f2d87 public -- Measurement Type
 
-MeasurePropertyType : ThirdOrderClass
-MeasurePropertyType = SecondOrderClass
+MeasurePropertyType : ClassOfMixedOrderEntity
+MeasurePropertyType = MixedOrderEntity
+
 
 --  MeasurePropertyType is subTypeOf ConditionPropertyType
 st-e53af74b66e37e5d-e53af71366e37de2 : MeasurePropertyType ⊏ₑ ConditionPropertyType
 st-e53af74b66e37e5d-e53af71366e37de2 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Measurement Type: 
 The Measurement Type that a Measure Property Type belongs to.For instance,  Delivery Time  belongs to the  Performance  category.
