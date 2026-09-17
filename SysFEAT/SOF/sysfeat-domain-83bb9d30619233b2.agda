@@ -13,9 +13,8 @@ Documentation : https://framework.sysfeat.com/pages/83bb9d30619233b2.htm
 {-# OPTIONS --cubical --guardedness #-}
 module SysFEAT.SOF.sysfeat-domain-83bb9d30619233b2 where -- ========== Governance Pattern
 
-open import SysFEAT.SOF.sysfeat-domain-02f70fdc600f4179 public -- Policies
+open import SysFEAT.SOF.sysfeat-domain-02f70fdc600f4179 public -- Functional Asset and Operating Constraints
 open import SysFEAT.SOF.sysfeat-domain-83bb9d706192357b public -- Appraisal Pattern
-open import SysFEAT.SOF.sysfeat-domain-02af0a4b5a182417 public -- System Operating Framework - SOF
 open import SysFEAT.EA.sysfeat-domain-d17029ff5be84c49 public -- Product & Customer Experience
 open import SysFEAT.SOF.sysfeat-domain-ab6f7f85681a69f1 public -- Architecture Packages
 open import SysFEAT.SOF.sysfeat-domain-af4db12d62993434 public -- Model Block Packaging

@@ -21,6 +21,7 @@ open import SysFEAT.SOF.732799d364364423 public -- Policy Decision
 Waiver : ClassOfBoundedIndividual
 Waiver = BoundedIndividual
 
+
 --  Waiver is subTypeOf Resolution
 st-e073084561d32165-e073f9c161d2104a : Waiver ⊏ₑ Resolution
 st-e073084561d32165-e073f9c161d2104a = polySubTypeOf-identity
@@ -29,4 +30,5 @@ st-e073084561d32165-e073f9c161d2104a = polySubTypeOf-identity
 st-e073084561d32165-732799d364364423 : Waiver ⊏ₑ PolicyDecision
 st-e073084561d32165-732799d364364423 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

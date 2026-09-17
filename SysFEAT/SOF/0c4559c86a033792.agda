@@ -20,8 +20,9 @@ open import SysFEAT.UpperOntology.6ef572f868f1366f public -- Mixed-Order Entity
 open import SysFEAT.SOF.52b05a616a104fab public -- Conceptualization Level
 open import SysFEAT.SOF.0c450e776a031ff0 public -- Systemic Level
 
-OperatingAsset : ∀ (u : Level) → ClassOfMixedOrderEntity u
-OperatingAsset u = MixedOrderEntity u
+OperatingAsset : ∀ (u : Level) → ClassOfMixedOrderEntity u 
+OperatingAsset u  = MixedOrderEntity u 
+
 
 --  OperatingAsset is subTypeOf AssetBlock
 st-0c4559c86a033792-0eb95f356855bf94 : ∀ {u v} → (OperatingAsset u) ⊏⋆ₑ (AssetBlock v)
@@ -31,7 +32,8 @@ st-0c4559c86a033792-0eb95f356855bf94 = trivialPolySubTypeOfEntity
 st-0c4559c86a033792-6ef572f868f1366f : ∀ {u v} → (OperatingAsset u) ⊏⋆ₑ (MixedOrderEntity v)
 st-0c4559c86a033792-6ef572f868f1366f = trivialPolySubTypeOfEntity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Dependent Conceptual Level: -}
 dependentConceptualLevel : ∀ {u v} →  Linkage (OperatingAsset u) (ConceptualizationLevel v)

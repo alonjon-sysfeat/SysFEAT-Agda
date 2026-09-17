@@ -17,11 +17,13 @@ module SysFEAT.SOF.52b05b596a1050ba where -- ========== Conceptual Level
 open import Agda.Primitive
 open import SysFEAT.SOF.52b05a616a104fab public -- Conceptualization Level
 
-ConceptualLevel : ∀ (u : Level) → MixedOrderMetaClass u
-ConceptualLevel u = ClassOfMixedOrderEntity u
+ConceptualLevel : ∀ (u : Level) → MixedOrderMetaClass u 
+ConceptualLevel u  = ClassOfMixedOrderEntity u 
+
 
 --  ConceptualLevel is subTypeOf ConceptualizationLevel
 st-52b05b596a1050ba-52b05a616a104fab : ∀ {u v} → (ConceptualLevel u) ⊏⋆ₑ (ConceptualizationLevel v)
 st-52b05b596a1050ba-52b05a616a104fab = trivialPolySubTypeOfEntity
 
--- == Relationships =======================
+
+-- == Relations =======================

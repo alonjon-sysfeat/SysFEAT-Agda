@@ -21,6 +21,7 @@ open import SysFEAT.SOF.a4a5b3f855585ce1 public -- Asset Type
 AssetStateType : ClassOfClassOfBoundedIndividual
 AssetStateType = ClassOfBoundedIndividual
 
+
 --  AssetStateType is subTypeOf StateClass
 st-e13ce269678f11ed-342f43ae66156429 : AssetStateType ⊏ₑ StateClass
 st-e13ce269678f11ed-342f43ae66156429 = polySubTypeOf-identity
@@ -29,4 +30,5 @@ st-e13ce269678f11ed-342f43ae66156429 = polySubTypeOf-identity
 st-e13ce269678f11ed-a4a5b3f855585ce1 : AssetStateType ⊏ₑ AssetType
 st-e13ce269678f11ed-a4a5b3f855585ce1 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

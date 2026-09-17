@@ -19,8 +19,8 @@ open import SysFEAT.UpperOntology.746ac18368905aa2 public -- Property
 open import SysFEAT.SOF.0eb97aff6855cd23 public -- Model Property Block
 open import SysFEAT.SOF.83f88fd567406e53 public -- Asset Property Type
 
-AssetProperty : PropertyType
-AssetProperty = ClassOfProperty
+AssetProperty : AssetPropertyType
+AssetProperty = Property
 
 --  AssetProperty is subTypeOf Property
 st-515c6a856893324e-746ac18368905aa2 : AssetProperty ⊏ₑ Property
@@ -30,7 +30,12 @@ st-515c6a856893324e-746ac18368905aa2 = polySubTypeOf-identity
 st-515c6a856893324e-0eb97aff6855cd23 : AssetProperty ⊏ₐₑ (ModelPropertyBlock (lsuc(lzero)))
 st-515c6a856893324e-0eb97aff6855cd23 = polySubTypeOf-identity
 
--- == Relationships =======================
+postulate -- AssetProperty is PowerInstanceOf Asset Property Type
+  f38232926aac8ad5 : AssetProperty ∷ₚₑ AssetPropertyType
+postulate -- AssetPropertyType is ReflexivePowerType 
+  f382329d6aac8b0b : AssetPropertyType ⊏ₘₑ AssetProperty
+
+-- == Relations =======================
 
 {- Asset Property Type: -}
 assetPropertyType :  Linkage AssetProperty AssetPropertyType

@@ -15,7 +15,7 @@ External references:
 {-# OPTIONS --cubical --guardedness #-}
 module SysFEAT.SOF.sysfeat-domain-c30bd1505a5d97f9 where -- ========== Architecture Assets
 
-open import SysFEAT.SOF.sysfeat-domain-02af0a4b5a182417 public -- System Operating Framework - SOF
+open import SysFEAT.SOF.sysfeat-domain-02f70fdc600f4179 public -- Functional Asset and Operating Constraints
 open import SysFEAT.UpperOntology.sysfeat-domain-e278fa2568f06541 public -- Reflexive Knowledge Graph
 open import SysFEAT.SOF.sysfeat-domain-ab6f7f85681a69f1 public -- Architecture Packages
 open import SysFEAT.SOF.sysfeat-domain-af4db12d62993434 public -- Model Block Packaging

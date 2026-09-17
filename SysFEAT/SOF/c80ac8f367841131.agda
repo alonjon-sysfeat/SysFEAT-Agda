@@ -21,6 +21,7 @@ open import SysFEAT.SOF.79368381561716a6 public -- Agent Type
 AgentStateType : ClassOfClassOfBoundedIndividual
 AgentStateType = ClassOfBoundedIndividual
 
+
 --  AgentStateType is subTypeOf AssetStateType
 st-c80ac8f367841131-e13ce269678f11ed : AgentStateType ⊏ₑ AssetStateType
 st-c80ac8f367841131-e13ce269678f11ed = polySubTypeOf-identity
@@ -29,4 +30,5 @@ st-c80ac8f367841131-e13ce269678f11ed = polySubTypeOf-identity
 st-c80ac8f367841131-79368381561716a6 : AgentStateType ⊏ₑ AgentType
 st-c80ac8f367841131-79368381561716a6 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

@@ -17,11 +17,13 @@ module SysFEAT.SOF.6662916b68dd5f84 where -- ========== Governance Instrument
 open import Agda.Primitive
 open import SysFEAT.SOF.0f641043685975c9 public -- Governance Building Block
 
-GovernanceInstrument : ∀ (u : Level) → ClassOfMixedOrderEntity u
-GovernanceInstrument u = MixedOrderEntity u
+GovernanceInstrument : ∀ (u : Level) → ClassOfMixedOrderEntity u 
+GovernanceInstrument u  = MixedOrderEntity u 
+
 
 --  GovernanceInstrument is subTypeOf GovernanceBuildingBlock
 st-6662916b68dd5f84-0f641043685975c9 : ∀ {u v} → (GovernanceInstrument u) ⊏⋆ₑ (GovernanceBuildingBlock v)
 st-6662916b68dd5f84-0f641043685975c9 = trivialPolySubTypeOfEntity
 
--- == Relationships =======================
+
+-- == Relations =======================

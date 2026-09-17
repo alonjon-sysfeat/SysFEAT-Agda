@@ -20,8 +20,9 @@ open import SysFEAT.SOF.0eb97aff6855cd23 public -- Model Property Block
 open import SysFEAT.UpperOntology.f69619236a0f8dcd public -- Category
 open import SysFEAT.SOF.24f72ea26a0f5029 public -- Family of Category
 
-CategoryPartition : ∀ (u : Level) → Set (lsuc (lsuc (lsuc u)))
-CategoryPartition u = Category u
+CategoryPartition : ∀ (u : Level) → MixedOrderMetaClass u 
+CategoryPartition u  = ClassOfMixedOrderEntity u 
+
 
 --  CategoryPartition is subTypeOf ClassPartition
 st-f696240c6a0f9ea4-8d1ceeab68f755a5 : ∀ {u v} → (CategoryPartition u) ⊏⋆ₑ (ClassPartition v)
@@ -35,7 +36,8 @@ st-f696240c6a0f9ea4-0eb97aff6855cd23 = trivialPolySubTypeOfEntity
 st-f696240c6a0f9ea4-f69619236a0f8dcd : ∀ {u v} → (CategoryPartition u) ⊏⋆ₑ (Category v)
 st-f696240c6a0f9ea4-f69619236a0f8dcd = trivialPolySubTypeOfEntity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Classifying Schema: -}
 classifyingSchema : ∀ {u v} →  Linkage (CategoryPartition u) (FamilyOfCategory v)

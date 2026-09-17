@@ -18,11 +18,13 @@ open import Agda.Primitive
 open import SysFEAT.UpperOntology.b85efd0868df48b1 public -- Property Value
 open import SysFEAT.SOF.97e0a19a68dd71de public -- Policy applicability Status
 
-PolicityDecisionOption : ClassOfProperty
-PolicityDecisionOption = Property
+PolicityDecisionOption : ClassOfIndividual
+PolicityDecisionOption = Individual
+
 
 --  PolicityDecisionOption is subTypeOf PropertyValue
 st-5e32ba416929b430-b85efd0868df48b1 : PolicityDecisionOption ⊏ₑ PropertyValue
 st-5e32ba416929b430-b85efd0868df48b1 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

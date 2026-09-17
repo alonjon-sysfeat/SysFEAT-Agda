@@ -34,7 +34,8 @@ st-ca35f48a5fc48686-a44fb6bc6748b088 = polySubTypeOf-identity
 st-ca35f48a5fc48686-0eb95f356855bf94 : OperatingEcoSystem ⊏ₐₑ (AssetBlock (lsuc(lzero)))
 st-ca35f48a5fc48686-0eb95f356855bf94 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Operating Connector: -}
 -- Aggregate Member : Operating Connector

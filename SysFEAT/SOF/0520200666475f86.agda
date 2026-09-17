@@ -21,6 +21,7 @@ open import SysFEAT.UpperOntology.342f74b166156e02 public -- Whole Life Individu
 TimeboundInitiative : ClassOfBoundedIndividual
 TimeboundInitiative = BoundedIndividual
 
+
 --  TimeboundInitiative is subTypeOf Initiative
 st-0520200666475f86-0ffeec41600be08a : TimeboundInitiative ⊏ₑ Initiative
 st-0520200666475f86-0ffeec41600be08a = polySubTypeOf-identity
@@ -29,4 +30,5 @@ st-0520200666475f86-0ffeec41600be08a = polySubTypeOf-identity
 st-0520200666475f86-342f74b166156e02 : TimeboundInitiative ⊏ₑ WholeLifeIndividual
 st-0520200666475f86-342f74b166156e02 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

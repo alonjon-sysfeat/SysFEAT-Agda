@@ -18,14 +18,16 @@ open import Agda.Primitive
 open import SysFEAT.SOF.97e09cde68dd6c0f public -- Decision Outcome
 open import SysFEAT.SOF.97e0a09268dd70b6 public -- Policy Decision Type
 
-PolicyapplicabilityStatus : PropertyType
-PolicyapplicabilityStatus = ClassOfProperty
+PolicyapplicabilityStatus : SecondOrderClass
+PolicyapplicabilityStatus = FirstOrderClass
+
 
 --  PolicyapplicabilityStatus is subTypeOf DecisionOutcome
 st-97e0a19a68dd71de-97e09cde68dd6c0f : PolicyapplicabilityStatus ⊏ₑ DecisionOutcome
 st-97e0a19a68dd71de-97e09cde68dd6c0f = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Policy Decision Type: -}
 policyDecisionType :  Linkage PolicyapplicabilityStatus PolicyDecisionType

@@ -19,8 +19,9 @@ open import SysFEAT.UpperOntology.746ac18368905aa2 public -- Property
 open import SysFEAT.SOF.6662916b68dd5f84 public -- Governance Instrument
 open import SysFEAT.SOF.83f8933a67407206 public -- Governance Property Type
 
-GovernanceProperty : PropertyType
-GovernanceProperty = ClassOfProperty
+GovernanceProperty : ClassOfMixedOrderEntity
+GovernanceProperty = MixedOrderEntity
+
 
 --  GovernanceProperty is subTypeOf Property
 st-66628bbe68dd5bef-746ac18368905aa2 : GovernanceProperty ⊏ₑ Property
@@ -30,7 +31,8 @@ st-66628bbe68dd5bef-746ac18368905aa2 = polySubTypeOf-identity
 st-66628bbe68dd5bef-6662916b68dd5f84 : GovernanceProperty ⊏ₐₑ (GovernanceInstrument (lsuc(lzero)))
 st-66628bbe68dd5bef-6662916b68dd5f84 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Governance Property Type: -}
 governancePropertyType :  Linkage GovernanceProperty GovernancePropertyType

@@ -28,6 +28,7 @@ open import SysFEAT.EA.fe1c250d678803b6 public -- Individual Resource Behavior
 Initiative : ClassOfBoundedIndividual
 Initiative = BoundedIndividual
 
+
 --  Initiative withAspect InitiativeBlock
 st-0ffeec41600be08a-01ce05f9685979d8 : Initiative ⊏ₐₑ (InitiativeBlock lzero)
 st-0ffeec41600be08a-01ce05f9685979d8 = polySubTypeOf-identity
@@ -40,7 +41,8 @@ st-0ffeec41600be08a-28f07b2354be0d69 = polySubTypeOf-identity
 st-0ffeec41600be08a-23d5aa4868513f43 : Initiative ⊏ₐₑ (BlockCollection lzero)
 st-0ffeec41600be08a-23d5aa4868513f43 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Steering Authority: -}
 steeringAuthority :  Linkage Initiative ResponsibleHumanEntity
@@ -83,8 +85,8 @@ postulate -- initiativeSubject is subTypeOf unboundedMember
 A plan recognized by an enterprise as being essential to achieving its goals - i.e. a strategic specification of what the enterprise does. In other words, a Course of Action channels efforts towards Desired Results.Business Capabilities might be required by an Enterprise to conduct its Courses of Action.
 -}
 -- Aggregate Member : Course of Action
-CourseOfAction : ClassOfOrderedEntity (lsuc(lzero))
-CourseOfAction = AggregateMember (lsuc(lzero))
+CourseOfAction : AggregateHolonymyType
+CourseOfAction = AggregateHolonymy
 
 
 -- Membership relation

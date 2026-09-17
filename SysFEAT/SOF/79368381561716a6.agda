@@ -26,6 +26,7 @@ module SysFEAT.SOF.79368381561716a6 where -- ========== Agent Type
 
 open import Agda.Primitive
 open import SysFEAT.SOF.a371a43b5b865817 public -- Operating Asset Type
+open import SysFEAT.SOF.9e3837e46192fcad public -- Individual Agent
 open import SysFEAT.SOF.24ae31b55ed1c66d public -- Service Interface
 open import SysFEAT.SOF.d682ef5e56144e77 public -- Action Process Type
 open import SysFEAT.SOF.333f35ee5dde0c8c public -- Interaction Process Type
@@ -34,11 +35,18 @@ open import SysFEAT.SOF.d6cd116d5ab97525 public -- Information Domain
 AgentType : ClassOfClassOfBoundedIndividual
 AgentType = ClassOfBoundedIndividual
 
+
 --  AgentType is subTypeOf OperatingAssetType
 st-79368381561716a6-a371a43b5b865817 : AgentType ⊏ₑ OperatingAssetType
 st-79368381561716a6-a371a43b5b865817 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
+
+{- 41909AF76AAA453D: -}
+41909AF76AAA453D :  Linkage AgentType IndividualAgent
+41909AF76AAA453D = make_classOfRelation "41909AF76AAA453D" "41909AF76AAA453D"
+
 
 {- Specialized Agent: -}
 specializedAgent :  Linkage AgentType AgentType

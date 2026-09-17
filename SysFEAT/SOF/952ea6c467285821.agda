@@ -20,8 +20,9 @@ open import Agda.Primitive
 open import SysFEAT.SOF.83f88fd567406e53 public -- Asset Property Type
 open import SysFEAT.SOF.9397c3d86877842f public -- Policy Asset
 
-PolicyCategory : ThirdOrderClass
-PolicyCategory = SecondOrderClass
+PolicyCategory : ClassOfMixedOrderEntity
+PolicyCategory = MixedOrderEntity
+
 
 --  PolicyCategory is subTypeOf AssetPropertyType
 st-952ea6c467285821-83f88fd567406e53 : PolicyCategory ⊏ₑ AssetPropertyType
@@ -31,7 +32,8 @@ st-952ea6c467285821-83f88fd567406e53 = polySubTypeOf-identity
 st-952ea6c467285821-9397c3d86877842f : PolicyCategory ⊏ₐₑ (PolicyAsset (lsuc(lsuc(lzero))))
 st-952ea6c467285821-9397c3d86877842f = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Parent Policy Category: -}
 parentPolicyCategory :  Linkage PolicyCategory PolicyCategory

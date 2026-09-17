@@ -22,13 +22,14 @@ open import SysFEAT.SOF.515c6b23689335c3 public -- Directive
 open import SysFEAT.SOF.190c7429689664b5 public -- Policy
 
 BehavioralRule : PropertyType
-BehavioralRule = ClassOfProperty
+BehavioralRule = Property
 
 --  BehavioralRule is subTypeOf Directive
 st-190c74f868966584-515c6b23689335c3 : BehavioralRule ⊏ₑ Directive
 st-190c74f868966584-515c6b23689335c3 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Specialized Behavioral Rule: -}
 specializedBehavioralRule :  Linkage BehavioralRule BehavioralRule

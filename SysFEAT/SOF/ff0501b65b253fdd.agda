@@ -31,6 +31,7 @@ open import SysFEAT.SOF.1737b50b5fe27cba public -- Governance Event
 GoverningTeam : ClassOfBoundedIndividual
 GoverningTeam = BoundedIndividual
 
+
 --  GoverningTeam withAspect GovernanceBuildingBlock
 st-ff0501b65b253fdd-0f641043685975c9 : GoverningTeam ⊏ₐₑ (GovernanceBuildingBlock lzero)
 st-ff0501b65b253fdd-0f641043685975c9 = polySubTypeOf-identity
@@ -43,7 +44,8 @@ st-ff0501b65b253fdd-0f64116a68597a27 = polySubTypeOf-identity
 st-ff0501b65b253fdd-342f74b166156e02 : GoverningTeam ⊏ₑ WholeLifeIndividual
 st-ff0501b65b253fdd-342f74b166156e02 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Governed Initiative: -}
 governedInitiative :  Linkage GoverningTeam Initiative

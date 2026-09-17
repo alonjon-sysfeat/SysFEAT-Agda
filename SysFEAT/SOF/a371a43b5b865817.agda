@@ -25,6 +25,7 @@ open import SysFEAT.SOF.190c74f868966584 public -- Behavioral Rule
 OperatingAssetType : ClassOfClassOfBoundedIndividual
 OperatingAssetType = ClassOfBoundedIndividual
 
+
 --  OperatingAssetType is subTypeOf FunctionalAsset
 st-a371a43b5b865817-a44fb6bc6748b088 : OperatingAssetType ⊏ₑ FunctionalAsset
 st-a371a43b5b865817-a44fb6bc6748b088 = polySubTypeOf-identity
@@ -33,7 +34,17 @@ st-a371a43b5b865817-a44fb6bc6748b088 = polySubTypeOf-identity
 st-a371a43b5b865817-0c4559c86a033792 : OperatingAssetType ⊏ₐₑ (OperatingAsset (lsuc(lzero)))
 st-a371a43b5b865817-0c4559c86a033792 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
+
+{- Fulfilled Capability: 
+Capability(ies) fulfilled by an Agent Type and its Behavior Types.
+-}
+fulfilledCapability :  Linkage OperatingAssetType Capability
+fulfilledCapability = make_subTypeOf "Fulfilled Capability" "Fulfilled Capability"
+
+postulate -- fulfilledCapability is subTypeOf assetTypeQualification
+  st-190c72c368966198-190c1f3b68964a27  : fulfilledCapability   ⊏⋆ᵣ  assetTypeQualification 
 
 {- Specialized Operating Asset: -}
 specializedOperatingAsset :  Linkage OperatingAssetType OperatingAssetType
@@ -50,40 +61,6 @@ realizedOperatingAsset = make_subTypeOf "Realized Operating Asset" "Realized Ope
 
 postulate -- realizedOperatingAsset is subTypeOf realizedFunctionalAsset
   st-7dc193da6849536c-7dc1907b684951ae  : realizedOperatingAsset   ⊏⋆ᵣ  realizedFunctionalAsset 
-
-{- Fulfilled Capability: 
-Capability(ies) fulfilled by an Agent Type and its Behavior Types.
--}
-fulfilledCapability :  Linkage OperatingAssetType Capability
-fulfilledCapability = make_subTypeOf "Fulfilled Capability" "Fulfilled Capability"
-
-postulate -- fulfilledCapability is subTypeOf assetTypeQualification
-  st-190c72c368966198-190c1f3b68964a27  : fulfilledCapability   ⊏⋆ᵣ  assetTypeQualification 
-
-{- Operating Asset Part: -}
--- Aggregate Member : Operating Asset Part
-OperatingAssetPart : ClassOfClassOfIndividual
-OperatingAssetPart = ClassOfIndividual
-
--- Membership relation
-membershipOfOperatingAssetPart :  Linkage OperatingAssetType OperatingAssetPart
-membershipOfOperatingAssetPart = make_upwardNestingRelation "operatingAssetPart membership" "nested operatingAssetPart"
-
--- Aggregation relation
-aggregationOfOperatingAssetTypeOperatingAssetPart :  Linkage OperatingAssetPart OperatingAssetType
-aggregationOfOperatingAssetTypeOperatingAssetPart = make_Relation "OperatingAssetType aggregation" "aggregated OperatingAssetType"
-
-{- operatingAssetPart : derived relation obtained by composing
-   membershipOfOperatingAssetPart and aggregationOfOperatingAssetTypeOperatingAssetPart
-   It directly links an Operating Asset Type to the final aggregated OperatingAssetType
-   hiding the reifying OperatingAssetPart
--}
-operatingAssetPart : Linkage OperatingAssetType OperatingAssetType
-operatingAssetPart = membershipOfOperatingAssetPart  ∘  aggregationOfOperatingAssetTypeOperatingAssetPart
-
-postulate -- operatingAssetPart is subTypeOf aggregateHolonymyType
-  st-b776b8c668b04b35-c2f2c83b66ea4d78  : operatingAssetPart   ⊏⋆ᵣ  aggregateHolonymyType 
-
 
 {- Rule Enforcement: 
 A Rule Enforcementt is the application of a Behavioral Rule in an Operating Asset Type.In a Action Process Type, a Rule Enforcement is a guide to Process Steps.In an Agent Type, a Rule Enforcement is a guide to its structure: Agent Parts, Information Stores, Performed Processes.
@@ -110,4 +87,30 @@ ruleEnforcement = membershipOfRuleEnforcement  ∘  aggregationOfBehavioralRuleR
 
 postulate -- ruleEnforcement is subTypeOf aggregateQualification
   st-7bc2d4c26897a1c4-b83e30bc696f51e5  : ruleEnforcement   ⊏⋆ᵣ  aggregateQualification 
+
+
+{- Operating Asset Part: -}
+-- Aggregate Member : Operating Asset Part
+OperatingAssetPart : AggregateHolonymyType
+OperatingAssetPart = AggregateHolonymy
+
+
+-- Membership relation
+membershipOfOperatingAssetPart :  Linkage OperatingAssetType OperatingAssetPart
+membershipOfOperatingAssetPart = make_upwardNestingRelation "operatingAssetPart membership" "nested operatingAssetPart"
+
+-- Aggregation relation
+aggregationOfOperatingAssetTypeOperatingAssetPart :  Linkage OperatingAssetPart OperatingAssetType
+aggregationOfOperatingAssetTypeOperatingAssetPart = make_Relation "OperatingAssetType aggregation" "aggregated OperatingAssetType"
+
+{- operatingAssetPart : derived relation obtained by composing
+   membershipOfOperatingAssetPart and aggregationOfOperatingAssetTypeOperatingAssetPart
+   It directly links an Operating Asset Type to the final aggregated OperatingAssetType
+   hiding the reifying OperatingAssetPart
+-}
+operatingAssetPart : Linkage OperatingAssetType OperatingAssetType
+operatingAssetPart = membershipOfOperatingAssetPart  ∘  aggregationOfOperatingAssetTypeOperatingAssetPart
+
+postulate -- operatingAssetPart is subTypeOf aggregateHolonymyType
+  st-b776b8c668b04b35-c2f2c83b66ea4d78  : operatingAssetPart   ⊏⋆ᵣ  aggregateHolonymyType 
 

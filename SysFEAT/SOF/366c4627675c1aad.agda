@@ -17,11 +17,13 @@ module SysFEAT.SOF.366c4627675c1aad where -- ========== Resolution Type
 open import Agda.Primitive
 open import SysFEAT.SOF.366c3ea8675c13e2 public -- Appraisal Type
 
-ResolutionType : ThirdOrderClass
-ResolutionType = SecondOrderClass
+ResolutionType : ClassOfMixedOrderEntity
+ResolutionType = MixedOrderEntity
+
 
 --  ResolutionType is subTypeOf AppraisalType
 st-366c4627675c1aad-366c3ea8675c13e2 : ResolutionType ⊏ₑ AppraisalType
 st-366c4627675c1aad-366c3ea8675c13e2 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

@@ -20,8 +20,10 @@ open import SysFEAT.SOF.1737b76a5fe28204 public -- Governance Activity
 RemediationPlan : ClassOfBoundedIndividual
 RemediationPlan = BoundedIndividual
 
+
 --  RemediationPlan is subTypeOf GovernanceActivity
 st-7625fe5b5f6c92de-1737b76a5fe28204 : RemediationPlan ⊏ₑ GovernanceActivity
 st-7625fe5b5f6c92de-1737b76a5fe28204 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

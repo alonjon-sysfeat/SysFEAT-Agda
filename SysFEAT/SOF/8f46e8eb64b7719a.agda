@@ -22,11 +22,13 @@ open import SysFEAT.SOF.3b1bc7e968cdac60 public -- Measurement Value
 KeyIndicator : ClassOfBoundedIndividual
 KeyIndicator = BoundedIndividual
 
+
 --  KeyIndicator is subTypeOf MeasurementInstrument
 st-8f46e8eb64b7719a-173706265fe3f332 : KeyIndicator ⊏ₑ MeasurementInstrument
 st-8f46e8eb64b7719a-173706265fe3f332 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Measured Asset: 
 The Asset Block that is the subject of a measurement.

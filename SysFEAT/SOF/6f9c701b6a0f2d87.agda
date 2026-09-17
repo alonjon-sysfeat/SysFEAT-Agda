@@ -17,11 +17,13 @@ module SysFEAT.SOF.6f9c701b6a0f2d87 where -- ========== Measurement Type
 open import Agda.Primitive
 open import SysFEAT.SOF.6cfb6ef26a0f15e4 public -- Condition Category
 
-MeasurementType : ∀ (u : Level) → Set (lsuc (lsuc (lsuc u)))
-MeasurementType u = Category u
+MeasurementType : ∀ (u : Level) → MetaClass u 
+MeasurementType u  = ClassOfEntity u 
+
 
 --  MeasurementType is subTypeOf ConditionCategory
 st-6f9c701b6a0f2d87-6cfb6ef26a0f15e4 : ∀ {u v} → (MeasurementType u) ⊏⋆ₑ (ConditionCategory v)
 st-6f9c701b6a0f2d87-6cfb6ef26a0f15e4 = trivialPolySubTypeOfEntity
 
--- == Relationships =======================
+
+-- == Relations =======================

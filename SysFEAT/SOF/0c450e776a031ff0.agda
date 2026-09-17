@@ -18,11 +18,13 @@ open import Agda.Primitive
 open import SysFEAT.UpperOntology.8d1ceeab68f755a5 public -- Class Partition
 open import SysFEAT.SOF.0c450e8c6a032050 public -- Class of Systemic Level
 
-SystemicLevel : ∀ (u : Level) → MixedOrderMetaClass u
-SystemicLevel u = ClassOfMixedOrderEntity u
+SystemicLevel : ∀ (u : Level) → MixedOrderMetaClass u 
+SystemicLevel u  = ClassOfMixedOrderEntity u 
+
 
 --  SystemicLevel is subTypeOf ClassPartition
 st-0c450e776a031ff0-8d1ceeab68f755a5 : ∀ {u v} → (SystemicLevel u) ⊏⋆ₑ (ClassPartition v)
 st-0c450e776a031ff0-8d1ceeab68f755a5 = trivialPolySubTypeOfEntity
 
--- == Relationships =======================
+
+-- == Relations =======================

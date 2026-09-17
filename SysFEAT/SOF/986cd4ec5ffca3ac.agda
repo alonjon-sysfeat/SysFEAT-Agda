@@ -28,11 +28,13 @@ open import SysFEAT.SOF.79368381561716a6 public -- Agent Type
 BehaviorType : ClassOfClassOfBoundedIndividual
 BehaviorType = ClassOfBoundedIndividual
 
+
 --  BehaviorType is subTypeOf OperatingAssetType
 st-986cd4ec5ffca3ac-a371a43b5b865817 : BehaviorType ⊏ₑ OperatingAssetType
 st-986cd4ec5ffca3ac-a371a43b5b865817 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Specialized Behavior: -}
 specializedBehavior :  Linkage BehaviorType BehaviorType
@@ -52,8 +54,9 @@ postulate -- realizedBehavior is subTypeOf realizedOperatingAsset
 A Behavior Participant is the participation of an Agent Type in a Behavior Type.
 -}
 -- Aggregate Member : Behavior Participant
-BehaviorParticipant : ClassOfClassOfIndividual
-BehaviorParticipant = ClassOfIndividual
+BehaviorParticipant : AggregateHolonymyType
+BehaviorParticipant = AggregateHolonymy
+
 
 -- Membership relation
 membershipOfBehaviorParticipant :  Linkage BehaviorType BehaviorParticipant
@@ -79,8 +82,9 @@ postulate -- behaviorParticipant is subTypeOf operatingAssetPart
 A composed Behavior Type that is a part of the parent Behavior Type.
 -}
 -- Aggregate Member : Behavior Part
-BehaviorPart : ClassOfClassOfIndividual
-BehaviorPart = ClassOfIndividual
+BehaviorPart : AggregateHolonymyType
+BehaviorPart = AggregateHolonymy
+
 
 -- Membership relation
 membershipOfBehaviorPart :  Linkage BehaviorType BehaviorPart

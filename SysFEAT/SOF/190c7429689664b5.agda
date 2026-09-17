@@ -20,14 +20,16 @@ module SysFEAT.SOF.190c7429689664b5 where -- ========== Policy
 open import Agda.Primitive
 open import SysFEAT.SOF.515c6b23689335c3 public -- Directive
 
-Policy : PropertyType
-Policy = ClassOfProperty
+Policy : ClassOfMixedOrderEntity
+Policy = MixedOrderEntity
+
 
 --  Policy is subTypeOf Directive
 st-190c7429689664b5-515c6b23689335c3 : Policy ⊏ₑ Directive
 st-190c7429689664b5-515c6b23689335c3 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Realized Policy: -}
 realizedPolicy :  Linkage Policy Policy

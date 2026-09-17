@@ -20,8 +20,9 @@ open import Agda.Primitive
 open import SysFEAT.SOF.d745dbaa6aa3840b public -- Model Package
 open import SysFEAT.SOF.0eb95f1b6855bf64 public -- Architecture Container
 
-Library : ClassOfIndividual
-Library = Individual
+Library : FirstOrderClass
+Library = FirstOrderEntity
+
 
 --  Library is subTypeOf ModelPackage
 st-3aca3fad6aa639da-d745dbaa6aa3840b : Library ⊏ₑ ModelPackage
@@ -31,7 +32,8 @@ st-3aca3fad6aa639da-d745dbaa6aa3840b = polySubTypeOf-identity
 st-3aca3fad6aa639da-0eb95f1b6855bf64 : Library ⊏ₐₑ (ArchitectureContainer lzero)
 st-3aca3fad6aa639da-0eb95f1b6855bf64 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Parent Library: -}
 parentLibrary :  Linkage Library Library

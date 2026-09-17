@@ -21,16 +21,18 @@ open import SysFEAT.SOF.2cc9718655263c44 public -- Individual Stakeholder
 GovernanceCommittee : ClassOfBoundedIndividual
 GovernanceCommittee = BoundedIndividual
 
+
 --  GovernanceCommittee is subTypeOf Stakeholder
 st-2cc9717155263b89-bcebd0175491272a : GovernanceCommittee ⊏ₑ Stakeholder
 st-2cc9717155263b89-bcebd0175491272a = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Sub-Committee: -}
 -- Aggregate Member : Sub-Committee
-SubCommittee : ClassOfOrderedEntity (lsuc(lzero))
-SubCommittee = AggregateMember (lsuc(lzero))
+SubCommittee : AggregateHolonymyType
+SubCommittee = AggregateHolonymy
 
 
 -- Membership relation
@@ -57,8 +59,8 @@ postulate -- subCommittee is subTypeOf aggregateHolonymy
 Role of a person in a Governance Committee.
 -}
 -- Aggregate Member : Committee member
-Committeemember : ClassOfOrderedEntity (lsuc(lzero))
-Committeemember = AggregateMember (lsuc(lzero))
+Committeemember : AggregateHolonymyType
+Committeemember = AggregateHolonymy
 
 
 -- Membership relation

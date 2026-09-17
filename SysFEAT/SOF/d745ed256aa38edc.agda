@@ -18,8 +18,9 @@ open import Agda.Primitive
 open import SysFEAT.SOF.d745dbaa6aa3840b public -- Model Package
 open import SysFEAT.SOF.6c5f808b68587e49 public -- Information Lexical Scope
 
-InformationDictionary : ClassOfIndividual
-InformationDictionary = Individual
+InformationDictionary : ClassOfMixedOrderEntity
+InformationDictionary = MixedOrderEntity
+
 
 --  InformationDictionary is subTypeOf ModelPackage
 st-d745ed256aa38edc-d745dbaa6aa3840b : InformationDictionary ⊏ₑ ModelPackage
@@ -29,7 +30,8 @@ st-d745ed256aa38edc-d745dbaa6aa3840b = polySubTypeOf-identity
 st-d745ed256aa38edc-6c5f808b68587e49 : InformationDictionary ⊏ₐₑ (InformationLexicalScope lzero)
 st-d745ed256aa38edc-6c5f808b68587e49 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Imported Information Dictionary: 
 The Imported Information Dictionary relationship extends the Information Lexical Scope of an Information Dictionary to Information Blocks of the imported Information Dictionary.

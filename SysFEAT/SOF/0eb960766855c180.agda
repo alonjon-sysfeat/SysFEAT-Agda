@@ -19,8 +19,9 @@ open import SysFEAT.UpperOntology.23d5aa4868513f43 public -- Block Collection
 open import SysFEAT.UpperOntology.5425a2df6aa225cf public -- First Order Entity
 open import SysFEAT.SOF.0eb95f356855bf94 public -- Asset Block
 
-ArchitectureBlockCollection : ∀ (u : Level) → ClassOfMixedOrderEntity u
-ArchitectureBlockCollection u = MixedOrderEntity u
+ArchitectureBlockCollection : ∀ (u : Level) → FirstOrderClass u 
+ArchitectureBlockCollection u  = FirstOrderEntity u 
+
 
 --  ArchitectureBlockCollection is subTypeOf BlockCollection
 st-0eb960766855c180-23d5aa4868513f43 : ∀ {u v} → (ArchitectureBlockCollection u) ⊏⋆ₑ (BlockCollection v)
@@ -30,7 +31,8 @@ st-0eb960766855c180-23d5aa4868513f43 = trivialPolySubTypeOfEntity
 st-0eb960766855c180-5425a2df6aa225cf : ∀ {u} → (ArchitectureBlockCollection u) ⊏ₘₑ FirstOrderEntity
 st-0eb960766855c180-5425a2df6aa225cf = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Grouped Architecture Block: -}
 groupedArchitectureBlock : ∀ {u v} →  Linkage (ArchitectureBlockCollection u) (AssetBlock v)

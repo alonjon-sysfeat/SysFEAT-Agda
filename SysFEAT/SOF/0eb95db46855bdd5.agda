@@ -20,14 +20,16 @@ open import SysFEAT.SOF.0eb95e566855bed9 public -- Model Building Block
 open import SysFEAT.SOF.d745e6ea6aa386e5 public -- Annotation Block
 open import SysFEAT.SOF.d745e8936aa388e0 public -- Description Note
 
-ModelLexicalScope : ∀ (u : Level) → ClassOfMixedOrderEntity u
-ModelLexicalScope u = MixedOrderEntity u
+ModelLexicalScope : ∀ (u : Level) → ClassOfMixedOrderEntity u 
+ModelLexicalScope u  = MixedOrderEntity u 
+
 
 --  ModelLexicalScope is subTypeOf BlockLexicalScope
 st-0eb95db46855bdd5-23d5c494685141b5 : ∀ {u v} → (ModelLexicalScope u) ⊏⋆ₑ (BlockLexicalScope v)
 st-0eb95db46855bdd5-23d5c494685141b5 = trivialPolySubTypeOfEntity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Scoped Model Block: -}
 scopedModelBlock : ∀ {u v} →  Linkage (ModelLexicalScope u) (ModelBuildingBlock v)

@@ -23,8 +23,9 @@ open import SysFEAT.SOF.0eb97aff6855cd23 public -- Model Property Block
 open import SysFEAT.SOF.0eb95e566855bed9 public -- Model Building Block
 open import SysFEAT.SOF.d745e99d6aa38a7a public -- Tag
 
-ModelContainer : ∀ (u : Level) → ClassOfMixedOrderEntity u
-ModelContainer u = MixedOrderEntity u
+ModelContainer : ∀ (u : Level) → ClassOfMixedOrderEntity u 
+ModelContainer u  = MixedOrderEntity u 
+
 
 --  ModelContainer is subTypeOf ModelLexicalScope
 st-0eb95dce6855be2e-0eb95db46855bdd5 : ∀ {u v} → (ModelContainer u) ⊏⋆ₑ (ModelLexicalScope v)
@@ -34,7 +35,8 @@ st-0eb95dce6855be2e-0eb95db46855bdd5 = trivialPolySubTypeOfEntity
 st-0eb95dce6855be2e-0eb93b4268549a66 : ∀ {u v} → (ModelContainer u) ⊏⋆ₑ (Container v)
 st-0eb95dce6855be2e-0eb93b4268549a66 = trivialPolySubTypeOfEntity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Packaged Property Block: -}
 packagedPropertyBlock : ∀ {u v} →  Linkage (ModelContainer u) (ModelPropertyBlock v)

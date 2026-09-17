@@ -17,11 +17,13 @@ module SysFEAT.SOF.9397c3d86877842f where -- ========== Policy Asset
 open import Agda.Primitive
 open import SysFEAT.SOF.9397b45268777e3b public -- Architecture Block
 
-PolicyAsset : ∀ (u : Level) → ClassOfMixedOrderEntity u
-PolicyAsset u = MixedOrderEntity u
+PolicyAsset : ∀ (u : Level) → ClassOfMixedOrderEntity u 
+PolicyAsset u  = MixedOrderEntity u 
+
 
 --  PolicyAsset is subTypeOf ArchitectureBlock
 st-9397c3d86877842f-9397b45268777e3b : ∀ {u v} → (PolicyAsset u) ⊏⋆ₑ (ArchitectureBlock v)
 st-9397c3d86877842f-9397b45268777e3b = trivialPolySubTypeOfEntity
 
--- == Relationships =======================
+
+-- == Relations =======================

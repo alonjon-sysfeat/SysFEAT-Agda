@@ -30,11 +30,13 @@ open import SysFEAT.SOF.0e55206a66f11ec5 public -- Risk Type
 FunctionalAsset : ClassOfClassOfBoundedIndividual
 FunctionalAsset = ClassOfBoundedIndividual
 
+
 --  FunctionalAsset is subTypeOf AssetType
 st-a44fb6bc6748b088-a4a5b3f855585ce1 : FunctionalAsset ⊏ₑ AssetType
 st-a44fb6bc6748b088-a4a5b3f855585ce1 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Specialized Functional Asset: -}
 specializedFunctionalAsset :  Linkage FunctionalAsset FunctionalAsset

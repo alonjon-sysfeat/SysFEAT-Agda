@@ -25,6 +25,7 @@ open import SysFEAT.SOF.515c6a856893324e public -- Asset Property
 EnduringInitiative : ClassOfBoundedIndividual
 EnduringInitiative = BoundedIndividual
 
+
 --  EnduringInitiative withAspect ModelContainer
 st-d321c226601262ae-0eb95dce6855be2e : EnduringInitiative ⊏ₐₑ (ModelContainer lzero)
 st-d321c226601262ae-0eb95dce6855be2e = polySubTypeOf-identity
@@ -37,7 +38,8 @@ st-d321c226601262ae-0ffeec41600be08a = polySubTypeOf-identity
 st-d321c226601262ae-342f74b166156e02 : EnduringInitiative ⊏ₑ WholeLifeIndividual
 st-d321c226601262ae-342f74b166156e02 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Dependent Initiative: -}
 dependentInitiative :  Linkage EnduringInitiative EnduringInitiative

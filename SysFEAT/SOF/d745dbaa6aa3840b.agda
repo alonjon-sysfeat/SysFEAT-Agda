@@ -21,8 +21,9 @@ open import Agda.Primitive
 open import SysFEAT.UpperOntology.542599db6aa21e06 public -- Container Package
 open import SysFEAT.SOF.0eb95dce6855be2e public -- Model Container
 
-ModelPackage : ClassOfIndividual
-ModelPackage = Individual
+ModelPackage : FirstOrderClass
+ModelPackage = FirstOrderEntity
+
 
 --  ModelPackage is subTypeOf ContainerPackage
 st-d745dbaa6aa3840b-542599db6aa21e06 : ModelPackage ⊏ₑ ContainerPackage
@@ -32,7 +33,8 @@ st-d745dbaa6aa3840b-542599db6aa21e06 = polySubTypeOf-identity
 st-d745dbaa6aa3840b-0eb95dce6855be2e : ModelPackage ⊏ₐₑ (ModelContainer lzero)
 st-d745dbaa6aa3840b-0eb95dce6855be2e = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Parent Model Package: 
 Existential Dependency that asserts the existence of a Model Package in a parent Model Package.

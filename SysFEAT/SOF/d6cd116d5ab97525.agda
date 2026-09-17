@@ -19,8 +19,9 @@ open import SysFEAT.UpperOntology.8d1ceeab68f755a5 public -- Class Partition
 open import SysFEAT.SOF.6c5f80e468587f06 public -- Information Block
 open import SysFEAT.SOF.e6f250185f772ee1 public -- Information Asset
 
-InformationDomain : ClassOfClassOfBoundedIndividual
-InformationDomain = ClassOfBoundedIndividual
+InformationDomain : MixedOrderMetaClass
+InformationDomain = ClassOfMixedOrderEntity
+
 
 --  InformationDomain withAspect ClassPartition
 st-d6cd116d5ab97525-8d1ceeab68f755a5 : InformationDomain ⊏ₐₑ (ClassPartition (lsuc(lzero)))
@@ -30,7 +31,8 @@ st-d6cd116d5ab97525-8d1ceeab68f755a5 = polySubTypeOf-identity
 st-d6cd116d5ab97525-6c5f80e468587f06 : InformationDomain ⊏ₐₑ (InformationBlock (lsuc(lzero)))
 st-d6cd116d5ab97525-6c5f80e468587f06 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Specialized Information Domain: -}
 specializedInformationDomain :  Linkage InformationDomain InformationDomain
