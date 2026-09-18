@@ -18,10 +18,10 @@ module SysFEAT.SOF.ebcfaeac5ad76ed7 where -- ========== Individual Asset
 
 open import Agda.Primitive
 open import SysFEAT.UpperOntology.28f07b2354be0d69 public -- Bounded Individual
-open import SysFEAT.SOF.a4a5b3f855585ce1 public -- Asset Type
+open import SysFEAT.SOF.8d5e986f552e28d5 public -- Location
 open import SysFEAT.SOF.515c6a856893324e public -- Asset Property
 open import SysFEAT.SOF.21ed231d689c0679 public -- Condition Property
-open import SysFEAT.SOF.8d5e986f552e28d5 public -- Location
+open import SysFEAT.SOF.a4a5b3f855585ce1 public -- Asset Type
 
 IndividualAsset : ClassOfBoundedIndividual
 IndividualAsset = BoundedIndividual
@@ -33,6 +33,13 @@ st-ebcfaeac5ad76ed7-28f07b2354be0d69 = polySubTypeOf-identity
 
 
 -- == Relations =======================
+
+{- Located at: -}
+locatedat :  Linkage IndividualAsset Location
+locatedat = make_holonymyRelation "Located at" "Located at"
+
+postulate -- locatedat is subTypeOf meronymyRelation
+  st-167126a16008efeb-4aeab6186964fd66  : locatedat   ⊏⋆ᵣ  meronymyRelation 
 
 {- Qualifying Asset Property: -}
 qualifyingAssetProperty :  Linkage IndividualAsset AssetProperty
@@ -49,10 +56,3 @@ qualifyingConditionProperty = make_instanceOf "Qualifying Condition Property" "Q
 
 postulate -- qualifyingConditionProperty is subTypeOf qualifyingAssetProperty
   st-21ed5601689c1844-190c414968965640  : qualifyingConditionProperty   ⊏⋆ᵣ  qualifyingAssetProperty 
-
-{- Located at: -}
-locatedat :  Linkage IndividualAsset Location
-locatedat = make_holonymyRelation "Located at" "Located at"
-
-postulate -- locatedat is subTypeOf meronymyRelation
-  st-167126a16008efeb-4aeab6186964fd66  : locatedat   ⊏⋆ᵣ  meronymyRelation 

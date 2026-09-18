@@ -47,9 +47,8 @@ postulate -- realizedScenario is subTypeOf realizedBehavior
 
 {- Interaction Flow: -}
 -- Aggregate Member : Interaction Flow
-InteractionFlow : AggregateHolonymyType
-InteractionFlow = AggregateHolonymy
-
+InteractionFlow : ClassOfClassOfIndividual
+InteractionFlow = ClassOfIndividual
 
 -- Membership relation
 membershipOfInteractionFlow :  Linkage InteractionProcessType InteractionFlow
@@ -77,9 +76,8 @@ postulate -- interactionFlow is subTypeOf behaviorPart
 A Scenario Participant is a Behavior Participant engaged in Interaction Flow the context of an Interaction Process Type.
 -}
 -- Aggregate Member : Scenario Participant
-ScenarioParticipant : AggregateHolonymyType
-ScenarioParticipant = AggregateHolonymy
-
+ScenarioParticipant : ClassOfClassOfIndividual
+ScenarioParticipant = ClassOfIndividual
 
 -- Membership relation
 membershipOfScenarioParticipant :  Linkage InteractionProcessType ScenarioParticipant

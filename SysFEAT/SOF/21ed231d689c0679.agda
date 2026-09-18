@@ -18,8 +18,8 @@ open import Agda.Primitive
 open import SysFEAT.SOF.515c6a856893324e public -- Asset Property
 open import SysFEAT.SOF.e53af71366e37de2 public -- Condition Property Type
 
-ConditionProperty : ClassOfMixedOrderEntity
-ConditionProperty = MixedOrderEntity
+ConditionProperty : AssetPropertyType
+ConditionProperty = AssetProperty
 
 
 --  ConditionProperty is subTypeOf AssetProperty

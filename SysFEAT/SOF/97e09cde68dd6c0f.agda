@@ -18,8 +18,8 @@ open import Agda.Primitive
 open import SysFEAT.SOF.97e09afa68dd69f1 public -- Resolution Outcome
 open import SysFEAT.SOF.366c47e1675c1c07 public -- Decision Type
 
-DecisionOutcome : ClassOfMixedOrderEntity
-DecisionOutcome = MixedOrderEntity
+DecisionOutcome : PropertyType
+DecisionOutcome = Property
 
 
 --  DecisionOutcome is subTypeOf ResolutionOutcome

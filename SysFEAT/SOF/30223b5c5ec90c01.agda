@@ -19,12 +19,14 @@ External references:
 {-# OPTIONS --cubical --guardedness #-}
 
 module SysFEAT.SOF.30223b5c5ec90c01 where -- ========== Outcome Event
+
 open import Agda.Primitive
 open import SysFEAT.SOF.24ae31d75ed1c747 public -- Behavioral Event
 open import SysFEAT.SOF.a4a5b3f855585ce1 public -- Asset Type
 
 OutcomeEvent : ClassOfClassOfIndividual
-OutcomeEvent = ClassOfIndividual
+OutcomeEvent = BehavioralEvent
+
 
 --  OutcomeEvent is subTypeOf BehavioralEvent
 st-30223b5c5ec90c01-24ae31d75ed1c747 : OutcomeEvent ⊏ₑ BehavioralEvent

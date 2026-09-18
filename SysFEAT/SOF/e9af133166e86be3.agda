@@ -21,13 +21,16 @@ open import Agda.Primitive
 open import SysFEAT.UpperOntology.267b6a126675a0b9 public -- Temporal Bounding
 open import SysFEAT.SOF.24ae31d75ed1c747 public -- Behavioral Event
 
-IndividualEvent : TemporalBoundingType
+IndividualEvent : BehavioralEvent
 IndividualEvent = TemporalBounding
-
 
 --  IndividualEvent is subTypeOf TemporalBounding
 st-e9af133166e86be3-267b6a126675a0b9 : IndividualEvent ⊏ₑ TemporalBounding
 st-e9af133166e86be3-267b6a126675a0b9 = polySubTypeOf-identity
 
+postulate -- IndividualEvent is PowerInstanceOf Behavioral Event
+  e9af140b66e86cb9 : IndividualEvent ∷ₚₑ BehavioralEvent
+postulate -- BehavioralEvent is ReflexivePowerType 
+  42a948a76aad3eb1 : BehavioralEvent ⊏ₘₑ IndividualEvent
 
 -- == Relations =======================

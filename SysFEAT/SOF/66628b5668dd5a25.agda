@@ -19,8 +19,8 @@ open import SysFEAT.SOF.66628bbe68dd5bef public -- Governance Property
 open import SysFEAT.SOF.6662916b68dd5f84 public -- Governance Instrument
 open import SysFEAT.SOF.366c3ea8675c13e2 public -- Appraisal Type
 
-AppraisalOption : ClassOfMixedOrderEntity
-AppraisalOption = MixedOrderEntity
+AppraisalOption : PropertyType
+AppraisalOption = Property
 
 
 --  AppraisalOption is subTypeOf GovernanceProperty

@@ -18,8 +18,8 @@ open import Agda.Primitive
 open import SysFEAT.SOF.24ae31d75ed1c747 public -- Behavioral Event
 open import SysFEAT.SOF.362ff9085b3c4933 public -- Period Type
 
-TimeEvent : ClassOfClassOfBoundedIndividual
-TimeEvent = ClassOfBoundedIndividual
+TimeEvent : ClassOfClassOfIndividual
+TimeEvent = BehavioralEvent
 
 
 --  TimeEvent is subTypeOf BehavioralEvent

@@ -18,8 +18,8 @@ open import Agda.Primitive
 open import SysFEAT.SOF.97e09cde68dd6c0f public -- Decision Outcome
 open import SysFEAT.SOF.97e0a09268dd70b6 public -- Policy Decision Type
 
-PolicyapplicabilityStatus : SecondOrderClass
-PolicyapplicabilityStatus = FirstOrderClass
+PolicyapplicabilityStatus : PropertyType
+PolicyapplicabilityStatus = Property
 
 
 --  PolicyapplicabilityStatus is subTypeOf DecisionOutcome

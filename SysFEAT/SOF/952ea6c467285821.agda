@@ -20,8 +20,8 @@ open import Agda.Primitive
 open import SysFEAT.SOF.83f88fd567406e53 public -- Asset Property Type
 open import SysFEAT.SOF.9397c3d86877842f public -- Policy Asset
 
-PolicyCategory : ClassOfMixedOrderEntity
-PolicyCategory = MixedOrderEntity
+PolicyCategory : ThirdOrderClass
+PolicyCategory = PropertyType
 
 
 --  PolicyCategory is subTypeOf AssetPropertyType

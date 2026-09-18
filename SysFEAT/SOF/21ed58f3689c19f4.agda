@@ -18,8 +18,8 @@ open import Agda.Primitive
 open import SysFEAT.SOF.21ed231d689c0679 public -- Condition Property
 open import SysFEAT.SOF.e53af85b66e37f78 public -- Environmental Property Type
 
-EnvironmentalProperty : SecondOrderClass
-EnvironmentalProperty = FirstOrderClass
+EnvironmentalProperty : AssetPropertyType
+EnvironmentalProperty = AssetProperty
 
 
 --  EnvironmentalProperty is subTypeOf ConditionProperty
