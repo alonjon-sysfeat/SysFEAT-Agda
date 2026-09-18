@@ -18,8 +18,8 @@ open import Agda.Primitive
 open import SysFEAT.SOF.e53af71366e37de2 public -- Condition Property Type
 open import SysFEAT.SOF.6f9c78916a0f34e5 public -- Environmental Condition Type
 
-EnvironmentalPropertyType : ClassOfMixedOrderEntity
-EnvironmentalPropertyType = MixedOrderEntity
+EnvironmentalPropertyType : ThirdOrderClass
+EnvironmentalPropertyType = PropertyType
 
 
 --  EnvironmentalPropertyType is subTypeOf ConditionPropertyType

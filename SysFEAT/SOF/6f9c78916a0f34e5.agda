@@ -17,9 +17,8 @@ module SysFEAT.SOF.6f9c78916a0f34e5 where -- ========== Environmental Condition 
 open import Agda.Primitive
 open import SysFEAT.SOF.6cfb6ef26a0f15e4 public -- Condition Category
 
-EnvironmentalConditionType : ∀ (u : Level) → MetaClass u 
-EnvironmentalConditionType u  = ClassOfEntity u 
-
+EnvironmentalConditionType : ∀ (u : Level) → Set (lsuc (lsuc (lsuc u)))
+EnvironmentalConditionType u = Category u
 
 --  EnvironmentalConditionType is subTypeOf ConditionCategory
 st-6f9c78916a0f34e5-6cfb6ef26a0f15e4 : ∀ {u v} → (EnvironmentalConditionType u) ⊏⋆ₑ (ConditionCategory v)

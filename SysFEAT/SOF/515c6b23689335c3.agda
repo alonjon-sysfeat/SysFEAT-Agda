@@ -26,8 +26,8 @@ open import SysFEAT.UpperOntology.746ac18368905aa2 public -- Property
 open import SysFEAT.SOF.952ea6c467285821 public -- Policy Category
 open import SysFEAT.SOF.a4a5b3f855585ce1 public -- Asset Type
 
-Directive : ClassOfMixedOrderEntity
-Directive = MixedOrderEntity
+Directive : PropertyType
+Directive = Property
 
 
 --  Directive withAspect PolicyAsset
@@ -40,6 +40,13 @@ st-515c6b23689335c3-746ac18368905aa2 = polySubTypeOf-identity
 
 
 -- == Relations =======================
+
+{- Policy Category: -}
+policyCategory :  Linkage Directive PolicyCategory
+policyCategory = make_instanceOf "Policy Category" "Policy Category"
+
+postulate -- policyCategory is subTypeOf categoryOfArchitectureBlock
+  st-515c6b2b689335ef-f69620606a0f9c94  : policyCategory   ⊏⋆ᵣ  categoryOfArchitectureBlock  {lsuc(lsuc(lzero))}
 
 {- Specialized Directive: -}
 specializedDirective :  Linkage Directive Directive
@@ -54,13 +61,6 @@ realizedDirective = make_subTypeOf "Realized Directive" "Realized Directive"
 
 postulate -- realizedDirective is subTypeOf specializedProperty
   st-190c7a7f6896696e-1662112a68925f90  : realizedDirective   ⊏⋆ᵣ  specializedProperty 
-
-{- Policy Category: -}
-policyCategory :  Linkage Directive PolicyCategory
-policyCategory = make_instanceOf "Policy Category" "Policy Category"
-
-postulate -- policyCategory is subTypeOf categoryOfArchitectureBlock
-  st-515c6b2b689335ef-f69620606a0f9c94  : policyCategory   ⊏⋆ᵣ  categoryOfArchitectureBlock  {lsuc(lsuc(lzero))}
 
 {- Directive Subject: 
 Any Asset Type that is the subject of a Directive.

@@ -54,9 +54,8 @@ postulate -- realizedBehavior is subTypeOf realizedOperatingAsset
 A Behavior Participant is the participation of an Agent Type in a Behavior Type.
 -}
 -- Aggregate Member : Behavior Participant
-BehaviorParticipant : AggregateHolonymyType
-BehaviorParticipant = AggregateHolonymy
-
+BehaviorParticipant : ClassOfClassOfIndividual
+BehaviorParticipant = ClassOfIndividual
 
 -- Membership relation
 membershipOfBehaviorParticipant :  Linkage BehaviorType BehaviorParticipant
@@ -82,9 +81,8 @@ postulate -- behaviorParticipant is subTypeOf operatingAssetPart
 A composed Behavior Type that is a part of the parent Behavior Type.
 -}
 -- Aggregate Member : Behavior Part
-BehaviorPart : AggregateHolonymyType
-BehaviorPart = AggregateHolonymy
-
+BehaviorPart : ClassOfClassOfIndividual
+BehaviorPart = ClassOfIndividual
 
 -- Membership relation
 membershipOfBehaviorPart :  Linkage BehaviorType BehaviorPart

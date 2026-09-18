@@ -18,8 +18,8 @@ open import Agda.Primitive
 open import SysFEAT.SOF.6662916b68dd5f84 public -- Governance Instrument
 open import SysFEAT.UpperOntology.87d3062666e33965 public -- Property Type
 
-GovernancePropertyType : ClassOfMixedOrderEntity
-GovernancePropertyType = MixedOrderEntity
+GovernancePropertyType : ThirdOrderClass
+GovernancePropertyType = PropertyType
 
 
 --  GovernancePropertyType withAspect GovernanceInstrument

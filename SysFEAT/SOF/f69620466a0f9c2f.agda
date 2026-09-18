@@ -19,9 +19,8 @@ open import SysFEAT.UpperOntology.f69619236a0f8dcd public -- Category
 open import SysFEAT.SOF.0eb97aff6855cd23 public -- Model Property Block
 open import SysFEAT.SOF.f696240c6a0f9ea4 public -- Category Partition
 
-AssetCategory : ∀ (u : Level) → MetaClass u 
-AssetCategory u  = ClassOfEntity u 
-
+AssetCategory : ∀ (u : Level) → Set (lsuc (lsuc (lsuc u)))
+AssetCategory u = Category u
 
 --  AssetCategory is subTypeOf Category
 st-f69620466a0f9c2f-f69619236a0f8dcd : ∀ {u v} → (AssetCategory u) ⊏⋆ₑ (Category v)
