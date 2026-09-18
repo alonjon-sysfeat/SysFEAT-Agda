@@ -17,6 +17,7 @@ module SysFEAT.UpperOntology.9429979a66823f90 where -- ========== Temporal Bound
 open import Agda.Primitive
 open import SysFEAT.UpperOntology.6aa8cbcb65b32971 public -- Class of Individual
 open import SysFEAT.UpperOntology.23d5eaba68515533 public -- Ordering Connection
+open import SysFEAT.UpperOntology.267b6a126675a0b9 public -- Temporal Bounding
 
 TemporalBoundingType : ClassOfClassOfIndividual
 TemporalBoundingType = ClassOfIndividual
@@ -29,4 +30,10 @@ st-9429979a66823f90-6aa8cbcb65b32971 = polySubTypeOf-identity
 st-9429979a66823f90-23d5eaba68515533 : TemporalBoundingType ⊏ₐₑ (OrderingConnection (lsuc(lzero)))
 st-9429979a66823f90-23d5eaba68515533 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
+
+{- F4A329426AA78DA9: -}
+f4A329426AA78DA9 :  Linkage TemporalBoundingType TemporalBounding
+f4A329426AA78DA9 = make_classOfRelation "F4A329426AA78DA9" "F4A329426AA78DA9"
+

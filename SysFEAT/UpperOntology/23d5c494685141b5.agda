@@ -21,8 +21,9 @@ open import SysFEAT.UpperOntology.23d5aa4868513f43 public -- Block Collection
 open import SysFEAT.UpperOntology.a39aaa7f685e5118 public -- Lexical Scope
 open import SysFEAT.UpperOntology.23d5a9ea68513ced public -- Building Block
 
-BlockLexicalScope : ∀ (u : Level) → ClassOfMixedOrderEntity u
-BlockLexicalScope u = MixedOrderEntity u
+BlockLexicalScope : ∀ (u : Level) → ClassOfMixedOrderEntity u 
+BlockLexicalScope u  = MixedOrderEntity u 
+
 
 --  BlockLexicalScope is subTypeOf BlockCollection
 st-23d5c494685141b5-23d5aa4868513f43 : ∀ {u v} → (BlockLexicalScope u) ⊏⋆ₑ (BlockCollection v)
@@ -32,7 +33,8 @@ st-23d5c494685141b5-23d5aa4868513f43 = trivialPolySubTypeOfEntity
 st-23d5c494685141b5-a39aaa7f685e5118 : ∀ {u v} → (BlockLexicalScope u) ⊏⋆ₑ (LexicalScope v)
 st-23d5c494685141b5-a39aaa7f685e5118 = trivialPolySubTypeOfEntity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Scoped Building Block: 
 Nesting Relation that asserts the existence of a set of Building Blocks in the context of a given Block Lexical Scope.A Building Block belongs to one and one one Block Lexical Scope.

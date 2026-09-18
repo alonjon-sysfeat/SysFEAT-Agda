@@ -22,11 +22,13 @@ module SysFEAT.UpperOntology.23d5a9ea68513ced where -- ========== Building Block
 open import Agda.Primitive
 open import SysFEAT.UpperOntology.6ef572f868f1366f public -- Mixed-Order Entity
 
-BuildingBlock : ∀ (u : Level) → ClassOfMixedOrderEntity u
-BuildingBlock u = MixedOrderEntity u
+BuildingBlock : ∀ (u : Level) → ClassOfMixedOrderEntity u 
+BuildingBlock u  = MixedOrderEntity u 
+
 
 --  BuildingBlock is subTypeOf MixedOrderEntity
 st-23d5a9ea68513ced-6ef572f868f1366f : ∀ {u v} → (BuildingBlock u) ⊏⋆ₑ (MixedOrderEntity v)
 st-23d5a9ea68513ced-6ef572f868f1366f = trivialPolySubTypeOfEntity
 
--- == Relationships =======================
+
+-- == Relations =======================

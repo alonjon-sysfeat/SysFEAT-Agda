@@ -16,7 +16,9 @@ module SysFEAT.UpperOntology.085717e35ed13f34 where -- ========== Today
 
 open import Agda.Primitive
 
-Today : ∀ (u : Level) → ClassOfMixedOrderEntity u
-Today u = MixedOrderEntity u
+Today : InitiativeMilestone
+Today = Unknown
 
+postulate -- Today is PowerInstanceOf Initiative Milestone
+  08570d835ed129a3 : Today ∷ₚₑ InitiativeMilestone
 

@@ -21,11 +21,12 @@ open import Agda.Primitive
 open import SysFEAT.UpperOntology.6aa8cbcb65b32971 public -- Class of Individual
 open import SysFEAT.UpperOntology.8cfa941b6852781f public -- Bounded Aggregate
 open import SysFEAT.UpperOntology.60876d5c68de82f2 public -- Class of Class of Bounded Individual
+open import SysFEAT.UpperOntology.28f07b2354be0d69 public -- Bounded Individual
 open import SysFEAT.UpperOntology.746ac18368905aa2 public -- Property
 open import SysFEAT.UpperOntology.9429979a66823f90 public -- Temporal Bounding Type
 
 ClassOfBoundedIndividual : ClassOfClassOfBoundedIndividual
-ClassOfBoundedIndividual = ClassOfIndividual
+ClassOfBoundedIndividual = FirstOrderClass
 
 --  ClassOfBoundedIndividual is subTypeOf ClassOfIndividual
 st-3492c53e619642ed-6aa8cbcb65b32971 : ClassOfBoundedIndividual ⊏ₑ ClassOfIndividual
@@ -35,14 +36,17 @@ st-3492c53e619642ed-6aa8cbcb65b32971 = polySubTypeOf-identity
 st-3492c53e619642ed-8cfa941b6852781f : ClassOfBoundedIndividual ⊏ₐₑ (BoundedAggregate (lsuc(lzero)))
 st-3492c53e619642ed-8cfa941b6852781f = polySubTypeOf-identity
 
--- == Relationships =======================
+postulate -- ClassOfBoundedIndividual is PowerInstanceOf Class of Class of Bounded Individual
+  328b393a66e32434 : ClassOfBoundedIndividual ∷ₚₑ ClassOfClassOfBoundedIndividual
+postulate -- ClassOfClassOfBoundedIndividual is ReflexivePowerType 
+  9ba3baef6aaa6223 : ClassOfClassOfBoundedIndividual ⊏ₘₑ ClassOfBoundedIndividual
 
-{- Specialized Class of Bounded Individual: -}
-specializedClassOfBoundedIndividual :  Linkage ClassOfBoundedIndividual ClassOfBoundedIndividual
-specializedClassOfBoundedIndividual = make_subTypeOf "Class of Bounded Individual Specialization" "Specialized Class of Bounded Individual"
+-- == Relations =======================
 
-postulate -- specializedClassOfBoundedIndividual is subTypeOf specializedClassOfIndividual
-  st-e53a627766e4b4cd-e429632e66ec72ab  : specializedClassOfBoundedIndividual   ⊏⋆ᵣ  specializedClassOfIndividual 
+{- F4A3F54F6AA68175: -}
+f4A3F54F6AA68175 :  Linkage ClassOfBoundedIndividual BoundedIndividual
+f4A3F54F6AA68175 = make_classOfRelation "F4A3F54F6AA68175" "F4A3F54F6AA68175"
+
 
 {- Qualifying Property: 
 A SubTypeOfEntity from a Class of Bounded Individual to a Property that asserts all members of the Class of Bounded Individual  have  the Property.
@@ -52,6 +56,13 @@ qualifyingProperty = make_subTypeOf "Qualification" "Qualifying Property"
 
 postulate -- qualifyingProperty is subTypeOf specializedClassOfIndividual
   st-16621f9a689131e0-e429632e66ec72ab  : qualifyingProperty   ⊏⋆ᵣ  specializedClassOfIndividual 
+
+{- Specialized Class of Bounded Individual: -}
+specializedClassOfBoundedIndividual :  Linkage ClassOfBoundedIndividual ClassOfBoundedIndividual
+specializedClassOfBoundedIndividual = make_subTypeOf "Class of Bounded Individual Specialization" "Specialized Class of Bounded Individual"
+
+postulate -- specializedClassOfBoundedIndividual is subTypeOf specializedClassOfIndividual
+  st-e53a627766e4b4cd-e429632e66ec72ab  : specializedClassOfBoundedIndividual   ⊏⋆ᵣ  specializedClassOfIndividual 
 
 {- Temporal Ordering Type: -}
 -- Aggregate Member : Temporal Ordering Type
@@ -76,33 +87,6 @@ temporalOrderingType = membershipOfTemporalOrderingType  ∘  aggregationOfTempo
 
 postulate -- temporalOrderingType is subTypeOf orderingConnector
   st-2557481f6758a91a-478a4a4468565425  : temporalOrderingType   ⊏⋆ᵣ  orderingConnector {lzero} {lzero}
-
-
-{- Aggregate Holonymy Type: 
-An Aggregate Holonymy Type is a reified flavor of Poly Class of Holonymy whereby the referenced Class of Individual is aggregated in its parent (whole) Class of Bounded Individual.Example:1) A Process Step is the reification of the composition of a child process in a parent process.2) 
--}
--- Aggregate Member : Aggregate Holonymy Type
-AggregateHolonymyType : ClassOfClassOfIndividual
-AggregateHolonymyType = ClassOfIndividual
-
--- Membership relation
-membershipOfAggregateHolonymyType :  Linkage ClassOfBoundedIndividual AggregateHolonymyType
-membershipOfAggregateHolonymyType = make_upwardNestingRelation "aggregateHolonymyType membership" "nested aggregateHolonymyType"
-
--- Aggregation relation
-aggregationOfClassOfBoundedIndividualAggregateHolonymyType :  Linkage AggregateHolonymyType ClassOfBoundedIndividual
-aggregationOfClassOfBoundedIndividualAggregateHolonymyType = make_Relation "ClassOfBoundedIndividual aggregation" "aggregated ClassOfBoundedIndividual"
-
-{- aggregateHolonymyType : derived relation obtained by composing
-   membershipOfAggregateHolonymyType and aggregationOfClassOfBoundedIndividualAggregateHolonymyType
-   It directly links an Class of Bounded Individual to the final aggregated ClassOfBoundedIndividual
-   hiding the reifying AggregateHolonymyType
--}
-aggregateHolonymyType : Linkage ClassOfBoundedIndividual ClassOfBoundedIndividual
-aggregateHolonymyType = membershipOfAggregateHolonymyType  ∘  aggregationOfClassOfBoundedIndividualAggregateHolonymyType
-
-postulate -- aggregateHolonymyType is subTypeOf boundedMember
-  st-c2f2c83b66ea4d78-0eb999956855e070  : aggregateHolonymyType   ⊏⋆ᵣ  boundedMember {lzero} {lzero}
 
 
 {- Aggregate Qualification: 
@@ -130,4 +114,31 @@ aggregateQualification = membershipOfAggregateQualification  ∘  aggregationOfP
 
 postulate -- aggregateQualification is subTypeOf unboundedMember
   st-b83e30bc696f51e5-8cfaf71a6852b042  : aggregateQualification   ⊏⋆ᵣ  unboundedMember {lzero} {lzero}
+
+
+{- Aggregate Holonymy Type: 
+An Aggregate Holonymy Type is a reified flavor of Poly Class of Holonymy whereby the referenced Class of Individual is aggregated in its parent (whole) Class of Bounded Individual.Example:1) A Process Step is the reification of the composition of a child process in a parent process.2) 
+-}
+-- Aggregate Member : Aggregate Holonymy Type
+AggregateHolonymyType : ClassOfClassOfIndividual
+AggregateHolonymyType = ClassOfIndividual
+
+-- Membership relation
+membershipOfAggregateHolonymyType :  Linkage ClassOfBoundedIndividual AggregateHolonymyType
+membershipOfAggregateHolonymyType = make_upwardNestingRelation "aggregateHolonymyType membership" "nested aggregateHolonymyType"
+
+-- Aggregation relation
+aggregationOfClassOfBoundedIndividualAggregateHolonymyType :  Linkage AggregateHolonymyType ClassOfBoundedIndividual
+aggregationOfClassOfBoundedIndividualAggregateHolonymyType = make_Relation "ClassOfBoundedIndividual aggregation" "aggregated ClassOfBoundedIndividual"
+
+{- aggregateHolonymyType : derived relation obtained by composing
+   membershipOfAggregateHolonymyType and aggregationOfClassOfBoundedIndividualAggregateHolonymyType
+   It directly links an Class of Bounded Individual to the final aggregated ClassOfBoundedIndividual
+   hiding the reifying AggregateHolonymyType
+-}
+aggregateHolonymyType : Linkage ClassOfBoundedIndividual ClassOfBoundedIndividual
+aggregateHolonymyType = membershipOfAggregateHolonymyType  ∘  aggregationOfClassOfBoundedIndividualAggregateHolonymyType
+
+postulate -- aggregateHolonymyType is subTypeOf boundedMember
+  st-c2f2c83b66ea4d78-0eb999956855e070  : aggregateHolonymyType   ⊏⋆ᵣ  boundedMember {lzero} {lzero}
 
