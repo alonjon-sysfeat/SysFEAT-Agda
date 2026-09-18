@@ -19,8 +19,8 @@ open import SysFEAT.UpperOntology.29cd2db0661546c4 public -- Individual State
 open import SysFEAT.SOF.0ffeec41600be08a public -- Initiative
 open import SysFEAT.SOF.515c6a856893324e public -- Asset Property
 
-InitiativeStage : StateClass
-InitiativeStage = StateConcept
+InitiativeStage : ClassOfBoundedIndividual
+InitiativeStage = BoundedIndividual
 
 
 --  InitiativeStage is subTypeOf IndividualState
@@ -31,7 +31,8 @@ st-e78c5eb0661989f9-29cd2db0661546c4 = polySubTypeOf-identity
 st-e78c5eb0661989f9-0ffeec41600be08a : InitiativeStage ⊏ₑ Initiative
 st-e78c5eb0661989f9-0ffeec41600be08a = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Desired Result: -}
 -- Aggregate Member : Desired Result

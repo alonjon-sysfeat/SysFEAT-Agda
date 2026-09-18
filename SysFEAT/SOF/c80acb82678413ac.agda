@@ -17,11 +17,13 @@ module SysFEAT.SOF.c80acb82678413ac where -- ========== Agent Life Cycle Event
 open import Agda.Primitive
 open import SysFEAT.UpperOntology.9429979a66823f90 public -- Temporal Bounding Type
 
-AgentLifeCycleEvent : ClassOfClassOfIndividual
-AgentLifeCycleEvent = ClassOfIndividual
+AgentLifeCycleEvent : SecondOrderClass
+AgentLifeCycleEvent = FirstOrderClass
+
 
 --  AgentLifeCycleEvent is subTypeOf TemporalBoundingType
 st-c80acb82678413ac-9429979a66823f90 : AgentLifeCycleEvent ⊏ₑ TemporalBoundingType
 st-c80acb82678413ac-9429979a66823f90 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

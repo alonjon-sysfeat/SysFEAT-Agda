@@ -18,8 +18,9 @@ open import Agda.Primitive
 open import SysFEAT.SOF.6662916b68dd5f84 public -- Governance Instrument
 open import SysFEAT.UpperOntology.87d3062666e33965 public -- Property Type
 
-GovernancePropertyType : ThirdOrderClass
-GovernancePropertyType = SecondOrderClass
+GovernancePropertyType : ClassOfMixedOrderEntity
+GovernancePropertyType = MixedOrderEntity
+
 
 --  GovernancePropertyType withAspect GovernanceInstrument
 st-83f8933a67407206-6662916b68dd5f84 : GovernancePropertyType ⊏ₐₑ (GovernanceInstrument (lsuc(lsuc(lzero))))
@@ -29,4 +30,5 @@ st-83f8933a67407206-6662916b68dd5f84 = polySubTypeOf-identity
 st-83f8933a67407206-87d3062666e33965 : GovernancePropertyType ⊏ₑ PropertyType
 st-83f8933a67407206-87d3062666e33965 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

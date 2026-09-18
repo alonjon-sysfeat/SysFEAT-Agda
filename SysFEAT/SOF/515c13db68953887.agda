@@ -28,8 +28,9 @@ open import SysFEAT.SOF.515c6a856893324e public -- Asset Property
 open import SysFEAT.SOF.0eb95f356855bf94 public -- Asset Block
 open import SysFEAT.SOF.e6f250185f772ee1 public -- Information Asset
 
-Capability : PropertyType
-Capability = ClassOfProperty
+Capability : SecondOrderClass
+Capability = FirstOrderClass
+
 
 --  Capability is subTypeOf AssetProperty
 st-515c13db68953887-515c6a856893324e : Capability ⊏ₑ AssetProperty
@@ -39,7 +40,8 @@ st-515c13db68953887-515c6a856893324e = polySubTypeOf-identity
 st-515c13db68953887-0eb95f356855bf94 : Capability ⊏ₐₑ (AssetBlock (lsuc(lzero)))
 st-515c13db68953887-0eb95f356855bf94 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Specialized Capability: -}
 specializedCapability :  Linkage Capability Capability
@@ -47,6 +49,31 @@ specializedCapability = make_subTypeOf "Specialized Capability" "Specialized Cap
 
 postulate -- specializedCapability is subTypeOf specializedProperty
   st-01f11e77689b6b10-1662112a68925f90  : specializedCapability   ⊏⋆ᵣ  specializedProperty 
+
+{- Involved Information: -}
+-- Aggregate Member : Involved Information
+InvolvedInformation : ClassOfClassOfIndividual
+InvolvedInformation = ClassOfIndividual
+
+-- Membership relation
+membershipOfInvolvedInformation :  Linkage Capability InvolvedInformation
+membershipOfInvolvedInformation = make_upwardNestingRelation "involvedInformation membership" "nested involvedInformation"
+
+-- Aggregation relation
+aggregationOfInformationAssetInvolvedInformation :  Linkage InvolvedInformation InformationAsset
+aggregationOfInformationAssetInvolvedInformation = make_Relation "InformationAsset aggregation" "aggregated InformationAsset"
+
+{- involvedInformation : derived relation obtained by composing
+   membershipOfInvolvedInformation and aggregationOfInformationAssetInvolvedInformation
+   It directly links an Capability to the final aggregated InformationAsset
+   hiding the reifying InvolvedInformation
+-}
+involvedInformation : Linkage Capability InformationAsset
+involvedInformation = membershipOfInvolvedInformation  ∘  aggregationOfInformationAssetInvolvedInformation
+
+postulate -- involvedInformation is subTypeOf unboundedMember
+  st-01f11a37689b6677-8cfaf71a6852b042  : involvedInformation   ⊏⋆ᵣ  unboundedMember {lzero} {lzero}
+
 
 {- Capability Part: 
 Sub-Capability with a capability.Sub-Capabilities can have dependencies whereby a dependent capability needs the outcome of a required capability for one of its outcome to be delivered. 
@@ -75,29 +102,4 @@ postulate -- capabilityPart is subTypeOf classOfHolonymy
   st-01f11c59689b68fe-d91704746a62320c  : capabilityPart   ⊏⋆ᵣ  classOfHolonymy 
 postulate -- capabilityPart is subTypeOf unboundedMember
   st-01f11c59689b68fe-8cfaf71a6852b042  : capabilityPart   ⊏⋆ᵣ  unboundedMember {lzero} {lzero}
-
-
-{- Involved Information: -}
--- Aggregate Member : Involved Information
-InvolvedInformation : ClassOfClassOfIndividual
-InvolvedInformation = ClassOfIndividual
-
--- Membership relation
-membershipOfInvolvedInformation :  Linkage Capability InvolvedInformation
-membershipOfInvolvedInformation = make_upwardNestingRelation "involvedInformation membership" "nested involvedInformation"
-
--- Aggregation relation
-aggregationOfInformationAssetInvolvedInformation :  Linkage InvolvedInformation InformationAsset
-aggregationOfInformationAssetInvolvedInformation = make_Relation "InformationAsset aggregation" "aggregated InformationAsset"
-
-{- involvedInformation : derived relation obtained by composing
-   membershipOfInvolvedInformation and aggregationOfInformationAssetInvolvedInformation
-   It directly links an Capability to the final aggregated InformationAsset
-   hiding the reifying InvolvedInformation
--}
-involvedInformation : Linkage Capability InformationAsset
-involvedInformation = membershipOfInvolvedInformation  ∘  aggregationOfInformationAssetInvolvedInformation
-
-postulate -- involvedInformation is subTypeOf unboundedMember
-  st-01f11a37689b6677-8cfaf71a6852b042  : involvedInformation   ⊏⋆ᵣ  unboundedMember {lzero} {lzero}
 

@@ -20,8 +20,9 @@ open import SysFEAT.SOF.0eb95dce6855be2e public -- Model Container
 open import SysFEAT.SOF.0eb960766855c180 public -- Architecture Block Collection
 open import SysFEAT.SOF.0eb95f356855bf94 public -- Asset Block
 
-ArchitectureContainer : ∀ (u : Level) → ClassOfMixedOrderEntity u
-ArchitectureContainer u = MixedOrderEntity u
+ArchitectureContainer : ∀ (u : Level) → ClassOfMixedOrderEntity u 
+ArchitectureContainer u  = MixedOrderEntity u 
+
 
 --  ArchitectureContainer is subTypeOf ArchitectureLexicalScope
 st-0eb95f1b6855bf64-0eb95d786855bbd9 : ∀ {u v} → (ArchitectureContainer u) ⊏⋆ₑ (ArchitectureLexicalScope v)
@@ -31,7 +32,8 @@ st-0eb95f1b6855bf64-0eb95d786855bbd9 = trivialPolySubTypeOfEntity
 st-0eb95f1b6855bf64-0eb95dce6855be2e : ∀ {u v} → (ArchitectureContainer u) ⊏⋆ₑ (ModelContainer v)
 st-0eb95f1b6855bf64-0eb95dce6855be2e = trivialPolySubTypeOfEntity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Included Architecture Dictionary: -}
 includedArchitectureDictionary : ∀ {u v} →  Linkage (ArchitectureContainer u) (ArchitectureContainer v)

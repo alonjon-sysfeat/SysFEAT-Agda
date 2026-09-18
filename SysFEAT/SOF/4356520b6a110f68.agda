@@ -17,11 +17,13 @@ module SysFEAT.SOF.4356520b6a110f68 where -- ========== Data Category
 open import Agda.Primitive
 open import SysFEAT.SOF.f69620466a0f9c2f public -- Asset Category
 
-DataCategory : ∀ (u : Level) → Set (lsuc (lsuc (lsuc u)))
-DataCategory u = Category u
+DataCategory : ∀ (u : Level) → MetaClass u 
+DataCategory u  = ClassOfEntity u 
+
 
 --  DataCategory is subTypeOf AssetCategory
 st-4356520b6a110f68-f69620466a0f9c2f : ∀ {u v} → (DataCategory u) ⊏⋆ₑ (AssetCategory v)
 st-4356520b6a110f68-f69620466a0f9c2f = trivialPolySubTypeOfEntity
 
--- == Relationships =======================
+
+-- == Relations =======================

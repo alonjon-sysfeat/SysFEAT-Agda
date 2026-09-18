@@ -19,8 +19,9 @@ open import SysFEAT.SOF.66628bbe68dd5bef public -- Governance Property
 open import SysFEAT.SOF.6662916b68dd5f84 public -- Governance Instrument
 open import SysFEAT.SOF.366c3ea8675c13e2 public -- Appraisal Type
 
-AppraisalOption : PropertyType
-AppraisalOption = ClassOfProperty
+AppraisalOption : ClassOfMixedOrderEntity
+AppraisalOption = MixedOrderEntity
+
 
 --  AppraisalOption is subTypeOf GovernanceProperty
 st-66628b5668dd5a25-66628bbe68dd5bef : AppraisalOption ⊏ₑ GovernanceProperty
@@ -30,7 +31,8 @@ st-66628b5668dd5a25-66628bbe68dd5bef = polySubTypeOf-identity
 st-66628b5668dd5a25-6662916b68dd5f84 : AppraisalOption ⊏ₐₑ (GovernanceInstrument (lsuc(lzero)))
 st-66628b5668dd5a25-6662916b68dd5f84 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Appraisal Type: -}
 appraisalType :  Linkage AppraisalOption AppraisalType

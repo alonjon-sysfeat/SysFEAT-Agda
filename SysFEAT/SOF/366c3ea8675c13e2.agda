@@ -18,8 +18,9 @@ open import Agda.Primitive
 open import SysFEAT.SOF.83f8933a67407206 public -- Governance Property Type
 open import SysFEAT.SOF.6662916b68dd5f84 public -- Governance Instrument
 
-AppraisalType : ThirdOrderClass
-AppraisalType = SecondOrderClass
+AppraisalType : ClassOfMixedOrderEntity
+AppraisalType = MixedOrderEntity
+
 
 --  AppraisalType is subTypeOf GovernancePropertyType
 st-366c3ea8675c13e2-83f8933a67407206 : AppraisalType ⊏ₑ GovernancePropertyType
@@ -29,4 +30,5 @@ st-366c3ea8675c13e2-83f8933a67407206 = polySubTypeOf-identity
 st-366c3ea8675c13e2-6662916b68dd5f84 : AppraisalType ⊏ₐₑ (GovernanceInstrument (lsuc(lsuc(lzero))))
 st-366c3ea8675c13e2-6662916b68dd5f84 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

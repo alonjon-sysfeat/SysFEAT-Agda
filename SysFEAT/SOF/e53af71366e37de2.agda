@@ -25,8 +25,9 @@ open import SysFEAT.SOF.83f88fd567406e53 public -- Asset Property Type
 open import SysFEAT.SOF.0eb97aff6855cd23 public -- Model Property Block
 open import SysFEAT.SOF.6cfb6ef26a0f15e4 public -- Condition Category
 
-ConditionPropertyType : ThirdOrderClass
-ConditionPropertyType = SecondOrderClass
+ConditionPropertyType : ClassOfMixedOrderEntity
+ConditionPropertyType = MixedOrderEntity
+
 
 --  ConditionPropertyType is subTypeOf AssetPropertyType
 st-e53af71366e37de2-83f88fd567406e53 : ConditionPropertyType ⊏ₑ AssetPropertyType
@@ -36,7 +37,8 @@ st-e53af71366e37de2-83f88fd567406e53 = polySubTypeOf-identity
 st-e53af71366e37de2-0eb97aff6855cd23 : ConditionPropertyType ⊏ₐₑ (ModelPropertyBlock (lsuc(lsuc(lzero))))
 st-e53af71366e37de2-0eb97aff6855cd23 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Condition Category: 
 The Condition Category that a Condition Property Type belongs to.For instance,  Delivery Time  belongs to the  Performance  category.

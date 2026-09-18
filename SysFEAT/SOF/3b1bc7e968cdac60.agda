@@ -18,14 +18,16 @@ open import Agda.Primitive
 open import SysFEAT.SOF.21ed2aa6689c12ba public -- Measure Property
 open import SysFEAT.SOF.e53af74b66e37e5d public -- Measure Property Type
 
-MeasurementValue : PropertyType
-MeasurementValue = ClassOfProperty
+MeasurementValue : SecondOrderClass
+MeasurementValue = FirstOrderClass
+
 
 --  MeasurementValue is subTypeOf MeasureProperty
 st-3b1bc7e968cdac60-21ed2aa6689c12ba : MeasurementValue ⊏ₑ MeasureProperty
 st-3b1bc7e968cdac60-21ed2aa6689c12ba = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Measured Property Type: -}
 measuredPropertyType :  Linkage MeasurementValue MeasurePropertyType

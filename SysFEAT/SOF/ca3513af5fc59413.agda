@@ -26,7 +26,8 @@ EnvironmentInteractionProcessType = ClassOfBoundedIndividual
 st-ca3513af5fc59413-ca35f48a5fc48686 : EnvironmentInteractionProcessType ⊏ₑ OperatingEcoSystem
 st-ca3513af5fc59413-ca35f48a5fc48686 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Object Flow: -}
 -- Aggregate Member : Object Flow

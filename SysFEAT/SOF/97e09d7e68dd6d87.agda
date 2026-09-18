@@ -18,14 +18,16 @@ open import Agda.Primitive
 open import SysFEAT.SOF.97e09cde68dd6c0f public -- Decision Outcome
 open import SysFEAT.SOF.366c4dbc675c2776 public -- Architecture Decision Type
 
-ArchitectureDecisionOutcome : PropertyType
-ArchitectureDecisionOutcome = ClassOfProperty
+ArchitectureDecisionOutcome : SecondOrderClass
+ArchitectureDecisionOutcome = FirstOrderClass
+
 
 --  ArchitectureDecisionOutcome is subTypeOf DecisionOutcome
 st-97e09d7e68dd6d87-97e09cde68dd6c0f : ArchitectureDecisionOutcome ⊏ₑ DecisionOutcome
 st-97e09d7e68dd6d87-97e09cde68dd6c0f = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Architecture Decision Type: -}
 architectureDecisionType :  Linkage ArchitectureDecisionOutcome ArchitectureDecisionType

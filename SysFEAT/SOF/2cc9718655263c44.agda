@@ -20,8 +20,10 @@ open import SysFEAT.SOF.bcebd0175491272a public -- Stakeholder
 IndividualStakeholder : ClassOfBoundedIndividual
 IndividualStakeholder = BoundedIndividual
 
+
 --  IndividualStakeholder is subTypeOf Stakeholder
 st-2cc9718655263c44-bcebd0175491272a : IndividualStakeholder ⊏ₑ Stakeholder
 st-2cc9718655263c44-bcebd0175491272a = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

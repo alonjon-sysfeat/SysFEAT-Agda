@@ -22,8 +22,9 @@ open import SysFEAT.UpperOntology.3aca52346aa6418d public -- Abstract Entity
 open import SysFEAT.UpperOntology.23d5a9ea68513ced public -- Building Block
 open import SysFEAT.UpperOntology.23d5249e68510ff9 public -- Element
 
-AnnotationBlock : ClassOfIndividual
-AnnotationBlock = Individual
+AnnotationBlock : FirstOrderClass
+AnnotationBlock = FirstOrderEntity
+
 
 --  AnnotationBlock is subTypeOf AbstractEntity
 st-d745e6ea6aa386e5-3aca52346aa6418d : AnnotationBlock ⊏ₑ AbstractEntity
@@ -33,7 +34,8 @@ st-d745e6ea6aa386e5-3aca52346aa6418d = polySubTypeOf-identity
 st-d745e6ea6aa386e5-23d5a9ea68513ced : AnnotationBlock ⊏ₐₑ (BuildingBlock lzero)
 st-d745e6ea6aa386e5-23d5a9ea68513ced = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Annoted Element: -}
 annotedElement : ∀ {u} →  Linkage AnnotationBlock (Element u)

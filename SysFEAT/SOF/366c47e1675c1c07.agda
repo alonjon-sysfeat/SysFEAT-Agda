@@ -17,11 +17,13 @@ module SysFEAT.SOF.366c47e1675c1c07 where -- ========== Decision Type
 open import Agda.Primitive
 open import SysFEAT.SOF.366c4627675c1aad public -- Resolution Type
 
-DecisionType : ThirdOrderClass
-DecisionType = SecondOrderClass
+DecisionType : ClassOfMixedOrderEntity
+DecisionType = MixedOrderEntity
+
 
 --  DecisionType is subTypeOf ResolutionType
 st-366c47e1675c1c07-366c4627675c1aad : DecisionType ⊏ₑ ResolutionType
 st-366c47e1675c1c07-366c4627675c1aad = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

@@ -18,14 +18,16 @@ open import Agda.Primitive
 open import SysFEAT.SOF.66628b5668dd5a25 public -- Appraisal Option
 open import SysFEAT.SOF.366c4033675c1636 public -- Assessment Type
 
-AssessmentValue : PropertyType
-AssessmentValue = ClassOfProperty
+AssessmentValue : SecondOrderClass
+AssessmentValue = FirstOrderClass
+
 
 --  AssessmentValue is subTypeOf AppraisalOption
 st-6662956168dd650c-66628b5668dd5a25 : AssessmentValue ⊏ₑ AppraisalOption
 st-6662956168dd650c-66628b5668dd5a25 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
 
 {- Assessment Type: -}
 assessmentType :  Linkage AssessmentValue AssessmentType
