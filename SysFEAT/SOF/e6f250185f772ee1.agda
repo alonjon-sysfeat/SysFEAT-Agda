@@ -36,15 +36,6 @@ st-e6f250185f772ee1-6c5f80e468587f06 = polySubTypeOf-identity
 
 -- == Relations =======================
 
-{- Data Category: 
-Classification of an Information Asset as belonging to a Data Category.
--}
-dataCategory : ∀ {u} →  Linkage InformationAsset (DataCategory u)
-dataCategory = make_instanceOf "Data Category" "Data Category"
-
-postulate -- dataCategory is subTypeOf categoryOfArchitectureBlock
-  st-435652586a111043-f69620606a0f9c94  : dataCategory  {lsuc(lsuc(lzero))}  ⊏⋆ᵣ  categoryOfArchitectureBlock  {lsuc(lsuc(lzero))}
-
 {- Specialized Information Asset: -}
 specializedInformationAsset :  Linkage InformationAsset InformationAsset
 specializedInformationAsset = make_subTypeOf "Specialized Information Asset" "Specialized Information Asset"
@@ -59,32 +50,14 @@ realizedInformationAsset = make_subTypeOf "Realized Information Asset" "Realized
 postulate -- realizedInformationAsset is subTypeOf subTypeOfEntity
   st-325a3a0b66f354a7-8336837268e9448b  : realizedInformationAsset   ⊏⋆ᵣ  subTypeOfEntity {lsuc(lzero)}
 
-{- Data Risk: 
-A Data Risk is Risk that refers to the potential for loss resulting from inadequate structure and usage of an Information Asset.
+{- Data Category: 
+Classification of an Information Asset as belonging to a Data Category.
 -}
--- Aggregate Member : Data Risk
-DataRisk : ThirdOrderClass
-DataRisk = SecondOrderClass
+dataCategory : ∀ {u} →  Linkage InformationAsset (DataCategory u)
+dataCategory = make_instanceOf "Data Category" "Data Category"
 
--- Membership relation
-membershipOfDataRisk :  Linkage InformationAsset DataRisk
-membershipOfDataRisk = make_upwardNestingRelation "dataRisk membership" "nested dataRisk"
-
--- Aggregation relation
-aggregationOfDataRiskTypeDataRisk :  Linkage DataRisk DataRiskType
-aggregationOfDataRiskTypeDataRisk = make_Relation "DataRiskType aggregation" "aggregated DataRiskType"
-
-{- dataRisk : derived relation obtained by composing
-   membershipOfDataRisk and aggregationOfDataRiskTypeDataRisk
-   It directly links an Information Asset to the final aggregated DataRiskType
-   hiding the reifying DataRisk
--}
-dataRisk : Linkage InformationAsset DataRiskType
-dataRisk = membershipOfDataRisk  ∘  aggregationOfDataRiskTypeDataRisk
-
-postulate -- dataRisk is subTypeOf risk
-  st-582e78cd66f6b425-0e55219466f11fd7  : dataRisk   ⊏⋆ᵣ  risk 
-
+postulate -- dataCategory is subTypeOf categoryOfArchitectureBlock
+  st-435652586a111043-f69620606a0f9c94  : dataCategory  {lsuc(lsuc(lzero))}  ⊏⋆ᵣ  categoryOfArchitectureBlock  {lsuc(lsuc(lzero))}
 
 {- Information Asset Relationship: 
 An Information Asset Relationship is a characteristic of an Information Asset.It can be either an Information Relationship or a Property Component.
@@ -111,4 +84,31 @@ informationAssetRelationship = membershipOfInformationAssetRelationship  ∘  ag
 
 postulate -- informationAssetRelationship is subTypeOf aggregateMember
   st-18eb1f335fdb6e7f-23d5ddef68514dba  : informationAssetRelationship   ⊏⋆ᵣ  aggregateMember {lzero} {lzero}
+
+
+{- Data Risk: 
+A Data Risk is Risk that refers to the potential for loss resulting from inadequate structure and usage of an Information Asset.
+-}
+-- Aggregate Member : Data Risk
+DataRisk : ThirdOrderClass
+DataRisk = SecondOrderClass
+
+-- Membership relation
+membershipOfDataRisk :  Linkage InformationAsset DataRisk
+membershipOfDataRisk = make_upwardNestingRelation "dataRisk membership" "nested dataRisk"
+
+-- Aggregation relation
+aggregationOfDataRiskTypeDataRisk :  Linkage DataRisk DataRiskType
+aggregationOfDataRiskTypeDataRisk = make_Relation "DataRiskType aggregation" "aggregated DataRiskType"
+
+{- dataRisk : derived relation obtained by composing
+   membershipOfDataRisk and aggregationOfDataRiskTypeDataRisk
+   It directly links an Information Asset to the final aggregated DataRiskType
+   hiding the reifying DataRisk
+-}
+dataRisk : Linkage InformationAsset DataRiskType
+dataRisk = membershipOfDataRisk  ∘  aggregationOfDataRiskTypeDataRisk
+
+postulate -- dataRisk is subTypeOf risk
+  st-582e78cd66f6b425-0e55219466f11fd7  : dataRisk   ⊏⋆ᵣ  risk 
 

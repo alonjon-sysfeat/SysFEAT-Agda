@@ -15,10 +15,16 @@ Documentation : https://framework.sysfeat.com/pages/21c5276e655759fb.htm
 module SysFEAT.SOF.21c5276e655759fb where -- ========== Operating Connection
 
 open import Agda.Primitive
+open import SysFEAT.UpperOntology.6aa8cbcb65b32971 public -- Class of Individual
 open import SysFEAT.UpperOntology.23d5eaba68515533 public -- Ordering Connection
 
 OperatingConnection : ClassOfClassOfIndividual
 OperatingConnection = ClassOfIndividual
+
+
+--  OperatingConnection is subTypeOf ClassOfIndividual
+st-21c5276e655759fb-6aa8cbcb65b32971 : OperatingConnection ⊏ₑ ClassOfIndividual
+st-21c5276e655759fb-6aa8cbcb65b32971 = polySubTypeOf-identity
 
 --  OperatingConnection withAspect OrderingConnection
 st-21c5276e655759fb-23d5eaba68515533 : OperatingConnection ⊏ₐₑ (OrderingConnection (lsuc(lzero)))

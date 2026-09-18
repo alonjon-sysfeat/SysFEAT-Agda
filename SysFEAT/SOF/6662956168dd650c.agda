@@ -18,8 +18,8 @@ open import Agda.Primitive
 open import SysFEAT.SOF.66628b5668dd5a25 public -- Appraisal Option
 open import SysFEAT.SOF.366c4033675c1636 public -- Assessment Type
 
-AssessmentValue : SecondOrderClass
-AssessmentValue = FirstOrderClass
+AssessmentValue : PropertyType
+AssessmentValue = Property
 
 
 --  AssessmentValue is subTypeOf AppraisalOption

@@ -19,8 +19,8 @@ open import SysFEAT.UpperOntology.746ac18368905aa2 public -- Property
 open import SysFEAT.SOF.6662916b68dd5f84 public -- Governance Instrument
 open import SysFEAT.SOF.83f8933a67407206 public -- Governance Property Type
 
-GovernanceProperty : ClassOfMixedOrderEntity
-GovernanceProperty = MixedOrderEntity
+GovernanceProperty : PropertyType
+GovernanceProperty = Property
 
 
 --  GovernanceProperty is subTypeOf Property

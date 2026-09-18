@@ -25,6 +25,7 @@ open import SysFEAT.SOF.30223b5c5ec90c01 public -- Outcome Event
 ServiceInterface : ClassOfClassOfIndividual
 ServiceInterface = ClassOfIndividual
 
+
 --  ServiceInterface is subTypeOf BehaviorType
 st-24ae31b55ed1c66d-986cd4ec5ffca3ac : ServiceInterface ⊏ₑ BehaviorType
 st-24ae31b55ed1c66d-986cd4ec5ffca3ac = polySubTypeOf-identity
@@ -38,9 +39,8 @@ st-24ae31b55ed1c66d-21c5276e655759fb = polySubTypeOf-identity
 
 {- Sub Service Interface: -}
 -- Aggregate Member : Sub Service Interface
-SubServiceInterface : AggregateHolonymyType
-SubServiceInterface = AggregateHolonymy
-
+SubServiceInterface : ClassOfClassOfIndividual
+SubServiceInterface = ClassOfIndividual
 
 -- Membership relation
 membershipOfSubServiceInterface :  Linkage ServiceInterface SubServiceInterface
@@ -66,9 +66,8 @@ postulate -- subServiceInterface is subTypeOf behaviorPart
 A Flow Connection is an Outcome Event event that occurs between the consumer and the provider participant of a Service Interface.
 -}
 -- Aggregate Member : Flow Connection
-FlowConnection : AggregateHolonymyType
-FlowConnection = AggregateHolonymy
-
+FlowConnection : ClassOfClassOfIndividual
+FlowConnection = ClassOfIndividual
 
 -- Membership relation
 membershipOfFlowConnection :  Linkage ServiceInterface FlowConnection

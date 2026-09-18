@@ -40,5 +40,7 @@ st-24ae31d75ed1c747-a44fb6bc6748b088 = polySubTypeOf-identity
 st-24ae31d75ed1c747-9429979a66823f90 : BehavioralEvent ⊏ₑ TemporalBoundingType
 st-24ae31d75ed1c747-9429979a66823f90 = polySubTypeOf-identity
 
+postulate -- BehavioralEvent is PowerInstanceOf Class of Class of Individual
+  608767a668de7fb6 : BehavioralEvent ∷ₚₑ ClassOfClassOfIndividual
 
 -- == Relations =======================

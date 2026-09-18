@@ -34,11 +34,12 @@ open import SysFEAT.SOF.79368381561716a6 public -- Agent Type
 ActionProcessType : ClassOfClassOfBoundedIndividual
 ActionProcessType = ClassOfBoundedIndividual
 
-
 --  ActionProcessType is subTypeOf BehaviorType
 st-d682ef5e56144e77-986cd4ec5ffca3ac : ActionProcessType ⊏ₑ BehaviorType
 st-d682ef5e56144e77-986cd4ec5ffca3ac = polySubTypeOf-identity
 
+postulate -- ActionProcessType is PowerInstanceOf Class of Class of Bounded Individual
+  60876d5c68de82f2 : ActionProcessType ∷ₚₑ ClassOfClassOfBoundedIndividual
 
 -- == Relations =======================
 
@@ -141,9 +142,8 @@ postulate -- processStore is subTypeOf unboundedMember
 An Active Participant is a Process Participant indicating the role of an Agent Type actively engaged as an actor within a Action Process Type.
 -}
 -- Aggregate Member : Active Participant
-ActiveParticipant : AggregateHolonymyType
-ActiveParticipant = AggregateHolonymy
-
+ActiveParticipant : ClassOfClassOfIndividual
+ActiveParticipant = ClassOfIndividual
 
 -- Membership relation
 membershipOfActiveParticipant :  Linkage ActionProcessType ActiveParticipant
@@ -169,9 +169,8 @@ postulate -- activeParticipant is subTypeOf processParticipant
 A Process Participant is the involvement of an in a .
 -}
 -- Aggregate Member : Process Participant
-ProcessParticipant : AggregateHolonymyType
-ProcessParticipant = AggregateHolonymy
-
+ProcessParticipant : ClassOfClassOfIndividual
+ProcessParticipant = ClassOfIndividual
 
 -- Membership relation
 membershipOfProcessParticipant :  Linkage ActionProcessType ProcessParticipant
@@ -197,9 +196,8 @@ postulate -- processParticipant is subTypeOf behaviorParticipant
 A Process Step is a Process Activity  invoking another Action Process Type
 -}
 -- Aggregate Member : Process Step
-ProcessStep : AggregateHolonymyType
-ProcessStep = AggregateHolonymy
-
+ProcessStep : ClassOfClassOfIndividual
+ProcessStep = ClassOfIndividual
 
 -- Membership relation
 membershipOfProcessStep :  Linkage ActionProcessType ProcessStep

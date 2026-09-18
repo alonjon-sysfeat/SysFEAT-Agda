@@ -28,8 +28,8 @@ open import SysFEAT.SOF.515c6a856893324e public -- Asset Property
 open import SysFEAT.SOF.0eb95f356855bf94 public -- Asset Block
 open import SysFEAT.SOF.e6f250185f772ee1 public -- Information Asset
 
-Capability : SecondOrderClass
-Capability = FirstOrderClass
+Capability : AssetPropertyType
+Capability = AssetProperty
 
 
 --  Capability is subTypeOf AssetProperty

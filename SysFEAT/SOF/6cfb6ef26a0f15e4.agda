@@ -19,9 +19,8 @@ open import SysFEAT.UpperOntology.f69619236a0f8dcd public -- Category
 open import SysFEAT.SOF.0eb97aff6855cd23 public -- Model Property Block
 open import SysFEAT.SOF.6f9c71356a0f3116 public -- Family of Measurement
 
-ConditionCategory : ∀ (u : Level) → ClassOfMixedOrderEntity u 
-ConditionCategory u  = MixedOrderEntity u 
-
+ConditionCategory : ∀ (u : Level) → Set (lsuc (lsuc (lsuc u)))
+ConditionCategory u = Category u
 
 --  ConditionCategory is subTypeOf Category
 st-6cfb6ef26a0f15e4-f69619236a0f8dcd : ∀ {u v} → (ConditionCategory u) ⊏⋆ₑ (Category v)

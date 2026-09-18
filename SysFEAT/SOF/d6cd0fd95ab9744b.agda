@@ -100,9 +100,8 @@ postulate -- participantAgent is subTypeOf ecosystemMember
 set of interactions processes performed in the context of an Operating Eco-System.
 -}
 -- Aggregate Member : Performed Interaction
-PerformedInteraction : AggregateHolonymyType
-PerformedInteraction = AggregateHolonymy
-
+PerformedInteraction : ClassOfClassOfIndividual
+PerformedInteraction = ClassOfIndividual
 
 -- Membership relation
 26CB2D596961099C :  Linkage AgentTypeEnvironment PerformedInteraction

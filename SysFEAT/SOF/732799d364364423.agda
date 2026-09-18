@@ -16,9 +16,9 @@ module SysFEAT.SOF.732799d364364423 where -- ========== Policy Decision
 
 open import Agda.Primitive
 open import SysFEAT.SOF.d7f9fcc95f720ee0 public -- Decision
-open import SysFEAT.SOF.97e0a19a68dd71de public -- Policy applicability Status
 open import SysFEAT.SOF.a44fb6bc6748b088 public -- Functional Asset
 open import SysFEAT.SOF.190c7429689664b5 public -- Policy
+open import SysFEAT.SOF.97e0a19a68dd71de public -- Policy applicability Status
 
 PolicyDecision : ClassOfBoundedIndividual
 PolicyDecision = BoundedIndividual
@@ -30,13 +30,6 @@ st-732799d364364423-d7f9fcc95f720ee0 = polySubTypeOf-identity
 
 
 -- == Relations =======================
-
-{- Selected Policy Option: -}
-selectedPolicyOption :  Linkage PolicyDecision PolicyapplicabilityStatus
-selectedPolicyOption = make_instanceOf "Selected Policy Option" "Selected Policy Option"
-
-postulate -- selectedPolicyOption is subTypeOf selectedDecisionOption
-  st-97e0a1b668dd7256-97e09d5368dd6d39  : selectedPolicyOption   ⊏⋆ᵣ  selectedDecisionOption 
 
 {- Applicability Domain: 
 The set of Functional Assets which are subject of the Policy Decision.
@@ -55,3 +48,10 @@ concernedPolicy = make_Relation "Concerned Policy" "Concerned Policy"
 
 postulate -- concernedPolicy is subTypeOf decisionSubject
   st-9397cbcf687793de-6bf18905685999a3  : concernedPolicy   ⊏⋆ᵣ  decisionSubject  {lzero}
+
+{- Selected Policy Option: -}
+selectedPolicyOption :  Linkage PolicyDecision PolicyapplicabilityStatus
+selectedPolicyOption = make_instanceOf "Selected Policy Option" "Selected Policy Option"
+
+postulate -- selectedPolicyOption is subTypeOf selectedDecisionOption
+  st-97e0a1b668dd7256-97e09d5368dd6d39  : selectedPolicyOption   ⊏⋆ᵣ  selectedDecisionOption 

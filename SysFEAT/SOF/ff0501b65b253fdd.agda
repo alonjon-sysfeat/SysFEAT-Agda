@@ -22,11 +22,11 @@ open import Agda.Primitive
 open import SysFEAT.SOF.0f641043685975c9 public -- Governance Building Block
 open import SysFEAT.SOF.0f64116a68597a27 public -- Governance Container
 open import SysFEAT.UpperOntology.342f74b166156e02 public -- Whole Life Individual
+open import SysFEAT.SOF.f4be37465ee1cba6 public -- Audit
+open import SysFEAT.SOF.1737b50b5fe27cba public -- Governance Event
 open import SysFEAT.SOF.0ffeec41600be08a public -- Initiative
 open import SysFEAT.SOF.173706265fe3f332 public -- Measurement Instrument
 open import SysFEAT.SOF.2cc9717155263b89 public -- Governance Committee
-open import SysFEAT.SOF.f4be37465ee1cba6 public -- Audit
-open import SysFEAT.SOF.1737b50b5fe27cba public -- Governance Event
 
 GoverningTeam : ClassOfBoundedIndividual
 GoverningTeam = BoundedIndividual
@@ -46,6 +46,20 @@ st-ff0501b65b253fdd-342f74b166156e02 = polySubTypeOf-identity
 
 
 -- == Relations =======================
+
+{- Owned Team Activity: -}
+ownedTeamActivity :  Linkage GoverningTeam Audit
+ownedTeamActivity = make_nestingRelation "Owned Team Activity" "Owned Team Activity"
+
+postulate -- ownedTeamActivity is subTypeOf packagedGovernanceBlock
+  st-9c94c0cf695f36cb-0f6410c668597695  : ownedTeamActivity   ⊏⋆ᵣ  packagedGovernanceBlock {lzero}
+
+{- Owned Team Event: -}
+ownedTeamEvent :  Linkage GoverningTeam GovernanceEvent
+ownedTeamEvent = make_nestingRelation "Owned Team Event" "Owned Team Event"
+
+postulate -- ownedTeamEvent is subTypeOf packagedGovernanceBlock
+  st-9c94c1ad695f3777-0f6410c668597695  : ownedTeamEvent   ⊏⋆ᵣ  packagedGovernanceBlock {lzero}
 
 {- Governed Initiative: -}
 governedInitiative :  Linkage GoverningTeam Initiative
@@ -76,17 +90,3 @@ teamCommittee = make_holonymyRelation "Team Committee" "Team Committee"
 
 postulate -- teamCommittee is subTypeOf referenceHolonymy
   st-b0d7b34f5ea02f2c-9653a95669701e02  : teamCommittee   ⊏⋆ᵣ  referenceHolonymy 
-
-{- Owned Team Activity: -}
-ownedTeamActivity :  Linkage GoverningTeam Audit
-ownedTeamActivity = make_nestingRelation "Owned Team Activity" "Owned Team Activity"
-
-postulate -- ownedTeamActivity is subTypeOf packagedGovernanceBlock
-  st-9c94c0cf695f36cb-0f6410c668597695  : ownedTeamActivity   ⊏⋆ᵣ  packagedGovernanceBlock {lzero}
-
-{- Owned Team Event: -}
-ownedTeamEvent :  Linkage GoverningTeam GovernanceEvent
-ownedTeamEvent = make_nestingRelation "Owned Team Event" "Owned Team Event"
-
-postulate -- ownedTeamEvent is subTypeOf packagedGovernanceBlock
-  st-9c94c1ad695f3777-0f6410c668597695  : ownedTeamEvent   ⊏⋆ᵣ  packagedGovernanceBlock {lzero}

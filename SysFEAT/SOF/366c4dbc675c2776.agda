@@ -17,8 +17,8 @@ module SysFEAT.SOF.366c4dbc675c2776 where -- ========== Architecture Decision Ty
 open import Agda.Primitive
 open import SysFEAT.SOF.366c47e1675c1c07 public -- Decision Type
 
-ArchitectureDecisionType : ClassOfMixedOrderEntity
-ArchitectureDecisionType = MixedOrderEntity
+ArchitectureDecisionType : ThirdOrderClass
+ArchitectureDecisionType = PropertyType
 
 
 --  ArchitectureDecisionType is subTypeOf DecisionType

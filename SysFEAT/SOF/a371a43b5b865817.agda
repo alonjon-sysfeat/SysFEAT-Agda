@@ -37,15 +37,6 @@ st-a371a43b5b865817-0c4559c86a033792 = polySubTypeOf-identity
 
 -- == Relations =======================
 
-{- Fulfilled Capability: 
-Capability(ies) fulfilled by an Agent Type and its Behavior Types.
--}
-fulfilledCapability :  Linkage OperatingAssetType Capability
-fulfilledCapability = make_subTypeOf "Fulfilled Capability" "Fulfilled Capability"
-
-postulate -- fulfilledCapability is subTypeOf assetTypeQualification
-  st-190c72c368966198-190c1f3b68964a27  : fulfilledCapability   ⊏⋆ᵣ  assetTypeQualification 
-
 {- Specialized Operating Asset: -}
 specializedOperatingAsset :  Linkage OperatingAssetType OperatingAssetType
 specializedOperatingAsset = make_subTypeOf "Specialized Operating Asset" "Specialized Operating Asset"
@@ -61,6 +52,15 @@ realizedOperatingAsset = make_subTypeOf "Realized Operating Asset" "Realized Ope
 
 postulate -- realizedOperatingAsset is subTypeOf realizedFunctionalAsset
   st-7dc193da6849536c-7dc1907b684951ae  : realizedOperatingAsset   ⊏⋆ᵣ  realizedFunctionalAsset 
+
+{- Fulfilled Capability: 
+Capability(ies) fulfilled by an Agent Type and its Behavior Types.
+-}
+fulfilledCapability :  Linkage OperatingAssetType Capability
+fulfilledCapability = make_subTypeOf "Fulfilled Capability" "Fulfilled Capability"
+
+postulate -- fulfilledCapability is subTypeOf assetTypeQualification
+  st-190c72c368966198-190c1f3b68964a27  : fulfilledCapability   ⊏⋆ᵣ  assetTypeQualification 
 
 {- Rule Enforcement: 
 A Rule Enforcementt is the application of a Behavioral Rule in an Operating Asset Type.In a Action Process Type, a Rule Enforcement is a guide to Process Steps.In an Agent Type, a Rule Enforcement is a guide to its structure: Agent Parts, Information Stores, Performed Processes.
@@ -91,9 +91,8 @@ postulate -- ruleEnforcement is subTypeOf aggregateQualification
 
 {- Operating Asset Part: -}
 -- Aggregate Member : Operating Asset Part
-OperatingAssetPart : AggregateHolonymyType
-OperatingAssetPart = AggregateHolonymy
-
+OperatingAssetPart : ClassOfClassOfIndividual
+OperatingAssetPart = ClassOfIndividual
 
 -- Membership relation
 membershipOfOperatingAssetPart :  Linkage OperatingAssetType OperatingAssetPart

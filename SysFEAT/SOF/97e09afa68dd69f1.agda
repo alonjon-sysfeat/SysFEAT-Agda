@@ -18,8 +18,8 @@ open import Agda.Primitive
 open import SysFEAT.SOF.66628b5668dd5a25 public -- Appraisal Option
 open import SysFEAT.SOF.366c4627675c1aad public -- Resolution Type
 
-ResolutionOutcome : ClassOfMixedOrderEntity
-ResolutionOutcome = MixedOrderEntity
+ResolutionOutcome : PropertyType
+ResolutionOutcome = Property
 
 
 --  ResolutionOutcome is subTypeOf AppraisalOption

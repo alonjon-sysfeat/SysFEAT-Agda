@@ -24,6 +24,7 @@ open import SysFEAT.UpperOntology.746ac18368905aa2 public -- Property
 InformationProperty : PropertyType
 InformationProperty = Property
 
+
 --  InformationProperty is subTypeOf InformationAsset
 st-c189d5f068ae4d75-e6f250185f772ee1 : InformationProperty ⊏ₑ InformationAsset
 st-c189d5f068ae4d75-e6f250185f772ee1 = polySubTypeOf-identity

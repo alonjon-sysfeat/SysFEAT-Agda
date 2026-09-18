@@ -15,20 +15,19 @@ Documentation : https://framework.sysfeat.com/pages/6f9c71356a0f3116.htm
 module SysFEAT.SOF.6f9c71356a0f3116 where -- ========== Family of Measurement
 
 open import Agda.Primitive
-open import SysFEAT.SOF.0eb97aff6855cd23 public -- Model Property Block
 open import SysFEAT.UpperOntology.f69619236a0f8dcd public -- Category
+open import SysFEAT.SOF.0eb97aff6855cd23 public -- Model Property Block
 
-FamilyOfMeasurement : ∀ (u : Level) → ClassOfMixedOrderEntity u 
-FamilyOfMeasurement u  = MixedOrderEntity u 
-
-
---  FamilyOfMeasurement is subTypeOf ModelPropertyBlock
-st-6f9c71356a0f3116-0eb97aff6855cd23 : ∀ {u v} → (FamilyOfMeasurement u) ⊏⋆ₑ (ModelPropertyBlock v)
-st-6f9c71356a0f3116-0eb97aff6855cd23 = trivialPolySubTypeOfEntity
+FamilyOfMeasurement : ∀ (u : Level) → Set (lsuc (lsuc (lsuc u)))
+FamilyOfMeasurement u = Category u
 
 --  FamilyOfMeasurement is subTypeOf Category
 st-6f9c71356a0f3116-f69619236a0f8dcd : ∀ {u v} → (FamilyOfMeasurement u) ⊏⋆ₑ (Category v)
 st-6f9c71356a0f3116-f69619236a0f8dcd = trivialPolySubTypeOfEntity
+
+--  FamilyOfMeasurement is subTypeOf ModelPropertyBlock
+st-6f9c71356a0f3116-0eb97aff6855cd23 : ∀ {u v} → (FamilyOfMeasurement u) ⊏⋆ₑ (ModelPropertyBlock v)
+st-6f9c71356a0f3116-0eb97aff6855cd23 = trivialPolySubTypeOfEntity
 
 
 -- == Relations =======================

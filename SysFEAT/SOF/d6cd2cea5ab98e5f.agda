@@ -74,9 +74,8 @@ postulate -- qualifyingInformationProperty is subTypeOf informationAssetRelation
 An Information Relationship is a characteristic of an Information Entity that represents a relationships to other Information Entity(ies).
 -}
 -- Aggregate Member : Information Relationship
-InformationRelationship : AggregateHolonymyType
-InformationRelationship = AggregateHolonymy
-
+InformationRelationship : ClassOfClassOfIndividual
+InformationRelationship = ClassOfIndividual
 
 -- Membership relation
 membershipOfInformationRelationship :  Linkage InformationEntity InformationRelationship

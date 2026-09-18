@@ -21,8 +21,8 @@ open import Agda.Primitive
 open import SysFEAT.SOF.e53af71366e37de2 public -- Condition Property Type
 open import SysFEAT.SOF.6f9c701b6a0f2d87 public -- Measurement Type
 
-MeasurePropertyType : ClassOfMixedOrderEntity
-MeasurePropertyType = MixedOrderEntity
+MeasurePropertyType : ThirdOrderClass
+MeasurePropertyType = PropertyType
 
 
 --  MeasurePropertyType is subTypeOf ConditionPropertyType

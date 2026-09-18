@@ -18,8 +18,8 @@ open import Agda.Primitive
 open import SysFEAT.SOF.97e09cde68dd6c0f public -- Decision Outcome
 open import SysFEAT.SOF.366c4dbc675c2776 public -- Architecture Decision Type
 
-ArchitectureDecisionOutcome : SecondOrderClass
-ArchitectureDecisionOutcome = FirstOrderClass
+ArchitectureDecisionOutcome : PropertyType
+ArchitectureDecisionOutcome = Property
 
 
 --  ArchitectureDecisionOutcome is subTypeOf DecisionOutcome

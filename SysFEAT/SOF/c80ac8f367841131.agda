@@ -19,7 +19,7 @@ open import SysFEAT.SOF.e13ce269678f11ed public -- Asset State Type
 open import SysFEAT.SOF.79368381561716a6 public -- Agent Type
 
 AgentStateType : ClassOfClassOfBoundedIndividual
-AgentStateType = ClassOfBoundedIndividual
+AgentStateType = AgentType
 
 
 --  AgentStateType is subTypeOf AssetStateType

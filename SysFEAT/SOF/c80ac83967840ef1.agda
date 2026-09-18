@@ -19,7 +19,7 @@ open import SysFEAT.SOF.79368381561716a6 public -- Agent Type
 open import SysFEAT.SOF.e13ce1cd678f1111 public -- Whole Life Asset Type
 
 WholeLifeAgentType : ClassOfClassOfBoundedIndividual
-WholeLifeAgentType = ClassOfBoundedIndividual
+WholeLifeAgentType = AgentType
 
 
 --  WholeLifeAgentType is subTypeOf AgentType

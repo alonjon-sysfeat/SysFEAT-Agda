@@ -18,8 +18,8 @@ open import Agda.Primitive
 open import SysFEAT.SOF.0eb95dce6855be2e public -- Model Container
 open import SysFEAT.SOF.0ffeec41600be08a public -- Initiative
 open import SysFEAT.UpperOntology.342f74b166156e02 public -- Whole Life Individual
-open import SysFEAT.SOF.e78c5eb0661989f9 public -- Initiative Stage
 open import SysFEAT.SOF.01ce05606859794a public -- Initiative Instrument
+open import SysFEAT.SOF.e78c5eb0661989f9 public -- Initiative Stage
 open import SysFEAT.SOF.515c6a856893324e public -- Asset Property
 
 EnduringInitiative : ClassOfBoundedIndividual
@@ -40,6 +40,13 @@ st-d321c226601262ae-342f74b166156e02 = polySubTypeOf-identity
 
 
 -- == Relations =======================
+
+{- Packaged Initiative Resource: -}
+packagedInitiativeResource : ∀ {u} →  Linkage EnduringInitiative (InitiativeInstrument u)
+packagedInitiativeResource = make_nestingRelation "Packaged Initiative Resource" "Packaged Initiative Resource"
+
+postulate -- packagedInitiativeResource is subTypeOf packagedModelBlock
+  st-01ce058868597974-3346b0ad687846e9  : packagedInitiativeResource  {lzero}  ⊏⋆ᵣ  packagedModelBlock {lzero} {lzero}
 
 {- Dependent Initiative: -}
 dependentInitiative :  Linkage EnduringInitiative EnduringInitiative
@@ -67,13 +74,6 @@ postulate -- roadmap is subTypeOf scopedModelBlock
   st-29df685860086c52-0eb96a306855c816  : roadmap   ⊏⋆ᵣ  scopedModelBlock {lzero} {lzero}
 postulate -- roadmap is subTypeOf holonymyRelation
   st-29df685860086c52-c2f2c6ce66e90be7  : roadmap   ⊏⋆ᵣ  holonymyRelation 
-
-{- Packaged Initiative Resource: -}
-packagedInitiativeResource : ∀ {u} →  Linkage EnduringInitiative (InitiativeInstrument u)
-packagedInitiativeResource = make_nestingRelation "Packaged Initiative Resource" "Packaged Initiative Resource"
-
-postulate -- packagedInitiativeResource is subTypeOf packagedModelBlock
-  st-01ce058868597974-3346b0ad687846e9  : packagedInitiativeResource  {lzero}  ⊏⋆ᵣ  packagedModelBlock {lzero} {lzero}
 
 {- Goal: 
 A Goal is a statement about an Asset Property of  Initiative Subjects of an Enduring Initiative that cannot be obtained within a specified period, but which can be obtained over a longer time period.
