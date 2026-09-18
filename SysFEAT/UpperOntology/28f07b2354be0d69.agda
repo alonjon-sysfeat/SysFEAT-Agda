@@ -37,12 +37,21 @@ st-28f07b2354be0d69-4df9512266826e23 = polySubTypeOf-identity
 st-28f07b2354be0d69-8cfa941b6852781f : BoundedIndividual ⊏ₐₑ (BoundedAggregate lzero)
 st-28f07b2354be0d69-8cfa941b6852781f = polySubTypeOf-identity
 
-postulate -- BoundedIndividualis PowerInstanceOf Class of Bounded Individual
+postulate -- BoundedIndividual is PowerInstanceOf Class of Bounded Individual
   96a19b6566e85713 : BoundedIndividual ∷ₚₑ ClassOfBoundedIndividual
 postulate -- ClassOfBoundedIndividual is ReflexivePowerType 
   f4a3f54f6aa68175 : ClassOfBoundedIndividual ⊏ₘₑ BoundedIndividual
 
 -- == Relations =======================
+
+{- Property of Individual: 
+An instance of Entity from a Bounded Individual to a Property that asserts the Bounded Individual  has  the Property.
+-}
+propertyOfIndividual :  Linkage BoundedIndividual Property
+propertyOfIndividual = make_instanceOf "Individual Qualification" "Property of Individual"
+
+postulate -- propertyOfIndividual is subTypeOf instanceOfEntity
+  st-19763dbb68926a48-34a453a068f7a3ef  : propertyOfIndividual   ⊏⋆ᵣ  instanceOfEntity {lzero} {lsuc(lzero)}
 
 {- Reference Holonymy: 
 Reference Holonymy is a non-reified Holonymy Relation where the composed Bounded Individual is referenced (Reference Relation) as a part of the source Bounded Individual.
@@ -55,21 +64,12 @@ postulate -- referenceHolonymy is subTypeOf holonymyRelation
 postulate -- referenceHolonymy is subTypeOf referenceRelation
   st-9653a95669701e02-23d5398f68511bc1  : referenceHolonymy   ⊏⋆ᵣ  referenceRelation {lzero} {lzero}
 
-{- Property of Individual: 
-An instance of Entity from a Bounded Individual to a Property that asserts the Bounded Individual  has  the Property.
--}
-propertyOfIndividual :  Linkage BoundedIndividual Property
-propertyOfIndividual = make_instanceOf "Individual Qualification" "Property of Individual"
-
-postulate -- propertyOfIndividual is subTypeOf instanceOfEntity
-  st-19763dbb68926a48-34a453a068f7a3ef  : propertyOfIndividual   ⊏⋆ᵣ  instanceOfEntity {lzero} {lsuc(lzero)}
-
 {- Aggregate Holonymy: 
 Aggregate Holonymy is a reified Holonymy Relation where the composed Bounded Individual becomes a Bounded Member of the whole Bounded Individual.
 -}
 -- Aggregate Member : Aggregate Holonymy
-AggregateHolonymy : ClassOfIndividual
-AggregateHolonymy = Individual
+AggregateHolonymy : AggregateHolonymyType
+AggregateHolonymy = Unknown
 
 -- Membership relation
 membershipOfAggregateHolonymy :  Linkage BoundedIndividual AggregateHolonymy

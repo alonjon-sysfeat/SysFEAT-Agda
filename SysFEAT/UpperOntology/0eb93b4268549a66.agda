@@ -23,8 +23,9 @@ open import Agda.Primitive
 open import SysFEAT.UpperOntology.23d5c494685141b5 public -- Block Lexical Scope
 open import SysFEAT.UpperOntology.23d5a9ea68513ced public -- Building Block
 
-Container : ∀ (u : Level) → ClassOfMixedOrderEntity u
-Container u = MixedOrderEntity u
+Container : ∀ (u : Level) → ClassOfMixedOrderEntity u 
+Container u  = MixedOrderEntity u 
+
 
 --  Container is subTypeOf BlockLexicalScope
 st-0eb93b4268549a66-23d5c494685141b5 : ∀ {u v} → (Container u) ⊏⋆ₑ (BlockLexicalScope v)

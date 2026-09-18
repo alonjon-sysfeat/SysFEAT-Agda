@@ -26,7 +26,7 @@ open import SysFEAT.UpperOntology.23d5a9ea68513ced public -- Building Block
 open import SysFEAT.UpperOntology.87d3062666e33965 public -- Property Type
 
 Property : PropertyType
-Property = ClassOfIndividual
+Property = FirstOrderClass
 
 --  Property is subTypeOf ClassOfIndividual
 st-746ac18368905aa2-6aa8cbcb65b32971 : Property ⊏ₑ ClassOfIndividual
@@ -36,17 +36,12 @@ st-746ac18368905aa2-6aa8cbcb65b32971 = polySubTypeOf-identity
 st-746ac18368905aa2-23d5a9ea68513ced : Property ⊏ₐₑ (BuildingBlock (lsuc(lzero)))
 st-746ac18368905aa2-23d5a9ea68513ced = polySubTypeOf-identity
 
+postulate -- Property is PowerInstanceOf Property Type
+  f382366f6aac9352 : Property ∷ₚₑ PropertyType
+postulate -- PropertyType is ReflexivePowerType 
+  f4a39ad76aa78ee4 : PropertyType ⊏ₘₑ Property
 
 -- == Relations =======================
-
-{- Property Classification: 
-Property Classification is a classification of Propertys by Property Types.
--}
-propertyClassification :  Linkage Property PropertyType
-propertyClassification = make_instanceOf "Property Classification" "Property Classification"
-
-postulate -- propertyClassification is subTypeOf instanceOfEntity
-  st-1976247d68925c3e-34a453a068f7a3ef  : propertyClassification   ⊏⋆ᵣ  instanceOfEntity {lzero} {lsuc(lzero)}
 
 {- Specialized Property: 
 Specialization relationship between Property(ies).
@@ -56,3 +51,12 @@ specializedProperty = make_subTypeOf "Property Specialization" "Specialized Prop
 
 postulate -- specializedProperty is subTypeOf specializedClassOfIndividual
   st-1662112a68925f90-e429632e66ec72ab  : specializedProperty   ⊏⋆ᵣ  specializedClassOfIndividual 
+
+{- Property Classification: 
+Property Classification is a classification of Propertys by Property Types.
+-}
+propertyClassification :  Linkage Property PropertyType
+propertyClassification = make_instanceOf "Property Classification" "Property Classification"
+
+postulate -- propertyClassification is subTypeOf instanceOfEntity
+  st-1976247d68925c3e-34a453a068f7a3ef  : propertyClassification   ⊏⋆ᵣ  instanceOfEntity {lzero} {lsuc(lzero)}

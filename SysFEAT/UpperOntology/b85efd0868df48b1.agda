@@ -19,7 +19,7 @@ open import SysFEAT.UpperOntology.4df9512266826e23 public -- Individual
 open import SysFEAT.UpperOntology.23d5a9ea68513ced public -- Building Block
 open import SysFEAT.UpperOntology.746ac18368905aa2 public -- Property
 
-PropertyValue : ClassOfProperty
+PropertyValue : PropertyType
 PropertyValue = Individual
 
 --  PropertyValue is subTypeOf Individual

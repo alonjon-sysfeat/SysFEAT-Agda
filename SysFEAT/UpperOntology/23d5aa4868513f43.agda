@@ -18,8 +18,9 @@ open import Agda.Primitive
 open import SysFEAT.UpperOntology.6ef572f868f1366f public -- Mixed-Order Entity
 open import SysFEAT.UpperOntology.23d5a9ea68513ced public -- Building Block
 
-BlockCollection : ∀ (u : Level) → ClassOfMixedOrderEntity u
-BlockCollection u = MixedOrderEntity u
+BlockCollection : ∀ (u : Level) → ClassOfMixedOrderEntity u 
+BlockCollection u  = MixedOrderEntity u 
+
 
 --  BlockCollection is subTypeOf MixedOrderEntity
 st-23d5aa4868513f43-6ef572f868f1366f : ∀ {u v} → (BlockCollection u) ⊏⋆ₑ (MixedOrderEntity v)

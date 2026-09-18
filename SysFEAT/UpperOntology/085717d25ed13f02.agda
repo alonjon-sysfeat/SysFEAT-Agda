@@ -16,7 +16,9 @@ module SysFEAT.UpperOntology.085717d25ed13f02 where -- ========== Past
 
 open import Agda.Primitive
 
-Past : ∀ (u : Level) → ClassOfMixedOrderEntity u
-Past u = MixedOrderEntity u
+Past : InitiativeMilestone
+Past = Unknown
 
+postulate -- Past is PowerInstanceOf Initiative Milestone
+  08570d835ed129a3 : Past ∷ₚₑ InitiativeMilestone
 

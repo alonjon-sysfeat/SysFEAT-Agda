@@ -15,19 +15,20 @@ Documentation : https://framework.sysfeat.com/pages/542599db6aa21e06.htm
 module SysFEAT.UpperOntology.542599db6aa21e06 where -- ========== Container Package
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.0eb93b4268549a66 public -- Container
 open import SysFEAT.UpperOntology.3aca52346aa6418d public -- Abstract Entity
+open import SysFEAT.UpperOntology.0eb93b4268549a66 public -- Container
 
-ContainerPackage : ClassOfIndividual
-ContainerPackage = Individual
+ContainerPackage : FirstOrderClass
+ContainerPackage = FirstOrderEntity
 
---  ContainerPackage withAspect Container
-st-542599db6aa21e06-0eb93b4268549a66 : ContainerPackage ⊏ₐₑ (Container lzero)
-st-542599db6aa21e06-0eb93b4268549a66 = polySubTypeOf-identity
 
 --  ContainerPackage is subTypeOf AbstractEntity
 st-542599db6aa21e06-3aca52346aa6418d : ContainerPackage ⊏ₑ AbstractEntity
 st-542599db6aa21e06-3aca52346aa6418d = polySubTypeOf-identity
+
+--  ContainerPackage withAspect Container
+st-542599db6aa21e06-0eb93b4268549a66 : ContainerPackage ⊏ₐₑ (Container lzero)
+st-542599db6aa21e06-0eb93b4268549a66 = polySubTypeOf-identity
 
 
 -- == Relations =======================

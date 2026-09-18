@@ -17,8 +17,9 @@ module SysFEAT.UpperOntology.526b679569de63eb where -- ========== Mixed-Order El
 open import Agda.Primitive
 open import SysFEAT.UpperOntology.23d5249e68510ff9 public -- Element
 
-MixedOrderElement : ∀ (u : Level) → ClassOfMixedOrderEntity u
-MixedOrderElement u = MixedOrderEntity u
+MixedOrderElement : ∀ (u : Level) → ClassOfElement u 
+MixedOrderElement u  = Element u 
+
 
 --  MixedOrderElement is subTypeOf Element
 st-526b679569de63eb-23d5249e68510ff9 : ∀ {u v} → (MixedOrderElement u) ⊏⋆ₑ (Element v)

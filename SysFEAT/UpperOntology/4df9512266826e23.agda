@@ -28,7 +28,7 @@ Individual = FirstOrderEntity
 st-4df9512266826e23-5425a2df6aa225cf : Individual ⊏ₑ FirstOrderEntity
 st-4df9512266826e23-5425a2df6aa225cf = polySubTypeOf-identity
 
-postulate -- Individualis PowerInstanceOf Class of Individual
+postulate -- Individual is PowerInstanceOf Class of Individual
   87c18c5566e8638a : Individual ∷ₚₑ ClassOfIndividual
 postulate -- ClassOfIndividual is ReflexivePowerType 
   41906db96aaa41a6 : ClassOfIndividual ⊏ₘₑ Individual

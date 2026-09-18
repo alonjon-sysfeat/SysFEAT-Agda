@@ -25,3 +25,4 @@ st-3aca564b6aa646ce-a599a7e46aa370fb : ClassOfClassOfAbstractEntity ⊏ₑ Secon
 st-3aca564b6aa646ce-a599a7e46aa370fb = polySubTypeOf-identity
 
 
+-- == Relations =======================

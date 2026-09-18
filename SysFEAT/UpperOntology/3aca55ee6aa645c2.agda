@@ -18,8 +18,9 @@ open import Agda.Primitive
 open import SysFEAT.UpperOntology.c463c6106aa23c35 public -- First Order Class
 open import SysFEAT.UpperOntology.3aca564b6aa646ce public -- Class of Class of Abstract Entity
 
-ClassOfAbstractEntity : ClassOfClassOfIndividual
-ClassOfAbstractEntity = ClassOfIndividual
+ClassOfAbstractEntity : SecondOrderClass
+ClassOfAbstractEntity = FirstOrderClass
+
 
 --  ClassOfAbstractEntity is subTypeOf FirstOrderClass
 st-3aca55ee6aa645c2-c463c6106aa23c35 : ClassOfAbstractEntity ⊏ₑ FirstOrderClass

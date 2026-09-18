@@ -30,7 +30,7 @@ st-267b6a126675a0b9-4df9512266826e23 = polySubTypeOf-identity
 st-267b6a126675a0b9-23d5eaba68515533 : TemporalBounding ⊏ₐₑ (OrderingConnection lzero)
 st-267b6a126675a0b9-23d5eaba68515533 = polySubTypeOf-identity
 
-postulate -- TemporalBoundingis PowerInstanceOf Temporal Bounding Type
+postulate -- TemporalBounding is PowerInstanceOf Temporal Bounding Type
   9429990f668240a4 : TemporalBounding ∷ₚₑ TemporalBoundingType
 postulate -- TemporalBoundingType is ReflexivePowerType 
   f4a329426aa78da9 : TemporalBoundingType ⊏ₘₑ TemporalBounding
