@@ -36,6 +36,7 @@ st-d6cd2cea5ab98e5f-3492c53e619642ed = polySubTypeOf-identity
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Information Entity: 
 Generalization relationship between a sub-Information Entity and its super-Information Entity.
 -}
@@ -43,12 +44,19 @@ specializedInformationEntity :  Linkage InformationEntity InformationEntity
 specializedInformationEntity = make_subTypeOf "Specialized Information Entity" "Specialized Information Entity"
 
 postulate -- specializedInformationEntity is subTypeOf specializedInformationAsset
-  st-325a37b966f34da2-325a372e66f33bca  : specializedInformationEntity   ⊏⋆ᵣ  specializedInformationAsset 
+  st-325a37b966f34da2-325a372e66f33bca  : specializedInformationEntity  ⊏⋆ᵣ  specializedInformationAsset
 
+-- -------------------------------------------------------------------------------------------- 
 {- Qualifying Information Property: -}
 -- Aggregate Member : Qualifying Information Property
-QualifyingInformationProperty : ClassOfClassOfIndividual
-QualifyingInformationProperty = ClassOfIndividual
+QualifyingInformationProperty : ClassOfClassOfBoundedIndividual
+QualifyingInformationProperty = ClassOfBoundedIndividual
+
+
+
+--  QualifyingInformationProperty is subTypeOf InformationAssetRelationship
+st-c189d89268ae51cd-18eb1f335fdb6e7f : QualifyingInformationProperty ⊏ₑ InformationAssetRelationship
+st-c189d89268ae51cd-18eb1f335fdb6e7f = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfQualifyingInformationProperty :  Linkage InformationEntity QualifyingInformationProperty
@@ -66,16 +74,29 @@ aggregationOfInformationPropertyQualifyingInformationProperty = make_Relation "I
 qualifyingInformationProperty : Linkage InformationEntity InformationProperty
 qualifyingInformationProperty = membershipOfQualifyingInformationProperty  ∘  aggregationOfInformationPropertyQualifyingInformationProperty
 
-postulate -- qualifyingInformationProperty is subTypeOf informationAssetRelationship
-  st-c189d89268ae51cd-18eb1f335fdb6e7f  : qualifyingInformationProperty   ⊏⋆ᵣ  informationAssetRelationship 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Information Relationship: 
 An Information Relationship is a characteristic of an Information Entity that represents a relationships to other Information Entity(ies).
 -}
 -- Aggregate Member : Information Relationship
-InformationRelationship : ClassOfClassOfIndividual
-InformationRelationship = ClassOfIndividual
+InformationRelationship : ClassOfClassOfBoundedIndividual
+InformationRelationship = ClassOfBoundedIndividual
+
+
+
+--  InformationRelationship is subTypeOf InformationAssetRelationship
+st-dfa4e2305ebb4d2b-18eb1f335fdb6e7f : InformationRelationship ⊏ₑ InformationAssetRelationship
+st-dfa4e2305ebb4d2b-18eb1f335fdb6e7f = polySubTypeOf-identity
+
+--  InformationRelationship is subTypeOf AggregateHolonymyType
+st-dfa4e2305ebb4d2b-c2f2c83b66ea4d78 : InformationRelationship ⊏ₑ AggregateHolonymyType
+st-dfa4e2305ebb4d2b-c2f2c83b66ea4d78 = polySubTypeOf-identity
+
+--  InformationRelationship is subTypeOf InformationEntity
+st-dfa4e2305ebb4d2b-d6cd2cea5ab98e5f : InformationRelationship ⊏ₑ InformationEntity
+st-dfa4e2305ebb4d2b-d6cd2cea5ab98e5f = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfInformationRelationship :  Linkage InformationEntity InformationRelationship
@@ -93,8 +114,4 @@ aggregationOfInformationEntityInformationRelationship = make_Relation "Informati
 informationRelationship : Linkage InformationEntity InformationEntity
 informationRelationship = membershipOfInformationRelationship  ∘  aggregationOfInformationEntityInformationRelationship
 
-postulate -- informationRelationship is subTypeOf informationAssetRelationship
-  st-dfa4e2305ebb4d2b-18eb1f335fdb6e7f  : informationRelationship   ⊏⋆ᵣ  informationAssetRelationship 
-postulate -- informationRelationship is subTypeOf aggregateHolonymyType
-  st-dfa4e2305ebb4d2b-c2f2c83b66ea4d78  : informationRelationship   ⊏⋆ᵣ  aggregateHolonymyType 
 

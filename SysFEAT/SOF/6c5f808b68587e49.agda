@@ -29,6 +29,7 @@ st-6c5f808b68587e49-0eb95d786855bbd9 = trivialPolySubTypeOfEntity
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Scoped Information Block: -}
 scopedInformationBlock : ∀ {u v} →  Linkage (InformationLexicalScope u) (InformationBlock v)
 scopedInformationBlock = make_nestingRelation "Scoped Information Block" "Scoped Information Block"

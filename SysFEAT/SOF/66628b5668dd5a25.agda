@@ -34,9 +34,10 @@ st-66628b5668dd5a25-6662916b68dd5f84 = polySubTypeOf-identity
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Appraisal Type: -}
 appraisalType :  Linkage AppraisalOption AppraisalType
 appraisalType = make_instanceOf "Appraisal Type" "Appraisal Type"
 
 postulate -- appraisalType is subTypeOf governancePropertyType
-  st-666294f768dd64bc-666293d768dd6238  : appraisalType   ⊏⋆ᵣ  governancePropertyType 
+  st-666294f768dd64bc-666293d768dd6238  : appraisalType  ⊏⋆ᵣ  governancePropertyType

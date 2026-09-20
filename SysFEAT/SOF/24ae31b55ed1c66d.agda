@@ -22,8 +22,8 @@ open import SysFEAT.SOF.986cd4ec5ffca3ac public -- Behavior Type
 open import SysFEAT.SOF.21c5276e655759fb public -- Operating Connection
 open import SysFEAT.SOF.30223b5c5ec90c01 public -- Outcome Event
 
-ServiceInterface : ClassOfClassOfIndividual
-ServiceInterface = ClassOfIndividual
+ServiceInterface : ClassOfClassOfBoundedIndividual
+ServiceInterface = ClassOfBoundedIndividual
 
 
 --  ServiceInterface is subTypeOf BehaviorType
@@ -37,10 +37,17 @@ st-24ae31b55ed1c66d-21c5276e655759fb = polySubTypeOf-identity
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Sub Service Interface: -}
 -- Aggregate Member : Sub Service Interface
-SubServiceInterface : ClassOfClassOfIndividual
-SubServiceInterface = ClassOfIndividual
+SubServiceInterface : ClassOfClassOfBoundedIndividual
+SubServiceInterface = ClassOfBoundedIndividual
+
+
+
+--  SubServiceInterface is subTypeOf BehaviorPart
+st-f38134c7687e3c48-b776b92668b04c85 : SubServiceInterface ⊏ₑ BehaviorPart
+st-f38134c7687e3c48-b776b92668b04c85 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSubServiceInterface :  Linkage ServiceInterface SubServiceInterface
@@ -58,16 +65,21 @@ aggregationOfServiceInterfaceSubServiceInterface = make_Relation "ServiceInterfa
 subServiceInterface : Linkage ServiceInterface ServiceInterface
 subServiceInterface = membershipOfSubServiceInterface  ∘  aggregationOfServiceInterfaceSubServiceInterface
 
-postulate -- subServiceInterface is subTypeOf behaviorPart
-  st-f38134c7687e3c48-b776b92668b04c85  : subServiceInterface   ⊏⋆ᵣ  behaviorPart 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Flow Connection: 
 A Flow Connection is an Outcome Event event that occurs between the consumer and the provider participant of a Service Interface.
 -}
 -- Aggregate Member : Flow Connection
-FlowConnection : ClassOfClassOfIndividual
-FlowConnection = ClassOfIndividual
+FlowConnection : ClassOfClassOfBoundedIndividual
+FlowConnection = ClassOfBoundedIndividual
+
+
+
+--  FlowConnection is subTypeOf BehaviorPart
+st-c561d7e4680f69ce-b776b92668b04c85 : FlowConnection ⊏ₑ BehaviorPart
+st-c561d7e4680f69ce-b776b92668b04c85 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfFlowConnection :  Linkage ServiceInterface FlowConnection
@@ -85,6 +97,4 @@ aggregationOfOutcomeEventFlowConnection = make_Relation "OutcomeEvent aggregatio
 flowConnection : Linkage ServiceInterface OutcomeEvent
 flowConnection = membershipOfFlowConnection  ∘  aggregationOfOutcomeEventFlowConnection
 
-postulate -- flowConnection is subTypeOf behaviorPart
-  st-c561d7e4680f69ce-b776b92668b04c85  : flowConnection   ⊏⋆ᵣ  behaviorPart 
 

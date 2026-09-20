@@ -25,6 +25,7 @@ open import SysFEAT.SOF.ca3513af5fc59413 public -- Environment Interaction Proce
 AgentTypeEnvironment : ClassOfClassOfBoundedIndividual
 AgentTypeEnvironment = ClassOfBoundedIndividual
 
+
 --  AgentTypeEnvironment is subTypeOf OperatingEcoSystem
 st-d6cd0fd95ab9744b-ca35f48a5fc48686 : AgentTypeEnvironment ⊏ₑ OperatingEcoSystem
 st-d6cd0fd95ab9744b-ca35f48a5fc48686 = polySubTypeOf-identity
@@ -32,24 +33,32 @@ st-d6cd0fd95ab9744b-ca35f48a5fc48686 = polySubTypeOf-identity
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Operating Environment: -}
 specializedOperatingEnvironment :  Linkage AgentTypeEnvironment AgentTypeEnvironment
 specializedOperatingEnvironment = make_subTypeOf "Specialized Operating Environment" "Specialized Operating Environment"
 
 postulate -- specializedOperatingEnvironment is subTypeOf specializedAsset
-  st-325a373d66f33dca-12b0287266e936d5  : specializedOperatingEnvironment   ⊏⋆ᵣ  specializedAsset 
+  st-325a373d66f33dca-12b0287266e936d5  : specializedOperatingEnvironment  ⊏⋆ᵣ  specializedAsset
 
+-- -------------------------------------------------------------------------------------------- 
 {- Realized Operating Environment: -}
 realizedOperatingEnvironment :  Linkage AgentTypeEnvironment AgentTypeEnvironment
 realizedOperatingEnvironment = make_subTypeOf "Realized Operating Environment" "Realized Operating Environment"
 
 postulate -- realizedOperatingEnvironment is subTypeOf realizedFunctionalAsset
-  st-325a3a1066f35860-7dc1907b684951ae  : realizedOperatingEnvironment   ⊏⋆ᵣ  realizedFunctionalAsset 
+  st-325a3a1066f35860-7dc1907b684951ae  : realizedOperatingEnvironment  ⊏⋆ᵣ  realizedFunctionalAsset
 
+-- -------------------------------------------------------------------------------------------- 
 {- Service Channel: -}
 -- Aggregate Member : Service Channel
 ServiceChannel : ClassOfClassOfIndividual
 ServiceChannel = ClassOfIndividual
+
+
+--  ServiceChannel is subTypeOf OperatingConnector
+st-80be29065fc2a83d-3d3f4b4062013550 : ServiceChannel ⊏ₑ OperatingConnector
+st-80be29065fc2a83d-3d3f4b4062013550 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfServiceChannel :  Linkage AgentTypeEnvironment ServiceChannel
@@ -67,14 +76,23 @@ aggregationOfServiceInterfaceServiceChannel = make_Relation "ServiceInterface ag
 serviceChannel : Linkage AgentTypeEnvironment ServiceInterface
 serviceChannel = membershipOfServiceChannel  ∘  aggregationOfServiceInterfaceServiceChannel
 
-postulate -- serviceChannel is subTypeOf operatingConnector
-  st-80be29065fc2a83d-3d3f4b4062013550  : serviceChannel   ⊏⋆ᵣ  operatingConnector 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Participant Agent: -}
 -- Aggregate Member : Participant Agent
-ParticipantAgent : ClassOfClassOfIndividual
-ParticipantAgent = ClassOfIndividual
+ParticipantAgent : ClassOfClassOfBoundedIndividual
+ParticipantAgent = ClassOfBoundedIndividual
+
+
+
+--  ParticipantAgent is subTypeOf EcosystemMember
+st-80be28965fc2a6b8-3d3f4aed6201346c : ParticipantAgent ⊏ₑ EcosystemMember
+st-80be28965fc2a6b8-3d3f4aed6201346c = polySubTypeOf-identity
+
+--  ParticipantAgent is subTypeOf AgentType
+st-80be28965fc2a6b8-79368381561716a6 : ParticipantAgent ⊏ₑ AgentType
+st-80be28965fc2a6b8-79368381561716a6 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfParticipantAgent :  Linkage AgentTypeEnvironment ParticipantAgent
@@ -92,16 +110,25 @@ aggregationOfAgentTypeParticipantAgent = make_Relation "AgentType aggregation" "
 participantAgent : Linkage AgentTypeEnvironment AgentType
 participantAgent = membershipOfParticipantAgent  ∘  aggregationOfAgentTypeParticipantAgent
 
-postulate -- participantAgent is subTypeOf ecosystemMember
-  st-80be28965fc2a6b8-3d3f4aed6201346c  : participantAgent   ⊏⋆ᵣ  ecosystemMember 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Performed Interaction: 
 set of interactions processes performed in the context of an Operating Eco-System.
 -}
 -- Aggregate Member : Performed Interaction
-PerformedInteraction : ClassOfClassOfIndividual
-PerformedInteraction = ClassOfIndividual
+PerformedInteraction : ClassOfClassOfBoundedIndividual
+PerformedInteraction = ClassOfBoundedIndividual
+
+
+
+--  PerformedInteraction is subTypeOf AggregateHolonymyType
+st-26cb2d5769610945-c2f2c83b66ea4d78 : PerformedInteraction ⊏ₑ AggregateHolonymyType
+st-26cb2d5769610945-c2f2c83b66ea4d78 = polySubTypeOf-identity
+
+--  PerformedInteraction is subTypeOf EnvironmentInteractionProcessType
+st-26cb2d5769610945-ca3513af5fc59413 : PerformedInteraction ⊏ₑ EnvironmentInteractionProcessType
+st-26cb2d5769610945-ca3513af5fc59413 = polySubTypeOf-identity
 
 -- Membership relation
 26CB2D596961099C :  Linkage AgentTypeEnvironment PerformedInteraction
@@ -119,14 +146,23 @@ aggregationOfEnvironmentInteractionProcessTypePerformedInteraction = make_Relati
 performedInteraction : Linkage AgentTypeEnvironment EnvironmentInteractionProcessType
 performedInteraction = 26CB2D596961099C  ∘  aggregationOfEnvironmentInteractionProcessTypePerformedInteraction
 
-postulate -- performedInteraction is subTypeOf aggregateHolonymyType
-  st-26cb2d5769610945-c2f2c83b66ea4d78  : performedInteraction   ⊏⋆ᵣ  aggregateHolonymyType 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Subject Agent: -}
 -- Aggregate Member : Subject Agent
-SubjectAgent : ClassOfClassOfIndividual
-SubjectAgent = ClassOfIndividual
+SubjectAgent : ClassOfClassOfBoundedIndividual
+SubjectAgent = ClassOfBoundedIndividual
+
+
+
+--  SubjectAgent is subTypeOf ParticipantAgent
+st-fa4ffc205ec86201-80be28965fc2a6b8 : SubjectAgent ⊏ₑ ParticipantAgent
+st-fa4ffc205ec86201-80be28965fc2a6b8 = polySubTypeOf-identity
+
+--  SubjectAgent is subTypeOf AgentType
+st-fa4ffc205ec86201-79368381561716a6 : SubjectAgent ⊏ₑ AgentType
+st-fa4ffc205ec86201-79368381561716a6 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSubjectAgent :  Linkage AgentTypeEnvironment SubjectAgent
@@ -144,14 +180,23 @@ aggregationOfAgentTypeSubjectAgent = make_Relation "AgentType aggregation" "aggr
 subjectAgent : Linkage AgentTypeEnvironment AgentType
 subjectAgent = membershipOfSubjectAgent  ∘  aggregationOfAgentTypeSubjectAgent
 
-postulate -- subjectAgent is subTypeOf participantAgent
-  st-fa4ffc205ec86201-80be28965fc2a6b8  : subjectAgent   ⊏⋆ᵣ  participantAgent 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Partner Agent: -}
 -- Aggregate Member : Partner Agent
-PartnerAgent : ClassOfClassOfIndividual
-PartnerAgent = ClassOfIndividual
+PartnerAgent : ClassOfClassOfBoundedIndividual
+PartnerAgent = ClassOfBoundedIndividual
+
+
+
+--  PartnerAgent is subTypeOf ParticipantAgent
+st-fa4ffc235ec86276-80be28965fc2a6b8 : PartnerAgent ⊏ₑ ParticipantAgent
+st-fa4ffc235ec86276-80be28965fc2a6b8 = polySubTypeOf-identity
+
+--  PartnerAgent is subTypeOf AgentType
+st-fa4ffc235ec86276-79368381561716a6 : PartnerAgent ⊏ₑ AgentType
+st-fa4ffc235ec86276-79368381561716a6 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfPartnerAgent :  Linkage AgentTypeEnvironment PartnerAgent
@@ -169,6 +214,4 @@ aggregationOfAgentTypePartnerAgent = make_Relation "AgentType aggregation" "aggr
 partnerAgent : Linkage AgentTypeEnvironment AgentType
 partnerAgent = membershipOfPartnerAgent  ∘  aggregationOfAgentTypePartnerAgent
 
-postulate -- partnerAgent is subTypeOf participantAgent
-  st-fa4ffc235ec86276-80be28965fc2a6b8  : partnerAgent   ⊏⋆ᵣ  participantAgent 
 

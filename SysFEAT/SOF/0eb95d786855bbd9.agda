@@ -29,6 +29,7 @@ st-0eb95d786855bbd9-0eb95db46855bdd5 = trivialPolySubTypeOfEntity
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Scoped Architecture Block: -}
 scopedArchitectureBlock : ∀ {u v} →  Linkage (ArchitectureLexicalScope u) (ArchitectureBlock v)
 scopedArchitectureBlock = make_nestingRelation "Scoped Architecture Block" "Scoped Architecture Block"

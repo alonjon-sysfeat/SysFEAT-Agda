@@ -28,6 +28,7 @@ open import SysFEAT.UpperOntology.9429979a66823f90 public -- Temporal Bounding T
 BehavioralEvent : ClassOfClassOfIndividual
 BehavioralEvent = ClassOfIndividual
 
+
 --  BehavioralEvent is subTypeOf OperatingConnection
 st-24ae31d75ed1c747-21c5276e655759fb : BehavioralEvent ⊏ₑ OperatingConnection
 st-24ae31d75ed1c747-21c5276e655759fb = polySubTypeOf-identity
@@ -40,7 +41,5 @@ st-24ae31d75ed1c747-a44fb6bc6748b088 = polySubTypeOf-identity
 st-24ae31d75ed1c747-9429979a66823f90 : BehavioralEvent ⊏ₑ TemporalBoundingType
 st-24ae31d75ed1c747-9429979a66823f90 = polySubTypeOf-identity
 
-postulate -- BehavioralEvent is PowerInstanceOf Class of Class of Individual
-  608767a668de7fb6 : BehavioralEvent ∷ₚₑ ClassOfClassOfIndividual
 
 -- == Relations =======================

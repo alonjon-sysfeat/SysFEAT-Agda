@@ -19,7 +19,7 @@ open import SysFEAT.SOF.e53af71366e37de2 public -- Condition Property Type
 open import SysFEAT.SOF.6f9c78916a0f34e5 public -- Environmental Condition Type
 
 EnvironmentalPropertyType : ThirdOrderClass
-EnvironmentalPropertyType = PropertyType
+EnvironmentalPropertyType = SecondOrderClass
 
 
 --  EnvironmentalPropertyType is subTypeOf ConditionPropertyType
@@ -29,6 +29,7 @@ st-e53af85b66e37f78-e53af71366e37de2 = polySubTypeOf-identity
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Environmental Condition Type: 
 The Environmental Condition Type that an Environmental Property Type belongs to.For instance,  Economic growth  belongs to the  Policital Factor  category. 
 -}
@@ -36,4 +37,4 @@ environmentalConditionType : ∀ {u} →  Linkage EnvironmentalPropertyType (Env
 environmentalConditionType = make_classOfRelation "Environmental Condition Type" "Environmental Condition Type"
 
 postulate -- environmentalConditionType is subTypeOf conditionCategory
-  st-6f9c790e6a0f35b2-6f9c72c26a0f3238  : environmentalConditionType  {lsuc(lsuc(lzero))}  ⊏⋆ᵣ  conditionCategory  {lsuc(lsuc(lzero))}
+  st-6f9c790e6a0f35b2-6f9c72c26a0f3238  : environmentalConditionType  ⊏⋆ᵣ  conditionCategory

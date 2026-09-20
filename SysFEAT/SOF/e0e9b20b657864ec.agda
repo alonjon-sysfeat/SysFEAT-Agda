@@ -19,7 +19,7 @@ open import SysFEAT.SOF.24ae31d75ed1c747 public -- Behavioral Event
 open import SysFEAT.SOF.362ff9085b3c4933 public -- Period Type
 
 TimeEvent : ClassOfClassOfIndividual
-TimeEvent = BehavioralEvent
+TimeEvent = ClassOfIndividual
 
 
 --  TimeEvent is subTypeOf BehavioralEvent
@@ -29,10 +29,21 @@ st-e0e9b20b657864ec-24ae31d75ed1c747 = polySubTypeOf-identity
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Time Change: -}
 -- Aggregate Member : Time Change
-TimeChange : ClassOfClassOfIndividual
-TimeChange = ClassOfIndividual
+TimeChange : ClassOfClassOfBoundedIndividual
+TimeChange = ClassOfBoundedIndividual
+
+
+
+--  TimeChange withAspect UnboundedMember
+st-96c5fe7665824f97-8cfaf71a6852b042 : TimeChange ⊏ₐₑ (UnboundedMember (lsuc(lzero)))
+st-96c5fe7665824f97-8cfaf71a6852b042 = polySubTypeOf-identity
+
+--  TimeChange is subTypeOf PeriodType
+st-96c5fe7665824f97-362ff9085b3c4933 : TimeChange ⊏ₑ PeriodType
+st-96c5fe7665824f97-362ff9085b3c4933 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfTimeChange :  Linkage TimeEvent TimeChange
@@ -50,6 +61,4 @@ aggregationOfPeriodTypeTimeChange = make_Relation "PeriodType aggregation" "aggr
 timeChange : Linkage TimeEvent PeriodType
 timeChange = membershipOfTimeChange  ∘  aggregationOfPeriodTypeTimeChange
 
-postulate -- timeChange is subTypeOf unboundedMember
-  st-96c5fe7665824f97-8cfaf71a6852b042  : timeChange   ⊏⋆ᵣ  unboundedMember {lzero} {lzero}
 

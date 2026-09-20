@@ -38,6 +38,7 @@ st-0eb95dce6855be2e-0eb93b4268549a66 = trivialPolySubTypeOfEntity
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Packaged Property Block: -}
 packagedPropertyBlock : ∀ {u v} →  Linkage (ModelContainer u) (ModelPropertyBlock v)
 packagedPropertyBlock = make_nestingRelation "Packaged Property Block" "Packaged Property Block"
@@ -45,6 +46,7 @@ packagedPropertyBlock = make_nestingRelation "Packaged Property Block" "Packaged
 postulate -- packagedPropertyBlock is subTypeOf scopedModelBlock
   st-0eb97c566855cef7-0eb96a306855c816  : ∀ {u v} → packagedPropertyBlock {u} {v}  ⊏⋆ᵣ  scopedModelBlock {u} {v}
 
+-- -------------------------------------------------------------------------------------------- 
 {- Packaged Model Block: -}
 packagedModelBlock : ∀ {u v} →  Linkage (ModelContainer u) (ModelBuildingBlock v)
 packagedModelBlock = make_nestingRelation "Packaged Model Block" "Packaged Model Block"
@@ -54,6 +56,7 @@ postulate -- packagedModelBlock is subTypeOf packagedBuildingBlock
 postulate -- packagedModelBlock is subTypeOf scopedModelBlock
   st-3346b0ad687846e9-0eb96a306855c816  : ∀ {u v} → packagedModelBlock {u} {v}  ⊏⋆ᵣ  scopedModelBlock {u} {v}
 
+-- -------------------------------------------------------------------------------------------- 
 {- Packaged Tag: -}
 packagedTag : ∀ {u} →  Linkage (ModelContainer u) Tag
 packagedTag = make_nestingRelation "Packaged Tag" "Packaged Tag"
@@ -61,6 +64,7 @@ packagedTag = make_nestingRelation "Packaged Tag" "Packaged Tag"
 postulate -- packagedTag is subTypeOf scopedAnnotationBlock
   st-3346c67e68785433-0eb97bc46855ce52  : packagedTag {v}  ⊏⋆ᵣ  scopedAnnotationBlock {v}
 
+-- -------------------------------------------------------------------------------------------- 
 {- Imported Model Container: 
 The Imported Model Container relationship extends the Model Lexical Scope of a Model Container to Model Building Blocks of the imported Model Container.
 -}

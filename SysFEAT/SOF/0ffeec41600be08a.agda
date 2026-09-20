@@ -44,13 +44,15 @@ st-0ffeec41600be08a-23d5aa4868513f43 = polySubTypeOf-identity
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Steering Authority: -}
 steeringAuthority :  Linkage Initiative ResponsibleHumanEntity
 steeringAuthority = make_holonymyRelation "Steering Authority" "Steering Authority"
 
 postulate -- steeringAuthority is subTypeOf referenceHolonymy
-  st-b2f2d64d5f47e364-9653a95669701e02  : steeringAuthority   ⊏⋆ᵣ  referenceHolonymy 
+  st-b2f2d64d5f47e364-9653a95669701e02  : steeringAuthority  ⊏⋆ᵣ  referenceHolonymy
 
+-- -------------------------------------------------------------------------------------------- 
 {- Course of Action: 
 A plan recognized by an enterprise as being essential to achieving its goals - i.e. a strategic specification of what the enterprise does. In other words, a Course of Action channels efforts towards Desired Results.Business Capabilities might be required by an Enterprise to conduct its Courses of Action.
 -}
@@ -58,6 +60,15 @@ A plan recognized by an enterprise as being essential to achieving its goals - i
 CourseOfAction : AggregateHolonymyType
 CourseOfAction = AggregateHolonymy
 
+
+
+--  CourseOfAction is subTypeOf AggregateHolonymy
+st-a56baa0c689c4e7a-c2f2c9a166ea50e2 : CourseOfAction ⊏ₑ AggregateHolonymy
+st-a56baa0c689c4e7a-c2f2c9a166ea50e2 = polySubTypeOf-identity
+
+--  CourseOfAction is subTypeOf IndividualResourceBehavior
+st-a56baa0c689c4e7a-fe1c250d678803b6 : CourseOfAction ⊏ₑ IndividualResourceBehavior
+st-a56baa0c689c4e7a-fe1c250d678803b6 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfCourseOfAction :  Linkage Initiative CourseOfAction
@@ -75,17 +86,21 @@ aggregationOfIndividualResourceBehaviorCourseOfAction = make_Relation "Individua
 courseOfAction : Linkage Initiative IndividualResourceBehavior
 courseOfAction = membershipOfCourseOfAction  ∘  aggregationOfIndividualResourceBehaviorCourseOfAction
 
-postulate -- courseOfAction is subTypeOf aggregateHolonymy
-  st-a56baa0c689c4e7a-c2f2c9a166ea50e2  : courseOfAction   ⊏⋆ᵣ  aggregateHolonymy 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Initiative Subject: 
 Set of Asset Blocks that are the subject of changes undertaken by an Initiative.
 -}
 -- Aggregate Member : Initiative Subject
-InitiativeSubject : ∀ (u : Level) → ClassOfMixedOrderEntity u
-InitiativeSubject u = AggregateMember u
+InitiativeSubject : ∀ (u : Level) → ClassOfMixedOrderEntity u 
+InitiativeSubject u  = MixedOrderEntity u 
 
+
+
+--  InitiativeSubject is subTypeOf UnboundedMember
+st-0f642fd06859b0d5-8cfaf71a6852b042 : ∀ {u v} → (InitiativeSubject u) ⊏⋆ₑ (UnboundedMember v)
+st-0f642fd06859b0d5-8cfaf71a6852b042 = trivialPolySubTypeOfEntity
 
 -- Membership relation
 membershipOfInitiativeSubject : ∀ {u} →  Linkage Initiative (InitiativeSubject u)
@@ -104,7 +119,5 @@ initiativeSubject : ∀ {u w} → Linkage Initiative (AssetBlock w)
 initiativeSubject {u} {w}  = membershipOfInitiativeSubject {u}   ∘  aggregationOfAssetBlockInitiativeSubject {w} 
 
 postulate -- initiativeSubject is subTypeOf referenceHolonymy
-  st-0f642fd06859b0d5-9653a95669701e02  : initiativeSubject {lzero}  ⊏⋆ᵣ  referenceHolonymy 
-postulate -- initiativeSubject is subTypeOf unboundedMember
-  st-0f642fd06859b0d5-8cfaf71a6852b042  : initiativeSubject {lzero}  ⊏⋆ᵣ  unboundedMember {lzero} {lzero}
+  st-0f642fd06859b0d5-9653a95669701e02  : initiativeSubject  ⊏⋆ᵣ  referenceHolonymy
 

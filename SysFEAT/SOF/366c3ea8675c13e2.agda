@@ -19,8 +19,7 @@ open import SysFEAT.SOF.83f8933a67407206 public -- Governance Property Type
 open import SysFEAT.SOF.6662916b68dd5f84 public -- Governance Instrument
 
 AppraisalType : ThirdOrderClass
-AppraisalType = PropertyType
-
+AppraisalType = SecondOrderClass
 
 --  AppraisalType is subTypeOf GovernancePropertyType
 st-366c3ea8675c13e2-83f8933a67407206 : AppraisalType ⊏ₑ GovernancePropertyType

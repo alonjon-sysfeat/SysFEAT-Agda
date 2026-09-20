@@ -31,6 +31,7 @@ st-0eb95db46855bdd5-23d5c494685141b5 = trivialPolySubTypeOfEntity
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Scoped Model Block: -}
 scopedModelBlock : ∀ {u v} →  Linkage (ModelLexicalScope u) (ModelBuildingBlock v)
 scopedModelBlock = make_nestingRelation "Scoped Model Block" "Scoped Model Block"
@@ -38,6 +39,7 @@ scopedModelBlock = make_nestingRelation "Scoped Model Block" "Scoped Model Block
 postulate -- scopedModelBlock is subTypeOf scopedBuildingBlock
   st-0eb96a306855c816-0eb946496854a02e  : ∀ {u v} → scopedModelBlock {u} {v}  ⊏⋆ᵣ  scopedBuildingBlock {u} {v}
 
+-- -------------------------------------------------------------------------------------------- 
 {- Scoped Annotation Block: 
 Nesting of Annotation Blocks within a Model Lexical Scope.
 -}
@@ -47,6 +49,7 @@ scopedAnnotationBlock = make_nestingRelation "Scoped Annotation Block" "Scoped A
 postulate -- scopedAnnotationBlock is subTypeOf scopedBuildingBlock
   st-0eb97bc46855ce52-0eb946496854a02e  : scopedAnnotationBlock {u}  ⊏⋆ᵣ  scopedBuildingBlock {u} {v}
 
+-- -------------------------------------------------------------------------------------------- 
 {- Nested Description Note: -}
 nestedDescriptionNote : ∀ {u} →  Linkage (ModelLexicalScope u) DescriptionNote
 nestedDescriptionNote = make_nestingRelation "Nested Description Note" "Nested Description Note"

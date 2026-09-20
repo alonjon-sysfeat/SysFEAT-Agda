@@ -18,7 +18,7 @@ open import Agda.Primitive
 open import SysFEAT.SOF.366c3ea8675c13e2 public -- Appraisal Type
 
 AssessmentType : ThirdOrderClass
-AssessmentType = PropertyType
+AssessmentType = SecondOrderClass
 
 
 --  AssessmentType is subTypeOf AppraisalType

@@ -31,19 +31,30 @@ st-190c74f868966584-515c6b23689335c3 = polySubTypeOf-identity
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Behavioral Rule: -}
 specializedBehavioralRule :  Linkage BehavioralRule BehavioralRule
 specializedBehavioralRule = make_subTypeOf "Specialized Behavioral Rule" "Specialized Behavioral Rule"
 
 postulate -- specializedBehavioralRule is subTypeOf specializedDirective
-  st-01f10e56689b5157-190c79c26896690d  : specializedBehavioralRule   ⊏⋆ᵣ  specializedDirective 
+  st-01f10e56689b5157-190c79c26896690d  : specializedBehavioralRule  ⊏⋆ᵣ  specializedDirective
 
+-- -------------------------------------------------------------------------------------------- 
 {- Policy Derivation: 
 Statement that a Behavioral Rule is the realization of a Policy.
 -}
 -- Aggregate Member : Policy Derivation
 PolicyDerivation : ClassOfClassOfIndividual
 PolicyDerivation = ClassOfIndividual
+
+
+--  PolicyDerivation withAspect RealizedDirective
+st-7bc2add56899a8e3-190c7a7f6896696e : PolicyDerivation ⊏ₐₑ (RealizedDirective (lsuc(lzero)))
+st-7bc2add56899a8e3-190c7a7f6896696e = polySubTypeOf-identity
+
+--  PolicyDerivation withAspect UnboundedMember
+st-7bc2add56899a8e3-8cfaf71a6852b042 : PolicyDerivation ⊏ₐₑ (UnboundedMember (lsuc(lzero)))
+st-7bc2add56899a8e3-8cfaf71a6852b042 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfPolicyDerivation :  Linkage BehavioralRule PolicyDerivation
@@ -61,8 +72,4 @@ aggregationOfPolicyPolicyDerivation = make_Relation "Policy aggregation" "aggreg
 policyDerivation : Linkage BehavioralRule Policy
 policyDerivation = membershipOfPolicyDerivation  ∘  aggregationOfPolicyPolicyDerivation
 
-postulate -- policyDerivation is subTypeOf realizedDirective
-  st-7bc2add56899a8e3-190c7a7f6896696e  : policyDerivation   ⊏⋆ᵣ  realizedDirective 
-postulate -- policyDerivation is subTypeOf unboundedMember
-  st-7bc2add56899a8e3-8cfaf71a6852b042  : policyDerivation   ⊏⋆ᵣ  unboundedMember {lzero} {lzero}
 

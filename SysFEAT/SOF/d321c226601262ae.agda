@@ -41,29 +41,33 @@ st-d321c226601262ae-342f74b166156e02 = polySubTypeOf-identity
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Packaged Initiative Resource: -}
 packagedInitiativeResource : ∀ {u} →  Linkage EnduringInitiative (InitiativeInstrument u)
 packagedInitiativeResource = make_nestingRelation "Packaged Initiative Resource" "Packaged Initiative Resource"
 
 postulate -- packagedInitiativeResource is subTypeOf packagedModelBlock
-  st-01ce058868597974-3346b0ad687846e9  : packagedInitiativeResource  {lzero}  ⊏⋆ᵣ  packagedModelBlock {lzero} {lzero}
+  st-01ce058868597974-3346b0ad687846e9  : packagedInitiativeResource  ⊏⋆ᵣ  packagedModelBlock {lzero} {lzero}
 
+-- -------------------------------------------------------------------------------------------- 
 {- Dependent Initiative: -}
 dependentInitiative :  Linkage EnduringInitiative EnduringInitiative
 dependentInitiative = make_holonymyRelation "Dependent Initiative" "Dependent Initiative"
 
 postulate -- dependentInitiative is subTypeOf importedContainer
-  st-5b7a0d6361f5633f-0eb94b9b6854a563  : dependentInitiative   ⊏⋆ᵣ  importedContainer {lzero} {lzero}
+  st-5b7a0d6361f5633f-0eb94b9b6854a563  : dependentInitiative  ⊏⋆ᵣ  importedContainer {lzero} {lzero}
 
+-- -------------------------------------------------------------------------------------------- 
 {- Sub-Initiative: -}
 subInitiative :  Linkage EnduringInitiative EnduringInitiative
 subInitiative = make_holonymyRelation "Sub-Initiative" "Sub-Initiative"
 
 postulate -- subInitiative is subTypeOf holonymyRelation
-  st-5b7a0ecf61f5650a-c2f2c6ce66e90be7  : subInitiative   ⊏⋆ᵣ  holonymyRelation 
+  st-5b7a0ecf61f5650a-c2f2c6ce66e90be7  : subInitiative  ⊏⋆ᵣ  holonymyRelation
 postulate -- subInitiative is subTypeOf scopedModelBlock
-  st-5b7a0ecf61f5650a-0eb96a306855c816  : subInitiative   ⊏⋆ᵣ  scopedModelBlock {lzero} {lzero}
+  st-5b7a0ecf61f5650a-0eb96a306855c816  : subInitiative  ⊏⋆ᵣ  scopedModelBlock {lzero} {lzero}
 
+-- -------------------------------------------------------------------------------------------- 
 {- Roadmap: 
 Set of all Initiative Stages of an Enduring Initiative that, along with coordinating Initiative Milestones, forms its roadmap.
 -}
@@ -71,16 +75,22 @@ roadmap :  Linkage EnduringInitiative InitiativeStage
 roadmap = make_holonymyRelation "Roadmap" "Roadmap"
 
 postulate -- roadmap is subTypeOf scopedModelBlock
-  st-29df685860086c52-0eb96a306855c816  : roadmap   ⊏⋆ᵣ  scopedModelBlock {lzero} {lzero}
+  st-29df685860086c52-0eb96a306855c816  : roadmap  ⊏⋆ᵣ  scopedModelBlock {lzero} {lzero}
 postulate -- roadmap is subTypeOf holonymyRelation
-  st-29df685860086c52-c2f2c6ce66e90be7  : roadmap   ⊏⋆ᵣ  holonymyRelation 
+  st-29df685860086c52-c2f2c6ce66e90be7  : roadmap  ⊏⋆ᵣ  holonymyRelation
 
+-- -------------------------------------------------------------------------------------------- 
 {- Goal: 
 A Goal is a statement about an Asset Property of  Initiative Subjects of an Enduring Initiative that cannot be obtained within a specified period, but which can be obtained over a longer time period.
 -}
 -- Aggregate Member : Goal
 Goal : ClassOfClassOfIndividual
 Goal = ClassOfIndividual
+
+
+--  Goal is subTypeOf DesiredResult
+st-21eda43c689c2ab3-a56ba5d1689c4ba1 : Goal ⊏⋆ₑ DesiredResult
+st-21eda43c689c2ab3-a56ba5d1689c4ba1 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfGoal :  Linkage EnduringInitiative Goal
@@ -98,6 +108,4 @@ aggregationOfAssetPropertyGoal = make_Relation "AssetProperty aggregation" "aggr
 goal : Linkage EnduringInitiative AssetProperty
 goal = membershipOfGoal  ∘  aggregationOfAssetPropertyGoal
 
-postulate -- goal is subTypeOf desiredResult
-  st-21eda43c689c2ab3-a56ba5d1689c4ba1  : goal   ⊏⋆ᵣ  desiredResult 
 

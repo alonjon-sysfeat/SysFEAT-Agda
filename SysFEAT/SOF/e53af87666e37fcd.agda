@@ -20,7 +20,7 @@ open import Agda.Primitive
 open import SysFEAT.SOF.e53af71366e37de2 public -- Condition Property Type
 
 SetOfEnvironmentalConditionType : ThirdOrderClass
-SetOfEnvironmentalConditionType = PropertyType
+SetOfEnvironmentalConditionType = SecondOrderClass
 
 
 --  SetOfEnvironmentalConditionType is subTypeOf ConditionPropertyType
@@ -30,6 +30,7 @@ st-e53af87666e37fcd-e53af71366e37de2 = polySubTypeOf-identity
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Combined Condition Type: 
 Set of Condition Property Types.
 -}
@@ -37,4 +38,4 @@ combinedConditionType :  Linkage SetOfEnvironmentalConditionType SetOfEnvironmen
 combinedConditionType = make_classOfHolonymy "Combined Condition Type" "Combined Condition Type"
 
 postulate -- combinedConditionType is subTypeOf propertyTypeHolonymy
-  st-c2f278bb66ea258a-9653a4ad6970107b  : combinedConditionType   ⊏⋆ᵣ  propertyTypeHolonymy 
+  st-c2f278bb66ea258a-9653a4ad6970107b  : combinedConditionType  ⊏⋆ᵣ  propertyTypeHolonymy

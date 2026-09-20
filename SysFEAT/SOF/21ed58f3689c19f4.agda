@@ -29,9 +29,10 @@ st-21ed58f3689c19f4-21ed231d689c0679 = polySubTypeOf-identity
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Environmental Property Type: -}
 environmentalPropertyType :  Linkage EnvironmentalProperty EnvironmentalPropertyType
 environmentalPropertyType = make_instanceOf "Environmental Property Type" "Environmental Property Type"
 
 postulate -- environmentalPropertyType is subTypeOf conditionPropertyType
-  st-21ed5b67689c1c35-21ed5a16689c1a59  : environmentalPropertyType   ⊏⋆ᵣ  conditionPropertyType 
+  st-21ed5b67689c1c35-21ed5a16689c1a59  : environmentalPropertyType  ⊏⋆ᵣ  conditionPropertyType

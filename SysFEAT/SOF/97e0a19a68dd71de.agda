@@ -29,9 +29,10 @@ st-97e0a19a68dd71de-97e09cde68dd6c0f = polySubTypeOf-identity
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Policy Decision Type: -}
 policyDecisionType :  Linkage PolicyapplicabilityStatus PolicyDecisionType
 policyDecisionType = make_instanceOf "Policy Decision Type" "Policy Decision Type"
 
 postulate -- policyDecisionType is subTypeOf decisionType
-  st-97e0a1e168dd7342-97e09d2068dd6cd0  : policyDecisionType   ⊏⋆ᵣ  decisionType 
+  st-97e0a1e168dd7342-97e09d2068dd6cd0  : policyDecisionType  ⊏⋆ᵣ  decisionType

@@ -35,11 +35,13 @@ st-0c4559c86a033792-6ef572f868f1366f = trivialPolySubTypeOfEntity
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Dependent Conceptual Level: -}
 dependentConceptualLevel : ∀ {u v} →  Linkage (OperatingAsset u) (ConceptualizationLevel v)
 dependentConceptualLevel = make_Relation "Dependent Conceptual Level" "Dependent Conceptual Level"
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Dependent Level Type: 
 The Systemic Level that an Operating Asset is parametred by. 
 -}

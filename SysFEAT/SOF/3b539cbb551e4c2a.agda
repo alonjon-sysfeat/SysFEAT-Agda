@@ -30,6 +30,7 @@ st-3b539cbb551e4c2a-bcdbc016617a55be = polySubTypeOf-identity
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Assessed Asset: 
 Asset Block that is the subject of an Assessment.
 -}
@@ -37,11 +38,12 @@ assessedAsset : ∀ {u} →  Linkage Assessment (AssetBlock u)
 assessedAsset = make_Relation "Assessed Asset" "Assessed Asset"
 
 postulate -- assessedAsset is subTypeOf appraisedAsset
-  st-6bf1843a68599028-6bf17d4e68598487  : assessedAsset  {lzero}  ⊏⋆ᵣ  appraisedAsset  {lzero}
+  st-6bf1843a68599028-6bf17d4e68598487  : assessedAsset  ⊏⋆ᵣ  appraisedAsset
 
+-- -------------------------------------------------------------------------------------------- 
 {- Selected Assessment Value: -}
 selectedAssessmentValue :  Linkage Assessment AssessmentValue
 selectedAssessmentValue = make_instanceOf "Selected Assessment Value" "Selected Assessment Value"
 
 postulate -- selectedAssessmentValue is subTypeOf selectedAppraisalOption
-  st-6662956f68dd654c-6662932568dd6161  : selectedAssessmentValue   ⊏⋆ᵣ  selectedAppraisalOption 
+  st-6662956f68dd654c-6662932568dd6161  : selectedAssessmentValue  ⊏⋆ᵣ  selectedAppraisalOption

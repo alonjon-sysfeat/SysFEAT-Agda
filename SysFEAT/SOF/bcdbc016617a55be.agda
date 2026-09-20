@@ -30,16 +30,18 @@ st-bcdbc016617a55be-1737b50b5fe27cba = polySubTypeOf-identity
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Appraised Asset: -}
 appraisedAsset : ∀ {u} →  Linkage Appraisal (AssetBlock u)
 appraisedAsset = make_Relation "Appraised Asset" "Appraised Asset"
 
 postulate -- appraisedAsset is subTypeOf eventSubject
-  st-6bf17d4e68598487-0f642d4d6859ad70  : appraisedAsset  {lzero}  ⊏⋆ᵣ  eventSubject  {lzero}
+  st-6bf17d4e68598487-0f642d4d6859ad70  : appraisedAsset  ⊏⋆ᵣ  eventSubject
 
+-- -------------------------------------------------------------------------------------------- 
 {- Selected Appraisal Option: -}
 selectedAppraisalOption :  Linkage Appraisal AppraisalOption
 selectedAppraisalOption = make_instanceOf "Selected Appraisal Option" "Selected Appraisal Option"
 
 postulate -- selectedAppraisalOption is subTypeOf propertyOfIndividual
-  st-6662932568dd6161-19763dbb68926a48  : selectedAppraisalOption   ⊏⋆ᵣ  propertyOfIndividual 
+  st-6662932568dd6161-19763dbb68926a48  : selectedAppraisalOption  ⊏⋆ᵣ  propertyOfIndividual 

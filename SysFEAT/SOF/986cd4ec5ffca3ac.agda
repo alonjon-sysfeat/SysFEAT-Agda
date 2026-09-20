@@ -36,26 +36,39 @@ st-986cd4ec5ffca3ac-a371a43b5b865817 = polySubTypeOf-identity
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Behavior: -}
 specializedBehavior :  Linkage BehaviorType BehaviorType
 specializedBehavior = make_subTypeOf "Specialized Behavior" "Specialized Behavior"
 
 postulate -- specializedBehavior is subTypeOf specializedOperatingAsset
-  st-2b5b452d66ed5855-6a70772167873276  : specializedBehavior   ⊏⋆ᵣ  specializedOperatingAsset 
+  st-2b5b452d66ed5855-6a70772167873276  : specializedBehavior  ⊏⋆ᵣ  specializedOperatingAsset
 
+-- -------------------------------------------------------------------------------------------- 
 {- Realized Behavior: -}
 realizedBehavior :  Linkage BehaviorType BehaviorType
 realizedBehavior = make_subTypeOf "Realized Behavior" "Realized Behavior"
 
 postulate -- realizedBehavior is subTypeOf realizedOperatingAsset
-  st-2b5b45a466ed5920-7dc193da6849536c  : realizedBehavior   ⊏⋆ᵣ  realizedOperatingAsset 
+  st-2b5b45a466ed5920-7dc193da6849536c  : realizedBehavior  ⊏⋆ᵣ  realizedOperatingAsset
 
+-- -------------------------------------------------------------------------------------------- 
 {- Behavior Participant: 
 A Behavior Participant is the participation of an Agent Type in a Behavior Type.
 -}
 -- Aggregate Member : Behavior Participant
-BehaviorParticipant : ClassOfClassOfIndividual
-BehaviorParticipant = ClassOfIndividual
+BehaviorParticipant : ClassOfClassOfBoundedIndividual
+BehaviorParticipant = ClassOfBoundedIndividual
+
+
+
+--  BehaviorParticipant is subTypeOf OperatingAssetPart
+st-e0e86fad65789c43-b776b8c668b04b35 : BehaviorParticipant ⊏ₑ OperatingAssetPart
+st-e0e86fad65789c43-b776b8c668b04b35 = polySubTypeOf-identity
+
+--  BehaviorParticipant is subTypeOf AgentType
+st-e0e86fad65789c43-79368381561716a6 : BehaviorParticipant ⊏ₑ AgentType
+st-e0e86fad65789c43-79368381561716a6 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfBehaviorParticipant :  Linkage BehaviorType BehaviorParticipant
@@ -73,16 +86,25 @@ aggregationOfAgentTypeBehaviorParticipant = make_Relation "AgentType aggregation
 behaviorParticipant : Linkage BehaviorType AgentType
 behaviorParticipant = membershipOfBehaviorParticipant  ∘  aggregationOfAgentTypeBehaviorParticipant
 
-postulate -- behaviorParticipant is subTypeOf operatingAssetPart
-  st-e0e86fad65789c43-b776b8c668b04b35  : behaviorParticipant   ⊏⋆ᵣ  operatingAssetPart 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Behavior Part: 
 A composed Behavior Type that is a part of the parent Behavior Type.
 -}
 -- Aggregate Member : Behavior Part
-BehaviorPart : ClassOfClassOfIndividual
-BehaviorPart = ClassOfIndividual
+BehaviorPart : ClassOfClassOfBoundedIndividual
+BehaviorPart = ClassOfBoundedIndividual
+
+
+
+--  BehaviorPart is subTypeOf OperatingAssetPart
+st-b776b92668b04c85-b776b8c668b04b35 : BehaviorPart ⊏ₑ OperatingAssetPart
+st-b776b92668b04c85-b776b8c668b04b35 = polySubTypeOf-identity
+
+--  BehaviorPart is subTypeOf BehaviorType
+st-b776b92668b04c85-986cd4ec5ffca3ac : BehaviorPart ⊏ₑ BehaviorType
+st-b776b92668b04c85-986cd4ec5ffca3ac = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfBehaviorPart :  Linkage BehaviorType BehaviorPart
@@ -100,6 +122,4 @@ aggregationOfBehaviorTypeBehaviorPart = make_Relation "BehaviorType aggregation"
 behaviorPart : Linkage BehaviorType BehaviorType
 behaviorPart = membershipOfBehaviorPart  ∘  aggregationOfBehaviorTypeBehaviorPart
 
-postulate -- behaviorPart is subTypeOf operatingAssetPart
-  st-b776b92668b04c85-b776b8c668b04b35  : behaviorPart   ⊏⋆ᵣ  operatingAssetPart 
 

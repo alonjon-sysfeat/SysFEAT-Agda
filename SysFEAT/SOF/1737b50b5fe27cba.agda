@@ -34,9 +34,10 @@ st-1737b50b5fe27cba-28f07b2354be0d69 = polySubTypeOf-identity
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Event Subject: -}
 eventSubject : ∀ {u} →  Linkage GovernanceEvent (AssetBlock u)
 eventSubject = make_Relation "Event Subject" "Event Subject"
 
 postulate -- eventSubject is subTypeOf existentialDependency
-  st-0f642d4d6859ad70-cbfce7da685358e9  : eventSubject  {lzero}  ⊏⋆ᵣ  existentialDependency {lzero} {lzero}
+  st-0f642d4d6859ad70-cbfce7da685358e9  : eventSubject  ⊏⋆ᵣ  existentialDependency {lzero} {lzero}
