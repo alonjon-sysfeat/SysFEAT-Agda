@@ -22,8 +22,8 @@ module SysFEAT.UpperOntology.28f07b2354be0d69 where -- ========== Bounded Indivi
 open import Agda.Primitive
 open import SysFEAT.UpperOntology.4df9512266826e23 public -- Individual
 open import SysFEAT.UpperOntology.8cfa941b6852781f public -- Bounded Aggregate
-open import SysFEAT.UpperOntology.3492c53e619642ed public -- Class of Bounded Individual
 open import SysFEAT.UpperOntology.746ac18368905aa2 public -- Property
+open import SysFEAT.UpperOntology.3492c53e619642ed public -- Class of Bounded Individual
 open import SysFEAT.UpperOntology.267b6a126675a0b9 public -- Temporal Bounding
 
 BoundedIndividual : ClassOfBoundedIndividual
@@ -44,6 +44,19 @@ postulate -- ClassOfBoundedIndividual is ReflexivePowerType
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
+{- Reference Holonymy: 
+Reference Holonymy is a non-reified Holonymy Relation where the composed Bounded Individual is referenced (Reference Relation) as a part of the source Bounded Individual.
+-}
+referenceHolonymy :  Linkage BoundedIndividual BoundedIndividual
+referenceHolonymy = make_holonymyRelation "Reference Holonymy" "Reference Holonymy"
+
+postulate -- referenceHolonymy is subTypeOf holonymyRelation
+  st-9653a95669701e02-c2f2c6ce66e90be7  : referenceHolonymy  ⊏⋆ᵣ  holonymyRelation
+postulate -- referenceHolonymy is subTypeOf referenceRelation
+  st-9653a95669701e02-23d5398f68511bc1  : referenceHolonymy  ⊏⋆ᵣ  referenceRelation {lzero} {lzero}
+
+-- -------------------------------------------------------------------------------------------- 
 {- Property of Individual: 
 An instance of Entity from a Bounded Individual to a Property that asserts the Bounded Individual  has  the Property.
 -}
@@ -53,23 +66,22 @@ propertyOfIndividual = make_instanceOf "Individual Qualification" "Property of I
 postulate -- propertyOfIndividual is subTypeOf instanceOfEntity
   st-19763dbb68926a48-34a453a068f7a3ef  : propertyOfIndividual   ⊏⋆ᵣ  instanceOfEntity {lzero} {lsuc(lzero)}
 
-{- Reference Holonymy: 
-Reference Holonymy is a non-reified Holonymy Relation where the composed Bounded Individual is referenced (Reference Relation) as a part of the source Bounded Individual.
--}
-referenceHolonymy :  Linkage BoundedIndividual BoundedIndividual
-referenceHolonymy = make_holonymyRelation "Reference Holonymy" "Reference Holonymy"
-
-postulate -- referenceHolonymy is subTypeOf holonymyRelation
-  st-9653a95669701e02-c2f2c6ce66e90be7  : referenceHolonymy   ⊏⋆ᵣ  holonymyRelation 
-postulate -- referenceHolonymy is subTypeOf referenceRelation
-  st-9653a95669701e02-23d5398f68511bc1  : referenceHolonymy   ⊏⋆ᵣ  referenceRelation {lzero} {lzero}
-
+-- -------------------------------------------------------------------------------------------- 
 {- Aggregate Holonymy: 
 Aggregate Holonymy is a reified Holonymy Relation where the composed Bounded Individual becomes a Bounded Member of the whole Bounded Individual.
 -}
 -- Aggregate Member : Aggregate Holonymy
 AggregateHolonymy : AggregateHolonymyType
-AggregateHolonymy = Unknown
+AggregateHolonymy = BoundedIndividual
+
+
+--  AggregateHolonymy withAspect BoundedMember
+st-c2f2c9a166ea50e2-0eb999956855e070 : AggregateHolonymy ⊏ₐₑ (BoundedMember lzero)
+st-c2f2c9a166ea50e2-0eb999956855e070 = polySubTypeOf-identity
+
+--  AggregateHolonymy is subTypeOf BoundedIndividual
+st-c2f2c9a166ea50e2-28f07b2354be0d69 : AggregateHolonymy ⊏ₑ BoundedIndividual
+st-c2f2c9a166ea50e2-28f07b2354be0d69 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfAggregateHolonymy :  Linkage BoundedIndividual AggregateHolonymy
@@ -87,14 +99,24 @@ aggregationOfBoundedIndividualAggregateHolonymy = make_Relation "BoundedIndividu
 aggregateHolonymy : Linkage BoundedIndividual BoundedIndividual
 aggregateHolonymy = membershipOfAggregateHolonymy  ∘  aggregationOfBoundedIndividualAggregateHolonymy
 
-postulate -- aggregateHolonymy is subTypeOf boundedMember
-  st-c2f2c9a166ea50e2-0eb999956855e070  : aggregateHolonymy   ⊏⋆ᵣ  boundedMember {lzero} {lzero}
+postulate -- aggregateHolonymy is subTypeOf holonymyRelation
+  st-c2f2c9a166ea50e2-c2f2c6ce66e90be7  : aggregateHolonymy  ⊏⋆ᵣ  holonymyRelation
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Temporal Ordering: -}
 -- Aggregate Member : Temporal Ordering
 TemporalOrdering : ClassOfIndividual
 TemporalOrdering = Individual
+
+
+--  TemporalOrdering is subTypeOf Individual
+st-255744cb6758a69e-4df9512266826e23 : TemporalOrdering ⊏ₑ Individual
+st-255744cb6758a69e-4df9512266826e23 = polySubTypeOf-identity
+
+--  TemporalOrdering withAspect OrderingConnector
+st-255744cb6758a69e-478a4a4468565425 : TemporalOrdering ⊏ₐₑ (OrderingConnector lzero)
+st-255744cb6758a69e-478a4a4468565425 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfTemporalOrdering :  Linkage BoundedIndividual TemporalOrdering
@@ -112,6 +134,4 @@ aggregationOfTemporalBoundingTemporalOrdering = make_Relation "TemporalBounding 
 temporalOrdering : Linkage BoundedIndividual TemporalBounding
 temporalOrdering = membershipOfTemporalOrdering  ∘  aggregationOfTemporalBoundingTemporalOrdering
 
-postulate -- temporalOrdering is subTypeOf orderingConnector
-  st-255744cb6758a69e-478a4a4468565425  : temporalOrdering   ⊏⋆ᵣ  orderingConnector {lzero} {lzero}
 

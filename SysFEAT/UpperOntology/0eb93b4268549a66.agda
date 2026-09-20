@@ -34,6 +34,7 @@ st-0eb93b4268549a66-23d5c494685141b5 = trivialPolySubTypeOfEntity
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Packaged Building Block: -}
 packagedBuildingBlock : ∀ {u v} →  Linkage (Container u) (BuildingBlock v)
 packagedBuildingBlock = make_nestingRelation "Building Block Packaging" "Packaged Building Block"
@@ -41,6 +42,7 @@ packagedBuildingBlock = make_nestingRelation "Building Block Packaging" "Package
 postulate -- packagedBuildingBlock is subTypeOf scopedBuildingBlock
   st-3346a99968784284-0eb946496854a02e  : ∀ {u v} → packagedBuildingBlock {u} {v}  ⊏⋆ᵣ  scopedBuildingBlock {u} {v}
 
+-- -------------------------------------------------------------------------------------------- 
 {- Imported Container: 
 The Imported Container relationship extends the Block Lexical Scope of a Containerr to Building Blocksof the imported Container.
 -}

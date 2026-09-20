@@ -34,11 +34,17 @@ open import SysFEAT.UpperOntology.05e6065d6aa42f5f public -- Third Order Class
 -- ============================================================ 
 SecondOrderClass : ThirdOrderClass
 SecondOrderClass = MetaClass lzero
- 
--- ============================================================
--- II. Meta-Graph
--- ============================================================ 
--- SecondOrderClass isSubTypeOf OrderedMetaClass  
+
 34a349a068f71f77 : SecondOrderClass ⊏ₑ (OrderedMetaClass lzero)
 34a349a068f71f77 = polySubTypeOf-identity
+
+
+-- ============================================================
+-- II. Relations between Second Order Classes
+-- ============================================================ 
+
+SecondOrderClassRelation : Linkage SecondOrderClass SecondOrderClass
+SecondOrderClassRelation = make_classOfRelation "Root class second order relation" "Related Second Order Class"
+
+-- SecondOrderClassRelation isSubTypeOf classOfOrderedRelation  
 

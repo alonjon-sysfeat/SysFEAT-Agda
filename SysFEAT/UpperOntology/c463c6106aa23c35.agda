@@ -34,10 +34,11 @@ FirstOrderClass = ClassOfOrderedEntity lzero
 -- ============================================================
 -- II. Relations between First Order Class (M1 level)
 -- ============================================================ 
-classOfFirstOrderRelation : Linkage FirstOrderClass FirstOrderClass
-classOfFirstOrderRelation = make_classOfRelation "Root class of class of first order relation" "Related First Order Class"
+FirstOrderClassRelation : Linkage FirstOrderClass FirstOrderClass
+FirstOrderClassRelation = make_classOfRelation "Root class of class of first order relation" "Related First Order Class"
 
--- classOfFirstOrderRelation isSubTypeOf classOfOrderedRelation  [moved to SysFEAT.Ontology.Axioms]
+-- FirstOrderClassRelation isSubTypeOf classOfOrderedRelation  [moved to SysFEAT.Ontology.Axioms]
+
 -- ============================================================
 -- III. Mereological Relations (Templates M1)
 -- ============================================================ 
@@ -50,19 +51,19 @@ classOfFirstOrderRelation = make_classOfRelation "Root class of class of first o
 classOfHolonymy : Linkage FirstOrderClass FirstOrderClass
 classOfHolonymy = polyClassOfHolonymy
 
--- classOfHolonymy isSubTypeOf classOfFirstOrderRelation 
-215db38c68b4375d : classOfHolonymy ⊏⋆ᵣ classOfFirstOrderRelation
+-- classOfHolonymy isSubTypeOf FirstOrderClassRelation 
+215db38c68b4375d : classOfHolonymy ⊏⋆ᵣ FirstOrderClassRelation
 215db38c68b4375d  =
-  polySubTypeOfRel-fromExtensionMap {subRel = classOfHolonymy} {superRel = classOfFirstOrderRelation} (λ w → w)
+  polySubTypeOfRel-fromExtensionMap {subRel = classOfHolonymy} {superRel = FirstOrderClassRelation} (λ w → w)
 
 {- Class of Meronymy is the powertype of Meronymy Relation (part - whole). -}
 classOfMeronymy : Linkage FirstOrderClass FirstOrderClass
 classOfMeronymy = polyClassOfMeronymy
 
--- classOfMeronymy isSubTypeOf classOfFirstOrderRelation
-526b3ea169df6b26 : classOfMeronymy ⊏⋆ᵣ classOfFirstOrderRelation
+-- classOfMeronymy isSubTypeOf FirstOrderClassRelation
+526b3ea169df6b26 : classOfMeronymy ⊏⋆ᵣ FirstOrderClassRelation
 526b3ea169df6b26  =
-  polySubTypeOfRel-fromExtensionMap {subRel = classOfMeronymy} {superRel = classOfFirstOrderRelation} (λ w → w)
+  polySubTypeOfRel-fromExtensionMap {subRel = classOfMeronymy} {superRel = FirstOrderClassRelation} (λ w → w)
 -- ============================================================
 -- IV. Mereological Governance (Meta level M2)
 -- ============================================================ 

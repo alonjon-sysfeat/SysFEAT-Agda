@@ -29,9 +29,10 @@ st-608767a668de7fb6-a599a7e46aa370fb = polySubTypeOf-identity
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Super Class of Class of Individual: -}
 superClassOfClassOfIndividual :  Linkage ClassOfClassOfIndividual ClassOfClassOfIndividual
 superClassOfClassOfIndividual = make_subTypeOf "Super Class of Class of Individual" "Super Class of Class of Individual"
 
 postulate -- superClassOfClassOfIndividual is subTypeOf subTypeOfEntity
-  st-60876c6168de81be-8336837268e9448b  : superClassOfClassOfIndividual   ⊏⋆ᵣ  subTypeOfEntity {lsuc(lzero)}
+  st-60876c6168de81be-8336837268e9448b  : superClassOfClassOfIndividual  ⊏⋆ᵣ  subTypeOfEntity {lsuc(lzero)}

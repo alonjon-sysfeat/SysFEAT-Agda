@@ -16,9 +16,7 @@ module SysFEAT.UpperOntology.085717ea5ed13f63 where -- ========== Future
 
 open import Agda.Primitive
 
-Future : InitiativeMilestone
-Future = Unknown
+Future : ∀ (u : Level) → ClassOfMixedOrderEntity u
+Future u = MixedOrderEntity u
 
-postulate -- Future is PowerInstanceOf Initiative Milestone
-  08570d835ed129a3 : Future ∷ₚₑ InitiativeMilestone
 

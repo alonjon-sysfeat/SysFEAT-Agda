@@ -23,10 +23,11 @@ module SysFEAT.UpperOntology.746ac18368905aa2 where -- ========== Property
 open import Agda.Primitive
 open import SysFEAT.UpperOntology.6aa8cbcb65b32971 public -- Class of Individual
 open import SysFEAT.UpperOntology.23d5a9ea68513ced public -- Building Block
+open import SysFEAT.UpperOntology.3aca55ee6aa645c2 public -- Class of Abstract Entity
 open import SysFEAT.UpperOntology.87d3062666e33965 public -- Property Type
 
 Property : PropertyType
-Property = FirstOrderClass
+Property = ClassOfIndividual
 
 --  Property is subTypeOf ClassOfIndividual
 st-746ac18368905aa2-6aa8cbcb65b32971 : Property ⊏ₑ ClassOfIndividual
@@ -36,6 +37,10 @@ st-746ac18368905aa2-6aa8cbcb65b32971 = polySubTypeOf-identity
 st-746ac18368905aa2-23d5a9ea68513ced : Property ⊏ₐₑ (BuildingBlock (lsuc(lzero)))
 st-746ac18368905aa2-23d5a9ea68513ced = polySubTypeOf-identity
 
+--  Property is subTypeOf ClassOfAbstractEntity
+st-746ac18368905aa2-3aca55ee6aa645c2 : Property ⊏ₑ ClassOfAbstractEntity
+st-746ac18368905aa2-3aca55ee6aa645c2 = polySubTypeOf-identity
+
 postulate -- Property is PowerInstanceOf Property Type
   f382366f6aac9352 : Property ∷ₚₑ PropertyType
 postulate -- PropertyType is ReflexivePowerType 
@@ -43,15 +48,7 @@ postulate -- PropertyType is ReflexivePowerType
 
 -- == Relations =======================
 
-{- Specialized Property: 
-Specialization relationship between Property(ies).
--}
-specializedProperty :  Linkage Property Property
-specializedProperty = make_subTypeOf "Property Specialization" "Specialized Property"
-
-postulate -- specializedProperty is subTypeOf specializedClassOfIndividual
-  st-1662112a68925f90-e429632e66ec72ab  : specializedProperty   ⊏⋆ᵣ  specializedClassOfIndividual 
-
+-- -------------------------------------------------------------------------------------------- 
 {- Property Classification: 
 Property Classification is a classification of Propertys by Property Types.
 -}
@@ -59,4 +56,14 @@ propertyClassification :  Linkage Property PropertyType
 propertyClassification = make_instanceOf "Property Classification" "Property Classification"
 
 postulate -- propertyClassification is subTypeOf instanceOfEntity
-  st-1976247d68925c3e-34a453a068f7a3ef  : propertyClassification   ⊏⋆ᵣ  instanceOfEntity {lzero} {lsuc(lzero)}
+  st-1976247d68925c3e-34a453a068f7a3ef  : propertyClassification  ⊏⋆ᵣ  instanceOfEntity {lzero} {lsuc(lzero)}
+
+-- -------------------------------------------------------------------------------------------- 
+{- Specialized Property: 
+Specialization relationship between Property(ies).
+-}
+specializedProperty :  Linkage Property Property
+specializedProperty = make_subTypeOf "Property Specialization" "Specialized Property"
+
+postulate -- specializedProperty is subTypeOf specializedClassOfIndividual
+  st-1662112a68925f90-e429632e66ec72ab  : specializedProperty  ⊏⋆ᵣ  specializedClassOfIndividual

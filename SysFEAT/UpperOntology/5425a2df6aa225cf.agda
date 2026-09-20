@@ -60,7 +60,7 @@ It is important to note, however, that nesting does not inherently imply Holonym
 holonymyRelation : Linkage FirstOrderEntity FirstOrderEntity
 holonymyRelation = make_holonymyRelation "Root of First holonymy Relation" "Part Entity"
 
--- holonymyRelation isSubTypeOf firstOrderRelation (FIX: subject was firstOrderRelation by copy-paste; mirrors M1: classOfHolonymy ⊏⋆ᵣ classOfFirstOrderRelation)  [PROVED - was a postulate]
+-- holonymyRelation isSubTypeOf firstOrderRelation 
 be05d30567070844 : holonymyRelation ⊏⋆ᵣ firstOrderRelation
 be05d30567070844  =
   polySubTypeOfRel-fromExtensionMap {subRel = holonymyRelation} {superRel = firstOrderRelation} (λ w → w)
@@ -77,11 +77,14 @@ Example:
 meronymyRelation : Linkage FirstOrderEntity FirstOrderEntity
 meronymyRelation = make_meronymyRelation "Root of First meronymy Relation" "Whole Entity"
 
--- meronymyRelation isSubTypeOf firstOrderRelation (FIX: subject was firstOrderRelation by copy-paste; mirrors M1: classOfMeronymy ⊏⋆ᵣ classOfFirstOrderRelation)  [PROVED - was a postulate]
+-- meronymyRelation isSubTypeOf firstOrderRelation 
 4aebb6e669640bb2 : meronymyRelation ⊏⋆ᵣ firstOrderRelation
 4aebb6e669640bb2  =
   polySubTypeOfRel-fromExtensionMap {subRel = meronymyRelation} {superRel = firstOrderRelation} (λ w → w)
--- meronymyRelation ispowerInstanceOf classOfMeronymy (FIX comment: said holonymy)  [moved to SysFEAT.Ontology.Axioms]
+
+-- meronymyRelation ispowerInstanceOf classOfMeronymy (to be FIX comment: said holonymy) 
+
+
 -- ============================================================
 -- IV. Mereological principles at M1
 -- ============================================================

@@ -21,12 +21,11 @@ open import Agda.Primitive
 open import SysFEAT.UpperOntology.6aa8cbcb65b32971 public -- Class of Individual
 open import SysFEAT.UpperOntology.8cfa941b6852781f public -- Bounded Aggregate
 open import SysFEAT.UpperOntology.60876d5c68de82f2 public -- Class of Class of Bounded Individual
-open import SysFEAT.UpperOntology.28f07b2354be0d69 public -- Bounded Individual
 open import SysFEAT.UpperOntology.746ac18368905aa2 public -- Property
 open import SysFEAT.UpperOntology.9429979a66823f90 public -- Temporal Bounding Type
 
 ClassOfBoundedIndividual : ClassOfClassOfBoundedIndividual
-ClassOfBoundedIndividual = FirstOrderClass
+ClassOfBoundedIndividual = ClassOfIndividual
 
 --  ClassOfBoundedIndividual is subTypeOf ClassOfIndividual
 st-3492c53e619642ed-6aa8cbcb65b32971 : ClassOfBoundedIndividual ⊏ₑ ClassOfIndividual
@@ -43,11 +42,15 @@ postulate -- ClassOfClassOfBoundedIndividual is ReflexivePowerType
 
 -- == Relations =======================
 
-{- F4A3F54F6AA68175: -}
-f4A3F54F6AA68175 :  Linkage ClassOfBoundedIndividual BoundedIndividual
-f4A3F54F6AA68175 = make_classOfRelation "F4A3F54F6AA68175" "F4A3F54F6AA68175"
+-- -------------------------------------------------------------------------------------------- 
+{- Specialized Class of Bounded Individual: -}
+specializedClassOfBoundedIndividual :  Linkage ClassOfBoundedIndividual ClassOfBoundedIndividual
+specializedClassOfBoundedIndividual = make_subTypeOf "Class of Bounded Individual Specialization" "Specialized Class of Bounded Individual"
 
+postulate -- specializedClassOfBoundedIndividual is subTypeOf specializedClassOfIndividual
+  st-e53a627766e4b4cd-e429632e66ec72ab  : specializedClassOfBoundedIndividual  ⊏⋆ᵣ  specializedClassOfIndividual
 
+-- -------------------------------------------------------------------------------------------- 
 {- Qualifying Property: 
 A SubTypeOfEntity from a Class of Bounded Individual to a Property that asserts all members of the Class of Bounded Individual  have  the Property.
 -}
@@ -55,19 +58,18 @@ qualifyingProperty :  Linkage ClassOfBoundedIndividual Property
 qualifyingProperty = make_subTypeOf "Qualification" "Qualifying Property"
 
 postulate -- qualifyingProperty is subTypeOf specializedClassOfIndividual
-  st-16621f9a689131e0-e429632e66ec72ab  : qualifyingProperty   ⊏⋆ᵣ  specializedClassOfIndividual 
+  st-16621f9a689131e0-e429632e66ec72ab  : qualifyingProperty  ⊏⋆ᵣ  specializedClassOfIndividual
 
-{- Specialized Class of Bounded Individual: -}
-specializedClassOfBoundedIndividual :  Linkage ClassOfBoundedIndividual ClassOfBoundedIndividual
-specializedClassOfBoundedIndividual = make_subTypeOf "Class of Bounded Individual Specialization" "Specialized Class of Bounded Individual"
-
-postulate -- specializedClassOfBoundedIndividual is subTypeOf specializedClassOfIndividual
-  st-e53a627766e4b4cd-e429632e66ec72ab  : specializedClassOfBoundedIndividual   ⊏⋆ᵣ  specializedClassOfIndividual 
-
+-- -------------------------------------------------------------------------------------------- 
 {- Temporal Ordering Type: -}
 -- Aggregate Member : Temporal Ordering Type
 TemporalOrderingType : ClassOfClassOfIndividual
 TemporalOrderingType = ClassOfIndividual
+
+
+--  TemporalOrderingType withAspect OrderingConnector
+st-2557481f6758a91a-478a4a4468565425 : TemporalOrderingType ⊏ₐₑ (OrderingConnector (lsuc(lzero)))
+st-2557481f6758a91a-478a4a4468565425 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfTemporalOrderingType :  Linkage ClassOfBoundedIndividual TemporalOrderingType
@@ -85,16 +87,25 @@ aggregationOfTemporalBoundingTypeTemporalOrderingType = make_Relation "TemporalB
 temporalOrderingType : Linkage ClassOfBoundedIndividual TemporalBoundingType
 temporalOrderingType = membershipOfTemporalOrderingType  ∘  aggregationOfTemporalBoundingTypeTemporalOrderingType
 
-postulate -- temporalOrderingType is subTypeOf orderingConnector
-  st-2557481f6758a91a-478a4a4468565425  : temporalOrderingType   ⊏⋆ᵣ  orderingConnector {lzero} {lzero}
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Aggregate Qualification: 
 An Aggregate Qualification is a Qualifying Property that is refied as an Unbounded Member of a Class of Bounded Individual.Example:. The enforcement of a rule in a process (Rule Enforcement) is a refied Qualifying Property.
 -}
 -- Aggregate Member : Aggregate Qualification
-AggregateQualification : ClassOfClassOfIndividual
-AggregateQualification = ClassOfIndividual
+AggregateQualification : ClassOfClassOfAbstractEntity
+AggregateQualification = ClassOfAbstractEntity
+
+
+
+--  AggregateQualification is subTypeOf ClassOfAbstractEntity
+st-b83e30bc696f51e5-3aca55ee6aa645c2 : AggregateQualification ⊏ₑ ClassOfAbstractEntity
+st-b83e30bc696f51e5-3aca55ee6aa645c2 = polySubTypeOf-identity
+
+--  AggregateQualification withAspect UnboundedMember
+st-b83e30bc696f51e5-8cfaf71a6852b042 : AggregateQualification ⊏ₐₑ (UnboundedMember (lsuc(lzero)))
+st-b83e30bc696f51e5-8cfaf71a6852b042 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfAggregateQualification :  Linkage ClassOfBoundedIndividual AggregateQualification
@@ -112,16 +123,26 @@ aggregationOfPropertyAggregateQualification = make_Relation "Property aggregatio
 aggregateQualification : Linkage ClassOfBoundedIndividual Property
 aggregateQualification = membershipOfAggregateQualification  ∘  aggregationOfPropertyAggregateQualification
 
-postulate -- aggregateQualification is subTypeOf unboundedMember
-  st-b83e30bc696f51e5-8cfaf71a6852b042  : aggregateQualification   ⊏⋆ᵣ  unboundedMember {lzero} {lzero}
+postulate -- aggregateQualification is subTypeOf specializedClassOfIndividual
+  st-b83e30bc696f51e5-e429632e66ec72ab  : aggregateQualification  ⊏⋆ᵣ  specializedClassOfIndividual
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Aggregate Holonymy Type: 
 An Aggregate Holonymy Type is a reified flavor of Poly Class of Holonymy whereby the referenced Class of Individual is aggregated in its parent (whole) Class of Bounded Individual.Example:1) A Process Step is the reification of the composition of a child process in a parent process.2) 
 -}
 -- Aggregate Member : Aggregate Holonymy Type
 AggregateHolonymyType : ClassOfClassOfIndividual
 AggregateHolonymyType = ClassOfIndividual
+
+
+--  AggregateHolonymyType is subTypeOf ClassOfBoundedIndividual
+st-c2f2c83b66ea4d78-3492c53e619642ed : AggregateHolonymyType ⊏ₑ ClassOfBoundedIndividual
+st-c2f2c83b66ea4d78-3492c53e619642ed = polySubTypeOf-identity
+
+--  AggregateHolonymyType withAspect BoundedMember
+st-c2f2c83b66ea4d78-0eb999956855e070 : AggregateHolonymyType ⊏ₐₑ (BoundedMember (lsuc(lzero)))
+st-c2f2c83b66ea4d78-0eb999956855e070 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfAggregateHolonymyType :  Linkage ClassOfBoundedIndividual AggregateHolonymyType
@@ -139,6 +160,6 @@ aggregationOfClassOfBoundedIndividualAggregateHolonymyType = make_Relation "Clas
 aggregateHolonymyType : Linkage ClassOfBoundedIndividual ClassOfBoundedIndividual
 aggregateHolonymyType = membershipOfAggregateHolonymyType  ∘  aggregationOfClassOfBoundedIndividualAggregateHolonymyType
 
-postulate -- aggregateHolonymyType is subTypeOf boundedMember
-  st-c2f2c83b66ea4d78-0eb999956855e070  : aggregateHolonymyType   ⊏⋆ᵣ  boundedMember {lzero} {lzero}
+postulate -- aggregateHolonymyType is subTypeOf classOfHolonymy
+  st-c2f2c83b66ea4d78-d91704746a62320c  : aggregateHolonymyType  ⊏⋆ᵣ  classOfHolonymy
 

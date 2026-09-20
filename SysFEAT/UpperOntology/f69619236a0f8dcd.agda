@@ -37,6 +37,7 @@ st-f69619236a0f8dcd-23d5c5fc685142de = trivialPolySubTypeOfEntity
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Category: -}
 specializedCategory : ∀ {u v} →  Linkage (Category u) (Category v)
 specializedCategory = make_subTypeOf "Category Specialization" "Specialized Category"
