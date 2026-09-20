@@ -34,35 +34,42 @@ open import SysFEAT.SOF.79368381561716a6 public -- Agent Type
 ActionProcessType : ClassOfClassOfBoundedIndividual
 ActionProcessType = ClassOfBoundedIndividual
 
+
 --  ActionProcessType is subTypeOf BehaviorType
 st-d682ef5e56144e77-986cd4ec5ffca3ac : ActionProcessType ⊏ₑ BehaviorType
 st-d682ef5e56144e77-986cd4ec5ffca3ac = polySubTypeOf-identity
 
-postulate -- ActionProcessType is PowerInstanceOf Class of Class of Bounded Individual
-  60876d5c68de82f2 : ActionProcessType ∷ₚₑ ClassOfClassOfBoundedIndividual
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Process: -}
 specializedProcess :  Linkage ActionProcessType ActionProcessType
 specializedProcess = make_subTypeOf "Specialized Process" "Specialized Process"
 
 postulate -- specializedProcess is subTypeOf specializedBehavior
-  st-325a376e66f345e2-2b5b452d66ed5855  : specializedProcess   ⊏⋆ᵣ  specializedBehavior 
+  st-325a376e66f345e2-2b5b452d66ed5855  : specializedProcess  ⊏⋆ᵣ  specializedBehavior
 
+-- -------------------------------------------------------------------------------------------- 
 {- Realized Proces: -}
 realizedProces :  Linkage ActionProcessType ActionProcessType
 realizedProces = make_subTypeOf "Realized Proces" "Realized Proces"
 
 postulate -- realizedProces is subTypeOf realizedBehavior
-  st-325a3a1466f35b22-2b5b45a466ed5920  : realizedProces   ⊏⋆ᵣ  realizedBehavior 
+  st-325a3a1466f35b22-2b5b45a466ed5920  : realizedProces  ⊏⋆ᵣ  realizedBehavior
 
+-- -------------------------------------------------------------------------------------------- 
 {- Sequence Flow: 
 A Sequence Flow is used to show the order in which steps of a process will be performed. Each sequence flow has only one source and only one target. 
 -}
 -- Aggregate Member : Sequence Flow
 SequenceFlow : ClassOfClassOfIndividual
 SequenceFlow = ClassOfIndividual
+
+
+--  SequenceFlow is subTypeOf TemporalOrdering
+st-40d5416b5ee36739-255744cb6758a69e : SequenceFlow ⊏⋆ₑ TemporalOrdering
+st-40d5416b5ee36739-255744cb6758a69e = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSequenceFlow :  Linkage ActionProcessType SequenceFlow
@@ -80,16 +87,20 @@ aggregationOfBehavioralEventSequenceFlow = make_Relation "BehavioralEvent aggreg
 sequenceFlow : Linkage ActionProcessType BehavioralEvent
 sequenceFlow = membershipOfSequenceFlow  ∘  aggregationOfBehavioralEventSequenceFlow
 
-postulate -- sequenceFlow is subTypeOf temporalOrdering
-  st-40d5416b5ee36739-255744cb6758a69e  : sequenceFlow   ⊏⋆ᵣ  temporalOrdering 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Object Flow: 
 Object Flow is a Sequence Flow that convey from its source 
 -}
 -- Aggregate Member : Object Flow
 ObjectFlow : ClassOfClassOfIndividual
 ObjectFlow = ClassOfIndividual
+
+
+--  ObjectFlow is subTypeOf SequenceFlow
+st-e4c0fff75ed0ec45-40d5416b5ee36739 : ObjectFlow ⊏ₑ SequenceFlow
+st-e4c0fff75ed0ec45-40d5416b5ee36739 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfObjectFlow :  Linkage ActionProcessType ObjectFlow
@@ -107,16 +118,24 @@ aggregationOfOutcomeEventObjectFlow = make_Relation "OutcomeEvent aggregation" "
 objectFlow : Linkage ActionProcessType OutcomeEvent
 objectFlow = membershipOfObjectFlow  ∘  aggregationOfOutcomeEventObjectFlow
 
-postulate -- objectFlow is subTypeOf sequenceFlow
-  st-e4c0fff75ed0ec45-40d5416b5ee36739  : objectFlow   ⊏⋆ᵣ  sequenceFlow 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Process Store: 
 An Process Store references an Information Domain necessary for activities of the process.
 -}
 -- Aggregate Member : Process Store
 ProcessStore : ClassOfClassOfIndividual
 ProcessStore = ClassOfIndividual
+
+
+--  ProcessStore withAspect UnboundedMember
+st-e4c003255ed1f037-8cfaf71a6852b042 : ProcessStore ⊏ₐₑ (UnboundedMember (lsuc(lzero)))
+st-e4c003255ed1f037-8cfaf71a6852b042 = polySubTypeOf-identity
+
+--  ProcessStore is subTypeOf InformationDomain
+st-e4c003255ed1f037-d6cd116d5ab97525 : ProcessStore ⊏ₑ InformationDomain
+st-e4c003255ed1f037-d6cd116d5ab97525 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfProcessStore :  Linkage ActionProcessType ProcessStore
@@ -134,16 +153,25 @@ aggregationOfInformationDomainProcessStore = make_Relation "InformationDomain ag
 processStore : Linkage ActionProcessType InformationDomain
 processStore = membershipOfProcessStore  ∘  aggregationOfInformationDomainProcessStore
 
-postulate -- processStore is subTypeOf unboundedMember
-  st-e4c003255ed1f037-8cfaf71a6852b042  : processStore   ⊏⋆ᵣ  unboundedMember {lzero} {lzero}
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Active Participant: 
 An Active Participant is a Process Participant indicating the role of an Agent Type actively engaged as an actor within a Action Process Type.
 -}
 -- Aggregate Member : Active Participant
-ActiveParticipant : ClassOfClassOfIndividual
-ActiveParticipant = ClassOfIndividual
+ActiveParticipant : ClassOfClassOfBoundedIndividual
+ActiveParticipant = ClassOfBoundedIndividual
+
+
+
+--  ActiveParticipant is subTypeOf ProcessParticipant
+st-004b041f5ebd1119-fafb50d966460369 : ActiveParticipant ⊏ₑ ProcessParticipant
+st-004b041f5ebd1119-fafb50d966460369 = polySubTypeOf-identity
+
+--  ActiveParticipant is subTypeOf AgentType
+st-004b041f5ebd1119-79368381561716a6 : ActiveParticipant ⊏ₑ AgentType
+st-004b041f5ebd1119-79368381561716a6 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfActiveParticipant :  Linkage ActionProcessType ActiveParticipant
@@ -161,16 +189,25 @@ aggregationOfAgentTypeActiveParticipant = make_Relation "AgentType aggregation" 
 activeParticipant : Linkage ActionProcessType AgentType
 activeParticipant = membershipOfActiveParticipant  ∘  aggregationOfAgentTypeActiveParticipant
 
-postulate -- activeParticipant is subTypeOf processParticipant
-  st-004b041f5ebd1119-fafb50d966460369  : activeParticipant   ⊏⋆ᵣ  processParticipant 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Process Participant: 
 A Process Participant is the involvement of an in a .
 -}
 -- Aggregate Member : Process Participant
-ProcessParticipant : ClassOfClassOfIndividual
-ProcessParticipant = ClassOfIndividual
+ProcessParticipant : ClassOfClassOfBoundedIndividual
+ProcessParticipant = ClassOfBoundedIndividual
+
+
+
+--  ProcessParticipant is subTypeOf BehaviorParticipant
+st-fafb50d966460369-e0e86fad65789c43 : ProcessParticipant ⊏ₑ BehaviorParticipant
+st-fafb50d966460369-e0e86fad65789c43 = polySubTypeOf-identity
+
+--  ProcessParticipant is subTypeOf AgentType
+st-fafb50d966460369-79368381561716a6 : ProcessParticipant ⊏ₑ AgentType
+st-fafb50d966460369-79368381561716a6 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfProcessParticipant :  Linkage ActionProcessType ProcessParticipant
@@ -188,16 +225,25 @@ aggregationOfAgentTypeProcessParticipant = make_Relation "AgentType aggregation"
 processParticipant : Linkage ActionProcessType AgentType
 processParticipant = membershipOfProcessParticipant  ∘  aggregationOfAgentTypeProcessParticipant
 
-postulate -- processParticipant is subTypeOf behaviorParticipant
-  st-fafb50d966460369-e0e86fad65789c43  : processParticipant   ⊏⋆ᵣ  behaviorParticipant 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Process Step: 
 A Process Step is a Process Activity  invoking another Action Process Type
 -}
 -- Aggregate Member : Process Step
-ProcessStep : ClassOfClassOfIndividual
-ProcessStep = ClassOfIndividual
+ProcessStep : ClassOfClassOfBoundedIndividual
+ProcessStep = ClassOfBoundedIndividual
+
+
+
+--  ProcessStep is subTypeOf BehaviorPart
+st-8e1390925ebe3db7-b776b92668b04c85 : ProcessStep ⊏ₑ BehaviorPart
+st-8e1390925ebe3db7-b776b92668b04c85 = polySubTypeOf-identity
+
+--  ProcessStep is subTypeOf ActionProcessType
+st-8e1390925ebe3db7-d682ef5e56144e77 : ProcessStep ⊏ₑ ActionProcessType
+st-8e1390925ebe3db7-d682ef5e56144e77 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfProcessStep :  Linkage ActionProcessType ProcessStep
@@ -215,6 +261,4 @@ aggregationOfActionProcessTypeProcessStep = make_Relation "ActionProcessType agg
 processStep : Linkage ActionProcessType ActionProcessType
 processStep = membershipOfProcessStep  ∘  aggregationOfActionProcessTypeProcessStep
 
-postulate -- processStep is subTypeOf behaviorPart
-  st-8e1390925ebe3db7-b776b92668b04c85  : processStep   ⊏⋆ᵣ  behaviorPart 
 

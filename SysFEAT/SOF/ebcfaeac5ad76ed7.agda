@@ -34,20 +34,23 @@ st-ebcfaeac5ad76ed7-28f07b2354be0d69 = polySubTypeOf-identity
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Located at: -}
 locatedat :  Linkage IndividualAsset Location
 locatedat = make_holonymyRelation "Located at" "Located at"
 
 postulate -- locatedat is subTypeOf meronymyRelation
-  st-167126a16008efeb-4aeab6186964fd66  : locatedat   ⊏⋆ᵣ  meronymyRelation 
+  st-167126a16008efeb-4aeab6186964fd66  : locatedat  ⊏⋆ᵣ  meronymyRelation
 
+-- -------------------------------------------------------------------------------------------- 
 {- Qualifying Asset Property: -}
 qualifyingAssetProperty :  Linkage IndividualAsset AssetProperty
 qualifyingAssetProperty = make_instanceOf "Qualifying Asset Property" "Qualifying Asset Property"
 
 postulate -- qualifyingAssetProperty is subTypeOf propertyOfIndividual
-  st-190c414968965640-19763dbb68926a48  : qualifyingAssetProperty   ⊏⋆ᵣ  propertyOfIndividual 
+  st-190c414968965640-19763dbb68926a48  : qualifyingAssetProperty  ⊏⋆ᵣ  propertyOfIndividual 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Qualifying Condition Property: 
 The classification of Individual Assets  by Condition Propertys.
 -}
@@ -55,4 +58,4 @@ qualifyingConditionProperty :  Linkage IndividualAsset ConditionProperty
 qualifyingConditionProperty = make_instanceOf "Qualifying Condition Property" "Qualifying Condition Property"
 
 postulate -- qualifyingConditionProperty is subTypeOf qualifyingAssetProperty
-  st-21ed5601689c1844-190c414968965640  : qualifyingConditionProperty   ⊏⋆ᵣ  qualifyingAssetProperty 
+  st-21ed5601689c1844-190c414968965640  : qualifyingConditionProperty  ⊏⋆ᵣ  qualifyingAssetProperty

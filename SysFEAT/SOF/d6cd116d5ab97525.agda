@@ -33,26 +33,39 @@ st-d6cd116d5ab97525-6c5f80e468587f06 = polySubTypeOf-identity
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Information Domain: -}
 specializedInformationDomain :  Linkage InformationDomain InformationDomain
 specializedInformationDomain = make_subTypeOf "Specialized Information Domain" "Specialized Information Domain"
 
 postulate -- specializedInformationDomain is subTypeOf subTypeOfEntity
-  st-325a380a66f34efb-8336837268e9448b  : specializedInformationDomain   ⊏⋆ᵣ  subTypeOfEntity {lsuc(lzero)}
+  st-325a380a66f34efb-8336837268e9448b  : specializedInformationDomain  ⊏⋆ᵣ  subTypeOfEntity {lsuc(lzero)}
 
+-- -------------------------------------------------------------------------------------------- 
 {- Realized Information Domain: -}
 realizedInformationDomain :  Linkage InformationDomain InformationDomain
 realizedInformationDomain = make_subTypeOf "Realized Information Domain" "Realized Information Domain"
 
 postulate -- realizedInformationDomain is subTypeOf subTypeOfEntity
-  st-325a3a0e66f3562c-8336837268e9448b  : realizedInformationDomain   ⊏⋆ᵣ  subTypeOfEntity {lsuc(lzero)}
+  st-325a3a0e66f3562c-8336837268e9448b  : realizedInformationDomain  ⊏⋆ᵣ  subTypeOfEntity {lsuc(lzero)}
 
+-- -------------------------------------------------------------------------------------------- 
 {- Domain Asset: 
 Information Entity that is part of an Information Domain.
 -}
 -- Aggregate Member : Domain Asset
-DomainAsset : ClassOfClassOfIndividual
-DomainAsset = ClassOfIndividual
+DomainAsset : ClassOfClassOfBoundedIndividual
+DomainAsset = ClassOfBoundedIndividual
+
+
+
+--  DomainAsset withAspect UnboundedMember
+st-24ae4a405ed16bcf-8cfaf71a6852b042 : DomainAsset ⊏ₐₑ (UnboundedMember (lsuc(lzero)))
+st-24ae4a405ed16bcf-8cfaf71a6852b042 = polySubTypeOf-identity
+
+--  DomainAsset is subTypeOf InformationAsset
+st-24ae4a405ed16bcf-e6f250185f772ee1 : DomainAsset ⊏ₑ InformationAsset
+st-24ae4a405ed16bcf-e6f250185f772ee1 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfDomainAsset :  Linkage InformationDomain DomainAsset
@@ -70,16 +83,24 @@ aggregationOfInformationAssetDomainAsset = make_Relation "InformationAsset aggre
 domainAsset : Linkage InformationDomain InformationAsset
 domainAsset = membershipOfDomainAsset  ∘  aggregationOfInformationAssetDomainAsset
 
-postulate -- domainAsset is subTypeOf unboundedMember
-  st-24ae4a405ed16bcf-8cfaf71a6852b042  : domainAsset   ⊏⋆ᵣ  unboundedMember {lzero} {lzero}
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Sub-Information Area: 
 The decompostion of an Information Domain into sub-Information Domain.
 -}
 -- Aggregate Member : Sub-Information Area
 SubInformationArea : ClassOfClassOfIndividual
 SubInformationArea = ClassOfIndividual
+
+
+--  SubInformationArea withAspect UnboundedMember
+st-24ae4a625ed16c60-8cfaf71a6852b042 : SubInformationArea ⊏ₐₑ (UnboundedMember (lsuc(lzero)))
+st-24ae4a625ed16c60-8cfaf71a6852b042 = polySubTypeOf-identity
+
+--  SubInformationArea is subTypeOf InformationDomain
+st-24ae4a625ed16c60-d6cd116d5ab97525 : SubInformationArea ⊏ₑ InformationDomain
+st-24ae4a625ed16c60-d6cd116d5ab97525 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSubInformationArea :  Linkage InformationDomain SubInformationArea
@@ -97,6 +118,4 @@ aggregationOfInformationDomainSubInformationArea = make_Relation "InformationDom
 subInformationArea : Linkage InformationDomain InformationDomain
 subInformationArea = membershipOfSubInformationArea  ∘  aggregationOfInformationDomainSubInformationArea
 
-postulate -- subInformationArea is subTypeOf unboundedMember
-  st-24ae4a625ed16c60-8cfaf71a6852b042  : subInformationArea   ⊏⋆ᵣ  unboundedMember {lzero} {lzero}
 

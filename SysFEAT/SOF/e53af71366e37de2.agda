@@ -25,8 +25,7 @@ open import SysFEAT.SOF.83f88fd567406e53 public -- Asset Property Type
 open import SysFEAT.SOF.6cfb6ef26a0f15e4 public -- Condition Category
 
 ConditionPropertyType : ThirdOrderClass
-ConditionPropertyType = PropertyType
-
+ConditionPropertyType = SecondOrderClass
 
 --  ConditionPropertyType is subTypeOf AssetPropertyType
 st-e53af71366e37de2-83f88fd567406e53 : ConditionPropertyType ⊏ₑ AssetPropertyType
@@ -35,6 +34,7 @@ st-e53af71366e37de2-83f88fd567406e53 = polySubTypeOf-identity
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Condition Category: 
 The Condition Category that a Condition Property Type belongs to.For instance,  Delivery Time  belongs to the  Performance  category.
 -}

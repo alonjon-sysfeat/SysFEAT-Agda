@@ -32,6 +32,7 @@ st-d745ed256aa38edc-6c5f808b68587e49 = polySubTypeOf-identity
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Imported Information Dictionary: 
 The Imported Information Dictionary relationship extends the Information Lexical Scope of an Information Dictionary to Information Blocks of the imported Information Dictionary.
 -}
@@ -39,4 +40,4 @@ importedInformationDictionary :  Linkage InformationDictionary InformationDictio
 importedInformationDictionary = make_Relation "Imported Information Dictionary" "Imported Information Dictionary"
 
 postulate -- importedInformationDictionary is subTypeOf importedModelContainer
-  st-0f64145168598226-0eb97ce26855cf57  : importedInformationDictionary   ⊏⋆ᵣ  importedModelContainer {lzero}
+  st-0f64145168598226-0eb97ce26855cf57  : importedInformationDictionary  ⊏⋆ᵣ  importedModelContainer

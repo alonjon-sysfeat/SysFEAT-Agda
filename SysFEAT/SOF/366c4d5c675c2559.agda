@@ -30,16 +30,18 @@ st-366c4d5c675c2559-d7f9fcc95f720ee0 = polySubTypeOf-identity
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Architecture Subject: -}
 architectureSubject :  Linkage ArchitectureDecision FunctionalAsset
 architectureSubject = make_Relation "Architecture Subject" "Architecture Subject"
 
 postulate -- architectureSubject is subTypeOf decisionSubject
-  st-97e0a13168dd7141-6bf18905685999a3  : architectureSubject   ⊏⋆ᵣ  decisionSubject  {lzero}
+  st-97e0a13168dd7141-6bf18905685999a3  : architectureSubject  ⊏⋆ᵣ  decisionSubject
 
+-- -------------------------------------------------------------------------------------------- 
 {- Selected Architecture Option: -}
 selectedArchitectureOption :  Linkage ArchitectureDecision ArchitectureDecisionOutcome
 selectedArchitectureOption = make_instanceOf "Selected Architecture Option" "Selected Architecture Option"
 
 postulate -- selectedArchitectureOption is subTypeOf selectedDecisionOption
-  st-97e09e9e68dd6e8c-97e09d5368dd6d39  : selectedArchitectureOption   ⊏⋆ᵣ  selectedDecisionOption 
+  st-97e09e9e68dd6e8c-97e09d5368dd6d39  : selectedArchitectureOption  ⊏⋆ᵣ  selectedDecisionOption

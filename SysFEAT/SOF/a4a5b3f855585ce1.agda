@@ -38,6 +38,7 @@ st-a4a5b3f855585ce1-3492c53e619642ed = polySubTypeOf-identity
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Asset: 
 A specialization of Asset Types.
 -}
@@ -45,8 +46,9 @@ specializedAsset :  Linkage AssetType AssetType
 specializedAsset = make_subTypeOf "Specialized Asset" "Specialized Asset"
 
 postulate -- specializedAsset is subTypeOf specializedClassOfBoundedIndividual
-  st-12b0287266e936d5-e53a627766e4b4cd  : specializedAsset   ⊏⋆ᵣ  specializedClassOfBoundedIndividual 
+  st-12b0287266e936d5-e53a627766e4b4cd  : specializedAsset  ⊏⋆ᵣ  specializedClassOfBoundedIndividual
 
+-- -------------------------------------------------------------------------------------------- 
 {- Applicable Condition Type: 
 Set of Condition Property Types that can be applied to an Asset Type.
 -}
@@ -54,8 +56,9 @@ applicableConditionType :  Linkage AssetType ConditionPropertyType
 applicableConditionType = make_instanceOf "Applicable Condition Type" "Applicable Condition Type"
 
 postulate -- applicableConditionType is subTypeOf categorization
-  st-c2f2709166ea21a0-f69619646a0f8e6c  : applicableConditionType   ⊏⋆ᵣ  categorization  {lsuc(lsuc(lzero))}
+  st-c2f2709166ea21a0-f69619646a0f8e6c  : applicableConditionType  ⊏⋆ᵣ  categorization  {lsuc(lsuc(lzero))}
 
+-- -------------------------------------------------------------------------------------------- 
 {- Asset Type Qualification: 
 Qualification of an Asset Type by an Asset Property.
 -}
@@ -63,8 +66,9 @@ assetTypeQualification :  Linkage AssetType AssetProperty
 assetTypeQualification = make_subTypeOf "Asset Type Qualification" "Asset Type Qualification"
 
 postulate -- assetTypeQualification is subTypeOf qualifyingProperty
-  st-190c1f3b68964a27-16621f9a689131e0  : assetTypeQualification   ⊏⋆ᵣ  qualifyingProperty 
+  st-190c1f3b68964a27-16621f9a689131e0  : assetTypeQualification  ⊏⋆ᵣ  qualifyingProperty
 
+-- -------------------------------------------------------------------------------------------- 
 {- Category of Architecture Block: -}
 categoryOfArchitectureBlock : ∀ {u} →  Linkage AssetType (AssetCategory u)
 categoryOfArchitectureBlock = make_instanceOf "Category of Architecture Block" "Category of Architecture Block"

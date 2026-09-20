@@ -36,20 +36,23 @@ st-e6f250185f772ee1-6c5f80e468587f06 = polySubTypeOf-identity
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Information Asset: -}
 specializedInformationAsset :  Linkage InformationAsset InformationAsset
 specializedInformationAsset = make_subTypeOf "Specialized Information Asset" "Specialized Information Asset"
 
 postulate -- specializedInformationAsset is subTypeOf subTypeOfEntity
-  st-325a372e66f33bca-8336837268e9448b  : specializedInformationAsset   ⊏⋆ᵣ  subTypeOfEntity {lsuc(lzero)}
+  st-325a372e66f33bca-8336837268e9448b  : specializedInformationAsset  ⊏⋆ᵣ  subTypeOfEntity {lsuc(lzero)}
 
+-- -------------------------------------------------------------------------------------------- 
 {- Realized Information Asset: -}
 realizedInformationAsset :  Linkage InformationAsset InformationAsset
 realizedInformationAsset = make_subTypeOf "Realized Information Asset" "Realized Information Asset"
 
 postulate -- realizedInformationAsset is subTypeOf subTypeOfEntity
-  st-325a3a0b66f354a7-8336837268e9448b  : realizedInformationAsset   ⊏⋆ᵣ  subTypeOfEntity {lsuc(lzero)}
+  st-325a3a0b66f354a7-8336837268e9448b  : realizedInformationAsset  ⊏⋆ᵣ  subTypeOfEntity {lsuc(lzero)}
 
+-- -------------------------------------------------------------------------------------------- 
 {- Data Category: 
 Classification of an Information Asset as belonging to a Data Category.
 -}
@@ -59,12 +62,22 @@ dataCategory = make_instanceOf "Data Category" "Data Category"
 postulate -- dataCategory is subTypeOf categoryOfArchitectureBlock
   st-435652586a111043-f69620606a0f9c94  : dataCategory  {lsuc(lsuc(lzero))}  ⊏⋆ᵣ  categoryOfArchitectureBlock  {lsuc(lsuc(lzero))}
 
+-- -------------------------------------------------------------------------------------------- 
 {- Information Asset Relationship: 
 An Information Asset Relationship is a characteristic of an Information Asset.It can be either an Information Relationship or a Property Component.
 -}
 -- Aggregate Member : Information Asset Relationship
 InformationAssetRelationship : ClassOfClassOfIndividual
 InformationAssetRelationship = ClassOfIndividual
+
+
+--  InformationAssetRelationship withAspect AggregateMember
+st-18eb1f335fdb6e7f-23d5ddef68514dba : InformationAssetRelationship ⊏ₐₑ (AggregateMember (lsuc(lzero)))
+st-18eb1f335fdb6e7f-23d5ddef68514dba = polySubTypeOf-identity
+
+--  InformationAssetRelationship is subTypeOf InformationAsset
+st-18eb1f335fdb6e7f-e6f250185f772ee1 : InformationAssetRelationship ⊏ₑ InformationAsset
+st-18eb1f335fdb6e7f-e6f250185f772ee1 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfInformationAssetRelationship :  Linkage InformationAsset InformationAssetRelationship
@@ -82,16 +95,20 @@ aggregationOfInformationAssetInformationAssetRelationship = make_Relation "Infor
 informationAssetRelationship : Linkage InformationAsset InformationAsset
 informationAssetRelationship = membershipOfInformationAssetRelationship  ∘  aggregationOfInformationAssetInformationAssetRelationship
 
-postulate -- informationAssetRelationship is subTypeOf aggregateMember
-  st-18eb1f335fdb6e7f-23d5ddef68514dba  : informationAssetRelationship   ⊏⋆ᵣ  aggregateMember {lzero} {lzero}
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Data Risk: 
 A Data Risk is Risk that refers to the potential for loss resulting from inadequate structure and usage of an Information Asset.
 -}
 -- Aggregate Member : Data Risk
 DataRisk : ThirdOrderClass
 DataRisk = SecondOrderClass
+
+
+--  DataRisk is subTypeOf Risk
+st-582e78cd66f6b425-0e55219466f11fd7 : DataRisk ⊏⋆ₑ Risk
+st-582e78cd66f6b425-0e55219466f11fd7 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfDataRisk :  Linkage InformationAsset DataRisk
@@ -109,6 +126,4 @@ aggregationOfDataRiskTypeDataRisk = make_Relation "DataRiskType aggregation" "ag
 dataRisk : Linkage InformationAsset DataRiskType
 dataRisk = membershipOfDataRisk  ∘  aggregationOfDataRiskTypeDataRisk
 
-postulate -- dataRisk is subTypeOf risk
-  st-582e78cd66f6b425-0e55219466f11fd7  : dataRisk   ⊏⋆ᵣ  risk 
 

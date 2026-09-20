@@ -14,7 +14,7 @@ Documentation : https://framework.sysfeat.com/pages/af4db12d62993434.htm
 module SysFEAT.SOF.sysfeat-domain-af4db12d62993434 where -- ========== Model Block Packaging
 
 open import SysFEAT.UpperOntology.sysfeat-domain-f0fd779f65a18c5d public -- Packaging
-open import SysFEAT.UpperOntology.sysfeat-domain-3aca56b16aa64950 public -- Basic Knowledge Graph
+open import SysFEAT.UpperOntology.sysfeat-domain-3aca56b16aa64950 public -- Abstract Knowledge Graph
 open import SysFEAT.UpperOntology.sysfeat-domain-e278fa2568f06541 public -- Reflexive Knowledge Graph
 open import SysFEAT.UpperOntology.sysfeat-domain-ae26f9c25acd52d4 public -- Predication Substrate
 open import SysFEAT.UpperOntology.sysfeat-domain-36166b8c6157b6b4 public -- Compositionality

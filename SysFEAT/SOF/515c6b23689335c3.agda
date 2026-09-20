@@ -41,6 +41,7 @@ st-515c6b23689335c3-746ac18368905aa2 = polySubTypeOf-identity
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Policy Category: -}
 policyCategory :  Linkage Directive PolicyCategory
 policyCategory = make_instanceOf "Policy Category" "Policy Category"
@@ -48,26 +49,34 @@ policyCategory = make_instanceOf "Policy Category" "Policy Category"
 postulate -- policyCategory is subTypeOf categoryOfArchitectureBlock
   st-515c6b2b689335ef-f69620606a0f9c94  : policyCategory   ⊏⋆ᵣ  categoryOfArchitectureBlock  {lsuc(lsuc(lzero))}
 
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Directive: -}
 specializedDirective :  Linkage Directive Directive
 specializedDirective = make_subTypeOf "Specialized Directive" "Specialized Directive"
 
 postulate -- specializedDirective is subTypeOf specializedProperty
-  st-190c79c26896690d-1662112a68925f90  : specializedDirective   ⊏⋆ᵣ  specializedProperty 
+  st-190c79c26896690d-1662112a68925f90  : specializedDirective  ⊏⋆ᵣ  specializedProperty
 
+-- -------------------------------------------------------------------------------------------- 
 {- Realized Directive: -}
 realizedDirective :  Linkage Directive Directive
 realizedDirective = make_subTypeOf "Realized Directive" "Realized Directive"
 
 postulate -- realizedDirective is subTypeOf specializedProperty
-  st-190c7a7f6896696e-1662112a68925f90  : realizedDirective   ⊏⋆ᵣ  specializedProperty 
+  st-190c7a7f6896696e-1662112a68925f90  : realizedDirective  ⊏⋆ᵣ  specializedProperty
 
+-- -------------------------------------------------------------------------------------------- 
 {- Directive Subject: 
 Any Asset Type that is the subject of a Directive.
 -}
 -- Aggregate Member : Directive Subject
 DirectiveSubject : ClassOfClassOfIndividual
 DirectiveSubject = ClassOfIndividual
+
+
+--  DirectiveSubject withAspect UnboundedMember
+st-190c75cc689666a9-8cfaf71a6852b042 : DirectiveSubject ⊏ₐₑ (UnboundedMember (lsuc(lzero)))
+st-190c75cc689666a9-8cfaf71a6852b042 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfDirectiveSubject :  Linkage Directive DirectiveSubject
@@ -85,6 +94,4 @@ membershipOfDirectiveSubject = make_upwardNestingRelation "directiveSubject memb
 directiveSubject : Linkage Directive AssetType
 directiveSubject = membershipOfDirectiveSubject  ∘  190C75CC689666B9
 
-postulate -- directiveSubject is subTypeOf unboundedMember
-  st-190c75cc689666a9-8cfaf71a6852b042  : directiveSubject   ⊏⋆ᵣ  unboundedMember {lzero} {lzero}
 

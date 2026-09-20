@@ -29,9 +29,10 @@ st-21ed231d689c0679-515c6a856893324e = polySubTypeOf-identity
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Condition Property Type: -}
 conditionPropertyType :  Linkage ConditionProperty ConditionPropertyType
 conditionPropertyType = make_instanceOf "Condition Property Type" "Condition Property Type"
 
 postulate -- conditionPropertyType is subTypeOf assetPropertyType
-  st-21ed5a16689c1a59-190c1f03689649e5  : conditionPropertyType   ⊏⋆ᵣ  assetPropertyType 
+  st-21ed5a16689c1a59-190c1f03689649e5  : conditionPropertyType  ⊏⋆ᵣ  assetPropertyType

@@ -43,17 +43,24 @@ st-515c13db68953887-0eb95f356855bf94 = polySubTypeOf-identity
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Capability: -}
 specializedCapability :  Linkage Capability Capability
 specializedCapability = make_subTypeOf "Specialized Capability" "Specialized Capability"
 
 postulate -- specializedCapability is subTypeOf specializedProperty
-  st-01f11e77689b6b10-1662112a68925f90  : specializedCapability   ⊏⋆ᵣ  specializedProperty 
+  st-01f11e77689b6b10-1662112a68925f90  : specializedCapability  ⊏⋆ᵣ  specializedProperty
 
+-- -------------------------------------------------------------------------------------------- 
 {- Involved Information: -}
 -- Aggregate Member : Involved Information
 InvolvedInformation : ClassOfClassOfIndividual
 InvolvedInformation = ClassOfIndividual
+
+
+--  InvolvedInformation withAspect UnboundedMember
+st-01f11a37689b6677-8cfaf71a6852b042 : InvolvedInformation ⊏ₐₑ (UnboundedMember (lsuc(lzero)))
+st-01f11a37689b6677-8cfaf71a6852b042 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfInvolvedInformation :  Linkage Capability InvolvedInformation
@@ -71,16 +78,24 @@ aggregationOfInformationAssetInvolvedInformation = make_Relation "InformationAss
 involvedInformation : Linkage Capability InformationAsset
 involvedInformation = membershipOfInvolvedInformation  ∘  aggregationOfInformationAssetInvolvedInformation
 
-postulate -- involvedInformation is subTypeOf unboundedMember
-  st-01f11a37689b6677-8cfaf71a6852b042  : involvedInformation   ⊏⋆ᵣ  unboundedMember {lzero} {lzero}
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Capability Part: 
 Sub-Capability with a capability.Sub-Capabilities can have dependencies whereby a dependent capability needs the outcome of a required capability for one of its outcome to be delivered. 
 -}
 -- Aggregate Member : Capability Part
 CapabilityPart : ClassOfClassOfIndividual
 CapabilityPart = ClassOfIndividual
+
+
+--  CapabilityPart withAspect ClassOfHolonymy
+st-01f11c59689b68fe-d91704746a62320c : CapabilityPart ⊏ₐₑ (ClassOfHolonymy (lsuc(lzero)))
+st-01f11c59689b68fe-d91704746a62320c = polySubTypeOf-identity
+
+--  CapabilityPart withAspect UnboundedMember
+st-01f11c59689b68fe-8cfaf71a6852b042 : CapabilityPart ⊏ₐₑ (UnboundedMember (lsuc(lzero)))
+st-01f11c59689b68fe-8cfaf71a6852b042 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfCapabilityPart :  Linkage Capability CapabilityPart
@@ -98,8 +113,4 @@ aggregationOfCapabilityCapabilityPart = make_Relation "Capability aggregation" "
 capabilityPart : Linkage Capability Capability
 capabilityPart = membershipOfCapabilityPart  ∘  aggregationOfCapabilityCapabilityPart
 
-postulate -- capabilityPart is subTypeOf classOfHolonymy
-  st-01f11c59689b68fe-d91704746a62320c  : capabilityPart   ⊏⋆ᵣ  classOfHolonymy 
-postulate -- capabilityPart is subTypeOf unboundedMember
-  st-01f11c59689b68fe-8cfaf71a6852b042  : capabilityPart   ⊏⋆ᵣ  unboundedMember {lzero} {lzero}
 
