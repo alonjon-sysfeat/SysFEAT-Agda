@@ -3,15 +3,15 @@
    This work is released under the MIT License.
    framework.sysfeat.com
 
-Basic Knowledge Graph: 
-The Basic Knowledge Graph defines the top level constructs of Entitys and Relations which have no spatiotemporal extension and do not participate in composite structures..Most  data models  function as Basic Knowledge Graphs, offering limited semantic expressivity.In SysFEAT, Basic Knowledge Graphs are used to define all syntactic constructs required for model management, including  Packaging and Annotation (see Annotation Block).Full semantic capabilities are provided by 4D Composite Knowledge Graphs.
+Abstract Knowledge Graph: 
+The Abstract Knowledge Graph defines the top level constructs of Entitys and Relations which have no spatiotemporal extension and do not participate in composite structures..Most  data models  function as Abstract Knowledge Graphs, offering limited semantic expressivity.In SysFEAT, Abstract Knowledge Graphs are used to define all syntactic constructs required for model management, including  Packaging and Annotation (see Annotation Block).Full semantic capabilities are provided by 4D Composite Knowledge Graphs.
 
 Documentation : https://framework.sysfeat.com/pages/3aca56b16aa64950.htm
 
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
-module SysFEAT.UpperOntology.sysfeat-domain-3aca56b16aa64950 where -- ========== Basic Knowledge Graph
+module SysFEAT.UpperOntology.sysfeat-domain-3aca56b16aa64950 where -- ========== Abstract Knowledge Graph
 
 open import SysFEAT.UpperOntology.sysfeat-domain-e278fa2568f06541 public -- Reflexive Knowledge Graph
 
