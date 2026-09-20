@@ -16,7 +16,6 @@ module SysFEAT.UpperOntology.60876d5c68de82f2 where -- ========== Class of Class
 
 open import Agda.Primitive
 open import SysFEAT.UpperOntology.608767a668de7fb6 public -- Class of Class of Individual
-open import SysFEAT.UpperOntology.3492c53e619642ed public -- Class of Bounded Individual
 
 ClassOfClassOfBoundedIndividual : ThirdOrderClass
 ClassOfClassOfBoundedIndividual = ClassOfClassOfIndividual
@@ -25,10 +24,4 @@ ClassOfClassOfBoundedIndividual = ClassOfClassOfIndividual
 st-60876d5c68de82f2-608767a668de7fb6 : ClassOfClassOfBoundedIndividual ⊏ₑ ClassOfClassOfIndividual
 st-60876d5c68de82f2-608767a668de7fb6 = polySubTypeOf-identity
 
-
--- == Relations =======================
-
-{- 9BA3BAEF6AAA6223: -}
-9BA3BAEF6AAA6223 :  Linkage ClassOfClassOfBoundedIndividual ClassOfBoundedIndividual
-9BA3BAEF6AAA6223 = make_classOfRelation "9BA3BAEF6AAA6223" "9BA3BAEF6AAA6223"
 

@@ -18,8 +18,8 @@ open import Agda.Primitive
 open import SysFEAT.UpperOntology.3aca52346aa6418d public -- Abstract Entity
 open import SysFEAT.UpperOntology.0eb93b4268549a66 public -- Container
 
-ContainerPackage : FirstOrderClass
-ContainerPackage = FirstOrderEntity
+ContainerPackage : ClassOfAbstractEntity
+ContainerPackage = AbstractEntity
 
 
 --  ContainerPackage is subTypeOf AbstractEntity
@@ -33,6 +33,7 @@ st-542599db6aa21e06-0eb93b4268549a66 = polySubTypeOf-identity
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Parent Package: 
 Existential Dependency that asserts the existence of a Container Package in a Parent Package.
 -}
@@ -40,6 +41,6 @@ parentPackage :  Linkage ContainerPackage ContainerPackage
 parentPackage = make_Relation "Container Basing" "Parent Package"
 
 postulate -- parentPackage is subTypeOf referenceRelation
-  st-e7cbfde76a965b64-23d5398f68511bc1  : parentPackage   ⊏⋆ᵣ  referenceRelation {lzero} {lzero}
+  st-e7cbfde76a965b64-23d5398f68511bc1  : parentPackage  ⊏⋆ᵣ  referenceRelation {lzero} {lzero}
 postulate -- parentPackage is subTypeOf existentialDependency
-  st-e7cbfde76a965b64-cbfce7da685358e9  : parentPackage   ⊏⋆ᵣ  existentialDependency {lzero} {lzero}
+  st-e7cbfde76a965b64-cbfce7da685358e9  : parentPackage  ⊏⋆ᵣ  existentialDependency {lzero} {lzero}

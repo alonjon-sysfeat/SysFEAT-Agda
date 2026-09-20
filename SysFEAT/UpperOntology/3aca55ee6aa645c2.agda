@@ -18,13 +18,16 @@ open import Agda.Primitive
 open import SysFEAT.UpperOntology.c463c6106aa23c35 public -- First Order Class
 open import SysFEAT.UpperOntology.3aca564b6aa646ce public -- Class of Class of Abstract Entity
 
-ClassOfAbstractEntity : SecondOrderClass
+ClassOfAbstractEntity : ClassOfClassOfAbstractEntity
 ClassOfAbstractEntity = FirstOrderClass
-
 
 --  ClassOfAbstractEntity is subTypeOf FirstOrderClass
 st-3aca55ee6aa645c2-c463c6106aa23c35 : ClassOfAbstractEntity ⊏ₑ FirstOrderClass
 st-3aca55ee6aa645c2-c463c6106aa23c35 = polySubTypeOf-identity
 
+postulate -- ClassOfAbstractEntity is PowerInstanceOf Class of Class of Abstract Entity
+  3aca57526aa64d07 : ClassOfAbstractEntity ∷ₚₑ ClassOfClassOfAbstractEntity
+postulate -- ClassOfClassOfAbstractEntity is ReflexivePowerType 
+  593465d26aae0bfd : ClassOfClassOfAbstractEntity ⊏ₘₑ ClassOfAbstractEntity
 
 -- == Relations =======================
