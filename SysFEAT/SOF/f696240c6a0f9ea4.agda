@@ -38,6 +38,7 @@ st-f696240c6a0f9ea4-0eb97aff6855cd23 = trivialPolySubTypeOfEntity
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Classifying Schema: -}
 classifyingSchema : ∀ {u v} →  Linkage (CategoryPartition u) (FamilyOfCategory v)
 classifyingSchema = make_classOfRelation "Classifying Schema" "Classifying Schema"

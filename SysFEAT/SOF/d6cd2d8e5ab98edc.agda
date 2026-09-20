@@ -33,10 +33,20 @@ st-d6cd2d8e5ab98edc-6c5f80e468587f06 = polySubTypeOf-identity
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Information Domain Member: -}
 -- Aggregate Member : Information Domain Member
 InformationDomainMember : ClassOfClassOfIndividual
 InformationDomainMember = ClassOfIndividual
+
+
+--  InformationDomainMember withAspect UnboundedMember
+st-dfa4e2865ebb4e38-8cfaf71a6852b042 : InformationDomainMember ⊏ₐₑ (UnboundedMember (lsuc(lzero)))
+st-dfa4e2865ebb4e38-8cfaf71a6852b042 = polySubTypeOf-identity
+
+--  InformationDomainMember is subTypeOf InformationDomain
+st-dfa4e2865ebb4e38-d6cd116d5ab97525 : InformationDomainMember ⊏ₑ InformationDomain
+st-dfa4e2865ebb4e38-d6cd116d5ab97525 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfInformationDomainMember :  Linkage InformationMap InformationDomainMember
@@ -54,14 +64,22 @@ aggregationOfInformationDomainInformationDomainMember = make_Relation "Informati
 informationDomainMember : Linkage InformationMap InformationDomain
 informationDomainMember = membershipOfInformationDomainMember  ∘  aggregationOfInformationDomainInformationDomainMember
 
-postulate -- informationDomainMember is subTypeOf unboundedMember
-  st-dfa4e2865ebb4e38-8cfaf71a6852b042  : informationDomainMember   ⊏⋆ᵣ  unboundedMember {lzero} {lzero}
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- external Information Area: -}
 -- Aggregate Member : external Information Area
 externalInformationArea : ClassOfClassOfIndividual
 externalInformationArea = ClassOfIndividual
+
+
+--  externalInformationArea withAspect UnboundedMember
+st-dfa4e2b35ebb4ee8-8cfaf71a6852b042 : externalInformationArea ⊏ₐₑ (UnboundedMember (lsuc(lzero)))
+st-dfa4e2b35ebb4ee8-8cfaf71a6852b042 = polySubTypeOf-identity
+
+--  externalInformationArea is subTypeOf InformationDomain
+st-dfa4e2b35ebb4ee8-d6cd116d5ab97525 : externalInformationArea ⊏ₑ InformationDomain
+st-dfa4e2b35ebb4ee8-d6cd116d5ab97525 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfexternalInformationArea :  Linkage InformationMap externalInformationArea
@@ -79,6 +97,4 @@ aggregationOfInformationDomainexternalInformationArea = make_Relation "Informati
 externalInformationArea : Linkage InformationMap InformationDomain
 externalInformationArea = membershipOfexternalInformationArea  ∘  aggregationOfInformationDomainexternalInformationArea
 
-postulate -- externalInformationArea is subTypeOf unboundedMember
-  st-dfa4e2b35ebb4ee8-8cfaf71a6852b042  : externalInformationArea   ⊏⋆ᵣ  unboundedMember {lzero} {lzero}
 

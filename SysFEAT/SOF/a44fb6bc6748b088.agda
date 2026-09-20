@@ -38,13 +38,15 @@ st-a44fb6bc6748b088-a4a5b3f855585ce1 = polySubTypeOf-identity
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Functional Asset: -}
 specializedFunctionalAsset :  Linkage FunctionalAsset FunctionalAsset
 specializedFunctionalAsset = make_subTypeOf "Specialized Functional Asset" "Specialized Functional Asset"
 
 postulate -- specializedFunctionalAsset is subTypeOf specializedAsset
-  st-6a7076d2678731e2-12b0287266e936d5  : specializedFunctionalAsset   ⊏⋆ᵣ  specializedAsset 
+  st-6a7076d2678731e2-12b0287266e936d5  : specializedFunctionalAsset  ⊏⋆ᵣ  specializedAsset
 
+-- -------------------------------------------------------------------------------------------- 
 {- Realized Functional Asset: 
 A kind of specialization between an implementing Functional Asset and its abstract Realized Functional Asset.Realization relationships are the foundation to establish the mapping between Functional Assets that belong to different Conceptualization Levels.
 -}
@@ -52,14 +54,21 @@ realizedFunctionalAsset :  Linkage FunctionalAsset FunctionalAsset
 realizedFunctionalAsset = make_subTypeOf "Realized Functional Asset" "Realized Functional Asset"
 
 postulate -- realizedFunctionalAsset is subTypeOf specializedClassOfIndividual
-  st-7dc1907b684951ae-e429632e66ec72ab  : realizedFunctionalAsset   ⊏⋆ᵣ  specializedClassOfIndividual 
+  st-7dc1907b684951ae-e429632e66ec72ab  : realizedFunctionalAsset  ⊏⋆ᵣ  specializedClassOfIndividual
 
+-- -------------------------------------------------------------------------------------------- 
 {- Policy Conformance: 
 A Policy Conformance is the conformity requirement that applies a Functional Asset.
 -}
 -- Aggregate Member : Policy Conformance
-PolicyConformance : ClassOfClassOfIndividual
-PolicyConformance = ClassOfIndividual
+PolicyConformance : ClassOfClassOfAbstractEntity
+PolicyConformance = ClassOfAbstractEntity
+
+
+
+--  PolicyConformance is subTypeOf AggregateQualification
+st-01f1189f689b641d-b83e30bc696f51e5 : PolicyConformance ⊏ₑ AggregateQualification
+st-01f1189f689b641d-b83e30bc696f51e5 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfPolicyConformance :  Linkage FunctionalAsset PolicyConformance
@@ -77,16 +86,20 @@ aggregationOfPolicyPolicyConformance = make_Relation "Policy aggregation" "aggre
 policyConformance : Linkage FunctionalAsset Policy
 policyConformance = membershipOfPolicyConformance  ∘  aggregationOfPolicyPolicyConformance
 
-postulate -- policyConformance is subTypeOf aggregateQualification
-  st-01f1189f689b641d-b83e30bc696f51e5  : policyConformance   ⊏⋆ᵣ  aggregateQualification 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Risk: 
 A  Risk refers to the potential for loss resulting from inadequate structure or behavior of a Functional Asset.
 -}
 -- Aggregate Member : Risk
 Risk : ThirdOrderClass
 Risk = SecondOrderClass
+
+
+--  Risk withAspect UnboundedMember
+st-0e55219466f11fd7-8cfaf71a6852b042 : Risk ⊏ₐₑ (UnboundedMember (lsuc(lsuc(lzero))))
+st-0e55219466f11fd7-8cfaf71a6852b042 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfRisk :  Linkage FunctionalAsset Risk
@@ -104,8 +117,4 @@ aggregationOfRiskTypeRisk = make_Relation "RiskType aggregation" "aggregated Ris
 risk : Linkage FunctionalAsset RiskType
 risk = membershipOfRisk  ∘  aggregationOfRiskTypeRisk
 
-postulate -- risk is subTypeOf unboundedMember
-  st-0e55219466f11fd7-8cfaf71a6852b042  : risk   ⊏⋆ᵣ  unboundedMember {lzero} {lzero}
-postulate -- risk is subTypeOf categorization
-  st-0e55219466f11fd7-f69619646a0f8e6c  : risk   ⊏⋆ᵣ  categorization  {lsuc(lsuc(lzero))}
 

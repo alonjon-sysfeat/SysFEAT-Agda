@@ -22,6 +22,7 @@ open import SysFEAT.SOF.79368381561716a6 public -- Agent Type
 EnvironmentInteractionProcessType : ClassOfClassOfBoundedIndividual
 EnvironmentInteractionProcessType = ClassOfBoundedIndividual
 
+
 --  EnvironmentInteractionProcessType is subTypeOf OperatingEcoSystem
 st-ca3513af5fc59413-ca35f48a5fc48686 : EnvironmentInteractionProcessType ⊏ₑ OperatingEcoSystem
 st-ca3513af5fc59413-ca35f48a5fc48686 = polySubTypeOf-identity
@@ -29,10 +30,16 @@ st-ca3513af5fc59413-ca35f48a5fc48686 = polySubTypeOf-identity
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Object Flow: -}
 -- Aggregate Member : Object Flow
 ObjectFlow : ClassOfClassOfIndividual
 ObjectFlow = ClassOfIndividual
+
+
+--  ObjectFlow is subTypeOf OperatingConnector
+st-ca3519b05fc5a0b2-3d3f4b4062013550 : ObjectFlow ⊏ₑ OperatingConnector
+st-ca3519b05fc5a0b2-3d3f4b4062013550 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfObjectFlow :  Linkage EnvironmentInteractionProcessType ObjectFlow
@@ -50,16 +57,25 @@ aggregationOfOutcomeEventObjectFlow = make_Relation "OutcomeEvent aggregation" "
 objectFlow : Linkage EnvironmentInteractionProcessType OutcomeEvent
 objectFlow = membershipOfObjectFlow  ∘  aggregationOfOutcomeEventObjectFlow
 
-postulate -- objectFlow is subTypeOf operatingConnector
-  st-ca3519b05fc5a0b2-3d3f4b4062013550  : objectFlow   ⊏⋆ᵣ  operatingConnector 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Subject Agent: 
 Agent Type that is the subject of the Environment Interaction Process Type.
 -}
 -- Aggregate Member : Subject Agent
-SubjectAgent : ClassOfClassOfIndividual
-SubjectAgent = ClassOfIndividual
+SubjectAgent : ClassOfClassOfBoundedIndividual
+SubjectAgent = ClassOfBoundedIndividual
+
+
+
+--  SubjectAgent is subTypeOf ScenarioParticipant
+st-ca3514125fc59538-ca3518a45fc59e76 : SubjectAgent ⊏ₑ ScenarioParticipant
+st-ca3514125fc59538-ca3518a45fc59e76 = polySubTypeOf-identity
+
+--  SubjectAgent is subTypeOf AgentType
+st-ca3514125fc59538-79368381561716a6 : SubjectAgent ⊏ₑ AgentType
+st-ca3514125fc59538-79368381561716a6 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSubjectAgent :  Linkage EnvironmentInteractionProcessType SubjectAgent
@@ -77,16 +93,25 @@ aggregationOfAgentTypeSubjectAgent = make_Relation "AgentType aggregation" "aggr
 subjectAgent : Linkage EnvironmentInteractionProcessType AgentType
 subjectAgent = membershipOfSubjectAgent  ∘  aggregationOfAgentTypeSubjectAgent
 
-postulate -- subjectAgent is subTypeOf scenarioParticipant
-  st-ca3514125fc59538-ca3518a45fc59e76  : subjectAgent   ⊏⋆ᵣ  scenarioParticipant 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Partner Agent: 
 Agent Types which are partners of the Subject Agent of an Environment Interaction Process Type.
 -}
 -- Aggregate Member : Partner Agent
-PartnerAgent : ClassOfClassOfIndividual
-PartnerAgent = ClassOfIndividual
+PartnerAgent : ClassOfClassOfBoundedIndividual
+PartnerAgent = ClassOfBoundedIndividual
+
+
+
+--  PartnerAgent is subTypeOf ScenarioParticipant
+st-ca35159e5fc5978d-ca3518a45fc59e76 : PartnerAgent ⊏ₑ ScenarioParticipant
+st-ca35159e5fc5978d-ca3518a45fc59e76 = polySubTypeOf-identity
+
+--  PartnerAgent is subTypeOf AgentType
+st-ca35159e5fc5978d-79368381561716a6 : PartnerAgent ⊏ₑ AgentType
+st-ca35159e5fc5978d-79368381561716a6 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfPartnerAgent :  Linkage EnvironmentInteractionProcessType PartnerAgent
@@ -104,14 +129,23 @@ aggregationOfAgentTypePartnerAgent = make_Relation "AgentType aggregation" "aggr
 partnerAgent : Linkage EnvironmentInteractionProcessType AgentType
 partnerAgent = membershipOfPartnerAgent  ∘  aggregationOfAgentTypePartnerAgent
 
-postulate -- partnerAgent is subTypeOf scenarioParticipant
-  st-ca35159e5fc5978d-ca3518a45fc59e76  : partnerAgent   ⊏⋆ᵣ  scenarioParticipant 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Scenario Participant: -}
 -- Aggregate Member : Scenario Participant
-ScenarioParticipant : ClassOfClassOfIndividual
-ScenarioParticipant = ClassOfIndividual
+ScenarioParticipant : ClassOfClassOfBoundedIndividual
+ScenarioParticipant = ClassOfBoundedIndividual
+
+
+
+--  ScenarioParticipant is subTypeOf EcosystemMember
+st-ca3518a45fc59e76-3d3f4aed6201346c : ScenarioParticipant ⊏ₑ EcosystemMember
+st-ca3518a45fc59e76-3d3f4aed6201346c = polySubTypeOf-identity
+
+--  ScenarioParticipant is subTypeOf AgentType
+st-ca3518a45fc59e76-79368381561716a6 : ScenarioParticipant ⊏ₑ AgentType
+st-ca3518a45fc59e76-79368381561716a6 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfScenarioParticipant :  Linkage EnvironmentInteractionProcessType ScenarioParticipant
@@ -129,6 +163,4 @@ aggregationOfAgentTypeScenarioParticipant = make_Relation "AgentType aggregation
 scenarioParticipant : Linkage EnvironmentInteractionProcessType AgentType
 scenarioParticipant = membershipOfScenarioParticipant  ∘  aggregationOfAgentTypeScenarioParticipant
 
-postulate -- scenarioParticipant is subTypeOf ecosystemMember
-  st-ca3518a45fc59e76-3d3f4aed6201346c  : scenarioParticipant   ⊏⋆ᵣ  ecosystemMember 
 

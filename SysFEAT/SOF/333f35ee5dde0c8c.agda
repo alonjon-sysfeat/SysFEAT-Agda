@@ -24,6 +24,7 @@ open import SysFEAT.SOF.79368381561716a6 public -- Agent Type
 InteractionProcessType : ClassOfClassOfBoundedIndividual
 InteractionProcessType = ClassOfBoundedIndividual
 
+
 --  InteractionProcessType is subTypeOf BehaviorType
 st-333f35ee5dde0c8c-986cd4ec5ffca3ac : InteractionProcessType ⊏ₑ BehaviorType
 st-333f35ee5dde0c8c-986cd4ec5ffca3ac = polySubTypeOf-identity
@@ -31,24 +32,37 @@ st-333f35ee5dde0c8c-986cd4ec5ffca3ac = polySubTypeOf-identity
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Scenario: -}
 specializedScenario :  Linkage InteractionProcessType InteractionProcessType
 specializedScenario = make_subTypeOf "Specialized Scenario" "Specialized Scenario"
 
 postulate -- specializedScenario is subTypeOf specializedBehavior
-  st-325a373a66f33d61-2b5b452d66ed5855  : specializedScenario   ⊏⋆ᵣ  specializedBehavior 
+  st-325a373a66f33d61-2b5b452d66ed5855  : specializedScenario  ⊏⋆ᵣ  specializedBehavior
 
+-- -------------------------------------------------------------------------------------------- 
 {- Realized Scenario: -}
 realizedScenario :  Linkage InteractionProcessType InteractionProcessType
 realizedScenario = make_subTypeOf "Realized Scenario" "Realized Scenario"
 
 postulate -- realizedScenario is subTypeOf realizedBehavior
-  st-325a3a0e66f356d7-2b5b45a466ed5920  : realizedScenario   ⊏⋆ᵣ  realizedBehavior 
+  st-325a3a0e66f356d7-2b5b45a466ed5920  : realizedScenario  ⊏⋆ᵣ  realizedBehavior
 
+-- -------------------------------------------------------------------------------------------- 
 {- Interaction Flow: -}
 -- Aggregate Member : Interaction Flow
-InteractionFlow : ClassOfClassOfIndividual
-InteractionFlow = ClassOfIndividual
+InteractionFlow : ClassOfClassOfBoundedIndividual
+InteractionFlow = ClassOfBoundedIndividual
+
+
+
+--  InteractionFlow is subTypeOf TemporalOrderingType
+st-7d33fa1762813f5c-2557481f6758a91a : InteractionFlow ⊏ₑ TemporalOrderingType
+st-7d33fa1762813f5c-2557481f6758a91a = polySubTypeOf-identity
+
+--  InteractionFlow is subTypeOf BehaviorPart
+st-7d33fa1762813f5c-b776b92668b04c85 : InteractionFlow ⊏ₑ BehaviorPart
+st-7d33fa1762813f5c-b776b92668b04c85 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfInteractionFlow :  Linkage InteractionProcessType InteractionFlow
@@ -66,18 +80,25 @@ aggregationOfOutcomeEventInteractionFlow = make_Relation "OutcomeEvent aggregati
 interactionFlow : Linkage InteractionProcessType OutcomeEvent
 interactionFlow = membershipOfInteractionFlow  ∘  aggregationOfOutcomeEventInteractionFlow
 
-postulate -- interactionFlow is subTypeOf temporalOrderingType
-  st-7d33fa1762813f5c-2557481f6758a91a  : interactionFlow   ⊏⋆ᵣ  temporalOrderingType 
-postulate -- interactionFlow is subTypeOf behaviorPart
-  st-7d33fa1762813f5c-b776b92668b04c85  : interactionFlow   ⊏⋆ᵣ  behaviorPart 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Scenario Participant: 
 A Scenario Participant is a Behavior Participant engaged in Interaction Flow the context of an Interaction Process Type.
 -}
 -- Aggregate Member : Scenario Participant
-ScenarioParticipant : ClassOfClassOfIndividual
-ScenarioParticipant = ClassOfIndividual
+ScenarioParticipant : ClassOfClassOfBoundedIndividual
+ScenarioParticipant = ClassOfBoundedIndividual
+
+
+
+--  ScenarioParticipant is subTypeOf BehaviorParticipant
+st-07e737495eccd831-e0e86fad65789c43 : ScenarioParticipant ⊏ₑ BehaviorParticipant
+st-07e737495eccd831-e0e86fad65789c43 = polySubTypeOf-identity
+
+--  ScenarioParticipant is subTypeOf AgentType
+st-07e737495eccd831-79368381561716a6 : ScenarioParticipant ⊏ₑ AgentType
+st-07e737495eccd831-79368381561716a6 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfScenarioParticipant :  Linkage InteractionProcessType ScenarioParticipant
@@ -95,6 +116,4 @@ aggregationOfAgentTypeScenarioParticipant = make_Relation "AgentType aggregation
 scenarioParticipant : Linkage InteractionProcessType AgentType
 scenarioParticipant = membershipOfScenarioParticipant  ∘  aggregationOfAgentTypeScenarioParticipant
 
-postulate -- scenarioParticipant is subTypeOf behaviorParticipant
-  st-07e737495eccd831-e0e86fad65789c43  : scenarioParticipant   ⊏⋆ᵣ  behaviorParticipant 
 

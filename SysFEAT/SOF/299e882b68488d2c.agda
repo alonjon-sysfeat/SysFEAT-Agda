@@ -29,18 +29,25 @@ st-299e882b68488d2c-d321c226601262ae = polySubTypeOf-identity
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Functional Scope: -}
 functionalScope :  Linkage OperationalTransformation CapabilityMap
 functionalScope = make_instanceOf "Functional Scope" "Functional Scope"
 
 postulate -- functionalScope is subTypeOf propertyOfIndividual
-  st-01f1214c689b6e0f-19763dbb68926a48  : functionalScope   ⊏⋆ᵣ  propertyOfIndividual 
+  st-01f1214c689b6e0f-19763dbb68926a48  : functionalScope  ⊏⋆ᵣ  propertyOfIndividual 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Subject Operating Asset: -}
 -- Aggregate Member : Subject Operating Asset
-SubjectOperatingAsset : ∀ (u : Level) → ClassOfMixedOrderEntity u
-SubjectOperatingAsset u = AggregateMember u
+SubjectOperatingAsset : ∀ (u : Level) → ClassOfMixedOrderEntity u 
+SubjectOperatingAsset u  = MixedOrderEntity u 
 
+
+
+--  SubjectOperatingAsset is subTypeOf InitiativeSubject
+st-26cb447b69611509-0f642fd06859b0d5 : ∀ {u v} → (SubjectOperatingAsset u) ⊏⋆ₑ (InitiativeSubject v)
+st-26cb447b69611509-0f642fd06859b0d5 = trivialPolySubTypeOfEntity
 
 -- Membership relation
 26CB447B69611567 : ∀ {u} →  Linkage OperationalTransformation (SubjectOperatingAsset u)
@@ -58,6 +65,4 @@ aggregationOfAssetBlockSubjectOperatingAsset = make_Relation "AssetBlock aggrega
 subjectOperatingAsset : ∀ {u w} → Linkage OperationalTransformation (AssetBlock w)
 subjectOperatingAsset {u} {w}  = 26CB447B69611567 {u}   ∘  aggregationOfAssetBlockSubjectOperatingAsset {w} 
 
-postulate -- subjectOperatingAsset is subTypeOf initiativeSubject
-  st-26cb447b69611509-0f642fd06859b0d5  : subjectOperatingAsset {lzero}  ⊏⋆ᵣ  initiativeSubject  {lzero}
 

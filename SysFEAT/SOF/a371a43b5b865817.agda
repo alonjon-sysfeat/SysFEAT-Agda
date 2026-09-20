@@ -37,22 +37,25 @@ st-a371a43b5b865817-0c4559c86a033792 = polySubTypeOf-identity
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Operating Asset: -}
 specializedOperatingAsset :  Linkage OperatingAssetType OperatingAssetType
 specializedOperatingAsset = make_subTypeOf "Specialized Operating Asset" "Specialized Operating Asset"
 
 postulate -- specializedOperatingAsset is subTypeOf specializedFunctionalAsset
-  st-6a70772167873276-6a7076d2678731e2  : specializedOperatingAsset   ⊏⋆ᵣ  specializedFunctionalAsset 
+  st-6a70772167873276-6a7076d2678731e2  : specializedOperatingAsset  ⊏⋆ᵣ  specializedFunctionalAsset
 postulate -- specializedOperatingAsset is subTypeOf specializedClassOfBoundedIndividual
-  st-6a70772167873276-e53a627766e4b4cd  : specializedOperatingAsset   ⊏⋆ᵣ  specializedClassOfBoundedIndividual 
+  st-6a70772167873276-e53a627766e4b4cd  : specializedOperatingAsset  ⊏⋆ᵣ  specializedClassOfBoundedIndividual
 
+-- -------------------------------------------------------------------------------------------- 
 {- Realized Operating Asset: -}
 realizedOperatingAsset :  Linkage OperatingAssetType OperatingAssetType
 realizedOperatingAsset = make_subTypeOf "Realized Operating Asset" "Realized Operating Asset"
 
 postulate -- realizedOperatingAsset is subTypeOf realizedFunctionalAsset
-  st-7dc193da6849536c-7dc1907b684951ae  : realizedOperatingAsset   ⊏⋆ᵣ  realizedFunctionalAsset 
+  st-7dc193da6849536c-7dc1907b684951ae  : realizedOperatingAsset  ⊏⋆ᵣ  realizedFunctionalAsset
 
+-- -------------------------------------------------------------------------------------------- 
 {- Fulfilled Capability: 
 Capability(ies) fulfilled by an Agent Type and its Behavior Types.
 -}
@@ -60,14 +63,21 @@ fulfilledCapability :  Linkage OperatingAssetType Capability
 fulfilledCapability = make_subTypeOf "Fulfilled Capability" "Fulfilled Capability"
 
 postulate -- fulfilledCapability is subTypeOf assetTypeQualification
-  st-190c72c368966198-190c1f3b68964a27  : fulfilledCapability   ⊏⋆ᵣ  assetTypeQualification 
+  st-190c72c368966198-190c1f3b68964a27  : fulfilledCapability  ⊏⋆ᵣ  assetTypeQualification
 
+-- -------------------------------------------------------------------------------------------- 
 {- Rule Enforcement: 
 A Rule Enforcementt is the application of a Behavioral Rule in an Operating Asset Type.In a Action Process Type, a Rule Enforcement is a guide to Process Steps.In an Agent Type, a Rule Enforcement is a guide to its structure: Agent Parts, Information Stores, Performed Processes.
 -}
 -- Aggregate Member : Rule Enforcement
-RuleEnforcement : ClassOfClassOfIndividual
-RuleEnforcement = ClassOfIndividual
+RuleEnforcement : ClassOfClassOfAbstractEntity
+RuleEnforcement = ClassOfAbstractEntity
+
+
+
+--  RuleEnforcement is subTypeOf AggregateQualification
+st-7bc2d4c26897a1c4-b83e30bc696f51e5 : RuleEnforcement ⊏ₑ AggregateQualification
+st-7bc2d4c26897a1c4-b83e30bc696f51e5 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfRuleEnforcement :  Linkage OperatingAssetType RuleEnforcement
@@ -85,14 +95,23 @@ aggregationOfBehavioralRuleRuleEnforcement = make_Relation "BehavioralRule aggre
 ruleEnforcement : Linkage OperatingAssetType BehavioralRule
 ruleEnforcement = membershipOfRuleEnforcement  ∘  aggregationOfBehavioralRuleRuleEnforcement
 
-postulate -- ruleEnforcement is subTypeOf aggregateQualification
-  st-7bc2d4c26897a1c4-b83e30bc696f51e5  : ruleEnforcement   ⊏⋆ᵣ  aggregateQualification 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Operating Asset Part: -}
 -- Aggregate Member : Operating Asset Part
-OperatingAssetPart : ClassOfClassOfIndividual
-OperatingAssetPart = ClassOfIndividual
+OperatingAssetPart : ClassOfClassOfBoundedIndividual
+OperatingAssetPart = ClassOfBoundedIndividual
+
+
+
+--  OperatingAssetPart is subTypeOf AggregateHolonymyType
+st-b776b8c668b04b35-c2f2c83b66ea4d78 : OperatingAssetPart ⊏ₑ AggregateHolonymyType
+st-b776b8c668b04b35-c2f2c83b66ea4d78 = polySubTypeOf-identity
+
+--  OperatingAssetPart is subTypeOf OperatingAssetType
+st-b776b8c668b04b35-a371a43b5b865817 : OperatingAssetPart ⊏ₑ OperatingAssetType
+st-b776b8c668b04b35-a371a43b5b865817 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfOperatingAssetPart :  Linkage OperatingAssetType OperatingAssetPart
@@ -110,6 +129,4 @@ aggregationOfOperatingAssetTypeOperatingAssetPart = make_Relation "OperatingAsse
 operatingAssetPart : Linkage OperatingAssetType OperatingAssetType
 operatingAssetPart = membershipOfOperatingAssetPart  ∘  aggregationOfOperatingAssetTypeOperatingAssetPart
 
-postulate -- operatingAssetPart is subTypeOf aggregateHolonymyType
-  st-b776b8c668b04b35-c2f2c83b66ea4d78  : operatingAssetPart   ⊏⋆ᵣ  aggregateHolonymyType 
 

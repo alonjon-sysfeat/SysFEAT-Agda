@@ -31,6 +31,7 @@ st-4b94594b68a478f2-3aca50c46aa63f3b = polySubTypeOf-identity
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Packaged Policy Asset: -}
 packagedPolicyAsset : ∀ {u v} →  Linkage (PolicyFramework u) (PolicyAsset v)
 packagedPolicyAsset = make_nestingRelation "Packaged Policy Asset" "Packaged Policy Asset"

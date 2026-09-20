@@ -33,6 +33,7 @@ st-e9af119866e86785-9f61cf9166833fb7 = polySubTypeOf-identity
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Individual Behavior Part: 
 An Individual Behavior Part is the Aggregate Holonymy of an Individual Behavior in a parent Individual Behavior.
 -}
@@ -40,6 +41,15 @@ An Individual Behavior Part is the Aggregate Holonymy of an Individual Behavior 
 IndividualBehaviorPart : AggregateHolonymyType
 IndividualBehaviorPart = AggregateHolonymy
 
+
+
+--  IndividualBehaviorPart is subTypeOf IndividualOperatingPart
+st-ffb9011b68d36c96-d8ee780d68d224c2 : IndividualBehaviorPart ⊏ₑ IndividualOperatingPart
+st-ffb9011b68d36c96-d8ee780d68d224c2 = polySubTypeOf-identity
+
+--  IndividualBehaviorPart is subTypeOf IndividualBehavior
+st-ffb9011b68d36c96-e9af119866e86785 : IndividualBehaviorPart ⊏ₑ IndividualBehavior
+st-ffb9011b68d36c96-e9af119866e86785 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfIndividualBehaviorPart :  Linkage IndividualBehavior IndividualBehaviorPart
@@ -57,17 +67,25 @@ aggregationOfIndividualBehaviorIndividualBehaviorPart = make_Relation "Individua
 individualBehaviorPart : Linkage IndividualBehavior IndividualBehavior
 individualBehaviorPart = membershipOfIndividualBehaviorPart  ∘  aggregationOfIndividualBehaviorIndividualBehaviorPart
 
-postulate -- individualBehaviorPart is subTypeOf individualOperatingPart
-  st-ffb9011b68d36c96-d8ee780d68d224c2  : individualBehaviorPart   ⊏⋆ᵣ  individualOperatingPart 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Individual Participant: 
 An  Individual Participant is
 -}
 -- Aggregate Member : Individual Participant
-IndividualParticipant : AggregateHolonymyType
-IndividualParticipant = AggregateHolonymy
+IndividualParticipant : AgentType
+IndividualParticipant = IndividualAgent
 
+
+
+--  IndividualParticipant is subTypeOf IndividualOperatingPart
+st-ffb9014568d36d76-d8ee780d68d224c2 : IndividualParticipant ⊏ₑ IndividualOperatingPart
+st-ffb9014568d36d76-d8ee780d68d224c2 = polySubTypeOf-identity
+
+--  IndividualParticipant is subTypeOf IndividualAgent
+st-ffb9014568d36d76-9e3837e46192fcad : IndividualParticipant ⊏ₑ IndividualAgent
+st-ffb9014568d36d76-9e3837e46192fcad = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfIndividualParticipant :  Linkage IndividualBehavior IndividualParticipant
@@ -85,6 +103,4 @@ aggregationOfIndividualAgentIndividualParticipant = make_Relation "IndividualAge
 individualParticipant : Linkage IndividualBehavior IndividualAgent
 individualParticipant = membershipOfIndividualParticipant  ∘  aggregationOfIndividualAgentIndividualParticipant
 
-postulate -- individualParticipant is subTypeOf individualOperatingPart
-  st-ffb9014568d36d76-d8ee780d68d224c2  : individualParticipant   ⊏⋆ᵣ  individualOperatingPart 
 

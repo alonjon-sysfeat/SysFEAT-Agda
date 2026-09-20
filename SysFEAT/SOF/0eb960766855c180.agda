@@ -34,6 +34,7 @@ st-0eb960766855c180-5425a2df6aa225cf = polySubTypeOf-identity
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Grouped Architecture Block: -}
 groupedArchitectureBlock : ∀ {u v} →  Linkage (ArchitectureBlockCollection u) (AssetBlock v)
 groupedArchitectureBlock = make_Relation "Grouped Architecture Block" "Grouped Architecture Block"

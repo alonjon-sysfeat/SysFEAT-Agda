@@ -33,6 +33,7 @@ st-f69620466a0f9c2f-0eb97aff6855cd23 = trivialPolySubTypeOfEntity
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Asset Category: -}
 specializedAssetCategory : ∀ {u v} →  Linkage (AssetCategory u) (AssetCategory v)
 specializedAssetCategory = make_subTypeOf "Specialized Asset Category" "Specialized Asset Category"
@@ -40,6 +41,7 @@ specializedAssetCategory = make_subTypeOf "Specialized Asset Category" "Speciali
 postulate -- specializedAssetCategory is subTypeOf specializedCategory
   st-24f72cf56a0f4ec7-24f727b96a0f4281  : ∀ {u v} → specializedAssetCategory {u} {v}  ⊏⋆ᵣ  specializedCategory {u} {v}
 
+-- -------------------------------------------------------------------------------------------- 
 {- Category Partition: -}
 categoryPartition : ∀ {u v} →  Linkage (AssetCategory u) (CategoryPartition v)
 categoryPartition = make_subTypeOf "Category Partition" "Category Partition"

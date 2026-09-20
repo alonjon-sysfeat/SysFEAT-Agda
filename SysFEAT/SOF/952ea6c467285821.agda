@@ -21,8 +21,7 @@ open import SysFEAT.SOF.83f88fd567406e53 public -- Asset Property Type
 open import SysFEAT.SOF.9397c3d86877842f public -- Policy Asset
 
 PolicyCategory : ThirdOrderClass
-PolicyCategory = PropertyType
-
+PolicyCategory = SecondOrderClass
 
 --  PolicyCategory is subTypeOf AssetPropertyType
 st-952ea6c467285821-83f88fd567406e53 : PolicyCategory ⊏ₑ AssetPropertyType
@@ -35,9 +34,10 @@ st-952ea6c467285821-9397c3d86877842f = polySubTypeOf-identity
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Parent Policy Category: -}
 parentPolicyCategory :  Linkage PolicyCategory PolicyCategory
 parentPolicyCategory = make_subTypeOf "Parent Policy Category" "Parent Policy Category"
 
 postulate -- parentPolicyCategory is subTypeOf specializedPropertyType
-  st-952ea9b6672858c7-12b01dee66e92b43  : parentPolicyCategory   ⊏⋆ᵣ  specializedPropertyType 
+  st-952ea9b6672858c7-12b01dee66e92b43  : parentPolicyCategory  ⊏⋆ᵣ  specializedPropertyType

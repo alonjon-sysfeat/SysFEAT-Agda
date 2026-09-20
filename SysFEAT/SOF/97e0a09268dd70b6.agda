@@ -18,7 +18,7 @@ open import Agda.Primitive
 open import SysFEAT.SOF.366c47e1675c1c07 public -- Decision Type
 
 PolicyDecisionType : ThirdOrderClass
-PolicyDecisionType = PropertyType
+PolicyDecisionType = SecondOrderClass
 
 
 --  PolicyDecisionType is subTypeOf DecisionType

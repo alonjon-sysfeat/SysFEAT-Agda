@@ -20,8 +20,8 @@ open import Agda.Primitive
 open import SysFEAT.SOF.d745dbaa6aa3840b public -- Model Package
 open import SysFEAT.SOF.0eb95f1b6855bf64 public -- Architecture Container
 
-ReferenceDictionary : FirstOrderClass
-ReferenceDictionary = FirstOrderEntity
+ReferenceDictionary : ClassOfAbstractEntity
+ReferenceDictionary = AbstractEntity
 
 
 --  ReferenceDictionary is subTypeOf ModelPackage

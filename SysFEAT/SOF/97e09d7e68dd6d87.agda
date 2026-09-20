@@ -29,9 +29,10 @@ st-97e09d7e68dd6d87-97e09cde68dd6c0f = polySubTypeOf-identity
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Architecture Decision Type: -}
 architectureDecisionType :  Linkage ArchitectureDecisionOutcome ArchitectureDecisionType
 architectureDecisionType = make_instanceOf "Architecture Decision Type" "Architecture Decision Type"
 
 postulate -- architectureDecisionType is subTypeOf decisionType
-  st-97e0a05268dd7053-97e09d2068dd6cd0  : architectureDecisionType   ⊏⋆ᵣ  decisionType 
+  st-97e0a05268dd7053-97e09d2068dd6cd0  : architectureDecisionType  ⊏⋆ᵣ  decisionType

@@ -33,6 +33,7 @@ st-6cfb6ef26a0f15e4-0eb97aff6855cd23 = trivialPolySubTypeOfEntity
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Family of Measurement: -}
 familyOfMeasurement : ∀ {u v} →  Linkage (ConditionCategory u) (FamilyOfMeasurement v)
 familyOfMeasurement = make_classOfRelation "Family of Measurement" "Family of Measurement"

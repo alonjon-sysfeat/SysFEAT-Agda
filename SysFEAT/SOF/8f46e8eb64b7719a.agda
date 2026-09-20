@@ -30,6 +30,7 @@ st-8f46e8eb64b7719a-173706265fe3f332 = polySubTypeOf-identity
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Measured Asset: 
 The Asset Block that is the subject of a measurement.
 -}
@@ -37,14 +38,20 @@ measuredAsset : ∀ {u} →  Linkage KeyIndicator (AssetBlock u)
 measuredAsset = make_Relation "Measured Asset" "Measured Asset"
 
 postulate -- measuredAsset is subTypeOf holonymyRelation
-  st-6bf1872268599564-c2f2c6ce66e90be7  : measuredAsset  {lzero}  ⊏⋆ᵣ  holonymyRelation 
+  st-6bf1872268599564-c2f2c6ce66e90be7  : measuredAsset  ⊏⋆ᵣ  holonymyRelation
 
+-- -------------------------------------------------------------------------------------------- 
 {- Measurement: 
 A Measurement is the result of a measurement activity, for a given Asset Block in the context of a Key Indicator.Measurements are Hierarchical Member, so they nest there referenced Measurement Value.
 -}
 -- Aggregate Member : Measurement
 Measurement : ClassOfClassOfIndividual
 Measurement = ClassOfIndividual
+
+
+--  Measurement withAspect HierarchicalMember
+st-3b1bc7f668cdaca9-fb660a9068699cde : Measurement ⊏ₐₑ (HierarchicalMember (lsuc(lzero)))
+st-3b1bc7f668cdaca9-fb660a9068699cde = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfMeasurement :  Linkage KeyIndicator Measurement
@@ -62,6 +69,4 @@ aggregationOfMeasurementValueMeasurement = make_Relation "MeasurementValue aggre
 measurement : Linkage KeyIndicator MeasurementValue
 measurement = membershipOfMeasurement  ∘  aggregationOfMeasurementValueMeasurement
 
-postulate -- measurement is subTypeOf hierarchicalMember
-  st-3b1bc7f668cdaca9-fb660a9068699cde  : measurement   ⊏⋆ᵣ  hierarchicalMember {lzero} {lzero}
 

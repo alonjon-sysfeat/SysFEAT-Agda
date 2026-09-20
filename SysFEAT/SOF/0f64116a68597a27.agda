@@ -28,6 +28,7 @@ st-0f64116a68597a27-0eb95dce6855be2e = trivialPolySubTypeOfEntity
 
 -- == Relations =======================
 
+-- -------------------------------------------------------------------------------------------- 
 {- Packaged Governance Block: -}
 packagedGovernanceBlock : ∀ {u v} →  Linkage (GovernanceContainer u) (GovernanceBuildingBlock v)
 packagedGovernanceBlock = make_nestingRelation "Packaged Governance Block" "Packaged Governance Block"

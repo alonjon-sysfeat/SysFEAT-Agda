@@ -18,8 +18,7 @@ open import Agda.Primitive
 open import SysFEAT.SOF.366c3ea8675c13e2 public -- Appraisal Type
 
 ResolutionType : ThirdOrderClass
-ResolutionType = PropertyType
-
+ResolutionType = SecondOrderClass
 
 --  ResolutionType is subTypeOf AppraisalType
 st-366c4627675c1aad-366c3ea8675c13e2 : ResolutionType ⊏ₑ AppraisalType

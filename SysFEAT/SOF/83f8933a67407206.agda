@@ -19,8 +19,7 @@ open import SysFEAT.SOF.6662916b68dd5f84 public -- Governance Instrument
 open import SysFEAT.UpperOntology.87d3062666e33965 public -- Property Type
 
 GovernancePropertyType : ThirdOrderClass
-GovernancePropertyType = PropertyType
-
+GovernancePropertyType = SecondOrderClass
 
 --  GovernancePropertyType withAspect GovernanceInstrument
 st-83f8933a67407206-6662916b68dd5f84 : GovernancePropertyType ⊏ₐₑ (GovernanceInstrument (lsuc(lsuc(lzero))))
