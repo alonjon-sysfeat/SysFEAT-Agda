@@ -30,6 +30,7 @@ open import SysFEAT.UpperOntology.28f07b2354be0d69 public -- Bounded Individual
 open import SysFEAT.UpperOntology.29cd2db0661546c4 public -- Individual State
 open import SysFEAT.UpperOntology.342f43ae66156429 public -- State Class
 open import SysFEAT.UpperOntology.4df9512266826e23 public -- Individual
+open import SysFEAT.UpperOntology.3e525e406ab05b0d public -- Composite Property
 open import SysFEAT.UpperOntology.00ae5d3b667038fc public -- Whole Life Class
 open import SysFEAT.UpperOntology.267b6a126675a0b9 public -- Temporal Bounding
 open import SysFEAT.UpperOntology.608767a668de7fb6 public -- Class of Class of Individual

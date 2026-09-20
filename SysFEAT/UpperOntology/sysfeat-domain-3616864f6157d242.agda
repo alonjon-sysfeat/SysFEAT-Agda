@@ -16,7 +16,7 @@ External references:
 module SysFEAT.UpperOntology.sysfeat-domain-3616864f6157d242 where -- ========== Upper Ontology
 
 open import SysFEAT.UpperOntology.sysfeat-domain-f0fd779f65a18c5d public -- Packaging
-open import SysFEAT.UpperOntology.sysfeat-domain-3aca56b16aa64950 public -- Basic Knowledge Graph
+open import SysFEAT.UpperOntology.sysfeat-domain-3aca56b16aa64950 public -- Abstract Knowledge Graph
 open import SysFEAT.UpperOntology.sysfeat-domain-e278fa2568f06541 public -- Reflexive Knowledge Graph
 open import SysFEAT.UpperOntology.sysfeat-domain-ae26f9c25acd52d4 public -- Predication Substrate
 open import SysFEAT.UpperOntology.sysfeat-domain-36166b8c6157b6b4 public -- Compositionality
