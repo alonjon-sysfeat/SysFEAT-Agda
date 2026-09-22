@@ -15,17 +15,12 @@ Documentation : https://framework.sysfeat.com/pages/b85efd0868df48b1.htm
 module SysFEAT.UpperOntology.b85efd0868df48b1 where -- ========== Property Value
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.4df9512266826e23 public -- Individual
 open import SysFEAT.UpperOntology.3aca52346aa6418d public -- Abstract Entity
 open import SysFEAT.UpperOntology.23d5a9ea68513ced public -- Building Block
 open import SysFEAT.UpperOntology.746ac18368905aa2 public -- Property
 
 PropertyValue : PropertyType
 PropertyValue = Individual
-
---  PropertyValue is subTypeOf Individual
-st-b85efd0868df48b1-4df9512266826e23 : PropertyValue ⊏ₑ Individual
-st-b85efd0868df48b1-4df9512266826e23 = polySubTypeOf-identity
 
 --  PropertyValue is subTypeOf AbstractEntity
 st-b85efd0868df48b1-3aca52346aa6418d : PropertyValue ⊏ₑ AbstractEntity

@@ -21,4 +21,3 @@ open import SysFEAT.UpperOntology.526b679569de63eb public -- Mixed-Order Element
 open import SysFEAT.UpperOntology.526b6bd869de64e4 public -- Ordered Element
 open import SysFEAT.UpperOntology.23d5249e68510ff9 public -- Element
 open import SysFEAT.UpperOntology.20702b2568e9694d public -- Class of Element
-open import SysFEAT.UpperOntology.0eb93b276855b2c1 public -- Linkage
