@@ -35,7 +35,7 @@ st-3e525e406ab05b0d-23d56d9868525869 = polySubTypeOf-identity
 
 -- -------------------------------------------------------------------------------------------- 
 {- Property Part: 
-A Property Part is a composition (Class of Holonymy) of a Composite Property.
+A Property Part is an aggregate composition (Class of Holonymy) of  a Property within a whole Composite Property.
 -}
 -- Aggregate Member : Property Part
 PropertyPart : ClassOfClassOfAbstractEntity
@@ -52,20 +52,20 @@ st-3e5261066ab05e0f-8cfaf71a6852b042 : PropertyPart ⊏ₐₑ (UnboundedMember (
 st-3e5261066ab05e0f-8cfaf71a6852b042 = polySubTypeOf-identity
 
 -- Membership relation
-3E5261076AB05E60 :  Linkage CompositeProperty PropertyPart
-3E5261076AB05E60 = make_upwardNestingRelation "propertyPart membership" "nested propertyPart"
+membershipOfPropertyPart :  Linkage CompositeProperty PropertyPart
+membershipOfPropertyPart = make_upwardNestingRelation "propertyPart membership" "nested propertyPart"
 
 -- Aggregation relation
-3E5261076AB05E1D :  Linkage PropertyPart Property
-3E5261076AB05E1D = make_Relation "Property aggregation" "aggregated Property"
+aggregationOfPropertyPropertyPart :  Linkage PropertyPart Property
+aggregationOfPropertyPropertyPart = make_Relation "Property aggregation" "aggregated Property"
 
 {- propertyPart : derived relation obtained by composing
-   3E5261076AB05E60 and 3E5261076AB05E1D
+   membershipOfPropertyPart and aggregationOfPropertyPropertyPart
    It directly links an Composite Property to the final aggregated Property
    hiding the reifying PropertyPart
 -}
 propertyPart : Linkage CompositeProperty Property
-propertyPart = 3E5261076AB05E60  ∘  3E5261076AB05E1D
+propertyPart = membershipOfPropertyPart  ∘  aggregationOfPropertyPropertyPart
 
 postulate -- propertyPart is subTypeOf classOfHolonymy
   st-3e5261066ab05e0f-d91704746a62320c  : propertyPart  ⊏⋆ᵣ  classOfHolonymy
