@@ -25,6 +25,7 @@ module SysFEAT.SOF.515c13db68953887 where -- ========== Capability
 
 open import Agda.Primitive
 open import SysFEAT.SOF.515c6a856893324e public -- Asset Property
+open import SysFEAT.UpperOntology.3e525e406ab05b0d public -- Composite Property
 open import SysFEAT.SOF.0eb95f356855bf94 public -- Asset Block
 open import SysFEAT.SOF.e6f250185f772ee1 public -- Information Asset
 
@@ -35,6 +36,10 @@ Capability = AssetProperty
 --  Capability is subTypeOf AssetProperty
 st-515c13db68953887-515c6a856893324e : Capability ⊏ₑ AssetProperty
 st-515c13db68953887-515c6a856893324e = polySubTypeOf-identity
+
+--  Capability is subTypeOf CompositeProperty
+st-515c13db68953887-3e525e406ab05b0d : Capability ⊏ₑ CompositeProperty
+st-515c13db68953887-3e525e406ab05b0d = polySubTypeOf-identity
 
 --  Capability withAspect AssetBlock
 st-515c13db68953887-0eb95f356855bf94 : Capability ⊏ₐₑ (AssetBlock (lsuc(lzero)))
@@ -85,13 +90,14 @@ involvedInformation = membershipOfInvolvedInformation  ∘  aggregationOfInforma
 Sub-Capability with a capability.Sub-Capabilities can have dependencies whereby a dependent capability needs the outcome of a required capability for one of its outcome to be delivered. 
 -}
 -- Aggregate Member : Capability Part
-CapabilityPart : ClassOfClassOfIndividual
-CapabilityPart = ClassOfIndividual
+CapabilityPart : ClassOfClassOfAbstractEntity
+CapabilityPart = ClassOfAbstractEntity
 
 
---  CapabilityPart withAspect ClassOfHolonymy
-st-01f11c59689b68fe-d91704746a62320c : CapabilityPart ⊏ₐₑ (ClassOfHolonymy (lsuc(lzero)))
-st-01f11c59689b68fe-d91704746a62320c = polySubTypeOf-identity
+
+--  CapabilityPart is subTypeOf PropertyPart
+st-01f11c59689b68fe-3e5261066ab05e0f : CapabilityPart ⊏⋆ₑ PropertyPart
+st-01f11c59689b68fe-3e5261066ab05e0f = polySubTypeOf-identity
 
 --  CapabilityPart withAspect UnboundedMember
 st-01f11c59689b68fe-8cfaf71a6852b042 : CapabilityPart ⊏ₐₑ (UnboundedMember (lsuc(lzero)))
