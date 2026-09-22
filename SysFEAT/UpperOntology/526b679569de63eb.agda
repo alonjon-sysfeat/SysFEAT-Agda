@@ -15,14 +15,14 @@ Documentation : https://framework.sysfeat.com/pages/526b679569de63eb.htm
 module SysFEAT.UpperOntology.526b679569de63eb where -- ========== Mixed-Order Element
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.23d5249e68510ff9 public -- Element
+open import SysFEAT.UpperOntology.20702b2568e9694d public -- Class of Element
 
 MixedOrderElement : ∀ (u : Level) → ClassOfElement u 
 MixedOrderElement u  = Element u 
 
 
 --  MixedOrderElement is subTypeOf Element
-st-526b679569de63eb-23d5249e68510ff9 : ∀ {u v} → (MixedOrderElement u) ⊏⋆ₑ (Element v)
-st-526b679569de63eb-23d5249e68510ff9 = trivialPolySubTypeOfEntity
+st-526b679569de63eb-23d5249e68510ff9 : ∀ {u v} → (MixedOrderElement u) ⊏⋆ (Element v)
+st-526b679569de63eb-23d5249e68510ff9 = trivialPolySubTypeOf
 
 

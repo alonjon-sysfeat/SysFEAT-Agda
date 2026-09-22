@@ -4,18 +4,20 @@
    framework.sysfeat.com
 
 Linkage: 
-Linkage is the structural primitive of predication: a fibered, proof-relevant, compositional local predicate between a source Element and a target Element. A Linkage from S to T assigns to each source s : S a local type of evidence (localType s) and a projection (ref) that determines the target from the evidence. The reconstructed predicate s ⟨ L ⟩→ is then a dependent pair: a witness e : localType s together with a proof that ref e ≡ t. Linkage is simultaneously a generalized graph edge (with source, target, and composable edge data), a proof-relevant predicate (where two different edges between the same endpoints are distinguished), and an Element at a higher universe level (meaning it can itself be classified, specialized, and linked). This triple nature - edge, predicate, entity - is what resolves the polysemy that traditional frameworks impose between things-that-are and things-that-connect.
+Linkage is the structural primitive of predication: a fibered, proof-relevant, compositional local predicate between a source Element and a target Element.
+ A Linkage from S to T assigns to each source s : S a local type of evidence (localType s) and a projection (ref) that determines the target from the evidence. The reconstructed predicate s ⟨ L ⟩→ is then a dependent pair: a witness e : localType s together with a proof that ref e ≡ t. Linkage is simultaneously a generalized graph edge (with source, target, and composable edge data), a proof-relevant predicate (where two different edges between the same endpoints are distinguished), and an Element at a higher universe level (meaning it can itself be classified, specialized, and linked). This triple nature - edge, predicate, entity - is what resolves the polysemy that traditional frameworks impose between things-that-are and things-that-connect.
+
+ documentation : https://www.framework.sysfeat.com/pages/0eb93b276855b2c1.htm
+
+This module exists only for documentation purposes.
+The true definition of Linkage is included in the Element module.
+
  - ============================== -}
 
-{-# OPTIONS --cubical --guardedness #-}
-{-# OPTIONS --cubical-compatible #-}
+{-# OPTIONS --safe --cubical --guardedness #-}
+module SysFEAT.UpperOntology.0eb93b276855b2c1 where -- ================= Linkage
 
-module 0eb93b276855b2c1 where -- ================= Linkage
-
-open import Agda.Primitive
-open import Relation.Binary.PropositionalEquality
-open import Data.Product renaming (_×_ to _⊗_)
-open import Data.String using (String)
+open import SysFEAT.UpperOntology.sysfeat-mathfunctions public
 
 -- ============================================================ 
 -- I. Extract from the Element Module where Linkage is defined
