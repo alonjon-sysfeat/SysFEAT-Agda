@@ -20,8 +20,10 @@ open import SysFEAT.EA.f4be11b15ee1e0fa public -- System of Resources
 ResourceConfiguration : ClassOfClassOfBoundedIndividual
 ResourceConfiguration = ClassOfBoundedIndividual
 
+
 --  ResourceConfiguration is subTypeOf SystemOfResources
 st-f4be14d25ee1eaff-f4be11b15ee1e0fa : ResourceConfiguration ⊏ₑ SystemOfResources
 st-f4be14d25ee1eaff-f4be11b15ee1e0fa = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

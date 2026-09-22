@@ -29,28 +29,42 @@ st-7d37d08d5fd07aaa-6d2b7c935fbb6270 = polySubTypeOf-identity
 st-7d37d08d5fd07aaa-8f1cad7d68ca9df0 : PhysicalDataAsset ⊏ₐₑ (PhysicalDataBlock (lsuc(lzero)))
 st-7d37d08d5fd07aaa-8f1cad7d68ca9df0 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Physical Object: -}
 specializedPhysicalObject :  Linkage PhysicalDataAsset PhysicalDataAsset
 specializedPhysicalObject = make_subTypeOf "Specialized Physical Object" "Specialized Physical Object"
 
 postulate -- specializedPhysicalObject is subTypeOf specializedDataObject
-  st-325a375566f33e9b-325a380d66f3515e  : specializedPhysicalObject   ⊏⋆ᵣ  specializedDataObject 
+  st-325a375566f33e9b-325a380d66f3515e  : specializedPhysicalObject  ⊏⋆ᵣ  specializedDataObject
 
+-- -------------------------------------------------------------------------------------------- 
 {- Realized Data Asset: -}
 realizedDataAsset :  Linkage PhysicalDataAsset DataAsset
 realizedDataAsset = make_subTypeOf "Realized Data Asset" "Realized Data Asset"
 
 postulate -- realizedDataAsset is subTypeOf realizedInformationAsset
-  st-325a3a1166f358c9-325a3a0b66f354a7  : realizedDataAsset   ⊏⋆ᵣ  realizedInformationAsset 
+  st-325a3a1166f358c9-325a3a0b66f354a7  : realizedDataAsset  ⊏⋆ᵣ  realizedInformationAsset
 
+-- -------------------------------------------------------------------------------------------- 
 {- Physical Data Member: 
 A Physical Data Member is a characteristic of a Physical Data Asset.It can be either a Physical Relationship or a Physical Data Slot.
 -}
 -- Aggregate Member : Physical Data Member
-PhysicalDataMember : ClassOfClassOfIndividual
-PhysicalDataMember = ClassOfIndividual
+PhysicalDataMember : ClassOfClassOfBoundedIndividual
+PhysicalDataMember = ClassOfBoundedIndividual
+
+
+
+--  PhysicalDataMember is subTypeOf DataObjectMember
+st-163c29e85fda678c-b6e3cdf35fbb6ad1 : PhysicalDataMember ⊏ₑ DataObjectMember
+st-163c29e85fda678c-b6e3cdf35fbb6ad1 = polySubTypeOf-identity
+
+--  PhysicalDataMember is subTypeOf PhysicalDataAsset
+st-163c29e85fda678c-7d37d08d5fd07aaa : PhysicalDataMember ⊏ₑ PhysicalDataAsset
+st-163c29e85fda678c-7d37d08d5fd07aaa = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfPhysicalDataMember :  Linkage PhysicalDataAsset PhysicalDataMember
@@ -68,6 +82,4 @@ aggregationOfPhysicalDataAssetPhysicalDataMember = make_Relation "PhysicalDataAs
 physicalDataMember : Linkage PhysicalDataAsset PhysicalDataAsset
 physicalDataMember = membershipOfPhysicalDataMember  ∘  aggregationOfPhysicalDataAssetPhysicalDataMember
 
-postulate -- physicalDataMember is subTypeOf dataObjectMember
-  st-163c29e85fda678c-b6e3cdf35fbb6ad1  : physicalDataMember   ⊏⋆ᵣ  dataObjectMember 
 

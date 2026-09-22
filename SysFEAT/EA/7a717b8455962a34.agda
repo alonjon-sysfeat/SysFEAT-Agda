@@ -22,8 +22,10 @@ open import SysFEAT.EA.bcebd0565491287e public -- Driver
 EndogenousDriver : ClassOfBoundedIndividual
 EndogenousDriver = BoundedIndividual
 
+
 --  EndogenousDriver is subTypeOf Driver
 st-7a717b8455962a34-bcebd0565491287e : EndogenousDriver ⊏ₑ Driver
 st-7a717b8455962a34-bcebd0565491287e = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

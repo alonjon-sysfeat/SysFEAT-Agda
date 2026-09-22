@@ -18,10 +18,11 @@ open import Agda.Primitive
 open import SysFEAT.SOF.190c74f868966584 public -- Behavioral Rule
 
 ResourceRule : PropertyType
-ResourceRule = ClassOfProperty
+ResourceRule = Property
 
 --  ResourceRule is subTypeOf BehavioralRule
 st-07b60b4168a50438-190c74f868966584 : ResourceRule ⊏ₑ BehavioralRule
 st-07b60b4168a50438-190c74f868966584 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

@@ -18,8 +18,9 @@ open import Agda.Primitive
 open import SysFEAT.EA.3b1b91ea68cd8733 public -- Individual Artifact
 open import SysFEAT.EA.3b1bb6eb68cd9da2 public -- Individual Intangible Resource Agent
 
-IndividualSOftwareSystem : ClassOfBoundedIndividual
-IndividualSOftwareSystem = BoundedIndividual
+IndividualSOftwareSystem : AgentType
+IndividualSOftwareSystem = IndividualAgent
+
 
 --  IndividualSOftwareSystem is subTypeOf IndividualArtifact
 st-3b1b8ceb68cd7ed3-3b1b91ea68cd8733 : IndividualSOftwareSystem ⊏ₑ IndividualArtifact
@@ -29,4 +30,5 @@ st-3b1b8ceb68cd7ed3-3b1b91ea68cd8733 = polySubTypeOf-identity
 st-3b1b8ceb68cd7ed3-3b1bb6eb68cd9da2 : IndividualSOftwareSystem ⊏ₑ IndividualIntangibleResourceAgent
 st-3b1b8ceb68cd7ed3-3b1bb6eb68cd9da2 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

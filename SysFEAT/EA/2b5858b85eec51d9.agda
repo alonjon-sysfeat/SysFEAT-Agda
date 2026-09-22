@@ -21,6 +21,7 @@ open import SysFEAT.EA.6d2b7c935fbb6270 public -- Data Asset
 LogicalDataElement : ClassOfClassOfBoundedIndividual
 LogicalDataElement = ClassOfBoundedIndividual
 
+
 --  LogicalDataElement is subTypeOf LogicalDataAsset
 st-2b5858b85eec51d9-fd1bf2a45fbc64fb : LogicalDataElement ⊏ₑ LogicalDataAsset
 st-2b5858b85eec51d9-fd1bf2a45fbc64fb = polySubTypeOf-identity
@@ -29,12 +30,24 @@ st-2b5858b85eec51d9-fd1bf2a45fbc64fb = polySubTypeOf-identity
 st-2b5858b85eec51d9-6d2b7c935fbb6270 : LogicalDataElement ⊏ₑ DataAsset
 st-2b5858b85eec51d9-6d2b7c935fbb6270 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Logical Data Member: -}
 -- Aggregate Member : Logical Data Member
-LogicalDataMember : ClassOfClassOfIndividual
-LogicalDataMember = ClassOfIndividual
+LogicalDataMember : ClassOfClassOfBoundedIndividual
+LogicalDataMember = ClassOfBoundedIndividual
+
+
+
+--  LogicalDataMember is subTypeOf DataObjectMember
+st-e7e3fa0a5fbb0ddb-b6e3cdf35fbb6ad1 : LogicalDataMember ⊏ₑ DataObjectMember
+st-e7e3fa0a5fbb0ddb-b6e3cdf35fbb6ad1 = polySubTypeOf-identity
+
+--  LogicalDataMember is subTypeOf LogicalDataElement
+st-e7e3fa0a5fbb0ddb-2b5858b85eec51d9 : LogicalDataMember ⊏ₑ LogicalDataElement
+st-e7e3fa0a5fbb0ddb-2b5858b85eec51d9 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfLogicalDataMember :  Linkage LogicalDataElement LogicalDataMember
@@ -52,6 +65,4 @@ aggregationOfLogicalDataElementLogicalDataMember = make_Relation "LogicalDataEle
 logicalDataMember : Linkage LogicalDataElement LogicalDataElement
 logicalDataMember = membershipOfLogicalDataMember  ∘  aggregationOfLogicalDataElementLogicalDataMember
 
-postulate -- logicalDataMember is subTypeOf dataObjectMember
-  st-e7e3fa0a5fbb0ddb-b6e3cdf35fbb6ad1  : logicalDataMember   ⊏⋆ᵣ  dataObjectMember 
 

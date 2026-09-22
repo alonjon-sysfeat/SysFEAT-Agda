@@ -20,8 +20,10 @@ open import SysFEAT.SOF.0ffeec41600be08a public -- Initiative
 ManagementInitiative : ClassOfBoundedIndividual
 ManagementInitiative = BoundedIndividual
 
+
 --  ManagementInitiative is subTypeOf Initiative
 st-05201b936647570a-0ffeec41600be08a : ManagementInitiative ⊏ₑ Initiative
 st-05201b936647570a-0ffeec41600be08a = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

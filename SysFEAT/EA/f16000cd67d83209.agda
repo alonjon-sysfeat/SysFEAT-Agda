@@ -27,8 +27,10 @@ ComplianceCase = ClassOfBoundedIndividual
 st-f16000cd67d83209-07ca19e95dd854e9 : ComplianceCase ⊏ₑ AssuranceCase
 st-f16000cd67d83209-07ca19e95dd854e9 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Constraining Regulation: 
 Business Directive covered by the Compliance Case.
 -}
@@ -36,12 +38,23 @@ constrainingRegulation :  Linkage ComplianceCase RegulationArticle
 constrainingRegulation = make_subTypeOf "Constraining Regulation" "Constraining Regulation"
 
 postulate -- constrainingRegulation is subTypeOf contrainingOperationalPolicy
-  st-4b947fdd68a4a331-01f1120d689b5a99  : constrainingRegulation   ⊏⋆ᵣ  contrainingOperationalPolicy 
+  st-4b947fdd68a4a331-01f1120d689b5a99  : constrainingRegulation  ⊏⋆ᵣ  contrainingOperationalPolicy
 
+-- -------------------------------------------------------------------------------------------- 
 {- Involved Operating Asset: -}
 -- Aggregate Member : Involved Operating Asset
-InvolvedOperatingAsset : ClassOfClassOfIndividual
-InvolvedOperatingAsset = ClassOfIndividual
+InvolvedOperatingAsset : ClassOfClassOfBoundedIndividual
+InvolvedOperatingAsset = ClassOfBoundedIndividual
+
+
+
+--  InvolvedOperatingAsset is subTypeOf InvolvedAsset
+st-f160085467d83915-9152e6975ed764d3 : InvolvedOperatingAsset ⊏ₑ InvolvedAsset
+st-f160085467d83915-9152e6975ed764d3 = polySubTypeOf-identity
+
+--  InvolvedOperatingAsset is subTypeOf ResourceOperationalAsset
+st-f160085467d83915-c94a7376684a0c07 : InvolvedOperatingAsset ⊏ₑ ResourceOperationalAsset
+st-f160085467d83915-c94a7376684a0c07 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfInvolvedOperatingAsset :  Linkage ComplianceCase InvolvedOperatingAsset
@@ -59,16 +72,20 @@ aggregationOfResourceOperationalAssetInvolvedOperatingAsset = make_Relation "Res
 involvedOperatingAsset : Linkage ComplianceCase ResourceOperationalAsset
 involvedOperatingAsset = membershipOfInvolvedOperatingAsset  ∘  aggregationOfResourceOperationalAssetInvolvedOperatingAsset
 
-postulate -- involvedOperatingAsset is subTypeOf involvedAsset
-  st-f160085467d83915-9152e6975ed764d3  : involvedOperatingAsset   ⊏⋆ᵣ  involvedAsset 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Mitigated Compliance Risk: 
 Set of Compliance Risk Types that are claimed to be identified and mitgated by appropriate Control Measures.
 -}
 -- Aggregate Member : Mitigated Compliance Risk
 MitigatedComplianceRisk : ThirdOrderClass
 MitigatedComplianceRisk = SecondOrderClass
+
+
+--  MitigatedComplianceRisk is subTypeOf MitigatedRisk
+st-f16002d967d8356d-582e770166f6a8cf : MitigatedComplianceRisk ⊏⋆ₑ MitigatedRisk
+st-f16002d967d8356d-582e770166f6a8cf = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfMitigatedComplianceRisk :  Linkage ComplianceCase MitigatedComplianceRisk
@@ -86,6 +103,4 @@ aggregationOfComplianceRiskTypeMitigatedComplianceRisk = make_Relation "Complian
 mitigatedComplianceRisk : Linkage ComplianceCase ComplianceRiskType
 mitigatedComplianceRisk = membershipOfMitigatedComplianceRisk  ∘  aggregationOfComplianceRiskTypeMitigatedComplianceRisk
 
-postulate -- mitigatedComplianceRisk is subTypeOf mitigatedRisk
-  st-f16002d967d8356d-582e770166f6a8cf  : mitigatedComplianceRisk   ⊏⋆ᵣ  mitigatedRisk 
 

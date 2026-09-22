@@ -24,6 +24,7 @@ open import SysFEAT.EA.9b089d1868a45ed3 public -- Physical Capability
 PhysicalBusinessAgent : ClassOfClassOfBoundedIndividual
 PhysicalBusinessAgent = ClassOfBoundedIndividual
 
+
 --  PhysicalBusinessAgent is subTypeOf BusinessAgentType
 st-be94e82f655c90e7-bcebd31f5491302c : PhysicalBusinessAgent ⊏ₑ BusinessAgentType
 st-be94e82f655c90e7-bcebd31f5491302c = polySubTypeOf-identity
@@ -32,19 +33,32 @@ st-be94e82f655c90e7-bcebd31f5491302c = polySubTypeOf-identity
 st-be94e82f655c90e7-340f52dc686212f5 : PhysicalBusinessAgent ⊏ₑ PhysicalResourceAgent
 st-be94e82f655c90e7-340f52dc686212f5 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Fulfilled Physical Capability: -}
 fulfilledPhysicalCapability :  Linkage PhysicalBusinessAgent PhysicalCapability
 fulfilledPhysicalCapability = make_subTypeOf "Fulfilled Physical Capability" "Fulfilled Physical Capability"
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Physical Resource Agent Part: 
 Structural composition of a Physical Business Agent.
 -}
 -- Aggregate Member : Physical Resource Agent Part
-PhysicalResourceAgentPart : ClassOfClassOfIndividual
-PhysicalResourceAgentPart = ClassOfIndividual
+PhysicalResourceAgentPart : ClassOfClassOfBoundedIndividual
+PhysicalResourceAgentPart = ClassOfBoundedIndividual
+
+
+
+--  PhysicalResourceAgentPart is subTypeOf ResourceAgentPart
+st-c80a1a0f67854745-24034f6d5fc79c3f : PhysicalResourceAgentPart ⊏ₑ ResourceAgentPart
+st-c80a1a0f67854745-24034f6d5fc79c3f = polySubTypeOf-identity
+
+--  PhysicalResourceAgentPart is subTypeOf PhysicalBusinessAgent
+st-c80a1a0f67854745-be94e82f655c90e7 : PhysicalResourceAgentPart ⊏ₑ PhysicalBusinessAgent
+st-c80a1a0f67854745-be94e82f655c90e7 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfPhysicalResourceAgentPart :  Linkage PhysicalBusinessAgent PhysicalResourceAgentPart
@@ -62,6 +76,4 @@ aggregationOfPhysicalBusinessAgentPhysicalResourceAgentPart = make_Relation "Phy
 physicalResourceAgentPart : Linkage PhysicalBusinessAgent PhysicalBusinessAgent
 physicalResourceAgentPart = membershipOfPhysicalResourceAgentPart  ∘  aggregationOfPhysicalBusinessAgentPhysicalResourceAgentPart
 
-postulate -- physicalResourceAgentPart is subTypeOf resourceAgentPart
-  st-c80a1a0f67854745-24034f6d5fc79c3f  : physicalResourceAgentPart   ⊏⋆ᵣ  resourceAgentPart 
 

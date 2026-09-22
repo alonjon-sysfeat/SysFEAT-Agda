@@ -27,12 +27,19 @@ ProcessingActivity = ClassOfBoundedIndividual
 st-16e319be5bf83cb9-426a57325aeb3d76 : ProcessingActivity ⊏ₑ PrivacyProcessing
 st-16e319be5bf83cb9-426a57325aeb3d76 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Transfer Safe Guard: -}
 -- Aggregate Member : Transfer Safe Guard
 TransferSafeGuard : ClassOfClassOfIndividual
 TransferSafeGuard = ClassOfIndividual
+
+
+--  TransferSafeGuard is subTypeOf TransferSafeGuard
+st-1b0468f869f8552e-258c68065fd254de : TransferSafeGuard ⊏ₑ TransferSafeGuard
+st-1b0468f869f8552e-258c68065fd254de = polySubTypeOf-identity
 
 -- Membership relation
 1B0468F869F8558C :  Linkage ProcessingActivity TransferSafeGuard
@@ -52,12 +59,19 @@ transferSafeGuard = 1B0468F869F8558C  ∘  aggregationOfTransferSafeGuardTransfe
 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Business Processing Activity: 
 Any  human activity which, for a given purpose of the enterprise, manipulates personal data, including collection, use, recording, etc.
 -}
 -- Aggregate Member : Business Processing Activity
-BusinessProcessingActivity : ClassOfClassOfIndividual
-BusinessProcessingActivity = ClassOfIndividual
+BusinessProcessingActivity : ClassOfClassOfBoundedIndividual
+BusinessProcessingActivity = ClassOfBoundedIndividual
+
+
+
+--  BusinessProcessingActivity is subTypeOf BusinessProcess
+st-ade3b0115ede4055-57dfc52d550932ef : BusinessProcessingActivity ⊏ₑ BusinessProcess
+st-ade3b0115ede4055-57dfc52d550932ef = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfBusinessProcessingActivity :  Linkage ProcessingActivity BusinessProcessingActivity
@@ -77,12 +91,19 @@ businessProcessingActivity = membershipOfBusinessProcessingActivity  ∘  aggreg
 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- IT Processing Activity: 
 Any  IT activity which, for a given purpose of the enterprise, manipulates personal data, including collection, use, recording, etc.
 -}
 -- Aggregate Member : IT Processing Activity
-ITProcessingActivity : ClassOfClassOfIndividual
-ITProcessingActivity = ClassOfIndividual
+ITProcessingActivity : ClassOfClassOfBoundedIndividual
+ITProcessingActivity = ClassOfBoundedIndividual
+
+
+
+--  ITProcessingActivity is subTypeOf Application
+st-b13db4805ede3b79-bcebd8e9549144db : ITProcessingActivity ⊏ₑ Application
+st-b13db4805ede3b79-bcebd8e9549144db = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfITProcessingActivity :  Linkage ProcessingActivity ITProcessingActivity

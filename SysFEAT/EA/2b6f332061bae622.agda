@@ -27,17 +27,25 @@ BusinessResourceEcosystem = ClassOfBoundedIndividual
 st-2b6f332061bae622-f8e64b51621dd3f3 : BusinessResourceEcosystem ⊏ₑ ResourceOperatingEcosystem
 st-2b6f332061bae622-f8e64b51621dd3f3 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Realized Conceptual Environment: -}
 realizedConceptualEnvironment :  Linkage BusinessResourceEcosystem ConceptualEnvironment
 realizedConceptualEnvironment = make_subTypeOf "Realized Conceptual Environment" "Realized Conceptual Environment"
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Business Ecosystem Connection: -}
 -- Aggregate Member : Business Ecosystem Connection
 BusinessEcosystemConnection : ClassOfClassOfIndividual
 BusinessEcosystemConnection = ClassOfIndividual
+
+
+--  BusinessEcosystemConnection is subTypeOf EnterpriseEcosystemConnection
+st-f8e7db56621f0cef-f8e7b91f621f01e9 : BusinessEcosystemConnection ⊏ₑ EnterpriseEcosystemConnection
+st-f8e7db56621f0cef-f8e7b91f621f01e9 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfBusinessEcosystemConnection :  Linkage BusinessResourceEcosystem BusinessEcosystemConnection
@@ -55,14 +63,23 @@ aggregationOfOperatingConnectionBusinessEcosystemConnection = make_Relation "Ope
 businessEcosystemConnection : Linkage BusinessResourceEcosystem OperatingConnection
 businessEcosystemConnection = membershipOfBusinessEcosystemConnection  ∘  aggregationOfOperatingConnectionBusinessEcosystemConnection
 
-postulate -- businessEcosystemConnection is subTypeOf enterpriseEcosystemConnection
-  st-f8e7db56621f0cef-f8e7b91f621f01e9  : businessEcosystemConnection   ⊏⋆ᵣ  enterpriseEcosystemConnection 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Resource Ecosystem Part: -}
 -- Aggregate Member : Resource Ecosystem Part
-ResourceEcosystemPart : ClassOfClassOfIndividual
-ResourceEcosystemPart = ClassOfIndividual
+ResourceEcosystemPart : ClassOfClassOfBoundedIndividual
+ResourceEcosystemPart = ClassOfBoundedIndividual
+
+
+
+--  ResourceEcosystemPart is subTypeOf EnterpriseEcosystemPart
+st-95129626620b544c-f8e6b83c621fffe6 : ResourceEcosystemPart ⊏ₑ EnterpriseEcosystemPart
+st-95129626620b544c-f8e6b83c621fffe6 = polySubTypeOf-identity
+
+--  ResourceEcosystemPart is subTypeOf BusinessOperatingAsset
+st-95129626620b544c-62466ea661b80d09 : ResourceEcosystemPart ⊏ₑ BusinessOperatingAsset
+st-95129626620b544c-62466ea661b80d09 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfResourceEcosystemPart :  Linkage BusinessResourceEcosystem ResourceEcosystemPart
@@ -80,6 +97,4 @@ aggregationOfBusinessOperatingAssetResourceEcosystemPart = make_Relation "Busine
 resourceEcosystemPart : Linkage BusinessResourceEcosystem BusinessOperatingAsset
 resourceEcosystemPart = membershipOfResourceEcosystemPart  ∘  aggregationOfBusinessOperatingAssetResourceEcosystemPart
 
-postulate -- resourceEcosystemPart is subTypeOf enterpriseEcosystemPart
-  st-95129626620b544c-f8e6b83c621fffe6  : resourceEcosystemPart   ⊏⋆ᵣ  enterpriseEcosystemPart 
 

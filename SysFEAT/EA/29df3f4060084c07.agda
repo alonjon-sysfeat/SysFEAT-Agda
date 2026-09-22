@@ -30,6 +30,7 @@ open import SysFEAT.SOF.0eb95f356855bf94 public -- Asset Block
 ManagementSystem : ClassOfBoundedIndividual
 ManagementSystem = BoundedIndividual
 
+
 --  ManagementSystem is subTypeOf ManagementInitiative
 st-29df3f4060084c07-05201b936647570a : ManagementSystem ⊏ₑ ManagementInitiative
 st-29df3f4060084c07-05201b936647570a = polySubTypeOf-identity
@@ -38,29 +39,34 @@ st-29df3f4060084c07-05201b936647570a = polySubTypeOf-identity
 st-29df3f4060084c07-d321c226601262ae : ManagementSystem ⊏ₑ EnduringInitiative
 st-29df3f4060084c07-d321c226601262ae = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Concerned Organization: -}
 concernedOrganization :  Linkage ManagementSystem Organization
 concernedOrganization = make_holonymyRelation "Concerned Organization" "Concerned Organization"
 
 postulate -- concernedOrganization is subTypeOf steeringAuthority
-  st-391204785f4eed0a-b2f2d64d5f47e364  : concernedOrganization   ⊏⋆ᵣ  steeringAuthority 
+  st-391204785f4eed0a-b2f2d64d5f47e364  : concernedOrganization  ⊏⋆ᵣ  steeringAuthority
 
+-- -------------------------------------------------------------------------------------------- 
 {- Dependent Portfolio: -}
 dependentPortfolio :  Linkage ManagementSystem ManagementSystem
 dependentPortfolio = make_holonymyRelation "Dependent Portfolio" "Dependent Portfolio"
 
 postulate -- dependentPortfolio is subTypeOf dependentInitiative
-  st-5b7a0e2661f56423-5b7a0d6361f5633f  : dependentPortfolio   ⊏⋆ᵣ  dependentInitiative 
+  st-5b7a0e2661f56423-5b7a0d6361f5633f  : dependentPortfolio  ⊏⋆ᵣ  dependentInitiative
 
+-- -------------------------------------------------------------------------------------------- 
 {- Sub-Management System: -}
 subManagementSystem :  Linkage ManagementSystem ManagementSystem
 subManagementSystem = make_holonymyRelation "Sub-Management System" "Sub-Management System"
 
 postulate -- subManagementSystem is subTypeOf subInitiative
-  st-5b7a0f9561f565c4-5b7a0ecf61f5650a  : subManagementSystem   ⊏⋆ᵣ  subInitiative 
+  st-5b7a0f9561f565c4-5b7a0ecf61f5650a  : subManagementSystem  ⊏⋆ᵣ  subInitiative
 
+-- -------------------------------------------------------------------------------------------- 
 {- /Management Roadmap: 
 Set of all Management Stages of a Management System that , in conjunction with coordinating initiative milestones, establishes the roadmap for the Functional Assets under its supervision.
 -}
@@ -68,13 +74,19 @@ Set of all Management Stages of a Management System that , in conjunction with c
 /ManagementRoadmap = make_holonymyRelation "/Management Roadmap" "/Management Roadmap"
 
 postulate -- /ManagementRoadmap is subTypeOf roadmap
-  st-612367e761dd7a42-29df685860086c52  : /ManagementRoadmap   ⊏⋆ᵣ  roadmap 
+  st-612367e761dd7a42-29df685860086c52  : /ManagementRoadmap  ⊏⋆ᵣ  roadmap
 
+-- -------------------------------------------------------------------------------------------- 
 {- Management System Subject: -}
 -- Aggregate Member : Management System Subject
-ManagementSystemSubject : ∀ (u : Level) → ClassOfMixedOrderEntity u
-ManagementSystemSubject u = AggregateMember u
+ManagementSystemSubject : ∀ (u : Level) → ClassOfMixedOrderEntity u 
+ManagementSystemSubject u  = MixedOrderEntity u 
 
+
+
+--  ManagementSystemSubject is subTypeOf InitiativeSubject
+st-6bf17ffc68598c26-0f642fd06859b0d5 : ∀ {u v} → (ManagementSystemSubject u) ⊏⋆ₑ (InitiativeSubject v)
+st-6bf17ffc68598c26-0f642fd06859b0d5 = trivialPolySubTypeOfEntity
 
 -- Membership relation
 membershipOfManagementSystemSubject : ∀ {u} →  Linkage ManagementSystem (ManagementSystemSubject u)
@@ -92,6 +104,4 @@ aggregationOfAssetBlockManagementSystemSubject = make_Relation "AssetBlock aggre
 managementSystemSubject : ∀ {u w} → Linkage ManagementSystem (AssetBlock w)
 managementSystemSubject {u} {w}  = membershipOfManagementSystemSubject {u}   ∘  aggregationOfAssetBlockManagementSystemSubject {w} 
 
-postulate -- managementSystemSubject is subTypeOf initiativeSubject
-  st-6bf17ffc68598c26-0f642fd06859b0d5  : managementSystemSubject {lzero}  ⊏⋆ᵣ  initiativeSubject  {lzero}
 

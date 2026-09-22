@@ -15,13 +15,14 @@ Documentation : https://framework.sysfeat.com/pages/67d36e746aa44590.htm
 module SysFEAT.EA.67d36e746aa44590 where -- ========== Term
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.c463c6106aa23c35 public -- First Order Class
+open import SysFEAT.UpperOntology.3aca55ee6aa645c2 public -- Class of Abstract Entity
 
-Term : ClassOfClassOfIndividual
-Term = ClassOfIndividual
+Term : ClassOfClassOfAbstractEntity
+Term = ClassOfAbstractEntity
 
---  Term is subTypeOf FirstOrderClass
-st-67d36e746aa44590-c463c6106aa23c35 : Term ⊏ₑ FirstOrderClass
-st-67d36e746aa44590-c463c6106aa23c35 = polySubTypeOf-identity
+
+--  Term is subTypeOf ClassOfAbstractEntity
+st-67d36e746aa44590-3aca55ee6aa645c2 : Term ⊏ₑ ClassOfAbstractEntity
+st-67d36e746aa44590-3aca55ee6aa645c2 = polySubTypeOf-identity
 
 

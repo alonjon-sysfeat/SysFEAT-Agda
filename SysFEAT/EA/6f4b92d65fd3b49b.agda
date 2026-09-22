@@ -24,6 +24,7 @@ open import SysFEAT.EA.08d181af678a2d51 public -- Customer
 BusinessEnvironment : ClassOfClassOfBoundedIndividual
 BusinessEnvironment = ClassOfBoundedIndividual
 
+
 --  BusinessEnvironment is subTypeOf BusinessEcosystem
 st-6f4b92d65fd3b49b-2b705f2661ba04de : BusinessEnvironment ⊏ₑ BusinessEcosystem
 st-6f4b92d65fd3b49b-2b705f2661ba04de = polySubTypeOf-identity
@@ -32,19 +33,31 @@ st-6f4b92d65fd3b49b-2b705f2661ba04de = polySubTypeOf-identity
 st-6f4b92d65fd3b49b-2b6f33a561bae7ab : BusinessEnvironment ⊏ₑ BusinessAgentEnvironment
 st-6f4b92d65fd3b49b-2b6f33a561bae7ab = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Business Environment: -}
 specializedBusinessEnvironment :  Linkage BusinessEnvironment BusinessEnvironment
 specializedBusinessEnvironment = make_subTypeOf "Specialized Business Environment" "Specialized Business Environment"
 
 postulate -- specializedBusinessEnvironment is subTypeOf specializedResourceAgentEnvironment
-  st-325a37b166f348b0-325a376966f34463  : specializedBusinessEnvironment   ⊏⋆ᵣ  specializedResourceAgentEnvironment 
+  st-325a37b166f348b0-325a376966f34463  : specializedBusinessEnvironment  ⊏⋆ᵣ  specializedResourceAgentEnvironment
 
+-- -------------------------------------------------------------------------------------------- 
 {- Operations Service Channel: -}
 -- Aggregate Member : Operations Service Channel
 OperationsServiceChannel : ClassOfClassOfIndividual
 OperationsServiceChannel = ClassOfIndividual
+
+
+--  OperationsServiceChannel is subTypeOf BusinessServiceChannel
+st-6f4b99fb5fd3c543-2b6f436f61bafb0b : OperationsServiceChannel ⊏ₑ BusinessServiceChannel
+st-6f4b99fb5fd3c543-2b6f436f61bafb0b = polySubTypeOf-identity
+
+--  OperationsServiceChannel is subTypeOf BusinessEcosystemConnection
+st-6f4b99fb5fd3c543-a813ce0063567e9b : OperationsServiceChannel ⊏ₑ BusinessEcosystemConnection
+st-6f4b99fb5fd3c543-a813ce0063567e9b = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfOperationsServiceChannel :  Linkage BusinessEnvironment OperationsServiceChannel
@@ -62,16 +75,27 @@ aggregationOfBusinessServiceInterfaceOperationsServiceChannel = make_Relation "B
 operationsServiceChannel : Linkage BusinessEnvironment BusinessServiceInterface
 operationsServiceChannel = membershipOfOperationsServiceChannel  ∘  aggregationOfBusinessServiceInterfaceOperationsServiceChannel
 
-postulate -- operationsServiceChannel is subTypeOf businessServiceChannel
-  st-6f4b99fb5fd3c543-2b6f436f61bafb0b  : operationsServiceChannel   ⊏⋆ᵣ  businessServiceChannel 
-postulate -- operationsServiceChannel is subTypeOf businessEcosystemConnection
-  st-6f4b99fb5fd3c543-a813ce0063567e9b  : operationsServiceChannel   ⊏⋆ᵣ  businessEcosystemConnection 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Partner Org-Unit: -}
 -- Aggregate Member : Partner Org-Unit
-PartnerOrgUnit : ClassOfClassOfIndividual
-PartnerOrgUnit = ClassOfIndividual
+PartnerOrgUnit : ClassOfClassOfBoundedIndividual
+PartnerOrgUnit = ClassOfBoundedIndividual
+
+
+
+--  PartnerOrgUnit is subTypeOf ParticipantDepartment
+st-0a2620c6601df71a-6f4b989c5fd3c371 : PartnerOrgUnit ⊏ₑ ParticipantDepartment
+st-0a2620c6601df71a-6f4b989c5fd3c371 = polySubTypeOf-identity
+
+--  PartnerOrgUnit is subTypeOf PartnerResourceAgent
+st-0a2620c6601df71a-2b6f34c861bae941 : PartnerOrgUnit ⊏ₑ PartnerResourceAgent
+st-0a2620c6601df71a-2b6f34c861bae941 = polySubTypeOf-identity
+
+--  PartnerOrgUnit is subTypeOf DepartmentType
+st-0a2620c6601df71a-7c408aa155270eea : PartnerOrgUnit ⊏ₑ DepartmentType
+st-0a2620c6601df71a-7c408aa155270eea = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfPartnerOrgUnit :  Linkage BusinessEnvironment PartnerOrgUnit
@@ -89,16 +113,23 @@ aggregationOfDepartmentTypePartnerOrgUnit = make_Relation "DepartmentType aggreg
 partnerOrgUnit : Linkage BusinessEnvironment DepartmentType
 partnerOrgUnit = membershipOfPartnerOrgUnit  ∘  aggregationOfDepartmentTypePartnerOrgUnit
 
-postulate -- partnerOrgUnit is subTypeOf participantDepartment
-  st-0a2620c6601df71a-6f4b989c5fd3c371  : partnerOrgUnit   ⊏⋆ᵣ  participantDepartment 
-postulate -- partnerOrgUnit is subTypeOf partnerResourceAgent
-  st-0a2620c6601df71a-2b6f34c861bae941  : partnerOrgUnit   ⊏⋆ᵣ  partnerResourceAgent 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Served customer: -}
 -- Aggregate Member : Served customer
-Servedcustomer : ClassOfClassOfIndividual
-Servedcustomer = ClassOfIndividual
+Servedcustomer : ClassOfClassOfBoundedIndividual
+Servedcustomer = ClassOfBoundedIndividual
+
+
+
+--  Servedcustomer is subTypeOf ParticipantDepartment
+st-4666536c64088070-6f4b989c5fd3c371 : Servedcustomer ⊏ₑ ParticipantDepartment
+st-4666536c64088070-6f4b989c5fd3c371 = polySubTypeOf-identity
+
+--  Servedcustomer is subTypeOf Customer
+st-4666536c64088070-08d181af678a2d51 : Servedcustomer ⊏ₑ Customer
+st-4666536c64088070-08d181af678a2d51 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfServedcustomer :  Linkage BusinessEnvironment Servedcustomer
@@ -116,14 +147,27 @@ aggregationOfCustomerServedcustomer = make_Relation "Customer aggregation" "aggr
 servedcustomer : Linkage BusinessEnvironment Customer
 servedcustomer = membershipOfServedcustomer  ∘  aggregationOfCustomerServedcustomer
 
-postulate -- servedcustomer is subTypeOf participantDepartment
-  st-4666536c64088070-6f4b989c5fd3c371  : servedcustomer   ⊏⋆ᵣ  participantDepartment 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Subject-Department: -}
 -- Aggregate Member : Subject-Department
-SubjectDepartment : ClassOfClassOfIndividual
-SubjectDepartment = ClassOfIndividual
+SubjectDepartment : ClassOfClassOfBoundedIndividual
+SubjectDepartment = ClassOfBoundedIndividual
+
+
+
+--  SubjectDepartment is subTypeOf SubjectResourceAgent
+st-6f4b98595fd3c2be-2b6f350061baea62 : SubjectDepartment ⊏ₑ SubjectResourceAgent
+st-6f4b98595fd3c2be-2b6f350061baea62 = polySubTypeOf-identity
+
+--  SubjectDepartment is subTypeOf ParticipantDepartment
+st-6f4b98595fd3c2be-6f4b989c5fd3c371 : SubjectDepartment ⊏ₑ ParticipantDepartment
+st-6f4b98595fd3c2be-6f4b989c5fd3c371 = polySubTypeOf-identity
+
+--  SubjectDepartment is subTypeOf DepartmentType
+st-6f4b98595fd3c2be-7c408aa155270eea : SubjectDepartment ⊏ₑ DepartmentType
+st-6f4b98595fd3c2be-7c408aa155270eea = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSubjectDepartment :  Linkage BusinessEnvironment SubjectDepartment
@@ -141,8 +185,4 @@ aggregationOfDepartmentTypeSubjectDepartment = make_Relation "DepartmentType agg
 subjectDepartment : Linkage BusinessEnvironment DepartmentType
 subjectDepartment = membershipOfSubjectDepartment  ∘  aggregationOfDepartmentTypeSubjectDepartment
 
-postulate -- subjectDepartment is subTypeOf subjectResourceAgent
-  st-6f4b98595fd3c2be-2b6f350061baea62  : subjectDepartment   ⊏⋆ᵣ  subjectResourceAgent 
-postulate -- subjectDepartment is subTypeOf participantDepartment
-  st-6f4b98595fd3c2be-6f4b989c5fd3c371  : subjectDepartment   ⊏⋆ᵣ  participantDepartment 
 

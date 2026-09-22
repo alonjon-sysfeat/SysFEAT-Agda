@@ -17,11 +17,13 @@ module SysFEAT.EA.258c66a25fd25310 where -- ========== Person Right
 open import Agda.Primitive
 open import SysFEAT.SOF.515c6b23689335c3 public -- Directive
 
-PersonRight : ClassOfClassOfBoundedIndividual
-PersonRight = ClassOfBoundedIndividual
+PersonRight : PropertyType
+PersonRight = Property
+
 
 --  PersonRight is subTypeOf Directive
 st-258c66a25fd25310-515c6b23689335c3 : PersonRight ⊏ₑ Directive
 st-258c66a25fd25310-515c6b23689335c3 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

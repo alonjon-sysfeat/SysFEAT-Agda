@@ -24,4 +24,5 @@ ProcessFamily = SecondOrderClass
 st-82a9892166ec3b89-f69620466a0f9c2f : ProcessFamily ⊏ₐₑ (AssetCategory (lsuc(lsuc(lzero))))
 st-82a9892166ec3b89-f69620466a0f9c2f = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

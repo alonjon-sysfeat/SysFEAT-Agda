@@ -20,15 +20,18 @@ open import Agda.Primitive
 open import SysFEAT.SOF.4b94594b68a478f2 public -- Policy Framework
 open import SysFEAT.EA.4b947d2068a49dbb public -- Regulatory Asset
 
-RegulatoryFramework : ∀ (u : Level) → ClassOfMixedOrderEntity u
-RegulatoryFramework u = MixedOrderEntity u
+RegulatoryFramework : ∀ (u : Level) → ClassOfOrderedEntity u 
+RegulatoryFramework u  = OrderedEntity u 
+
 
 --  RegulatoryFramework is subTypeOf PolicyFramework
 st-4b94737d68a48a33-4b94594b68a478f2 : ∀ {u v} → (RegulatoryFramework u) ⊏⋆ₑ (PolicyFramework v)
 st-4b94737d68a48a33-4b94594b68a478f2 = trivialPolySubTypeOfEntity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Packaged Regulatory Asset: -}
 packagedRegulatoryAsset : ∀ {u v} →  Linkage (RegulatoryFramework u) (RegulatoryAsset v)
 packagedRegulatoryAsset = make_nestingRelation "Packaged Regulatory Asset" "Packaged Regulatory Asset"

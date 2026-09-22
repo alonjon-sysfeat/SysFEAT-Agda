@@ -20,8 +20,9 @@ open import Agda.Primitive
 open import SysFEAT.EA.6a70b9f6678763db public -- Business Asset
 open import SysFEAT.SOF.24ae31d75ed1c747 public -- Behavioral Event
 
-BusinessEvent : ClassOfClassOfIndividual
-BusinessEvent = ClassOfIndividual
+BusinessEvent : ClassOfClassOfBoundedIndividual
+BusinessEvent = ClassOfBoundedIndividual
+
 
 --  BusinessEvent is subTypeOf BusinessAsset
 st-0185cc626221bb37-6a70b9f6678763db : BusinessEvent ⊏ₑ BusinessAsset
@@ -31,4 +32,5 @@ st-0185cc626221bb37-6a70b9f6678763db = polySubTypeOf-identity
 st-0185cc626221bb37-24ae31d75ed1c747 : BusinessEvent ⊏ₑ BehavioralEvent
 st-0185cc626221bb37-24ae31d75ed1c747 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

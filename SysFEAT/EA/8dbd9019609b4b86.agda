@@ -22,17 +22,21 @@ open import SysFEAT.EA.2cff31375eda90bd public -- Process Family
 BusinessImpactAnalysis : ClassOfBoundedIndividual
 BusinessImpactAnalysis = BoundedIndividual
 
+
 --  BusinessImpactAnalysis is subTypeOf GovernanceActivity
 st-8dbd9019609b4b86-1737b76a5fe28204 : BusinessImpactAnalysis ⊏ₑ GovernanceActivity
 st-8dbd9019609b4b86-1737b76a5fe28204 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Portoflio Scope: -}
 portOflioScope :  Linkage BusinessImpactAnalysis BCMSystem
 portOflioScope = make_holonymyRelation "Portoflio Scope" "Portoflio Scope"
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Processs Analyis Scope: -}
 processsAnalyisScope :  Linkage BusinessImpactAnalysis ProcessFamily
 processsAnalyisScope = make_Relation "Processs Analyis Scope" "Processs Analyis Scope"

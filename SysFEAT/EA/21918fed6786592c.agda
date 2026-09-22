@@ -21,6 +21,7 @@ open import SysFEAT.EA.cb94ec53681855c2 public -- Conceptual Functional Asset
 ConceptualEvent : ClassOfClassOfIndividual
 ConceptualEvent = ClassOfIndividual
 
+
 --  ConceptualEvent is subTypeOf BehavioralEvent
 st-21918fed6786592c-24ae31d75ed1c747 : ConceptualEvent ⊏ₑ BehavioralEvent
 st-21918fed6786592c-24ae31d75ed1c747 = polySubTypeOf-identity
@@ -29,4 +30,5 @@ st-21918fed6786592c-24ae31d75ed1c747 = polySubTypeOf-identity
 st-21918fed6786592c-cb94ec53681855c2 : ConceptualEvent ⊏ₑ ConceptualFunctionalAsset
 st-21918fed6786592c-cb94ec53681855c2 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

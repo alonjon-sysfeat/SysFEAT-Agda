@@ -23,21 +23,25 @@ open import SysFEAT.SOF.515c6a856893324e public -- Asset Property
 open import SysFEAT.EA.dd268f2868a08150 public -- Business Capability
 open import SysFEAT.SOF.21ed231d689c0679 public -- Condition Property
 
-ValueProposition : PropertyType
-ValueProposition = ClassOfProperty
+ValueProposition : AssetPropertyType
+ValueProposition = AssetProperty
+
 
 --  ValueProposition is subTypeOf AssetProperty
 st-21ed240a689c08df-515c6a856893324e : ValueProposition ⊏ₑ AssetProperty
 st-21ed240a689c08df-515c6a856893324e = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Functional Value: 
 The set of Business Capabilitys that expresses the functional value of a Value Proposition.
 -}
 -- Aggregate Member : Functional Value
 FunctionalValue : ClassOfClassOfIndividual
 FunctionalValue = ClassOfIndividual
+
 
 -- Membership relation
 membershipOfFunctionalValue :  Linkage ValueProposition FunctionalValue
@@ -57,12 +61,14 @@ functionalValue = membershipOfFunctionalValue  ∘  aggregationOfBusinessCapabil
 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Non Functional Value: 
 The set of Condition Propertys that expresses the non-functional characteristics of a Value Proposition.
 -}
 -- Aggregate Member : Non Functional Value
 NonFunctionalValue : ClassOfClassOfIndividual
 NonFunctionalValue = ClassOfIndividual
+
 
 -- Membership relation
 membershipOfNonFunctionalValue :  Linkage ValueProposition NonFunctionalValue

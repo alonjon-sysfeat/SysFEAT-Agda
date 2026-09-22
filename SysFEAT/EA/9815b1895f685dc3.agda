@@ -17,6 +17,6 @@ module SysFEAT.EA.9815b1895f685dc3 where -- ========== Contextualized Targeted T
 open import Agda.Primitive
 
 ContextualizedTargetedThreshold : PropertyType
-ContextualizedTargetedThreshold = ClassOfProperty
+ContextualizedTargetedThreshold = Property
 
 

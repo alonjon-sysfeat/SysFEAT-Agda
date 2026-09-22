@@ -26,42 +26,54 @@ open import SysFEAT.EA.98159f6b5f682d1e public -- Data Quality Policy
 DataCatalog : ClassOfBoundedIndividual
 DataCatalog = BoundedIndividual
 
+
 --  DataCatalog is subTypeOf AssuranceSystem
 st-9152d8875ed741ef-07ca18d25dd85477 : DataCatalog ⊏ₑ AssuranceSystem
 st-9152d8875ed741ef-07ca18d25dd85477 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Owned Data Resource: -}
 ownedDataResource :  Linkage DataCatalog DataAssuranceInstrument
 ownedDataResource = make_holonymyRelation "Owned Data Resource" "Owned Data Resource"
 
 postulate -- ownedDataResource is subTypeOf packagedAssuranceInstrument
-  st-fe6323de6181763a-561f36fc68d68770  : ownedDataResource   ⊏⋆ᵣ  packagedAssuranceInstrument 
+  st-fe6323de6181763a-561f36fc68d68770  : ownedDataResource  ⊏⋆ᵣ  packagedAssuranceInstrument
 
+-- -------------------------------------------------------------------------------------------- 
 {- Managed Data Store: -}
 managedDataStore :  Linkage DataCatalog DeployedDataStore
 managedDataStore = make_holonymyRelation "Managed Data Store" "Managed Data Store"
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Business Concept Scope: -}
 businessConceptScope :  Linkage DataCatalog ConceptDomainMap
 businessConceptScope = make_Relation "Business Concept Scope" "Business Concept Scope"
 
 postulate -- businessConceptScope is subTypeOf functionalScope
-  st-d326dc90617a5e08-01f1214c689b6e0f  : businessConceptScope   ⊏⋆ᵣ  functionalScope 
+  st-d326dc90617a5e08-01f1214c689b6e0f  : businessConceptScope  ⊏⋆ᵣ  functionalScope
 
+-- -------------------------------------------------------------------------------------------- 
 {- Owned Data Assurance Case: -}
 ownedDataAssuranceCase :  Linkage DataCatalog DataAssuranceCase
 ownedDataAssuranceCase = make_Relation "Owned Data Assurance Case" "Owned Data Assurance Case"
 
 postulate -- ownedDataAssuranceCase is subTypeOf ownedAssuranceCase
-  st-b90ae7db600e5e7a-0b950f8868e54f9f  : ownedDataAssuranceCase   ⊏⋆ᵣ  ownedAssuranceCase 
+  st-b90ae7db600e5e7a-0b950f8868e54f9f  : ownedDataAssuranceCase  ⊏⋆ᵣ  ownedAssuranceCase
 
+-- -------------------------------------------------------------------------------------------- 
 {- Enforced Policy: -}
 -- Aggregate Member : Enforced Policy
 EnforcedPolicy : ClassOfClassOfIndividual
 EnforcedPolicy = ClassOfIndividual
+
+
+--  EnforcedPolicy withAspect ManagementSystemSubject
+st-d330da24689a1b3b-6bf17ffc68598c26 : EnforcedPolicy ⊏ₐₑ (ManagementSystemSubject (lsuc(lzero)))
+st-d330da24689a1b3b-6bf17ffc68598c26 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfEnforcedPolicy :  Linkage DataCatalog EnforcedPolicy
@@ -79,14 +91,14 @@ aggregationOfPolicyEnforcedPolicy = make_Relation "Policy aggregation" "aggregat
 enforcedPolicy : Linkage DataCatalog Policy
 enforcedPolicy = membershipOfEnforcedPolicy  ∘  aggregationOfPolicyEnforcedPolicy
 
-postulate -- enforcedPolicy is subTypeOf managementSystemSubject
-  st-d330da24689a1b3b-6bf17ffc68598c26  : enforcedPolicy   ⊏⋆ᵣ  managementSystemSubject  {lzero}
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Controled Data Policy: -}
 -- Aggregate Member : Controled Data Policy
 ControledDataPolicy : ClassOfClassOfIndividual
 ControledDataPolicy = ClassOfIndividual
+
 
 -- Membership relation
 membershipOfControledDataPolicy :  Linkage DataCatalog ControledDataPolicy

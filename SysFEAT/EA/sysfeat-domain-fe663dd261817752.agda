@@ -13,11 +13,9 @@ Documentation : https://framework.sysfeat.com/pages/fe663dd261817752.htm
 {-# OPTIONS --cubical --guardedness #-}
 module SysFEAT.EA.sysfeat-domain-fe663dd261817752 where -- ========== Operational Assurance
 
-open import SysFEAT.SOF.sysfeat-domain-02f70fdc600f4179 public -- Policies
+open import SysFEAT.SOF.sysfeat-domain-02f70fdc600f4179 public -- Functional Asset and Operating Constraints
 open import SysFEAT.EA.sysfeat-domain-e2ef086d62147802 public -- SOF - Resource System Operating Pattern (R-SOF)
 open import SysFEAT.EA.sysfeat-domain-1ce356355c48c0e2 public -- People & Accountability
-open import SysFEAT.SOF.sysfeat-domain-02af0a4b5a182417 public -- System Operating Framework - SOF
-open import SysFEAT.SOF.sysfeat-domain-427c1bdb64b5d1c7 public -- Risk & Threat
 open import SysFEAT.SOF.sysfeat-domain-af4db12d62993434 public -- Model Block Packaging
 open import SysFEAT.SOF.sysfeat-domain-69346af86005efa9 public -- Initiative and Transformation Pattern
 open import SysFEAT.EA.sysfeat-domain-76147feb6182230a public -- Enterprise Architecting & Management

@@ -26,6 +26,7 @@ open import SysFEAT.EA.7d5286635eae7273 public -- Logical Data Property
 LogicalDataEntity : ClassOfClassOfBoundedIndividual
 LogicalDataEntity = ClassOfBoundedIndividual
 
+
 --  LogicalDataEntity is subTypeOf LogicalDataElement
 st-4619527e560d45eb-2b5858b85eec51d9 : LogicalDataEntity ⊏ₑ LogicalDataElement
 st-4619527e560d45eb-2b5858b85eec51d9 = polySubTypeOf-identity
@@ -34,23 +35,36 @@ st-4619527e560d45eb-2b5858b85eec51d9 = polySubTypeOf-identity
 st-4619527e560d45eb-325c32fc5eb02d02 : LogicalDataEntity ⊏ₑ DataEntity
 st-4619527e560d45eb-325c32fc5eb02d02 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Logical Entity: -}
 specializedLogicalEntity :  Linkage LogicalDataEntity LogicalDataEntity
 specializedLogicalEntity = make_subTypeOf "Specialized Logical Entity" "Specialized Logical Entity"
 
 postulate -- specializedLogicalEntity is subTypeOf specializedDataEntity
-  st-325a39d866f35355-325a380d66f350dd  : specializedLogicalEntity   ⊏⋆ᵣ  specializedDataEntity 
+  st-325a39d866f35355-325a380d66f350dd  : specializedLogicalEntity  ⊏⋆ᵣ  specializedDataEntity
 postulate -- specializedLogicalEntity is subTypeOf specializedDataObject
-  st-325a39d866f35355-325a380d66f3515e  : specializedLogicalEntity   ⊏⋆ᵣ  specializedDataObject 
+  st-325a39d866f35355-325a380d66f3515e  : specializedLogicalEntity  ⊏⋆ᵣ  specializedDataObject
 
+-- -------------------------------------------------------------------------------------------- 
 {- Attribute: 
 An Attribute is a value property of a Logical Data Entity.
 -}
 -- Aggregate Member : Attribute
-Attribute : ClassOfClassOfIndividual
-Attribute = ClassOfIndividual
+Attribute : ClassOfClassOfBoundedIndividual
+Attribute = ClassOfBoundedIndividual
+
+
+
+--  Attribute is subTypeOf Attribute
+st-f4be36695ee1c7fa-8f1c9ad668ca8db4 : Attribute ⊏ₑ Attribute
+st-f4be36695ee1c7fa-8f1c9ad668ca8db4 = polySubTypeOf-identity
+
+--  Attribute is subTypeOf LogicalDataProperty
+st-f4be36695ee1c7fa-7d5286635eae7273 : Attribute ⊏ₑ LogicalDataProperty
+st-f4be36695ee1c7fa-7d5286635eae7273 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfAttribute :  Linkage LogicalDataEntity Attribute
@@ -68,16 +82,29 @@ aggregationOfLogicalDataPropertyAttribute = make_Relation "LogicalDataProperty a
 attribute : Linkage LogicalDataEntity LogicalDataProperty
 attribute = membershipOfAttribute  ∘  aggregationOfLogicalDataPropertyAttribute
 
-postulate -- attribute is subTypeOf attribute
-  st-f4be36695ee1c7fa-8f1c9ad668ca8db4  : attribute   ⊏⋆ᵣ  attribute 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Logical Relationship: 
 A part of a class, a component, etc. or a role of a collaboration.
 -}
 -- Aggregate Member : Logical Relationship
-LogicalRelationship : ClassOfClassOfIndividual
-LogicalRelationship = ClassOfIndividual
+LogicalRelationship : ClassOfClassOfBoundedIndividual
+LogicalRelationship = ClassOfBoundedIndividual
+
+
+
+--  LogicalRelationship is subTypeOf LogicalDataMember
+st-f4be36b65ee1c923-e7e3fa0a5fbb0ddb : LogicalRelationship ⊏ₑ LogicalDataMember
+st-f4be36b65ee1c923-e7e3fa0a5fbb0ddb = polySubTypeOf-identity
+
+--  LogicalRelationship is subTypeOf Relationship
+st-f4be36b65ee1c923-b6e3cc7a5fbb6878 : LogicalRelationship ⊏ₑ Relationship
+st-f4be36b65ee1c923-b6e3cc7a5fbb6878 = polySubTypeOf-identity
+
+--  LogicalRelationship is subTypeOf LogicalDataEntity
+st-f4be36b65ee1c923-4619527e560d45eb : LogicalRelationship ⊏ₑ LogicalDataEntity
+st-f4be36b65ee1c923-4619527e560d45eb = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfLogicalRelationship :  Linkage LogicalDataEntity LogicalRelationship
@@ -95,8 +122,4 @@ aggregationOfLogicalDataEntityLogicalRelationship = make_Relation "LogicalDataEn
 logicalRelationship : Linkage LogicalDataEntity LogicalDataEntity
 logicalRelationship = membershipOfLogicalRelationship  ∘  aggregationOfLogicalDataEntityLogicalRelationship
 
-postulate -- logicalRelationship is subTypeOf logicalDataMember
-  st-f4be36b65ee1c923-e7e3fa0a5fbb0ddb  : logicalRelationship   ⊏⋆ᵣ  logicalDataMember 
-postulate -- logicalRelationship is subTypeOf relationship
-  st-f4be36b65ee1c923-b6e3cc7a5fbb6878  : logicalRelationship   ⊏⋆ᵣ  relationship 
 

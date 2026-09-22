@@ -30,6 +30,7 @@ open import SysFEAT.EA.25c09cb461e2efd3 public -- Software System Scenario
 BusinessSOftwareSystem : ClassOfClassOfBoundedIndividual
 BusinessSOftwareSystem = ClassOfBoundedIndividual
 
+
 --  BusinessSOftwareSystem is subTypeOf BusinessSystem
 st-d6cd02865ab966e8-278675d65b252f4d : BusinessSOftwareSystem ⊏ₑ BusinessSystem
 st-d6cd02865ab966e8-278675d65b252f4d = polySubTypeOf-identity
@@ -38,26 +39,35 @@ st-d6cd02865ab966e8-278675d65b252f4d = polySubTypeOf-identity
 st-d6cd02865ab966e8-ffdf5e1f68608352 : BusinessSOftwareSystem ⊏ₑ SOftwareSystemCategory
 st-d6cd02865ab966e8-ffdf5e1f68608352 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Software System: -}
 specializedSOftwareSystem :  Linkage BusinessSOftwareSystem BusinessSOftwareSystem
 specializedSOftwareSystem = make_subTypeOf "Specialized Software System" "Specialized Software System"
 
 postulate -- specializedSOftwareSystem is subTypeOf specializedBusinessSystem
-  st-325a376566f342e8-325a375d66f34096  : specializedSOftwareSystem   ⊏⋆ᵣ  specializedBusinessSystem 
+  st-325a376566f342e8-325a375d66f34096  : specializedSOftwareSystem  ⊏⋆ᵣ  specializedBusinessSystem
 
+-- -------------------------------------------------------------------------------------------- 
 {- Realized Logical System: -}
 realizedLogicalSystem :  Linkage BusinessSOftwareSystem LogicalSOftwareSystem
 realizedLogicalSystem = make_subTypeOf "Realized Logical System" "Realized Logical System"
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Software Connection: 
 An Interaction represents a contract between entities in a specific context inside or outside a company. These entities can be organizational units, activities, or processes.The content of this contract is described in a protocol.
 -}
 -- Aggregate Member : Software Connection
 SOftwareConnection : ClassOfClassOfIndividual
 SOftwareConnection = ClassOfIndividual
+
+
+--  SOftwareConnection is subTypeOf BusinessConnection
+st-9dcea1235ec76646-1f942587622764f8 : SOftwareConnection ⊏ₑ BusinessConnection
+st-9dcea1235ec76646-1f942587622764f8 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSOftwareConnection :  Linkage BusinessSOftwareSystem SOftwareConnection
@@ -75,16 +85,25 @@ aggregationOfApplicationInterfaceSOftwareConnection = make_Relation "Application
 sOftwareConnection : Linkage BusinessSOftwareSystem ApplicationInterface
 sOftwareConnection = membershipOfSOftwareConnection  ∘  aggregationOfApplicationInterfaceSOftwareConnection
 
-postulate -- sOftwareConnection is subTypeOf businessConnection
-  st-9dcea1235ec76646-1f942587622764f8  : sOftwareConnection   ⊏⋆ᵣ  businessConnection 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Software Part: 
 A Software Part represents the role that a Business Software System plays in the context of a parent Business Software System.  
 -}
 -- Aggregate Member : Software Part
-SOftwarePart : ClassOfClassOfIndividual
-SOftwarePart = ClassOfIndividual
+SOftwarePart : ClassOfClassOfBoundedIndividual
+SOftwarePart = ClassOfBoundedIndividual
+
+
+
+--  SOftwarePart is subTypeOf ResourceAgentPart
+st-173f4d015eb8c686-24034f6d5fc79c3f : SOftwarePart ⊏ₑ ResourceAgentPart
+st-173f4d015eb8c686-24034f6d5fc79c3f = polySubTypeOf-identity
+
+--  SOftwarePart is subTypeOf BusinessSOftwareSystem
+st-173f4d015eb8c686-d6cd02865ab966e8 : SOftwarePart ⊏ₑ BusinessSOftwareSystem
+st-173f4d015eb8c686-d6cd02865ab966e8 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSOftwarePart :  Linkage BusinessSOftwareSystem SOftwarePart
@@ -102,14 +121,22 @@ aggregationOfBusinessSOftwareSystemSOftwarePart = make_Relation "BusinessSOftwar
 sOftwarePart : Linkage BusinessSOftwareSystem BusinessSOftwareSystem
 sOftwarePart = membershipOfSOftwarePart  ∘  aggregationOfBusinessSOftwareSystemSOftwarePart
 
-postulate -- sOftwarePart is subTypeOf resourceAgentPart
-  st-173f4d015eb8c686-24034f6d5fc79c3f  : sOftwarePart   ⊏⋆ᵣ  resourceAgentPart 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Physical data store: -}
 -- Aggregate Member : Physical data store
 Physicaldatastore : ClassOfClassOfIndividual
 Physicaldatastore = ClassOfIndividual
+
+
+--  Physicaldatastore is subTypeOf ResourceAgentStore
+st-7b8780615eb81b83-ca9df5bb5fcf5a75 : Physicaldatastore ⊏ₑ ResourceAgentStore
+st-7b8780615eb81b83-ca9df5bb5fcf5a75 = polySubTypeOf-identity
+
+--  Physicaldatastore is subTypeOf PhysicalDataDomain
+st-7b8780615eb81b83-028f03ff5b4f55ee : Physicaldatastore ⊏ₑ PhysicalDataDomain
+st-7b8780615eb81b83-028f03ff5b4f55ee = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfPhysicaldatastore :  Linkage BusinessSOftwareSystem Physicaldatastore
@@ -127,14 +154,23 @@ aggregationOfPhysicalDataDomainPhysicaldatastore = make_Relation "PhysicalDataDo
 physicaldatastore : Linkage BusinessSOftwareSystem PhysicalDataDomain
 physicaldatastore = membershipOfPhysicaldatastore  ∘  aggregationOfPhysicalDataDomainPhysicaldatastore
 
-postulate -- physicaldatastore is subTypeOf resourceAgentStore
-  st-7b8780615eb81b83-ca9df5bb5fcf5a75  : physicaldatastore   ⊏⋆ᵣ  resourceAgentStore 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Performed Software System Scenario: -}
 -- Aggregate Member : Performed Software System Scenario
-PerformedSOftwareSystemScenario : ClassOfClassOfIndividual
-PerformedSOftwareSystemScenario = ClassOfIndividual
+PerformedSOftwareSystemScenario : ClassOfClassOfBoundedIndividual
+PerformedSOftwareSystemScenario = ClassOfBoundedIndividual
+
+
+
+--  PerformedSOftwareSystemScenario is subTypeOf PerformedBusinessSystemScenario
+st-25c1b2d361e22368-24034ee25fc79b20 : PerformedSOftwareSystemScenario ⊏ₑ PerformedBusinessSystemScenario
+st-25c1b2d361e22368-24034ee25fc79b20 = polySubTypeOf-identity
+
+--  PerformedSOftwareSystemScenario is subTypeOf SOftwareSystemScenario
+st-25c1b2d361e22368-25c09cb461e2efd3 : PerformedSOftwareSystemScenario ⊏ₑ SOftwareSystemScenario
+st-25c1b2d361e22368-25c09cb461e2efd3 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfPerformedSOftwareSystemScenario :  Linkage BusinessSOftwareSystem PerformedSOftwareSystemScenario
@@ -152,6 +188,4 @@ aggregationOfSOftwareSystemScenarioPerformedSOftwareSystemScenario = make_Relati
 performedSOftwareSystemScenario : Linkage BusinessSOftwareSystem SOftwareSystemScenario
 performedSOftwareSystemScenario = membershipOfPerformedSOftwareSystemScenario  ∘  aggregationOfSOftwareSystemScenarioPerformedSOftwareSystemScenario
 
-postulate -- performedSOftwareSystemScenario is subTypeOf performedBusinessSystemScenario
-  st-25c1b2d361e22368-24034ee25fc79b20  : performedSOftwareSystemScenario   ⊏⋆ᵣ  performedBusinessSystemScenario 
 

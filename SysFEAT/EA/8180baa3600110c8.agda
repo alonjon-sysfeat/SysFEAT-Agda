@@ -21,6 +21,7 @@ open import SysFEAT.EA.7d37d08d5fd07aaa public -- Physical Data Asset
 NoSQLElement : ClassOfClassOfBoundedIndividual
 NoSQLElement = ClassOfBoundedIndividual
 
+
 --  NoSQLElement is subTypeOf NoSQLDataAsset
 st-8180baa3600110c8-77318c6c62167dd7 : NoSQLElement ⊏⋆ₑ NoSQLDataAsset
 st-8180baa3600110c8-77318c6c62167dd7 = polySubTypeOf-identity
@@ -29,14 +30,26 @@ st-8180baa3600110c8-77318c6c62167dd7 = polySubTypeOf-identity
 st-8180baa3600110c8-7d37d08d5fd07aaa : NoSQLElement ⊏ₑ PhysicalDataAsset
 st-8180baa3600110c8-7d37d08d5fd07aaa = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- MetaData Object Member: 
 A MetaData Object Member is a characteristic of a NoSQL Element.It can be either an Identification MetaField or a Relationship MetaField or a Value MetaField.
 -}
 -- Aggregate Member : MetaData Object Member
-MetaDataObjectMember : ClassOfClassOfIndividual
-MetaDataObjectMember = ClassOfIndividual
+MetaDataObjectMember : ClassOfClassOfBoundedIndividual
+MetaDataObjectMember = ClassOfBoundedIndividual
+
+
+
+--  MetaDataObjectMember is subTypeOf PhysicalDataMember
+st-05b0b95c6006bc80-163c29e85fda678c : MetaDataObjectMember ⊏ₑ PhysicalDataMember
+st-05b0b95c6006bc80-163c29e85fda678c = polySubTypeOf-identity
+
+--  MetaDataObjectMember is subTypeOf NoSQLElement
+st-05b0b95c6006bc80-8180baa3600110c8 : MetaDataObjectMember ⊏ₑ NoSQLElement
+st-05b0b95c6006bc80-8180baa3600110c8 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfMetaDataObjectMember :  Linkage NoSQLElement MetaDataObjectMember
@@ -54,6 +67,4 @@ aggregationOfNoSQLElementMetaDataObjectMember = make_Relation "NoSQLElement aggr
 metaDataObjectMember : Linkage NoSQLElement NoSQLElement
 metaDataObjectMember = membershipOfMetaDataObjectMember  ∘  aggregationOfNoSQLElementMetaDataObjectMember
 
-postulate -- metaDataObjectMember is subTypeOf physicalDataMember
-  st-05b0b95c6006bc80-163c29e85fda678c  : metaDataObjectMember   ⊏⋆ᵣ  physicalDataMember 
 

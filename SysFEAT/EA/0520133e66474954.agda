@@ -19,8 +19,8 @@ open import SysFEAT.EA.05200e1c66474509 public -- Management Stage
 open import SysFEAT.EA.05201bc866475765 public -- Asset Management Initiative
 open import SysFEAT.EA.dd265414689f5987 public -- Resource Capability
 
-AssetPortfolioStage : StateClass
-AssetPortfolioStage = StateConcept
+AssetPortfolioStage : ClassOfBoundedIndividual
+AssetPortfolioStage = BoundedIndividual
 
 
 --  AssetPortfolioStage is subTypeOf ManagementStage
@@ -31,12 +31,15 @@ st-0520133e66474954-05200e1c66474509 = polySubTypeOf-identity
 st-0520133e66474954-05201bc866475765 : AssetPortfolioStage ⊏ₑ AssetManagementInitiative
 st-0520133e66474954-05201bc866475765 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Exhibited Resource Capability: -}
 -- Aggregate Member : Exhibited Resource Capability
 ExhibitedResourceCapability : ClassOfClassOfIndividual
 ExhibitedResourceCapability = ClassOfIndividual
+
 
 -- Membership relation
 membershipOfExhibitedResourceCapability :  Linkage AssetPortfolioStage ExhibitedResourceCapability

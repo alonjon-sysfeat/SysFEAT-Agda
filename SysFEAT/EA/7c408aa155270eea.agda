@@ -30,25 +30,39 @@ open import SysFEAT.EA.076d151c5a5e1561 public -- Organizational Position
 DepartmentType : ClassOfClassOfBoundedIndividual
 DepartmentType = ClassOfBoundedIndividual
 
+
 --  DepartmentType is subTypeOf OrgUnitType
 st-7c408aa155270eea-076d15425a5e158c : DepartmentType ⊏ₑ OrgUnitType
 st-7c408aa155270eea-076d15425a5e158c = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Org-Unit: -}
 specializedOrgUnit :  Linkage DepartmentType DepartmentType
 specializedOrgUnit = make_subTypeOf "Specialized Org-Unit" "Specialized Org-Unit"
 
 postulate -- specializedOrgUnit is subTypeOf specializedResourceAgent
-  st-325a39d866f352f7-52c3540066f226f4  : specializedOrgUnit   ⊏⋆ᵣ  specializedResourceAgent 
+  st-325a39d866f352f7-52c3540066f226f4  : specializedOrgUnit  ⊏⋆ᵣ  specializedResourceAgent
 
+-- -------------------------------------------------------------------------------------------- 
 {- Operated Business Process: 
 The set of Business Processes that is opered by a Department Type.
 -}
 -- Aggregate Member : Operated Business Process
-OperatedBusinessProcess : ClassOfClassOfIndividual
-OperatedBusinessProcess = ClassOfIndividual
+OperatedBusinessProcess : ClassOfClassOfBoundedIndividual
+OperatedBusinessProcess = ClassOfBoundedIndividual
+
+
+
+--  OperatedBusinessProcess is subTypeOf PerformedBusinessResourceProcess
+st-ef0800f55fffa405-240353b45fc7a13f : OperatedBusinessProcess ⊏ₑ PerformedBusinessResourceProcess
+st-ef0800f55fffa405-240353b45fc7a13f = polySubTypeOf-identity
+
+--  OperatedBusinessProcess is subTypeOf BusinessProcess
+st-ef0800f55fffa405-57dfc52d550932ef : OperatedBusinessProcess ⊏ₑ BusinessProcess
+st-ef0800f55fffa405-57dfc52d550932ef = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfOperatedBusinessProcess :  Linkage DepartmentType OperatedBusinessProcess
@@ -66,16 +80,25 @@ aggregationOfBusinessProcessOperatedBusinessProcess = make_Relation "BusinessPro
 operatedBusinessProcess : Linkage DepartmentType BusinessProcess
 operatedBusinessProcess = membershipOfOperatedBusinessProcess  ∘  aggregationOfBusinessProcessOperatedBusinessProcess
 
-postulate -- operatedBusinessProcess is subTypeOf performedBusinessResourceProcess
-  st-ef0800f55fffa405-240353b45fc7a13f  : operatedBusinessProcess   ⊏⋆ᵣ  performedBusinessResourceProcess 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Sub-Department: 
 Hiearchical composition of Department Types.
 -}
 -- Aggregate Member : Sub-Department
-SubDepartment : ClassOfClassOfIndividual
-SubDepartment = ClassOfIndividual
+SubDepartment : ClassOfClassOfBoundedIndividual
+SubDepartment = ClassOfBoundedIndividual
+
+
+
+--  SubDepartment is subTypeOf ResourceAgentPart
+st-520e542b5eb86c3a-24034f6d5fc79c3f : SubDepartment ⊏ₑ ResourceAgentPart
+st-520e542b5eb86c3a-24034f6d5fc79c3f = polySubTypeOf-identity
+
+--  SubDepartment is subTypeOf DepartmentType
+st-520e542b5eb86c3a-7c408aa155270eea : SubDepartment ⊏ₑ DepartmentType
+st-520e542b5eb86c3a-7c408aa155270eea = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSubDepartment :  Linkage DepartmentType SubDepartment
@@ -93,16 +116,25 @@ aggregationOfDepartmentTypeSubDepartment = make_Relation "DepartmentType aggrega
 subDepartment : Linkage DepartmentType DepartmentType
 subDepartment = membershipOfSubDepartment  ∘  aggregationOfDepartmentTypeSubDepartment
 
-postulate -- subDepartment is subTypeOf resourceAgentPart
-  st-520e542b5eb86c3a-24034f6d5fc79c3f  : subDepartment   ⊏⋆ᵣ  resourceAgentPart 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Organization Position: 
 An Organizational Position that is part of an Department Type.
 -}
 -- Aggregate Member : Organization Position
-OrganizationPosition : ClassOfClassOfIndividual
-OrganizationPosition = ClassOfIndividual
+OrganizationPosition : ClassOfClassOfBoundedIndividual
+OrganizationPosition = ClassOfBoundedIndividual
+
+
+
+--  OrganizationPosition is subTypeOf ResourceAgentPart
+st-520e546c5eb86cf4-24034f6d5fc79c3f : OrganizationPosition ⊏ₑ ResourceAgentPart
+st-520e546c5eb86cf4-24034f6d5fc79c3f = polySubTypeOf-identity
+
+--  OrganizationPosition is subTypeOf OrganizationalPosition
+st-520e546c5eb86cf4-076d151c5a5e1561 : OrganizationPosition ⊏ₑ OrganizationalPosition
+st-520e546c5eb86cf4-076d151c5a5e1561 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfOrganizationPosition :  Linkage DepartmentType OrganizationPosition
@@ -120,6 +152,4 @@ aggregationOfOrganizationalPositionOrganizationPosition = make_Relation "Organiz
 organizationPosition : Linkage DepartmentType OrganizationalPosition
 organizationPosition = membershipOfOrganizationPosition  ∘  aggregationOfOrganizationalPositionOrganizationPosition
 
-postulate -- organizationPosition is subTypeOf resourceAgentPart
-  st-520e546c5eb86cf4-24034f6d5fc79c3f  : organizationPosition   ⊏⋆ᵣ  resourceAgentPart 
 

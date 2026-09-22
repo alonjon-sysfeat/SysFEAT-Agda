@@ -23,6 +23,7 @@ open import SysFEAT.EA.c30bf4015a5da72b public -- Concrete Hardware System
 HardwarePortolio : ClassOfBoundedIndividual
 HardwarePortolio = BoundedIndividual
 
+
 --  HardwarePortolio is subTypeOf AssetPortfolio
 st-137d5bac5ee2b904-26b8889c5eea8ab7 : HardwarePortolio ⊏ₑ AssetPortfolio
 st-137d5bac5ee2b904-26b8889c5eea8ab7 = polySubTypeOf-identity
@@ -31,8 +32,10 @@ st-137d5bac5ee2b904-26b8889c5eea8ab7 = polySubTypeOf-identity
 st-137d5bac5ee2b904-24f8475766477e0a : HardwarePortolio ⊏ₑ HardwareManagementInitiative
 st-137d5bac5ee2b904-24f8475766477e0a = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Roadmap: 
 Set of all Hardware Portfolio Stage of an Asset Portfolio that , coordinated by initiative milestones, establishes the roadmap for the Concrete Hardware System Assets under its supervision.
 -}
@@ -40,14 +43,20 @@ roadmap :  Linkage HardwarePortolio HardwarePortfolioStage
 roadmap = make_holonymyRelation "Roadmap" "Roadmap"
 
 postulate -- roadmap is subTypeOf portfolioRoadmap
-  st-24f849ac6647844d-f277fa24601bef67  : roadmap   ⊏⋆ᵣ  portfolioRoadmap 
+  st-24f849ac6647844d-f277fa24601bef67  : roadmap  ⊏⋆ᵣ  portfolioRoadmap
 
+-- -------------------------------------------------------------------------------------------- 
 {- Managed Hardware: 
 A Managed Hardware represents the status of a Concrete Hardware System under the management of an Application Portfolio.
 -}
 -- Aggregate Member : Managed Hardware
 ManagedHardware : ClassOfClassOfIndividual
 ManagedHardware = ClassOfIndividual
+
+
+--  ManagedHardware is subTypeOf ManagedResourceAsset
+st-26b850db5eeaaa33-f57af6ca62d21904 : ManagedHardware ⊏⋆ₑ ManagedResourceAsset
+st-26b850db5eeaaa33-f57af6ca62d21904 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfManagedHardware :  Linkage HardwarePortolio ManagedHardware
@@ -65,6 +74,4 @@ aggregationOfConcreteHardwareSystemManagedHardware = make_Relation "ConcreteHard
 managedHardware : Linkage HardwarePortolio ConcreteHardwareSystem
 managedHardware = membershipOfManagedHardware  ∘  aggregationOfConcreteHardwareSystemManagedHardware
 
-postulate -- managedHardware is subTypeOf managedResourceAsset
-  st-26b850db5eeaaa33-f57af6ca62d21904  : managedHardware   ⊏⋆ᵣ  managedResourceAsset 
 

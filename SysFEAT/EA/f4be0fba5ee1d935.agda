@@ -20,8 +20,10 @@ open import SysFEAT.EA.070b0d5564011dbb public -- Networking System
 NetworkDevice : ClassOfClassOfBoundedIndividual
 NetworkDevice = ClassOfBoundedIndividual
 
+
 --  NetworkDevice is subTypeOf NetworkingSystem
 st-f4be0fba5ee1d935-070b0d5564011dbb : NetworkDevice ⊏ₑ NetworkingSystem
 st-f4be0fba5ee1d935-070b0d5564011dbb = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

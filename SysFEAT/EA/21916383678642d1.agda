@@ -21,18 +21,31 @@ open import SysFEAT.EA.362fc8045b3c3e65 public -- Conceptual Entity Asset
 ConceptualOutcomeEvent : ClassOfClassOfIndividual
 ConceptualOutcomeEvent = ClassOfIndividual
 
+
 --  ConceptualOutcomeEvent is subTypeOf OutcomeEvent
 st-21916383678642d1-30223b5c5ec90c01 : ConceptualOutcomeEvent ⊏ₑ OutcomeEvent
 st-21916383678642d1-30223b5c5ec90c01 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Conceptual Outcome: 
 The changed state of a Conceptual Entity Asset that is signaled as being an Conceptual Outcome Event.A Conceptual Outcome  is a Conceptual Entity Asset or a state of a Conceptual Entity Asset that is th subject of a transaction.A Conceptual Outcome is the result of a Conceptual Behavior of a producer Conceptual Agent and is signaled as an Conceptual Outcome Event that benefits (value) to a consumer Conceptual Agent.
 -}
 -- Aggregate Member : Conceptual Outcome
-ConceptualOutcome : ClassOfClassOfIndividual
-ConceptualOutcome = ClassOfIndividual
+ConceptualOutcome : ClassOfClassOfBoundedIndividual
+ConceptualOutcome = ClassOfBoundedIndividual
+
+
+
+--  ConceptualOutcome is subTypeOf Outcome
+st-a135a5e467863584-af41ed1265ea77e5 : ConceptualOutcome ⊏ₑ Outcome
+st-a135a5e467863584-af41ed1265ea77e5 = polySubTypeOf-identity
+
+--  ConceptualOutcome is subTypeOf ConceptualEntityAsset
+st-a135a5e467863584-362fc8045b3c3e65 : ConceptualOutcome ⊏ₑ ConceptualEntityAsset
+st-a135a5e467863584-362fc8045b3c3e65 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfConceptualOutcome :  Linkage ConceptualOutcomeEvent ConceptualOutcome
@@ -50,6 +63,4 @@ aggregationOfConceptualEntityAssetConceptualOutcome = make_Relation "ConceptualE
 conceptualOutcome : Linkage ConceptualOutcomeEvent ConceptualEntityAsset
 conceptualOutcome = membershipOfConceptualOutcome  ∘  aggregationOfConceptualEntityAssetConceptualOutcome
 
-postulate -- conceptualOutcome is subTypeOf outcome
-  st-a135a5e467863584-af41ed1265ea77e5  : conceptualOutcome   ⊏⋆ᵣ  outcome 
 

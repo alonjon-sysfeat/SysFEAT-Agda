@@ -20,10 +20,11 @@ open import Agda.Primitive
 open import SysFEAT.EA.07b60b4168a50438 public -- Resource Rule
 
 BusinessResourceRule : PropertyType
-BusinessResourceRule = ClassOfProperty
+BusinessResourceRule = Property
 
 --  BusinessResourceRule is subTypeOf ResourceRule
 st-23bf9a7868ad2d94-07b60b4168a50438 : BusinessResourceRule ⊏ₑ ResourceRule
 st-23bf9a7868ad2d94-07b60b4168a50438 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

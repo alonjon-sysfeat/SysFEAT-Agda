@@ -20,9 +20,9 @@ module SysFEAT.EA.07ca19e95dd854e9 where -- ========== Assurance Case
 open import Agda.Primitive
 open import SysFEAT.SOF.01ce05606859794a public -- Initiative Instrument
 open import SysFEAT.SOF.190c7429689664b5 public -- Policy
-open import SysFEAT.SOF.a44fb6bc6748b088 public -- Functional Asset
 open import SysFEAT.EA.f1600ddf67d8444b public -- Control Measure
 open import SysFEAT.EA.01f1156d689b5ecc public -- Control Directive
+open import SysFEAT.SOF.a44fb6bc6748b088 public -- Functional Asset
 open import SysFEAT.SOF.0e55206a66f11ec5 public -- Risk Type
 
 AssuranceCase : ClassOfClassOfBoundedIndividual
@@ -32,8 +32,10 @@ AssuranceCase = ClassOfBoundedIndividual
 st-07ca19e95dd854e9-01ce05606859794a : AssuranceCase ⊏ₐₑ (InitiativeInstrument (lsuc(lzero)))
 st-07ca19e95dd854e9-01ce05606859794a = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Constraining Policy: 
 Policy covered by the Assurance Case.
 -}
@@ -41,37 +43,14 @@ constrainingPolicy :  Linkage AssuranceCase Policy
 constrainingPolicy = make_subTypeOf "Constraining Policy" "Constraining Policy"
 
 
-{- Involved Asset: 
-Functional Asset involved in an Assurance Case.
--}
--- Aggregate Member : Involved Asset
-InvolvedAsset : ClassOfClassOfIndividual
-InvolvedAsset = ClassOfIndividual
-
--- Membership relation
-membershipOfInvolvedAsset :  Linkage AssuranceCase InvolvedAsset
-membershipOfInvolvedAsset = make_upwardNestingRelation "involvedAsset membership" "nested involvedAsset"
-
--- Aggregation relation
-aggregationOfFunctionalAssetInvolvedAsset :  Linkage InvolvedAsset FunctionalAsset
-aggregationOfFunctionalAssetInvolvedAsset = make_Relation "FunctionalAsset aggregation" "aggregated FunctionalAsset"
-
-{- involvedAsset : derived relation obtained by composing
-   membershipOfInvolvedAsset and aggregationOfFunctionalAssetInvolvedAsset
-   It directly links an Assurance Case to the final aggregated FunctionalAsset
-   hiding the reifying InvolvedAsset
--}
-involvedAsset : Linkage AssuranceCase FunctionalAsset
-involvedAsset = membershipOfInvolvedAsset  ∘  aggregationOfFunctionalAssetInvolvedAsset
-
-
-
+-- -------------------------------------------------------------------------------------------- 
 {- Applied Control Measure: 
 Set of Control Measures that are claimed to be applied in the context of an Assurance Case.
 -}
 -- Aggregate Member : Applied Control Measure
 AppliedControlMeasure : ClassOfClassOfIndividual
 AppliedControlMeasure = ClassOfIndividual
+
 
 -- Membership relation
 membershipOfAppliedControlMeasure :  Linkage AssuranceCase AppliedControlMeasure
@@ -91,12 +70,14 @@ appliedControlMeasure = membershipOfAppliedControlMeasure  ∘  aggregationOfCon
 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Enforced Directive: 
 Set of Control Directives that the Assurance Case ensures that they are enforced in the Involved Asset of the Assurance Case.
 -}
 -- Aggregate Member : Enforced Directive
 EnforcedDirective : ClassOfClassOfIndividual
 EnforcedDirective = ClassOfIndividual
+
 
 -- Membership relation
 membershipOfEnforcedDirective :  Linkage AssuranceCase EnforcedDirective
@@ -116,12 +97,54 @@ enforcedDirective = membershipOfEnforcedDirective  ∘  aggregationOfControlDire
 
 
 
+-- -------------------------------------------------------------------------------------------- 
+{- Involved Asset: 
+Functional Asset involved in an Assurance Case.
+-}
+-- Aggregate Member : Involved Asset
+InvolvedAsset : ClassOfClassOfBoundedIndividual
+InvolvedAsset = ClassOfBoundedIndividual
+
+
+
+--  InvolvedAsset is subTypeOf FunctionalAsset
+st-9152e6975ed764d3-a44fb6bc6748b088 : InvolvedAsset ⊏ₑ FunctionalAsset
+st-9152e6975ed764d3-a44fb6bc6748b088 = polySubTypeOf-identity
+
+-- Membership relation
+membershipOfInvolvedAsset :  Linkage AssuranceCase InvolvedAsset
+membershipOfInvolvedAsset = make_upwardNestingRelation "involvedAsset membership" "nested involvedAsset"
+
+-- Aggregation relation
+aggregationOfFunctionalAssetInvolvedAsset :  Linkage InvolvedAsset FunctionalAsset
+aggregationOfFunctionalAssetInvolvedAsset = make_Relation "FunctionalAsset aggregation" "aggregated FunctionalAsset"
+
+{- involvedAsset : derived relation obtained by composing
+   membershipOfInvolvedAsset and aggregationOfFunctionalAssetInvolvedAsset
+   It directly links an Assurance Case to the final aggregated FunctionalAsset
+   hiding the reifying InvolvedAsset
+-}
+involvedAsset : Linkage AssuranceCase FunctionalAsset
+involvedAsset = membershipOfInvolvedAsset  ∘  aggregationOfFunctionalAssetInvolvedAsset
+
+
+
+-- -------------------------------------------------------------------------------------------- 
 {- Mitigated Risk: 
 A  Mitigated Risk is a potential threat or danger that has been reduced in severity, likelihood, or impact through deliberate actions or strategies.
 -}
 -- Aggregate Member : Mitigated Risk
 MitigatedRisk : ThirdOrderClass
 MitigatedRisk = SecondOrderClass
+
+
+--  MitigatedRisk withAspect UnboundedMember
+st-582e770166f6a8cf-8cfaf71a6852b042 : MitigatedRisk ⊏ₐₑ (UnboundedMember (lsuc(lsuc(lzero))))
+st-582e770166f6a8cf-8cfaf71a6852b042 = polySubTypeOf-identity
+
+--  MitigatedRisk withAspect Categorization
+st-582e770166f6a8cf-f69619646a0f8e6c : MitigatedRisk ⊏ₐₑ (Categorization (lsuc(lsuc(lzero))))
+st-582e770166f6a8cf-f69619646a0f8e6c = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfMitigatedRisk :  Linkage AssuranceCase MitigatedRisk
@@ -139,8 +162,4 @@ aggregationOfRiskTypeMitigatedRisk = make_Relation "RiskType aggregation" "aggre
 mitigatedRisk : Linkage AssuranceCase RiskType
 mitigatedRisk = membershipOfMitigatedRisk  ∘  aggregationOfRiskTypeMitigatedRisk
 
-postulate -- mitigatedRisk is subTypeOf unboundedMember
-  st-582e770166f6a8cf-8cfaf71a6852b042  : mitigatedRisk   ⊏⋆ᵣ  unboundedMember {lzero} {lzero}
-postulate -- mitigatedRisk is subTypeOf categorization
-  st-582e770166f6a8cf-f69619646a0f8e6c  : mitigatedRisk   ⊏⋆ᵣ  categorization  {lsuc(lsuc(lzero))}
 

@@ -21,12 +21,15 @@ open import SysFEAT.EA.426a57325aeb3d76 public -- Privacy Processing
 PrivacyAssessment : ClassOfBoundedIndividual
 PrivacyAssessment = BoundedIndividual
 
+
 --  PrivacyAssessment is subTypeOf Assessment
 st-8a9f9fe55ee0a603-3b539cbb551e4c2a : PrivacyAssessment ⊏ₑ Assessment
 st-8a9f9fe55ee0a603-3b539cbb551e4c2a = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- assessed processing activity: -}
 assessedprocessingactivity :  Linkage PrivacyAssessment PrivacyProcessing
 assessedprocessingactivity = make_Relation "assessed processing activity" "assessed processing activity"

@@ -26,19 +26,27 @@ ProductPortfolio = BoundedIndividual
 st-215ccfab606c3a18-29df3f4060084c07 : ProductPortfolio ⊏ₑ ManagementSystem
 st-215ccfab606c3a18-29df3f4060084c07 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Owned Portfolio Stage: -}
 ownedPortfolioStage :  Linkage ProductPortfolio ProductPortfolioStage
 ownedPortfolioStage = make_holonymyRelation "Owned Portfolio Stage" "Owned Portfolio Stage"
 
 postulate -- ownedPortfolioStage is subTypeOf roadmap
-  st-31257f8561dce177-29df685860086c52  : ownedPortfolioStage   ⊏⋆ᵣ  roadmap 
+  st-31257f8561dce177-29df685860086c52  : ownedPortfolioStage  ⊏⋆ᵣ  roadmap
 
+-- -------------------------------------------------------------------------------------------- 
 {- Managed Product: -}
 -- Aggregate Member : Managed Product
 ManagedProduct : ClassOfClassOfIndividual
 ManagedProduct = ClassOfIndividual
+
+
+--  ManagedProduct withAspect ManagementSystemSubject
+st-45df7704618e075e-6bf17ffc68598c26 : ManagedProduct ⊏ₐₑ (ManagementSystemSubject (lsuc(lzero)))
+st-45df7704618e075e-6bf17ffc68598c26 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfManagedProduct :  Linkage ProductPortfolio ManagedProduct
@@ -56,6 +64,4 @@ aggregationOfProductManagedProduct = make_Relation "Product aggregation" "aggreg
 managedProduct : Linkage ProductPortfolio Product
 managedProduct = membershipOfManagedProduct  ∘  aggregationOfProductManagedProduct
 
-postulate -- managedProduct is subTypeOf managementSystemSubject
-  st-45df7704618e075e-6bf17ffc68598c26  : managedProduct   ⊏⋆ᵣ  managementSystemSubject  {lzero}
 

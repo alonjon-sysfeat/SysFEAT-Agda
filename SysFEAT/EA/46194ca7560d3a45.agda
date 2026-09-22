@@ -27,18 +27,31 @@ open import SysFEAT.EA.d6a956495a395d28 public -- MicroService
 ApplicationSystem : ClassOfClassOfBoundedIndividual
 ApplicationSystem = ClassOfBoundedIndividual
 
+
 --  ApplicationSystem is subTypeOf BusinessSOftwareSystem
 st-46194ca7560d3a45-d6cd02865ab966e8 : ApplicationSystem ⊏ₑ BusinessSOftwareSystem
 st-46194ca7560d3a45-d6cd02865ab966e8 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Application System Member: 
 Role of an application system in a composition relationship that links it to a parent application system. 
 -}
 -- Aggregate Member : Application System Member
-ApplicationSystemMember : ClassOfClassOfIndividual
-ApplicationSystemMember = ClassOfIndividual
+ApplicationSystemMember : ClassOfClassOfBoundedIndividual
+ApplicationSystemMember = ClassOfBoundedIndividual
+
+
+
+--  ApplicationSystemMember is subTypeOf SOftwarePart
+st-02fe03b05eb9539c-173f4d015eb8c686 : ApplicationSystemMember ⊏ₑ SOftwarePart
+st-02fe03b05eb9539c-173f4d015eb8c686 = polySubTypeOf-identity
+
+--  ApplicationSystemMember is subTypeOf ApplicationSystem
+st-02fe03b05eb9539c-46194ca7560d3a45 : ApplicationSystemMember ⊏ₑ ApplicationSystem
+st-02fe03b05eb9539c-46194ca7560d3a45 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfApplicationSystemMember :  Linkage ApplicationSystem ApplicationSystemMember
@@ -56,16 +69,25 @@ aggregationOfApplicationSystemApplicationSystemMember = make_Relation "Applicati
 applicationSystemMember : Linkage ApplicationSystem ApplicationSystem
 applicationSystemMember = membershipOfApplicationSystemMember  ∘  aggregationOfApplicationSystemApplicationSystemMember
 
-postulate -- applicationSystemMember is subTypeOf sOftwarePart
-  st-02fe03b05eb9539c-173f4d015eb8c686  : applicationSystemMember   ⊏⋆ᵣ  sOftwarePart 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Application Part: 
 Role of an application in a composition relationship that links it to a parent application or a parent application architecture. 
 -}
 -- Aggregate Member : Application Part
-ApplicationPart : ClassOfClassOfIndividual
-ApplicationPart = ClassOfIndividual
+ApplicationPart : ClassOfClassOfBoundedIndividual
+ApplicationPart = ClassOfBoundedIndividual
+
+
+
+--  ApplicationPart is subTypeOf SOftwarePart
+st-7b877c395eb813cf-173f4d015eb8c686 : ApplicationPart ⊏ₑ SOftwarePart
+st-7b877c395eb813cf-173f4d015eb8c686 = polySubTypeOf-identity
+
+--  ApplicationPart is subTypeOf Application
+st-7b877c395eb813cf-bcebd8e9549144db : ApplicationPart ⊏ₑ Application
+st-7b877c395eb813cf-bcebd8e9549144db = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfApplicationPart :  Linkage ApplicationSystem ApplicationPart
@@ -83,16 +105,21 @@ aggregationOfApplicationApplicationPart = make_Relation "Application aggregation
 applicationPart : Linkage ApplicationSystem Application
 applicationPart = membershipOfApplicationPart  ∘  aggregationOfApplicationApplicationPart
 
-postulate -- applicationPart is subTypeOf sOftwarePart
-  st-7b877c395eb813cf-173f4d015eb8c686  : applicationPart   ⊏⋆ᵣ  sOftwarePart 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- operator: 
 Role of an organizational unit interacting at the boundary of an application architecture or a software service architecture. 
 -}
 -- Aggregate Member : operator
-operator : ClassOfClassOfIndividual
-operator = ClassOfIndividual
+operator : ClassOfClassOfBoundedIndividual
+operator = ClassOfBoundedIndividual
+
+
+
+--  operator is subTypeOf OrgUnitType
+st-7b877e095eb81a21-076d15425a5e158c : operator ⊏ₑ OrgUnitType
+st-7b877e095eb81a21-076d15425a5e158c = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfoperator :  Linkage ApplicationSystem operator
@@ -112,10 +139,21 @@ operator = membershipOfoperator  ∘  aggregationOfOrgUnitTypeoperator
 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Performed Scenario: -}
 -- Aggregate Member : Performed Scenario
-PerformedScenario : ClassOfClassOfIndividual
-PerformedScenario = ClassOfIndividual
+PerformedScenario : ClassOfClassOfBoundedIndividual
+PerformedScenario = ClassOfBoundedIndividual
+
+
+
+--  PerformedScenario is subTypeOf PerformedSOftwareSystemScenario
+st-e4c0e8515ed0678e-25c1b2d361e22368 : PerformedScenario ⊏ₑ PerformedSOftwareSystemScenario
+st-e4c0e8515ed0678e-25c1b2d361e22368 = polySubTypeOf-identity
+
+--  PerformedScenario is subTypeOf ApplicationSystemScenario
+st-e4c0e8515ed0678e-e4c0e7285ed0625d : PerformedScenario ⊏ₑ ApplicationSystemScenario
+st-e4c0e8515ed0678e-e4c0e7285ed0625d = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfPerformedScenario :  Linkage ApplicationSystem PerformedScenario
@@ -133,16 +171,21 @@ aggregationOfApplicationSystemScenarioPerformedScenario = make_Relation "Applica
 performedScenario : Linkage ApplicationSystem ApplicationSystemScenario
 performedScenario = membershipOfPerformedScenario  ∘  aggregationOfApplicationSystemScenarioPerformedScenario
 
-postulate -- performedScenario is subTypeOf performedSOftwareSystemScenario
-  st-e4c0e8515ed0678e-25c1b2d361e22368  : performedScenario   ⊏⋆ᵣ  performedSOftwareSystemScenario 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Micro-Service Part: 
 A micro-service component represents the use of a micro-service in the structure of another software component (application, IT Service, micro-service) or in the environment of an application.
 -}
 -- Aggregate Member : Micro-Service Part
-MicroServicePart : ClassOfClassOfIndividual
-MicroServicePart = ClassOfIndividual
+MicroServicePart : ClassOfClassOfBoundedIndividual
+MicroServicePart = ClassOfBoundedIndividual
+
+
+
+--  MicroServicePart is subTypeOf MicroService
+st-8109fc685eb8c563-d6a956495a395d28 : MicroServicePart ⊏ₑ MicroService
+st-8109fc685eb8c563-d6a956495a395d28 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfMicroServicePart :  Linkage ApplicationSystem MicroServicePart

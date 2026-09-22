@@ -22,6 +22,7 @@ open import SysFEAT.EA.7c4094d2552717db public -- Business Function
 ConceptualInteractionScenario : ClassOfClassOfBoundedIndividual
 ConceptualInteractionScenario = ClassOfBoundedIndividual
 
+
 --  ConceptualInteractionScenario is subTypeOf ConceptualBehavior
 st-f97e3146632b266e-f97e3119632b25f8 : ConceptualInteractionScenario ⊏ₑ ConceptualBehavior
 st-f97e3146632b266e-f97e3119632b25f8 = polySubTypeOf-identity
@@ -30,12 +31,24 @@ st-f97e3146632b266e-f97e3119632b25f8 = polySubTypeOf-identity
 st-f97e3146632b266e-333f35ee5dde0c8c : ConceptualInteractionScenario ⊏ₑ InteractionProcessType
 st-f97e3146632b266e-333f35ee5dde0c8c = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Business Function Participant: -}
 -- Aggregate Member : Business Function Participant
-BusinessFunctionParticipant : ClassOfClassOfIndividual
-BusinessFunctionParticipant = ClassOfIndividual
+BusinessFunctionParticipant : ClassOfClassOfBoundedIndividual
+BusinessFunctionParticipant = ClassOfBoundedIndividual
+
+
+
+--  BusinessFunctionParticipant is subTypeOf ConceptualParticipant
+st-f97e4064632b354d-6a7098be67875823 : BusinessFunctionParticipant ⊏ₑ ConceptualParticipant
+st-f97e4064632b354d-6a7098be67875823 = polySubTypeOf-identity
+
+--  BusinessFunctionParticipant is subTypeOf BusinessFunction
+st-f97e4064632b354d-7c4094d2552717db : BusinessFunctionParticipant ⊏ₑ BusinessFunction
+st-f97e4064632b354d-7c4094d2552717db = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfBusinessFunctionParticipant :  Linkage ConceptualInteractionScenario BusinessFunctionParticipant
@@ -53,6 +66,4 @@ aggregationOfBusinessFunctionBusinessFunctionParticipant = make_Relation "Busine
 businessFunctionParticipant : Linkage ConceptualInteractionScenario BusinessFunction
 businessFunctionParticipant = membershipOfBusinessFunctionParticipant  ∘  aggregationOfBusinessFunctionBusinessFunctionParticipant
 
-postulate -- businessFunctionParticipant is subTypeOf conceptualParticipant
-  st-f97e4064632b354d-6a7098be67875823  : businessFunctionParticipant   ⊏⋆ᵣ  conceptualParticipant 
 

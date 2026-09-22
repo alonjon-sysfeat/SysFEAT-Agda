@@ -21,6 +21,7 @@ open import SysFEAT.EA.ffdf61506860875a public -- Human Agent Category
 HumanResource : ClassOfClassOfBoundedIndividual
 HumanResource = ClassOfBoundedIndividual
 
+
 --  HumanResource is subTypeOf BusinessAgentType
 st-2c93337b67644a6a-bcebd31f5491302c : HumanResource ⊏ₑ BusinessAgentType
 st-2c93337b67644a6a-bcebd31f5491302c = polySubTypeOf-identity
@@ -29,4 +30,5 @@ st-2c93337b67644a6a-bcebd31f5491302c = polySubTypeOf-identity
 st-2c93337b67644a6a-ffdf61506860875a : HumanResource ⊏ₑ HumanAgentCategory
 st-2c93337b67644a6a-ffdf61506860875a = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

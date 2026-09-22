@@ -25,11 +25,12 @@ open import Agda.Primitive
 open import SysFEAT.EA.2c93337b67644a6a public -- Human Resource
 open import SysFEAT.EA.c80afd2f6784305d public -- Intangible Resource Agent
 open import SysFEAT.EA.dd26f17a68a0b08b public -- Skill
-open import SysFEAT.EA.6f4b93a15fd3b6bf public -- Business Interaction Process
 open import SysFEAT.EA.c189cf1f68ae421a public -- Business Rule
+open import SysFEAT.EA.6f4b93a15fd3b6bf public -- Business Interaction Process
 
 OrgUnitType : ClassOfClassOfBoundedIndividual
 OrgUnitType = ClassOfBoundedIndividual
+
 
 --  OrgUnitType is subTypeOf HumanResource
 st-076d15425a5e158c-2c93337b67644a6a : OrgUnitType ⊏ₑ HumanResource
@@ -39,53 +40,38 @@ st-076d15425a5e158c-2c93337b67644a6a = polySubTypeOf-identity
 st-076d15425a5e158c-c80afd2f6784305d : OrgUnitType ⊏ₑ IntangibleResourceAgent
 st-076d15425a5e158c-c80afd2f6784305d = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Org-Unit: -}
 specializedOrgUnit :  Linkage OrgUnitType OrgUnitType
 specializedOrgUnit = make_subTypeOf "Specialized Org-Unit" "Specialized Org-Unit"
 
 postulate -- specializedOrgUnit is subTypeOf specializedResourceAgent
-  st-325a3c7666f35f12-52c3540066f226f4  : specializedOrgUnit   ⊏⋆ᵣ  specializedResourceAgent 
+  st-325a3c7666f35f12-52c3540066f226f4  : specializedOrgUnit  ⊏⋆ᵣ  specializedResourceAgent
 
+-- -------------------------------------------------------------------------------------------- 
 {- Fulfilled Skill: -}
 fulfilledSkill :  Linkage OrgUnitType Skill
 fulfilledSkill = make_subTypeOf "Fulfilled Skill" "Fulfilled Skill"
 
 postulate -- fulfilledSkill is subTypeOf fulfilledBusinessResourceCapability
-  st-dd26a26568a1eb03-dd2681a968a1b9d1  : fulfilledSkill   ⊏⋆ᵣ  fulfilledBusinessResourceCapability 
+  st-dd26a26568a1eb03-dd2681a968a1b9d1  : fulfilledSkill  ⊏⋆ᵣ  fulfilledBusinessResourceCapability
 
-{- Performed Business Interaction: -}
--- Aggregate Member : Performed Business Interaction
-PerformedBusinessInteraction : ClassOfClassOfIndividual
-PerformedBusinessInteraction = ClassOfIndividual
-
--- Membership relation
-membershipOfPerformedBusinessInteraction :  Linkage OrgUnitType PerformedBusinessInteraction
-membershipOfPerformedBusinessInteraction = make_upwardNestingRelation "performedBusinessInteraction membership" "nested performedBusinessInteraction"
-
--- Aggregation relation
-aggregationOfBusinessInteractionProcessPerformedBusinessInteraction :  Linkage PerformedBusinessInteraction BusinessInteractionProcess
-aggregationOfBusinessInteractionProcessPerformedBusinessInteraction = make_Relation "BusinessInteractionProcess aggregation" "aggregated BusinessInteractionProcess"
-
-{- performedBusinessInteraction : derived relation obtained by composing
-   membershipOfPerformedBusinessInteraction and aggregationOfBusinessInteractionProcessPerformedBusinessInteraction
-   It directly links an Org-Unit Type to the final aggregated BusinessInteractionProcess
-   hiding the reifying PerformedBusinessInteraction
--}
-performedBusinessInteraction : Linkage OrgUnitType BusinessInteractionProcess
-performedBusinessInteraction = membershipOfPerformedBusinessInteraction  ∘  aggregationOfBusinessInteractionProcessPerformedBusinessInteraction
-
-postulate -- performedBusinessInteraction is subTypeOf performedResourceScenario
-  st-230b415a61d8966d-230b3f9061d8937b  : performedBusinessInteraction   ⊏⋆ᵣ  performedResourceScenario 
-
-
+-- -------------------------------------------------------------------------------------------- 
 {- Operational Rule Enforcement: 
 The set Business Rules that are enforced by an Org-Unit Type.
 -}
 -- Aggregate Member : Operational Rule Enforcement
-OperationalRuleEnforcement : ClassOfClassOfIndividual
-OperationalRuleEnforcement = ClassOfIndividual
+OperationalRuleEnforcement : ClassOfClassOfAbstractEntity
+OperationalRuleEnforcement = ClassOfAbstractEntity
+
+
+
+--  OperationalRuleEnforcement is subTypeOf BusinessRuleEnforcement
+st-b777c62468b08327-23bf9ad368ad2e64 : OperationalRuleEnforcement ⊏ₑ BusinessRuleEnforcement
+st-b777c62468b08327-23bf9ad368ad2e64 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfOperationalRuleEnforcement :  Linkage OrgUnitType OperationalRuleEnforcement
@@ -103,6 +89,38 @@ aggregationOfBusinessRuleOperationalRuleEnforcement = make_Relation "BusinessRul
 operationalRuleEnforcement : Linkage OrgUnitType BusinessRule
 operationalRuleEnforcement = membershipOfOperationalRuleEnforcement  ∘  aggregationOfBusinessRuleOperationalRuleEnforcement
 
-postulate -- operationalRuleEnforcement is subTypeOf businessRuleEnforcement
-  st-b777c62468b08327-23bf9ad368ad2e64  : operationalRuleEnforcement   ⊏⋆ᵣ  businessRuleEnforcement 
+
+
+-- -------------------------------------------------------------------------------------------- 
+{- Performed Business Interaction: -}
+-- Aggregate Member : Performed Business Interaction
+PerformedBusinessInteraction : ClassOfClassOfBoundedIndividual
+PerformedBusinessInteraction = ClassOfBoundedIndividual
+
+
+
+--  PerformedBusinessInteraction is subTypeOf PerformedResourceScenario
+st-230b415a61d8966d-230b3f9061d8937b : PerformedBusinessInteraction ⊏ₑ PerformedResourceScenario
+st-230b415a61d8966d-230b3f9061d8937b = polySubTypeOf-identity
+
+--  PerformedBusinessInteraction is subTypeOf BusinessInteractionProcess
+st-230b415a61d8966d-6f4b93a15fd3b6bf : PerformedBusinessInteraction ⊏ₑ BusinessInteractionProcess
+st-230b415a61d8966d-6f4b93a15fd3b6bf = polySubTypeOf-identity
+
+-- Membership relation
+membershipOfPerformedBusinessInteraction :  Linkage OrgUnitType PerformedBusinessInteraction
+membershipOfPerformedBusinessInteraction = make_upwardNestingRelation "performedBusinessInteraction membership" "nested performedBusinessInteraction"
+
+-- Aggregation relation
+aggregationOfBusinessInteractionProcessPerformedBusinessInteraction :  Linkage PerformedBusinessInteraction BusinessInteractionProcess
+aggregationOfBusinessInteractionProcessPerformedBusinessInteraction = make_Relation "BusinessInteractionProcess aggregation" "aggregated BusinessInteractionProcess"
+
+{- performedBusinessInteraction : derived relation obtained by composing
+   membershipOfPerformedBusinessInteraction and aggregationOfBusinessInteractionProcessPerformedBusinessInteraction
+   It directly links an Org-Unit Type to the final aggregated BusinessInteractionProcess
+   hiding the reifying PerformedBusinessInteraction
+-}
+performedBusinessInteraction : Linkage OrgUnitType BusinessInteractionProcess
+performedBusinessInteraction = membershipOfPerformedBusinessInteraction  ∘  aggregationOfBusinessInteractionProcessPerformedBusinessInteraction
+
 

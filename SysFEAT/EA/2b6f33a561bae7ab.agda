@@ -32,33 +32,52 @@ st-2b6f33a561bae7ab-2b6f332061bae622 = polySubTypeOf-identity
 st-2b6f33a561bae7ab-f8e62fc5621fdcf4 : BusinessAgentEnvironment ⊏ₑ ResourceOperatingEnvironment
 st-2b6f33a561bae7ab-f8e62fc5621fdcf4 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Scenarized Business Environment: -}
 scenarizedBusinessEnvironment :  Linkage BusinessAgentEnvironment BusinessEnvironmentScenario
 scenarizedBusinessEnvironment = make_classOfHolonymy "Scenarized Business Environment" "Scenarized Business Environment"
 
 postulate -- scenarizedBusinessEnvironment is subTypeOf scenarizedOperatingEnvironment
-  st-2b6f37c161baeeed-f8e7d8be621f0722  : scenarizedBusinessEnvironment   ⊏⋆ᵣ  scenarizedOperatingEnvironment 
+  st-2b6f37c161baeeed-f8e7d8be621f0722  : scenarizedBusinessEnvironment  ⊏⋆ᵣ  scenarizedOperatingEnvironment
 
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Resource Agent Environment: -}
 specializedResourceAgentEnvironment :  Linkage BusinessAgentEnvironment BusinessAgentEnvironment
 specializedResourceAgentEnvironment = make_subTypeOf "Specialized Resource Agent Environment" "Specialized Resource Agent Environment"
 
 postulate -- specializedResourceAgentEnvironment is subTypeOf specializedEnterpriseEnvironment
-  st-325a376966f34463-325a377166f34785  : specializedResourceAgentEnvironment   ⊏⋆ᵣ  specializedEnterpriseEnvironment 
+  st-325a376966f34463-325a377166f34785  : specializedResourceAgentEnvironment  ⊏⋆ᵣ  specializedEnterpriseEnvironment
 
+-- -------------------------------------------------------------------------------------------- 
 {- Realized Logical Environment: -}
 realizedLogicalEnvironment :  Linkage BusinessAgentEnvironment ConceptualEnvironment
 realizedLogicalEnvironment = make_subTypeOf "Realized Logical Environment" "Realized Logical Environment"
 
 postulate -- realizedLogicalEnvironment is subTypeOf realizedEnterpriseEnvironment
-  st-325a3a1366f35a5e-325a3a1766f35d1f  : realizedLogicalEnvironment   ⊏⋆ᵣ  realizedEnterpriseEnvironment 
+  st-325a3a1366f35a5e-325a3a1766f35d1f  : realizedLogicalEnvironment  ⊏⋆ᵣ  realizedEnterpriseEnvironment
 
+-- -------------------------------------------------------------------------------------------- 
 {- Partner Resource Agent: -}
 -- Aggregate Member : Partner Resource Agent
-PartnerResourceAgent : ClassOfClassOfIndividual
-PartnerResourceAgent = ClassOfIndividual
+PartnerResourceAgent : ClassOfClassOfBoundedIndividual
+PartnerResourceAgent = ClassOfBoundedIndividual
+
+
+
+--  PartnerResourceAgent is subTypeOf PartnerResourceAgent
+st-2b6f34c861bae941-f8e63939621fdefd : PartnerResourceAgent ⊏ₑ PartnerResourceAgent
+st-2b6f34c861bae941-f8e63939621fdefd = polySubTypeOf-identity
+
+--  PartnerResourceAgent is subTypeOf ParticipantEnterpriseAgent
+st-2b6f34c861bae941-2b6f42fc61baf9b7 : PartnerResourceAgent ⊏ₑ ParticipantEnterpriseAgent
+st-2b6f34c861bae941-2b6f42fc61baf9b7 = polySubTypeOf-identity
+
+--  PartnerResourceAgent is subTypeOf BusinessAgentType
+st-2b6f34c861bae941-bcebd31f5491302c : PartnerResourceAgent ⊏ₑ BusinessAgentType
+st-2b6f34c861bae941-bcebd31f5491302c = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfPartnerResourceAgent :  Linkage BusinessAgentEnvironment PartnerResourceAgent
@@ -76,16 +95,27 @@ aggregationOfBusinessAgentTypePartnerResourceAgent = make_Relation "BusinessAgen
 partnerResourceAgent : Linkage BusinessAgentEnvironment BusinessAgentType
 partnerResourceAgent = membershipOfPartnerResourceAgent  ∘  aggregationOfBusinessAgentTypePartnerResourceAgent
 
-postulate -- partnerResourceAgent is subTypeOf partnerResourceAgent
-  st-2b6f34c861bae941-f8e63939621fdefd  : partnerResourceAgent   ⊏⋆ᵣ  partnerResourceAgent 
-postulate -- partnerResourceAgent is subTypeOf participantEnterpriseAgent
-  st-2b6f34c861bae941-2b6f42fc61baf9b7  : partnerResourceAgent   ⊏⋆ᵣ  participantEnterpriseAgent 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Subject Resource Agent: -}
 -- Aggregate Member : Subject Resource Agent
-SubjectResourceAgent : ClassOfClassOfIndividual
-SubjectResourceAgent = ClassOfIndividual
+SubjectResourceAgent : ClassOfClassOfBoundedIndividual
+SubjectResourceAgent = ClassOfBoundedIndividual
+
+
+
+--  SubjectResourceAgent is subTypeOf SubjectResourceAgent
+st-2b6f350061baea62-f8e6390c621fddf1 : SubjectResourceAgent ⊏ₑ SubjectResourceAgent
+st-2b6f350061baea62-f8e6390c621fddf1 = polySubTypeOf-identity
+
+--  SubjectResourceAgent is subTypeOf ParticipantEnterpriseAgent
+st-2b6f350061baea62-2b6f42fc61baf9b7 : SubjectResourceAgent ⊏ₑ ParticipantEnterpriseAgent
+st-2b6f350061baea62-2b6f42fc61baf9b7 = polySubTypeOf-identity
+
+--  SubjectResourceAgent is subTypeOf BusinessAgentType
+st-2b6f350061baea62-bcebd31f5491302c : SubjectResourceAgent ⊏ₑ BusinessAgentType
+st-2b6f350061baea62-bcebd31f5491302c = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSubjectResourceAgent :  Linkage BusinessAgentEnvironment SubjectResourceAgent
@@ -103,8 +133,4 @@ aggregationOfBusinessAgentTypeSubjectResourceAgent = make_Relation "BusinessAgen
 subjectResourceAgent : Linkage BusinessAgentEnvironment BusinessAgentType
 subjectResourceAgent = membershipOfSubjectResourceAgent  ∘  aggregationOfBusinessAgentTypeSubjectResourceAgent
 
-postulate -- subjectResourceAgent is subTypeOf subjectResourceAgent
-  st-2b6f350061baea62-f8e6390c621fddf1  : subjectResourceAgent   ⊏⋆ᵣ  subjectResourceAgent 
-postulate -- subjectResourceAgent is subTypeOf participantEnterpriseAgent
-  st-2b6f350061baea62-2b6f42fc61baf9b7  : subjectResourceAgent   ⊏⋆ᵣ  participantEnterpriseAgent 
 

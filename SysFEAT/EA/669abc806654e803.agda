@@ -21,23 +21,32 @@ open import SysFEAT.EA.5d4e752066f27329 public -- Technology Risk Type
 TechnologyFunctionalAsset : ClassOfClassOfBoundedIndividual
 TechnologyFunctionalAsset = ClassOfBoundedIndividual
 
+
 --  TechnologyFunctionalAsset is subTypeOf ResourceFunctionalAsset
 st-669abc806654e803-9bec9fbf66fb0d6f : TechnologyFunctionalAsset ⊏ₑ ResourceFunctionalAsset
 st-669abc806654e803-9bec9fbf66fb0d6f = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Technology Asset: -}
 specializedTechnologyAsset :  Linkage TechnologyFunctionalAsset TechnologyFunctionalAsset
 specializedTechnologyAsset = make_subTypeOf "Specialized Technology Asset" "Specialized Technology Asset"
 
 postulate -- specializedTechnologyAsset is subTypeOf specializedFunctionalAsset
-  st-7e1a9a4f66f54f71-6a7076d2678731e2  : specializedTechnologyAsset   ⊏⋆ᵣ  specializedFunctionalAsset 
+  st-7e1a9a4f66f54f71-6a7076d2678731e2  : specializedTechnologyAsset  ⊏⋆ᵣ  specializedFunctionalAsset
 
+-- -------------------------------------------------------------------------------------------- 
 {- Technology Risk: -}
 -- Aggregate Member : Technology Risk
 TechnologyRisk : ThirdOrderClass
 TechnologyRisk = SecondOrderClass
+
+
+--  TechnologyRisk is subTypeOf Risk
+st-5d4e755966f27379-0e55219466f11fd7 : TechnologyRisk ⊏⋆ₑ Risk
+st-5d4e755966f27379-0e55219466f11fd7 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfTechnologyRisk :  Linkage TechnologyFunctionalAsset TechnologyRisk
@@ -55,6 +64,4 @@ aggregationOfTechnologyRiskTypeTechnologyRisk = make_Relation "TechnologyRiskTyp
 technologyRisk : Linkage TechnologyFunctionalAsset TechnologyRiskType
 technologyRisk = membershipOfTechnologyRisk  ∘  aggregationOfTechnologyRiskTypeTechnologyRisk
 
-postulate -- technologyRisk is subTypeOf risk
-  st-5d4e755966f27379-0e55219466f11fd7  : technologyRisk   ⊏⋆ᵣ  risk 
 

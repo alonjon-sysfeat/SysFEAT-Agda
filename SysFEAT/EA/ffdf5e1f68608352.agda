@@ -29,4 +29,5 @@ st-ffdf5e1f68608352-ffdf5eb7686083b4 = polySubTypeOf-identity
 st-ffdf5e1f68608352-c80afd2f6784305d : SOftwareSystemCategory ⊏ₑ IntangibleResourceAgent
 st-ffdf5e1f68608352-c80afd2f6784305d = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

@@ -17,11 +17,13 @@ module SysFEAT.EA.4b947d2068a49dbb where -- ========== Regulatory Asset
 open import Agda.Primitive
 open import SysFEAT.SOF.9397c3d86877842f public -- Policy Asset
 
-RegulatoryAsset : ∀ (u : Level) → ClassOfMixedOrderEntity u
-RegulatoryAsset u = MixedOrderEntity u
+RegulatoryAsset : ∀ (u : Level) → ClassOfMixedOrderEntity u 
+RegulatoryAsset u  = MixedOrderEntity u 
+
 
 --  RegulatoryAsset is subTypeOf PolicyAsset
 st-4b947d2068a49dbb-9397c3d86877842f : ∀ {u v} → (RegulatoryAsset u) ⊏⋆ₑ (PolicyAsset v)
 st-4b947d2068a49dbb-9397c3d86877842f = trivialPolySubTypeOfEntity
 
--- == Relationships =======================
+
+-- == Relations =======================

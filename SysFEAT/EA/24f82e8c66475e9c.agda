@@ -21,12 +21,15 @@ open import SysFEAT.EA.dd26389d68a071f0 public -- Functionality Map
 ApplicationManagementInitiative : ClassOfBoundedIndividual
 ApplicationManagementInitiative = BoundedIndividual
 
+
 --  ApplicationManagementInitiative is subTypeOf AssetManagementInitiative
 st-24f82e8c66475e9c-05201bc866475765 : ApplicationManagementInitiative ⊏ₑ AssetManagementInitiative
 st-24f82e8c66475e9c-05201bc866475765 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Functional Scope: -}
 functionalScope :  Linkage ApplicationManagementInitiative FunctionalityMap
 functionalScope = make_instanceOf "Functional Scope" "Functional Scope"

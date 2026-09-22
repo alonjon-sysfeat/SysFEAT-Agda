@@ -24,6 +24,7 @@ open import SysFEAT.EA.b90aeac8600e619f public -- Data Assurance Case
 DataControlExecution : ClassOfBoundedIndividual
 DataControlExecution = BoundedIndividual
 
+
 --  DataControlExecution is subTypeOf DataGovernanceBlock
 st-d7f9fbd45f720d19-b90ac213600e39bb : DataControlExecution ⊏ₑ DataGovernanceBlock
 st-d7f9fbd45f720d19-b90ac213600e39bb = polySubTypeOf-identity
@@ -32,18 +33,22 @@ st-d7f9fbd45f720d19-b90ac213600e39bb = polySubTypeOf-identity
 st-d7f9fbd45f720d19-1737b76a5fe28204 : DataControlExecution ⊏ₑ GovernanceActivity
 st-d7f9fbd45f720d19-1737b76a5fe28204 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Control Result: -}
 controlResult :  Linkage DataControlExecution DataQualityIndicator
 controlResult = make_holonymyRelation "Control Result" "Control Result"
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Identified Data Issue: -}
 identifiedDataIssue :  Linkage DataControlExecution DataIssue
 identifiedDataIssue = make_holonymyRelation "Identified Data Issue" "Identified Data Issue"
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Tested Assurance Case: -}
 testedAssuranceCase :  Linkage DataControlExecution DataAssuranceCase
 testedAssuranceCase = make_Relation "Tested Assurance Case" "Tested Assurance Case"

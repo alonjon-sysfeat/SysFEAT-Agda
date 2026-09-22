@@ -23,16 +23,33 @@ open import SysFEAT.EA.f4be11b15ee1e0fa public -- System of Resources
 SystemOfSystems : ClassOfClassOfBoundedIndividual
 SystemOfSystems = ClassOfBoundedIndividual
 
+
 --  SystemOfSystems is subTypeOf CapabilityConfiguration
 st-46195775560d4ec0-d1600c7062e093eb : SystemOfSystems ⊏ₑ CapabilityConfiguration
 st-46195775560d4ec0-d1600c7062e093eb = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- System of System Member: -}
 -- Aggregate Member : System of System Member
-SystemOfSystemMember : ClassOfClassOfIndividual
-SystemOfSystemMember = ClassOfIndividual
+SystemOfSystemMember : ClassOfClassOfBoundedIndividual
+SystemOfSystemMember = ClassOfBoundedIndividual
+
+
+
+--  SystemOfSystemMember is subTypeOf ResourceAgentPart
+st-f4be19a45ee1f3c0-24034f6d5fc79c3f : SystemOfSystemMember ⊏ₑ ResourceAgentPart
+st-f4be19a45ee1f3c0-24034f6d5fc79c3f = polySubTypeOf-identity
+
+--  SystemOfSystemMember is subTypeOf NetworkingPart
+st-f4be19a45ee1f3c0-26b8386e5eeae4a4 : SystemOfSystemMember ⊏ₑ NetworkingPart
+st-f4be19a45ee1f3c0-26b8386e5eeae4a4 = polySubTypeOf-identity
+
+--  SystemOfSystemMember is subTypeOf SystemOfSystems
+st-f4be19a45ee1f3c0-46195775560d4ec0 : SystemOfSystemMember ⊏ₑ SystemOfSystems
+st-f4be19a45ee1f3c0-46195775560d4ec0 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSystemOfSystemMember :  Linkage SystemOfSystems SystemOfSystemMember
@@ -50,16 +67,19 @@ aggregationOfSystemOfSystemsSystemOfSystemMember = make_Relation "SystemOfSystem
 systemOfSystemMember : Linkage SystemOfSystems SystemOfSystems
 systemOfSystemMember = membershipOfSystemOfSystemMember  ∘  aggregationOfSystemOfSystemsSystemOfSystemMember
 
-postulate -- systemOfSystemMember is subTypeOf resourceAgentPart
-  st-f4be19a45ee1f3c0-24034f6d5fc79c3f  : systemOfSystemMember   ⊏⋆ᵣ  resourceAgentPart 
-postulate -- systemOfSystemMember is subTypeOf networkingPart
-  st-f4be19a45ee1f3c0-26b8386e5eeae4a4  : systemOfSystemMember   ⊏⋆ᵣ  networkingPart 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- System of Resource Member: -}
 -- Aggregate Member : System of Resource Member
-SystemOfResourceMember : ClassOfClassOfIndividual
-SystemOfResourceMember = ClassOfIndividual
+SystemOfResourceMember : ClassOfClassOfBoundedIndividual
+SystemOfResourceMember = ClassOfBoundedIndividual
+
+
+
+--  SystemOfResourceMember is subTypeOf SystemOfResources
+st-26b83ccf5eeaf0c2-f4be11b15ee1e0fa : SystemOfResourceMember ⊏ₑ SystemOfResources
+st-26b83ccf5eeaf0c2-f4be11b15ee1e0fa = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSystemOfResourceMember :  Linkage SystemOfSystems SystemOfResourceMember

@@ -21,10 +21,11 @@ open import Agda.Primitive
 open import SysFEAT.SOF.190c74f868966584 public -- Behavioral Rule
 
 ConceptualBusinessRule : PropertyType
-ConceptualBusinessRule = ClassOfProperty
+ConceptualBusinessRule = Property
 
 --  ConceptualBusinessRule is subTypeOf BehavioralRule
 st-dd269a5468a09a74-190c74f868966584 : ConceptualBusinessRule ⊏ₑ BehavioralRule
 st-dd269a5468a09a74-190c74f868966584 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

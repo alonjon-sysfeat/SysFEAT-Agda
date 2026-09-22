@@ -24,4 +24,5 @@ ArchitecturePrincipleCategory = SecondOrderClass
 st-952eab2a67285b02-952eaada67285ac3 : ArchitecturePrincipleCategory ⊏ₑ PolicyFrameworkCategory
 st-952eab2a67285b02-952eaada67285ac3 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

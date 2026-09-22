@@ -25,12 +25,32 @@ BusinessSystemEnvironment = ClassOfBoundedIndividual
 st-c450d4c261de5f07-2b6f33a561bae7ab : BusinessSystemEnvironment ⊏ₑ BusinessAgentEnvironment
 st-c450d4c261de5f07-2b6f33a561bae7ab = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Subject System: -}
 -- Aggregate Member : Subject System
-SubjectSystem : ClassOfClassOfIndividual
-SubjectSystem = ClassOfIndividual
+SubjectSystem : ClassOfClassOfBoundedIndividual
+SubjectSystem = ClassOfBoundedIndividual
+
+
+
+--  SubjectSystem is subTypeOf SubjectResourceAgent
+st-c450d59061de6127-2b6f350061baea62 : SubjectSystem ⊏ₑ SubjectResourceAgent
+st-c450d59061de6127-2b6f350061baea62 = polySubTypeOf-identity
+
+--  SubjectSystem is subTypeOf SubjectAgent
+st-c450d59061de6127-fa4ffc205ec86201 : SubjectSystem ⊏ₑ SubjectAgent
+st-c450d59061de6127-fa4ffc205ec86201 = polySubTypeOf-identity
+
+--  SubjectSystem is subTypeOf ParticipantBusinessSystem
+st-c450d59061de6127-c450d63661de652a : SubjectSystem ⊏ₑ ParticipantBusinessSystem
+st-c450d59061de6127-c450d63661de652a = polySubTypeOf-identity
+
+--  SubjectSystem is subTypeOf BusinessSystem
+st-c450d59061de6127-278675d65b252f4d : SubjectSystem ⊏ₑ BusinessSystem
+st-c450d59061de6127-278675d65b252f4d = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSubjectSystem :  Linkage BusinessSystemEnvironment SubjectSystem
@@ -48,18 +68,31 @@ aggregationOfBusinessSystemSubjectSystem = make_Relation "BusinessSystem aggrega
 subjectSystem : Linkage BusinessSystemEnvironment BusinessSystem
 subjectSystem = membershipOfSubjectSystem  ∘  aggregationOfBusinessSystemSubjectSystem
 
-postulate -- subjectSystem is subTypeOf subjectResourceAgent
-  st-c450d59061de6127-2b6f350061baea62  : subjectSystem   ⊏⋆ᵣ  subjectResourceAgent 
-postulate -- subjectSystem is subTypeOf subjectAgent
-  st-c450d59061de6127-fa4ffc205ec86201  : subjectSystem   ⊏⋆ᵣ  subjectAgent 
-postulate -- subjectSystem is subTypeOf participantBusinessSystem
-  st-c450d59061de6127-c450d63661de652a  : subjectSystem   ⊏⋆ᵣ  participantBusinessSystem 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Partner System: -}
 -- Aggregate Member : Partner System
-PartnerSystem : ClassOfClassOfIndividual
-PartnerSystem = ClassOfIndividual
+PartnerSystem : ClassOfClassOfBoundedIndividual
+PartnerSystem = ClassOfBoundedIndividual
+
+
+
+--  PartnerSystem is subTypeOf PartnerResourceAgent
+st-c450d5b361de622e-2b6f34c861bae941 : PartnerSystem ⊏ₑ PartnerResourceAgent
+st-c450d5b361de622e-2b6f34c861bae941 = polySubTypeOf-identity
+
+--  PartnerSystem is subTypeOf ParticipantBusinessSystem
+st-c450d5b361de622e-c450d63661de652a : PartnerSystem ⊏ₑ ParticipantBusinessSystem
+st-c450d5b361de622e-c450d63661de652a = polySubTypeOf-identity
+
+--  PartnerSystem is subTypeOf PartnerAgent
+st-c450d5b361de622e-fa4ffc235ec86276 : PartnerSystem ⊏ₑ PartnerAgent
+st-c450d5b361de622e-fa4ffc235ec86276 = polySubTypeOf-identity
+
+--  PartnerSystem is subTypeOf BusinessSystem
+st-c450d5b361de622e-278675d65b252f4d : PartnerSystem ⊏ₑ BusinessSystem
+st-c450d5b361de622e-278675d65b252f4d = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfPartnerSystem :  Linkage BusinessSystemEnvironment PartnerSystem
@@ -77,18 +110,23 @@ aggregationOfBusinessSystemPartnerSystem = make_Relation "BusinessSystem aggrega
 partnerSystem : Linkage BusinessSystemEnvironment BusinessSystem
 partnerSystem = membershipOfPartnerSystem  ∘  aggregationOfBusinessSystemPartnerSystem
 
-postulate -- partnerSystem is subTypeOf partnerResourceAgent
-  st-c450d5b361de622e-2b6f34c861bae941  : partnerSystem   ⊏⋆ᵣ  partnerResourceAgent 
-postulate -- partnerSystem is subTypeOf participantBusinessSystem
-  st-c450d5b361de622e-c450d63661de652a  : partnerSystem   ⊏⋆ᵣ  participantBusinessSystem 
-postulate -- partnerSystem is subTypeOf partnerAgent
-  st-c450d5b361de622e-fa4ffc235ec86276  : partnerSystem   ⊏⋆ᵣ  partnerAgent 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Participant Business System: -}
 -- Aggregate Member : Participant Business System
-ParticipantBusinessSystem : ClassOfClassOfIndividual
-ParticipantBusinessSystem = ClassOfIndividual
+ParticipantBusinessSystem : ClassOfClassOfBoundedIndividual
+ParticipantBusinessSystem = ClassOfBoundedIndividual
+
+
+
+--  ParticipantBusinessSystem is subTypeOf ParticipantAgent
+st-c450d63661de652a-80be28965fc2a6b8 : ParticipantBusinessSystem ⊏ₑ ParticipantAgent
+st-c450d63661de652a-80be28965fc2a6b8 = polySubTypeOf-identity
+
+--  ParticipantBusinessSystem is subTypeOf BusinessSystem
+st-c450d63661de652a-278675d65b252f4d : ParticipantBusinessSystem ⊏ₑ BusinessSystem
+st-c450d63661de652a-278675d65b252f4d = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfParticipantBusinessSystem :  Linkage BusinessSystemEnvironment ParticipantBusinessSystem
@@ -106,6 +144,4 @@ aggregationOfBusinessSystemParticipantBusinessSystem = make_Relation "BusinessSy
 participantBusinessSystem : Linkage BusinessSystemEnvironment BusinessSystem
 participantBusinessSystem = membershipOfParticipantBusinessSystem  ∘  aggregationOfBusinessSystemParticipantBusinessSystem
 
-postulate -- participantBusinessSystem is subTypeOf participantAgent
-  st-c450d63661de652a-80be28965fc2a6b8  : participantBusinessSystem   ⊏⋆ᵣ  participantAgent 
 

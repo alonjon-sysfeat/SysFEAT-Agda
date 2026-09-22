@@ -30,15 +30,18 @@ st-67d3688d6aa43c12-6c5f6da668587c34 = polySubTypeOf-identity
 st-67d3688d6aa43c12-3f066acc68587000 : BusinessDictionary ⊏ₐₑ (DictionaryVocabulary lzero)
 st-67d3688d6aa43c12-3f066acc68587000 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Packaged Dictionary Asset: -}
 packagedDictionaryAsset : ∀ {u} →  Linkage BusinessDictionary (DictionaryBlock u)
 packagedDictionaryAsset = make_nestingRelation "Packaged Dictionary Asset" "Packaged Dictionary Asset"
 
 postulate -- packagedDictionaryAsset is subTypeOf scopedDictionaryBlock
-  st-9397da2b6877c770-6bf192976859b8ba  : packagedDictionaryAsset  {lzero}  ⊏⋆ᵣ  scopedDictionaryBlock {lzero}
+  st-9397da2b6877c770-6bf192976859b8ba  : packagedDictionaryAsset  ⊏⋆ᵣ  scopedDictionaryBlock
 
+-- -------------------------------------------------------------------------------------------- 
 {- Imported Business Dictionary: 
 The Imported Business Dictionary relationship extends the Dictionary Lexical Scope of a Business Dictionary to Dictionary Blocks of the imported Business Dictionary.
 -}

@@ -21,8 +21,9 @@ open import SysFEAT.EA.97f89a8865ae5279 public -- Technology Behavior
 open import SysFEAT.EA.6a70c21067876cd8 public -- Resource Service Interface
 open import SysFEAT.EA.f4be0a955ee1c4f5 public -- Technology Outcome Event
 
-TechnologyInterface : ClassOfClassOfIndividual
-TechnologyInterface = ClassOfIndividual
+TechnologyInterface : ClassOfClassOfBoundedIndividual
+TechnologyInterface = ClassOfBoundedIndividual
+
 
 --  TechnologyInterface is subTypeOf TechnologyBehavior
 st-26b8382f5eeae265-97f89a8865ae5279 : TechnologyInterface ⊏ₑ TechnologyBehavior
@@ -32,12 +33,20 @@ st-26b8382f5eeae265-97f89a8865ae5279 = polySubTypeOf-identity
 st-26b8382f5eeae265-6a70c21067876cd8 : TechnologyInterface ⊏ₑ ResourceServiceInterface
 st-26b8382f5eeae265-6a70c21067876cd8 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Technology Flow Connection: -}
 -- Aggregate Member : Technology Flow Connection
-TechnologyFlowConnection : ClassOfClassOfIndividual
-TechnologyFlowConnection = ClassOfIndividual
+TechnologyFlowConnection : ClassOfClassOfBoundedIndividual
+TechnologyFlowConnection = ClassOfBoundedIndividual
+
+
+
+--  TechnologyFlowConnection is subTypeOf ResourceFlowConnection
+st-ce82d0ff68106fdf-c561e339680f761e : TechnologyFlowConnection ⊏ₑ ResourceFlowConnection
+st-ce82d0ff68106fdf-c561e339680f761e = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfTechnologyFlowConnection :  Linkage TechnologyInterface TechnologyFlowConnection
@@ -55,6 +64,4 @@ aggregationOfTechnologyOutcomeEventTechnologyFlowConnection = make_Relation "Tec
 technologyFlowConnection : Linkage TechnologyInterface TechnologyOutcomeEvent
 technologyFlowConnection = membershipOfTechnologyFlowConnection  ∘  aggregationOfTechnologyOutcomeEventTechnologyFlowConnection
 
-postulate -- technologyFlowConnection is subTypeOf resourceFlowConnection
-  st-ce82d0ff68106fdf-c561e339680f761e  : technologyFlowConnection   ⊏⋆ᵣ  resourceFlowConnection 
 

@@ -29,6 +29,7 @@ open import SysFEAT.EA.dd268f2868a08150 public -- Business Capability
 BusinessOperatingAsset : ClassOfClassOfBoundedIndividual
 BusinessOperatingAsset = ClassOfBoundedIndividual
 
+
 --  BusinessOperatingAsset is subTypeOf BusinessAsset
 st-62466ea661b80d09-6a70b9f6678763db : BusinessOperatingAsset ⊏ₑ BusinessAsset
 st-62466ea661b80d09-6a70b9f6678763db = polySubTypeOf-identity
@@ -37,22 +38,26 @@ st-62466ea661b80d09-6a70b9f6678763db = polySubTypeOf-identity
 st-62466ea661b80d09-f8e61da0621db6fa : BusinessOperatingAsset ⊏ₑ ResourceOperatingAsset
 st-62466ea661b80d09-f8e61da0621db6fa = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Resource Asset: -}
 specializedResourceAsset :  Linkage BusinessOperatingAsset BusinessOperatingAsset
 specializedResourceAsset = make_subTypeOf "Specialized Resource Asset" "Specialized Resource Asset"
 
 postulate -- specializedResourceAsset is subTypeOf specializedResourceOperatingAsset
-  st-325a380e66f351f6-82a9879766ec3a29  : specializedResourceAsset   ⊏⋆ᵣ  specializedResourceOperatingAsset 
+  st-325a380e66f351f6-82a9879766ec3a29  : specializedResourceAsset  ⊏⋆ᵣ  specializedResourceOperatingAsset
 
+-- -------------------------------------------------------------------------------------------- 
 {- Realized Logical Operating Asset: -}
 realizedLogicalOperatingAsset :  Linkage BusinessOperatingAsset ConceptualOperatingAsset
 realizedLogicalOperatingAsset = make_subTypeOf "Realized Logical Operating Asset" "Realized Logical Operating Asset"
 
 postulate -- realizedLogicalOperatingAsset is subTypeOf realizedBusinessOperatingAsset
-  st-332c47ab66f17a2e-82a9888a66ec3ad6  : realizedLogicalOperatingAsset   ⊏⋆ᵣ  realizedBusinessOperatingAsset 
+  st-332c47ab66f17a2e-82a9888a66ec3ad6  : realizedLogicalOperatingAsset  ⊏⋆ᵣ  realizedBusinessOperatingAsset
 
+-- -------------------------------------------------------------------------------------------- 
 {- Process Family: 
 Classification of Business Operating Asset a by a Process Family.
 -}
@@ -60,26 +65,39 @@ processFamily :  Linkage BusinessOperatingAsset ProcessFamily
 processFamily = make_instanceOf "Process Family" "Process Family"
 
 postulate -- processFamily is subTypeOf categoryOfArchitectureBlock
-  st-82a9894466ec3bc6-f69620606a0f9c94  : processFamily   ⊏⋆ᵣ  categoryOfArchitectureBlock  {lsuc(lsuc(lzero))}
+  st-82a9894466ec3bc6-f69620606a0f9c94  : processFamily  ⊏⋆ᵣ  categoryOfArchitectureBlock  {lsuc(lsuc(lzero))}
 
+-- -------------------------------------------------------------------------------------------- 
 {- Fulfilled Business Resource Capability: -}
 fulfilledBusinessResourceCapability :  Linkage BusinessOperatingAsset BusinessResourceCapability
 fulfilledBusinessResourceCapability = make_subTypeOf "Fulfilled Business Resource Capability" "Fulfilled Business Resource Capability"
 
 postulate -- fulfilledBusinessResourceCapability is subTypeOf fulfilledResourceCapability
-  st-dd2681a968a1b9d1-dd265468689f5a22  : fulfilledBusinessResourceCapability   ⊏⋆ᵣ  fulfilledResourceCapability 
+  st-dd2681a968a1b9d1-dd265468689f5a22  : fulfilledBusinessResourceCapability  ⊏⋆ᵣ  fulfilledResourceCapability
 
+-- -------------------------------------------------------------------------------------------- 
 {- Fulfilled Business Capability: -}
 fulfilledBusinessCapability :  Linkage BusinessOperatingAsset BusinessCapability
 fulfilledBusinessCapability = make_subTypeOf "Fulfilled Business Capability" "Fulfilled Business Capability"
 
 postulate -- fulfilledBusinessCapability is subTypeOf fulfilledCapability
-  st-dd26824268a1ba99-190c72c368966198  : fulfilledBusinessCapability   ⊏⋆ᵣ  fulfilledCapability 
+  st-dd26824268a1ba99-190c72c368966198  : fulfilledBusinessCapability  ⊏⋆ᵣ  fulfilledCapability
 
+-- -------------------------------------------------------------------------------------------- 
 {- Business Operating Asset Part: -}
 -- Aggregate Member : Business Operating Asset Part
-BusinessOperatingAssetPart : ClassOfClassOfIndividual
-BusinessOperatingAssetPart = ClassOfIndividual
+BusinessOperatingAssetPart : ClassOfClassOfBoundedIndividual
+BusinessOperatingAssetPart = ClassOfBoundedIndividual
+
+
+
+--  BusinessOperatingAssetPart is subTypeOf ResourceOperatingAssetPart
+st-b777c10368b071b8-b776bf0868b0fbb3 : BusinessOperatingAssetPart ⊏ₑ ResourceOperatingAssetPart
+st-b777c10368b071b8-b776bf0868b0fbb3 = polySubTypeOf-identity
+
+--  BusinessOperatingAssetPart is subTypeOf BusinessOperatingAsset
+st-b777c10368b071b8-62466ea661b80d09 : BusinessOperatingAssetPart ⊏ₑ BusinessOperatingAsset
+st-b777c10368b071b8-62466ea661b80d09 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfBusinessOperatingAssetPart :  Linkage BusinessOperatingAsset BusinessOperatingAssetPart
@@ -97,6 +115,4 @@ aggregationOfBusinessOperatingAssetBusinessOperatingAssetPart = make_Relation "B
 businessOperatingAssetPart : Linkage BusinessOperatingAsset BusinessOperatingAsset
 businessOperatingAssetPart = membershipOfBusinessOperatingAssetPart  ∘  aggregationOfBusinessOperatingAssetBusinessOperatingAssetPart
 
-postulate -- businessOperatingAssetPart is subTypeOf resourceOperatingAssetPart
-  st-b777c10368b071b8-b776bf0868b0fbb3  : businessOperatingAssetPart   ⊏⋆ᵣ  resourceOperatingAssetPart 
 

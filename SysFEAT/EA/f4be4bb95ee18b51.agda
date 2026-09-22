@@ -30,12 +30,27 @@ st-f4be4bb95ee18b51-6d2b80db5fbb700b = polySubTypeOf-identity
 st-f4be4bb95ee18b51-8f1cad7d68ca9df0 : PhysicalDataMap ⊏ₐₑ (PhysicalDataBlock (lsuc(lzero)))
 st-f4be4bb95ee18b51-8f1cad7d68ca9df0 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- External Physical Domain: -}
 -- Aggregate Member : External Physical Domain
 ExternalPhysicalDomain : ClassOfClassOfIndividual
 ExternalPhysicalDomain = ClassOfIndividual
+
+
+--  ExternalPhysicalDomain is subTypeOf externalInformationArea
+st-4447473c5f4f6a69-dfa4e2b35ebb4ee8 : ExternalPhysicalDomain ⊏ₑ externalInformationArea
+st-4447473c5f4f6a69-dfa4e2b35ebb4ee8 = polySubTypeOf-identity
+
+--  ExternalPhysicalDomain is subTypeOf ExternalDataArea
+st-4447473c5f4f6a69-fd1bf5b05fbc6c5a : ExternalPhysicalDomain ⊏ₑ ExternalDataArea
+st-4447473c5f4f6a69-fd1bf5b05fbc6c5a = polySubTypeOf-identity
+
+--  ExternalPhysicalDomain is subTypeOf PhysicalDataDomain
+st-4447473c5f4f6a69-028f03ff5b4f55ee : ExternalPhysicalDomain ⊏ₑ PhysicalDataDomain
+st-4447473c5f4f6a69-028f03ff5b4f55ee = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfExternalPhysicalDomain :  Linkage PhysicalDataMap ExternalPhysicalDomain
@@ -53,18 +68,28 @@ aggregationOfPhysicalDataDomainExternalPhysicalDomain = make_Relation "PhysicalD
 externalPhysicalDomain : Linkage PhysicalDataMap PhysicalDataDomain
 externalPhysicalDomain = membershipOfExternalPhysicalDomain  ∘  aggregationOfPhysicalDataDomainExternalPhysicalDomain
 
-postulate -- externalPhysicalDomain is subTypeOf externalInformationArea
-  st-4447473c5f4f6a69-dfa4e2b35ebb4ee8  : externalPhysicalDomain   ⊏⋆ᵣ  externalInformationArea 
-postulate -- externalPhysicalDomain is subTypeOf externalDataArea
-  st-4447473c5f4f6a69-fd1bf5b05fbc6c5a  : externalPhysicalDomain   ⊏⋆ᵣ  externalDataArea 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Physical Domain Member: 
 Physical Data Domain that is a part of a Physical Data Map.
 -}
 -- Aggregate Member : Physical Domain Member
 PhysicalDomainMember : ClassOfClassOfIndividual
 PhysicalDomainMember = ClassOfIndividual
+
+
+--  PhysicalDomainMember is subTypeOf InformationDomainMember
+st-f4be4c025ee18d1e-dfa4e2865ebb4e38 : PhysicalDomainMember ⊏ₑ InformationDomainMember
+st-f4be4c025ee18d1e-dfa4e2865ebb4e38 = polySubTypeOf-identity
+
+--  PhysicalDomainMember is subTypeOf DataDomainMember
+st-f4be4c025ee18d1e-6d2b81965fbb71ad : PhysicalDomainMember ⊏ₑ DataDomainMember
+st-f4be4c025ee18d1e-6d2b81965fbb71ad = polySubTypeOf-identity
+
+--  PhysicalDomainMember is subTypeOf PhysicalDataDomain
+st-f4be4c025ee18d1e-028f03ff5b4f55ee : PhysicalDomainMember ⊏ₑ PhysicalDataDomain
+st-f4be4c025ee18d1e-028f03ff5b4f55ee = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfPhysicalDomainMember :  Linkage PhysicalDataMap PhysicalDomainMember
@@ -82,8 +107,4 @@ aggregationOfPhysicalDataDomainPhysicalDomainMember = make_Relation "PhysicalDat
 physicalDomainMember : Linkage PhysicalDataMap PhysicalDataDomain
 physicalDomainMember = membershipOfPhysicalDomainMember  ∘  aggregationOfPhysicalDataDomainPhysicalDomainMember
 
-postulate -- physicalDomainMember is subTypeOf informationDomainMember
-  st-f4be4c025ee18d1e-dfa4e2865ebb4e38  : physicalDomainMember   ⊏⋆ᵣ  informationDomainMember 
-postulate -- physicalDomainMember is subTypeOf dataDomainMember
-  st-f4be4c025ee18d1e-6d2b81965fbb71ad  : physicalDomainMember   ⊏⋆ᵣ  dataDomainMember 
 

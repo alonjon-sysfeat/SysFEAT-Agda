@@ -20,8 +20,10 @@ open import SysFEAT.EA.f4be0fba5ee1d935 public -- Network Device
 Router : ClassOfClassOfBoundedIndividual
 Router = ClassOfBoundedIndividual
 
+
 --  Router is subTypeOf NetworkDevice
 st-e1a4fac764017a5a-f4be0fba5ee1d935 : Router ⊏ₑ NetworkDevice
 st-e1a4fac764017a5a-f4be0fba5ee1d935 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

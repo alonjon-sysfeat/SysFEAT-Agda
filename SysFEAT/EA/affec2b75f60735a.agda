@@ -17,6 +17,6 @@ module SysFEAT.EA.affec2b75f60735a where -- ========== Creation Date
 open import Agda.Primitive
 
 CreationDate : PropertyType
-CreationDate = ClassOfProperty
+CreationDate = Property
 
 

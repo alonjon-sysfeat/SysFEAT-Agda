@@ -17,11 +17,13 @@ module SysFEAT.EA.6bf190796859b4ff where -- ========== Dictionary Block
 open import Agda.Primitive
 open import SysFEAT.EA.9397d98f6877c4e5 public -- Dictionary Lexical Block
 
-DictionaryBlock : ∀ (u : Level) → ClassOfMixedOrderEntity u
-DictionaryBlock u = MixedOrderEntity u
+DictionaryBlock : ∀ (u : Level) → ClassOfMixedOrderEntity u 
+DictionaryBlock u  = MixedOrderEntity u 
+
 
 --  DictionaryBlock is subTypeOf DictionaryLexicalBlock
 st-6bf190796859b4ff-9397d98f6877c4e5 : ∀ {u v} → (DictionaryBlock u) ⊏⋆ₑ (DictionaryLexicalBlock v)
 st-6bf190796859b4ff-9397d98f6877c4e5 = trivialPolySubTypeOfEntity
 
--- == Relationships =======================
+
+-- == Relations =======================

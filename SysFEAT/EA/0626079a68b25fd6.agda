@@ -26,4 +26,5 @@ IndividualStateConcept = StateConcept
 st-0626079a68b25fd6-346a3677655b5325 : IndividualStateConcept ⊏ₑ ConceptualIndividual
 st-0626079a68b25fd6-346a3677655b5325 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

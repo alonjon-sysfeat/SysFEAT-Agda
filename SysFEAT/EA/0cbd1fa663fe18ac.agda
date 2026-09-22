@@ -26,6 +26,7 @@ open import SysFEAT.EA.26b8382f5eeae265 public -- Technology Interface
 TechnologySystem : ClassOfClassOfBoundedIndividual
 TechnologySystem = ClassOfBoundedIndividual
 
+
 --  TechnologySystem is subTypeOf TechnologyOperatingAsset
 st-0cbd1fa663fe18ac-d16006d362e085f2 : TechnologySystem ⊏ₑ TechnologyOperatingAsset
 st-0cbd1fa663fe18ac-d16006d362e085f2 = polySubTypeOf-identity
@@ -34,12 +35,15 @@ st-0cbd1fa663fe18ac-d16006d362e085f2 = polySubTypeOf-identity
 st-0cbd1fa663fe18ac-e2ef091962147ad7 : TechnologySystem ⊏ₑ ResourceAgentType
 st-0cbd1fa663fe18ac-e2ef091962147ad7 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Technology Connection: -}
 -- Aggregate Member : Technology Connection
 TechnologyConnection : ClassOfClassOfIndividual
 TechnologyConnection = ClassOfIndividual
+
 
 -- Membership relation
 membershipOfTechnologyConnection :  Linkage TechnologySystem TechnologyConnection
@@ -59,10 +63,25 @@ technologyConnection = membershipOfTechnologyConnection  ∘  aggregationOfTechn
 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Technology System Member: -}
 -- Aggregate Member : Technology System Member
-TechnologySystemMember : ClassOfClassOfIndividual
-TechnologySystemMember = ClassOfIndividual
+TechnologySystemMember : ClassOfClassOfBoundedIndividual
+TechnologySystemMember = ClassOfBoundedIndividual
+
+
+
+--  TechnologySystemMember is subTypeOf TechnologyOperatingAssetPart
+st-d1600a8f62e08fb2-d265d98e68b13ce4 : TechnologySystemMember ⊏ₑ TechnologyOperatingAssetPart
+st-d1600a8f62e08fb2-d265d98e68b13ce4 = polySubTypeOf-identity
+
+--  TechnologySystemMember is subTypeOf ResourceAgentPart
+st-d1600a8f62e08fb2-e2ef09de62147eb7 : TechnologySystemMember ⊏ₑ ResourceAgentPart
+st-d1600a8f62e08fb2-e2ef09de62147eb7 = polySubTypeOf-identity
+
+--  TechnologySystemMember is subTypeOf TechnologyOperatingAsset
+st-d1600a8f62e08fb2-d16006d362e085f2 : TechnologySystemMember ⊏ₑ TechnologyOperatingAsset
+st-d1600a8f62e08fb2-d16006d362e085f2 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfTechnologySystemMember :  Linkage TechnologySystem TechnologySystemMember
@@ -80,8 +99,4 @@ aggregationOfTechnologyOperatingAssetTechnologySystemMember = make_Relation "Tec
 technologySystemMember : Linkage TechnologySystem TechnologyOperatingAsset
 technologySystemMember = membershipOfTechnologySystemMember  ∘  aggregationOfTechnologyOperatingAssetTechnologySystemMember
 
-postulate -- technologySystemMember is subTypeOf technologyOperatingAssetPart
-  st-d1600a8f62e08fb2-d265d98e68b13ce4  : technologySystemMember   ⊏⋆ᵣ  technologyOperatingAssetPart 
-postulate -- technologySystemMember is subTypeOf resourceAgentPart
-  st-d1600a8f62e08fb2-e2ef09de62147eb7  : technologySystemMember   ⊏⋆ᵣ  resourceAgentPart 
 

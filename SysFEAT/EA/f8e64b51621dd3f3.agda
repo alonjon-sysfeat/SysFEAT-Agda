@@ -21,12 +21,15 @@ open import SysFEAT.EA.e2ef091962147ad7 public -- Resource Agent Type
 ResourceOperatingEcosystem : ClassOfClassOfBoundedIndividual
 ResourceOperatingEcosystem = ClassOfBoundedIndividual
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Enterprise Ecosystem Connection: -}
 -- Aggregate Member : Enterprise Ecosystem Connection
 EnterpriseEcosystemConnection : ClassOfClassOfIndividual
 EnterpriseEcosystemConnection = ClassOfIndividual
+
 
 -- Membership relation
 membershipOfEnterpriseEcosystemConnection :  Linkage ResourceOperatingEcosystem EnterpriseEcosystemConnection
@@ -46,10 +49,17 @@ enterpriseEcosystemConnection = membershipOfEnterpriseEcosystemConnection  ∘  
 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Enterprise Ecosystem Part: -}
 -- Aggregate Member : Enterprise Ecosystem Part
-EnterpriseEcosystemPart : ClassOfClassOfIndividual
-EnterpriseEcosystemPart = ClassOfIndividual
+EnterpriseEcosystemPart : ClassOfClassOfBoundedIndividual
+EnterpriseEcosystemPart = ClassOfBoundedIndividual
+
+
+
+--  EnterpriseEcosystemPart is subTypeOf ResourceAgentType
+st-f8e6b83c621fffe6-e2ef091962147ad7 : EnterpriseEcosystemPart ⊏ₑ ResourceAgentType
+st-f8e6b83c621fffe6-e2ef091962147ad7 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfEnterpriseEcosystemPart :  Linkage ResourceOperatingEcosystem EnterpriseEcosystemPart

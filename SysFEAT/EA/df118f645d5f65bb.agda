@@ -22,8 +22,10 @@ open import SysFEAT.EA.02f51209641c7ea4 public -- Computing Device
 ComputerServer : ClassOfClassOfBoundedIndividual
 ComputerServer = ClassOfBoundedIndividual
 
+
 --  ComputerServer is subTypeOf ComputingDevice
 st-df118f645d5f65bb-02f51209641c7ea4 : ComputerServer ⊏ₑ ComputingDevice
 st-df118f645d5f65bb-02f51209641c7ea4 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

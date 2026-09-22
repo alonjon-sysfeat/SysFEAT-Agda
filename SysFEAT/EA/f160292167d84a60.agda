@@ -21,12 +21,15 @@ open import SysFEAT.EA.07ca19e95dd854e9 public -- Assurance Case
 ComplianceAssessment : ClassOfBoundedIndividual
 ComplianceAssessment = BoundedIndividual
 
+
 --  ComplianceAssessment is subTypeOf Assessment
 st-f160292167d84a60-3b539cbb551e4c2a : ComplianceAssessment ⊏ₑ Assessment
 st-f160292167d84a60-3b539cbb551e4c2a = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Assurance Case: -}
 assuranceCase :  Linkage ComplianceAssessment AssuranceCase
 assuranceCase = make_instanceOf "Assurance Case" "Assurance Case"

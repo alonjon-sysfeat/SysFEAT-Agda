@@ -25,16 +25,29 @@ open import SysFEAT.EA.bcebd8e9549144db public -- Application
 ApplicationScenario : ClassOfClassOfBoundedIndividual
 ApplicationScenario = ClassOfBoundedIndividual
 
+
 --  ApplicationScenario is subTypeOf SOftwareSystemScenario
 st-6246167661ba2d05-25c09cb461e2efd3 : ApplicationScenario ⊏ₑ SOftwareSystemScenario
 st-6246167661ba2d05-25c09cb461e2efd3 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Participant IT Service: -}
 -- Aggregate Member : Participant IT Service
-ParticipantITService : ClassOfClassOfIndividual
-ParticipantITService = ClassOfIndividual
+ParticipantITService : ClassOfClassOfBoundedIndividual
+ParticipantITService = ClassOfBoundedIndividual
+
+
+
+--  ParticipantITService is subTypeOf ParticipantSOftware
+st-6246173661ba2ed4-25c1b19061e21ed1 : ParticipantITService ⊏ₑ ParticipantSOftware
+st-6246173661ba2ed4-25c1b19061e21ed1 = polySubTypeOf-identity
+
+--  ParticipantITService is subTypeOf MicroService
+st-6246173661ba2ed4-d6a956495a395d28 : ParticipantITService ⊏ₑ MicroService
+st-6246173661ba2ed4-d6a956495a395d28 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfParticipantITService :  Linkage ApplicationScenario ParticipantITService
@@ -52,14 +65,23 @@ aggregationOfMicroServiceParticipantITService = make_Relation "MicroService aggr
 participantITService : Linkage ApplicationScenario MicroService
 participantITService = membershipOfParticipantITService  ∘  aggregationOfMicroServiceParticipantITService
 
-postulate -- participantITService is subTypeOf participantSOftware
-  st-6246173661ba2ed4-25c1b19061e21ed1  : participantITService   ⊏⋆ᵣ  participantSOftware 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Performed Scenario: -}
 -- Aggregate Member : Performed Scenario
-PerformedScenario : ClassOfClassOfIndividual
-PerformedScenario = ClassOfIndividual
+PerformedScenario : ClassOfClassOfBoundedIndividual
+PerformedScenario = ClassOfBoundedIndividual
+
+
+
+--  PerformedScenario is subTypeOf PerformedSOftwareSystemScenario
+st-25c1bac961e23189-25c1b2d361e22368 : PerformedScenario ⊏ₑ PerformedSOftwareSystemScenario
+st-25c1bac961e23189-25c1b2d361e22368 = polySubTypeOf-identity
+
+--  PerformedScenario is subTypeOf Application
+st-25c1bac961e23189-bcebd8e9549144db : PerformedScenario ⊏ₑ Application
+st-25c1bac961e23189-bcebd8e9549144db = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfPerformedScenario :  Linkage ApplicationScenario PerformedScenario
@@ -77,6 +99,4 @@ aggregationOfApplicationPerformedScenario = make_Relation "Application aggregati
 performedScenario : Linkage ApplicationScenario Application
 performedScenario = membershipOfPerformedScenario  ∘  aggregationOfApplicationPerformedScenario
 
-postulate -- performedScenario is subTypeOf performedSOftwareSystemScenario
-  st-25c1bac961e23189-25c1b2d361e22368  : performedScenario   ⊏⋆ᵣ  performedSOftwareSystemScenario 
 

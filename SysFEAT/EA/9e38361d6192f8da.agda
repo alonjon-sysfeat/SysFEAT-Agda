@@ -24,17 +24,21 @@ open import SysFEAT.EA.46195775560d4ec0 public -- System of Systems
 InfrastructureLandscape : ClassOfBoundedIndividual
 InfrastructureLandscape = BoundedIndividual
 
+
 --  InfrastructureLandscape is subTypeOf IndividualBusinessAgent
 st-9e38361d6192f8da-66f8685a620b1440 : InfrastructureLandscape ⊏ₑ IndividualBusinessAgent
 st-9e38361d6192f8da-66f8685a620b1440 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Owned Data Center: -}
 ownedDataCenter :  Linkage InfrastructureLandscape DataCenter
 ownedDataCenter = make_holonymyRelation "Owned Data Center" "Owned Data Center"
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Infrastructure Type: -}
 infrastructureType :  Linkage InfrastructureLandscape SystemOfSystems
 infrastructureType = make_instanceOf "Infrastructure Type" "Infrastructure Type"

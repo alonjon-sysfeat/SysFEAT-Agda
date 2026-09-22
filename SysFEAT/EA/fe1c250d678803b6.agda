@@ -21,6 +21,7 @@ open import SysFEAT.SOF.e9af119866e86785 public -- Individual Behavior
 IndividualResourceBehavior : ClassOfBoundedIndividual
 IndividualResourceBehavior = BoundedIndividual
 
+
 --  IndividualResourceBehavior is subTypeOf IndividualResourceAsset
 st-fe1c250d678803b6-fe1c24fa6788036e : IndividualResourceBehavior ⊏ₑ IndividualResourceAsset
 st-fe1c250d678803b6-fe1c24fa6788036e = polySubTypeOf-identity
@@ -29,4 +30,5 @@ st-fe1c250d678803b6-fe1c24fa6788036e = polySubTypeOf-identity
 st-fe1c250d678803b6-e9af119866e86785 : IndividualResourceBehavior ⊏ₑ IndividualBehavior
 st-fe1c250d678803b6-e9af119866e86785 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

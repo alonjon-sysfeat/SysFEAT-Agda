@@ -30,12 +30,23 @@ st-203b8ff05a5f43fe-6bf190796859b4ff = polySubTypeOf-identity
 st-203b8ff05a5f43fe-d6cd116d5ab97525 : ConceptDomain ⊏ₑ InformationDomain
 st-203b8ff05a5f43fe-d6cd116d5ab97525 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Sub Activity Domain: -}
 -- Aggregate Member : Sub Activity Domain
 SubActivityDomain : ClassOfClassOfIndividual
 SubActivityDomain = ClassOfIndividual
+
+
+--  SubActivityDomain is subTypeOf SubInformationArea
+st-dd25ddee5ebb09a5-24ae4a625ed16c60 : SubActivityDomain ⊏ₑ SubInformationArea
+st-dd25ddee5ebb09a5-24ae4a625ed16c60 = polySubTypeOf-identity
+
+--  SubActivityDomain is subTypeOf ConceptDomain
+st-dd25ddee5ebb09a5-203b8ff05a5f43fe : SubActivityDomain ⊏ₑ ConceptDomain
+st-dd25ddee5ebb09a5-203b8ff05a5f43fe = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSubActivityDomain :  Linkage ConceptDomain SubActivityDomain
@@ -53,14 +64,23 @@ aggregationOfConceptDomainSubActivityDomain = make_Relation "ConceptDomain aggre
 subActivityDomain : Linkage ConceptDomain ConceptDomain
 subActivityDomain = membershipOfSubActivityDomain  ∘  aggregationOfConceptDomainSubActivityDomain
 
-postulate -- subActivityDomain is subTypeOf subInformationArea
-  st-dd25ddee5ebb09a5-24ae4a625ed16c60  : subActivityDomain   ⊏⋆ᵣ  subInformationArea 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Domain Concept: -}
 -- Aggregate Member : Domain Concept
-DomainConcept : ClassOfClassOfIndividual
-DomainConcept = ClassOfIndividual
+DomainConcept : ClassOfClassOfBoundedIndividual
+DomainConcept = ClassOfBoundedIndividual
+
+
+
+--  DomainConcept is subTypeOf DomainAsset
+st-e3b8e4595ebb40da-24ae4a405ed16bcf : DomainConcept ⊏ₑ DomainAsset
+st-e3b8e4595ebb40da-24ae4a405ed16bcf = polySubTypeOf-identity
+
+--  DomainConcept is subTypeOf ConceptualEntityAsset
+st-e3b8e4595ebb40da-362fc8045b3c3e65 : DomainConcept ⊏ₑ ConceptualEntityAsset
+st-e3b8e4595ebb40da-362fc8045b3c3e65 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfDomainConcept :  Linkage ConceptDomain DomainConcept
@@ -78,6 +98,4 @@ aggregationOfConceptualEntityAssetDomainConcept = make_Relation "ConceptualEntit
 domainConcept : Linkage ConceptDomain ConceptualEntityAsset
 domainConcept = membershipOfDomainConcept  ∘  aggregationOfConceptualEntityAssetDomainConcept
 
-postulate -- domainConcept is subTypeOf domainAsset
-  st-e3b8e4595ebb40da-24ae4a405ed16bcf  : domainConcept   ⊏⋆ᵣ  domainAsset 
 

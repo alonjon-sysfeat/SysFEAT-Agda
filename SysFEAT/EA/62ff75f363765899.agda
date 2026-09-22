@@ -21,8 +21,10 @@ open import SysFEAT.EA.62466ea661b80d09 public -- Business Operating Asset
 IndividualBusinessAsset : ClassOfBoundedIndividual
 IndividualBusinessAsset = BoundedIndividual
 
+
 --  IndividualBusinessAsset is subTypeOf IndividualResourceAsset
 st-62ff75f363765899-fe1c24fa6788036e : IndividualBusinessAsset ⊏ₑ IndividualResourceAsset
 st-62ff75f363765899-fe1c24fa6788036e = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

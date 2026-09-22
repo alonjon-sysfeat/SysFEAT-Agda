@@ -25,12 +25,15 @@ open import SysFEAT.EA.46194ce9560d3ab8 public -- Application Component
 SOftwareModule : ClassOfClassOfBoundedIndividual
 SOftwareModule = ClassOfBoundedIndividual
 
+
 --  SOftwareModule is subTypeOf BusinessSOftwareSystem
 st-c30bdac25a5d9eaf-d6cd02865ab966e8 : SOftwareModule ⊏ₑ BusinessSOftwareSystem
 st-c30bdac25a5d9eaf-d6cd02865ab966e8 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Required software technology: 
 Set of Software Technology(ies) on which a Software Module is based.
 -}
@@ -38,14 +41,25 @@ requiredsOftwaretechnology :  Linkage SOftwareModule SOftwareTechnology
 requiredsOftwaretechnology = make_classOfHolonymy "Required software technology" "Required software technology"
 
 postulate -- requiredsOftwaretechnology is subTypeOf enablerTechnologySystem
-  st-d5e6eac35c4665f3-fe1b423f6712709d  : requiredsOftwaretechnology   ⊏⋆ᵣ  enablerTechnologySystem 
+  st-d5e6eac35c4665f3-fe1b423f6712709d  : requiredsOftwaretechnology  ⊏⋆ᵣ  enablerTechnologySystem
 
+-- -------------------------------------------------------------------------------------------- 
 {- Component Part: 
 Embbeding of an Application Component in an Application or in another Application Component.
 -}
 -- Aggregate Member : Component Part
-ComponentPart : ClassOfClassOfIndividual
-ComponentPart = ClassOfIndividual
+ComponentPart : ClassOfClassOfBoundedIndividual
+ComponentPart = ClassOfBoundedIndividual
+
+
+
+--  ComponentPart is subTypeOf SOftwarePart
+st-8109f9be5eb8bd66-173f4d015eb8c686 : ComponentPart ⊏ₑ SOftwarePart
+st-8109f9be5eb8bd66-173f4d015eb8c686 = polySubTypeOf-identity
+
+--  ComponentPart is subTypeOf ApplicationComponent
+st-8109f9be5eb8bd66-46194ce9560d3ab8 : ComponentPart ⊏ₑ ApplicationComponent
+st-8109f9be5eb8bd66-46194ce9560d3ab8 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfComponentPart :  Linkage SOftwareModule ComponentPart
@@ -63,6 +77,4 @@ aggregationOfApplicationComponentComponentPart = make_Relation "ApplicationCompo
 componentPart : Linkage SOftwareModule ApplicationComponent
 componentPart = membershipOfComponentPart  ∘  aggregationOfApplicationComponentComponentPart
 
-postulate -- componentPart is subTypeOf sOftwarePart
-  st-8109f9be5eb8bd66-173f4d015eb8c686  : componentPart   ⊏⋆ᵣ  sOftwarePart 
 

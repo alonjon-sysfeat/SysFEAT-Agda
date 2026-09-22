@@ -24,6 +24,7 @@ open import SysFEAT.EA.7c408aa155270eea public -- Department Type
 BusinessScenario : ClassOfClassOfBoundedIndividual
 BusinessScenario = ClassOfBoundedIndividual
 
+
 --  BusinessScenario is subTypeOf BusinessEcosystem
 st-c334dfca5ecb83dd-2b705f2661ba04de : BusinessScenario ⊏ₑ BusinessEcosystem
 st-c334dfca5ecb83dd-2b705f2661ba04de = polySubTypeOf-identity
@@ -32,19 +33,32 @@ st-c334dfca5ecb83dd-2b705f2661ba04de = polySubTypeOf-identity
 st-c334dfca5ecb83dd-2b6f337e61bae6d6 : BusinessScenario ⊏ₑ BusinessEnvironmentScenario
 st-c334dfca5ecb83dd-2b6f337e61bae6d6 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Scenarized Business Environment: -}
 scenarizedBusinessEnvironment :  Linkage BusinessScenario BusinessEnvironment
 scenarizedBusinessEnvironment = make_classOfHolonymy "Scenarized Business Environment" "Scenarized Business Environment"
 
 postulate -- scenarizedBusinessEnvironment is subTypeOf scenarizedBusinessEnvironment
-  st-2b70641f61ba0bea-2b6f37c161baeeed  : scenarizedBusinessEnvironment   ⊏⋆ᵣ  scenarizedBusinessEnvironment 
+  st-2b70641f61ba0bea-2b6f37c161baeeed  : scenarizedBusinessEnvironment  ⊏⋆ᵣ  scenarizedBusinessEnvironment
 
+-- -------------------------------------------------------------------------------------------- 
 {- Served customer: -}
 -- Aggregate Member : Served customer
-Servedcustomer : ClassOfClassOfIndividual
-Servedcustomer = ClassOfIndividual
+Servedcustomer : ClassOfClassOfBoundedIndividual
+Servedcustomer = ClassOfBoundedIndividual
+
+
+
+--  Servedcustomer is subTypeOf ParticipantEnterpriseAgent
+st-466653e96408818a-2b6f3bf061baf60a : Servedcustomer ⊏ₑ ParticipantEnterpriseAgent
+st-466653e96408818a-2b6f3bf061baf60a = polySubTypeOf-identity
+
+--  Servedcustomer is subTypeOf Customer
+st-466653e96408818a-08d181af678a2d51 : Servedcustomer ⊏ₑ Customer
+st-466653e96408818a-08d181af678a2d51 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfServedcustomer :  Linkage BusinessScenario Servedcustomer
@@ -62,14 +76,27 @@ aggregationOfCustomerServedcustomer = make_Relation "Customer aggregation" "aggr
 servedcustomer : Linkage BusinessScenario Customer
 servedcustomer = membershipOfServedcustomer  ∘  aggregationOfCustomerServedcustomer
 
-postulate -- servedcustomer is subTypeOf participantEnterpriseAgent
-  st-466653e96408818a-2b6f3bf061baf60a  : servedcustomer   ⊏⋆ᵣ  participantEnterpriseAgent 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Subject-Department: -}
 -- Aggregate Member : Subject-Department
-SubjectDepartment : ClassOfClassOfIndividual
-SubjectDepartment = ClassOfIndividual
+SubjectDepartment : ClassOfClassOfBoundedIndividual
+SubjectDepartment = ClassOfBoundedIndividual
+
+
+
+--  SubjectDepartment is subTypeOf ParticipantEnterpriseAgent
+st-2b7065b261ba0e06-2b6f3bf061baf60a : SubjectDepartment ⊏ₑ ParticipantEnterpriseAgent
+st-2b7065b261ba0e06-2b6f3bf061baf60a = polySubTypeOf-identity
+
+--  SubjectDepartment is subTypeOf SubjectResourceAgent
+st-2b7065b261ba0e06-2b6f5c4161bafdfd : SubjectDepartment ⊏ₑ SubjectResourceAgent
+st-2b7065b261ba0e06-2b6f5c4161bafdfd = polySubTypeOf-identity
+
+--  SubjectDepartment is subTypeOf DepartmentType
+st-2b7065b261ba0e06-7c408aa155270eea : SubjectDepartment ⊏ₑ DepartmentType
+st-2b7065b261ba0e06-7c408aa155270eea = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSubjectDepartment :  Linkage BusinessScenario SubjectDepartment
@@ -87,16 +114,27 @@ aggregationOfDepartmentTypeSubjectDepartment = make_Relation "DepartmentType agg
 subjectDepartment : Linkage BusinessScenario DepartmentType
 subjectDepartment = membershipOfSubjectDepartment  ∘  aggregationOfDepartmentTypeSubjectDepartment
 
-postulate -- subjectDepartment is subTypeOf participantEnterpriseAgent
-  st-2b7065b261ba0e06-2b6f3bf061baf60a  : subjectDepartment   ⊏⋆ᵣ  participantEnterpriseAgent 
-postulate -- subjectDepartment is subTypeOf subjectResourceAgent
-  st-2b7065b261ba0e06-2b6f5c4161bafdfd  : subjectDepartment   ⊏⋆ᵣ  subjectResourceAgent 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Partner Department: -}
 -- Aggregate Member : Partner Department
-PartnerDepartment : ClassOfClassOfIndividual
-PartnerDepartment = ClassOfIndividual
+PartnerDepartment : ClassOfClassOfBoundedIndividual
+PartnerDepartment = ClassOfBoundedIndividual
+
+
+
+--  PartnerDepartment is subTypeOf ParticipantEnterpriseAgent
+st-2b7065f361ba0eda-2b6f3bf061baf60a : PartnerDepartment ⊏ₑ ParticipantEnterpriseAgent
+st-2b7065f361ba0eda-2b6f3bf061baf60a = polySubTypeOf-identity
+
+--  PartnerDepartment is subTypeOf PartnerResourceAgent
+st-2b7065f361ba0eda-2b6f35bc61baecc4 : PartnerDepartment ⊏ₑ PartnerResourceAgent
+st-2b7065f361ba0eda-2b6f35bc61baecc4 = polySubTypeOf-identity
+
+--  PartnerDepartment is subTypeOf DepartmentType
+st-2b7065f361ba0eda-7c408aa155270eea : PartnerDepartment ⊏ₑ DepartmentType
+st-2b7065f361ba0eda-7c408aa155270eea = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfPartnerDepartment :  Linkage BusinessScenario PartnerDepartment
@@ -114,8 +152,4 @@ aggregationOfDepartmentTypePartnerDepartment = make_Relation "DepartmentType agg
 partnerDepartment : Linkage BusinessScenario DepartmentType
 partnerDepartment = membershipOfPartnerDepartment  ∘  aggregationOfDepartmentTypePartnerDepartment
 
-postulate -- partnerDepartment is subTypeOf participantEnterpriseAgent
-  st-2b7065f361ba0eda-2b6f3bf061baf60a  : partnerDepartment   ⊏⋆ᵣ  participantEnterpriseAgent 
-postulate -- partnerDepartment is subTypeOf partnerResourceAgent
-  st-2b7065f361ba0eda-2b6f35bc61baecc4  : partnerDepartment   ⊏⋆ᵣ  partnerResourceAgent 
 

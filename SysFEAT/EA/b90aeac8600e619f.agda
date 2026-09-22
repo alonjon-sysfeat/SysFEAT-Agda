@@ -28,12 +28,24 @@ DataAssuranceCase = ClassOfBoundedIndividual
 st-b90aeac8600e619f-07ca19e95dd854e9 : DataAssuranceCase ⊏ₑ AssuranceCase
 st-b90aeac8600e619f-07ca19e95dd854e9 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Concerned Information: -}
 -- Aggregate Member : Concerned Information
-ConcernedInformation : ClassOfClassOfIndividual
-ConcernedInformation = ClassOfIndividual
+ConcernedInformation : ClassOfClassOfBoundedIndividual
+ConcernedInformation = ClassOfBoundedIndividual
+
+
+
+--  ConcernedInformation is subTypeOf InvolvedAsset
+st-b90afa69600e715c-9152e6975ed764d3 : ConcernedInformation ⊏ₑ InvolvedAsset
+st-b90afa69600e715c-9152e6975ed764d3 = polySubTypeOf-identity
+
+--  ConcernedInformation is subTypeOf InformationAsset
+st-b90afa69600e715c-e6f250185f772ee1 : ConcernedInformation ⊏ₑ InformationAsset
+st-b90afa69600e715c-e6f250185f772ee1 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfConcernedInformation :  Linkage DataAssuranceCase ConcernedInformation
@@ -51,14 +63,18 @@ aggregationOfInformationAssetConcernedInformation = make_Relation "InformationAs
 concernedInformation : Linkage DataAssuranceCase InformationAsset
 concernedInformation = membershipOfConcernedInformation  ∘  aggregationOfInformationAssetConcernedInformation
 
-postulate -- concernedInformation is subTypeOf involvedAsset
-  st-b90afa69600e715c-9152e6975ed764d3  : concernedInformation   ⊏⋆ᵣ  involvedAsset 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Mitigated Data Risk: -}
 -- Aggregate Member : Mitigated Data Risk
 MitigatedDataRisk : ThirdOrderClass
 MitigatedDataRisk = SecondOrderClass
+
+
+--  MitigatedDataRisk is subTypeOf MitigatedRisk
+st-582e7e2266f6c278-582e770166f6a8cf : MitigatedDataRisk ⊏⋆ₑ MitigatedRisk
+st-582e7e2266f6c278-582e770166f6a8cf = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfMitigatedDataRisk :  Linkage DataAssuranceCase MitigatedDataRisk
@@ -76,6 +92,4 @@ aggregationOfDataRiskTypeMitigatedDataRisk = make_Relation "DataRiskType aggrega
 mitigatedDataRisk : Linkage DataAssuranceCase DataRiskType
 mitigatedDataRisk = membershipOfMitigatedDataRisk  ∘  aggregationOfDataRiskTypeMitigatedDataRisk
 
-postulate -- mitigatedDataRisk is subTypeOf mitigatedRisk
-  st-582e7e2266f6c278-582e770166f6a8cf  : mitigatedDataRisk   ⊏⋆ᵣ  mitigatedRisk 
 

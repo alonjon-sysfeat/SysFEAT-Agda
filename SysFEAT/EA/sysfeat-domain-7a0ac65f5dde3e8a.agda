@@ -13,7 +13,7 @@ Documentation : https://framework.sysfeat.com/pages/7a0ac65f5dde3e8a.htm
 {-# OPTIONS --cubical --guardedness #-}
 module SysFEAT.EA.sysfeat-domain-7a0ac65f5dde3e8a where -- ========== Operational Risk Assurance
 
-open import SysFEAT.SOF.sysfeat-domain-02f70fdc600f4179 public -- Policies
+open import SysFEAT.SOF.sysfeat-domain-02f70fdc600f4179 public -- Functional Asset and Operating Constraints
 open import SysFEAT.SOF.sysfeat-domain-83bb9d706192357b public -- Appraisal Pattern
 open import SysFEAT.EA.sysfeat-domain-fe663dd261817752 public -- Operational Assurance
 open import SysFEAT.SOF.sysfeat-domain-8350a1e86759fc48 public -- Measurement

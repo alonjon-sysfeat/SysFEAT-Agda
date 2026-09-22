@@ -17,6 +17,6 @@ module SysFEAT.EA.affecba75f6079b2 where -- ========== Maximum Value
 open import Agda.Primitive
 
 MaximumValue : PropertyType
-MaximumValue = ClassOfProperty
+MaximumValue = Property
 
 

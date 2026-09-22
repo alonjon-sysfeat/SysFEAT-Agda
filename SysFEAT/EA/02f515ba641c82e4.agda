@@ -21,6 +21,7 @@ open import SysFEAT.EA.f4be0eda5ee1d6c0 public -- Computing System
 CloudService : ClassOfClassOfBoundedIndividual
 CloudService = ClassOfBoundedIndividual
 
+
 --  CloudService is subTypeOf SOftwareTechnologySystem
 st-02f515ba641c82e4-0463ea9a63fd8b6c : CloudService ⊏ₑ SOftwareTechnologySystem
 st-02f515ba641c82e4-0463ea9a63fd8b6c = polySubTypeOf-identity
@@ -29,4 +30,5 @@ st-02f515ba641c82e4-0463ea9a63fd8b6c = polySubTypeOf-identity
 st-02f515ba641c82e4-f4be0eda5ee1d6c0 : CloudService ⊏ₑ ComputingSystem
 st-02f515ba641c82e4-f4be0eda5ee1d6c0 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

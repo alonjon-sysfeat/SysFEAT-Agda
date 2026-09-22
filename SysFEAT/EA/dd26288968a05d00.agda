@@ -18,33 +18,44 @@ open import Agda.Primitive
 open import SysFEAT.EA.dd265414689f5987 public -- Resource Capability
 open import SysFEAT.EA.dd268f2868a08150 public -- Business Capability
 
-BusinessResourceCapability : PropertyType
-BusinessResourceCapability = ClassOfProperty
+BusinessResourceCapability : AssetPropertyType
+BusinessResourceCapability = AssetProperty
+
 
 --  BusinessResourceCapability is subTypeOf ResourceCapability
 st-dd26288968a05d00-dd265414689f5987 : BusinessResourceCapability ⊏ₑ ResourceCapability
 st-dd26288968a05d00-dd265414689f5987 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Realized Business Capability: -}
 realizedBusinessCapability :  Linkage BusinessResourceCapability BusinessCapability
 realizedBusinessCapability = make_subTypeOf "Realized Business Capability" "Realized Business Capability"
 
 postulate -- realizedBusinessCapability is subTypeOf specializedProperty
-  st-dd2682fc68a1bb2d-1662112a68925f90  : realizedBusinessCapability   ⊏⋆ᵣ  specializedProperty 
+  st-dd2682fc68a1bb2d-1662112a68925f90  : realizedBusinessCapability  ⊏⋆ᵣ  specializedProperty
 
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Business Resource Capability: -}
 specializedBusinessResourceCapability :  Linkage BusinessResourceCapability BusinessResourceCapability
 specializedBusinessResourceCapability = make_subTypeOf "Specialized Business Resource Capability" "Specialized Business Resource Capability"
 
 postulate -- specializedBusinessResourceCapability is subTypeOf specializedResourceCapability
-  st-dd2683b668a1bbb3-dd262de168a05f19  : specializedBusinessResourceCapability   ⊏⋆ᵣ  specializedResourceCapability 
+  st-dd2683b668a1bbb3-dd262de168a05f19  : specializedBusinessResourceCapability  ⊏⋆ᵣ  specializedResourceCapability
 
+-- -------------------------------------------------------------------------------------------- 
 {- Business Resource Capability Part: -}
 -- Aggregate Member : Business Resource Capability Part
-BusinessResourceCapabilityPart : ClassOfClassOfIndividual
-BusinessResourceCapabilityPart = ClassOfIndividual
+BusinessResourceCapabilityPart : ClassOfClassOfAbstractEntity
+BusinessResourceCapabilityPart = ClassOfAbstractEntity
+
+
+
+--  BusinessResourceCapabilityPart is subTypeOf ResourceCapabilityPart
+st-dd27af0168a10530-dd262bf968a05e2c : BusinessResourceCapabilityPart ⊏⋆ₑ ResourceCapabilityPart
+st-dd27af0168a10530-dd262bf968a05e2c = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfBusinessResourceCapabilityPart :  Linkage BusinessResourceCapability BusinessResourceCapabilityPart
@@ -62,6 +73,4 @@ aggregationOfBusinessResourceCapabilityBusinessResourceCapabilityPart = make_Rel
 businessResourceCapabilityPart : Linkage BusinessResourceCapability BusinessResourceCapability
 businessResourceCapabilityPart = membershipOfBusinessResourceCapabilityPart  ∘  aggregationOfBusinessResourceCapabilityBusinessResourceCapabilityPart
 
-postulate -- businessResourceCapabilityPart is subTypeOf resourceCapabilityPart
-  st-dd27af0168a10530-dd262bf968a05e2c  : businessResourceCapabilityPart   ⊏⋆ᵣ  resourceCapabilityPart 
 

@@ -21,18 +21,21 @@ open import Agda.Primitive
 open import SysFEAT.EA.e78cee446618815a public -- Legal Entity
 open import SysFEAT.SOF.8d5e986f552e28d5 public -- Location
 
-Regulatoryagency : ClassOfBoundedIndividual
-Regulatoryagency = BoundedIndividual
+Regulatoryagency : AgentType
+Regulatoryagency = IndividualAgent
+
 
 --  Regulatoryagency is subTypeOf LegalEntity
 st-167124af6008e9d3-e78cee446618815a : Regulatoryagency ⊏ₑ LegalEntity
 st-167124af6008e9d3-e78cee446618815a = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Regulator Location: -}
 regulatorLocation :  Linkage Regulatoryagency Location
 regulatorLocation = make_holonymyRelation "Regulator Location" "Regulator Location"
 
 postulate -- regulatorLocation is subTypeOf locatedat
-  st-167126066008ed22-167126a16008efeb  : regulatorLocation   ⊏⋆ᵣ  locatedat 
+  st-167126066008ed22-167126a16008efeb  : regulatorLocation  ⊏⋆ᵣ  locatedat

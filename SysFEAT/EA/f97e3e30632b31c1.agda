@@ -21,16 +21,29 @@ open import SysFEAT.EA.7c40987055271d04 public -- Conceptual Agent
 ConceptualEcosystem : ClassOfClassOfBoundedIndividual
 ConceptualEcosystem = ClassOfBoundedIndividual
 
+
 --  ConceptualEcosystem is subTypeOf OperatingEcoSystem
 st-f97e3e30632b31c1-ca35f48a5fc48686 : ConceptualEcosystem ⊏ₑ OperatingEcoSystem
 st-f97e3e30632b31c1-ca35f48a5fc48686 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Logical Ecosystem Member: -}
 -- Aggregate Member : Logical Ecosystem Member
-LogicalEcosystemMember : ClassOfClassOfIndividual
-LogicalEcosystemMember = ClassOfIndividual
+LogicalEcosystemMember : ClassOfClassOfBoundedIndividual
+LogicalEcosystemMember = ClassOfBoundedIndividual
+
+
+
+--  LogicalEcosystemMember is subTypeOf EnterpriseEcosystemPart
+st-f97e3fde632b3462-f8e6b83c621fffe6 : LogicalEcosystemMember ⊏ₑ EnterpriseEcosystemPart
+st-f97e3fde632b3462-f8e6b83c621fffe6 = polySubTypeOf-identity
+
+--  LogicalEcosystemMember is subTypeOf ConceptualAgent
+st-f97e3fde632b3462-7c40987055271d04 : LogicalEcosystemMember ⊏ₑ ConceptualAgent
+st-f97e3fde632b3462-7c40987055271d04 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfLogicalEcosystemMember :  Linkage ConceptualEcosystem LogicalEcosystemMember
@@ -48,6 +61,4 @@ aggregationOfConceptualAgentLogicalEcosystemMember = make_Relation "ConceptualAg
 logicalEcosystemMember : Linkage ConceptualEcosystem ConceptualAgent
 logicalEcosystemMember = membershipOfLogicalEcosystemMember  ∘  aggregationOfConceptualAgentLogicalEcosystemMember
 
-postulate -- logicalEcosystemMember is subTypeOf enterpriseEcosystemPart
-  st-f97e3fde632b3462-f8e6b83c621fffe6  : logicalEcosystemMember   ⊏⋆ᵣ  enterpriseEcosystemPart 
 

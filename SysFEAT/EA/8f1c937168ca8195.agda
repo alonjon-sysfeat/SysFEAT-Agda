@@ -19,11 +19,13 @@ module SysFEAT.EA.8f1c937168ca8195 where -- ========== Data Block
 open import Agda.Primitive
 open import SysFEAT.SOF.6c5f80e468587f06 public -- Information Block
 
-DataBlock : ∀ (u : Level) → ClassOfMixedOrderEntity u
-DataBlock u = MixedOrderEntity u
+DataBlock : ∀ (u : Level) → ClassOfMixedOrderEntity u 
+DataBlock u  = MixedOrderEntity u 
+
 
 --  DataBlock is subTypeOf InformationBlock
 st-8f1c937168ca8195-6c5f80e468587f06 : ∀ {u v} → (DataBlock u) ⊏⋆ₑ (InformationBlock v)
 st-8f1c937168ca8195-6c5f80e468587f06 = trivialPolySubTypeOfEntity
 
--- == Relationships =======================
+
+-- == Relations =======================

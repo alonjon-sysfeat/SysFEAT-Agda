@@ -13,6 +13,7 @@ Documentation : https://framework.sysfeat.com/pages/e2ef086d62147802.htm
 {-# OPTIONS --cubical --guardedness #-}
 module SysFEAT.EA.sysfeat-domain-e2ef086d62147802 where -- ========== SOF - Resource System Operating Pattern (R-SOF)
 
+open import SysFEAT.SOF.sysfeat-domain-02f70fdc600f4179 public -- Functional Asset and Operating Constraints
 open import SysFEAT.SOF.sysfeat-domain-d6cd2c8b5ab98da5 public -- Information Assets
 open import SysFEAT.SOF.sysfeat-domain-02af0a4b5a182417 public -- System Operating Framework - SOF
 open import SysFEAT.SOF.sysfeat-domain-c30bd1505a5d97f9 public -- Architecture Assets

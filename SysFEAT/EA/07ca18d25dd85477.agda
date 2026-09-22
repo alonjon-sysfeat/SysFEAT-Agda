@@ -25,6 +25,7 @@ open import SysFEAT.SOF.190c7429689664b5 public -- Policy
 AssuranceSystem : ClassOfBoundedIndividual
 AssuranceSystem = BoundedIndividual
 
+
 --  AssuranceSystem is subTypeOf ManagementSystem
 st-07ca18d25dd85477-29df3f4060084c07 : AssuranceSystem ⊏ₑ ManagementSystem
 st-07ca18d25dd85477-29df3f4060084c07 = polySubTypeOf-identity
@@ -33,8 +34,10 @@ st-07ca18d25dd85477-29df3f4060084c07 = polySubTypeOf-identity
 st-07ca18d25dd85477-299e895568488eb3 : AssuranceSystem ⊏ₑ AssuranceInitiative
 st-07ca18d25dd85477-299e895568488eb3 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Owned Assurance Case: 
 The set of Assurance Cases that a Assurance System is responsible for.
 -}
@@ -42,15 +45,17 @@ ownedAssuranceCase :  Linkage AssuranceSystem AssuranceCase
 ownedAssuranceCase = make_nestingRelation "Owned Assurance Case" "Owned Assurance Case"
 
 postulate -- ownedAssuranceCase is subTypeOf packagedAssuranceInstrument
-  st-0b950f8868e54f9f-561f36fc68d68770  : ownedAssuranceCase   ⊏⋆ᵣ  packagedAssuranceInstrument 
+  st-0b950f8868e54f9f-561f36fc68d68770  : ownedAssuranceCase  ⊏⋆ᵣ  packagedAssuranceInstrument
 
+-- -------------------------------------------------------------------------------------------- 
 {- Packaged Assurance Instrument: -}
 packagedAssuranceInstrument :  Linkage AssuranceSystem AssuranceInstrument
 packagedAssuranceInstrument = make_nestingRelation "Packaged Assurance Instrument" "Packaged Assurance Instrument"
 
 postulate -- packagedAssuranceInstrument is subTypeOf packagedInitiativeResource
-  st-561f36fc68d68770-01ce058868597974  : packagedAssuranceInstrument   ⊏⋆ᵣ  packagedInitiativeResource  {lzero}
+  st-561f36fc68d68770-01ce058868597974  : packagedAssuranceInstrument  ⊏⋆ᵣ  packagedInitiativeResource
 
+-- -------------------------------------------------------------------------------------------- 
 {- Enforced Policy Framework: 
 The set of Policy Frameworks that an Assurance System is responsible for enforcing and verifying compliance against.
 -}
@@ -58,10 +63,12 @@ enforcedPolicyFramework : ∀ {u} →  Linkage AssuranceSystem (PolicyFramework 
 enforcedPolicyFramework = make_Relation "Enforced Policy Framework" "Enforced Policy Framework"
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Policy Item in Scope: -}
 -- Aggregate Member : Policy Item in Scope
 PolicyIteminScope : ClassOfClassOfIndividual
 PolicyIteminScope = ClassOfIndividual
+
 
 -- Membership relation
 membershipOfPolicyIteminScope :  Linkage AssuranceSystem PolicyIteminScope

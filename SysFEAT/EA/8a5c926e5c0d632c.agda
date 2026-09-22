@@ -20,8 +20,10 @@ open import SysFEAT.EA.08d181af678a2d51 public -- Customer
 CustomerActivity : ClassOfClassOfBoundedIndividual
 CustomerActivity = ClassOfBoundedIndividual
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Portrayed Customer: 
 The customer who job activities (Job-to-be-done, Customer Journey) are described.
 -}
@@ -29,12 +31,18 @@ portrayedCustomer :  Linkage CustomerActivity Customer
 portrayedCustomer = make_classOfHolonymy "Portrayed Customer" "Portrayed Customer"
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Customer Activity Member: 
 Step of a Customer Journey where a Customer experiences offered capability through Touch Points.that can be either a Customer Job Activity or another Customer Journey 
 -}
 -- Aggregate Member : Customer Activity Member
 CustomerActivityMember : ClassOfClassOfIndividual
 CustomerActivityMember = ClassOfIndividual
+
+
+--  CustomerActivityMember is subTypeOf CustomerActivity
+st-ec200f5b630f47c5-8a5c926e5c0d632c : CustomerActivityMember ⊏ₑ CustomerActivity
+st-ec200f5b630f47c5-8a5c926e5c0d632c = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfCustomerActivityMember :  Linkage CustomerActivity CustomerActivityMember

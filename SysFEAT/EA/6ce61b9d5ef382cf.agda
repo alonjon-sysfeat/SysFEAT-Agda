@@ -22,25 +22,38 @@ open import SysFEAT.EA.d5e6ddd05c46547c public -- Software Technology
 TechnologyPortfolio : ClassOfBoundedIndividual
 TechnologyPortfolio = BoundedIndividual
 
+
 --  TechnologyPortfolio is subTypeOf AssetPortfolio
 st-6ce61b9d5ef382cf-26b8889c5eea8ab7 : TechnologyPortfolio ⊏ₑ AssetPortfolio
 st-6ce61b9d5ef382cf-26b8889c5eea8ab7 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Functional Scope: -}
 functionalScope :  Linkage TechnologyPortfolio SOftwareTechnologyCapabilityMap
 functionalScope = make_instanceOf "Functional Scope" "Functional Scope"
 
 postulate -- functionalScope is subTypeOf portfolioFunctionalScope
-  st-dd27b95768a114e1-dd2630ca68a0669f  : functionalScope   ⊏⋆ᵣ  portfolioFunctionalScope 
+  st-dd27b95768a114e1-dd2630ca68a0669f  : functionalScope  ⊏⋆ᵣ  portfolioFunctionalScope
 
+-- -------------------------------------------------------------------------------------------- 
 {- Managed Software Technology: 
 A Managed Software Technology represents the characterics of a Software Technology under the management of a Technology Portfolio.
 -}
 -- Aggregate Member : Managed Software Technology
 ManagedSOftwareTechnology : ClassOfClassOfIndividual
 ManagedSOftwareTechnology = ClassOfIndividual
+
+
+--  ManagedSOftwareTechnology withAspect ManagementSystemSubject
+st-e9b802705f51200e-6bf17ffc68598c26 : ManagedSOftwareTechnology ⊏ₐₑ (ManagementSystemSubject (lsuc(lzero)))
+st-e9b802705f51200e-6bf17ffc68598c26 = polySubTypeOf-identity
+
+--  ManagedSOftwareTechnology is subTypeOf ManagedResourceAsset
+st-e9b802705f51200e-f57af6ca62d21904 : ManagedSOftwareTechnology ⊏⋆ₑ ManagedResourceAsset
+st-e9b802705f51200e-f57af6ca62d21904 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfManagedSOftwareTechnology :  Linkage TechnologyPortfolio ManagedSOftwareTechnology
@@ -58,8 +71,4 @@ aggregationOfSOftwareTechnologyManagedSOftwareTechnology = make_Relation "SOftwa
 managedSOftwareTechnology : Linkage TechnologyPortfolio SOftwareTechnology
 managedSOftwareTechnology = membershipOfManagedSOftwareTechnology  ∘  aggregationOfSOftwareTechnologyManagedSOftwareTechnology
 
-postulate -- managedSOftwareTechnology is subTypeOf managementSystemSubject
-  st-e9b802705f51200e-6bf17ffc68598c26  : managedSOftwareTechnology   ⊏⋆ᵣ  managementSystemSubject  {lzero}
-postulate -- managedSOftwareTechnology is subTypeOf managedResourceAsset
-  st-e9b802705f51200e-f57af6ca62d21904  : managedSOftwareTechnology   ⊏⋆ᵣ  managedResourceAsset 
 

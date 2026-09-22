@@ -24,4 +24,5 @@ RelationalDatabLOCK = BoundedIndividual
 st-7731894d62166495-8f1cad7d68ca9df0 : RelationalDatabLOCK ⊏ₐₑ (PhysicalDataBlock lzero)
 st-7731894d62166495-8f1cad7d68ca9df0 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

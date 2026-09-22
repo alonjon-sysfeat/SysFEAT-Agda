@@ -27,18 +27,22 @@ DataQualityPolicy = ClassOfBoundedIndividual
 st-98159f6b5f682d1e-190c7429689664b5 : DataQualityPolicy ⊏ₑ Policy
 st-98159f6b5f682d1e-190c7429689664b5 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Target Threshold: -}
 targetThreshold :  Linkage DataQualityPolicy DataQualityMeasureValue
 targetThreshold = make_classOfHolonymy "Target Threshold" "Target Threshold"
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Dimension: -}
 dimension :  Linkage DataQualityPolicy MeasurableDataQuality
 dimension = make_classOfHolonymy "Dimension" "Dimension"
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Concerned Information Entity: -}
 concernedInformationEntity :  Linkage DataQualityPolicy InformationEntity
 concernedInformationEntity = make_classOfHolonymy "Concerned Information Entity" "Concerned Information Entity"
