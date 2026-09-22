@@ -20,8 +20,10 @@ open import SysFEAT.EA.05201b936647570a public -- Management Initiative
 AssetManagementInitiative : ClassOfBoundedIndividual
 AssetManagementInitiative = BoundedIndividual
 
+
 --  AssetManagementInitiative is subTypeOf ManagementInitiative
 st-05201bc866475765-05201b936647570a : AssetManagementInitiative ⊏ₑ ManagementInitiative
 st-05201bc866475765-05201b936647570a = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

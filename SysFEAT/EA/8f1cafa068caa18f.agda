@@ -18,15 +18,18 @@ open import Agda.Primitive
 open import SysFEAT.EA.8f1caa7f68ca98cc public -- Physical Data Dictionary
 open import SysFEAT.EA.7731894d62166495 public -- Relational Data bLOCK
 
-RelationalDictionary : ∀ (u : Level) → ClassOfMixedOrderEntity u
-RelationalDictionary u = MixedOrderEntity u
+RelationalDictionary : ∀ (u : Level) → ClassOfOrderedEntity u 
+RelationalDictionary u  = OrderedEntity u 
+
 
 --  RelationalDictionary is subTypeOf PhysicalDataDictionary
 st-8f1cafa068caa18f-8f1caa7f68ca98cc : ∀ {u v} → (RelationalDictionary u) ⊏⋆ₑ (PhysicalDataDictionary v)
 st-8f1cafa068caa18f-8f1caa7f68ca98cc = trivialPolySubTypeOfEntity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Packaged Relational Block: -}
 packagedRelationalBlock : ∀ {u} →  Linkage (RelationalDictionary u) RelationalDatabLOCK
 packagedRelationalBlock = make_nestingRelation "Packaged Relational Block" "Packaged Relational Block"

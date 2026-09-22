@@ -22,8 +22,8 @@ module SysFEAT.EA.56ea5ff966047632 where -- ========== Product
 
 open import Agda.Primitive
 open import SysFEAT.EA.d9f4dcc5688d5969 public -- Resource Asset
-open import SysFEAT.EA.d1600c7062e093eb public -- Capability Configuration
 open import SysFEAT.EA.21ed240a689c08df public -- Value Proposition
+open import SysFEAT.EA.d1600c7062e093eb public -- Capability Configuration
 
 Product : ClassOfClassOfBoundedIndividual
 Product = ClassOfBoundedIndividual
@@ -32,14 +32,48 @@ Product = ClassOfBoundedIndividual
 st-56ea5ff966047632-d9f4dcc5688d5969 : Product ⊏ₑ ResourceAsset
 st-56ea5ff966047632-d9f4dcc5688d5969 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
+{- Product Characteristic: 
+A Product Characteristic is expressed by a Value Proposition which defines the Functional Value (Business Capability) of a Product and its Non Functional Value (Condition Property).
+-}
+-- Aggregate Member : Product Characteristic
+ProductCharacteristic : ClassOfClassOfIndividual
+ProductCharacteristic = ClassOfIndividual
+
+
+-- Membership relation
+membershipOfProductCharacteristic :  Linkage Product ProductCharacteristic
+membershipOfProductCharacteristic = make_upwardNestingRelation "productCharacteristic membership" "nested productCharacteristic"
+
+-- Aggregation relation
+aggregationOfValuePropositionProductCharacteristic :  Linkage ProductCharacteristic ValueProposition
+aggregationOfValuePropositionProductCharacteristic = make_Relation "ValueProposition aggregation" "aggregated ValueProposition"
+
+{- productCharacteristic : derived relation obtained by composing
+   membershipOfProductCharacteristic and aggregationOfValuePropositionProductCharacteristic
+   It directly links an Product to the final aggregated ValueProposition
+   hiding the reifying ProductCharacteristic
+-}
+productCharacteristic : Linkage Product ValueProposition
+productCharacteristic = membershipOfProductCharacteristic  ∘  aggregationOfValuePropositionProductCharacteristic
+
+
+
+-- -------------------------------------------------------------------------------------------- 
 {- Goods Offering: 
 Goods Offerings are Resource Functional Assets, productized as goods in the context of an enterprise offering (Products).
 -}
 -- Aggregate Member : Goods Offering
 GoodsOffering : ClassOfClassOfIndividual
 GoodsOffering = ClassOfIndividual
+
+
+--  GoodsOffering is subTypeOf ResourceAsset
+st-215ccf6a606c38cc-d9f4dcc5688d5969 : GoodsOffering ⊏ₑ ResourceAsset
+st-215ccf6a606c38cc-d9f4dcc5688d5969 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfGoodsOffering :  Linkage Product GoodsOffering
@@ -59,12 +93,19 @@ goodsOffering = membershipOfGoodsOffering  ∘  aggregationOfResourceAssetGoodsO
 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Service Offering: 
 Service Offerings are exposed Business Service Interfaces, productized as services provisions the context of an enterprise offering (Products), 
 -}
 -- Aggregate Member : Service Offering
-ServiceOffering : ClassOfClassOfIndividual
-ServiceOffering = ClassOfIndividual
+ServiceOffering : ClassOfClassOfBoundedIndividual
+ServiceOffering = ClassOfBoundedIndividual
+
+
+
+--  ServiceOffering is subTypeOf CapabilityConfiguration
+st-215cd221606c3ed3-d1600c7062e093eb : ServiceOffering ⊏ₑ CapabilityConfiguration
+st-215cd221606c3ed3-d1600c7062e093eb = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfServiceOffering :  Linkage Product ServiceOffering
@@ -81,30 +122,5 @@ aggregationOfCapabilityConfigurationServiceOffering = make_Relation "CapabilityC
 -}
 serviceOffering : Linkage Product CapabilityConfiguration
 serviceOffering = membershipOfServiceOffering  ∘  aggregationOfCapabilityConfigurationServiceOffering
-
-
-
-{- Product Characteristic: 
-A Product Characteristic is expressed by a Value Proposition which defines the Functional Value (Business Capability) of a Product and its Non Functional Value (Condition Property).
--}
--- Aggregate Member : Product Characteristic
-ProductCharacteristic : ClassOfClassOfIndividual
-ProductCharacteristic = ClassOfIndividual
-
--- Membership relation
-membershipOfProductCharacteristic :  Linkage Product ProductCharacteristic
-membershipOfProductCharacteristic = make_upwardNestingRelation "productCharacteristic membership" "nested productCharacteristic"
-
--- Aggregation relation
-aggregationOfValuePropositionProductCharacteristic :  Linkage ProductCharacteristic ValueProposition
-aggregationOfValuePropositionProductCharacteristic = make_Relation "ValueProposition aggregation" "aggregated ValueProposition"
-
-{- productCharacteristic : derived relation obtained by composing
-   membershipOfProductCharacteristic and aggregationOfValuePropositionProductCharacteristic
-   It directly links an Product to the final aggregated ValueProposition
-   hiding the reifying ProductCharacteristic
--}
-productCharacteristic : Linkage Product ValueProposition
-productCharacteristic = membershipOfProductCharacteristic  ∘  aggregationOfValuePropositionProductCharacteristic
 
 

@@ -25,16 +25,20 @@ open import SysFEAT.EA.57dfc52d550932ef public -- Business Process
 BCMSystem : ClassOfBoundedIndividual
 BCMSystem = BoundedIndividual
 
+
 --  BCMSystem is subTypeOf AssuranceSystem
 st-8dbd8f17609b4a70-07ca18d25dd85477 : BCMSystem ⊏ₑ AssuranceSystem
 st-8dbd8f17609b4a70-07ca18d25dd85477 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Critical Process: -}
 -- Aggregate Member : Critical Process
 CriticalProcess : ClassOfClassOfIndividual
 CriticalProcess = ClassOfIndividual
+
 
 -- Membership relation
 membershipOfCriticalProcess :  Linkage BCMSystem CriticalProcess
@@ -54,10 +58,12 @@ criticalProcess = membershipOfCriticalProcess  ∘  aggregationOfProcessFamilyCr
 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Critical Operating Asset: -}
 -- Aggregate Member : Critical Operating Asset
 CriticalOperatingAsset : ClassOfClassOfIndividual
 CriticalOperatingAsset = ClassOfIndividual
+
 
 -- Membership relation
 membershipOfCriticalOperatingAsset :  Linkage BCMSystem CriticalOperatingAsset
@@ -77,10 +83,12 @@ criticalOperatingAsset = membershipOfCriticalOperatingAsset  ∘  aggregationOfB
 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Critical Activity: -}
 -- Aggregate Member : Critical Activity
 CriticalActivity : ClassOfClassOfIndividual
 CriticalActivity = ClassOfIndividual
+
 
 -- Membership relation
 membershipOfCriticalActivity :  Linkage BCMSystem CriticalActivity

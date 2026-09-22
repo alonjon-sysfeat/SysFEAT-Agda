@@ -17,11 +17,13 @@ module SysFEAT.EA.d170d9925be73b35 where -- ========== Pain Point (Type)
 open import Agda.Primitive
 open import SysFEAT.SOF.515c6a856893324e public -- Asset Property
 
-PainPointType : ClassOfClassOfBoundedIndividual
-PainPointType = ClassOfBoundedIndividual
+PainPointType : AssetPropertyType
+PainPointType = AssetProperty
+
 
 --  PainPointType is subTypeOf AssetProperty
 st-d170d9925be73b35-515c6a856893324e : PainPointType ⊏ₑ AssetProperty
 st-d170d9925be73b35-515c6a856893324e = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

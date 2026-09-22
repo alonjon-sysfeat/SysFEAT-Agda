@@ -24,11 +24,13 @@ open import Agda.Primitive
 open import SysFEAT.EA.910196ca550a2ec2 public -- Organization
 open import SysFEAT.EA.c0a3c7c666417665 public -- Legal Entity Type
 
-LegalEntity : ClassOfBoundedIndividual
-LegalEntity = BoundedIndividual
+LegalEntity : AgentType
+LegalEntity = IndividualAgent
+
 
 --  LegalEntity is subTypeOf Organization
 st-e78cee446618815a-910196ca550a2ec2 : LegalEntity ⊏ₑ Organization
 st-e78cee446618815a-910196ca550a2ec2 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

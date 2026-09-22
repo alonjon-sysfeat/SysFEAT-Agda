@@ -21,6 +21,7 @@ open import SysFEAT.EA.8f1c991068ca8a23 public -- Data Property
 LogicalDataProperty : ClassOfClassOfBoundedIndividual
 LogicalDataProperty = ClassOfBoundedIndividual
 
+
 --  LogicalDataProperty is subTypeOf LogicalDataElement
 st-7d5286635eae7273-2b5858b85eec51d9 : LogicalDataProperty ⊏ₑ LogicalDataElement
 st-7d5286635eae7273-2b5858b85eec51d9 = polySubTypeOf-identity
@@ -29,19 +30,40 @@ st-7d5286635eae7273-2b5858b85eec51d9 = polySubTypeOf-identity
 st-7d5286635eae7273-8f1c991068ca8a23 : LogicalDataProperty ⊏ₑ DataProperty
 st-7d5286635eae7273-8f1c991068ca8a23 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Logical Value: -}
 specializedLogicalValue :  Linkage LogicalDataProperty LogicalDataProperty
 specializedLogicalValue = make_subTypeOf "Specialized Logical Value" "Specialized Logical Value"
 
 postulate -- specializedLogicalValue is subTypeOf specializedDataObject
-  st-325a37b266f34974-325a380d66f3515e  : specializedLogicalValue   ⊏⋆ᵣ  specializedDataObject 
+  st-325a37b266f34974-325a380d66f3515e  : specializedLogicalValue  ⊏⋆ᵣ  specializedDataObject
 
+-- -------------------------------------------------------------------------------------------- 
 {- Data Value Member: -}
 -- Aggregate Member : Data Value Member
-DataValueMember : ClassOfClassOfIndividual
-DataValueMember = ClassOfIndividual
+DataValueMember : ClassOfClassOfBoundedIndividual
+DataValueMember = ClassOfBoundedIndividual
+
+
+
+--  DataValueMember is subTypeOf LogicalDataMember
+st-2b585ad05eec569f-e7e3fa0a5fbb0ddb : DataValueMember ⊏ₑ LogicalDataMember
+st-2b585ad05eec569f-e7e3fa0a5fbb0ddb = polySubTypeOf-identity
+
+--  DataValueMember is subTypeOf SubDataProperty
+st-2b585ad05eec569f-8f1c9c3268ca90a3 : DataValueMember ⊏⋆ₑ SubDataProperty
+st-2b585ad05eec569f-8f1c9c3268ca90a3 = polySubTypeOf-identity
+
+--  DataValueMember is subTypeOf InformationRelationship
+st-2b585ad05eec569f-dfa4e2305ebb4d2b : DataValueMember ⊏ₑ InformationRelationship
+st-2b585ad05eec569f-dfa4e2305ebb4d2b = polySubTypeOf-identity
+
+--  DataValueMember is subTypeOf LogicalDataProperty
+st-2b585ad05eec569f-7d5286635eae7273 : DataValueMember ⊏ₑ LogicalDataProperty
+st-2b585ad05eec569f-7d5286635eae7273 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfDataValueMember :  Linkage LogicalDataProperty DataValueMember
@@ -59,10 +81,4 @@ aggregationOfLogicalDataPropertyDataValueMember = make_Relation "LogicalDataProp
 dataValueMember : Linkage LogicalDataProperty LogicalDataProperty
 dataValueMember = membershipOfDataValueMember  ∘  aggregationOfLogicalDataPropertyDataValueMember
 
-postulate -- dataValueMember is subTypeOf logicalDataMember
-  st-2b585ad05eec569f-e7e3fa0a5fbb0ddb  : dataValueMember   ⊏⋆ᵣ  logicalDataMember 
-postulate -- dataValueMember is subTypeOf subDataProperty
-  st-2b585ad05eec569f-8f1c9c3268ca90a3  : dataValueMember   ⊏⋆ᵣ  subDataProperty 
-postulate -- dataValueMember is subTypeOf informationRelationship
-  st-2b585ad05eec569f-dfa4e2305ebb4d2b  : dataValueMember   ⊏⋆ᵣ  informationRelationship 
 

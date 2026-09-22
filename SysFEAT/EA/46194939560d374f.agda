@@ -29,6 +29,7 @@ open import SysFEAT.EA.028f03ff5b4f55ee public -- Physical Data Domain
 SystemProcess : ClassOfClassOfBoundedIndividual
 SystemProcess = ClassOfBoundedIndividual
 
+
 --  SystemProcess is subTypeOf BusinessResourceProcess
 st-46194939560d374f-7c40c3c85527466b : SystemProcess ⊏ₑ BusinessResourceProcess
 st-46194939560d374f-7c40c3c85527466b = polySubTypeOf-identity
@@ -37,21 +38,29 @@ st-46194939560d374f-7c40c3c85527466b = polySubTypeOf-identity
 st-46194939560d374f-6246927f61b81996 : SystemProcess ⊏ₑ BusinessSystemAsset
 st-46194939560d374f-6246927f61b81996 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Sytem Process: -}
 specializedSytemProcess :  Linkage SystemProcess SystemProcess
 specializedSytemProcess = make_subTypeOf "Specialized Sytem Process" "Specialized Sytem Process"
 
 postulate -- specializedSytemProcess is subTypeOf specializedBusinessSystemAsset
-  st-325a37b766f34c76-325a37b966f34e1e  : specializedSytemProcess   ⊏⋆ᵣ  specializedBusinessSystemAsset 
+  st-325a37b766f34c76-325a37b966f34e1e  : specializedSytemProcess  ⊏⋆ᵣ  specializedBusinessSystemAsset
 postulate -- specializedSytemProcess is subTypeOf specializedResourceProcess
-  st-325a37b766f34c76-325a376666f34350  : specializedSytemProcess   ⊏⋆ᵣ  specializedResourceProcess 
+  st-325a37b766f34c76-325a376666f34350  : specializedSytemProcess  ⊏⋆ᵣ  specializedResourceProcess
 
+-- -------------------------------------------------------------------------------------------- 
 {- System Sequence: -}
 -- Aggregate Member : System Sequence
 SystemSequence : ClassOfClassOfIndividual
 SystemSequence = ClassOfIndividual
+
+
+--  SystemSequence is subTypeOf ResourceActivitySequence
+st-9d38a80a61c42300-9d38a85a61c4245a : SystemSequence ⊏ₑ ResourceActivitySequence
+st-9d38a80a61c42300-9d38a85a61c4245a = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSystemSequence :  Linkage SystemProcess SystemSequence
@@ -69,14 +78,18 @@ aggregationOfBehavioralEventSystemSequence = make_Relation "BehavioralEvent aggr
 systemSequence : Linkage SystemProcess BehavioralEvent
 systemSequence = membershipOfSystemSequence  ∘  aggregationOfBehavioralEventSystemSequence
 
-postulate -- systemSequence is subTypeOf resourceActivitySequence
-  st-9d38a80a61c42300-9d38a85a61c4245a  : systemSequence   ⊏⋆ᵣ  resourceActivitySequence 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- System Flow: -}
 -- Aggregate Member : System Flow
 SystemFlow : ClassOfClassOfIndividual
 SystemFlow = ClassOfIndividual
+
+
+--  SystemFlow is subTypeOf ResourceFlow
+st-3e1fb6c05faab2ce-4d120c1861b28997 : SystemFlow ⊏ₑ ResourceFlow
+st-3e1fb6c05faab2ce-4d120c1861b28997 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSystemFlow :  Linkage SystemProcess SystemFlow
@@ -94,16 +107,25 @@ aggregationOfInformationOutcomeEventSystemFlow = make_Relation "InformationOutco
 systemFlow : Linkage SystemProcess InformationOutcomeEvent
 systemFlow = membershipOfSystemFlow  ∘  aggregationOfInformationOutcomeEventSystemFlow
 
-postulate -- systemFlow is subTypeOf resourceFlow
-  st-3e1fb6c05faab2ce-4d120c1861b28997  : systemFlow   ⊏⋆ᵣ  resourceFlow 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- System Process Participant: 
 A participant defines a partition of the actions of a process that will be assigned to a same agent.A participant can be decomposed into sub-partition to delegate responsibility for a subset of its actions.
 -}
 -- Aggregate Member : System Process Participant
-SystemProcessParticipant : ClassOfClassOfIndividual
-SystemProcessParticipant = ClassOfIndividual
+SystemProcessParticipant : ClassOfClassOfBoundedIndividual
+SystemProcessParticipant = ClassOfBoundedIndividual
+
+
+
+--  SystemProcessParticipant is subTypeOf ParticipantBusinessAgent
+st-0c9b0d1b5ebd8260-b4ebbe325ffdca40 : SystemProcessParticipant ⊏ₑ ParticipantBusinessAgent
+st-0c9b0d1b5ebd8260-b4ebbe325ffdca40 = polySubTypeOf-identity
+
+--  SystemProcessParticipant is subTypeOf BusinessSystem
+st-0c9b0d1b5ebd8260-278675d65b252f4d : SystemProcessParticipant ⊏ₑ BusinessSystem
+st-0c9b0d1b5ebd8260-278675d65b252f4d = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSystemProcessParticipant :  Linkage SystemProcess SystemProcessParticipant
@@ -121,16 +143,25 @@ aggregationOfBusinessSystemSystemProcessParticipant = make_Relation "BusinessSys
 systemProcessParticipant : Linkage SystemProcess BusinessSystem
 systemProcessParticipant = membershipOfSystemProcessParticipant  ∘  aggregationOfBusinessSystemSystemProcessParticipant
 
-postulate -- systemProcessParticipant is subTypeOf participantBusinessAgent
-  st-0c9b0d1b5ebd8260-b4ebbe325ffdca40  : systemProcessParticipant   ⊏⋆ᵣ  participantBusinessAgent 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- System Process Step: 
 Elementary step that is included within a system process. A task is used when the work in the system process is not broken down to a finer level of the process. Generally, an end-user and/or an IT service are used to perform the task when it is executed.
 -}
 -- Aggregate Member : System Process Step
-SystemProcessStep : ClassOfClassOfIndividual
-SystemProcessStep = ClassOfIndividual
+SystemProcessStep : ClassOfClassOfBoundedIndividual
+SystemProcessStep = ClassOfBoundedIndividual
+
+
+
+--  SystemProcessStep is subTypeOf BusinessResourceProcessStep
+st-0c9b0d8c5ebd83f7-b4ebbe6b5ffdcb19 : SystemProcessStep ⊏ₑ BusinessResourceProcessStep
+st-0c9b0d8c5ebd83f7-b4ebbe6b5ffdcb19 = polySubTypeOf-identity
+
+--  SystemProcessStep is subTypeOf SystemProcess
+st-0c9b0d8c5ebd83f7-46194939560d374f : SystemProcessStep ⊏ₑ SystemProcess
+st-0c9b0d8c5ebd83f7-46194939560d374f = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSystemProcessStep :  Linkage SystemProcess SystemProcessStep
@@ -148,14 +179,22 @@ aggregationOfSystemProcessSystemProcessStep = make_Relation "SystemProcess aggre
 systemProcessStep : Linkage SystemProcess SystemProcess
 systemProcessStep = membershipOfSystemProcessStep  ∘  aggregationOfSystemProcessSystemProcessStep
 
-postulate -- systemProcessStep is subTypeOf businessResourceProcessStep
-  st-0c9b0d8c5ebd83f7-b4ebbe6b5ffdcb19  : systemProcessStep   ⊏⋆ᵣ  businessResourceProcessStep 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Data Store: -}
 -- Aggregate Member : Data Store
 DataStore : ClassOfClassOfIndividual
 DataStore = ClassOfIndividual
+
+
+--  DataStore is subTypeOf BusinessDataStore
+st-ca9de7d65fcf44b7-b4ebd0e45ffdef12 : DataStore ⊏ₑ BusinessDataStore
+st-ca9de7d65fcf44b7-b4ebd0e45ffdef12 = polySubTypeOf-identity
+
+--  DataStore is subTypeOf PhysicalDataDomain
+st-ca9de7d65fcf44b7-028f03ff5b4f55ee : DataStore ⊏ₑ PhysicalDataDomain
+st-ca9de7d65fcf44b7-028f03ff5b4f55ee = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfDataStore :  Linkage SystemProcess DataStore
@@ -173,6 +212,4 @@ aggregationOfPhysicalDataDomainDataStore = make_Relation "PhysicalDataDomain agg
 dataStore : Linkage SystemProcess PhysicalDataDomain
 dataStore = membershipOfDataStore  ∘  aggregationOfPhysicalDataDomainDataStore
 
-postulate -- dataStore is subTypeOf businessDataStore
-  st-ca9de7d65fcf44b7-b4ebd0e45ffdef12  : dataStore   ⊏⋆ᵣ  businessDataStore 
 

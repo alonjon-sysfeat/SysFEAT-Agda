@@ -29,6 +29,7 @@ open import SysFEAT.EA.076d15425a5e158c public -- Org-Unit Type
 CapabilityConfiguration : ClassOfClassOfBoundedIndividual
 CapabilityConfiguration = ClassOfBoundedIndividual
 
+
 --  CapabilityConfiguration is subTypeOf BusinessAgentType
 st-d1600c7062e093eb-bcebd31f5491302c : CapabilityConfiguration ⊏ₑ BusinessAgentType
 st-d1600c7062e093eb-bcebd31f5491302c = polySubTypeOf-identity
@@ -41,14 +42,30 @@ st-d1600c7062e093eb-26b8384f5eeae33c = polySubTypeOf-identity
 st-d1600c7062e093eb-ffdf64a868608999 : CapabilityConfiguration ⊏ₑ ResourceAgentConfiguration
 st-d1600c7062e093eb-ffdf64a868608999 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Hardware Asset: 
 An Hardware Asset helps to define which hardware artifact or IoT Device is used within a System of Resources
 -}
 -- Aggregate Member : Hardware Asset
-HardwareAsset : ClassOfClassOfIndividual
-HardwareAsset = ClassOfIndividual
+HardwareAsset : ClassOfClassOfBoundedIndividual
+HardwareAsset = ClassOfBoundedIndividual
+
+
+
+--  HardwareAsset is subTypeOf NetworkingPart
+st-f4be14665ee1e9a0-26b8386e5eeae4a4 : HardwareAsset ⊏ₑ NetworkingPart
+st-f4be14665ee1e9a0-26b8386e5eeae4a4 = polySubTypeOf-identity
+
+--  HardwareAsset is subTypeOf ResourceAgentPart
+st-f4be14665ee1e9a0-24034f6d5fc79c3f : HardwareAsset ⊏ₑ ResourceAgentPart
+st-f4be14665ee1e9a0-24034f6d5fc79c3f = polySubTypeOf-identity
+
+--  HardwareAsset is subTypeOf ConcreteHardwareSystem
+st-f4be14665ee1e9a0-c30bf4015a5da72b : HardwareAsset ⊏ₑ ConcreteHardwareSystem
+st-f4be14665ee1e9a0-c30bf4015a5da72b = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfHardwareAsset :  Linkage CapabilityConfiguration HardwareAsset
@@ -66,18 +83,29 @@ aggregationOfConcreteHardwareSystemHardwareAsset = make_Relation "ConcreteHardwa
 hardwareAsset : Linkage CapabilityConfiguration ConcreteHardwareSystem
 hardwareAsset = membershipOfHardwareAsset  ∘  aggregationOfConcreteHardwareSystemHardwareAsset
 
-postulate -- hardwareAsset is subTypeOf networkingPart
-  st-f4be14665ee1e9a0-26b8386e5eeae4a4  : hardwareAsset   ⊏⋆ᵣ  networkingPart 
-postulate -- hardwareAsset is subTypeOf resourceAgentPart
-  st-f4be14665ee1e9a0-24034f6d5fc79c3f  : hardwareAsset   ⊏⋆ᵣ  resourceAgentPart 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- IT Infrastructure Part: 
 An IT Infrastrucure component helps to define that an IT Infrastructure or an IT Network is used within a System of Resources (Resource Architecture or Facility)
 -}
 -- Aggregate Member : IT Infrastructure Part
-ITInfrastructurePart : ClassOfClassOfIndividual
-ITInfrastructurePart = ClassOfIndividual
+ITInfrastructurePart : ClassOfClassOfBoundedIndividual
+ITInfrastructurePart = ClassOfBoundedIndividual
+
+
+
+--  ITInfrastructurePart is subTypeOf ResourceAgentPart
+st-f4be18df5ee1f18d-24034f6d5fc79c3f : ITInfrastructurePart ⊏ₑ ResourceAgentPart
+st-f4be18df5ee1f18d-24034f6d5fc79c3f = polySubTypeOf-identity
+
+--  ITInfrastructurePart is subTypeOf NetworkingPart
+st-f4be18df5ee1f18d-26b8386e5eeae4a4 : ITInfrastructurePart ⊏ₑ NetworkingPart
+st-f4be18df5ee1f18d-26b8386e5eeae4a4 = polySubTypeOf-identity
+
+--  ITInfrastructurePart is subTypeOf ITInfrastructureSystem
+st-f4be18df5ee1f18d-a41ab3105b378b66 : ITInfrastructurePart ⊏ₑ ITInfrastructureSystem
+st-f4be18df5ee1f18d-a41ab3105b378b66 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfITInfrastructurePart :  Linkage CapabilityConfiguration ITInfrastructurePart
@@ -95,16 +123,23 @@ aggregationOfITInfrastructureSystemITInfrastructurePart = make_Relation "ITInfra
 iTInfrastructurePart : Linkage CapabilityConfiguration ITInfrastructureSystem
 iTInfrastructurePart = membershipOfITInfrastructurePart  ∘  aggregationOfITInfrastructureSystemITInfrastructurePart
 
-postulate -- iTInfrastructurePart is subTypeOf resourceAgentPart
-  st-f4be18df5ee1f18d-24034f6d5fc79c3f  : iTInfrastructurePart   ⊏⋆ᵣ  resourceAgentPart 
-postulate -- iTInfrastructurePart is subTypeOf networkingPart
-  st-f4be18df5ee1f18d-26b8386e5eeae4a4  : iTInfrastructurePart   ⊏⋆ᵣ  networkingPart 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Human Resource: -}
 -- Aggregate Member : Human Resource
-HumanResource : ClassOfClassOfIndividual
-HumanResource = ClassOfIndividual
+HumanResource : ClassOfClassOfBoundedIndividual
+HumanResource = ClassOfBoundedIndividual
+
+
+
+--  HumanResource is subTypeOf ResourceAgentPart
+st-26b8578c5eeae1c8-24034f6d5fc79c3f : HumanResource ⊏ₑ ResourceAgentPart
+st-26b8578c5eeae1c8-24034f6d5fc79c3f = polySubTypeOf-identity
+
+--  HumanResource is subTypeOf OrgUnitType
+st-26b8578c5eeae1c8-076d15425a5e158c : HumanResource ⊏ₑ OrgUnitType
+st-26b8578c5eeae1c8-076d15425a5e158c = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfHumanResource :  Linkage CapabilityConfiguration HumanResource
@@ -122,6 +157,4 @@ aggregationOfOrgUnitTypeHumanResource = make_Relation "OrgUnitType aggregation" 
 humanResource : Linkage CapabilityConfiguration OrgUnitType
 humanResource = membershipOfHumanResource  ∘  aggregationOfOrgUnitTypeHumanResource
 
-postulate -- humanResource is subTypeOf resourceAgentPart
-  st-26b8578c5eeae1c8-24034f6d5fc79c3f  : humanResource   ⊏⋆ᵣ  resourceAgentPart 
 

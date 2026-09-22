@@ -25,6 +25,7 @@ open import SysFEAT.EA.dd269a5468a09a74 public -- Conceptual Business Rule
 ConceptualOperatingAsset : ClassOfClassOfBoundedIndividual
 ConceptualOperatingAsset = ClassOfBoundedIndividual
 
+
 --  ConceptualOperatingAsset is subTypeOf OperatingAssetType
 st-c8b2238961e5385a-a371a43b5b865817 : ConceptualOperatingAsset ⊏ₑ OperatingAssetType
 st-c8b2238961e5385a-a371a43b5b865817 = polySubTypeOf-identity
@@ -33,26 +34,36 @@ st-c8b2238961e5385a-a371a43b5b865817 = polySubTypeOf-identity
 st-c8b2238961e5385a-cb94ec53681855c2 : ConceptualOperatingAsset ⊏ₑ ConceptualFunctionalAsset
 st-c8b2238961e5385a-cb94ec53681855c2 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Conceptual Asset: -}
 specializedConceptualAsset :  Linkage ConceptualOperatingAsset ConceptualOperatingAsset
 specializedConceptualAsset = make_subTypeOf "Specialized Conceptual Asset" "Specialized Conceptual Asset"
 
 postulate -- specializedConceptualAsset is subTypeOf specializedOperatingAsset
-  st-325a376066f34181-6a70772167873276  : specializedConceptualAsset   ⊏⋆ᵣ  specializedOperatingAsset 
+  st-325a376066f34181-6a70772167873276  : specializedConceptualAsset  ⊏⋆ᵣ  specializedOperatingAsset
 
+-- -------------------------------------------------------------------------------------------- 
 {- Fulfilled Business Capability: -}
 fulfilledBusinessCapability :  Linkage ConceptualOperatingAsset BusinessCapability
 fulfilledBusinessCapability = make_subTypeOf "Fulfilled Business Capability" "Fulfilled Business Capability"
 
 postulate -- fulfilledBusinessCapability is subTypeOf fulfilledCapability
-  st-dd26906b68a0829d-190c72c368966198  : fulfilledBusinessCapability   ⊏⋆ᵣ  fulfilledCapability 
+  st-dd26906b68a0829d-190c72c368966198  : fulfilledBusinessCapability  ⊏⋆ᵣ  fulfilledCapability
 
+-- -------------------------------------------------------------------------------------------- 
 {- Conceptual Rule Enforcement: -}
 -- Aggregate Member : Conceptual Rule Enforcement
-ConceptualRuleEnforcement : ClassOfClassOfIndividual
-ConceptualRuleEnforcement = ClassOfIndividual
+ConceptualRuleEnforcement : ClassOfClassOfAbstractEntity
+ConceptualRuleEnforcement = ClassOfAbstractEntity
+
+
+
+--  ConceptualRuleEnforcement is subTypeOf RuleEnforcement
+st-dd269a7268a09ad9-7bc2d4c26897a1c4 : ConceptualRuleEnforcement ⊏ₑ RuleEnforcement
+st-dd269a7268a09ad9-7bc2d4c26897a1c4 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfConceptualRuleEnforcement :  Linkage ConceptualOperatingAsset ConceptualRuleEnforcement
@@ -70,6 +81,4 @@ aggregationOfConceptualBusinessRuleConceptualRuleEnforcement = make_Relation "Co
 conceptualRuleEnforcement : Linkage ConceptualOperatingAsset ConceptualBusinessRule
 conceptualRuleEnforcement = membershipOfConceptualRuleEnforcement  ∘  aggregationOfConceptualBusinessRuleConceptualRuleEnforcement
 
-postulate -- conceptualRuleEnforcement is subTypeOf ruleEnforcement
-  st-dd269a7268a09ad9-7bc2d4c26897a1c4  : conceptualRuleEnforcement   ⊏⋆ᵣ  ruleEnforcement 
 

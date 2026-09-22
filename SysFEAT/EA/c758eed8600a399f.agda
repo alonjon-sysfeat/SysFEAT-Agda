@@ -18,8 +18,9 @@ open import Agda.Primitive
 open import SysFEAT.EA.8f1cb5a068caab57 public -- NoSQL Dictionary
 open import SysFEAT.SOF.3aca50c46aa63f3b public -- Reference Dictionary
 
-NoSQLLibrary : ClassOfBoundedIndividual
-NoSQLLibrary = BoundedIndividual
+NoSQLLibrary : ClassOfAbstractEntity
+NoSQLLibrary = AbstractEntity
+
 
 --  NoSQLLibrary withAspect NoSQLDictionary
 st-c758eed8600a399f-8f1cb5a068caab57 : NoSQLLibrary ⊏ₐₑ (NoSQLDictionary lzero)
@@ -29,4 +30,5 @@ st-c758eed8600a399f-8f1cb5a068caab57 = polySubTypeOf-identity
 st-c758eed8600a399f-3aca50c46aa63f3b : NoSQLLibrary ⊏ₑ ReferenceDictionary
 st-c758eed8600a399f-3aca50c46aa63f3b = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

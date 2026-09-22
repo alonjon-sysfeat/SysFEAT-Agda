@@ -27,4 +27,5 @@ BusinessProcedure = ClassOfBoundedIndividual
 st-2781d514660b5a48-57dfc52d550932ef : BusinessProcedure ⊏ₑ BusinessProcess
 st-2781d514660b5a48-57dfc52d550932ef = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

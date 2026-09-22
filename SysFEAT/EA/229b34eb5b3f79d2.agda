@@ -20,11 +20,12 @@ module SysFEAT.EA.229b34eb5b3f79d2 where -- ========== Conceptual Entity
 open import Agda.Primitive
 open import SysFEAT.SOF.d6cd2cea5ab98e5f public -- Information Entity
 open import SysFEAT.EA.362fc8045b3c3e65 public -- Conceptual Entity Asset
-open import SysFEAT.EA.362ff4b55b3c45e6 public -- Event Concept
 open import SysFEAT.EA.190c2cd368965534 public -- Concept Property
+open import SysFEAT.EA.362ff4b55b3c45e6 public -- Event Concept
 
 ConceptualEntity : ClassOfClassOfBoundedIndividual
 ConceptualEntity = ClassOfBoundedIndividual
+
 
 --  ConceptualEntity is subTypeOf InformationEntity
 st-229b34eb5b3f79d2-d6cd2cea5ab98e5f : ConceptualEntity ⊏ₑ InformationEntity
@@ -34,21 +35,57 @@ st-229b34eb5b3f79d2-d6cd2cea5ab98e5f = polySubTypeOf-identity
 st-229b34eb5b3f79d2-362fc8045b3c3e65 : ConceptualEntity ⊏ₑ ConceptualEntityAsset
 st-229b34eb5b3f79d2-362fc8045b3c3e65 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Business Concept: -}
 specializedBusinessConcept :  Linkage ConceptualEntity ConceptualEntity
 specializedBusinessConcept = make_subTypeOf "Specialized Business Concept" "Specialized Business Concept"
 
 postulate -- specializedBusinessConcept is subTypeOf specializedBusinessObject
-  st-325a344766f33adf-325a375966f33f85  : specializedBusinessConcept   ⊏⋆ᵣ  specializedBusinessObject 
+  st-325a344766f33adf-325a375966f33f85  : specializedBusinessConcept  ⊏⋆ᵣ  specializedBusinessObject
 postulate -- specializedBusinessConcept is subTypeOf specializedInformationEntity
-  st-325a344766f33adf-325a37b966f34da2  : specializedBusinessConcept   ⊏⋆ᵣ  specializedInformationEntity 
+  st-325a344766f33adf-325a37b966f34da2  : specializedBusinessConcept  ⊏⋆ᵣ  specializedInformationEntity
 
+-- -------------------------------------------------------------------------------------------- 
+{- Concept Attribute: 
+Immutable characteristics of a Conceptual Entity.The default cardinality is [0..1] which means that Concept Property optional.
+-}
+-- Aggregate Member : Concept Attribute
+ConceptAttribute : ClassOfClassOfIndividual
+ConceptAttribute = ClassOfIndividual
+
+
+-- Membership relation
+membershipOfConceptAttribute :  Linkage ConceptualEntity ConceptAttribute
+membershipOfConceptAttribute = make_upwardNestingRelation "conceptAttribute membership" "nested conceptAttribute"
+
+-- Aggregation relation
+aggregationOfConceptPropertyConceptAttribute :  Linkage ConceptAttribute ConceptProperty
+aggregationOfConceptPropertyConceptAttribute = make_Relation "ConceptProperty aggregation" "aggregated ConceptProperty"
+
+{- conceptAttribute : derived relation obtained by composing
+   membershipOfConceptAttribute and aggregationOfConceptPropertyConceptAttribute
+   It directly links an Conceptual Entity to the final aggregated ConceptProperty
+   hiding the reifying ConceptAttribute
+-}
+conceptAttribute : Linkage ConceptualEntity ConceptProperty
+conceptAttribute = membershipOfConceptAttribute  ∘  aggregationOfConceptPropertyConceptAttribute
+
+
+
+-- -------------------------------------------------------------------------------------------- 
 {- End Event: -}
 -- Aggregate Member : End Event
-EndEvent : ClassOfClassOfIndividual
-EndEvent = ClassOfIndividual
+EndEvent : ClassOfClassOfBoundedIndividual
+EndEvent = ClassOfBoundedIndividual
+
+
+
+--  EndEvent is subTypeOf EventConcept
+st-e8bff4e95ebb8bbf-362ff4b55b3c45e6 : EndEvent ⊏ₑ EventConcept
+st-e8bff4e95ebb8bbf-362ff4b55b3c45e6 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfEndEvent :  Linkage ConceptualEntity EndEvent
@@ -68,10 +105,17 @@ endEvent = membershipOfEndEvent  ∘  aggregationOfEventConceptEndEvent
 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Intermediate Event: -}
 -- Aggregate Member : Intermediate Event
-IntermediateEvent : ClassOfClassOfIndividual
-IntermediateEvent = ClassOfIndividual
+IntermediateEvent : ClassOfClassOfBoundedIndividual
+IntermediateEvent = ClassOfBoundedIndividual
+
+
+
+--  IntermediateEvent is subTypeOf EventConcept
+st-e8bff5115ebb8c48-362ff4b55b3c45e6 : IntermediateEvent ⊏ₑ EventConcept
+st-e8bff5115ebb8c48-362ff4b55b3c45e6 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfIntermediateEvent :  Linkage ConceptualEntity IntermediateEvent
@@ -91,10 +135,17 @@ intermediateEvent = membershipOfIntermediateEvent  ∘  aggregationOfEventConcep
 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Start Event: -}
 -- Aggregate Member : Start Event
-StartEvent : ClassOfClassOfIndividual
-StartEvent = ClassOfIndividual
+StartEvent : ClassOfClassOfBoundedIndividual
+StartEvent = ClassOfBoundedIndividual
+
+
+
+--  StartEvent is subTypeOf EventConcept
+st-e8bff52e5ebb8cd1-362ff4b55b3c45e6 : StartEvent ⊏ₑ EventConcept
+st-e8bff52e5ebb8cd1-362ff4b55b3c45e6 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfStartEvent :  Linkage ConceptualEntity StartEvent
@@ -114,12 +165,27 @@ startEvent = membershipOfStartEvent  ∘  aggregationOfEventConceptStartEvent
 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Concept Relationship: 
 Relationship between a source Conceptual Entity and a target Conceptual Entity.Relationsnhips can be between Concepts, between State Concepts or between Concepts and State Concepts.For instance, the  Butterfly  State Concept has a relationship with the  Wing  Concept.
 -}
 -- Aggregate Member : Concept Relationship
-ConceptRelationship : ClassOfClassOfIndividual
-ConceptRelationship = ClassOfIndividual
+ConceptRelationship : ClassOfClassOfBoundedIndividual
+ConceptRelationship = ClassOfBoundedIndividual
+
+
+
+--  ConceptRelationship is subTypeOf ConceptualAssetRelationship
+st-f654f7e85ebb76fa-18eb202f5fdb706c : ConceptRelationship ⊏ₑ ConceptualAssetRelationship
+st-f654f7e85ebb76fa-18eb202f5fdb706c = polySubTypeOf-identity
+
+--  ConceptRelationship is subTypeOf InformationRelationship
+st-f654f7e85ebb76fa-dfa4e2305ebb4d2b : ConceptRelationship ⊏ₑ InformationRelationship
+st-f654f7e85ebb76fa-dfa4e2305ebb4d2b = polySubTypeOf-identity
+
+--  ConceptRelationship is subTypeOf ConceptualEntity
+st-f654f7e85ebb76fa-229b34eb5b3f79d2 : ConceptRelationship ⊏ₑ ConceptualEntity
+st-f654f7e85ebb76fa-229b34eb5b3f79d2 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfConceptRelationship :  Linkage ConceptualEntity ConceptRelationship
@@ -136,34 +202,5 @@ aggregationOfConceptualEntityConceptRelationship = make_Relation "ConceptualEnti
 -}
 conceptRelationship : Linkage ConceptualEntity ConceptualEntity
 conceptRelationship = membershipOfConceptRelationship  ∘  aggregationOfConceptualEntityConceptRelationship
-
-postulate -- conceptRelationship is subTypeOf conceptualAssetRelationship
-  st-f654f7e85ebb76fa-18eb202f5fdb706c  : conceptRelationship   ⊏⋆ᵣ  conceptualAssetRelationship 
-postulate -- conceptRelationship is subTypeOf informationRelationship
-  st-f654f7e85ebb76fa-dfa4e2305ebb4d2b  : conceptRelationship   ⊏⋆ᵣ  informationRelationship 
-
-
-{- Concept Attribute: 
-Immutable characteristics of a Conceptual Entity.The default cardinality is [0..1] which means that Concept Property optional.
--}
--- Aggregate Member : Concept Attribute
-ConceptAttribute : ClassOfClassOfIndividual
-ConceptAttribute = ClassOfIndividual
-
--- Membership relation
-membershipOfConceptAttribute :  Linkage ConceptualEntity ConceptAttribute
-membershipOfConceptAttribute = make_upwardNestingRelation "conceptAttribute membership" "nested conceptAttribute"
-
--- Aggregation relation
-aggregationOfConceptPropertyConceptAttribute :  Linkage ConceptAttribute ConceptProperty
-aggregationOfConceptPropertyConceptAttribute = make_Relation "ConceptProperty aggregation" "aggregated ConceptProperty"
-
-{- conceptAttribute : derived relation obtained by composing
-   membershipOfConceptAttribute and aggregationOfConceptPropertyConceptAttribute
-   It directly links an Conceptual Entity to the final aggregated ConceptProperty
-   hiding the reifying ConceptAttribute
--}
-conceptAttribute : Linkage ConceptualEntity ConceptProperty
-conceptAttribute = membershipOfConceptAttribute  ∘  aggregationOfConceptPropertyConceptAttribute
 
 

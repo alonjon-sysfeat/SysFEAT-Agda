@@ -30,12 +30,24 @@ st-461950e9560d4461-325c32165eb02a4a = polySubTypeOf-identity
 st-461950e9560d4461-fd1bf2a45fbc64fb : LogicalDataDomain ⊏ₑ LogicalDataAsset
 st-461950e9560d4461-fd1bf2a45fbc64fb = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Logical Domain Object: -}
 -- Aggregate Member : Logical Domain Object
-LogicalDomainObject : ClassOfClassOfIndividual
-LogicalDomainObject = ClassOfIndividual
+LogicalDomainObject : ClassOfClassOfBoundedIndividual
+LogicalDomainObject = ClassOfBoundedIndividual
+
+
+
+--  LogicalDomainObject is subTypeOf DomainDataObject
+st-cb08cfb55ed041cb-6d2b7d9e5fbb65f3 : LogicalDomainObject ⊏ₑ DomainDataObject
+st-cb08cfb55ed041cb-6d2b7d9e5fbb65f3 = polySubTypeOf-identity
+
+--  LogicalDomainObject is subTypeOf LogicalDataElement
+st-cb08cfb55ed041cb-2b5858b85eec51d9 : LogicalDomainObject ⊏ₑ LogicalDataElement
+st-cb08cfb55ed041cb-2b5858b85eec51d9 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfLogicalDomainObject :  Linkage LogicalDataDomain LogicalDomainObject
@@ -53,14 +65,22 @@ aggregationOfLogicalDataElementLogicalDomainObject = make_Relation "LogicalDataE
 logicalDomainObject : Linkage LogicalDataDomain LogicalDataElement
 logicalDomainObject = membershipOfLogicalDomainObject  ∘  aggregationOfLogicalDataElementLogicalDomainObject
 
-postulate -- logicalDomainObject is subTypeOf domainDataObject
-  st-cb08cfb55ed041cb-6d2b7d9e5fbb65f3  : logicalDomainObject   ⊏⋆ᵣ  domainDataObject 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Logical Data Domain Member: -}
 -- Aggregate Member : Logical Data Domain Member
 LogicalDataDomainMember : ClassOfClassOfIndividual
 LogicalDataDomainMember = ClassOfIndividual
+
+
+--  LogicalDataDomainMember is subTypeOf SubDataArea
+st-f4bee9605ee1c292-cbd9dff65fb7dd57 : LogicalDataDomainMember ⊏ₑ SubDataArea
+st-f4bee9605ee1c292-cbd9dff65fb7dd57 = polySubTypeOf-identity
+
+--  LogicalDataDomainMember is subTypeOf LogicalDataDomain
+st-f4bee9605ee1c292-461950e9560d4461 : LogicalDataDomainMember ⊏ₑ LogicalDataDomain
+st-f4bee9605ee1c292-461950e9560d4461 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfLogicalDataDomainMember :  Linkage LogicalDataDomain LogicalDataDomainMember
@@ -78,6 +98,4 @@ aggregationOfLogicalDataDomainLogicalDataDomainMember = make_Relation "LogicalDa
 logicalDataDomainMember : Linkage LogicalDataDomain LogicalDataDomain
 logicalDataDomainMember = membershipOfLogicalDataDomainMember  ∘  aggregationOfLogicalDataDomainLogicalDataDomainMember
 
-postulate -- logicalDataDomainMember is subTypeOf subDataArea
-  st-f4bee9605ee1c292-cbd9dff65fb7dd57  : logicalDataDomainMember   ⊏⋆ᵣ  subDataArea 
 

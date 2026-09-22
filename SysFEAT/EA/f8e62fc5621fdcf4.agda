@@ -25,6 +25,7 @@ open import SysFEAT.EA.e2ef091962147ad7 public -- Resource Agent Type
 ResourceOperatingEnvironment : ClassOfClassOfBoundedIndividual
 ResourceOperatingEnvironment = ClassOfBoundedIndividual
 
+
 --  ResourceOperatingEnvironment is subTypeOf AgentTypeEnvironment
 st-f8e62fc5621fdcf4-d6cd0fd95ab9744b : ResourceOperatingEnvironment ⊏ₑ AgentTypeEnvironment
 st-f8e62fc5621fdcf4-d6cd0fd95ab9744b = polySubTypeOf-identity
@@ -33,26 +34,43 @@ st-f8e62fc5621fdcf4-d6cd0fd95ab9744b = polySubTypeOf-identity
 st-f8e62fc5621fdcf4-f8e64b51621dd3f3 : ResourceOperatingEnvironment ⊏ₑ ResourceOperatingEcosystem
 st-f8e62fc5621fdcf4-f8e64b51621dd3f3 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Enterprise Environment: -}
 specializedEnterpriseEnvironment :  Linkage ResourceOperatingEnvironment ResourceOperatingEnvironment
 specializedEnterpriseEnvironment = make_subTypeOf "Specialized Enterprise Environment" "Specialized Enterprise Environment"
 
 postulate -- specializedEnterpriseEnvironment is subTypeOf specializedOperatingEnvironment
-  st-325a377166f34785-325a373d66f33dca  : specializedEnterpriseEnvironment   ⊏⋆ᵣ  specializedOperatingEnvironment 
+  st-325a377166f34785-325a373d66f33dca  : specializedEnterpriseEnvironment  ⊏⋆ᵣ  specializedOperatingEnvironment
 
+-- -------------------------------------------------------------------------------------------- 
 {- Realized Enterprise Environment: -}
 realizedEnterpriseEnvironment :  Linkage ResourceOperatingEnvironment ResourceOperatingEnvironment
 realizedEnterpriseEnvironment = make_subTypeOf "Realized Enterprise Environment" "Realized Enterprise Environment"
 
 postulate -- realizedEnterpriseEnvironment is subTypeOf realizedOperatingEnvironment
-  st-325a3a1766f35d1f-325a3a1066f35860  : realizedEnterpriseEnvironment   ⊏⋆ᵣ  realizedOperatingEnvironment 
+  st-325a3a1766f35d1f-325a3a1066f35860  : realizedEnterpriseEnvironment  ⊏⋆ᵣ  realizedOperatingEnvironment
 
+-- -------------------------------------------------------------------------------------------- 
 {- Business Service Channel: -}
 -- Aggregate Member : Business Service Channel
 BusinessServiceChannel : ClassOfClassOfIndividual
 BusinessServiceChannel = ClassOfIndividual
+
+
+--  BusinessServiceChannel is subTypeOf ServiceChannel
+st-2b6f436f61bafb0b-80be29065fc2a83d : BusinessServiceChannel ⊏ₑ ServiceChannel
+st-2b6f436f61bafb0b-80be29065fc2a83d = polySubTypeOf-identity
+
+--  BusinessServiceChannel is subTypeOf EnterpriseEcosystemConnection
+st-2b6f436f61bafb0b-f8e7b91f621f01e9 : BusinessServiceChannel ⊏ₑ EnterpriseEcosystemConnection
+st-2b6f436f61bafb0b-f8e7b91f621f01e9 = polySubTypeOf-identity
+
+--  BusinessServiceChannel is subTypeOf BusinessEcosystemConnection
+st-2b6f436f61bafb0b-f8e7db56621f0cef : BusinessServiceChannel ⊏ₑ BusinessEcosystemConnection
+st-2b6f436f61bafb0b-f8e7db56621f0cef = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfBusinessServiceChannel :  Linkage ResourceOperatingEnvironment BusinessServiceChannel
@@ -70,18 +88,27 @@ aggregationOfResourceServiceInterfaceBusinessServiceChannel = make_Relation "Res
 businessServiceChannel : Linkage ResourceOperatingEnvironment ResourceServiceInterface
 businessServiceChannel = membershipOfBusinessServiceChannel  ∘  aggregationOfResourceServiceInterfaceBusinessServiceChannel
 
-postulate -- businessServiceChannel is subTypeOf serviceChannel
-  st-2b6f436f61bafb0b-80be29065fc2a83d  : businessServiceChannel   ⊏⋆ᵣ  serviceChannel 
-postulate -- businessServiceChannel is subTypeOf enterpriseEcosystemConnection
-  st-2b6f436f61bafb0b-f8e7b91f621f01e9  : businessServiceChannel   ⊏⋆ᵣ  enterpriseEcosystemConnection 
-postulate -- businessServiceChannel is subTypeOf businessEcosystemConnection
-  st-2b6f436f61bafb0b-f8e7db56621f0cef  : businessServiceChannel   ⊏⋆ᵣ  businessEcosystemConnection 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Subject Resource Agent: -}
 -- Aggregate Member : Subject Resource Agent
-SubjectResourceAgent : ClassOfClassOfIndividual
-SubjectResourceAgent = ClassOfIndividual
+SubjectResourceAgent : ClassOfClassOfBoundedIndividual
+SubjectResourceAgent = ClassOfBoundedIndividual
+
+
+
+--  SubjectResourceAgent is subTypeOf SubjectAgent
+st-f8e6390c621fddf1-fa4ffc205ec86201 : SubjectResourceAgent ⊏ₑ SubjectAgent
+st-f8e6390c621fddf1-fa4ffc205ec86201 = polySubTypeOf-identity
+
+--  SubjectResourceAgent is subTypeOf ParticipantEnterpriseAgent
+st-f8e6390c621fddf1-2b6f42fc61baf9b7 : SubjectResourceAgent ⊏ₑ ParticipantEnterpriseAgent
+st-f8e6390c621fddf1-2b6f42fc61baf9b7 = polySubTypeOf-identity
+
+--  SubjectResourceAgent is subTypeOf ResourceAgentType
+st-f8e6390c621fddf1-e2ef091962147ad7 : SubjectResourceAgent ⊏ₑ ResourceAgentType
+st-f8e6390c621fddf1-e2ef091962147ad7 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSubjectResourceAgent :  Linkage ResourceOperatingEnvironment SubjectResourceAgent
@@ -99,16 +126,27 @@ aggregationOfResourceAgentTypeSubjectResourceAgent = make_Relation "ResourceAgen
 subjectResourceAgent : Linkage ResourceOperatingEnvironment ResourceAgentType
 subjectResourceAgent = membershipOfSubjectResourceAgent  ∘  aggregationOfResourceAgentTypeSubjectResourceAgent
 
-postulate -- subjectResourceAgent is subTypeOf subjectAgent
-  st-f8e6390c621fddf1-fa4ffc205ec86201  : subjectResourceAgent   ⊏⋆ᵣ  subjectAgent 
-postulate -- subjectResourceAgent is subTypeOf participantEnterpriseAgent
-  st-f8e6390c621fddf1-2b6f42fc61baf9b7  : subjectResourceAgent   ⊏⋆ᵣ  participantEnterpriseAgent 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Partner Resource Agent: -}
 -- Aggregate Member : Partner Resource Agent
-PartnerResourceAgent : ClassOfClassOfIndividual
-PartnerResourceAgent = ClassOfIndividual
+PartnerResourceAgent : ClassOfClassOfBoundedIndividual
+PartnerResourceAgent = ClassOfBoundedIndividual
+
+
+
+--  PartnerResourceAgent is subTypeOf PartnerAgent
+st-f8e63939621fdefd-fa4ffc235ec86276 : PartnerResourceAgent ⊏ₑ PartnerAgent
+st-f8e63939621fdefd-fa4ffc235ec86276 = polySubTypeOf-identity
+
+--  PartnerResourceAgent is subTypeOf ParticipantEnterpriseAgent
+st-f8e63939621fdefd-2b6f42fc61baf9b7 : PartnerResourceAgent ⊏ₑ ParticipantEnterpriseAgent
+st-f8e63939621fdefd-2b6f42fc61baf9b7 = polySubTypeOf-identity
+
+--  PartnerResourceAgent is subTypeOf ResourceAgentType
+st-f8e63939621fdefd-e2ef091962147ad7 : PartnerResourceAgent ⊏ₑ ResourceAgentType
+st-f8e63939621fdefd-e2ef091962147ad7 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfPartnerResourceAgent :  Linkage ResourceOperatingEnvironment PartnerResourceAgent
@@ -126,16 +164,31 @@ aggregationOfResourceAgentTypePartnerResourceAgent = make_Relation "ResourceAgen
 partnerResourceAgent : Linkage ResourceOperatingEnvironment ResourceAgentType
 partnerResourceAgent = membershipOfPartnerResourceAgent  ∘  aggregationOfResourceAgentTypePartnerResourceAgent
 
-postulate -- partnerResourceAgent is subTypeOf partnerAgent
-  st-f8e63939621fdefd-fa4ffc235ec86276  : partnerResourceAgent   ⊏⋆ᵣ  partnerAgent 
-postulate -- partnerResourceAgent is subTypeOf participantEnterpriseAgent
-  st-f8e63939621fdefd-2b6f42fc61baf9b7  : partnerResourceAgent   ⊏⋆ᵣ  participantEnterpriseAgent 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Participant Enterprise Agent: -}
 -- Aggregate Member : Participant Enterprise Agent
-ParticipantEnterpriseAgent : ClassOfClassOfIndividual
-ParticipantEnterpriseAgent = ClassOfIndividual
+ParticipantEnterpriseAgent : ClassOfClassOfBoundedIndividual
+ParticipantEnterpriseAgent = ClassOfBoundedIndividual
+
+
+
+--  ParticipantEnterpriseAgent is subTypeOf ParticipantAgent
+st-2b6f42fc61baf9b7-80be28965fc2a6b8 : ParticipantEnterpriseAgent ⊏ₑ ParticipantAgent
+st-2b6f42fc61baf9b7-80be28965fc2a6b8 = polySubTypeOf-identity
+
+--  ParticipantEnterpriseAgent is subTypeOf EnterpriseEcosystemPart
+st-2b6f42fc61baf9b7-f8e6b83c621fffe6 : ParticipantEnterpriseAgent ⊏ₑ EnterpriseEcosystemPart
+st-2b6f42fc61baf9b7-f8e6b83c621fffe6 = polySubTypeOf-identity
+
+--  ParticipantEnterpriseAgent is subTypeOf ResourceEcosystemPart
+st-2b6f42fc61baf9b7-95129626620b544c : ParticipantEnterpriseAgent ⊏ₑ ResourceEcosystemPart
+st-2b6f42fc61baf9b7-95129626620b544c = polySubTypeOf-identity
+
+--  ParticipantEnterpriseAgent is subTypeOf ResourceAgentType
+st-2b6f42fc61baf9b7-e2ef091962147ad7 : ParticipantEnterpriseAgent ⊏ₑ ResourceAgentType
+st-2b6f42fc61baf9b7-e2ef091962147ad7 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfParticipantEnterpriseAgent :  Linkage ResourceOperatingEnvironment ParticipantEnterpriseAgent
@@ -153,10 +206,4 @@ aggregationOfResourceAgentTypeParticipantEnterpriseAgent = make_Relation "Resour
 participantEnterpriseAgent : Linkage ResourceOperatingEnvironment ResourceAgentType
 participantEnterpriseAgent = membershipOfParticipantEnterpriseAgent  ∘  aggregationOfResourceAgentTypeParticipantEnterpriseAgent
 
-postulate -- participantEnterpriseAgent is subTypeOf participantAgent
-  st-2b6f42fc61baf9b7-80be28965fc2a6b8  : participantEnterpriseAgent   ⊏⋆ᵣ  participantAgent 
-postulate -- participantEnterpriseAgent is subTypeOf enterpriseEcosystemPart
-  st-2b6f42fc61baf9b7-f8e6b83c621fffe6  : participantEnterpriseAgent   ⊏⋆ᵣ  enterpriseEcosystemPart 
-postulate -- participantEnterpriseAgent is subTypeOf resourceEcosystemPart
-  st-2b6f42fc61baf9b7-95129626620b544c  : participantEnterpriseAgent   ⊏⋆ᵣ  resourceEcosystemPart 
 

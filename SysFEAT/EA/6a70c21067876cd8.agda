@@ -30,12 +30,20 @@ st-6a70c21067876cd8-24ae31b55ed1c66d = polySubTypeOf-identity
 st-6a70c21067876cd8-0185cd936221bd72 : ResourceServiceInterface ⊏ₑ ResourceBehavior
 st-6a70c21067876cd8-0185cd936221bd72 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Resource Flow Connection: -}
 -- Aggregate Member : Resource Flow Connection
-ResourceFlowConnection : ClassOfClassOfIndividual
-ResourceFlowConnection = ClassOfIndividual
+ResourceFlowConnection : ClassOfClassOfBoundedIndividual
+ResourceFlowConnection = ClassOfBoundedIndividual
+
+
+
+--  ResourceFlowConnection is subTypeOf FlowConnection
+st-c561e339680f761e-c561d7e4680f69ce : ResourceFlowConnection ⊏ₑ FlowConnection
+st-c561e339680f761e-c561d7e4680f69ce = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfResourceFlowConnection :  Linkage ResourceServiceInterface ResourceFlowConnection
@@ -53,6 +61,4 @@ aggregationOfResourceOutcomeEventResourceFlowConnection = make_Relation "Resourc
 resourceFlowConnection : Linkage ResourceServiceInterface ResourceOutcomeEvent
 resourceFlowConnection = membershipOfResourceFlowConnection  ∘  aggregationOfResourceOutcomeEventResourceFlowConnection
 
-postulate -- resourceFlowConnection is subTypeOf flowConnection
-  st-c561e339680f761e-c561d7e4680f69ce  : resourceFlowConnection   ⊏⋆ᵣ  flowConnection 
 

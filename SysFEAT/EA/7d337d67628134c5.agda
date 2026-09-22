@@ -23,6 +23,7 @@ open import SysFEAT.EA.e2ef091962147ad7 public -- Resource Agent Type
 ResourceInteractionProcess : ClassOfClassOfBoundedIndividual
 ResourceInteractionProcess = ClassOfBoundedIndividual
 
+
 --  ResourceInteractionProcess is subTypeOf ResourceBehavior
 st-7d337d67628134c5-0185cd936221bd72 : ResourceInteractionProcess ⊏ₑ ResourceBehavior
 st-7d337d67628134c5-0185cd936221bd72 = polySubTypeOf-identity
@@ -31,28 +32,38 @@ st-7d337d67628134c5-0185cd936221bd72 = polySubTypeOf-identity
 st-7d337d67628134c5-333f35ee5dde0c8c : ResourceInteractionProcess ⊏ₑ InteractionProcessType
 st-7d337d67628134c5-333f35ee5dde0c8c = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Enterprise Scenario: -}
 specializedEnterpriseScenario :  Linkage ResourceInteractionProcess ResourceInteractionProcess
 specializedEnterpriseScenario = make_subTypeOf "Specialized Enterprise Scenario" "Specialized Enterprise Scenario"
 
 postulate -- specializedEnterpriseScenario is subTypeOf specializedResourceBehavior
-  st-325a37b666f34c03-325a376866f343d3  : specializedEnterpriseScenario   ⊏⋆ᵣ  specializedResourceBehavior 
+  st-325a37b666f34c03-325a376866f343d3  : specializedEnterpriseScenario  ⊏⋆ᵣ  specializedResourceBehavior
 postulate -- specializedEnterpriseScenario is subTypeOf specializedScenario
-  st-325a37b666f34c03-325a373a66f33d61  : specializedEnterpriseScenario   ⊏⋆ᵣ  specializedScenario 
+  st-325a37b666f34c03-325a373a66f33d61  : specializedEnterpriseScenario  ⊏⋆ᵣ  specializedScenario
 
+-- -------------------------------------------------------------------------------------------- 
 {- Realized Enterprise Scenario: -}
 realizedEnterpriseScenario :  Linkage ResourceInteractionProcess ResourceInteractionProcess
 realizedEnterpriseScenario = make_subTypeOf "Realized Enterprise Scenario" "Realized Enterprise Scenario"
 
 postulate -- realizedEnterpriseScenario is subTypeOf realizedScenario
-  st-325a3a1366f359ea-325a3a0e66f356d7  : realizedEnterpriseScenario   ⊏⋆ᵣ  realizedScenario 
+  st-325a3a1366f359ea-325a3a0e66f356d7  : realizedEnterpriseScenario  ⊏⋆ᵣ  realizedScenario
 
+-- -------------------------------------------------------------------------------------------- 
 {- Resource Object Flow: -}
 -- Aggregate Member : Resource Object Flow
-ResourceObjectFlow : ClassOfClassOfIndividual
-ResourceObjectFlow = ClassOfIndividual
+ResourceObjectFlow : ClassOfClassOfBoundedIndividual
+ResourceObjectFlow = ClassOfBoundedIndividual
+
+
+
+--  ResourceObjectFlow is subTypeOf InteractionFlow
+st-7d330c3162824686-7d33fa1762813f5c : ResourceObjectFlow ⊏ₑ InteractionFlow
+st-7d330c3162824686-7d33fa1762813f5c = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfResourceObjectFlow :  Linkage ResourceInteractionProcess ResourceObjectFlow
@@ -70,14 +81,27 @@ aggregationOfResourceOutcomeEventResourceObjectFlow = make_Relation "ResourceOut
 resourceObjectFlow : Linkage ResourceInteractionProcess ResourceOutcomeEvent
 resourceObjectFlow = membershipOfResourceObjectFlow  ∘  aggregationOfResourceOutcomeEventResourceObjectFlow
 
-postulate -- resourceObjectFlow is subTypeOf interactionFlow
-  st-7d330c3162824686-7d33fa1762813f5c  : resourceObjectFlow   ⊏⋆ᵣ  interactionFlow 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Resource Scenario Participant: -}
 -- Aggregate Member : Resource Scenario Participant
-ResourceScenarioParticipant : ClassOfClassOfIndividual
-ResourceScenarioParticipant = ClassOfIndividual
+ResourceScenarioParticipant : ClassOfClassOfBoundedIndividual
+ResourceScenarioParticipant = ClassOfBoundedIndividual
+
+
+
+--  ResourceScenarioParticipant is subTypeOf ScenarioParticipant
+st-7d337ddf628136aa-07e737495eccd831 : ResourceScenarioParticipant ⊏ₑ ScenarioParticipant
+st-7d337ddf628136aa-07e737495eccd831 = polySubTypeOf-identity
+
+--  ResourceScenarioParticipant is subTypeOf ResourceBehaviorParticipant
+st-7d337ddf628136aa-e0e874626578a341 : ResourceScenarioParticipant ⊏ₑ ResourceBehaviorParticipant
+st-7d337ddf628136aa-e0e874626578a341 = polySubTypeOf-identity
+
+--  ResourceScenarioParticipant is subTypeOf ResourceAgentType
+st-7d337ddf628136aa-e2ef091962147ad7 : ResourceScenarioParticipant ⊏ₑ ResourceAgentType
+st-7d337ddf628136aa-e2ef091962147ad7 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfResourceScenarioParticipant :  Linkage ResourceInteractionProcess ResourceScenarioParticipant
@@ -95,8 +119,4 @@ aggregationOfResourceAgentTypeResourceScenarioParticipant = make_Relation "Resou
 resourceScenarioParticipant : Linkage ResourceInteractionProcess ResourceAgentType
 resourceScenarioParticipant = membershipOfResourceScenarioParticipant  ∘  aggregationOfResourceAgentTypeResourceScenarioParticipant
 
-postulate -- resourceScenarioParticipant is subTypeOf scenarioParticipant
-  st-7d337ddf628136aa-07e737495eccd831  : resourceScenarioParticipant   ⊏⋆ᵣ  scenarioParticipant 
-postulate -- resourceScenarioParticipant is subTypeOf resourceBehaviorParticipant
-  st-7d337ddf628136aa-e0e874626578a341  : resourceScenarioParticipant   ⊏⋆ᵣ  resourceBehaviorParticipant 
 

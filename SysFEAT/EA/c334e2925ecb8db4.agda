@@ -18,21 +18,34 @@ open import Agda.Primitive
 open import SysFEAT.EA.9dcea4535ec76e6c public -- Business Outcome Event
 open import SysFEAT.EA.be94e82f655c90e7 public -- Physical Business Agent
 
-PhysicalOutcomeEvent : ClassOfClassOfIndividual
-PhysicalOutcomeEvent = ClassOfIndividual
+PhysicalOutcomeEvent : ClassOfClassOfBoundedIndividual
+PhysicalOutcomeEvent = ClassOfBoundedIndividual
+
 
 --  PhysicalOutcomeEvent is subTypeOf BusinessOutcomeEvent
 st-c334e2925ecb8db4-9dcea4535ec76e6c : PhysicalOutcomeEvent ⊏ₑ BusinessOutcomeEvent
 st-c334e2925ecb8db4-9dcea4535ec76e6c = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Physical Outcome: 
 A Physical Outcome is a state of any Physical Business Agent that is the subject of a business transaction.As such, a Physical Business Agent is created, enhanced or transformed through the Behavior of a producer Hardware System, resulting in an increase in value (Physical Outcome Event) that benefits (value) to the Business Behavior of a consumer Hardware System.Examples:- A produced manufactured product (car, appliance, furniture, etc.) that is the result of development, production and sales activities of a manufacturing company (producer Agent) for the benefit of an end user (Retail customers, wholesale customers, ...).
 -}
 -- Aggregate Member : Physical Outcome
-PhysicalOutcome : ClassOfClassOfIndividual
-PhysicalOutcome = ClassOfIndividual
+PhysicalOutcome : ClassOfClassOfBoundedIndividual
+PhysicalOutcome = ClassOfBoundedIndividual
+
+
+
+--  PhysicalOutcome is subTypeOf BusinessOutcome
+st-be94eb36655c95ea-be94e0c4655c85b4 : PhysicalOutcome ⊏ₑ BusinessOutcome
+st-be94eb36655c95ea-be94e0c4655c85b4 = polySubTypeOf-identity
+
+--  PhysicalOutcome is subTypeOf PhysicalBusinessAgent
+st-be94eb36655c95ea-be94e82f655c90e7 : PhysicalOutcome ⊏ₑ PhysicalBusinessAgent
+st-be94eb36655c95ea-be94e82f655c90e7 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfPhysicalOutcome :  Linkage PhysicalOutcomeEvent PhysicalOutcome
@@ -50,6 +63,4 @@ aggregationOfPhysicalBusinessAgentPhysicalOutcome = make_Relation "PhysicalBusin
 physicalOutcome : Linkage PhysicalOutcomeEvent PhysicalBusinessAgent
 physicalOutcome = membershipOfPhysicalOutcome  ∘  aggregationOfPhysicalBusinessAgentPhysicalOutcome
 
-postulate -- physicalOutcome is subTypeOf businessOutcome
-  st-be94eb36655c95ea-be94e0c4655c85b4  : physicalOutcome   ⊏⋆ᵣ  businessOutcome 
 

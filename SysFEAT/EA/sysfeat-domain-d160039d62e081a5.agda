@@ -15,9 +15,8 @@ External references:
 {-# OPTIONS --cubical --guardedness #-}
 module SysFEAT.EA.sysfeat-domain-d160039d62e081a5 where -- ========== EA Pattern - Technology Operating Pattern
 
-open import SysFEAT.SOF.sysfeat-domain-02f70fdc600f4179 public -- Policies
+open import SysFEAT.SOF.sysfeat-domain-02f70fdc600f4179 public -- Functional Asset and Operating Constraints
 open import SysFEAT.EA.sysfeat-domain-e2ef086d62147802 public -- SOF - Resource System Operating Pattern (R-SOF)
-open import SysFEAT.SOF.sysfeat-domain-427c1bdb64b5d1c7 public -- Risk & Threat
 open import SysFEAT.EA.sysfeat-domain-fe663f0d61817c3e public -- Asset Portfolio Pattern
 
 open import SysFEAT.EA.d16006d362e085f2 public -- Technology Operating Asset

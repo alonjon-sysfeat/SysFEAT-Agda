@@ -24,4 +24,5 @@ AssuranceInstrument = BoundedIndividual
 st-7d3786ff5fd052e7-01ce05606859794a : AssuranceInstrument ⊏ₐₑ (InitiativeInstrument lzero)
 st-7d3786ff5fd052e7-01ce05606859794a = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

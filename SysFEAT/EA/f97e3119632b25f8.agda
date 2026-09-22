@@ -22,6 +22,7 @@ open import SysFEAT.EA.7c40987055271d04 public -- Conceptual Agent
 ConceptualBehavior : ClassOfClassOfBoundedIndividual
 ConceptualBehavior = ClassOfBoundedIndividual
 
+
 --  ConceptualBehavior is subTypeOf ConceptualOperatingAsset
 st-f97e3119632b25f8-c8b2238961e5385a : ConceptualBehavior ⊏ₑ ConceptualOperatingAsset
 st-f97e3119632b25f8-c8b2238961e5385a = polySubTypeOf-identity
@@ -30,12 +31,24 @@ st-f97e3119632b25f8-c8b2238961e5385a = polySubTypeOf-identity
 st-f97e3119632b25f8-986cd4ec5ffca3ac : ConceptualBehavior ⊏ₑ BehaviorType
 st-f97e3119632b25f8-986cd4ec5ffca3ac = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Conceptual Participant: -}
 -- Aggregate Member : Conceptual Participant
-ConceptualParticipant : ClassOfClassOfIndividual
-ConceptualParticipant = ClassOfIndividual
+ConceptualParticipant : ClassOfClassOfBoundedIndividual
+ConceptualParticipant = ClassOfBoundedIndividual
+
+
+
+--  ConceptualParticipant is subTypeOf BehaviorParticipant
+st-6a7098be67875823-e0e86fad65789c43 : ConceptualParticipant ⊏ₑ BehaviorParticipant
+st-6a7098be67875823-e0e86fad65789c43 = polySubTypeOf-identity
+
+--  ConceptualParticipant is subTypeOf ConceptualAgent
+st-6a7098be67875823-7c40987055271d04 : ConceptualParticipant ⊏ₑ ConceptualAgent
+st-6a7098be67875823-7c40987055271d04 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfConceptualParticipant :  Linkage ConceptualBehavior ConceptualParticipant
@@ -53,6 +66,4 @@ aggregationOfConceptualAgentConceptualParticipant = make_Relation "ConceptualAge
 conceptualParticipant : Linkage ConceptualBehavior ConceptualAgent
 conceptualParticipant = membershipOfConceptualParticipant  ∘  aggregationOfConceptualAgentConceptualParticipant
 
-postulate -- conceptualParticipant is subTypeOf behaviorParticipant
-  st-6a7098be67875823-e0e86fad65789c43  : conceptualParticipant   ⊏⋆ᵣ  behaviorParticipant 
 

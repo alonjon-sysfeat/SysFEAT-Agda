@@ -21,16 +21,25 @@ open import SysFEAT.EA.1084480e5fce4ccb public -- Application System Deployment 
 ApplicationSystemDeploymentEnvironment : ClassOfClassOfBoundedIndividual
 ApplicationSystemDeploymentEnvironment = ClassOfBoundedIndividual
 
+
 --  ApplicationSystemDeploymentEnvironment is subTypeOf SOftwareDeploymentEnvironment
 st-0faf549b640bbfea-108442775fce4918 : ApplicationSystemDeploymentEnvironment ⊏ₑ SOftwareDeploymentEnvironment
 st-0faf549b640bbfea-108442775fce4918 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Partner Deployment Architecture: -}
 -- Aggregate Member : Partner Deployment Architecture
-PartnerDeploymentArchitecture : ClassOfClassOfIndividual
-PartnerDeploymentArchitecture = ClassOfIndividual
+PartnerDeploymentArchitecture : ClassOfClassOfBoundedIndividual
+PartnerDeploymentArchitecture = ClassOfBoundedIndividual
+
+
+
+--  PartnerDeploymentArchitecture is subTypeOf ApplicationSystemDeploymentArchitecture
+st-0faf54b3640bc05d-1084480e5fce4ccb : PartnerDeploymentArchitecture ⊏ₑ ApplicationSystemDeploymentArchitecture
+st-0faf54b3640bc05d-1084480e5fce4ccb = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfPartnerDeploymentArchitecture :  Linkage ApplicationSystemDeploymentEnvironment PartnerDeploymentArchitecture
@@ -50,10 +59,17 @@ partnerDeploymentArchitecture = membershipOfPartnerDeploymentArchitecture  ∘  
 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Subject Application Deployment: -}
 -- Aggregate Member : Subject Application Deployment
-SubjectApplicationDeployment : ClassOfClassOfIndividual
-SubjectApplicationDeployment = ClassOfIndividual
+SubjectApplicationDeployment : ClassOfClassOfBoundedIndividual
+SubjectApplicationDeployment = ClassOfBoundedIndividual
+
+
+
+--  SubjectApplicationDeployment is subTypeOf ApplicationSystemDeploymentArchitecture
+st-0faf54c3640bc0d4-1084480e5fce4ccb : SubjectApplicationDeployment ⊏ₑ ApplicationSystemDeploymentArchitecture
+st-0faf54c3640bc0d4-1084480e5fce4ccb = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSubjectApplicationDeployment :  Linkage ApplicationSystemDeploymentEnvironment SubjectApplicationDeployment

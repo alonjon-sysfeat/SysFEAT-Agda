@@ -21,12 +21,15 @@ open import SysFEAT.EA.f1606a8267d86149 public -- Operational Assurance Case
 OperationalRiskAssessment : ClassOfBoundedIndividual
 OperationalRiskAssessment = BoundedIndividual
 
+
 --  OperationalRiskAssessment is subTypeOf Assessment
 st-d059db765ef118fc-3b539cbb551e4c2a : OperationalRiskAssessment ⊏ₑ Assessment
 st-d059db765ef118fc-3b539cbb551e4c2a = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Assessed Risk: -}
 assessedRisk :  Linkage OperationalRiskAssessment OperationalAssuranceCase
 assessedRisk = make_Relation "Assessed Risk" "Assessed Risk"

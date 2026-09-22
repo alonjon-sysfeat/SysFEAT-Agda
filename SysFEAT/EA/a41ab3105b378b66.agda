@@ -24,18 +24,31 @@ open import SysFEAT.EA.02f51209641c7ea4 public -- Computing Device
 ITInfrastructureSystem : ClassOfClassOfBoundedIndividual
 ITInfrastructureSystem = ClassOfBoundedIndividual
 
+
 --  ITInfrastructureSystem is subTypeOf NetworkingSystem
 st-a41ab3105b378b66-26b8384f5eeae33c : ITInfrastructureSystem ⊏ₑ NetworkingSystem
 st-a41ab3105b378b66-26b8384f5eeae33c = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Computing Node: 
 Role of a Computing System in an IT Infrastructure System.
 -}
 -- Aggregate Member : Computing Node
-ComputingNode : ClassOfClassOfIndividual
-ComputingNode = ClassOfIndividual
+ComputingNode : ClassOfClassOfBoundedIndividual
+ComputingNode = ClassOfBoundedIndividual
+
+
+
+--  ComputingNode is subTypeOf NetworkingPart
+st-f4be0f185ee1d804-26b8386e5eeae4a4 : ComputingNode ⊏ₑ NetworkingPart
+st-f4be0f185ee1d804-26b8386e5eeae4a4 = polySubTypeOf-identity
+
+--  ComputingNode is subTypeOf ComputingDevice
+st-f4be0f185ee1d804-02f51209641c7ea4 : ComputingNode ⊏ₑ ComputingDevice
+st-f4be0f185ee1d804-02f51209641c7ea4 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfComputingNode :  Linkage ITInfrastructureSystem ComputingNode
@@ -53,6 +66,4 @@ aggregationOfComputingDeviceComputingNode = make_Relation "ComputingDevice aggre
 computingNode : Linkage ITInfrastructureSystem ComputingDevice
 computingNode = membershipOfComputingNode  ∘  aggregationOfComputingDeviceComputingNode
 
-postulate -- computingNode is subTypeOf networkingPart
-  st-f4be0f185ee1d804-26b8386e5eeae4a4  : computingNode   ⊏⋆ᵣ  networkingPart 
 

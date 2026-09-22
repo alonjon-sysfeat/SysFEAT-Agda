@@ -25,6 +25,7 @@ open import SysFEAT.EA.d5e6ddd05c46547c public -- Software Technology
 ComputingDevice : ClassOfClassOfBoundedIndividual
 ComputingDevice = ClassOfBoundedIndividual
 
+
 --  ComputingDevice is subTypeOf NetworkingSystem
 st-02f51209641c7ea4-26b8384f5eeae33c : ComputingDevice ⊏ₑ NetworkingSystem
 st-02f51209641c7ea4-26b8384f5eeae33c = polySubTypeOf-identity
@@ -33,14 +34,30 @@ st-02f51209641c7ea4-26b8384f5eeae33c = polySubTypeOf-identity
 st-02f51209641c7ea4-f4be0eda5ee1d6c0 : ComputingDevice ⊏ₑ ComputingSystem
 st-02f51209641c7ea4-f4be0eda5ee1d6c0 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Hosted Application Package: 
 Hosting of a Deployable Application Package in a Computing System.
 -}
 -- Aggregate Member : Hosted Application Package
-HostedApplicationPackage : ClassOfClassOfIndividual
-HostedApplicationPackage = ClassOfIndividual
+HostedApplicationPackage : ClassOfClassOfBoundedIndividual
+HostedApplicationPackage = ClassOfBoundedIndividual
+
+
+
+--  HostedApplicationPackage is subTypeOf HostedSOftware
+st-f4be10485ee1dbcc-70ba9b2e64224962 : HostedApplicationPackage ⊏ₑ HostedSOftware
+st-f4be10485ee1dbcc-70ba9b2e64224962 = polySubTypeOf-identity
+
+--  HostedApplicationPackage is subTypeOf NetworkingPart
+st-f4be10485ee1dbcc-26b8386e5eeae4a4 : HostedApplicationPackage ⊏ₑ NetworkingPart
+st-f4be10485ee1dbcc-26b8386e5eeae4a4 = polySubTypeOf-identity
+
+--  HostedApplicationPackage is subTypeOf DeployableApplicationPackage
+st-f4be10485ee1dbcc-d5e6d7eb5c464b21 : HostedApplicationPackage ⊏ₑ DeployableApplicationPackage
+st-f4be10485ee1dbcc-d5e6d7eb5c464b21 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfHostedApplicationPackage :  Linkage ComputingDevice HostedApplicationPackage
@@ -58,18 +75,25 @@ aggregationOfDeployableApplicationPackageHostedApplicationPackage = make_Relatio
 hostedApplicationPackage : Linkage ComputingDevice DeployableApplicationPackage
 hostedApplicationPackage = membershipOfHostedApplicationPackage  ∘  aggregationOfDeployableApplicationPackageHostedApplicationPackage
 
-postulate -- hostedApplicationPackage is subTypeOf hostedSOftware
-  st-f4be10485ee1dbcc-70ba9b2e64224962  : hostedApplicationPackage   ⊏⋆ᵣ  hostedSOftware 
-postulate -- hostedApplicationPackage is subTypeOf networkingPart
-  st-f4be10485ee1dbcc-26b8386e5eeae4a4  : hostedApplicationPackage   ⊏⋆ᵣ  networkingPart 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Hosted Micro-Service: 
 Hosting of a MicroService in a Computing System.
 -}
 -- Aggregate Member : Hosted Micro-Service
-HostedMicroService : ClassOfClassOfIndividual
-HostedMicroService = ClassOfIndividual
+HostedMicroService : ClassOfClassOfBoundedIndividual
+HostedMicroService = ClassOfBoundedIndividual
+
+
+
+--  HostedMicroService is subTypeOf NetworkingPart
+st-26b830735eeadc36-26b8386e5eeae4a4 : HostedMicroService ⊏ₑ NetworkingPart
+st-26b830735eeadc36-26b8386e5eeae4a4 = polySubTypeOf-identity
+
+--  HostedMicroService is subTypeOf MicroService
+st-26b830735eeadc36-d6a956495a395d28 : HostedMicroService ⊏ₑ MicroService
+st-26b830735eeadc36-d6a956495a395d28 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfHostedMicroService :  Linkage ComputingDevice HostedMicroService
@@ -87,16 +111,25 @@ aggregationOfMicroServiceHostedMicroService = make_Relation "MicroService aggreg
 hostedMicroService : Linkage ComputingDevice MicroService
 hostedMicroService = membershipOfHostedMicroService  ∘  aggregationOfMicroServiceHostedMicroService
 
-postulate -- hostedMicroService is subTypeOf networkingPart
-  st-26b830735eeadc36-26b8386e5eeae4a4  : hostedMicroService   ⊏⋆ᵣ  networkingPart 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Hosted Data: 
 Hosting a set of Physical Data Assets in a data store of a Computing System.
 -}
 -- Aggregate Member : Hosted Data
-HostedData : ClassOfClassOfIndividual
-HostedData = ClassOfIndividual
+HostedData : ClassOfClassOfBoundedIndividual
+HostedData = ClassOfBoundedIndividual
+
+
+
+--  HostedData is subTypeOf NetworkingPart
+st-26b831345eeadddc-26b8386e5eeae4a4 : HostedData ⊏ₑ NetworkingPart
+st-26b831345eeadddc-26b8386e5eeae4a4 = polySubTypeOf-identity
+
+--  HostedData is subTypeOf PhysicalDataDomain
+st-26b831345eeadddc-028f03ff5b4f55ee : HostedData ⊏ₑ PhysicalDataDomain
+st-26b831345eeadddc-028f03ff5b4f55ee = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfHostedData :  Linkage ComputingDevice HostedData
@@ -114,16 +147,25 @@ aggregationOfPhysicalDataDomainHostedData = make_Relation "PhysicalDataDomain ag
 hostedData : Linkage ComputingDevice PhysicalDataDomain
 hostedData = membershipOfHostedData  ∘  aggregationOfPhysicalDataDomainHostedData
 
-postulate -- hostedData is subTypeOf networkingPart
-  st-26b831345eeadddc-26b8386e5eeae4a4  : hostedData   ⊏⋆ᵣ  networkingPart 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Hosted Software Technology: 
 Hosting of a Software Technology in a Computing Device.
 -}
 -- Aggregate Member : Hosted Software Technology
-HostedSOftwareTechnology : ClassOfClassOfIndividual
-HostedSOftwareTechnology = ClassOfIndividual
+HostedSOftwareTechnology : ClassOfClassOfBoundedIndividual
+HostedSOftwareTechnology = ClassOfBoundedIndividual
+
+
+
+--  HostedSOftwareTechnology is subTypeOf NetworkingPart
+st-26b847ee5eea002d-26b8386e5eeae4a4 : HostedSOftwareTechnology ⊏ₑ NetworkingPart
+st-26b847ee5eea002d-26b8386e5eeae4a4 = polySubTypeOf-identity
+
+--  HostedSOftwareTechnology is subTypeOf SOftwareTechnology
+st-26b847ee5eea002d-d5e6ddd05c46547c : HostedSOftwareTechnology ⊏ₑ SOftwareTechnology
+st-26b847ee5eea002d-d5e6ddd05c46547c = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfHostedSOftwareTechnology :  Linkage ComputingDevice HostedSOftwareTechnology
@@ -141,6 +183,4 @@ aggregationOfSOftwareTechnologyHostedSOftwareTechnology = make_Relation "SOftwar
 hostedSOftwareTechnology : Linkage ComputingDevice SOftwareTechnology
 hostedSOftwareTechnology = membershipOfHostedSOftwareTechnology  ∘  aggregationOfSOftwareTechnologyHostedSOftwareTechnology
 
-postulate -- hostedSOftwareTechnology is subTypeOf networkingPart
-  st-26b847ee5eea002d-26b8386e5eeae4a4  : hostedSOftwareTechnology   ⊏⋆ᵣ  networkingPart 
 

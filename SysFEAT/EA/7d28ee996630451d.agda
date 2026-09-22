@@ -20,8 +20,8 @@ open import SysFEAT.EA.036a3de3548f229e public -- Enterprise Initiative
 open import SysFEAT.EA.fe1c250d678803b6 public -- Individual Resource Behavior
 open import SysFEAT.EA.21ed240a689c08df public -- Value Proposition
 
-EnterpriseStage : StateClass
-EnterpriseStage = StateConcept
+EnterpriseStage : ClassOfBoundedIndividual
+EnterpriseStage = BoundedIndividual
 
 
 --  EnterpriseStage is subTypeOf InitiativeStage
@@ -32,15 +32,26 @@ st-7d28ee996630451d-e78c5eb0661989f9 = polySubTypeOf-identity
 st-7d28ee996630451d-036a3de3548f229e : EnterpriseStage ⊏ₑ EnterpriseInitiative
 st-7d28ee996630451d-036a3de3548f229e = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Tactic: 
 A Tactic is a Course of Action that represents part of the detailing of Strategies. A Tactic implements Strategies. For example, the Tactic  Call first-time customers personally  implements the Strategy  Increase repeat business. Tactics generally channel efforts towards Objectives. For example, the Tactic  Ship products for free  channels efforts towards the Objective  Within six months, 10% increase in product sales. 
 -}
 -- Aggregate Member : Tactic
-Tactic : ClassOfOrderedEntity (lsuc(lzero))
-Tactic = AggregateMember (lsuc(lzero))
+Tactic : AggregateHolonymyType
+Tactic = AggregateHolonymy
 
+
+
+--  Tactic is subTypeOf EnterpriseCourseOfAction
+st-dd26e12e68a0a1a9-dd2696c768a1d406 : Tactic ⊏ₑ EnterpriseCourseOfAction
+st-dd26e12e68a0a1a9-dd2696c768a1d406 = polySubTypeOf-identity
+
+--  Tactic is subTypeOf IndividualResourceBehavior
+st-dd26e12e68a0a1a9-fe1c250d678803b6 : Tactic ⊏ₑ IndividualResourceBehavior
+st-dd26e12e68a0a1a9-fe1c250d678803b6 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfTactic :  Linkage EnterpriseStage Tactic
@@ -58,16 +69,20 @@ aggregationOfIndividualResourceBehaviorTactic = make_Relation "IndividualResourc
 tactic : Linkage EnterpriseStage IndividualResourceBehavior
 tactic = membershipOfTactic  ∘  aggregationOfIndividualResourceBehaviorTactic
 
-postulate -- tactic is subTypeOf enterpriseCourseOfAction
-  st-dd26e12e68a0a1a9-dd2696c768a1d406  : tactic   ⊏⋆ᵣ  enterpriseCourseOfAction 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Enterprise Objective: 
 Business Capability that is exhibited by an Enterprise Stage with quantified measure (KPI) and potential geopolitical scope (Site) for a defined market segment (Business Partner).An Enterprise Objective is a quantifiable end that a company/organization wants to achieve for a given Enterprise Initiative.An Enterprise Objective may support an Enterprise Goal; it may be refined into sub-objectives.An Enterprise Objective may concern a defined Exhibited Capability and be addressed by a defined Tactic.
 -}
 -- Aggregate Member : Enterprise Objective
 EnterpriseObjective : ClassOfClassOfIndividual
 EnterpriseObjective = ClassOfIndividual
+
+
+--  EnterpriseObjective is subTypeOf StageObjective
+st-dd26941068a08da2-a56ba723689c4c95 : EnterpriseObjective ⊏⋆ₑ StageObjective
+st-dd26941068a08da2-a56ba723689c4c95 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfEnterpriseObjective :  Linkage EnterpriseStage EnterpriseObjective
@@ -85,6 +100,4 @@ aggregationOfValuePropositionEnterpriseObjective = make_Relation "ValuePropositi
 enterpriseObjective : Linkage EnterpriseStage ValueProposition
 enterpriseObjective = membershipOfEnterpriseObjective  ∘  aggregationOfValuePropositionEnterpriseObjective
 
-postulate -- enterpriseObjective is subTypeOf stageObjective
-  st-dd26941068a08da2-a56ba723689c4c95  : enterpriseObjective   ⊏⋆ᵣ  stageObjective 
 

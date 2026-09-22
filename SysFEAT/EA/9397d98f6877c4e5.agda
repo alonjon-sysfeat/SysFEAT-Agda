@@ -17,11 +17,13 @@ module SysFEAT.EA.9397d98f6877c4e5 where -- ========== Dictionary Lexical Block
 open import Agda.Primitive
 open import SysFEAT.SOF.6c5f80e468587f06 public -- Information Block
 
-DictionaryLexicalBlock : ∀ (u : Level) → ClassOfMixedOrderEntity u
-DictionaryLexicalBlock u = MixedOrderEntity u
+DictionaryLexicalBlock : ∀ (u : Level) → ClassOfMixedOrderEntity u 
+DictionaryLexicalBlock u  = MixedOrderEntity u 
+
 
 --  DictionaryLexicalBlock is subTypeOf InformationBlock
 st-9397d98f6877c4e5-6c5f80e468587f06 : ∀ {u v} → (DictionaryLexicalBlock u) ⊏⋆ₑ (InformationBlock v)
 st-9397d98f6877c4e5-6c5f80e468587f06 = trivialPolySubTypeOfEntity
 
--- == Relationships =======================
+
+-- == Relations =======================

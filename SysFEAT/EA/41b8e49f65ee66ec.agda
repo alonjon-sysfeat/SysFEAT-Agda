@@ -21,6 +21,7 @@ open import SysFEAT.EA.be94e82f655c90e7 public -- Physical Business Agent
 PersonType : ClassOfClassOfBoundedIndividual
 PersonType = ClassOfBoundedIndividual
 
+
 --  PersonType is subTypeOf HumanResource
 st-41b8e49f65ee66ec-2c93337b67644a6a : PersonType ⊏ₑ HumanResource
 st-41b8e49f65ee66ec-2c93337b67644a6a = polySubTypeOf-identity
@@ -29,4 +30,5 @@ st-41b8e49f65ee66ec-2c93337b67644a6a = polySubTypeOf-identity
 st-41b8e49f65ee66ec-be94e82f655c90e7 : PersonType ⊏ₑ PhysicalBusinessAgent
 st-41b8e49f65ee66ec-be94e82f655c90e7 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

@@ -22,6 +22,7 @@ open import SysFEAT.SOF.0eb95f356855bf94 public -- Asset Block
 ArchitectureProject : ClassOfBoundedIndividual
 ArchitectureProject = BoundedIndividual
 
+
 --  ArchitectureProject is subTypeOf GovernanceActivity
 st-d34222c65b131d09-1737b76a5fe28204 : ArchitectureProject ⊏ₑ GovernanceActivity
 st-d34222c65b131d09-1737b76a5fe28204 = polySubTypeOf-identity
@@ -30,20 +31,32 @@ st-d34222c65b131d09-1737b76a5fe28204 = polySubTypeOf-identity
 st-d34222c65b131d09-ff0501b65b253fdd : ArchitectureProject ⊏ₑ GoverningTeam
 st-d34222c65b131d09-ff0501b65b253fdd = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Sub-Project: -}
 subProject :  Linkage ArchitectureProject ArchitectureProject
 subProject = make_holonymyRelation "Sub-Project" "Sub-Project"
 
 postulate -- subProject is subTypeOf subTeam
-  st-09965180620e5b60-ac98b16e60a38cbc  : subProject   ⊏⋆ᵣ  subTeam 
+  st-09965180620e5b60-ac98b16e60a38cbc  : subProject  ⊏⋆ᵣ  subTeam
 
+-- -------------------------------------------------------------------------------------------- 
 {- Architecture Deliverable: -}
 -- Aggregate Member : Architecture Deliverable
-ArchitectureDeliverable : ∀ (u : Level) → ClassOfMixedOrderEntity u
-ArchitectureDeliverable u = AggregateMember u
+ArchitectureDeliverable : ∀ (u : Level) → ClassOfMixedOrderEntity u 
+ArchitectureDeliverable u  = MixedOrderEntity u 
 
+
+
+--  ArchitectureDeliverable is subTypeOf UnboundedMember
+st-6bf178f2685976d3-8cfaf71a6852b042 : ∀ {u v} → (ArchitectureDeliverable u) ⊏⋆ₑ (UnboundedMember v)
+st-6bf178f2685976d3-8cfaf71a6852b042 = trivialPolySubTypeOfEntity
+
+--  ArchitectureDeliverable is subTypeOf BlockMember
+st-6bf178f2685976d3-fb660d4b68699ec2 : ∀ {u v} → (ArchitectureDeliverable u) ⊏⋆ₑ (BlockMember v)
+st-6bf178f2685976d3-fb660d4b68699ec2 = trivialPolySubTypeOfEntity
 
 -- Membership relation
 membershipOfArchitectureDeliverable : ∀ {u} →  Linkage ArchitectureProject (ArchitectureDeliverable u)
@@ -61,8 +74,4 @@ aggregationOfAssetBlockArchitectureDeliverable = make_Relation "AssetBlock aggre
 architectureDeliverable : ∀ {u w} → Linkage ArchitectureProject (AssetBlock w)
 architectureDeliverable {u} {w}  = membershipOfArchitectureDeliverable {u}   ∘  aggregationOfAssetBlockArchitectureDeliverable {w} 
 
-postulate -- architectureDeliverable is subTypeOf unboundedMember
-  st-6bf178f2685976d3-8cfaf71a6852b042  : architectureDeliverable {lzero}  ⊏⋆ᵣ  unboundedMember {lzero} {lzero}
-postulate -- architectureDeliverable is subTypeOf blockMember
-  st-6bf178f2685976d3-fb660d4b68699ec2  : architectureDeliverable {lzero}  ⊏⋆ᵣ  blockMember {lzero} {lzero}
 

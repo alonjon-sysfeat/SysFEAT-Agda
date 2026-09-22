@@ -19,18 +19,25 @@ open import SysFEAT..dd2638ba68a073a8 public -- Business Resource Capability Map
 open import SysFEAT.EA.9b089d1868a45ed3 public -- Physical Capability
 
 PhysicalCapabilityMap : PropertyType
-PhysicalCapabilityMap = ClassOfProperty
+PhysicalCapabilityMap = Property
 
 --  PhysicalCapabilityMap is subTypeOf BusinessResourceCapabilityMap
 st-9b089fb468a46506-dd2638ba68a073a8 : PhysicalCapabilityMap ⊏ₑ BusinessResourceCapabilityMap
 st-9b089fb468a46506-dd2638ba68a073a8 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Physical Map Member: -}
 -- Aggregate Member : Physical Map Member
 PhysicalMapMember : ClassOfClassOfIndividual
 PhysicalMapMember = ClassOfIndividual
+
+
+--  PhysicalMapMember is subTypeOf BusinessResourceCapabilityMember
+st-9b08a0ba68a466b4-dd26a8b568a1f5be : PhysicalMapMember ⊏⋆ₑ BusinessResourceCapabilityMember
+st-9b08a0ba68a466b4-dd26a8b568a1f5be = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfPhysicalMapMember :  Linkage PhysicalCapabilityMap PhysicalMapMember
@@ -48,6 +55,4 @@ aggregationOfPhysicalCapabilityPhysicalMapMember = make_Relation "PhysicalCapabi
 physicalMapMember : Linkage PhysicalCapabilityMap PhysicalCapability
 physicalMapMember = membershipOfPhysicalMapMember  ∘  aggregationOfPhysicalCapabilityPhysicalMapMember
 
-postulate -- physicalMapMember is subTypeOf businessResourceCapabilityMember
-  st-9b08a0ba68a466b4-dd26a8b568a1f5be  : physicalMapMember   ⊏⋆ᵣ  businessResourceCapabilityMember 
 

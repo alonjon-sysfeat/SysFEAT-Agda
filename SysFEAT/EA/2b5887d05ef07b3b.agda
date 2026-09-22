@@ -24,4 +24,5 @@ ProgramAsset = BoundedIndividual
 st-2b5887d05ef07b3b-01ce05606859794a : ProgramAsset ⊏ₐₑ (InitiativeInstrument lzero)
 st-2b5887d05ef07b3b-01ce05606859794a = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

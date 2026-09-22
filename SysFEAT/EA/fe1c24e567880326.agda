@@ -19,8 +19,9 @@ open import SysFEAT.EA.fe1c250d678803b6 public -- Individual Resource Behavior
 open import SysFEAT.SOF.a273b4f465b7a81f public -- Individual Process
 open import SysFEAT.EA.e2ef095b62147bf9 public -- Resource Action Process
 
-IndividualResourceProcess : ClassOfBoundedIndividual
-IndividualResourceProcess = BoundedIndividual
+IndividualResourceProcess : ActionProcessType
+IndividualResourceProcess = IndividualProcess
+
 
 --  IndividualResourceProcess is subTypeOf IndividualResourceBehavior
 st-fe1c24e567880326-fe1c250d678803b6 : IndividualResourceProcess ⊏ₑ IndividualResourceBehavior
@@ -30,8 +31,10 @@ st-fe1c24e567880326-fe1c250d678803b6 = polySubTypeOf-identity
 st-fe1c24e567880326-a273b4f465b7a81f : IndividualResourceProcess ⊏ₑ IndividualProcess
 st-fe1c24e567880326-a273b4f465b7a81f = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Resource Process Type: -}
 resourceProcessType :  Linkage IndividualResourceProcess ResourceActionProcess
 resourceProcessType = make_instanceOf "Resource Process Type" "Resource Process Type"

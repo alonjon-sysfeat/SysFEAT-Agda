@@ -24,18 +24,27 @@ open import SysFEAT.EA.d5e6dc425c46518a public -- Deployable Data Package
 DeployableApplicationPackage : ClassOfClassOfBoundedIndividual
 DeployableApplicationPackage = ClassOfBoundedIndividual
 
+
 --  DeployableApplicationPackage is subTypeOf DeployablePackage
 st-d5e6d7eb5c464b21-4c7883cd5fca4d5b : DeployableApplicationPackage ⊏ₑ DeployablePackage
 st-d5e6d7eb5c464b21-4c7883cd5fca4d5b = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Packaged IT Service: 
 A Packaged IT Service is a configuration of an Application Component in a Deployable Application Package according to deployment and runtime requirements.
 -}
 -- Aggregate Member : Packaged IT Service
-PackagedITService : ClassOfClassOfIndividual
-PackagedITService = ClassOfIndividual
+PackagedITService : ClassOfClassOfBoundedIndividual
+PackagedITService = ClassOfBoundedIndividual
+
+
+
+--  PackagedITService is subTypeOf ApplicationComponent
+st-cd7a40015ff3d873-46194ce9560d3ab8 : PackagedITService ⊏ₑ ApplicationComponent
+st-cd7a40015ff3d873-46194ce9560d3ab8 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfPackagedITService :  Linkage DeployableApplicationPackage PackagedITService
@@ -55,10 +64,21 @@ packagedITService = membershipOfPackagedITService  ∘  aggregationOfApplication
 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Member Package: -}
 -- Aggregate Member : Member Package
-MemberPackage : ClassOfClassOfIndividual
-MemberPackage = ClassOfIndividual
+MemberPackage : ClassOfClassOfBoundedIndividual
+MemberPackage = ClassOfBoundedIndividual
+
+
+
+--  MemberPackage is subTypeOf DeployableSOftwareMember
+st-624e72a25ed98474-624e6cab5ed977a2 : MemberPackage ⊏ₑ DeployableSOftwareMember
+st-624e72a25ed98474-624e6cab5ed977a2 = polySubTypeOf-identity
+
+--  MemberPackage is subTypeOf DeployableApplicationPackage
+st-624e72a25ed98474-d5e6d7eb5c464b21 : MemberPackage ⊏ₑ DeployableApplicationPackage
+st-624e72a25ed98474-d5e6d7eb5c464b21 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfMemberPackage :  Linkage DeployableApplicationPackage MemberPackage
@@ -76,14 +96,23 @@ aggregationOfDeployableApplicationPackageMemberPackage = make_Relation "Deployab
 memberPackage : Linkage DeployableApplicationPackage DeployableApplicationPackage
 memberPackage = membershipOfMemberPackage  ∘  aggregationOfDeployableApplicationPackageMemberPackage
 
-postulate -- memberPackage is subTypeOf deployableSOftwareMember
-  st-624e72a25ed98474-624e6cab5ed977a2  : memberPackage   ⊏⋆ᵣ  deployableSOftwareMember 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Physical Domain Member: -}
 -- Aggregate Member : Physical Domain Member
-PhysicalDomainMember : ClassOfClassOfIndividual
-PhysicalDomainMember = ClassOfIndividual
+PhysicalDomainMember : ClassOfClassOfBoundedIndividual
+PhysicalDomainMember = ClassOfBoundedIndividual
+
+
+
+--  PhysicalDomainMember is subTypeOf DeployableSOftwareMember
+st-4c7884f65fca4ed4-624e6cab5ed977a2 : PhysicalDomainMember ⊏ₑ DeployableSOftwareMember
+st-4c7884f65fca4ed4-624e6cab5ed977a2 = polySubTypeOf-identity
+
+--  PhysicalDomainMember is subTypeOf DeployableDataPackage
+st-4c7884f65fca4ed4-d5e6dc425c46518a : PhysicalDomainMember ⊏ₑ DeployableDataPackage
+st-4c7884f65fca4ed4-d5e6dc425c46518a = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfPhysicalDomainMember :  Linkage DeployableApplicationPackage PhysicalDomainMember
@@ -101,6 +130,4 @@ aggregationOfDeployableDataPackagePhysicalDomainMember = make_Relation "Deployab
 physicalDomainMember : Linkage DeployableApplicationPackage DeployableDataPackage
 physicalDomainMember = membershipOfPhysicalDomainMember  ∘  aggregationOfDeployableDataPackagePhysicalDomainMember
 
-postulate -- physicalDomainMember is subTypeOf deployableSOftwareMember
-  st-4c7884f65fca4ed4-624e6cab5ed977a2  : physicalDomainMember   ⊏⋆ᵣ  deployableSOftwareMember 
 

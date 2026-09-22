@@ -25,4 +25,5 @@ PersonState = StateConcept
 st-5e5206f867af76bb-c7dad43c5ae92d25 : PersonState ⊏ₑ Person
 st-5e5206f867af76bb-c7dad43c5ae92d25 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

@@ -27,14 +27,21 @@ DeployableDataPackage = ClassOfBoundedIndividual
 st-d5e6dc425c46518a-4c7883cd5fca4d5b : DeployableDataPackage ⊏ₑ DeployablePackage
 st-d5e6dc425c46518a-4c7883cd5fca4d5b = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Technical Data Store: 
 A technical data store represents the usage of a physical data area in a technical data area of the technical architecture of an application.
 -}
 -- Aggregate Member : Technical Data Store
 TechnicalDataStore : ClassOfClassOfIndividual
 TechnicalDataStore = ClassOfIndividual
+
+
+--  TechnicalDataStore is subTypeOf PhysicalDataDomain
+st-f4bedc285ee1a735-028f03ff5b4f55ee : TechnicalDataStore ⊏ₑ PhysicalDataDomain
+st-f4bedc285ee1a735-028f03ff5b4f55ee = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfTechnicalDataStore :  Linkage DeployableDataPackage TechnicalDataStore

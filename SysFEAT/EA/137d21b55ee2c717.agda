@@ -23,19 +23,23 @@ open import SysFEAT.EA.4619527e560d45eb public -- Logical Data Entity
 Table : ClassOfClassOfBoundedIndividual
 Table = ClassOfBoundedIndividual
 
+
 --  Table is subTypeOf RelationalEntity
 st-137d21b55ee2c717-362f3ca45b3b234b : Table ⊏ₑ RelationalEntity
 st-137d21b55ee2c717-362f3ca45b3b234b = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Table: -}
 specializedTable :  Linkage Table Table
 specializedTable = make_subTypeOf "Specialized Table" "Specialized Table"
 
 postulate -- specializedTable is subTypeOf specializedPhysicalEntity
-  st-325a373866f33d05-325a375866f33f11  : specializedTable   ⊏⋆ᵣ  specializedPhysicalEntity 
+  st-325a373866f33d05-325a375866f33f11  : specializedTable  ⊏⋆ᵣ  specializedPhysicalEntity
 
+-- -------------------------------------------------------------------------------------------- 
 {- Realized Data Entity: -}
 realizedDataEntity :  Linkage Table LogicalDataEntity
 realizedDataEntity = make_subTypeOf "Realized Data Entity" "Realized Data Entity"

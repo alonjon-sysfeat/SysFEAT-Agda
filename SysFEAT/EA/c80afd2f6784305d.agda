@@ -26,4 +26,5 @@ IntangibleResourceAgent = ClassOfBoundedIndividual
 st-c80afd2f6784305d-e2ef091962147ad7 : IntangibleResourceAgent ⊏ₑ ResourceAgentType
 st-c80afd2f6784305d-e2ef091962147ad7 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

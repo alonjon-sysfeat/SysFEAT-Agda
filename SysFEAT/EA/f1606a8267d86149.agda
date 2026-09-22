@@ -26,12 +26,24 @@ OperationalAssuranceCase = ClassOfBoundedIndividual
 st-f1606a8267d86149-07ca19e95dd854e9 : OperationalAssuranceCase ⊏ₑ AssuranceCase
 st-f1606a8267d86149-07ca19e95dd854e9 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Resource Operating Asset: -}
 -- Aggregate Member : Resource Operating Asset
-ResourceOperatingAsset : ClassOfClassOfIndividual
-ResourceOperatingAsset = ClassOfIndividual
+ResourceOperatingAsset : ClassOfClassOfBoundedIndividual
+ResourceOperatingAsset = ClassOfBoundedIndividual
+
+
+
+--  ResourceOperatingAsset is subTypeOf InvolvedAsset
+st-f1606bb067d86473-9152e6975ed764d3 : ResourceOperatingAsset ⊏ₑ InvolvedAsset
+st-f1606bb067d86473-9152e6975ed764d3 = polySubTypeOf-identity
+
+--  ResourceOperatingAsset is subTypeOf ResourceOperatingAsset
+st-f1606bb067d86473-f8e61da0621db6fa : ResourceOperatingAsset ⊏ₑ ResourceOperatingAsset
+st-f1606bb067d86473-f8e61da0621db6fa = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfResourceOperatingAsset :  Linkage OperationalAssuranceCase ResourceOperatingAsset
@@ -49,14 +61,18 @@ aggregationOfResourceOperatingAssetResourceOperatingAsset = make_Relation "Resou
 resourceOperatingAsset : Linkage OperationalAssuranceCase ResourceOperatingAsset
 resourceOperatingAsset = membershipOfResourceOperatingAsset  ∘  aggregationOfResourceOperatingAssetResourceOperatingAsset
 
-postulate -- resourceOperatingAsset is subTypeOf involvedAsset
-  st-f1606bb067d86473-9152e6975ed764d3  : resourceOperatingAsset   ⊏⋆ᵣ  involvedAsset 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Mitigated Operational Risk: -}
 -- Aggregate Member : Mitigated Operational Risk
 MitigatedOperationalRisk : ThirdOrderClass
 MitigatedOperationalRisk = SecondOrderClass
+
+
+--  MitigatedOperationalRisk is subTypeOf MitigatedRisk
+st-f1606c2967d86662-582e770166f6a8cf : MitigatedOperationalRisk ⊏⋆ₑ MitigatedRisk
+st-f1606c2967d86662-582e770166f6a8cf = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfMitigatedOperationalRisk :  Linkage OperationalAssuranceCase MitigatedOperationalRisk
@@ -74,6 +90,4 @@ aggregationOfOperatingRiskTypeMitigatedOperationalRisk = make_Relation "Operatin
 mitigatedOperationalRisk : Linkage OperationalAssuranceCase OperatingRiskType
 mitigatedOperationalRisk = membershipOfMitigatedOperationalRisk  ∘  aggregationOfOperatingRiskTypeMitigatedOperationalRisk
 
-postulate -- mitigatedOperationalRisk is subTypeOf mitigatedRisk
-  st-f1606c2967d86662-582e770166f6a8cf  : mitigatedOperationalRisk   ⊏⋆ᵣ  mitigatedRisk 
 

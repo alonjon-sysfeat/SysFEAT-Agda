@@ -20,18 +20,21 @@ open import Agda.Primitive
 open import SysFEAT.EA.67d36b2b6aa44146 public -- Concept Designation
 open import SysFEAT.EA.4aebd76d69641638 public -- Conceptual Element
 
-ConceptName : ClassOfIndividual
-ConceptName = Individual
+ConceptName : ClassOfAbstractEntity
+ConceptName = AbstractEntity
+
 
 --  ConceptName is subTypeOf ConceptDesignation
 st-67d36cc26aa4435e-67d36b2b6aa44146 : ConceptName ⊏ₑ ConceptDesignation
 st-67d36cc26aa4435e-67d36b2b6aa44146 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Named Element: -}
 namedElement : ∀ {u} →  Linkage ConceptName (ConceptualElement u)
 namedElement = make_Relation "Named Element" "Named Element"
 
 postulate -- namedElement is subTypeOf designation
-  st-4aebdcae69641fd4-4aebdcf669642033  : namedElement  {lzero}  ⊏⋆ᵣ  designation  {lzero}
+  st-4aebdcae69641fd4-4aebdcf669642033  : namedElement  ⊏⋆ᵣ  designation

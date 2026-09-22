@@ -21,6 +21,7 @@ open import SysFEAT.EA.0cbd1fa663fe18ac public -- Technology System
 NetworkingSystem : ClassOfClassOfBoundedIndividual
 NetworkingSystem = ClassOfBoundedIndividual
 
+
 --  NetworkingSystem is subTypeOf NetworkingSystem
 st-070b0d5564011dbb-26b8384f5eeae33c : NetworkingSystem ⊏ₑ NetworkingSystem
 st-070b0d5564011dbb-26b8384f5eeae33c = polySubTypeOf-identity
@@ -29,4 +30,5 @@ st-070b0d5564011dbb-26b8384f5eeae33c = polySubTypeOf-identity
 st-070b0d5564011dbb-0cbd1fa663fe18ac : NetworkingSystem ⊏ₑ TechnologySystem
 st-070b0d5564011dbb-0cbd1fa663fe18ac = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

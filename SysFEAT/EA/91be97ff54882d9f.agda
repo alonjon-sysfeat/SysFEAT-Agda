@@ -30,6 +30,7 @@ open import SysFEAT.EA.f8e61da0621db6fa public -- Resource Operating Asset
 Project : ClassOfBoundedIndividual
 Project = BoundedIndividual
 
+
 --  Project is subTypeOf ManagementInitiative
 st-91be97ff54882d9f-05201b936647570a : Project ⊏ₑ ManagementInitiative
 st-91be97ff54882d9f-05201b936647570a = polySubTypeOf-identity
@@ -42,23 +43,32 @@ st-91be97ff54882d9f-2b5887d05ef07b3b = polySubTypeOf-identity
 st-91be97ff54882d9f-84c799c1664d8b2f : Project ⊏ₑ Epic
 st-91be97ff54882d9f-84c799c1664d8b2f = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Project Risk: -}
 projectRisk :  Linkage Project ProjetRiskType
 projectRisk = make_Relation "Project Risk" "Project Risk"
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Project Classification: -}
 projectClassification :  Linkage Project ProjectType
 projectClassification = make_instanceOf "Project Classification" "Project Classification"
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Project Dependency: -}
 -- Aggregate Member : Project Dependency
-ProjectDependency : ClassOfOrderedEntity (lsuc(lzero))
-ProjectDependency = AggregateMember (lsuc(lzero))
+ProjectDependency : ClassOfBoundedIndividual
+ProjectDependency = BoundedIndividual
 
+
+
+--  ProjectDependency is subTypeOf Project
+st-8339871c68e33b79-91be97ff54882d9f : ProjectDependency ⊏ₑ Project
+st-8339871c68e33b79-91be97ff54882d9f = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfProjectDependency :  Linkage Project ProjectDependency
@@ -78,10 +88,12 @@ projectDependency = membershipOfProjectDependency  ∘  aggregationOfProjectProj
 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Project Purpose: -}
 -- Aggregate Member : Project Purpose
 ProjectPurpose : ClassOfClassOfIndividual
 ProjectPurpose = ClassOfIndividual
+
 
 -- Membership relation
 membershipOfProjectPurpose :  Linkage Project ProjectPurpose
@@ -101,10 +113,16 @@ projectPurpose = membershipOfProjectPurpose  ∘  aggregationOfBusinessCapabilit
 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Project Deliverable: -}
 -- Aggregate Member : Project Deliverable
 ProjectDeliverable : ClassOfClassOfIndividual
 ProjectDeliverable = ClassOfIndividual
+
+
+--  ProjectDeliverable withAspect InitiativeSubject
+st-3c8b5d236283cb99-0f642fd06859b0d5 : ProjectDeliverable ⊏ₐₑ (InitiativeSubject (lsuc(lzero)))
+st-3c8b5d236283cb99-0f642fd06859b0d5 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfProjectDeliverable :  Linkage Project ProjectDeliverable
@@ -122,14 +140,14 @@ aggregationOfResourceOperatingAssetProjectDeliverable = make_Relation "ResourceO
 projectDeliverable : Linkage Project ResourceOperatingAsset
 projectDeliverable = membershipOfProjectDeliverable  ∘  aggregationOfResourceOperatingAssetProjectDeliverable
 
-postulate -- projectDeliverable is subTypeOf initiativeSubject
-  st-3c8b5d236283cb99-0f642fd06859b0d5  : projectDeliverable   ⊏⋆ᵣ  initiativeSubject  {lzero}
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Project Risk: -}
 -- Aggregate Member : Project Risk
 ProjectRisk : ClassOfClassOfIndividual
 ProjectRisk = ClassOfIndividual
+
 
 -- Membership relation
 membershipOfProjectRisk :  Linkage Project ProjectRisk

@@ -24,4 +24,5 @@ PhysicalSOftwareInterface = ClassOfIndividual
 st-624e6ac55ed972a7-24ae31b55ed1c66d : PhysicalSOftwareInterface ⊏ₑ ServiceInterface
 st-624e6ac55ed972a7-24ae31b55ed1c66d = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

@@ -25,21 +25,30 @@ open import Agda.Primitive
 open import SysFEAT.EA.9dcea2655ec768ee public -- Business Service Interface
 open import SysFEAT.EA.302238be5ec9020a public -- Information Outcome Event
 
-ApplicationInterface : ClassOfClassOfIndividual
-ApplicationInterface = ClassOfIndividual
+ApplicationInterface : ClassOfClassOfBoundedIndividual
+ApplicationInterface = ClassOfBoundedIndividual
+
 
 --  ApplicationInterface is subTypeOf BusinessServiceInterface
 st-9dce9f8d5ec76311-9dcea2655ec768ee : ApplicationInterface ⊏ₑ BusinessServiceInterface
 st-9dce9f8d5ec76311-9dcea2655ec768ee = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Information Flow Connection: 
 An Information Flow Connection is an Information Outcome Event that occurs between the participant of an Application Interface.
 -}
 -- Aggregate Member : Information Flow Connection
-InformationFlowConnection : ClassOfClassOfIndividual
-InformationFlowConnection = ClassOfIndividual
+InformationFlowConnection : ClassOfClassOfBoundedIndividual
+InformationFlowConnection = ClassOfBoundedIndividual
+
+
+
+--  InformationFlowConnection is subTypeOf BusinessFlowConnection
+st-c561e9dc680f8339-c561d97c680f6e84 : InformationFlowConnection ⊏ₑ BusinessFlowConnection
+st-c561e9dc680f8339-c561d97c680f6e84 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfInformationFlowConnection :  Linkage ApplicationInterface InformationFlowConnection
@@ -57,6 +66,4 @@ aggregationOfInformationOutcomeEventInformationFlowConnection = make_Relation "I
 informationFlowConnection : Linkage ApplicationInterface InformationOutcomeEvent
 informationFlowConnection = membershipOfInformationFlowConnection  ∘  aggregationOfInformationOutcomeEventInformationFlowConnection
 
-postulate -- informationFlowConnection is subTypeOf businessFlowConnection
-  st-c561e9dc680f8339-c561d97c680f6e84  : informationFlowConnection   ⊏⋆ᵣ  businessFlowConnection 
 

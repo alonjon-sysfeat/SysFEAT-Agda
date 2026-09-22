@@ -19,18 +19,25 @@ open import SysFEAT..dd2638ba68a073a8 public -- Business Resource Capability Map
 open import SysFEAT.EA.dd26f17a68a0b08b public -- Skill
 
 SkillMap : PropertyType
-SkillMap = ClassOfProperty
+SkillMap = Property
 
 --  SkillMap is subTypeOf BusinessResourceCapabilityMap
 st-dd26f21668a0b0fd-dd2638ba68a073a8 : SkillMap ⊏ₑ BusinessResourceCapabilityMap
 st-dd26f21668a0b0fd-dd2638ba68a073a8 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Skill Member: -}
 -- Aggregate Member : Skill Member
 SkillMember : ClassOfClassOfIndividual
 SkillMember = ClassOfIndividual
+
+
+--  SkillMember is subTypeOf BusinessResourceCapabilityMember
+st-dd26f2ca68a0b1a0-dd26a8b568a1f5be : SkillMember ⊏⋆ₑ BusinessResourceCapabilityMember
+st-dd26f2ca68a0b1a0-dd26a8b568a1f5be = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSkillMember :  Linkage SkillMap SkillMember
@@ -48,6 +55,4 @@ aggregationOfSkillSkillMember = make_Relation "Skill aggregation" "aggregated Sk
 skillMember : Linkage SkillMap Skill
 skillMember = membershipOfSkillMember  ∘  aggregationOfSkillSkillMember
 
-postulate -- skillMember is subTypeOf businessResourceCapabilityMember
-  st-dd26f2ca68a0b1a0-dd26a8b568a1f5be  : skillMember   ⊏⋆ᵣ  businessResourceCapabilityMember 
 

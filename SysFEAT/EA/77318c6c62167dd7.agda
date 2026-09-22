@@ -24,4 +24,5 @@ NoSQLDataAsset = BoundedIndividual
 st-77318c6c62167dd7-8f1cad7d68ca9df0 : NoSQLDataAsset ⊏ₐₑ (PhysicalDataBlock lzero)
 st-77318c6c62167dd7-8f1cad7d68ca9df0 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

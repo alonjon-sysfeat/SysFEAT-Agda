@@ -23,6 +23,7 @@ open import SysFEAT.EA.08d17cde678a2b47 public -- Business Partner
 ConceptualEnvironmentScenario : ClassOfClassOfBoundedIndividual
 ConceptualEnvironmentScenario = ClassOfBoundedIndividual
 
+
 --  ConceptualEnvironmentScenario is subTypeOf ConceptualEcosystem
 st-f97e4315632b38d5-f97e3e30632b31c1 : ConceptualEnvironmentScenario ⊏ₑ ConceptualEcosystem
 st-f97e4315632b38d5-f97e3e30632b31c1 = polySubTypeOf-identity
@@ -31,12 +32,32 @@ st-f97e4315632b38d5-f97e3e30632b31c1 = polySubTypeOf-identity
 st-f97e4315632b38d5-ca3513af5fc59413 : ConceptualEnvironmentScenario ⊏ₑ EnvironmentInteractionProcessType
 st-f97e4315632b38d5-ca3513af5fc59413 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Subject Activity Domain: -}
 -- Aggregate Member : Subject Activity Domain
-SubjectActivityDomain : ClassOfClassOfIndividual
-SubjectActivityDomain = ClassOfIndividual
+SubjectActivityDomain : ClassOfClassOfBoundedIndividual
+SubjectActivityDomain = ClassOfBoundedIndividual
+
+
+
+--  SubjectActivityDomain is subTypeOf SubjectAgent
+st-f97e4605632b3b80-ca3514125fc59538 : SubjectActivityDomain ⊏ₑ SubjectAgent
+st-f97e4605632b3b80-ca3514125fc59538 = polySubTypeOf-identity
+
+--  SubjectActivityDomain is subTypeOf ParticipantEnterpriseAgent
+st-f97e4605632b3b80-2b6f3bf061baf60a : SubjectActivityDomain ⊏ₑ ParticipantEnterpriseAgent
+st-f97e4605632b3b80-2b6f3bf061baf60a = polySubTypeOf-identity
+
+--  SubjectActivityDomain is subTypeOf LogicalEcosystemMember
+st-f97e4605632b3b80-f97e3fde632b3462 : SubjectActivityDomain ⊏ₑ LogicalEcosystemMember
+st-f97e4605632b3b80-f97e3fde632b3462 = polySubTypeOf-identity
+
+--  SubjectActivityDomain is subTypeOf OperatingDomain
+st-f97e4605632b3b80-9810b060551137d0 : SubjectActivityDomain ⊏ₑ OperatingDomain
+st-f97e4605632b3b80-9810b060551137d0 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSubjectActivityDomain :  Linkage ConceptualEnvironmentScenario SubjectActivityDomain
@@ -54,18 +75,27 @@ aggregationOfOperatingDomainSubjectActivityDomain = make_Relation "OperatingDoma
 subjectActivityDomain : Linkage ConceptualEnvironmentScenario OperatingDomain
 subjectActivityDomain = membershipOfSubjectActivityDomain  ∘  aggregationOfOperatingDomainSubjectActivityDomain
 
-postulate -- subjectActivityDomain is subTypeOf subjectAgent
-  st-f97e4605632b3b80-ca3514125fc59538  : subjectActivityDomain   ⊏⋆ᵣ  subjectAgent 
-postulate -- subjectActivityDomain is subTypeOf participantEnterpriseAgent
-  st-f97e4605632b3b80-2b6f3bf061baf60a  : subjectActivityDomain   ⊏⋆ᵣ  participantEnterpriseAgent 
-postulate -- subjectActivityDomain is subTypeOf logicalEcosystemMember
-  st-f97e4605632b3b80-f97e3fde632b3462  : subjectActivityDomain   ⊏⋆ᵣ  logicalEcosystemMember 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Business Partner: -}
 -- Aggregate Member : Business Partner
-BusinessPartner : ClassOfClassOfIndividual
-BusinessPartner = ClassOfIndividual
+BusinessPartner : ClassOfClassOfBoundedIndividual
+BusinessPartner = ClassOfBoundedIndividual
+
+
+
+--  BusinessPartner is subTypeOf PartnerAgent
+st-f97e4689632b3cad-ca35159e5fc5978d : BusinessPartner ⊏ₑ PartnerAgent
+st-f97e4689632b3cad-ca35159e5fc5978d = polySubTypeOf-identity
+
+--  BusinessPartner is subTypeOf ParticipantEnterpriseAgent
+st-f97e4689632b3cad-2b6f3bf061baf60a : BusinessPartner ⊏ₑ ParticipantEnterpriseAgent
+st-f97e4689632b3cad-2b6f3bf061baf60a = polySubTypeOf-identity
+
+--  BusinessPartner is subTypeOf BusinessPartner
+st-f97e4689632b3cad-08d17cde678a2b47 : BusinessPartner ⊏ₑ BusinessPartner
+st-f97e4689632b3cad-08d17cde678a2b47 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfBusinessPartner :  Linkage ConceptualEnvironmentScenario BusinessPartner
@@ -83,8 +113,4 @@ aggregationOfBusinessPartnerBusinessPartner = make_Relation "BusinessPartner agg
 businessPartner : Linkage ConceptualEnvironmentScenario BusinessPartner
 businessPartner = membershipOfBusinessPartner  ∘  aggregationOfBusinessPartnerBusinessPartner
 
-postulate -- businessPartner is subTypeOf partnerAgent
-  st-f97e4689632b3cad-ca35159e5fc5978d  : businessPartner   ⊏⋆ᵣ  partnerAgent 
-postulate -- businessPartner is subTypeOf participantEnterpriseAgent
-  st-f97e4689632b3cad-2b6f3bf061baf60a  : businessPartner   ⊏⋆ᵣ  participantEnterpriseAgent 
 

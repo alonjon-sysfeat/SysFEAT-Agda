@@ -18,18 +18,26 @@ open import Agda.Primitive
 open import SysFEAT.EA.dd265414689f5987 public -- Resource Capability
 
 TechnologyCapability : PropertyType
-TechnologyCapability = ClassOfProperty
+TechnologyCapability = Property
 
 --  TechnologyCapability is subTypeOf ResourceCapability
 st-dd27b08d68a10b12-dd265414689f5987 : TechnologyCapability ⊏ₑ ResourceCapability
 st-dd27b08d68a10b12-dd265414689f5987 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Technology Capability Part: -}
 -- Aggregate Member : Technology Capability Part
-TechnologyCapabilityPart : ClassOfClassOfIndividual
-TechnologyCapabilityPart = ClassOfIndividual
+TechnologyCapabilityPart : ClassOfClassOfAbstractEntity
+TechnologyCapabilityPart = ClassOfAbstractEntity
+
+
+
+--  TechnologyCapabilityPart is subTypeOf ResourceCapabilityPart
+st-dd27b26868a10dbe-dd262bf968a05e2c : TechnologyCapabilityPart ⊏⋆ₑ ResourceCapabilityPart
+st-dd27b26868a10dbe-dd262bf968a05e2c = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfTechnologyCapabilityPart :  Linkage TechnologyCapability TechnologyCapabilityPart
@@ -47,6 +55,4 @@ aggregationOfTechnologyCapabilityTechnologyCapabilityPart = make_Relation "Techn
 technologyCapabilityPart : Linkage TechnologyCapability TechnologyCapability
 technologyCapabilityPart = membershipOfTechnologyCapabilityPart  ∘  aggregationOfTechnologyCapabilityTechnologyCapabilityPart
 
-postulate -- technologyCapabilityPart is subTypeOf resourceCapabilityPart
-  st-dd27b26868a10dbe-dd262bf968a05e2c  : technologyCapabilityPart   ⊏⋆ᵣ  resourceCapabilityPart 
 

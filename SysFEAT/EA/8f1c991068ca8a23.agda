@@ -23,7 +23,7 @@ open import SysFEAT.EA.6d2b7c935fbb6270 public -- Data Asset
 open import SysFEAT.SOF.c189d5f068ae4d75 public -- Information Property
 
 DataProperty : PropertyType
-DataProperty = ClassOfProperty
+DataProperty = Property
 
 --  DataProperty is subTypeOf DataAsset
 st-8f1c991068ca8a23-6d2b7c935fbb6270 : DataProperty ⊏ₑ DataAsset
@@ -33,8 +33,10 @@ st-8f1c991068ca8a23-6d2b7c935fbb6270 = polySubTypeOf-identity
 st-8f1c991068ca8a23-c189d5f068ae4d75 : DataProperty ⊏ₑ InformationProperty
 st-8f1c991068ca8a23-c189d5f068ae4d75 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Data Property: -}
 specializedDataProperty :  Linkage DataProperty DataProperty
 specializedDataProperty = make_subTypeOf "Specialized Data Property" "Specialized Data Property"

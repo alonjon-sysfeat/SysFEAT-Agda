@@ -23,6 +23,7 @@ open import SysFEAT.EA.affeb4955f6054cd public -- Data Set Snapshot
 DataInventorySnapshot : ClassOfBoundedIndividual
 DataInventorySnapshot = BoundedIndividual
 
+
 --  DataInventorySnapshot is subTypeOf DeployedBusinessSystem
 st-affeb4425f6053d9-3642454f6007e80e : DataInventorySnapshot ⊏ₑ DeployedBusinessSystem
 st-affeb4425f6053d9-3642454f6007e80e = polySubTypeOf-identity
@@ -31,13 +32,16 @@ st-affeb4425f6053d9-3642454f6007e80e = polySubTypeOf-identity
 st-affeb4425f6053d9-0eb95dce6855be2e : DataInventorySnapshot ⊏ₐₑ (ModelContainer lzero)
 st-affeb4425f6053d9-0eb95dce6855be2e = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- registered snapshot: -}
 registeredsnapshot :  Linkage DataInventorySnapshot DeployedDataStore
 registeredsnapshot = make_holonymyRelation "registered snapshot" "registered snapshot"
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Owned Data Set Snapshot: -}
 ownedDataSetSnapshot :  Linkage DataInventorySnapshot DataSetSnapshot
 ownedDataSetSnapshot = make_holonymyRelation "Owned Data Set Snapshot" "Owned Data Set Snapshot"

@@ -20,8 +20,10 @@ open import SysFEAT.EA.362f3ca45b3b234b public -- Relational Entity
 TableView : ClassOfClassOfBoundedIndividual
 TableView = ClassOfBoundedIndividual
 
+
 --  TableView is subTypeOf RelationalEntity
 st-137d24905ee2d0ca-362f3ca45b3b234b : TableView ⊏ₑ RelationalEntity
 st-137d24905ee2d0ca-362f3ca45b3b234b = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

@@ -30,12 +30,19 @@ Jobtobedone = ClassOfBoundedIndividual
 st-d17034875be85304-d170d24a5be72d09 : Jobtobedone ⊏ₑ CustomerTask
 st-d17034875be85304-d170d24a5be72d09 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Included Job to be done: -}
 -- Aggregate Member : Included Job to be done
 IncludedJobtobedone : ClassOfClassOfIndividual
 IncludedJobtobedone = ClassOfIndividual
+
+
+--  IncludedJobtobedone is subTypeOf CustomerTask
+st-07e73d5e5eccef4a-d170d24a5be72d09 : IncludedJobtobedone ⊏ₑ CustomerTask
+st-07e73d5e5eccef4a-d170d24a5be72d09 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfIncludedJobtobedone :  Linkage Jobtobedone IncludedJobtobedone

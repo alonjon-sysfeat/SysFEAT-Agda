@@ -30,8 +30,10 @@ PrivacyProcessing = ClassOfBoundedIndividual
 st-426a57325aeb3d76-b90aeac8600e619f : PrivacyProcessing ⊏ₑ DataAssuranceCase
 st-426a57325aeb3d76-b90aeac8600e619f = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- impacted data subject: 
 People-human beings from whom or about whom you collect information in connection with your business and its operations.
 -}
@@ -39,22 +41,31 @@ impacteddatasubject :  Linkage PrivacyProcessing BusinessPartner
 impacteddatasubject = make_classOfHolonymy "impacted data subject" "impacted data subject"
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Person Right: -}
 personRight :  Linkage PrivacyProcessing PersonRight
 personRight = make_classOfHolonymy "Person Right" "Person Right"
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Data Category: -}
 dataCategory : ∀ {u} →  Linkage PrivacyProcessing (DataCategory u)
 dataCategory = make_instanceOf "Data Category" "Data Category"
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Data Transfer: 
 Any transfer of personal data which are undergoing processing or are intended for processing after transfer to a third country or to an international organization.
 -}
 -- Aggregate Member : Data Transfer
-DataTransfer : ClassOfClassOfIndividual
-DataTransfer = ClassOfIndividual
+DataTransfer : ClassOfClassOfBoundedIndividual
+DataTransfer = ClassOfBoundedIndividual
+
+
+
+--  DataTransfer is subTypeOf InformationAsset
+st-258c6c815fd25bbf-e6f250185f772ee1 : DataTransfer ⊏ₑ InformationAsset
+st-258c6c815fd25bbf-e6f250185f772ee1 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfDataTransfer :  Linkage PrivacyProcessing DataTransfer
@@ -74,10 +85,20 @@ dataTransfer = membershipOfDataTransfer  ∘  aggregationOfInformationAssetDataT
 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Security Measure: -}
 -- Aggregate Member : Security Measure
 SecurityMeasure : ClassOfClassOfIndividual
 SecurityMeasure = ClassOfIndividual
+
+
+--  SecurityMeasure is subTypeOf AppliedControlMeasure
+st-b13db35b5ede3983-f1600eb767d84743 : SecurityMeasure ⊏ₑ AppliedControlMeasure
+st-b13db35b5ede3983-f1600eb767d84743 = polySubTypeOf-identity
+
+--  SecurityMeasure is subTypeOf SecurityMeasureType
+st-b13db35b5ede3983-b3c824665c709228 : SecurityMeasure ⊏ₑ SecurityMeasureType
+st-b13db35b5ede3983-b3c824665c709228 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSecurityMeasure :  Linkage PrivacyProcessing SecurityMeasure
@@ -95,16 +116,20 @@ aggregationOfSecurityMeasureTypeSecurityMeasure = make_Relation "SecurityMeasure
 securityMeasure : Linkage PrivacyProcessing SecurityMeasureType
 securityMeasure = membershipOfSecurityMeasure  ∘  aggregationOfSecurityMeasureTypeSecurityMeasure
 
-postulate -- securityMeasure is subTypeOf appliedControlMeasure
-  st-b13db35b5ede3983-f1600eb767d84743  : securityMeasure   ⊏⋆ᵣ  appliedControlMeasure 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Mitigated Privacy Risk: 
 Represents any risk related to data privacy that should be identified and assessed during a DPIA process.
 -}
 -- Aggregate Member : Mitigated Privacy Risk
 MitigatedPrivacyRisk : ThirdOrderClass
 MitigatedPrivacyRisk = SecondOrderClass
+
+
+--  MitigatedPrivacyRisk is subTypeOf MitigatedDataRisk
+st-582e841b66f6dd30-582e7e2266f6c278 : MitigatedPrivacyRisk ⊏⋆ₑ MitigatedDataRisk
+st-582e841b66f6dd30-582e7e2266f6c278 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfMitigatedPrivacyRisk :  Linkage PrivacyProcessing MitigatedPrivacyRisk
@@ -122,6 +147,4 @@ aggregationOfPrivacyRiskTypeMitigatedPrivacyRisk = make_Relation "PrivacyRiskTyp
 mitigatedPrivacyRisk : Linkage PrivacyProcessing PrivacyRiskType
 mitigatedPrivacyRisk = membershipOfMitigatedPrivacyRisk  ∘  aggregationOfPrivacyRiskTypeMitigatedPrivacyRisk
 
-postulate -- mitigatedPrivacyRisk is subTypeOf mitigatedDataRisk
-  st-582e841b66f6dd30-582e7e2266f6c278  : mitigatedPrivacyRisk   ⊏⋆ᵣ  mitigatedDataRisk 
 

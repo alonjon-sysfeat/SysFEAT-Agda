@@ -24,4 +24,5 @@ SOftwareTechnologyOutcomeEvent = ClassOfIndividual
 st-a24da7786408781d-f4be0a955ee1c4f5 : SOftwareTechnologyOutcomeEvent ⊏ₑ TechnologyOutcomeEvent
 st-a24da7786408781d-f4be0a955ee1c4f5 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

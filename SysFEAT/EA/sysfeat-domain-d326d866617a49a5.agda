@@ -13,6 +13,7 @@ Documentation : https://framework.sysfeat.com/pages/d326d866617a49a5.htm
 {-# OPTIONS --cubical --guardedness #-}
 module SysFEAT.EA.sysfeat-domain-d326d866617a49a5 where -- ========== Data Provenance & Reliability Assurance
 
+open import SysFEAT.SOF.sysfeat-domain-02f70fdc600f4179 public -- Functional Asset and Operating Constraints
 open import SysFEAT.EA.sysfeat-domain-75ef50ab620fb787 public -- EA Pattern - Physical Data Domain
 open import SysFEAT.EA.sysfeat-domain-07e72dd55ecc888a public -- Enterprise Glossary
 open import SysFEAT.EA.sysfeat-domain-1ce356355c48c0e2 public -- People & Accountability

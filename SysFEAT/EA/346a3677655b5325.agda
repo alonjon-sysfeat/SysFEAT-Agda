@@ -22,6 +22,7 @@ open import SysFEAT.EA.190c2cd368965534 public -- Concept Property
 ConceptualIndividual : ClassOfBoundedIndividual
 ConceptualIndividual = BoundedIndividual
 
+
 --  ConceptualIndividual withAspect DictionaryBlock
 st-346a3677655b5325-6bf190796859b4ff : ConceptualIndividual ⊏ₐₑ (DictionaryBlock lzero)
 st-346a3677655b5325-6bf190796859b4ff = polySubTypeOf-identity
@@ -30,8 +31,10 @@ st-346a3677655b5325-6bf190796859b4ff = polySubTypeOf-identity
 st-346a3677655b5325-ebcfaeac5ad76ed7 : ConceptualIndividual ⊏ₑ IndividualAsset
 st-346a3677655b5325-ebcfaeac5ad76ed7 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Qualifying Concept Property: -}
 qualifyingConceptProperty :  Linkage ConceptualIndividual ConceptProperty
 qualifyingConceptProperty = make_instanceOf "Qualifying Concept Property" "Qualifying Concept Property"

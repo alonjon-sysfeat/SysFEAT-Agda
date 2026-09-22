@@ -21,11 +21,13 @@ open import Agda.Primitive
 open import SysFEAT.EA.fe1c231267880201 public -- Individual Resource Agent
 open import SysFEAT.EA.340f52dc686212f5 public -- Physical Resource Agent
 
-IndividualPhysicalResourceAgent : ClassOfBoundedIndividual
-IndividualPhysicalResourceAgent = BoundedIndividual
+IndividualPhysicalResourceAgent : AgentType
+IndividualPhysicalResourceAgent = IndividualAgent
+
 
 --  IndividualPhysicalResourceAgent is subTypeOf IndividualResourceAgent
 st-3b1bb56c68cd9bfa-fe1c231267880201 : IndividualPhysicalResourceAgent ⊏ₑ IndividualResourceAgent
 st-3b1bb56c68cd9bfa-fe1c231267880201 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

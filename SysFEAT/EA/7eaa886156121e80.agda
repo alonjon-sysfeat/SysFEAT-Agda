@@ -22,6 +22,7 @@ open import SysFEAT.EA.4619527e560d45eb public -- Logical Data Entity
 LogicalDataView : ClassOfClassOfBoundedIndividual
 LogicalDataView = ClassOfBoundedIndividual
 
+
 --  LogicalDataView is subTypeOf LogicalDataElement
 st-7eaa886156121e80-2b5858b85eec51d9 : LogicalDataView ⊏ₑ LogicalDataElement
 st-7eaa886156121e80-2b5858b85eec51d9 = polySubTypeOf-identity
@@ -30,12 +31,20 @@ st-7eaa886156121e80-2b5858b85eec51d9 = polySubTypeOf-identity
 st-7eaa886156121e80-325c32fc5eb02d02 : LogicalDataView ⊏ₑ DataEntity
 st-7eaa886156121e80-325c32fc5eb02d02 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Root Data Entity: -}
 -- Aggregate Member : Root Data Entity
-RootDataEntity : ClassOfClassOfIndividual
-RootDataEntity = ClassOfIndividual
+RootDataEntity : ClassOfClassOfBoundedIndividual
+RootDataEntity = ClassOfBoundedIndividual
+
+
+
+--  RootDataEntity is subTypeOf LogicalDataEntity
+st-2b585c895eec581f-4619527e560d45eb : RootDataEntity ⊏ₑ LogicalDataEntity
+st-2b585c895eec581f-4619527e560d45eb = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfRootDataEntity :  Linkage LogicalDataView RootDataEntity
@@ -55,10 +64,21 @@ rootDataEntity = membershipOfRootDataEntity  ∘  aggregationOfLogicalDataEntity
 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Embedded Data Object: -}
 -- Aggregate Member : Embedded Data Object
-EmbeddedDataObject : ClassOfClassOfIndividual
-EmbeddedDataObject = ClassOfIndividual
+EmbeddedDataObject : ClassOfClassOfBoundedIndividual
+EmbeddedDataObject = ClassOfBoundedIndividual
+
+
+
+--  EmbeddedDataObject is subTypeOf Attribute
+st-2b58627c5eec61ec-8f1c9ad668ca8db4 : EmbeddedDataObject ⊏ₑ Attribute
+st-2b58627c5eec61ec-8f1c9ad668ca8db4 = polySubTypeOf-identity
+
+--  EmbeddedDataObject is subTypeOf LogicalDataElement
+st-2b58627c5eec61ec-2b5858b85eec51d9 : EmbeddedDataObject ⊏ₑ LogicalDataElement
+st-2b58627c5eec61ec-2b5858b85eec51d9 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfEmbeddedDataObject :  Linkage LogicalDataView EmbeddedDataObject
@@ -76,14 +96,27 @@ aggregationOfLogicalDataElementEmbeddedDataObject = make_Relation "LogicalDataEl
 embeddedDataObject : Linkage LogicalDataView LogicalDataElement
 embeddedDataObject = membershipOfEmbeddedDataObject  ∘  aggregationOfLogicalDataElementEmbeddedDataObject
 
-postulate -- embeddedDataObject is subTypeOf attribute
-  st-2b58627c5eec61ec-8f1c9ad668ca8db4  : embeddedDataObject   ⊏⋆ᵣ  attribute 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Referenced Entity: -}
 -- Aggregate Member : Referenced Entity
-ReferencedEntity : ClassOfClassOfIndividual
-ReferencedEntity = ClassOfIndividual
+ReferencedEntity : ClassOfClassOfBoundedIndividual
+ReferencedEntity = ClassOfBoundedIndividual
+
+
+
+--  ReferencedEntity is subTypeOf LogicalDataMember
+st-2b5862e95eec6337-e7e3fa0a5fbb0ddb : ReferencedEntity ⊏ₑ LogicalDataMember
+st-2b5862e95eec6337-e7e3fa0a5fbb0ddb = polySubTypeOf-identity
+
+--  ReferencedEntity is subTypeOf Relationship
+st-2b5862e95eec6337-b6e3cc7a5fbb6878 : ReferencedEntity ⊏ₑ Relationship
+st-2b5862e95eec6337-b6e3cc7a5fbb6878 = polySubTypeOf-identity
+
+--  ReferencedEntity is subTypeOf LogicalDataEntity
+st-2b5862e95eec6337-4619527e560d45eb : ReferencedEntity ⊏ₑ LogicalDataEntity
+st-2b5862e95eec6337-4619527e560d45eb = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfReferencedEntity :  Linkage LogicalDataView ReferencedEntity
@@ -101,8 +134,4 @@ aggregationOfLogicalDataEntityReferencedEntity = make_Relation "LogicalDataEntit
 referencedEntity : Linkage LogicalDataView LogicalDataEntity
 referencedEntity = membershipOfReferencedEntity  ∘  aggregationOfLogicalDataEntityReferencedEntity
 
-postulate -- referencedEntity is subTypeOf logicalDataMember
-  st-2b5862e95eec6337-e7e3fa0a5fbb0ddb  : referencedEntity   ⊏⋆ᵣ  logicalDataMember 
-postulate -- referencedEntity is subTypeOf relationship
-  st-2b5862e95eec6337-b6e3cc7a5fbb6878  : referencedEntity   ⊏⋆ᵣ  relationship 
 

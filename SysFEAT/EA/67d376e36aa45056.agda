@@ -25,8 +25,10 @@ DataDictionary = Individual
 st-67d376e36aa45056-d745ed256aa38edc : DataDictionary ⊏ₑ InformationDictionary
 st-67d376e36aa45056-d745ed256aa38edc = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Packaged Data Asset: -}
 packagedDataAsset : ∀ {u} →  Linkage DataDictionary (DataBlock u)
 packagedDataAsset = make_nestingRelation "Packaged Data Asset" "Packaged Data Asset"

@@ -21,8 +21,9 @@ open import SysFEAT.EA.8f1cb5a068caab57 public -- NoSQL Dictionary
 open import SysFEAT.EA.3642454f6007e80e public -- Deployed Business System
 open import SysFEAT.EA.c758eed8600a399f public -- NoSQL Library
 
-DeployedDataStore : ClassOfBoundedIndividual
-DeployedDataStore = BoundedIndividual
+DeployedDataStore : ClassOfAbstractEntity
+DeployedDataStore = AbstractEntity
+
 
 --  DeployedDataStore withAspect NoSQLDictionary
 st-affeb2255f6051e6-8f1cb5a068caab57 : DeployedDataStore ⊏ₐₑ (NoSQLDictionary lzero)
@@ -32,8 +33,10 @@ st-affeb2255f6051e6-8f1cb5a068caab57 = polySubTypeOf-identity
 st-affeb2255f6051e6-3642454f6007e80e : DeployedDataStore ⊏ₑ DeployedBusinessSystem
 st-affeb2255f6051e6-3642454f6007e80e = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Imported Package: -}
 importedPackage :  Linkage DeployedDataStore NoSQLLibrary
 importedPackage = make_holonymyRelation "Imported Package" "Imported Package"

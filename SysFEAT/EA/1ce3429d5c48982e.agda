@@ -22,25 +22,34 @@ open import SysFEAT.EA.bcebd8e9549144db public -- Application
 ApplicationPortfolio : ClassOfBoundedIndividual
 ApplicationPortfolio = BoundedIndividual
 
+
 --  ApplicationPortfolio is subTypeOf AssetPortfolio
 st-1ce3429d5c48982e-26b8889c5eea8ab7 : ApplicationPortfolio ⊏ₑ AssetPortfolio
 st-1ce3429d5c48982e-26b8889c5eea8ab7 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Roadmap: -}
 roadmap :  Linkage ApplicationPortfolio ApplicationPortfolioStage
 roadmap = make_holonymyRelation "Roadmap" "Roadmap"
 
 postulate -- roadmap is subTypeOf portfolioRoadmap
-  st-5b7a06e961f5595c-f277fa24601bef67  : roadmap   ⊏⋆ᵣ  portfolioRoadmap 
+  st-5b7a06e961f5595c-f277fa24601bef67  : roadmap  ⊏⋆ᵣ  portfolioRoadmap
 
+-- -------------------------------------------------------------------------------------------- 
 {- Managed Application: 
 A Managed Application represents the status of an Application under the management of an Application Portfolio.
 -}
 -- Aggregate Member : Managed Application
 ManagedApplication : ClassOfClassOfIndividual
 ManagedApplication = ClassOfIndividual
+
+
+--  ManagedApplication is subTypeOf ManagedResourceAsset
+st-c334ec9b5ecbb0d4-f57af6ca62d21904 : ManagedApplication ⊏⋆ₑ ManagedResourceAsset
+st-c334ec9b5ecbb0d4-f57af6ca62d21904 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfManagedApplication :  Linkage ApplicationPortfolio ManagedApplication
@@ -58,6 +67,4 @@ aggregationOfApplicationManagedApplication = make_Relation "Application aggregat
 managedApplication : Linkage ApplicationPortfolio Application
 managedApplication = membershipOfManagedApplication  ∘  aggregationOfApplicationManagedApplication
 
-postulate -- managedApplication is subTypeOf managedResourceAsset
-  st-c334ec9b5ecbb0d4-f57af6ca62d21904  : managedApplication   ⊏⋆ᵣ  managedResourceAsset 
 

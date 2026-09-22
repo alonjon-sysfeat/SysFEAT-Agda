@@ -31,26 +31,40 @@ st-325c32165eb02a4a-8f1c937168ca8195 = polySubTypeOf-identity
 st-325c32165eb02a4a-d6cd116d5ab97525 : DataDomain ⊏ₑ InformationDomain
 st-325c32165eb02a4a-d6cd116d5ab97525 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Data Area: -}
 specializedDataArea :  Linkage DataDomain DataDomain
 specializedDataArea = make_subTypeOf "Specialized Data Area" "Specialized Data Area"
 
 postulate -- specializedDataArea is subTypeOf specializedInformationDomain
-  st-325a376f66f346b3-325a380a66f34efb  : specializedDataArea   ⊏⋆ᵣ  specializedInformationDomain 
+  st-325a376f66f346b3-325a380a66f34efb  : specializedDataArea  ⊏⋆ᵣ  specializedInformationDomain
 
+-- -------------------------------------------------------------------------------------------- 
 {- Realized Concept Domain: -}
 realizedConceptDomain :  Linkage DataDomain ConceptDomain
 realizedConceptDomain = make_subTypeOf "Realized Concept Domain" "Realized Concept Domain"
 
 postulate -- realizedConceptDomain is subTypeOf realizedInformationDomain
-  st-325a3a1566f35bda-325a3a0e66f3562c  : realizedConceptDomain   ⊏⋆ᵣ  realizedInformationDomain 
+  st-325a3a1566f35bda-325a3a0e66f3562c  : realizedConceptDomain  ⊏⋆ᵣ  realizedInformationDomain
 
+-- -------------------------------------------------------------------------------------------- 
 {- Domain Data Object: -}
 -- Aggregate Member : Domain Data Object
-DomainDataObject : ClassOfClassOfIndividual
-DomainDataObject = ClassOfIndividual
+DomainDataObject : ClassOfClassOfBoundedIndividual
+DomainDataObject = ClassOfBoundedIndividual
+
+
+
+--  DomainDataObject is subTypeOf DomainAsset
+st-6d2b7d9e5fbb65f3-24ae4a405ed16bcf : DomainDataObject ⊏ₑ DomainAsset
+st-6d2b7d9e5fbb65f3-24ae4a405ed16bcf = polySubTypeOf-identity
+
+--  DomainDataObject is subTypeOf DataAsset
+st-6d2b7d9e5fbb65f3-6d2b7c935fbb6270 : DomainDataObject ⊏ₑ DataAsset
+st-6d2b7d9e5fbb65f3-6d2b7c935fbb6270 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfDomainDataObject :  Linkage DataDomain DomainDataObject
@@ -68,14 +82,22 @@ aggregationOfDataAssetDomainDataObject = make_Relation "DataAsset aggregation" "
 domainDataObject : Linkage DataDomain DataAsset
 domainDataObject = membershipOfDomainDataObject  ∘  aggregationOfDataAssetDomainDataObject
 
-postulate -- domainDataObject is subTypeOf domainAsset
-  st-6d2b7d9e5fbb65f3-24ae4a405ed16bcf  : domainDataObject   ⊏⋆ᵣ  domainAsset 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Sub-Data Area: -}
 -- Aggregate Member : Sub-Data Area
 SubDataArea : ClassOfClassOfIndividual
 SubDataArea = ClassOfIndividual
+
+
+--  SubDataArea is subTypeOf SubInformationArea
+st-cbd9dff65fb7dd57-24ae4a625ed16c60 : SubDataArea ⊏ₑ SubInformationArea
+st-cbd9dff65fb7dd57-24ae4a625ed16c60 = polySubTypeOf-identity
+
+--  SubDataArea is subTypeOf DataDomain
+st-cbd9dff65fb7dd57-325c32165eb02a4a : SubDataArea ⊏ₑ DataDomain
+st-cbd9dff65fb7dd57-325c32165eb02a4a = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSubDataArea :  Linkage DataDomain SubDataArea
@@ -93,6 +115,4 @@ aggregationOfDataDomainSubDataArea = make_Relation "DataDomain aggregation" "agg
 subDataArea : Linkage DataDomain DataDomain
 subDataArea = membershipOfSubDataArea  ∘  aggregationOfDataDomainSubDataArea
 
-postulate -- subDataArea is subTypeOf subInformationArea
-  st-cbd9dff65fb7dd57-24ae4a625ed16c60  : subDataArea   ⊏⋆ᵣ  subInformationArea 
 

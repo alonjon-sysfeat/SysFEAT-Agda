@@ -24,4 +24,5 @@ SimpleField = ClassOfBoundedIndividual
 st-a80ddaf663d347bc-254e4dd45f7f8749 : SimpleField ⊏ₑ NoSQLField
 st-a80ddaf663d347bc-254e4dd45f7f8749 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

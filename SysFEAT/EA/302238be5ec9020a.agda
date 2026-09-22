@@ -21,19 +21,32 @@ open import Agda.Primitive
 open import SysFEAT.EA.9dcea4535ec76e6c public -- Business Outcome Event
 open import SysFEAT.EA.6d2b7c935fbb6270 public -- Data Asset
 
-InformationOutcomeEvent : ClassOfClassOfIndividual
-InformationOutcomeEvent = ClassOfIndividual
+InformationOutcomeEvent : ClassOfClassOfBoundedIndividual
+InformationOutcomeEvent = ClassOfBoundedIndividual
+
 
 --  InformationOutcomeEvent is subTypeOf BusinessOutcomeEvent
 st-302238be5ec9020a-9dcea4535ec76e6c : InformationOutcomeEvent ⊏ₑ BusinessOutcomeEvent
 st-302238be5ec9020a-9dcea4535ec76e6c = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Information Outcome: -}
 -- Aggregate Member : Information Outcome
-InformationOutcome : ClassOfClassOfIndividual
-InformationOutcome = ClassOfIndividual
+InformationOutcome : ClassOfClassOfBoundedIndividual
+InformationOutcome = ClassOfBoundedIndividual
+
+
+
+--  InformationOutcome is subTypeOf BusinessOutcome
+st-be94e4d4655c8af9-be94e0c4655c85b4 : InformationOutcome ⊏ₑ BusinessOutcome
+st-be94e4d4655c8af9-be94e0c4655c85b4 = polySubTypeOf-identity
+
+--  InformationOutcome is subTypeOf DataAsset
+st-be94e4d4655c8af9-6d2b7c935fbb6270 : InformationOutcome ⊏ₑ DataAsset
+st-be94e4d4655c8af9-6d2b7c935fbb6270 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfInformationOutcome :  Linkage InformationOutcomeEvent InformationOutcome
@@ -51,6 +64,4 @@ aggregationOfDataAssetInformationOutcome = make_Relation "DataAsset aggregation"
 informationOutcome : Linkage InformationOutcomeEvent DataAsset
 informationOutcome = membershipOfInformationOutcome  ∘  aggregationOfDataAssetInformationOutcome
 
-postulate -- informationOutcome is subTypeOf businessOutcome
-  st-be94e4d4655c8af9-be94e0c4655c85b4  : informationOutcome   ⊏⋆ᵣ  businessOutcome 
 

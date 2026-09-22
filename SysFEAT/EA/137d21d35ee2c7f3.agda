@@ -24,4 +24,5 @@ ColumnType = ClassOfBoundedIndividual
 st-137d21d35ee2c7f3-e6f220d45f771837 : ColumnType ⊏ₑ PhysicalDataProperty
 st-137d21d35ee2c7f3-e6f220d45f771837 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

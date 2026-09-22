@@ -23,6 +23,7 @@ open import SysFEAT.EA.340f52dc686212f5 public -- Physical Resource Agent
 NaturalResourceCategory : ClassOfClassOfBoundedIndividual
 NaturalResourceCategory = ClassOfBoundedIndividual
 
+
 --  NaturalResourceCategory is subTypeOf ResourceAgentType
 st-861987db6372446e-e2ef091962147ad7 : NaturalResourceCategory ⊏ₑ ResourceAgentType
 st-861987db6372446e-e2ef091962147ad7 = polySubTypeOf-identity
@@ -31,12 +32,24 @@ st-861987db6372446e-e2ef091962147ad7 = polySubTypeOf-identity
 st-861987db6372446e-340f52dc686212f5 : NaturalResourceCategory ⊏ₑ PhysicalResourceAgent
 st-861987db6372446e-340f52dc686212f5 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Natural Resource Part: -}
 -- Aggregate Member : Natural Resource Part
-NaturalResourcePart : ClassOfClassOfIndividual
-NaturalResourcePart = ClassOfIndividual
+NaturalResourcePart : ClassOfClassOfBoundedIndividual
+NaturalResourcePart = ClassOfBoundedIndividual
+
+
+
+--  NaturalResourcePart is subTypeOf ResourceAgentPart
+st-c80a19ab678545f8-e2ef09de62147eb7 : NaturalResourcePart ⊏ₑ ResourceAgentPart
+st-c80a19ab678545f8-e2ef09de62147eb7 = polySubTypeOf-identity
+
+--  NaturalResourcePart is subTypeOf NaturalResourceCategory
+st-c80a19ab678545f8-861987db6372446e : NaturalResourcePart ⊏ₑ NaturalResourceCategory
+st-c80a19ab678545f8-861987db6372446e = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfNaturalResourcePart :  Linkage NaturalResourceCategory NaturalResourcePart
@@ -54,6 +67,4 @@ aggregationOfNaturalResourceCategoryNaturalResourcePart = make_Relation "Natural
 naturalResourcePart : Linkage NaturalResourceCategory NaturalResourceCategory
 naturalResourcePart = membershipOfNaturalResourcePart  ∘  aggregationOfNaturalResourceCategoryNaturalResourcePart
 
-postulate -- naturalResourcePart is subTypeOf resourceAgentPart
-  st-c80a19ab678545f8-e2ef09de62147eb7  : naturalResourcePart   ⊏⋆ᵣ  resourceAgentPart 
 

@@ -25,6 +25,7 @@ open import SysFEAT.EA.61e3afb3679f1256 public -- Mezzo Resource Operating Asset
 AssetPortfolio : ClassOfBoundedIndividual
 AssetPortfolio = BoundedIndividual
 
+
 --  AssetPortfolio is subTypeOf ManagementSystem
 st-26b8889c5eea8ab7-29df3f4060084c07 : AssetPortfolio ⊏ₑ ManagementSystem
 st-26b8889c5eea8ab7-29df3f4060084c07 = polySubTypeOf-identity
@@ -37,8 +38,10 @@ st-26b8889c5eea8ab7-299e882b68488d2c = polySubTypeOf-identity
 st-26b8889c5eea8ab7-05201bc866475765 : AssetPortfolio ⊏ₑ AssetManagementInitiative
 st-26b8889c5eea8ab7-05201bc866475765 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Portfolio Roadmap: 
 Set of all Asset Portfolio Stages of an Asset Portfolio that , in conjunction with coordinating initiative milestones, establishes the roadmap for the Business Operating Assets under its supervision.
 -}
@@ -46,21 +49,28 @@ portfolioRoadmap :  Linkage AssetPortfolio AssetPortfolioStage
 portfolioRoadmap = make_holonymyRelation "Portfolio Roadmap" "Portfolio Roadmap"
 
 postulate -- portfolioRoadmap is subTypeOf /ManagementRoadmap
-  st-f277fa24601bef67-612367e761dd7a42  : portfolioRoadmap   ⊏⋆ᵣ  /ManagementRoadmap 
+  st-f277fa24601bef67-612367e761dd7a42  : portfolioRoadmap  ⊏⋆ᵣ  /ManagementRoadmap
 
+-- -------------------------------------------------------------------------------------------- 
 {- Portfolio Functional Scope: -}
 portfolioFunctionalScope :  Linkage AssetPortfolio ResourceCapabilityMap
 portfolioFunctionalScope = make_instanceOf "Portfolio Functional Scope" "Portfolio Functional Scope"
 
 postulate -- portfolioFunctionalScope is subTypeOf functionalScope
-  st-dd2630ca68a0669f-01f1214c689b6e0f  : portfolioFunctionalScope   ⊏⋆ᵣ  functionalScope 
+  st-dd2630ca68a0669f-01f1214c689b6e0f  : portfolioFunctionalScope  ⊏⋆ᵣ  functionalScope
 
+-- -------------------------------------------------------------------------------------------- 
 {- Managed Resource Asset: 
 A Managed Resource Asset represents the status of a Business Operating Asset which creation, maintenance, evolutation and rating is under the control of an Asset Portfolio.
 -}
 -- Aggregate Member : Managed Resource Asset
 ManagedResourceAsset : ClassOfClassOfIndividual
 ManagedResourceAsset = ClassOfIndividual
+
+
+--  ManagedResourceAsset withAspect ManagementSystemSubject
+st-f57af6ca62d21904-6bf17ffc68598c26 : ManagedResourceAsset ⊏ₐₑ (ManagementSystemSubject (lsuc(lzero)))
+st-f57af6ca62d21904-6bf17ffc68598c26 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfManagedResourceAsset :  Linkage AssetPortfolio ManagedResourceAsset
@@ -78,6 +88,4 @@ aggregationOfMezzoResourceOperatingAssetManagedResourceAsset = make_Relation "Me
 managedResourceAsset : Linkage AssetPortfolio MezzoResourceOperatingAsset
 managedResourceAsset = membershipOfManagedResourceAsset  ∘  aggregationOfMezzoResourceOperatingAssetManagedResourceAsset
 
-postulate -- managedResourceAsset is subTypeOf managementSystemSubject
-  st-f57af6ca62d21904-6bf17ffc68598c26  : managedResourceAsset   ⊏⋆ᵣ  managementSystemSubject  {lzero}
 

@@ -18,8 +18,9 @@ open import Agda.Primitive
 open import SysFEAT.EA.9bec9fbf66fb0d6f public -- Resource Functional Asset
 open import SysFEAT.SOF.24ae31d75ed1c747 public -- Behavioral Event
 
-ResourceEvent : ClassOfClassOfIndividual
-ResourceEvent = ClassOfIndividual
+ResourceEvent : ClassOfClassOfBoundedIndividual
+ResourceEvent = ClassOfBoundedIndividual
+
 
 --  ResourceEvent is subTypeOf ResourceFunctionalAsset
 st-6a70c0c8678769d3-9bec9fbf66fb0d6f : ResourceEvent ⊏ₑ ResourceFunctionalAsset
@@ -29,4 +30,5 @@ st-6a70c0c8678769d3-9bec9fbf66fb0d6f = polySubTypeOf-identity
 st-6a70c0c8678769d3-24ae31d75ed1c747 : ResourceEvent ⊏ₑ BehavioralEvent
 st-6a70c0c8678769d3-24ae31d75ed1c747 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

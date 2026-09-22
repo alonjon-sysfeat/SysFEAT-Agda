@@ -28,13 +28,14 @@ open import Agda.Primitive
 open import SysFEAT.EA.f97e3119632b25f8 public -- Conceptual Behavior
 open import SysFEAT.SOF.d682ef5e56144e77 public -- Action Process Type
 open import SysFEAT.EA.21916383678642d1 public -- Conceptual Outcome Event
+open import SysFEAT.EA.dd268f2868a08150 public -- Business Capability
 open import SysFEAT.EA.7c40987055271d04 public -- Conceptual Agent
 open import SysFEAT.EA.7c4094d2552717db public -- Business Function
 open import SysFEAT.EA.203b8ff05a5f43fe public -- Concept Domain
-open import SysFEAT.EA.dd268f2868a08150 public -- Business Capability
 
 ValueStream : ClassOfClassOfBoundedIndividual
 ValueStream = ClassOfBoundedIndividual
+
 
 --  ValueStream is subTypeOf ConceptualBehavior
 st-57dfc5f555093444-f97e3119632b25f8 : ValueStream ⊏ₑ ConceptualBehavior
@@ -44,23 +45,35 @@ st-57dfc5f555093444-f97e3119632b25f8 = polySubTypeOf-identity
 st-57dfc5f555093444-d682ef5e56144e77 : ValueStream ⊏ₑ ActionProcessType
 st-57dfc5f555093444-d682ef5e56144e77 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Value Stream: -}
 specializedValueStream :  Linkage ValueStream ValueStream
 specializedValueStream = make_subTypeOf "Specialized Value Stream" "Specialized Value Stream"
 
 postulate -- specializedValueStream is subTypeOf specializedConceptualAsset
-  st-325a376d66f34577-325a376066f34181  : specializedValueStream   ⊏⋆ᵣ  specializedConceptualAsset 
+  st-325a376d66f34577-325a376066f34181  : specializedValueStream  ⊏⋆ᵣ  specializedConceptualAsset
 postulate -- specializedValueStream is subTypeOf specializedProcess
-  st-325a376d66f34577-325a376e66f345e2  : specializedValueStream   ⊏⋆ᵣ  specializedProcess 
+  st-325a376d66f34577-325a376e66f345e2  : specializedValueStream  ⊏⋆ᵣ  specializedProcess
 
+-- -------------------------------------------------------------------------------------------- 
 {- Value Stream Flow: 
 Flow of resource or information between stages of a Value Stream.
 -}
 -- Aggregate Member : Value Stream Flow
 ValueStreamFlow : ClassOfClassOfIndividual
 ValueStreamFlow = ClassOfIndividual
+
+
+--  ValueStreamFlow is subTypeOf ValueStreamSequence
+st-2188e56d5ec84356-fd70bbb75fd93566 : ValueStreamFlow ⊏ₑ ValueStreamSequence
+st-2188e56d5ec84356-fd70bbb75fd93566 = polySubTypeOf-identity
+
+--  ValueStreamFlow is subTypeOf ObjectFlow
+st-2188e56d5ec84356-e4c0fff75ed0ec45 : ValueStreamFlow ⊏ₑ ObjectFlow
+st-2188e56d5ec84356-e4c0fff75ed0ec45 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfValueStreamFlow :  Linkage ValueStream ValueStreamFlow
@@ -78,18 +91,50 @@ aggregationOfConceptualOutcomeEventValueStreamFlow = make_Relation "ConceptualOu
 valueStreamFlow : Linkage ValueStream ConceptualOutcomeEvent
 valueStreamFlow = membershipOfValueStreamFlow  ∘  aggregationOfConceptualOutcomeEventValueStreamFlow
 
-postulate -- valueStreamFlow is subTypeOf valueStreamSequence
-  st-2188e56d5ec84356-fd70bbb75fd93566  : valueStreamFlow   ⊏⋆ᵣ  valueStreamSequence 
-postulate -- valueStreamFlow is subTypeOf objectFlow
-  st-2188e56d5ec84356-e4c0fff75ed0ec45  : valueStreamFlow   ⊏⋆ᵣ  objectFlow 
 
 
+-- -------------------------------------------------------------------------------------------- 
+{- Required Capability: -}
+-- Aggregate Member : Required Capability
+RequiredCapability : ClassOfClassOfIndividual
+RequiredCapability = ClassOfIndividual
+
+
+-- Membership relation
+membershipOfRequiredCapability :  Linkage ValueStream RequiredCapability
+membershipOfRequiredCapability = make_upwardNestingRelation "requiredCapability membership" "nested requiredCapability"
+
+-- Aggregation relation
+aggregationOfBusinessCapabilityRequiredCapability :  Linkage RequiredCapability BusinessCapability
+aggregationOfBusinessCapabilityRequiredCapability = make_Relation "BusinessCapability aggregation" "aggregated BusinessCapability"
+
+{- requiredCapability : derived relation obtained by composing
+   membershipOfRequiredCapability and aggregationOfBusinessCapabilityRequiredCapability
+   It directly links an Value Stream to the final aggregated BusinessCapability
+   hiding the reifying RequiredCapability
+-}
+requiredCapability : Linkage ValueStream BusinessCapability
+requiredCapability = membershipOfRequiredCapability  ∘  aggregationOfBusinessCapabilityRequiredCapability
+
+
+
+-- -------------------------------------------------------------------------------------------- 
 {- Activity Domain Participant: 
 Participation of a Operating Domain in a Value Stream.
 -}
 -- Aggregate Member : Activity Domain Participant
-ActivityDomainParticipant : ClassOfClassOfIndividual
-ActivityDomainParticipant = ClassOfIndividual
+ActivityDomainParticipant : ClassOfClassOfBoundedIndividual
+ActivityDomainParticipant = ClassOfBoundedIndividual
+
+
+
+--  ActivityDomainParticipant is subTypeOf ValueStreamParticipant
+st-3b4b3fd85ebc29bb-3b4b3d365ebc2856 : ActivityDomainParticipant ⊏ₑ ValueStreamParticipant
+st-3b4b3fd85ebc29bb-3b4b3d365ebc2856 = polySubTypeOf-identity
+
+--  ActivityDomainParticipant is subTypeOf ConceptualAgent
+st-3b4b3fd85ebc29bb-7c40987055271d04 : ActivityDomainParticipant ⊏ₑ ConceptualAgent
+st-3b4b3fd85ebc29bb-7c40987055271d04 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfActivityDomainParticipant :  Linkage ValueStream ActivityDomainParticipant
@@ -107,16 +152,25 @@ aggregationOfConceptualAgentActivityDomainParticipant = make_Relation "Conceptua
 activityDomainParticipant : Linkage ValueStream ConceptualAgent
 activityDomainParticipant = membershipOfActivityDomainParticipant  ∘  aggregationOfConceptualAgentActivityDomainParticipant
 
-postulate -- activityDomainParticipant is subTypeOf valueStreamParticipant
-  st-3b4b3fd85ebc29bb-3b4b3d365ebc2856  : activityDomainParticipant   ⊏⋆ᵣ  valueStreamParticipant 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Value Stream Stage: 
 Involvment of a Value Stream as a step of a parent Value Stream.
 -}
 -- Aggregate Member : Value Stream Stage
-ValueStreamStage : ClassOfClassOfIndividual
-ValueStreamStage = ClassOfIndividual
+ValueStreamStage : ClassOfClassOfBoundedIndividual
+ValueStreamStage = ClassOfBoundedIndividual
+
+
+
+--  ValueStreamStage is subTypeOf ProcessStep
+st-3b4b43635ebc30a5-8e1390925ebe3db7 : ValueStreamStage ⊏ₑ ProcessStep
+st-3b4b43635ebc30a5-8e1390925ebe3db7 = polySubTypeOf-identity
+
+--  ValueStreamStage is subTypeOf ValueStream
+st-3b4b43635ebc30a5-57dfc5f555093444 : ValueStreamStage ⊏ₑ ValueStream
+st-3b4b43635ebc30a5-57dfc5f555093444 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfValueStreamStage :  Linkage ValueStream ValueStreamStage
@@ -134,16 +188,25 @@ aggregationOfValueStreamValueStreamStage = make_Relation "ValueStream aggregatio
 valueStreamStage : Linkage ValueStream ValueStream
 valueStreamStage = membershipOfValueStreamStage  ∘  aggregationOfValueStreamValueStreamStage
 
-postulate -- valueStreamStage is subTypeOf processStep
-  st-3b4b43635ebc30a5-8e1390925ebe3db7  : valueStreamStage   ⊏⋆ᵣ  processStep 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Business Function Participant: 
 Participation of a Business Function in a Value Stream.
 -}
 -- Aggregate Member : Business Function Participant
-BusinessFunctionParticipant : ClassOfClassOfIndividual
-BusinessFunctionParticipant = ClassOfIndividual
+BusinessFunctionParticipant : ClassOfClassOfBoundedIndividual
+BusinessFunctionParticipant = ClassOfBoundedIndividual
+
+
+
+--  BusinessFunctionParticipant is subTypeOf ValueStreamParticipant
+st-3b4b43c85ebc319d-3b4b3d365ebc2856 : BusinessFunctionParticipant ⊏ₑ ValueStreamParticipant
+st-3b4b43c85ebc319d-3b4b3d365ebc2856 = polySubTypeOf-identity
+
+--  BusinessFunctionParticipant is subTypeOf BusinessFunction
+st-3b4b43c85ebc319d-7c4094d2552717db : BusinessFunctionParticipant ⊏ₑ BusinessFunction
+st-3b4b43c85ebc319d-7c4094d2552717db = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfBusinessFunctionParticipant :  Linkage ValueStream BusinessFunctionParticipant
@@ -161,16 +224,20 @@ aggregationOfBusinessFunctionBusinessFunctionParticipant = make_Relation "Busine
 businessFunctionParticipant : Linkage ValueStream BusinessFunction
 businessFunctionParticipant = membershipOfBusinessFunctionParticipant  ∘  aggregationOfBusinessFunctionBusinessFunctionParticipant
 
-postulate -- businessFunctionParticipant is subTypeOf valueStreamParticipant
-  st-3b4b43c85ebc319d-3b4b3d365ebc2856  : businessFunctionParticipant   ⊏⋆ᵣ  valueStreamParticipant 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Business Object Store: 
 Store of Business Objects that the Value Stream requires for the executing of its activities.
 -}
 -- Aggregate Member : Business Object Store
 BusinessObjectStore : ClassOfClassOfIndividual
 BusinessObjectStore = ClassOfIndividual
+
+
+--  BusinessObjectStore is subTypeOf ConceptDomain
+st-48d14ae75ebc11bc-203b8ff05a5f43fe : BusinessObjectStore ⊏ₑ ConceptDomain
+st-48d14ae75ebc11bc-203b8ff05a5f43fe = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfBusinessObjectStore :  Linkage ValueStream BusinessObjectStore
@@ -187,28 +254,5 @@ aggregationOfConceptDomainBusinessObjectStore = make_Relation "ConceptDomain agg
 -}
 businessObjectStore : Linkage ValueStream ConceptDomain
 businessObjectStore = membershipOfBusinessObjectStore  ∘  aggregationOfConceptDomainBusinessObjectStore
-
-
-
-{- Required Capability: -}
--- Aggregate Member : Required Capability
-RequiredCapability : ClassOfClassOfIndividual
-RequiredCapability = ClassOfIndividual
-
--- Membership relation
-membershipOfRequiredCapability :  Linkage ValueStream RequiredCapability
-membershipOfRequiredCapability = make_upwardNestingRelation "requiredCapability membership" "nested requiredCapability"
-
--- Aggregation relation
-aggregationOfBusinessCapabilityRequiredCapability :  Linkage RequiredCapability BusinessCapability
-aggregationOfBusinessCapabilityRequiredCapability = make_Relation "BusinessCapability aggregation" "aggregated BusinessCapability"
-
-{- requiredCapability : derived relation obtained by composing
-   membershipOfRequiredCapability and aggregationOfBusinessCapabilityRequiredCapability
-   It directly links an Value Stream to the final aggregated BusinessCapability
-   hiding the reifying RequiredCapability
--}
-requiredCapability : Linkage ValueStream BusinessCapability
-requiredCapability = membershipOfRequiredCapability  ∘  aggregationOfBusinessCapabilityRequiredCapability
 
 

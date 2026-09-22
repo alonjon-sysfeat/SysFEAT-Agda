@@ -20,8 +20,10 @@ open import SysFEAT.EA.f4be0fba5ee1d935 public -- Network Device
 Switch : ClassOfClassOfBoundedIndividual
 Switch = ClassOfBoundedIndividual
 
+
 --  Switch is subTypeOf NetworkDevice
 st-e1a4f43e64017742-f4be0fba5ee1d935 : Switch ⊏ₑ NetworkDevice
 st-e1a4f43e64017742-f4be0fba5ee1d935 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

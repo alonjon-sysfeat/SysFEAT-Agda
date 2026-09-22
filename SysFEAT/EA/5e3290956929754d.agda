@@ -18,10 +18,11 @@ open import Agda.Primitive
 open import SysFEAT.EA.8f1c991068ca8a23 public -- Data Property
 
 SimpleDataProperty : PropertyType
-SimpleDataProperty = ClassOfProperty
+SimpleDataProperty = Property
 
 --  SimpleDataProperty is subTypeOf DataProperty
 st-5e3290956929754d-8f1c991068ca8a23 : SimpleDataProperty ⊏ₑ DataProperty
 st-5e3290956929754d-8f1c991068ca8a23 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

@@ -16,18 +16,21 @@ module SysFEAT.EA.236c347260070a8c where -- ========== Pain point
 
 open import Agda.Primitive
 open import SysFEAT.SOF.173706265fe3f332 public -- Measurement Instrument
-open import SysFEAT.EA.d170d9925be73b35 public -- Pain Point (Type)
 open import SysFEAT.EA.8a5c926e5c0d632c public -- Customer Activity
+open import SysFEAT.EA.d170d9925be73b35 public -- Pain Point (Type)
 
 Painpoint : ClassOfBoundedIndividual
 Painpoint = BoundedIndividual
+
 
 --  Painpoint is subTypeOf MeasurementInstrument
 st-236c347260070a8c-173706265fe3f332 : Painpoint ⊏ₑ MeasurementInstrument
 st-236c347260070a8c-173706265fe3f332 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Evaluated Touch Point: -}
 evaluatedTouchPoint :  Linkage Painpoint CustomerActivity
 evaluatedTouchPoint = make_Relation "Evaluated Touch Point" "Evaluated Touch Point"

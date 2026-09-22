@@ -29,4 +29,5 @@ st-ffdf60af68608674-ffdf5eb7686083b4 = polySubTypeOf-identity
 st-ffdf60af68608674-340f52dc686212f5 : HardwareSystemCategory ⊏ₑ PhysicalResourceAgent
 st-ffdf60af68608674-340f52dc686212f5 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

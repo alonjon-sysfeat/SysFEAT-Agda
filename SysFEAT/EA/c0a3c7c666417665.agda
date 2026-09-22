@@ -26,16 +26,25 @@ open import SysFEAT.EA.7c408aa155270eea public -- Department Type
 LegalEntityType : ClassOfClassOfBoundedIndividual
 LegalEntityType = ClassOfBoundedIndividual
 
+
 --  LegalEntityType is subTypeOf OrgUnitType
 st-c0a3c7c666417665-076d15425a5e158c : LegalEntityType ⊏ₑ OrgUnitType
 st-c0a3c7c666417665-076d15425a5e158c = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Department Type: -}
 -- Aggregate Member : Department Type
-DepartmentType : ClassOfClassOfIndividual
-DepartmentType = ClassOfIndividual
+DepartmentType : ClassOfClassOfBoundedIndividual
+DepartmentType = ClassOfBoundedIndividual
+
+
+
+--  DepartmentType is subTypeOf DepartmentType
+st-c0a3ca65664177b7-7c408aa155270eea : DepartmentType ⊏ₑ DepartmentType
+st-c0a3ca65664177b7-7c408aa155270eea = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfDepartmentType :  Linkage LegalEntityType DepartmentType

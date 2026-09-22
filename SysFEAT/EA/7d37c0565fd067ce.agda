@@ -26,12 +26,15 @@ ConceptLineage = ClassOfBoundedIndividual
 st-7d37c0565fd067ce-23ab2e945da829b8 : ConceptLineage ⊏ₑ DataLineage
 st-7d37c0565fd067ce-23ab2e945da829b8 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Concept Lineage Flow: -}
 -- Aggregate Member : Concept Lineage Flow
 ConceptLineageFlow : ClassOfClassOfIndividual
 ConceptLineageFlow = ClassOfIndividual
+
 
 -- Membership relation
 membershipOfConceptLineageFlow :  Linkage ConceptLineage ConceptLineageFlow
@@ -51,10 +54,21 @@ conceptLineageFlow = membershipOfConceptLineageFlow  ∘  aggregationOfBehaviora
 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Final Business Object: -}
 -- Aggregate Member : Final Business Object
-FinalBusinessObject : ClassOfClassOfIndividual
-FinalBusinessObject = ClassOfIndividual
+FinalBusinessObject : ClassOfClassOfBoundedIndividual
+FinalBusinessObject = ClassOfBoundedIndividual
+
+
+
+--  FinalBusinessObject is subTypeOf FinalEntity
+st-acb4b7e762457faf-acb4b3b562457c32 : FinalBusinessObject ⊏ₑ FinalEntity
+st-acb4b7e762457faf-acb4b3b562457c32 = polySubTypeOf-identity
+
+--  FinalBusinessObject is subTypeOf ConceptualEntity
+st-acb4b7e762457faf-229b34eb5b3f79d2 : FinalBusinessObject ⊏ₑ ConceptualEntity
+st-acb4b7e762457faf-229b34eb5b3f79d2 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfFinalBusinessObject :  Linkage ConceptLineage FinalBusinessObject
@@ -72,14 +86,23 @@ aggregationOfConceptualEntityFinalBusinessObject = make_Relation "ConceptualEnti
 finalBusinessObject : Linkage ConceptLineage ConceptualEntity
 finalBusinessObject = membershipOfFinalBusinessObject  ∘  aggregationOfConceptualEntityFinalBusinessObject
 
-postulate -- finalBusinessObject is subTypeOf finalEntity
-  st-acb4b7e762457faf-acb4b3b562457c32  : finalBusinessObject   ⊏⋆ᵣ  finalEntity 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Origin Business Object: -}
 -- Aggregate Member : Origin Business Object
-OriginBusinessObject : ClassOfClassOfIndividual
-OriginBusinessObject = ClassOfIndividual
+OriginBusinessObject : ClassOfClassOfBoundedIndividual
+OriginBusinessObject = ClassOfBoundedIndividual
+
+
+
+--  OriginBusinessObject is subTypeOf OriginEntity
+st-acb4b81362458092-acb4af8462457ab3 : OriginBusinessObject ⊏ₑ OriginEntity
+st-acb4b81362458092-acb4af8462457ab3 = polySubTypeOf-identity
+
+--  OriginBusinessObject is subTypeOf ConceptualEntity
+st-acb4b81362458092-229b34eb5b3f79d2 : OriginBusinessObject ⊏ₑ ConceptualEntity
+st-acb4b81362458092-229b34eb5b3f79d2 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfOriginBusinessObject :  Linkage ConceptLineage OriginBusinessObject
@@ -97,14 +120,23 @@ aggregationOfConceptualEntityOriginBusinessObject = make_Relation "ConceptualEnt
 originBusinessObject : Linkage ConceptLineage ConceptualEntity
 originBusinessObject = membershipOfOriginBusinessObject  ∘  aggregationOfConceptualEntityOriginBusinessObject
 
-postulate -- originBusinessObject is subTypeOf originEntity
-  st-acb4b81362458092-acb4af8462457ab3  : originBusinessObject   ⊏⋆ᵣ  originEntity 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Business Object Store: -}
 -- Aggregate Member : Business Object Store
-BusinessObjectStore : ClassOfClassOfIndividual
-BusinessObjectStore = ClassOfIndividual
+BusinessObjectStore : ClassOfClassOfBoundedIndividual
+BusinessObjectStore = ClassOfBoundedIndividual
+
+
+
+--  BusinessObjectStore is subTypeOf IntermediateEntity
+st-acb4b83f6245816d-acb4b3f162457d1a : BusinessObjectStore ⊏ₑ IntermediateEntity
+st-acb4b83f6245816d-acb4b3f162457d1a = polySubTypeOf-identity
+
+--  BusinessObjectStore is subTypeOf ConceptualEntity
+st-acb4b83f6245816d-229b34eb5b3f79d2 : BusinessObjectStore ⊏ₑ ConceptualEntity
+st-acb4b83f6245816d-229b34eb5b3f79d2 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfBusinessObjectStore :  Linkage ConceptLineage BusinessObjectStore
@@ -122,6 +154,4 @@ aggregationOfConceptualEntityBusinessObjectStore = make_Relation "ConceptualEnti
 businessObjectStore : Linkage ConceptLineage ConceptualEntity
 businessObjectStore = membershipOfBusinessObjectStore  ∘  aggregationOfConceptualEntityBusinessObjectStore
 
-postulate -- businessObjectStore is subTypeOf intermediateEntity
-  st-acb4b83f6245816d-acb4b3f162457d1a  : businessObjectStore   ⊏⋆ᵣ  intermediateEntity 
 

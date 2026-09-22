@@ -29,4 +29,5 @@ st-61e3afb3679f1256-0c45104d6a032286 = polySubTypeOf-identity
 st-61e3afb3679f1256-f8e61da0621db6fa : MezzoResourceOperatingAsset ⊏ₑ ResourceOperatingAsset
 st-61e3afb3679f1256-f8e61da0621db6fa = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

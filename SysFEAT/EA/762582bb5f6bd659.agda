@@ -24,6 +24,7 @@ open import SysFEAT.EA.e6f220d45f771837 public -- Physical Data Property
 PhysicalDataEntity : ClassOfClassOfBoundedIndividual
 PhysicalDataEntity = ClassOfBoundedIndividual
 
+
 --  PhysicalDataEntity is subTypeOf PhysicalDataAsset
 st-762582bb5f6bd659-7d37d08d5fd07aaa : PhysicalDataEntity ⊏ₑ PhysicalDataAsset
 st-762582bb5f6bd659-7d37d08d5fd07aaa = polySubTypeOf-identity
@@ -32,21 +33,34 @@ st-762582bb5f6bd659-7d37d08d5fd07aaa = polySubTypeOf-identity
 st-762582bb5f6bd659-325c32fc5eb02d02 : PhysicalDataEntity ⊏ₑ DataEntity
 st-762582bb5f6bd659-325c32fc5eb02d02 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Physical Entity: -}
 specializedPhysicalEntity :  Linkage PhysicalDataEntity PhysicalDataEntity
 specializedPhysicalEntity = make_subTypeOf "Specialized Physical Entity" "Specialized Physical Entity"
 
 postulate -- specializedPhysicalEntity is subTypeOf specializedDataEntity
-  st-325a375866f33f11-325a380d66f350dd  : specializedPhysicalEntity   ⊏⋆ᵣ  specializedDataEntity 
+  st-325a375866f33f11-325a380d66f350dd  : specializedPhysicalEntity  ⊏⋆ᵣ  specializedDataEntity
 postulate -- specializedPhysicalEntity is subTypeOf specializedPhysicalObject
-  st-325a375866f33f11-325a375566f33e9b  : specializedPhysicalEntity   ⊏⋆ᵣ  specializedPhysicalObject 
+  st-325a375866f33f11-325a375566f33e9b  : specializedPhysicalEntity  ⊏⋆ᵣ  specializedPhysicalObject
 
+-- -------------------------------------------------------------------------------------------- 
 {- Physical Data Slot: -}
 -- Aggregate Member : Physical Data Slot
-PhysicalDataSlot : ClassOfClassOfIndividual
-PhysicalDataSlot = ClassOfIndividual
+PhysicalDataSlot : ClassOfClassOfBoundedIndividual
+PhysicalDataSlot = ClassOfBoundedIndividual
+
+
+
+--  PhysicalDataSlot is subTypeOf Attribute
+st-e6f222845f771913-8f1c9ad668ca8db4 : PhysicalDataSlot ⊏ₑ Attribute
+st-e6f222845f771913-8f1c9ad668ca8db4 = polySubTypeOf-identity
+
+--  PhysicalDataSlot is subTypeOf PhysicalDataProperty
+st-e6f222845f771913-e6f220d45f771837 : PhysicalDataSlot ⊏ₑ PhysicalDataProperty
+st-e6f222845f771913-e6f220d45f771837 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfPhysicalDataSlot :  Linkage PhysicalDataEntity PhysicalDataSlot
@@ -64,14 +78,27 @@ aggregationOfPhysicalDataPropertyPhysicalDataSlot = make_Relation "PhysicalDataP
 physicalDataSlot : Linkage PhysicalDataEntity PhysicalDataProperty
 physicalDataSlot = membershipOfPhysicalDataSlot  ∘  aggregationOfPhysicalDataPropertyPhysicalDataSlot
 
-postulate -- physicalDataSlot is subTypeOf attribute
-  st-e6f222845f771913-8f1c9ad668ca8db4  : physicalDataSlot   ⊏⋆ᵣ  attribute 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Physical Relationship: -}
 -- Aggregate Member : Physical Relationship
-PhysicalRelationship : ClassOfClassOfIndividual
-PhysicalRelationship = ClassOfIndividual
+PhysicalRelationship : ClassOfClassOfBoundedIndividual
+PhysicalRelationship = ClassOfBoundedIndividual
+
+
+
+--  PhysicalRelationship is subTypeOf PhysicalDataMember
+st-b6e3df8e5fbb724d-163c29e85fda678c : PhysicalRelationship ⊏ₑ PhysicalDataMember
+st-b6e3df8e5fbb724d-163c29e85fda678c = polySubTypeOf-identity
+
+--  PhysicalRelationship is subTypeOf Relationship
+st-b6e3df8e5fbb724d-b6e3cc7a5fbb6878 : PhysicalRelationship ⊏ₑ Relationship
+st-b6e3df8e5fbb724d-b6e3cc7a5fbb6878 = polySubTypeOf-identity
+
+--  PhysicalRelationship is subTypeOf PhysicalDataEntity
+st-b6e3df8e5fbb724d-762582bb5f6bd659 : PhysicalRelationship ⊏ₑ PhysicalDataEntity
+st-b6e3df8e5fbb724d-762582bb5f6bd659 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfPhysicalRelationship :  Linkage PhysicalDataEntity PhysicalRelationship
@@ -89,8 +116,4 @@ aggregationOfPhysicalDataEntityPhysicalRelationship = make_Relation "PhysicalDat
 physicalRelationship : Linkage PhysicalDataEntity PhysicalDataEntity
 physicalRelationship = membershipOfPhysicalRelationship  ∘  aggregationOfPhysicalDataEntityPhysicalRelationship
 
-postulate -- physicalRelationship is subTypeOf physicalDataMember
-  st-b6e3df8e5fbb724d-163c29e85fda678c  : physicalRelationship   ⊏⋆ᵣ  physicalDataMember 
-postulate -- physicalRelationship is subTypeOf relationship
-  st-b6e3df8e5fbb724d-b6e3cc7a5fbb6878  : physicalRelationship   ⊏⋆ᵣ  relationship 
 

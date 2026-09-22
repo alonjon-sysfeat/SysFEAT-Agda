@@ -27,6 +27,7 @@ open import SysFEAT.EA.cb94ec53681855c2 public -- Conceptual Functional Asset
 ConceptualEntityAsset : ClassOfClassOfBoundedIndividual
 ConceptualEntityAsset = ClassOfBoundedIndividual
 
+
 --  ConceptualEntityAsset withAspect ConceptualElement
 st-362fc8045b3c3e65-4aebd76d69641638 : ConceptualEntityAsset ⊏ₐₑ (ConceptualElement (lsuc(lzero)))
 st-362fc8045b3c3e65-4aebd76d69641638 = polySubTypeOf-identity
@@ -43,19 +44,32 @@ st-362fc8045b3c3e65-e6f250185f772ee1 = polySubTypeOf-identity
 st-362fc8045b3c3e65-cb94ec53681855c2 : ConceptualEntityAsset ⊏ₑ ConceptualFunctionalAsset
 st-362fc8045b3c3e65-cb94ec53681855c2 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Business Object: -}
 specializedBusinessObject :  Linkage ConceptualEntityAsset ConceptualEntityAsset
 specializedBusinessObject = make_subTypeOf "Specialized Business Object" "Specialized Business Object"
 
 postulate -- specializedBusinessObject is subTypeOf specializedInformationAsset
-  st-325a375966f33f85-325a372e66f33bca  : specializedBusinessObject   ⊏⋆ᵣ  specializedInformationAsset 
+  st-325a375966f33f85-325a372e66f33bca  : specializedBusinessObject  ⊏⋆ᵣ  specializedInformationAsset
 
+-- -------------------------------------------------------------------------------------------- 
 {- Conceptual Asset Relationship: -}
 -- Aggregate Member : Conceptual Asset Relationship
-ConceptualAssetRelationship : ClassOfClassOfIndividual
-ConceptualAssetRelationship = ClassOfIndividual
+ConceptualAssetRelationship : ClassOfClassOfBoundedIndividual
+ConceptualAssetRelationship = ClassOfBoundedIndividual
+
+
+
+--  ConceptualAssetRelationship is subTypeOf InformationAssetRelationship
+st-18eb202f5fdb706c-18eb1f335fdb6e7f : ConceptualAssetRelationship ⊏ₑ InformationAssetRelationship
+st-18eb202f5fdb706c-18eb1f335fdb6e7f = polySubTypeOf-identity
+
+--  ConceptualAssetRelationship is subTypeOf ConceptualEntityAsset
+st-18eb202f5fdb706c-362fc8045b3c3e65 : ConceptualAssetRelationship ⊏ₑ ConceptualEntityAsset
+st-18eb202f5fdb706c-362fc8045b3c3e65 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfConceptualAssetRelationship :  Linkage ConceptualEntityAsset ConceptualAssetRelationship
@@ -73,6 +87,4 @@ aggregationOfConceptualEntityAssetConceptualAssetRelationship = make_Relation "C
 conceptualAssetRelationship : Linkage ConceptualEntityAsset ConceptualEntityAsset
 conceptualAssetRelationship = membershipOfConceptualAssetRelationship  ∘  aggregationOfConceptualEntityAssetConceptualAssetRelationship
 
-postulate -- conceptualAssetRelationship is subTypeOf informationAssetRelationship
-  st-18eb202f5fdb706c-18eb1f335fdb6e7f  : conceptualAssetRelationship   ⊏⋆ᵣ  informationAssetRelationship 
 

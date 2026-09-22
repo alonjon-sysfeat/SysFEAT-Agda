@@ -24,4 +24,5 @@ PrimitiveType = ClassOfBoundedIndividual
 st-7326bf5e63d77585-254e4dd45f7f8749 : PrimitiveType ⊏ₑ NoSQLField
 st-7326bf5e63d77585-254e4dd45f7f8749 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

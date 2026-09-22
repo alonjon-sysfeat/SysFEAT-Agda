@@ -19,8 +19,9 @@ open import SysFEAT.EA.fe1c24fa6788036e public -- Individual Resource Asset
 open import SysFEAT.SOF.9e3837e46192fcad public -- Individual Agent
 open import SysFEAT.EA.e2ef091962147ad7 public -- Resource Agent Type
 
-IndividualResourceAgent : ClassOfBoundedIndividual
-IndividualResourceAgent = BoundedIndividual
+IndividualResourceAgent : AgentType
+IndividualResourceAgent = IndividualAgent
+
 
 --  IndividualResourceAgent is subTypeOf IndividualResourceAsset
 st-fe1c231267880201-fe1c24fa6788036e : IndividualResourceAgent ⊏ₑ IndividualResourceAsset
@@ -30,13 +31,24 @@ st-fe1c231267880201-fe1c24fa6788036e = polySubTypeOf-identity
 st-fe1c231267880201-9e3837e46192fcad : IndividualResourceAgent ⊏ₑ IndividualAgent
 st-fe1c231267880201-9e3837e46192fcad = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Individual Resource Agent Part: -}
 -- Aggregate Member : Individual Resource Agent Part
-IndividualResourceAgentPart : ClassOfOrderedEntity (lsuc(lzero))
-IndividualResourceAgentPart = AggregateMember (lsuc(lzero))
+IndividualResourceAgentPart : AgentType
+IndividualResourceAgentPart = IndividualAgent
 
+
+
+--  IndividualResourceAgentPart is subTypeOf AgentPart
+st-fe1c2ae667880c06-9d389f6761c4127d : IndividualResourceAgentPart ⊏ₑ AgentPart
+st-fe1c2ae667880c06-9d389f6761c4127d = polySubTypeOf-identity
+
+--  IndividualResourceAgentPart is subTypeOf IndividualResourceAgent
+st-fe1c2ae667880c06-fe1c231267880201 : IndividualResourceAgentPart ⊏ₑ IndividualResourceAgent
+st-fe1c2ae667880c06-fe1c231267880201 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfIndividualResourceAgentPart :  Linkage IndividualResourceAgent IndividualResourceAgentPart
@@ -54,6 +66,4 @@ aggregationOfIndividualResourceAgentIndividualResourceAgentPart = make_Relation 
 individualResourceAgentPart : Linkage IndividualResourceAgent IndividualResourceAgent
 individualResourceAgentPart = membershipOfIndividualResourceAgentPart  ∘  aggregationOfIndividualResourceAgentIndividualResourceAgentPart
 
-postulate -- individualResourceAgentPart is subTypeOf agentPart
-  st-fe1c2ae667880c06-9d389f6761c4127d  : individualResourceAgentPart   ⊏⋆ᵣ  agentPart 
 

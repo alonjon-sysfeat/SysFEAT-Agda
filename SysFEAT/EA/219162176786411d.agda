@@ -19,8 +19,9 @@ open import SysFEAT.SOF.24ae31b55ed1c66d public -- Service Interface
 open import SysFEAT.EA.f97e3119632b25f8 public -- Conceptual Behavior
 open import SysFEAT.EA.21916383678642d1 public -- Conceptual Outcome Event
 
-ConceptualServiceInterface : ClassOfClassOfIndividual
-ConceptualServiceInterface = ClassOfIndividual
+ConceptualServiceInterface : ClassOfClassOfBoundedIndividual
+ConceptualServiceInterface = ClassOfBoundedIndividual
+
 
 --  ConceptualServiceInterface is subTypeOf ServiceInterface
 st-219162176786411d-24ae31b55ed1c66d : ConceptualServiceInterface ⊏ₑ ServiceInterface
@@ -30,14 +31,22 @@ st-219162176786411d-24ae31b55ed1c66d = polySubTypeOf-identity
 st-219162176786411d-f97e3119632b25f8 : ConceptualServiceInterface ⊏ₑ ConceptualBehavior
 st-219162176786411d-f97e3119632b25f8 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Conceptual Flow: 
 A Conceptual Flow is an Conceptual Outcome Event event that occurs between the consumer and the provider participant of a Conceptual Service Interface.
 -}
 -- Aggregate Member : Conceptual Flow
-ConceptualFlow : ClassOfClassOfIndividual
-ConceptualFlow = ClassOfIndividual
+ConceptualFlow : ClassOfClassOfBoundedIndividual
+ConceptualFlow = ClassOfBoundedIndividual
+
+
+
+--  ConceptualFlow is subTypeOf FlowConnection
+st-7726791c68180b49-c561d7e4680f69ce : ConceptualFlow ⊏ₑ FlowConnection
+st-7726791c68180b49-c561d7e4680f69ce = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfConceptualFlow :  Linkage ConceptualServiceInterface ConceptualFlow
@@ -55,6 +64,4 @@ aggregationOfConceptualOutcomeEventConceptualFlow = make_Relation "ConceptualOut
 conceptualFlow : Linkage ConceptualServiceInterface ConceptualOutcomeEvent
 conceptualFlow = membershipOfConceptualFlow  ∘  aggregationOfConceptualOutcomeEventConceptualFlow
 
-postulate -- conceptualFlow is subTypeOf flowConnection
-  st-7726791c68180b49-c561d7e4680f69ce  : conceptualFlow   ⊏⋆ᵣ  flowConnection 
 

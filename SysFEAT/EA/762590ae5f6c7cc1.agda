@@ -20,8 +20,10 @@ open import SysFEAT.SOF.8f46e8eb64b7719a public -- Key Indicator
 KeyRiskIndicator : ClassOfBoundedIndividual
 KeyRiskIndicator = BoundedIndividual
 
+
 --  KeyRiskIndicator is subTypeOf KeyIndicator
 st-762590ae5f6c7cc1-8f46e8eb64b7719a : KeyRiskIndicator ⊏ₑ KeyIndicator
 st-762590ae5f6c7cc1-8f46e8eb64b7719a = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

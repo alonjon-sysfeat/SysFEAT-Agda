@@ -17,6 +17,6 @@ module SysFEAT.EA.affec9235f60752a where -- ========== Number of Unique Values
 open import Agda.Primitive
 
 NumberOfUniqueValues : PropertyType
-NumberOfUniqueValues = ClassOfProperty
+NumberOfUniqueValues = Property
 
 

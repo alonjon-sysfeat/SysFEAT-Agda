@@ -24,4 +24,5 @@ CustomerJourneyCategory = SecondOrderClass
 st-952e9d71672849ba-f69620466a0f9c2f : CustomerJourneyCategory ⊏ₐₑ (AssetCategory (lsuc(lsuc(lzero))))
 st-952e9d71672849ba-f69620466a0f9c2f = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

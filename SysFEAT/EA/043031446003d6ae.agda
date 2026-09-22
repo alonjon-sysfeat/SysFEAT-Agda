@@ -21,12 +21,15 @@ open import SysFEAT.EA.167124af6008e9d3 public -- Regulatory agency
 Databreach : ClassOfBoundedIndividual
 Databreach = BoundedIndividual
 
+
 --  Databreach is subTypeOf Incident
 st-043031446003d6ae-d059da695ef11294 : Databreach ⊏ₑ Incident
 st-043031446003d6ae-d059da695ef11294 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Notified Regulator: -}
 notifiedRegulator :  Linkage Databreach Regulatoryagency
 notifiedRegulator = make_holonymyRelation "Notified Regulator" "Notified Regulator"

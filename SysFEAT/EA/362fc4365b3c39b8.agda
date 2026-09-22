@@ -29,27 +29,32 @@ open import SysFEAT.EA.c39701c75747a173 public -- Concept Type
 Concept : ClassOfClassOfBoundedIndividual
 Concept = ClassOfBoundedIndividual
 
+
 --  Concept is subTypeOf ConceptualEntity
 st-362fc4365b3c39b8-229b34eb5b3f79d2 : Concept ⊏ₑ ConceptualEntity
 st-362fc4365b3c39b8-229b34eb5b3f79d2 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Power Type: -}
 powerType :  Linkage Concept ConceptType
 powerType = make_classOfHolonymy "Power Type" "Power Type"
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Instance of: -}
 instanceOf :  Linkage Concept ConceptType
 instanceOf = make_classOfHolonymy "Instance of" "Instance of"
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Concept: -}
 specializedConcept :  Linkage Concept Concept
 specializedConcept = make_subTypeOf "Specialized Concept" "Specialized Concept"
 
 postulate -- specializedConcept is subTypeOf specializedBusinessObject
-  st-325a37b066f34849-325a375966f33f85  : specializedConcept   ⊏⋆ᵣ  specializedBusinessObject 
+  st-325a37b066f34849-325a375966f33f85  : specializedConcept  ⊏⋆ᵣ  specializedBusinessObject
 postulate -- specializedConcept is subTypeOf specializedBusinessConcept
-  st-325a37b066f34849-325a344766f33adf  : specializedConcept   ⊏⋆ᵣ  specializedBusinessConcept 
+  st-325a37b066f34849-325a344766f33adf  : specializedConcept  ⊏⋆ᵣ  specializedBusinessConcept

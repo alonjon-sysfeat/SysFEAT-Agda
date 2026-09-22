@@ -24,8 +24,10 @@ open import SysFEAT.EA.d1600c7062e093eb public -- Capability Configuration
 SystemOfResources : ClassOfClassOfBoundedIndividual
 SystemOfResources = ClassOfBoundedIndividual
 
+
 --  SystemOfResources is subTypeOf CapabilityConfiguration
 st-f4be11b15ee1e0fa-d1600c7062e093eb : SystemOfResources ⊏ₑ CapabilityConfiguration
 st-f4be11b15ee1e0fa-d1600c7062e093eb = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

@@ -24,4 +24,5 @@ BusinessPolicyCategory = SecondOrderClass
 st-952ead2b67285cfd-952eaada67285ac3 : BusinessPolicyCategory ⊏ₑ PolicyFrameworkCategory
 st-952ead2b67285cfd-952eaada67285ac3 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

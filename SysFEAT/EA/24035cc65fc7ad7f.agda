@@ -26,16 +26,19 @@ ConcreteSOftwareSystem = ClassOfBoundedIndividual
 st-24035cc65fc7ad7f-ffdf5e1f68608352 : ConcreteSOftwareSystem ⊏ₑ SOftwareSystemCategory
 st-24035cc65fc7ad7f-ffdf5e1f68608352 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Realized Software System: -}
 realizedSOftwareSystem :  Linkage ConcreteSOftwareSystem BusinessSOftwareSystem
 realizedSOftwareSystem = make_subTypeOf "Realized Software System" "Realized Software System"
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Fulfilled Technology Capability: -}
 fulfilledTechnologyCapability :  Linkage ConcreteSOftwareSystem SOftwareTechnologyCapability
 fulfilledTechnologyCapability = make_subTypeOf "Fulfilled Technology Capability" "Fulfilled Technology Capability"
 
 postulate -- fulfilledTechnologyCapability is subTypeOf fulfilledTechnologyCapability
-  st-dd27d12668a11786-dd27b1d668a10d0a  : fulfilledTechnologyCapability   ⊏⋆ᵣ  fulfilledTechnologyCapability 
+  st-dd27d12668a11786-dd27b1d668a10d0a  : fulfilledTechnologyCapability  ⊏⋆ᵣ  fulfilledTechnologyCapability

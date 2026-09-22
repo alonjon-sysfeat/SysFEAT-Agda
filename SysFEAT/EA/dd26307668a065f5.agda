@@ -19,18 +19,25 @@ open import SysFEAT.SOF.01f12127689b6de2 public -- Capability Map
 open import SysFEAT.EA.dd265414689f5987 public -- Resource Capability
 
 ResourceCapabilityMap : PropertyType
-ResourceCapabilityMap = ClassOfProperty
+ResourceCapabilityMap = Property
 
 --  ResourceCapabilityMap is subTypeOf CapabilityMap
 st-dd26307668a065f5-01f12127689b6de2 : ResourceCapabilityMap ⊏ₑ CapabilityMap
 st-dd26307668a065f5-01f12127689b6de2 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Resource Capability Member: -}
 -- Aggregate Member : Resource Capability Member
 ResourceCapabilityMember : ClassOfClassOfIndividual
 ResourceCapabilityMember = ClassOfIndividual
+
+
+--  ResourceCapabilityMember is subTypeOf CapabilityMember
+st-dd26325f68a0682c-01f12228689b6efa : ResourceCapabilityMember ⊏⋆ₑ CapabilityMember
+st-dd26325f68a0682c-01f12228689b6efa = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfResourceCapabilityMember :  Linkage ResourceCapabilityMap ResourceCapabilityMember
@@ -48,6 +55,4 @@ aggregationOfResourceCapabilityResourceCapabilityMember = make_Relation "Resourc
 resourceCapabilityMember : Linkage ResourceCapabilityMap ResourceCapability
 resourceCapabilityMember = membershipOfResourceCapabilityMember  ∘  aggregationOfResourceCapabilityResourceCapabilityMember
 
-postulate -- resourceCapabilityMember is subTypeOf capabilityMember
-  st-dd26325f68a0682c-01f12228689b6efa  : resourceCapabilityMember   ⊏⋆ᵣ  capabilityMember 
 

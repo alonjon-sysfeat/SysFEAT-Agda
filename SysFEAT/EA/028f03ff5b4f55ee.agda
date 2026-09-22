@@ -30,12 +30,24 @@ st-028f03ff5b4f55ee-325c32165eb02a4a = polySubTypeOf-identity
 st-028f03ff5b4f55ee-8f1cad7d68ca9df0 : PhysicalDataDomain ⊏ₐₑ (PhysicalDataBlock (lsuc(lzero)))
 st-028f03ff5b4f55ee-8f1cad7d68ca9df0 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Physical Domain Object: -}
 -- Aggregate Member : Physical Domain Object
-PhysicalDomainObject : ClassOfClassOfIndividual
-PhysicalDomainObject = ClassOfIndividual
+PhysicalDomainObject : ClassOfClassOfBoundedIndividual
+PhysicalDomainObject = ClassOfBoundedIndividual
+
+
+
+--  PhysicalDomainObject is subTypeOf DomainDataObject
+st-e6f223f55f771b8d-6d2b7d9e5fbb65f3 : PhysicalDomainObject ⊏ₑ DomainDataObject
+st-e6f223f55f771b8d-6d2b7d9e5fbb65f3 = polySubTypeOf-identity
+
+--  PhysicalDomainObject is subTypeOf PhysicalDataAsset
+st-e6f223f55f771b8d-7d37d08d5fd07aaa : PhysicalDomainObject ⊏ₑ PhysicalDataAsset
+st-e6f223f55f771b8d-7d37d08d5fd07aaa = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfPhysicalDomainObject :  Linkage PhysicalDataDomain PhysicalDomainObject
@@ -53,6 +65,4 @@ aggregationOfPhysicalDataAssetPhysicalDomainObject = make_Relation "PhysicalData
 physicalDomainObject : Linkage PhysicalDataDomain PhysicalDataAsset
 physicalDomainObject = membershipOfPhysicalDomainObject  ∘  aggregationOfPhysicalDataAssetPhysicalDomainObject
 
-postulate -- physicalDomainObject is subTypeOf domainDataObject
-  st-e6f223f55f771b8d-6d2b7d9e5fbb65f3  : physicalDomainObject   ⊏⋆ᵣ  domainDataObject 
 
