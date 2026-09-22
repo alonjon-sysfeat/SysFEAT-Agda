@@ -18,11 +18,13 @@ open import Agda.Primitive
 open import SysFEAT.EA.fe1c231267880201 public -- Individual Resource Agent
 open import SysFEAT.EA.ffdf5eb7686083b4 public -- Artifact
 
-IndividualArtifact : ClassOfBoundedIndividual
-IndividualArtifact = BoundedIndividual
+IndividualArtifact : AgentType
+IndividualArtifact = IndividualAgent
+
 
 --  IndividualArtifact is subTypeOf IndividualResourceAgent
 st-3b1b91ea68cd8733-fe1c231267880201 : IndividualArtifact ⊏ₑ IndividualResourceAgent
 st-3b1b91ea68cd8733-fe1c231267880201 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

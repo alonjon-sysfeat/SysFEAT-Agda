@@ -22,28 +22,38 @@ open import SysFEAT.EA.624e6ac55ed972a7 public -- Physical Software Interface
 DeployableSOftwareSystem : ClassOfClassOfBoundedIndividual
 DeployableSOftwareSystem = ClassOfBoundedIndividual
 
+
 --  DeployableSOftwareSystem is subTypeOf ConcreteSOftwareSystem
 st-d5e6d8015c464b40-24035cc65fc7ad7f : DeployableSOftwareSystem ⊏ₑ ConcreteSOftwareSystem
 st-d5e6d8015c464b40-24035cc65fc7ad7f = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Deployable Software: -}
 specializedDeployableSOftware :  Linkage DeployableSOftwareSystem DeployableSOftwareSystem
 specializedDeployableSOftware = make_subTypeOf "Specialized Deployable Software" "Specialized Deployable Software"
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Deployable Software System: -}
 deployableSOftwareSystem :  Linkage DeployableSOftwareSystem BusinessSOftwareSystem
 deployableSOftwareSystem = make_subTypeOf "Deployable Software System" "Deployable Software System"
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Software Physical Channel: 
 A Software Physical Channel represents a technical connection between Deployable Software Member through input to output communication ports. The output technical port of a technical area or architecture asks the input technical port of the other technical architecture or area to open the communication line.
 -}
 -- Aggregate Member : Software Physical Channel
 SOftwarePhysicalChannel : ClassOfClassOfIndividual
 SOftwarePhysicalChannel = ClassOfIndividual
+
+
+--  SOftwarePhysicalChannel is subTypeOf SOftwareTechnologyConnection
+st-624e6e025ed979ba-24035f005fc7b0ef : SOftwarePhysicalChannel ⊏ₑ SOftwareTechnologyConnection
+st-624e6e025ed979ba-24035f005fc7b0ef = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSOftwarePhysicalChannel :  Linkage DeployableSOftwareSystem SOftwarePhysicalChannel
@@ -61,14 +71,23 @@ aggregationOfPhysicalSOftwareInterfaceSOftwarePhysicalChannel = make_Relation "P
 sOftwarePhysicalChannel : Linkage DeployableSOftwareSystem PhysicalSOftwareInterface
 sOftwarePhysicalChannel = membershipOfSOftwarePhysicalChannel  ∘  aggregationOfPhysicalSOftwareInterfaceSOftwarePhysicalChannel
 
-postulate -- sOftwarePhysicalChannel is subTypeOf sOftwareTechnologyConnection
-  st-624e6e025ed979ba-24035f005fc7b0ef  : sOftwarePhysicalChannel   ⊏⋆ᵣ  sOftwareTechnologyConnection 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Deployable Software Member: -}
 -- Aggregate Member : Deployable Software Member
-DeployableSOftwareMember : ClassOfClassOfIndividual
-DeployableSOftwareMember = ClassOfIndividual
+DeployableSOftwareMember : ClassOfClassOfBoundedIndividual
+DeployableSOftwareMember = ClassOfBoundedIndividual
+
+
+
+--  DeployableSOftwareMember is subTypeOf SOftwareSystemPart
+st-624e6cab5ed977a2-24035e705fc7afb1 : DeployableSOftwareMember ⊏ₑ SOftwareSystemPart
+st-624e6cab5ed977a2-24035e705fc7afb1 = polySubTypeOf-identity
+
+--  DeployableSOftwareMember is subTypeOf DeployableSOftwareSystem
+st-624e6cab5ed977a2-d5e6d8015c464b40 : DeployableSOftwareMember ⊏ₑ DeployableSOftwareSystem
+st-624e6cab5ed977a2-d5e6d8015c464b40 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfDeployableSOftwareMember :  Linkage DeployableSOftwareSystem DeployableSOftwareMember
@@ -86,6 +105,4 @@ aggregationOfDeployableSOftwareSystemDeployableSOftwareMember = make_Relation "D
 deployableSOftwareMember : Linkage DeployableSOftwareSystem DeployableSOftwareSystem
 deployableSOftwareMember = membershipOfDeployableSOftwareMember  ∘  aggregationOfDeployableSOftwareSystemDeployableSOftwareMember
 
-postulate -- deployableSOftwareMember is subTypeOf sOftwareSystemPart
-  st-624e6cab5ed977a2-24035e705fc7afb1  : deployableSOftwareMember   ⊏⋆ᵣ  sOftwareSystemPart 
 

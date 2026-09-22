@@ -20,18 +20,39 @@ open import SysFEAT.EA.254e4dd45f7f8749 public -- NoSQL Field
 StructuredField : ClassOfClassOfBoundedIndividual
 StructuredField = ClassOfBoundedIndividual
 
+
 --  StructuredField is subTypeOf NoSQLField
 st-a80ddb0963d34800-254e4dd45f7f8749 : StructuredField ⊏ₑ NoSQLField
 st-a80ddb0963d34800-254e4dd45f7f8749 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Sub-Field: 
 A Sub-Field is a component of a Structured Field.
 -}
 -- Aggregate Member : Sub-Field
-SubField : ClassOfClassOfIndividual
-SubField = ClassOfIndividual
+SubField : ClassOfClassOfBoundedIndividual
+SubField = ClassOfBoundedIndividual
+
+
+
+--  SubField is subTypeOf DataObjectMember
+st-086d16b85fd15793-b6e3cdf35fbb6ad1 : SubField ⊏ₑ DataObjectMember
+st-086d16b85fd15793-b6e3cdf35fbb6ad1 = polySubTypeOf-identity
+
+--  SubField is subTypeOf MetaDataObjectMember
+st-086d16b85fd15793-05b0b95c6006bc80 : SubField ⊏ₑ MetaDataObjectMember
+st-086d16b85fd15793-05b0b95c6006bc80 = polySubTypeOf-identity
+
+--  SubField is subTypeOf SubPhysicalDataProperty
+st-086d16b85fd15793-82c3bbbb5fdcc433 : SubField ⊏ₑ SubPhysicalDataProperty
+st-086d16b85fd15793-82c3bbbb5fdcc433 = polySubTypeOf-identity
+
+--  SubField is subTypeOf NoSQLField
+st-086d16b85fd15793-254e4dd45f7f8749 : SubField ⊏ₑ NoSQLField
+st-086d16b85fd15793-254e4dd45f7f8749 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSubField :  Linkage StructuredField SubField
@@ -49,10 +70,4 @@ aggregationOfNoSQLFieldSubField = make_Relation "NoSQLField aggregation" "aggreg
 subField : Linkage StructuredField NoSQLField
 subField = membershipOfSubField  ∘  aggregationOfNoSQLFieldSubField
 
-postulate -- subField is subTypeOf dataObjectMember
-  st-086d16b85fd15793-b6e3cdf35fbb6ad1  : subField   ⊏⋆ᵣ  dataObjectMember 
-postulate -- subField is subTypeOf metaDataObjectMember
-  st-086d16b85fd15793-05b0b95c6006bc80  : subField   ⊏⋆ᵣ  metaDataObjectMember 
-postulate -- subField is subTypeOf subPhysicalDataProperty
-  st-086d16b85fd15793-82c3bbbb5fdcc433  : subField   ⊏⋆ᵣ  subPhysicalDataProperty 
 

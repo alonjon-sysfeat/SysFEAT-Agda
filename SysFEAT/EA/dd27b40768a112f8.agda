@@ -19,18 +19,25 @@ open import SysFEAT.EA.dd26307668a065f5 public -- Resource Capability Map
 open import SysFEAT.EA.dd27b08d68a10b12 public -- Technology Capability
 
 TechnologyCapabilityMap : PropertyType
-TechnologyCapabilityMap = ClassOfProperty
+TechnologyCapabilityMap = Property
 
 --  TechnologyCapabilityMap is subTypeOf ResourceCapabilityMap
 st-dd27b40768a112f8-dd26307668a065f5 : TechnologyCapabilityMap ⊏ₑ ResourceCapabilityMap
 st-dd27b40768a112f8-dd26307668a065f5 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Tehnology Capability Member: -}
 -- Aggregate Member : Tehnology Capability Member
 TehnologyCapabilityMember : ClassOfClassOfIndividual
 TehnologyCapabilityMember = ClassOfIndividual
+
+
+--  TehnologyCapabilityMember is subTypeOf ResourceCapabilityMember
+st-dd27d05d68a11646-dd26325f68a0682c : TehnologyCapabilityMember ⊏⋆ₑ ResourceCapabilityMember
+st-dd27d05d68a11646-dd26325f68a0682c = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfTehnologyCapabilityMember :  Linkage TechnologyCapabilityMap TehnologyCapabilityMember
@@ -48,6 +55,4 @@ aggregationOfTechnologyCapabilityTehnologyCapabilityMember = make_Relation "Tech
 tehnologyCapabilityMember : Linkage TechnologyCapabilityMap TechnologyCapability
 tehnologyCapabilityMember = membershipOfTehnologyCapabilityMember  ∘  aggregationOfTechnologyCapabilityTehnologyCapabilityMember
 
-postulate -- tehnologyCapabilityMember is subTypeOf resourceCapabilityMember
-  st-dd27d05d68a11646-dd26325f68a0682c  : tehnologyCapabilityMember   ⊏⋆ᵣ  resourceCapabilityMember 
 

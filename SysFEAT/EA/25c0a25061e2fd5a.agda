@@ -27,12 +27,19 @@ SOftwareSystemEnvironment = ClassOfBoundedIndividual
 st-25c0a25061e2fd5a-c450d4c261de5f07 : SOftwareSystemEnvironment ⊏ₑ BusinessSystemEnvironment
 st-25c0a25061e2fd5a-c450d4c261de5f07 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Software Connection: -}
 -- Aggregate Member : Software Connection
 SOftwareConnection : ClassOfClassOfIndividual
 SOftwareConnection = ClassOfIndividual
+
+
+--  SOftwareConnection is subTypeOf BusinessServiceChannel
+st-25c1a7cd61e20b29-2b6f436f61bafb0b : SOftwareConnection ⊏ₑ BusinessServiceChannel
+st-25c1a7cd61e20b29-2b6f436f61bafb0b = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSOftwareConnection :  Linkage SOftwareSystemEnvironment SOftwareConnection
@@ -50,14 +57,27 @@ aggregationOfApplicationInterfaceSOftwareConnection = make_Relation "Application
 sOftwareConnection : Linkage SOftwareSystemEnvironment ApplicationInterface
 sOftwareConnection = membershipOfSOftwareConnection  ∘  aggregationOfApplicationInterfaceSOftwareConnection
 
-postulate -- sOftwareConnection is subTypeOf businessServiceChannel
-  st-25c1a7cd61e20b29-2b6f436f61bafb0b  : sOftwareConnection   ⊏⋆ᵣ  businessServiceChannel 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Participant Software: -}
 -- Aggregate Member : Participant Software
-ParticipantSOftware : ClassOfClassOfIndividual
-ParticipantSOftware = ClassOfIndividual
+ParticipantSOftware : ClassOfClassOfBoundedIndividual
+ParticipantSOftware = ClassOfBoundedIndividual
+
+
+
+--  ParticipantSOftware is subTypeOf ParticipantBusinessSystem
+st-25c1a63d61e206d7-c450d63661de652a : ParticipantSOftware ⊏ₑ ParticipantBusinessSystem
+st-25c1a63d61e206d7-c450d63661de652a = polySubTypeOf-identity
+
+--  ParticipantSOftware is subTypeOf ParticipantEnterpriseAgent
+st-25c1a63d61e206d7-2b6f42fc61baf9b7 : ParticipantSOftware ⊏ₑ ParticipantEnterpriseAgent
+st-25c1a63d61e206d7-2b6f42fc61baf9b7 = polySubTypeOf-identity
+
+--  ParticipantSOftware is subTypeOf BusinessSOftwareSystem
+st-25c1a63d61e206d7-d6cd02865ab966e8 : ParticipantSOftware ⊏ₑ BusinessSOftwareSystem
+st-25c1a63d61e206d7-d6cd02865ab966e8 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfParticipantSOftware :  Linkage SOftwareSystemEnvironment ParticipantSOftware
@@ -75,16 +95,27 @@ aggregationOfBusinessSOftwareSystemParticipantSOftware = make_Relation "Business
 participantSOftware : Linkage SOftwareSystemEnvironment BusinessSOftwareSystem
 participantSOftware = membershipOfParticipantSOftware  ∘  aggregationOfBusinessSOftwareSystemParticipantSOftware
 
-postulate -- participantSOftware is subTypeOf participantBusinessSystem
-  st-25c1a63d61e206d7-c450d63661de652a  : participantSOftware   ⊏⋆ᵣ  participantBusinessSystem 
-postulate -- participantSOftware is subTypeOf participantEnterpriseAgent
-  st-25c1a63d61e206d7-2b6f42fc61baf9b7  : participantSOftware   ⊏⋆ᵣ  participantEnterpriseAgent 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Subject Software System: -}
 -- Aggregate Member : Subject Software System
-SubjectSOftwareSystem : ClassOfClassOfIndividual
-SubjectSOftwareSystem = ClassOfIndividual
+SubjectSOftwareSystem : ClassOfClassOfBoundedIndividual
+SubjectSOftwareSystem = ClassOfBoundedIndividual
+
+
+
+--  SubjectSOftwareSystem is subTypeOf SubjectSystem
+st-25c1a65861e2077a-c450d59061de6127 : SubjectSOftwareSystem ⊏ₑ SubjectSystem
+st-25c1a65861e2077a-c450d59061de6127 = polySubTypeOf-identity
+
+--  SubjectSOftwareSystem is subTypeOf ParticipantSOftware
+st-25c1a65861e2077a-25c1a63d61e206d7 : SubjectSOftwareSystem ⊏ₑ ParticipantSOftware
+st-25c1a65861e2077a-25c1a63d61e206d7 = polySubTypeOf-identity
+
+--  SubjectSOftwareSystem is subTypeOf BusinessSOftwareSystem
+st-25c1a65861e2077a-d6cd02865ab966e8 : SubjectSOftwareSystem ⊏ₑ BusinessSOftwareSystem
+st-25c1a65861e2077a-d6cd02865ab966e8 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSubjectSOftwareSystem :  Linkage SOftwareSystemEnvironment SubjectSOftwareSystem
@@ -102,16 +133,27 @@ aggregationOfBusinessSOftwareSystemSubjectSOftwareSystem = make_Relation "Busine
 subjectSOftwareSystem : Linkage SOftwareSystemEnvironment BusinessSOftwareSystem
 subjectSOftwareSystem = membershipOfSubjectSOftwareSystem  ∘  aggregationOfBusinessSOftwareSystemSubjectSOftwareSystem
 
-postulate -- subjectSOftwareSystem is subTypeOf subjectSystem
-  st-25c1a65861e2077a-c450d59061de6127  : subjectSOftwareSystem   ⊏⋆ᵣ  subjectSystem 
-postulate -- subjectSOftwareSystem is subTypeOf participantSOftware
-  st-25c1a65861e2077a-25c1a63d61e206d7  : subjectSOftwareSystem   ⊏⋆ᵣ  participantSOftware 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Partner Software System: -}
 -- Aggregate Member : Partner Software System
-PartnerSOftwareSystem : ClassOfClassOfIndividual
-PartnerSOftwareSystem = ClassOfIndividual
+PartnerSOftwareSystem : ClassOfClassOfBoundedIndividual
+PartnerSOftwareSystem = ClassOfBoundedIndividual
+
+
+
+--  PartnerSOftwareSystem is subTypeOf PartnerSystem
+st-25c1a6bc61e20826-c450d5b361de622e : PartnerSOftwareSystem ⊏ₑ PartnerSystem
+st-25c1a6bc61e20826-c450d5b361de622e = polySubTypeOf-identity
+
+--  PartnerSOftwareSystem is subTypeOf ParticipantSOftware
+st-25c1a6bc61e20826-25c1a63d61e206d7 : PartnerSOftwareSystem ⊏ₑ ParticipantSOftware
+st-25c1a6bc61e20826-25c1a63d61e206d7 = polySubTypeOf-identity
+
+--  PartnerSOftwareSystem is subTypeOf BusinessSOftwareSystem
+st-25c1a6bc61e20826-d6cd02865ab966e8 : PartnerSOftwareSystem ⊏ₑ BusinessSOftwareSystem
+st-25c1a6bc61e20826-d6cd02865ab966e8 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfPartnerSOftwareSystem :  Linkage SOftwareSystemEnvironment PartnerSOftwareSystem
@@ -129,18 +171,25 @@ aggregationOfBusinessSOftwareSystemPartnerSOftwareSystem = make_Relation "Busine
 partnerSOftwareSystem : Linkage SOftwareSystemEnvironment BusinessSOftwareSystem
 partnerSOftwareSystem = membershipOfPartnerSOftwareSystem  ∘  aggregationOfBusinessSOftwareSystemPartnerSOftwareSystem
 
-postulate -- partnerSOftwareSystem is subTypeOf partnerSystem
-  st-25c1a6bc61e20826-c450d5b361de622e  : partnerSOftwareSystem   ⊏⋆ᵣ  partnerSystem 
-postulate -- partnerSOftwareSystem is subTypeOf participantSOftware
-  st-25c1a6bc61e20826-25c1a63d61e206d7  : partnerSOftwareSystem   ⊏⋆ᵣ  participantSOftware 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- End User: 
 An End User is a Org-Unit Type who actually uses a particular Business Software System.
 -}
 -- Aggregate Member : End User
-EndUser : ClassOfClassOfIndividual
-EndUser = ClassOfIndividual
+EndUser : ClassOfClassOfBoundedIndividual
+EndUser = ClassOfBoundedIndividual
+
+
+
+--  EndUser is subTypeOf ParticipantSOftware
+st-2dcea8705fc4827c-25c1a63d61e206d7 : EndUser ⊏ₑ ParticipantSOftware
+st-2dcea8705fc4827c-25c1a63d61e206d7 = polySubTypeOf-identity
+
+--  EndUser is subTypeOf OrgUnitType
+st-2dcea8705fc4827c-076d15425a5e158c : EndUser ⊏ₑ OrgUnitType
+st-2dcea8705fc4827c-076d15425a5e158c = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfEndUser :  Linkage SOftwareSystemEnvironment EndUser
@@ -158,6 +207,4 @@ aggregationOfOrgUnitTypeEndUser = make_Relation "OrgUnitType aggregation" "aggre
 endUser : Linkage SOftwareSystemEnvironment OrgUnitType
 endUser = membershipOfEndUser  ∘  aggregationOfOrgUnitTypeEndUser
 
-postulate -- endUser is subTypeOf participantSOftware
-  st-2dcea8705fc4827c-25c1a63d61e206d7  : endUser   ⊏⋆ᵣ  participantSOftware 
 

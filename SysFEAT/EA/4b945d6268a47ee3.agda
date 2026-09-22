@@ -20,15 +20,18 @@ open import Agda.Primitive
 open import SysFEAT.SOF.4b94594b68a478f2 public -- Policy Framework
 open import SysFEAT.EA.4b9477ae68a4926d public -- Control Asset
 
-ControlFramework : ∀ (u : Level) → ClassOfMixedOrderEntity u
-ControlFramework u = MixedOrderEntity u
+ControlFramework : ∀ (u : Level) → ClassOfOrderedEntity u 
+ControlFramework u  = OrderedEntity u 
+
 
 --  ControlFramework is subTypeOf PolicyFramework
 st-4b945d6268a47ee3-4b94594b68a478f2 : ∀ {u v} → (ControlFramework u) ⊏⋆ₑ (PolicyFramework v)
 st-4b945d6268a47ee3-4b94594b68a478f2 = trivialPolySubTypeOfEntity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Packaged Control Asset: -}
 packagedControlAsset : ∀ {u v} →  Linkage (ControlFramework u) (ControlAsset v)
 packagedControlAsset = make_nestingRelation "Packaged Control Asset" "Packaged Control Asset"

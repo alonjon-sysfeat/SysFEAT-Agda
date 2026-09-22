@@ -21,15 +21,18 @@ open import SysFEAT.SOF.0eb95f356855bf94 public -- Asset Block
 ArchitecturalDriver : ClassOfBoundedIndividual
 ArchitecturalDriver = BoundedIndividual
 
+
 --  ArchitecturalDriver is subTypeOf EndogenousDriver
 st-91be945354882b15-7a717b8455962a34 : ArchitecturalDriver ⊏ₑ EndogenousDriver
 st-91be945354882b15-7a717b8455962a34 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Subject Asset: -}
 subjectAsset : ∀ {u} →  Linkage ArchitecturalDriver (AssetBlock u)
 subjectAsset = make_Relation "Subject Asset" "Subject Asset"
 
 postulate -- subjectAsset is subTypeOf driverSubject
-  st-4b945c6868a47d9d-4b945a6e68a47bdf  : subjectAsset  {lzero}  ⊏⋆ᵣ  driverSubject  {lzero}
+  st-4b945c6868a47d9d-4b945a6e68a47bdf  : subjectAsset  ⊏⋆ᵣ  driverSubject

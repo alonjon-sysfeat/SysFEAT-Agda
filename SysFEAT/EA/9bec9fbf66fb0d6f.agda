@@ -21,6 +21,7 @@ open import SysFEAT.EA.d9f4dcc5688d5969 public -- Resource Asset
 ResourceFunctionalAsset : ClassOfClassOfBoundedIndividual
 ResourceFunctionalAsset = ClassOfBoundedIndividual
 
+
 --  ResourceFunctionalAsset is subTypeOf FunctionalAsset
 st-9bec9fbf66fb0d6f-a44fb6bc6748b088 : ResourceFunctionalAsset ⊏ₑ FunctionalAsset
 st-9bec9fbf66fb0d6f-a44fb6bc6748b088 = polySubTypeOf-identity
@@ -29,4 +30,5 @@ st-9bec9fbf66fb0d6f-a44fb6bc6748b088 = polySubTypeOf-identity
 st-9bec9fbf66fb0d6f-d9f4dcc5688d5969 : ResourceFunctionalAsset ⊏ₑ ResourceAsset
 st-9bec9fbf66fb0d6f-d9f4dcc5688d5969 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

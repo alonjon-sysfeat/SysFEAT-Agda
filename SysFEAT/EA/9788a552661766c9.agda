@@ -20,8 +20,10 @@ open import SysFEAT.EA.c30bf4015a5da72b public -- Concrete Hardware System
 HardwareConfiguration : ClassOfClassOfBoundedIndividual
 HardwareConfiguration = ClassOfBoundedIndividual
 
+
 --  HardwareConfiguration is subTypeOf ConcreteHardwareSystem
 st-9788a552661766c9-c30bf4015a5da72b : HardwareConfiguration ⊏ₑ ConcreteHardwareSystem
 st-9788a552661766c9-c30bf4015a5da72b = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

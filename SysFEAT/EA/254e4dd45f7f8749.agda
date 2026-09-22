@@ -21,6 +21,7 @@ open import SysFEAT.EA.8180baa3600110c8 public -- NoSQL Element
 NoSQLField : ClassOfClassOfBoundedIndividual
 NoSQLField = ClassOfBoundedIndividual
 
+
 --  NoSQLField is subTypeOf PhysicalDataProperty
 st-254e4dd45f7f8749-e6f220d45f771837 : NoSQLField ⊏ₑ PhysicalDataProperty
 st-254e4dd45f7f8749-e6f220d45f771837 = polySubTypeOf-identity
@@ -29,8 +30,10 @@ st-254e4dd45f7f8749-e6f220d45f771837 = polySubTypeOf-identity
 st-254e4dd45f7f8749-8180baa3600110c8 : NoSQLField ⊏ₑ NoSQLElement
 st-254e4dd45f7f8749-8180baa3600110c8 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Super Meta Field: -}
 superMetaField :  Linkage NoSQLField NoSQLField
 superMetaField = make_classOfHolonymy "Super Meta Field" "Super Meta Field"

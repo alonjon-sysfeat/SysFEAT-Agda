@@ -27,6 +27,7 @@ open import SysFEAT.EA.01f1156d689b5ecc public -- Control Directive
 ControlMeasure : ClassOfClassOfBoundedIndividual
 ControlMeasure = ClassOfBoundedIndividual
 
+
 --  ControlMeasure is subTypeOf ResourceOperatingAsset
 st-f1600ddf67d8444b-f8e61da0621db6fa : ControlMeasure ⊏ₑ ResourceOperatingAsset
 st-f1600ddf67d8444b-f8e61da0621db6fa = polySubTypeOf-identity
@@ -35,13 +36,16 @@ st-f1600ddf67d8444b-f8e61da0621db6fa = polySubTypeOf-identity
 st-f1600ddf67d8444b-4b9477ae68a4926d : ControlMeasure ⊏ₐₑ (ControlAsset (lsuc(lzero)))
 st-f1600ddf67d8444b-4b9477ae68a4926d = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Control Measure Category: -}
 controlMeasureCategory :  Linkage ControlMeasure ControlMeasureCategory
 controlMeasureCategory = make_instanceOf "Control Measure Category" "Control Measure Category"
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Enforced Control Directive: -}
 enforcedControlDirective :  Linkage ControlMeasure ControlDirective
 enforcedControlDirective = make_subTypeOf "Enforced Control Directive" "Enforced Control Directive"

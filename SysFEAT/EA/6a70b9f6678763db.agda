@@ -21,18 +21,26 @@ open import SysFEAT.EA.0e55230266f12252 public -- Operational Risk Type
 BusinessAsset : ClassOfClassOfBoundedIndividual
 BusinessAsset = ClassOfBoundedIndividual
 
+
 --  BusinessAsset is subTypeOf ResourceFunctionalAsset
 st-6a70b9f6678763db-9bec9fbf66fb0d6f : BusinessAsset ⊏ₑ ResourceFunctionalAsset
 st-6a70b9f6678763db-9bec9fbf66fb0d6f = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Operational Risk: 
 An Operational Risk is a kind of Risk that refers to the potential for loss resulting from inadequate structure or behavior of a Business Operating Asset.
 -}
 -- Aggregate Member : Operational Risk
 OperationalRisk : ThirdOrderClass
 OperationalRisk = SecondOrderClass
+
+
+--  OperationalRisk is subTypeOf Risk
+st-332c41e366f16621-0e55219466f11fd7 : OperationalRisk ⊏⋆ₑ Risk
+st-332c41e366f16621-0e55219466f11fd7 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfOperationalRisk :  Linkage BusinessAsset OperationalRisk
@@ -50,6 +58,4 @@ aggregationOfOperationalRiskTypeOperationalRisk = make_Relation "OperationalRisk
 operationalRisk : Linkage BusinessAsset OperationalRiskType
 operationalRisk = membershipOfOperationalRisk  ∘  aggregationOfOperationalRiskTypeOperationalRisk
 
-postulate -- operationalRisk is subTypeOf risk
-  st-332c41e366f16621-0e55219466f11fd7  : operationalRisk   ⊏⋆ᵣ  risk 
 

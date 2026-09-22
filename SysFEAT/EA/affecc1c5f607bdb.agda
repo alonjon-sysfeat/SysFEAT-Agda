@@ -17,6 +17,6 @@ module SysFEAT.EA.affecc1c5f607bdb where -- ========== Number of Completed Recor
 open import Agda.Primitive
 
 NumberOfCompletedRecords : PropertyType
-NumberOfCompletedRecords = ClassOfProperty
+NumberOfCompletedRecords = Property
 
 

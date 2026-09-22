@@ -21,12 +21,15 @@ open import SysFEAT.SOF.4b94594b68a478f2 public -- Policy Framework
 RegulatoryDriver : ClassOfBoundedIndividual
 RegulatoryDriver = BoundedIndividual
 
+
 --  RegulatoryDriver is subTypeOf ExogenousDriver
 st-2cc969e45526346d-7a717ae75596283e : RegulatoryDriver ⊏ₑ ExogenousDriver
 st-2cc969e45526346d-7a717ae75596283e = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Subject Policy: 
 Policy Framework which is the subject of a .Regulatory Driver
 -}
@@ -34,4 +37,4 @@ subjectPolicy : ∀ {u} →  Linkage RegulatoryDriver (PolicyFramework u)
 subjectPolicy = make_Relation "Subject Policy" "Subject Policy"
 
 postulate -- subjectPolicy is subTypeOf driverSubject
-  st-4b945a3d68a47b96-4b945a6e68a47bdf  : subjectPolicy  {lzero}  ⊏⋆ᵣ  driverSubject  {lzero}
+  st-4b945a3d68a47b96-4b945a6e68a47bdf  : subjectPolicy  ⊏⋆ᵣ  driverSubject

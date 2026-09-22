@@ -21,6 +21,7 @@ open import SysFEAT.EA.d9f677bb688e2127 public -- Conceptual Asset
 ConceptualFunctionalAsset : ClassOfClassOfBoundedIndividual
 ConceptualFunctionalAsset = ClassOfBoundedIndividual
 
+
 --  ConceptualFunctionalAsset is subTypeOf FunctionalAsset
 st-cb94ec53681855c2-a44fb6bc6748b088 : ConceptualFunctionalAsset ⊏ₑ FunctionalAsset
 st-cb94ec53681855c2-a44fb6bc6748b088 = polySubTypeOf-identity
@@ -29,4 +30,5 @@ st-cb94ec53681855c2-a44fb6bc6748b088 = polySubTypeOf-identity
 st-cb94ec53681855c2-d9f677bb688e2127 : ConceptualFunctionalAsset ⊏ₑ ConceptualAsset
 st-cb94ec53681855c2-d9f677bb688e2127 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

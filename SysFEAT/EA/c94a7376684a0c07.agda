@@ -24,4 +24,5 @@ ResourceOperationalAsset = ClassOfBoundedIndividual
 st-c94a7376684a0c07-f8e61da0621db6fa : ResourceOperationalAsset ⊏ₑ ResourceOperatingAsset
 st-c94a7376684a0c07-f8e61da0621db6fa = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

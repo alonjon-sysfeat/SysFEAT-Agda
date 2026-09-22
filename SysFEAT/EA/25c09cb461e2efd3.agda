@@ -28,12 +28,20 @@ SOftwareSystemScenario = ClassOfBoundedIndividual
 st-25c09cb461e2efd3-7a0a06c45ddf969e : SOftwareSystemScenario ⊏ₑ BusinessSystemInteractionProcess
 st-25c09cb461e2efd3-7a0a06c45ddf969e = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Application Flow: -}
 -- Aggregate Member : Application Flow
-ApplicationFlow : ClassOfClassOfIndividual
-ApplicationFlow = ClassOfIndividual
+ApplicationFlow : ClassOfClassOfBoundedIndividual
+ApplicationFlow = ClassOfBoundedIndividual
+
+
+
+--  ApplicationFlow is subTypeOf ResourceFlow
+st-25c1b5cf61e228e4-18a71e5b61e22d1d : ApplicationFlow ⊏ₑ ResourceFlow
+st-25c1b5cf61e228e4-18a71e5b61e22d1d = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfApplicationFlow :  Linkage SOftwareSystemScenario ApplicationFlow
@@ -51,14 +59,23 @@ aggregationOfInformationOutcomeEventApplicationFlow = make_Relation "Information
 applicationFlow : Linkage SOftwareSystemScenario InformationOutcomeEvent
 applicationFlow = membershipOfApplicationFlow  ∘  aggregationOfInformationOutcomeEventApplicationFlow
 
-postulate -- applicationFlow is subTypeOf resourceFlow
-  st-25c1b5cf61e228e4-18a71e5b61e22d1d  : applicationFlow   ⊏⋆ᵣ  resourceFlow 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Participant Software: -}
 -- Aggregate Member : Participant Software
-ParticipantSOftware : ClassOfClassOfIndividual
-ParticipantSOftware = ClassOfIndividual
+ParticipantSOftware : ClassOfClassOfBoundedIndividual
+ParticipantSOftware = ClassOfBoundedIndividual
+
+
+
+--  ParticipantSOftware is subTypeOf ParticipantBusinessAgent
+st-25c1b19061e21ed1-230b35ed61d88944 : ParticipantSOftware ⊏ₑ ParticipantBusinessAgent
+st-25c1b19061e21ed1-230b35ed61d88944 = polySubTypeOf-identity
+
+--  ParticipantSOftware is subTypeOf BusinessSOftwareSystem
+st-25c1b19061e21ed1-d6cd02865ab966e8 : ParticipantSOftware ⊏ₑ BusinessSOftwareSystem
+st-25c1b19061e21ed1-d6cd02865ab966e8 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfParticipantSOftware :  Linkage SOftwareSystemScenario ParticipantSOftware
@@ -76,6 +93,4 @@ aggregationOfBusinessSOftwareSystemParticipantSOftware = make_Relation "Business
 participantSOftware : Linkage SOftwareSystemScenario BusinessSOftwareSystem
 participantSOftware = membershipOfParticipantSOftware  ∘  aggregationOfBusinessSOftwareSystemParticipantSOftware
 
-postulate -- participantSOftware is subTypeOf participantBusinessAgent
-  st-25c1b19061e21ed1-230b35ed61d88944  : participantSOftware   ⊏⋆ᵣ  participantBusinessAgent 
 

@@ -30,32 +30,39 @@ open import SysFEAT.EA.f4be0e865ee1d53b public -- Facility
 DataCenter : ClassOfBoundedIndividual
 DataCenter = BoundedIndividual
 
+
 --  DataCenter is subTypeOf IndividualFacility
 st-9e38352f6192f750-c80a413e678594ec : DataCenter ⊏ₑ IndividualFacility
 st-9e38352f6192f750-c80a413e678594ec = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Hosted Application: -}
 hostedApplication :  Linkage DataCenter DeployedApplication
 hostedApplication = make_holonymyRelation "Hosted Application" "Hosted Application"
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Hosted Server: -}
 hostedServer :  Linkage DataCenter DeployedServer
 hostedServer = make_holonymyRelation "Hosted Server" "Hosted Server"
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Data Center Location: -}
 dataCenterLocation :  Linkage DataCenter Location
 dataCenterLocation = make_holonymyRelation "Data Center Location" "Data Center Location"
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Hosted Data Store: -}
 hostedDataStore :  Linkage DataCenter DeployedDataStore
 hostedDataStore = make_holonymyRelation "Hosted Data Store" "Hosted Data Store"
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Data Center Type: -}
 dataCenterType :  Linkage DataCenter Facility
 dataCenterType = make_instanceOf "Data Center Type" "Data Center Type"

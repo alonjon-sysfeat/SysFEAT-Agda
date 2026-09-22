@@ -21,21 +21,31 @@ open import SysFEAT.EA.229b34eb5b3f79d2 public -- Conceptual Entity
 ConceptView : ClassOfClassOfBoundedIndividual
 ConceptView = ClassOfBoundedIndividual
 
+
 --  ConceptView is subTypeOf ConceptualEntityAsset
 st-229b33d95b3f7993-362fc8045b3c3e65 : ConceptView ⊏ₑ ConceptualEntityAsset
 st-229b33d95b3f7993-362fc8045b3c3e65 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- View Specification: -}
 viewSpecification :  Linkage ConceptView ConceptualEntity
 viewSpecification = make_classOfHolonymy "View Specification" "View Specification"
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Embedding Member: -}
 -- Aggregate Member : Embedding Member
-EmbeddingMember : ClassOfClassOfIndividual
-EmbeddingMember = ClassOfIndividual
+EmbeddingMember : ClassOfClassOfBoundedIndividual
+EmbeddingMember = ClassOfBoundedIndividual
+
+
+
+--  EmbeddingMember is subTypeOf ConceptualEntityAsset
+st-dfa4e11c5ebb489a-362fc8045b3c3e65 : EmbeddingMember ⊏ₑ ConceptualEntityAsset
+st-dfa4e11c5ebb489a-362fc8045b3c3e65 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfEmbeddingMember :  Linkage ConceptView EmbeddingMember
@@ -55,10 +65,17 @@ embeddingMember = membershipOfEmbeddingMember  ∘  aggregationOfConceptualEntit
 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Referencing Member: -}
 -- Aggregate Member : Referencing Member
-ReferencingMember : ClassOfClassOfIndividual
-ReferencingMember = ClassOfIndividual
+ReferencingMember : ClassOfClassOfBoundedIndividual
+ReferencingMember = ClassOfBoundedIndividual
+
+
+
+--  ReferencingMember is subTypeOf ConceptualEntityAsset
+st-dfa4e1325ebb4926-362fc8045b3c3e65 : ReferencingMember ⊏ₑ ConceptualEntityAsset
+st-dfa4e1325ebb4926-362fc8045b3c3e65 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfReferencingMember :  Linkage ConceptView ReferencingMember

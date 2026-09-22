@@ -13,7 +13,7 @@ Documentation : https://framework.sysfeat.com/pages/75d07c2b5a1583f5.htm
 {-# OPTIONS --cubical --guardedness #-}
 module SysFEAT.EA.sysfeat-domain-75d07c2b5a1583f5 where -- ========== Privacy Assurance
 
-open import SysFEAT.SOF.sysfeat-domain-02f70fdc600f4179 public -- Policies
+open import SysFEAT.SOF.sysfeat-domain-02f70fdc600f4179 public -- Functional Asset and Operating Constraints
 open import SysFEAT.EA.sysfeat-domain-1ce356355c48c0e2 public -- People & Accountability
 open import SysFEAT.SOF.sysfeat-domain-d6cd2c8b5ab98da5 public -- Information Assets
 open import SysFEAT.SOF.sysfeat-domain-83bb9d706192357b public -- Appraisal Pattern

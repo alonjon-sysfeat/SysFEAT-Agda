@@ -21,20 +21,27 @@ open import SysFEAT..dd2638ba68a073a8 public -- Business Resource Capability Map
 open import SysFEAT.EA.dd26aa0568a1f939 public -- Functionality
 
 FunctionalityMap : PropertyType
-FunctionalityMap = ClassOfProperty
+FunctionalityMap = Property
 
 --  FunctionalityMap is subTypeOf BusinessResourceCapabilityMap
 st-dd26389d68a071f0-dd2638ba68a073a8 : FunctionalityMap ⊏ₑ BusinessResourceCapabilityMap
 st-dd26389d68a071f0-dd2638ba68a073a8 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Scoped Functionality: 
 Set of Functionalitys that are is the scope of a Functionality Map.
 -}
 -- Aggregate Member : Scoped Functionality
 ScopedFunctionality : ClassOfClassOfIndividual
 ScopedFunctionality = ClassOfIndividual
+
+
+--  ScopedFunctionality is subTypeOf BusinessResourceCapabilityMember
+st-dd26abe268a1ffbc-dd26a8b568a1f5be : ScopedFunctionality ⊏⋆ₑ BusinessResourceCapabilityMember
+st-dd26abe268a1ffbc-dd26a8b568a1f5be = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfScopedFunctionality :  Linkage FunctionalityMap ScopedFunctionality
@@ -52,6 +59,4 @@ aggregationOfFunctionalityScopedFunctionality = make_Relation "Functionality agg
 scopedFunctionality : Linkage FunctionalityMap Functionality
 scopedFunctionality = membershipOfScopedFunctionality  ∘  aggregationOfFunctionalityScopedFunctionality
 
-postulate -- scopedFunctionality is subTypeOf businessResourceCapabilityMember
-  st-dd26abe268a1ffbc-dd26a8b568a1f5be  : scopedFunctionality   ⊏⋆ᵣ  businessResourceCapabilityMember 
 

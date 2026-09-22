@@ -26,12 +26,19 @@ SOftwareDeploymentEnvironment = ClassOfBoundedIndividual
 st-108442775fce4918-d6cd0fd95ab9744b : SOftwareDeploymentEnvironment ⊏ₑ AgentTypeEnvironment
 st-108442775fce4918-d6cd0fd95ab9744b = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Technical Service Channel: -}
 -- Aggregate Member : Technical Service Channel
 TechnicalServiceChannel : ClassOfClassOfIndividual
 TechnicalServiceChannel = ClassOfIndividual
+
+
+--  TechnicalServiceChannel is subTypeOf ServiceChannel
+st-1084539e5fce58b5-80be29065fc2a83d : TechnicalServiceChannel ⊏ₑ ServiceChannel
+st-1084539e5fce58b5-80be29065fc2a83d = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfTechnicalServiceChannel :  Linkage SOftwareDeploymentEnvironment TechnicalServiceChannel
@@ -49,14 +56,23 @@ aggregationOfTechnologyInterfaceTechnicalServiceChannel = make_Relation "Technol
 technicalServiceChannel : Linkage SOftwareDeploymentEnvironment TechnologyInterface
 technicalServiceChannel = membershipOfTechnicalServiceChannel  ∘  aggregationOfTechnologyInterfaceTechnicalServiceChannel
 
-postulate -- technicalServiceChannel is subTypeOf serviceChannel
-  st-1084539e5fce58b5-80be29065fc2a83d  : technicalServiceChannel   ⊏⋆ᵣ  serviceChannel 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Operating Technical Artifact: -}
 -- Aggregate Member : Operating Technical Artifact
-OperatingTechnicalArtifact : ClassOfClassOfIndividual
-OperatingTechnicalArtifact = ClassOfIndividual
+OperatingTechnicalArtifact : ClassOfClassOfBoundedIndividual
+OperatingTechnicalArtifact = ClassOfBoundedIndividual
+
+
+
+--  OperatingTechnicalArtifact is subTypeOf ParticipantAgent
+st-108452655fce54ce-80be28965fc2a6b8 : OperatingTechnicalArtifact ⊏ₑ ParticipantAgent
+st-108452655fce54ce-80be28965fc2a6b8 = polySubTypeOf-identity
+
+--  OperatingTechnicalArtifact is subTypeOf ConcreteSOftwareSystem
+st-108452655fce54ce-24035cc65fc7ad7f : OperatingTechnicalArtifact ⊏ₑ ConcreteSOftwareSystem
+st-108452655fce54ce-24035cc65fc7ad7f = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfOperatingTechnicalArtifact :  Linkage SOftwareDeploymentEnvironment OperatingTechnicalArtifact
@@ -74,14 +90,23 @@ aggregationOfConcreteSOftwareSystemOperatingTechnicalArtifact = make_Relation "C
 operatingTechnicalArtifact : Linkage SOftwareDeploymentEnvironment ConcreteSOftwareSystem
 operatingTechnicalArtifact = membershipOfOperatingTechnicalArtifact  ∘  aggregationOfConcreteSOftwareSystemOperatingTechnicalArtifact
 
-postulate -- operatingTechnicalArtifact is subTypeOf participantAgent
-  st-108452655fce54ce-80be28965fc2a6b8  : operatingTechnicalArtifact   ⊏⋆ᵣ  participantAgent 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Subject Technical Artifact: -}
 -- Aggregate Member : Subject Technical Artifact
-SubjectTechnicalArtifact : ClassOfClassOfIndividual
-SubjectTechnicalArtifact = ClassOfIndividual
+SubjectTechnicalArtifact : ClassOfClassOfBoundedIndividual
+SubjectTechnicalArtifact = ClassOfBoundedIndividual
+
+
+
+--  SubjectTechnicalArtifact is subTypeOf SubjectAgent
+st-108452da5fce55f9-fa4ffc205ec86201 : SubjectTechnicalArtifact ⊏ₑ SubjectAgent
+st-108452da5fce55f9-fa4ffc205ec86201 = polySubTypeOf-identity
+
+--  SubjectTechnicalArtifact is subTypeOf ConcreteSOftwareSystem
+st-108452da5fce55f9-24035cc65fc7ad7f : SubjectTechnicalArtifact ⊏ₑ ConcreteSOftwareSystem
+st-108452da5fce55f9-24035cc65fc7ad7f = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSubjectTechnicalArtifact :  Linkage SOftwareDeploymentEnvironment SubjectTechnicalArtifact
@@ -99,14 +124,27 @@ aggregationOfConcreteSOftwareSystemSubjectTechnicalArtifact = make_Relation "Con
 subjectTechnicalArtifact : Linkage SOftwareDeploymentEnvironment ConcreteSOftwareSystem
 subjectTechnicalArtifact = membershipOfSubjectTechnicalArtifact  ∘  aggregationOfConcreteSOftwareSystemSubjectTechnicalArtifact
 
-postulate -- subjectTechnicalArtifact is subTypeOf subjectAgent
-  st-108452da5fce55f9-fa4ffc205ec86201  : subjectTechnicalArtifact   ⊏⋆ᵣ  subjectAgent 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Partner Technical Artifact: -}
 -- Aggregate Member : Partner Technical Artifact
-PartnerTechnicalArtifact : ClassOfClassOfIndividual
-PartnerTechnicalArtifact = ClassOfIndividual
+PartnerTechnicalArtifact : ClassOfClassOfBoundedIndividual
+PartnerTechnicalArtifact = ClassOfBoundedIndividual
+
+
+
+--  PartnerTechnicalArtifact is subTypeOf OperatingTechnicalArtifact
+st-1084535e5fce5779-108452655fce54ce : PartnerTechnicalArtifact ⊏ₑ OperatingTechnicalArtifact
+st-1084535e5fce5779-108452655fce54ce = polySubTypeOf-identity
+
+--  PartnerTechnicalArtifact is subTypeOf PartnerAgent
+st-1084535e5fce5779-fa4ffc235ec86276 : PartnerTechnicalArtifact ⊏ₑ PartnerAgent
+st-1084535e5fce5779-fa4ffc235ec86276 = polySubTypeOf-identity
+
+--  PartnerTechnicalArtifact is subTypeOf ConcreteSOftwareSystem
+st-1084535e5fce5779-24035cc65fc7ad7f : PartnerTechnicalArtifact ⊏ₑ ConcreteSOftwareSystem
+st-1084535e5fce5779-24035cc65fc7ad7f = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfPartnerTechnicalArtifact :  Linkage SOftwareDeploymentEnvironment PartnerTechnicalArtifact
@@ -124,8 +162,4 @@ aggregationOfConcreteSOftwareSystemPartnerTechnicalArtifact = make_Relation "Con
 partnerTechnicalArtifact : Linkage SOftwareDeploymentEnvironment ConcreteSOftwareSystem
 partnerTechnicalArtifact = membershipOfPartnerTechnicalArtifact  ∘  aggregationOfConcreteSOftwareSystemPartnerTechnicalArtifact
 
-postulate -- partnerTechnicalArtifact is subTypeOf operatingTechnicalArtifact
-  st-1084535e5fce5779-108452655fce54ce  : partnerTechnicalArtifact   ⊏⋆ᵣ  operatingTechnicalArtifact 
-postulate -- partnerTechnicalArtifact is subTypeOf partnerAgent
-  st-1084535e5fce5779-fa4ffc235ec86276  : partnerTechnicalArtifact   ⊏⋆ᵣ  partnerAgent 
 

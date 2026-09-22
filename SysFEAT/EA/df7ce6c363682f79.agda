@@ -20,11 +20,13 @@ module SysFEAT.EA.df7ce6c363682f79 where -- ========== Requirement
 open import Agda.Primitive
 open import SysFEAT.SOF.515c6a856893324e public -- Asset Property
 
-Requirement : ClassOfClassOfBoundedIndividual
-Requirement = ClassOfBoundedIndividual
+Requirement : AssetPropertyType
+Requirement = AssetProperty
+
 
 --  Requirement is subTypeOf AssetProperty
 st-df7ce6c363682f79-515c6a856893324e : Requirement ⊏ₑ AssetProperty
 st-df7ce6c363682f79-515c6a856893324e = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

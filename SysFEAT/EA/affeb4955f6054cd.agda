@@ -22,6 +22,7 @@ open import SysFEAT.EA.254e46f95f7f83ec public -- NoSQL Dataset
 DataSetSnapshot : ClassOfBoundedIndividual
 DataSetSnapshot = BoundedIndividual
 
+
 --  DataSetSnapshot is subTypeOf DeployedBusinessSystem
 st-affeb4955f6054cd-3642454f6007e80e : DataSetSnapshot ⊏ₑ DeployedBusinessSystem
 st-affeb4955f6054cd-3642454f6007e80e = polySubTypeOf-identity
@@ -30,13 +31,20 @@ st-affeb4955f6054cd-3642454f6007e80e = polySubTypeOf-identity
 st-affeb4955f6054cd-762580705f6bd560 : DataSetSnapshot ⊏ₑ DataSourceSnaphotItem
 st-affeb4955f6054cd-762580705f6bd560 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Data Field Snapshot: -}
 -- Aggregate Member : Data Field Snapshot
-DataFieldSnapshot : ClassOfOrderedEntity (lsuc(lzero))
-DataFieldSnapshot = AggregateMember (lsuc(lzero))
+DataFieldSnapshot : ClassOfBoundedIndividual
+DataFieldSnapshot = BoundedIndividual
 
+
+
+--  DataFieldSnapshot is subTypeOf DataSetSnapshot
+st-8339876768e33caa-affeb4955f6054cd : DataFieldSnapshot ⊏ₑ DataSetSnapshot
+st-8339876768e33caa-affeb4955f6054cd = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfDataFieldSnapshot :  Linkage DataSetSnapshot DataFieldSnapshot

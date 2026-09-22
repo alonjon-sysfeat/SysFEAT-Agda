@@ -23,26 +23,35 @@ open import Agda.Primitive
 open import SysFEAT.SOF.515c13db68953887 public -- Capability
 open import SysFEAT.EA.362fc8045b3c3e65 public -- Conceptual Entity Asset
 
-BusinessCapability : PropertyType
-BusinessCapability = ClassOfProperty
+BusinessCapability : AssetPropertyType
+BusinessCapability = AssetProperty
+
 
 --  BusinessCapability is subTypeOf Capability
 st-dd268f2868a08150-515c13db68953887 : BusinessCapability ⊏ₑ Capability
 st-dd268f2868a08150-515c13db68953887 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Business Capability: -}
 specializedBusinessCapability :  Linkage BusinessCapability BusinessCapability
 specializedBusinessCapability = make_subTypeOf "Specialized Business Capability" "Specialized Business Capability"
 
 postulate -- specializedBusinessCapability is subTypeOf specializedCapability
-  st-dd268fb668a081e6-01f11e77689b6b10  : specializedBusinessCapability   ⊏⋆ᵣ  specializedCapability 
+  st-dd268fb668a081e6-01f11e77689b6b10  : specializedBusinessCapability  ⊏⋆ᵣ  specializedCapability
 
+-- -------------------------------------------------------------------------------------------- 
 {- Involved Conceptual Object: -}
 -- Aggregate Member : Involved Conceptual Object
 InvolvedConceptualObject : ClassOfClassOfIndividual
 InvolvedConceptualObject = ClassOfIndividual
+
+
+--  InvolvedConceptualObject is subTypeOf InvolvedInformation
+st-dd2690df68a08308-01f11a37689b6677 : InvolvedConceptualObject ⊏ₑ InvolvedInformation
+st-dd2690df68a08308-01f11a37689b6677 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfInvolvedConceptualObject :  Linkage BusinessCapability InvolvedConceptualObject
@@ -60,6 +69,4 @@ aggregationOfConceptualEntityAssetInvolvedConceptualObject = make_Relation "Conc
 involvedConceptualObject : Linkage BusinessCapability ConceptualEntityAsset
 involvedConceptualObject = membershipOfInvolvedConceptualObject  ∘  aggregationOfConceptualEntityAssetInvolvedConceptualObject
 
-postulate -- involvedConceptualObject is subTypeOf involvedInformation
-  st-dd2690df68a08308-01f11a37689b6677  : involvedConceptualObject   ⊏⋆ᵣ  involvedInformation 
 

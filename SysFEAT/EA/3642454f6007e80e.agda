@@ -21,22 +21,35 @@ open import SysFEAT.EA.278675d65b252f4d public -- Business System
 DeployedBusinessSystem : ClassOfBoundedIndividual
 DeployedBusinessSystem = BoundedIndividual
 
+
 --  DeployedBusinessSystem is subTypeOf IndividualBusinessAgent
 st-3642454f6007e80e-66f8685a620b1440 : DeployedBusinessSystem ⊏ₑ IndividualBusinessAgent
 st-3642454f6007e80e-66f8685a620b1440 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Business System Type: -}
 businessSystemType :  Linkage DeployedBusinessSystem BusinessSystem
 businessSystemType = make_instanceOf "Business System Type" "Business System Type"
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Deployed System Component: -}
 -- Aggregate Member : Deployed System Component
-DeployedSystemComponent : ClassOfOrderedEntity (lsuc(lzero))
-DeployedSystemComponent = AggregateMember (lsuc(lzero))
+DeployedSystemComponent : AgentType
+DeployedSystemComponent = IndividualAgent
 
+
+
+--  DeployedSystemComponent is subTypeOf DeployedBusinessAgentPart
+st-9d38a3d061c41a2b-66f868de620b14e6 : DeployedSystemComponent ⊏ₑ DeployedBusinessAgentPart
+st-9d38a3d061c41a2b-66f868de620b14e6 = polySubTypeOf-identity
+
+--  DeployedSystemComponent is subTypeOf DeployedBusinessSystem
+st-9d38a3d061c41a2b-3642454f6007e80e : DeployedSystemComponent ⊏ₑ DeployedBusinessSystem
+st-9d38a3d061c41a2b-3642454f6007e80e = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfDeployedSystemComponent :  Linkage DeployedBusinessSystem DeployedSystemComponent
@@ -54,6 +67,4 @@ aggregationOfDeployedBusinessSystemDeployedSystemComponent = make_Relation "Depl
 deployedSystemComponent : Linkage DeployedBusinessSystem DeployedBusinessSystem
 deployedSystemComponent = membershipOfDeployedSystemComponent  ∘  aggregationOfDeployedBusinessSystemDeployedSystemComponent
 
-postulate -- deployedSystemComponent is subTypeOf deployedBusinessAgentPart
-  st-9d38a3d061c41a2b-66f868de620b14e6  : deployedSystemComponent   ⊏⋆ᵣ  deployedBusinessAgentPart 
 

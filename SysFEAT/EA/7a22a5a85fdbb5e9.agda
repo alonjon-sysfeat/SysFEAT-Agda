@@ -17,6 +17,6 @@ module SysFEAT.EA.7a22a5a85fdbb5e9 where -- ========== Risk Severity
 open import Agda.Primitive
 
 RiskSeverity : PropertyType
-RiskSeverity = ClassOfProperty
+RiskSeverity = Property
 
 

@@ -25,6 +25,7 @@ open import SysFEAT.EA.f4be0eda5ee1d6c0 public -- Computing System
 ApplicationDeploymentArchitecture : ClassOfClassOfBoundedIndividual
 ApplicationDeploymentArchitecture = ClassOfBoundedIndividual
 
+
 --  ApplicationDeploymentArchitecture is subTypeOf SOftwareDeploymentArchitecture
 st-d5e6d7c65c464ae3-10844c325fce4e80 : ApplicationDeploymentArchitecture ⊏ₑ SOftwareDeploymentArchitecture
 st-d5e6d7c65c464ae3-10844c325fce4e80 = polySubTypeOf-identity
@@ -33,12 +34,24 @@ st-d5e6d7c65c464ae3-10844c325fce4e80 = polySubTypeOf-identity
 st-d5e6d7c65c464ae3-bcebd8e9549144db : ApplicationDeploymentArchitecture ⊏ₑ Application
 st-d5e6d7c65c464ae3-bcebd8e9549144db = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Data Part: -}
 -- Aggregate Member : Data Part
-DataPart : ClassOfClassOfIndividual
-DataPart = ClassOfIndividual
+DataPart : ClassOfClassOfBoundedIndividual
+DataPart = ClassOfBoundedIndividual
+
+
+
+--  DataPart is subTypeOf PackageMember
+st-4c7802355fceb073-c993ce46602b668a : DataPart ⊏ₑ PackageMember
+st-4c7802355fceb073-c993ce46602b668a = polySubTypeOf-identity
+
+--  DataPart is subTypeOf DeployableDataPackage
+st-4c7802355fceb073-d5e6dc425c46518a : DataPart ⊏ₑ DeployableDataPackage
+st-4c7802355fceb073-d5e6dc425c46518a = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfDataPart :  Linkage ApplicationDeploymentArchitecture DataPart
@@ -56,16 +69,25 @@ aggregationOfDeployableDataPackageDataPart = make_Relation "DeployableDataPackag
 dataPart : Linkage ApplicationDeploymentArchitecture DeployableDataPackage
 dataPart = membershipOfDataPart  ∘  aggregationOfDeployableDataPackageDataPart
 
-postulate -- dataPart is subTypeOf packageMember
-  st-4c7802355fceb073-c993ce46602b668a  : dataPart   ⊏⋆ᵣ  packageMember 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Micro Service Part: 
 Role of a MicroService in an Application Deployment Architecture.
 -}
 -- Aggregate Member : Micro Service Part
-MicroServicePart : ClassOfClassOfIndividual
-MicroServicePart = ClassOfIndividual
+MicroServicePart : ClassOfClassOfBoundedIndividual
+MicroServicePart = ClassOfBoundedIndividual
+
+
+
+--  MicroServicePart is subTypeOf PackageMember
+st-cd7a3e5c5ff3d634-c993ce46602b668a : MicroServicePart ⊏ₑ PackageMember
+st-cd7a3e5c5ff3d634-c993ce46602b668a = polySubTypeOf-identity
+
+--  MicroServicePart is subTypeOf MicroService
+st-cd7a3e5c5ff3d634-d6a956495a395d28 : MicroServicePart ⊏ₑ MicroService
+st-cd7a3e5c5ff3d634-d6a956495a395d28 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfMicroServicePart :  Linkage ApplicationDeploymentArchitecture MicroServicePart
@@ -83,16 +105,25 @@ aggregationOfMicroServiceMicroServicePart = make_Relation "MicroService aggregat
 microServicePart : Linkage ApplicationDeploymentArchitecture MicroService
 microServicePart = membershipOfMicroServicePart  ∘  aggregationOfMicroServiceMicroServicePart
 
-postulate -- microServicePart is subTypeOf packageMember
-  st-cd7a3e5c5ff3d634-c993ce46602b668a  : microServicePart   ⊏⋆ᵣ  packageMember 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Application Part: 
 Role of a Deployable Application Package is an Application Deployment Architecture.
 -}
 -- Aggregate Member : Application Part
-ApplicationPart : ClassOfClassOfIndividual
-ApplicationPart = ClassOfIndividual
+ApplicationPart : ClassOfClassOfBoundedIndividual
+ApplicationPart = ClassOfBoundedIndividual
+
+
+
+--  ApplicationPart is subTypeOf PackageMember
+st-624e6a1a5ed97133-c993ce46602b668a : ApplicationPart ⊏ₑ PackageMember
+st-624e6a1a5ed97133-c993ce46602b668a = polySubTypeOf-identity
+
+--  ApplicationPart is subTypeOf DeployableApplicationPackage
+st-624e6a1a5ed97133-d5e6d7eb5c464b21 : ApplicationPart ⊏ₑ DeployableApplicationPackage
+st-624e6a1a5ed97133-d5e6d7eb5c464b21 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfApplicationPart :  Linkage ApplicationDeploymentArchitecture ApplicationPart
@@ -110,14 +141,19 @@ aggregationOfDeployableApplicationPackageApplicationPart = make_Relation "Deploy
 applicationPart : Linkage ApplicationDeploymentArchitecture DeployableApplicationPackage
 applicationPart = membershipOfApplicationPart  ∘  aggregationOfDeployableApplicationPackageApplicationPart
 
-postulate -- applicationPart is subTypeOf packageMember
-  st-624e6a1a5ed97133-c993ce46602b668a  : applicationPart   ⊏⋆ᵣ  packageMember 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Required Computing Capability: -}
 -- Aggregate Member : Required Computing Capability
-RequiredComputingCapability : ClassOfClassOfIndividual
-RequiredComputingCapability = ClassOfIndividual
+RequiredComputingCapability : ClassOfClassOfBoundedIndividual
+RequiredComputingCapability = ClassOfBoundedIndividual
+
+
+
+--  RequiredComputingCapability is subTypeOf ComputingSystem
+st-1b046a4c69f85fcc-f4be0eda5ee1d6c0 : RequiredComputingCapability ⊏ₑ ComputingSystem
+st-1b046a4c69f85fcc-f4be0eda5ee1d6c0 = polySubTypeOf-identity
 
 -- Membership relation
 1B046A4C69F8602C :  Linkage ApplicationDeploymentArchitecture RequiredComputingCapability

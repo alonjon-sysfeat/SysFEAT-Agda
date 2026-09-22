@@ -25,6 +25,7 @@ open import SysFEAT.SOF.d6cd116d5ab97525 public -- Information Domain
 ResourceAgentType : ClassOfClassOfBoundedIndividual
 ResourceAgentType = ClassOfBoundedIndividual
 
+
 --  ResourceAgentType is subTypeOf ResourceOperatingAsset
 st-e2ef091962147ad7-f8e61da0621db6fa : ResourceAgentType ⊏ₑ ResourceOperatingAsset
 st-e2ef091962147ad7-f8e61da0621db6fa = polySubTypeOf-identity
@@ -33,21 +34,29 @@ st-e2ef091962147ad7-f8e61da0621db6fa = polySubTypeOf-identity
 st-e2ef091962147ad7-79368381561716a6 : ResourceAgentType ⊏ₑ AgentType
 st-e2ef091962147ad7-79368381561716a6 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Business Operating Agent: -}
 specializedBusinessOperatingAgent :  Linkage ResourceAgentType ResourceAgentType
 specializedBusinessOperatingAgent = make_subTypeOf "Specialized Business Operating Agent" "Specialized Business Operating Agent"
 
 postulate -- specializedBusinessOperatingAgent is subTypeOf specializedAgent
-  st-325a377166f3470f-2b5b440b66ed56d4  : specializedBusinessOperatingAgent   ⊏⋆ᵣ  specializedAgent 
+  st-325a377166f3470f-2b5b440b66ed56d4  : specializedBusinessOperatingAgent  ⊏⋆ᵣ  specializedAgent
 postulate -- specializedBusinessOperatingAgent is subTypeOf specializedResourceOperatingAsset
-  st-325a377166f3470f-82a9879766ec3a29  : specializedBusinessOperatingAgent   ⊏⋆ᵣ  specializedResourceOperatingAsset 
+  st-325a377166f3470f-82a9879766ec3a29  : specializedBusinessOperatingAgent  ⊏⋆ᵣ  specializedResourceOperatingAsset
 
+-- -------------------------------------------------------------------------------------------- 
 {- Resource Connection: -}
 -- Aggregate Member : Resource Connection
 ResourceConnection : ClassOfClassOfIndividual
 ResourceConnection = ClassOfIndividual
+
+
+--  ResourceConnection is subTypeOf InteractionChannel
+st-e2c5927d61dee3e7-24ae34bb5ed1cb17 : ResourceConnection ⊏ₑ InteractionChannel
+st-e2c5927d61dee3e7-24ae34bb5ed1cb17 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfResourceConnection :  Linkage ResourceAgentType ResourceConnection
@@ -65,14 +74,27 @@ aggregationOfResourceServiceInterfaceResourceConnection = make_Relation "Resourc
 resourceConnection : Linkage ResourceAgentType ResourceServiceInterface
 resourceConnection = membershipOfResourceConnection  ∘  aggregationOfResourceServiceInterfaceResourceConnection
 
-postulate -- resourceConnection is subTypeOf interactionChannel
-  st-e2c5927d61dee3e7-24ae34bb5ed1cb17  : resourceConnection   ⊏⋆ᵣ  interactionChannel 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Resource Agent Part: -}
 -- Aggregate Member : Resource Agent Part
-ResourceAgentPart : ClassOfClassOfIndividual
-ResourceAgentPart = ClassOfIndividual
+ResourceAgentPart : ClassOfClassOfBoundedIndividual
+ResourceAgentPart = ClassOfBoundedIndividual
+
+
+
+--  ResourceAgentPart is subTypeOf AgentPart
+st-e2ef09de62147eb7-1da6216a5ebc65f7 : ResourceAgentPart ⊏ₑ AgentPart
+st-e2ef09de62147eb7-1da6216a5ebc65f7 = polySubTypeOf-identity
+
+--  ResourceAgentPart is subTypeOf ResourceOperatingAssetPart
+st-e2ef09de62147eb7-b776bf0868b0fbb3 : ResourceAgentPart ⊏ₑ ResourceOperatingAssetPart
+st-e2ef09de62147eb7-b776bf0868b0fbb3 = polySubTypeOf-identity
+
+--  ResourceAgentPart is subTypeOf ResourceAgentType
+st-e2ef09de62147eb7-e2ef091962147ad7 : ResourceAgentPart ⊏ₑ ResourceAgentType
+st-e2ef09de62147eb7-e2ef091962147ad7 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfResourceAgentPart :  Linkage ResourceAgentType ResourceAgentPart
@@ -90,18 +112,25 @@ aggregationOfResourceAgentTypeResourceAgentPart = make_Relation "ResourceAgentTy
 resourceAgentPart : Linkage ResourceAgentType ResourceAgentType
 resourceAgentPart = membershipOfResourceAgentPart  ∘  aggregationOfResourceAgentTypeResourceAgentPart
 
-postulate -- resourceAgentPart is subTypeOf agentPart
-  st-e2ef09de62147eb7-1da6216a5ebc65f7  : resourceAgentPart   ⊏⋆ᵣ  agentPart 
-postulate -- resourceAgentPart is subTypeOf resourceOperatingAssetPart
-  st-e2ef09de62147eb7-b776bf0868b0fbb3  : resourceAgentPart   ⊏⋆ᵣ  resourceOperatingAssetPart 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Performed Resource Scenario: 
 A Performed Resource Scenario is a Resource Interaction Process operated by a Resource Agent Type.
 -}
 -- Aggregate Member : Performed Resource Scenario
-PerformedResourceScenario : ClassOfClassOfIndividual
-PerformedResourceScenario = ClassOfIndividual
+PerformedResourceScenario : ClassOfClassOfBoundedIndividual
+PerformedResourceScenario = ClassOfBoundedIndividual
+
+
+
+--  PerformedResourceScenario is subTypeOf PerformedInteraction
+st-7d330fcd62824acd-07e737925eccd8f1 : PerformedResourceScenario ⊏ₑ PerformedInteraction
+st-7d330fcd62824acd-07e737925eccd8f1 = polySubTypeOf-identity
+
+--  PerformedResourceScenario is subTypeOf ResourceInteractionProcess
+st-7d330fcd62824acd-7d337d67628134c5 : PerformedResourceScenario ⊏ₑ ResourceInteractionProcess
+st-7d330fcd62824acd-7d337d67628134c5 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfPerformedResourceScenario :  Linkage ResourceAgentType PerformedResourceScenario
@@ -119,16 +148,25 @@ aggregationOfResourceInteractionProcessPerformedResourceScenario = make_Relation
 performedResourceScenario : Linkage ResourceAgentType ResourceInteractionProcess
 performedResourceScenario = membershipOfPerformedResourceScenario  ∘  aggregationOfResourceInteractionProcessPerformedResourceScenario
 
-postulate -- performedResourceScenario is subTypeOf performedInteraction
-  st-7d330fcd62824acd-07e737925eccd8f1  : performedResourceScenario   ⊏⋆ᵣ  performedInteraction 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Performed Resource Process: 
 A Performed Resource Process is a Resource Action Process operated by a Resource Agent Type.
 -}
 -- Aggregate Member : Performed Resource Process
-PerformedResourceProcess : ClassOfClassOfIndividual
-PerformedResourceProcess = ClassOfIndividual
+PerformedResourceProcess : ClassOfClassOfBoundedIndividual
+PerformedResourceProcess = ClassOfBoundedIndividual
+
+
+
+--  PerformedResourceProcess is subTypeOf PerformedProcess
+st-f8e61c7f621db43d-004b03b15ebd0fdb : PerformedResourceProcess ⊏ₑ PerformedProcess
+st-f8e61c7f621db43d-004b03b15ebd0fdb = polySubTypeOf-identity
+
+--  PerformedResourceProcess is subTypeOf ResourceActionProcess
+st-f8e61c7f621db43d-e2ef095b62147bf9 : PerformedResourceProcess ⊏ₑ ResourceActionProcess
+st-f8e61c7f621db43d-e2ef095b62147bf9 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfPerformedResourceProcess :  Linkage ResourceAgentType PerformedResourceProcess
@@ -146,14 +184,22 @@ aggregationOfResourceActionProcessPerformedResourceProcess = make_Relation "Reso
 performedResourceProcess : Linkage ResourceAgentType ResourceActionProcess
 performedResourceProcess = membershipOfPerformedResourceProcess  ∘  aggregationOfResourceActionProcessPerformedResourceProcess
 
-postulate -- performedResourceProcess is subTypeOf performedProcess
-  st-f8e61c7f621db43d-004b03b15ebd0fdb  : performedResourceProcess   ⊏⋆ᵣ  performedProcess 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Resource Store: -}
 -- Aggregate Member : Resource Store
 ResourceStore : ClassOfClassOfIndividual
 ResourceStore = ClassOfIndividual
+
+
+--  ResourceStore is subTypeOf InformationStore
+st-f8e7df39621f14b6-f4bee5925ee1be5b : ResourceStore ⊏ₑ InformationStore
+st-f8e7df39621f14b6-f4bee5925ee1be5b = polySubTypeOf-identity
+
+--  ResourceStore is subTypeOf InformationDomain
+st-f8e7df39621f14b6-d6cd116d5ab97525 : ResourceStore ⊏ₑ InformationDomain
+st-f8e7df39621f14b6-d6cd116d5ab97525 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfResourceStore :  Linkage ResourceAgentType ResourceStore
@@ -171,6 +217,4 @@ aggregationOfInformationDomainResourceStore = make_Relation "InformationDomain a
 resourceStore : Linkage ResourceAgentType InformationDomain
 resourceStore = membershipOfResourceStore  ∘  aggregationOfInformationDomainResourceStore
 
-postulate -- resourceStore is subTypeOf informationStore
-  st-f8e7df39621f14b6-f4bee5925ee1be5b  : resourceStore   ⊏⋆ᵣ  informationStore 
 

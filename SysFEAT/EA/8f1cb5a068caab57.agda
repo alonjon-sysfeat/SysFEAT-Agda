@@ -26,13 +26,16 @@ NoSQLDictionary u = MixedOrderEntity u
 st-8f1cb5a068caab57-8f1caa7f68ca98cc : ∀ {u v} → (NoSQLDictionary u) ⊏⋆ₑ (PhysicalDataDictionary v)
 st-8f1cb5a068caab57-8f1caa7f68ca98cc = trivialPolySubTypeOfEntity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Packaged NoSQL Block: -}
 packagedNoSQLBlock : ∀ {u} →  Linkage (NoSQLDictionary u) NoSQLDataAsset
 packagedNoSQLBlock = make_nestingRelation "Packaged NoSQL Block" "Packaged NoSQL Block"
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Required Software Technology: -}
 requiredSOftwareTechnology : ∀ {u} →  Linkage (NoSQLDictionary u) SOftwareTechnology
 requiredSOftwareTechnology = make_Relation "Required Software Technology" "Required Software Technology"

@@ -27,12 +27,20 @@ ApplicationSystemScenario = ClassOfBoundedIndividual
 st-e4c0e7285ed0625d-25c09cb461e2efd3 : ApplicationSystemScenario ⊏ₑ SOftwareSystemScenario
 st-e4c0e7285ed0625d-25c09cb461e2efd3 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Partner Application System: -}
 -- Aggregate Member : Partner Application System
-PartnerApplicationSystem : ClassOfClassOfIndividual
-PartnerApplicationSystem = ClassOfIndividual
+PartnerApplicationSystem : ClassOfClassOfBoundedIndividual
+PartnerApplicationSystem = ClassOfBoundedIndividual
+
+
+
+--  PartnerApplicationSystem is subTypeOf ApplicationSystem
+st-e4c0e7985ed064d2-46194ca7560d3a45 : PartnerApplicationSystem ⊏ₑ ApplicationSystem
+st-e4c0e7985ed064d2-46194ca7560d3a45 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfPartnerApplicationSystem :  Linkage ApplicationSystemScenario PartnerApplicationSystem

@@ -18,18 +18,21 @@ open import Agda.Primitive
 open import SysFEAT.EA.c80a54ad6785a44d public -- Individual Technology System
 open import SysFEAT.EA.0463ea9a63fd8b6c public -- Software Technology System
 
-DeployedSOftwareTechnologySystem : ClassOfBoundedIndividual
-DeployedSOftwareTechnologySystem = BoundedIndividual
+DeployedSOftwareTechnologySystem : AgentType
+DeployedSOftwareTechnologySystem = IndividualAgent
+
 
 --  DeployedSOftwareTechnologySystem is subTypeOf IndividualTechnologySystem
 st-2c93304a6764424d-c80a54ad6785a44d : DeployedSOftwareTechnologySystem ⊏ₑ IndividualTechnologySystem
 st-2c93304a6764424d-c80a54ad6785a44d = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Software Technology Type: -}
 sOftwareTechnologyType :  Linkage DeployedSOftwareTechnologySystem SOftwareTechnologySystem
 sOftwareTechnologyType = make_instanceOf "Software Technology Type" "Software Technology Type"
 
 postulate -- sOftwareTechnologyType is subTypeOf systemType
-  st-2c9330e06764470a-c80a5a2e6785a53e  : sOftwareTechnologyType   ⊏⋆ᵣ  systemType 
+  st-2c9330e06764470a-c80a5a2e6785a53e  : sOftwareTechnologyType  ⊏⋆ᵣ  systemType

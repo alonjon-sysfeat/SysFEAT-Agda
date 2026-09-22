@@ -25,12 +25,24 @@ NoSQLDataSchema = ClassOfBoundedIndividual
 st-028f05535b4f58b0-028f03ff5b4f55ee : NoSQLDataSchema ⊏ₑ PhysicalDataDomain
 st-028f05535b4f58b0-028f03ff5b4f55ee = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Included NoSQL Element: -}
 -- Aggregate Member : Included NoSQL Element
-IncludedNoSQLElement : ClassOfClassOfIndividual
-IncludedNoSQLElement = ClassOfIndividual
+IncludedNoSQLElement : ClassOfClassOfBoundedIndividual
+IncludedNoSQLElement = ClassOfBoundedIndividual
+
+
+
+--  IncludedNoSQLElement is subTypeOf PhysicalDomainObject
+st-82c3bfa05fdcccb5-e6f223f55f771b8d : IncludedNoSQLElement ⊏ₑ PhysicalDomainObject
+st-82c3bfa05fdcccb5-e6f223f55f771b8d = polySubTypeOf-identity
+
+--  IncludedNoSQLElement is subTypeOf NoSQLElement
+st-82c3bfa05fdcccb5-8180baa3600110c8 : IncludedNoSQLElement ⊏ₑ NoSQLElement
+st-82c3bfa05fdcccb5-8180baa3600110c8 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfIncludedNoSQLElement :  Linkage NoSQLDataSchema IncludedNoSQLElement
@@ -48,6 +60,4 @@ aggregationOfNoSQLElementIncludedNoSQLElement = make_Relation "NoSQLElement aggr
 includedNoSQLElement : Linkage NoSQLDataSchema NoSQLElement
 includedNoSQLElement = membershipOfIncludedNoSQLElement  ∘  aggregationOfNoSQLElementIncludedNoSQLElement
 
-postulate -- includedNoSQLElement is subTypeOf physicalDomainObject
-  st-82c3bfa05fdcccb5-e6f223f55f771b8d  : includedNoSQLElement   ⊏⋆ᵣ  physicalDomainObject 
 

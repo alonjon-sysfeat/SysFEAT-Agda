@@ -22,6 +22,7 @@ open import SysFEAT.EA.624e6ac55ed972a7 public -- Physical Software Interface
 SOftwareTechnologySystem : ClassOfClassOfBoundedIndividual
 SOftwareTechnologySystem = ClassOfBoundedIndividual
 
+
 --  SOftwareTechnologySystem is subTypeOf TechnologySystem
 st-0463ea9a63fd8b6c-0cbd1fa663fe18ac : SOftwareTechnologySystem ⊏ₑ TechnologySystem
 st-0463ea9a63fd8b6c-0cbd1fa663fe18ac = polySubTypeOf-identity
@@ -30,12 +31,19 @@ st-0463ea9a63fd8b6c-0cbd1fa663fe18ac = polySubTypeOf-identity
 st-0463ea9a63fd8b6c-24035cc65fc7ad7f : SOftwareTechnologySystem ⊏ₑ ConcreteSOftwareSystem
 st-0463ea9a63fd8b6c-24035cc65fc7ad7f = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Software Technology Connection: -}
 -- Aggregate Member : Software Technology Connection
 SOftwareTechnologyConnection : ClassOfClassOfIndividual
 SOftwareTechnologyConnection = ClassOfIndividual
+
+
+--  SOftwareTechnologyConnection is subTypeOf TechnologyConnection
+st-24035f005fc7b0ef-d1600add62e090a8 : SOftwareTechnologyConnection ⊏ₑ TechnologyConnection
+st-24035f005fc7b0ef-d1600add62e090a8 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSOftwareTechnologyConnection :  Linkage SOftwareTechnologySystem SOftwareTechnologyConnection
@@ -53,16 +61,25 @@ aggregationOfPhysicalSOftwareInterfaceSOftwareTechnologyConnection = make_Relati
 sOftwareTechnologyConnection : Linkage SOftwareTechnologySystem PhysicalSOftwareInterface
 sOftwareTechnologyConnection = membershipOfSOftwareTechnologyConnection  ∘  aggregationOfPhysicalSOftwareInterfaceSOftwareTechnologyConnection
 
-postulate -- sOftwareTechnologyConnection is subTypeOf technologyConnection
-  st-24035f005fc7b0ef-d1600add62e090a8  : sOftwareTechnologyConnection   ⊏⋆ᵣ  technologyConnection 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Software System Part: 
 Kind of artifact that provides technical functionalities to other artifacts and that is not directly used by humans to achieve their duty.
 -}
 -- Aggregate Member : Software System Part
-SOftwareSystemPart : ClassOfClassOfIndividual
-SOftwareSystemPart = ClassOfIndividual
+SOftwareSystemPart : ClassOfClassOfBoundedIndividual
+SOftwareSystemPart = ClassOfBoundedIndividual
+
+
+
+--  SOftwareSystemPart is subTypeOf TechnologySystemMember
+st-24035e705fc7afb1-d1600a8f62e08fb2 : SOftwareSystemPart ⊏ₑ TechnologySystemMember
+st-24035e705fc7afb1-d1600a8f62e08fb2 = polySubTypeOf-identity
+
+--  SOftwareSystemPart is subTypeOf SOftwareTechnologySystem
+st-24035e705fc7afb1-0463ea9a63fd8b6c : SOftwareSystemPart ⊏ₑ SOftwareTechnologySystem
+st-24035e705fc7afb1-0463ea9a63fd8b6c = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSOftwareSystemPart :  Linkage SOftwareTechnologySystem SOftwareSystemPart
@@ -80,6 +97,4 @@ aggregationOfSOftwareTechnologySystemSOftwareSystemPart = make_Relation "SOftwar
 sOftwareSystemPart : Linkage SOftwareTechnologySystem SOftwareTechnologySystem
 sOftwareSystemPart = membershipOfSOftwareSystemPart  ∘  aggregationOfSOftwareTechnologySystemSOftwareSystemPart
 
-postulate -- sOftwareSystemPart is subTypeOf technologySystemMember
-  st-24035e705fc7afb1-d1600a8f62e08fb2  : sOftwareSystemPart   ⊏⋆ᵣ  technologySystemMember 
 

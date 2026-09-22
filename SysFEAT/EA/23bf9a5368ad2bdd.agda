@@ -19,18 +19,21 @@ open import SysFEAT.EA.23bf9a7868ad2d94 public -- Business Resource Rule
 open import SysFEAT.EA.6d2b7c935fbb6270 public -- Data Asset
 
 SystemRule : PropertyType
-SystemRule = ClassOfProperty
+SystemRule = Property
 
 --  SystemRule is subTypeOf BusinessResourceRule
 st-23bf9a5368ad2bdd-23bf9a7868ad2d94 : SystemRule ⊏ₑ BusinessResourceRule
 st-23bf9a5368ad2bdd-23bf9a7868ad2d94 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- System Rule Subject: -}
 -- Aggregate Member : System Rule Subject
 SystemRuleSubject : ClassOfClassOfIndividual
 SystemRuleSubject = ClassOfIndividual
+
 
 -- Membership relation
 membershipOfSystemRuleSubject :  Linkage SystemRule SystemRuleSubject

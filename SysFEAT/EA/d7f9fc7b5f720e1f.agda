@@ -21,6 +21,7 @@ open import SysFEAT.EA.b90ac213600e39bb public -- Data Governance Block
 DataIssue : ClassOfBoundedIndividual
 DataIssue = BoundedIndividual
 
+
 --  DataIssue is subTypeOf Incident
 st-d7f9fc7b5f720e1f-d059da695ef11294 : DataIssue ⊏ₑ Incident
 st-d7f9fc7b5f720e1f-d059da695ef11294 = polySubTypeOf-identity
@@ -29,4 +30,5 @@ st-d7f9fc7b5f720e1f-d059da695ef11294 = polySubTypeOf-identity
 st-d7f9fc7b5f720e1f-b90ac213600e39bb : DataIssue ⊏ₑ DataGovernanceBlock
 st-d7f9fc7b5f720e1f-b90ac213600e39bb = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

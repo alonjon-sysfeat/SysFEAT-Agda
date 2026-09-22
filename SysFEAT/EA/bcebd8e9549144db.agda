@@ -30,6 +30,7 @@ open import SysFEAT.EA.d6a956495a395d28 public -- MicroService
 Application : ClassOfClassOfBoundedIndividual
 Application = ClassOfBoundedIndividual
 
+
 --  Application is subTypeOf SOftwareModule
 st-bcebd8e9549144db-c30bdac25a5d9eaf : Application ⊏ₑ SOftwareModule
 st-bcebd8e9549144db-c30bdac25a5d9eaf = polySubTypeOf-identity
@@ -38,23 +39,36 @@ st-bcebd8e9549144db-c30bdac25a5d9eaf = polySubTypeOf-identity
 st-bcebd8e9549144db-f160fb6267d72652 : Application ⊏ₑ MezzoBusinessSystem
 st-bcebd8e9549144db-f160fb6267d72652 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Application: -}
 specializedApplication :  Linkage Application Application
 specializedApplication = make_subTypeOf "Specialized Application" "Specialized Application"
 
 postulate -- specializedApplication is subTypeOf specializedBusinessSystem
-  st-820fb49566f27d6f-325a375d66f34096  : specializedApplication   ⊏⋆ᵣ  specializedBusinessSystem 
+  st-820fb49566f27d6f-325a375d66f34096  : specializedApplication  ⊏⋆ᵣ  specializedBusinessSystem
 postulate -- specializedApplication is subTypeOf specializedSOftwareSystem
-  st-820fb49566f27d6f-325a376566f342e8  : specializedApplication   ⊏⋆ᵣ  specializedSOftwareSystem 
+  st-820fb49566f27d6f-325a376566f342e8  : specializedApplication  ⊏⋆ᵣ  specializedSOftwareSystem
 
+-- -------------------------------------------------------------------------------------------- 
 {- Micro-Service Part: 
 The embbding of MicroService a into an Application.As MicroServices are selft deployable packages, Applications made of MicroServices can be incrementally updated and deployed.
 -}
 -- Aggregate Member : Micro-Service Part
-MicroServicePart : ClassOfClassOfIndividual
-MicroServicePart = ClassOfIndividual
+MicroServicePart : ClassOfClassOfBoundedIndividual
+MicroServicePart = ClassOfBoundedIndividual
+
+
+
+--  MicroServicePart is subTypeOf SOftwarePart
+st-45de6d1e618efb7f-173f4d015eb8c686 : MicroServicePart ⊏ₑ SOftwarePart
+st-45de6d1e618efb7f-173f4d015eb8c686 = polySubTypeOf-identity
+
+--  MicroServicePart is subTypeOf MicroService
+st-45de6d1e618efb7f-d6a956495a395d28 : MicroServicePart ⊏ₑ MicroService
+st-45de6d1e618efb7f-d6a956495a395d28 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfMicroServicePart :  Linkage Application MicroServicePart
@@ -72,6 +86,4 @@ aggregationOfMicroServiceMicroServicePart = make_Relation "MicroService aggregat
 microServicePart : Linkage Application MicroService
 microServicePart = membershipOfMicroServicePart  ∘  aggregationOfMicroServiceMicroServicePart
 
-postulate -- microServicePart is subTypeOf sOftwarePart
-  st-45de6d1e618efb7f-173f4d015eb8c686  : microServicePart   ⊏⋆ᵣ  sOftwarePart 
 

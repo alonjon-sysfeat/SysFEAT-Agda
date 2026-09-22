@@ -18,15 +18,18 @@ open import Agda.Primitive
 open import SysFEAT.EA.fe1c231267880201 public -- Individual Resource Agent
 open import SysFEAT.EA.0cbd1fa663fe18ac public -- Technology System
 
-IndividualTechnologySystem : ClassOfBoundedIndividual
-IndividualTechnologySystem = BoundedIndividual
+IndividualTechnologySystem : AgentType
+IndividualTechnologySystem = IndividualAgent
+
 
 --  IndividualTechnologySystem is subTypeOf IndividualResourceAgent
 st-c80a54ad6785a44d-fe1c231267880201 : IndividualTechnologySystem ⊏ₑ IndividualResourceAgent
 st-c80a54ad6785a44d-fe1c231267880201 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- System Type: -}
 systemType :  Linkage IndividualTechnologySystem TechnologySystem
 systemType = make_instanceOf "System Type" "System Type"

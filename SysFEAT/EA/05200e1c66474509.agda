@@ -18,8 +18,8 @@ open import Agda.Primitive
 open import SysFEAT.SOF.e78c5eb0661989f9 public -- Initiative Stage
 open import SysFEAT.EA.05201b936647570a public -- Management Initiative
 
-ManagementStage : StateClass
-ManagementStage = StateConcept
+ManagementStage : ClassOfBoundedIndividual
+ManagementStage = BoundedIndividual
 
 
 --  ManagementStage is subTypeOf InitiativeStage
@@ -30,4 +30,5 @@ st-05200e1c66474509-e78c5eb0661989f9 = polySubTypeOf-identity
 st-05200e1c66474509-05201b936647570a : ManagementStage ⊏ₑ ManagementInitiative
 st-05200e1c66474509-05201b936647570a = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

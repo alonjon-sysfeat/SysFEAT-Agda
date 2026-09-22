@@ -24,4 +24,5 @@ BusinessPartner = ClassOfBoundedIndividual
 st-08d17cde678a2b47-bcebd31f5491302c : BusinessPartner ⊏ₑ BusinessAgentType
 st-08d17cde678a2b47-bcebd31f5491302c = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

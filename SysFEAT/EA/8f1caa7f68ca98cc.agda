@@ -25,8 +25,10 @@ PhysicalDataDictionary u = MixedOrderEntity u
 st-8f1caa7f68ca98cc-67d376e36aa45056 : ∀ {u} → (PhysicalDataDictionary u) ⊏ₘₑ DataDictionary
 st-8f1caa7f68ca98cc-67d376e36aa45056 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Packaged Physical Data Block: -}
 packagedPhysicalDataBlock : ∀ {u v} →  Linkage (PhysicalDataDictionary u) (PhysicalDataBlock v)
 packagedPhysicalDataBlock = make_nestingRelation "Packaged Physical Data Block" "Packaged Physical Data Block"

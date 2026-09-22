@@ -22,23 +22,37 @@ open import SysFEAT.EA.278675d65b252f4d public -- Business System
 BusinessSystemEnvironmentSxcenario : ClassOfClassOfBoundedIndividual
 BusinessSystemEnvironmentSxcenario = ClassOfBoundedIndividual
 
+
 --  BusinessSystemEnvironmentSxcenario is subTypeOf BusinessEnvironmentScenario
 st-4edf5eab5fc58ef3-2b6f337e61bae6d6 : BusinessSystemEnvironmentSxcenario ⊏ₑ BusinessEnvironmentScenario
 st-4edf5eab5fc58ef3-2b6f337e61bae6d6 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Scenarized System Environment: -}
 scenarizedSystemEnvironment :  Linkage BusinessSystemEnvironmentSxcenario BusinessSystemEnvironment
 scenarizedSystemEnvironment = make_classOfHolonymy "Scenarized System Environment" "Scenarized System Environment"
 
 postulate -- scenarizedSystemEnvironment is subTypeOf scenarizedBusinessEnvironment
-  st-25c1a95361e21158-2b6f37c161baeeed  : scenarizedSystemEnvironment   ⊏⋆ᵣ  scenarizedBusinessEnvironment 
+  st-25c1a95361e21158-2b6f37c161baeeed  : scenarizedSystemEnvironment  ⊏⋆ᵣ  scenarizedBusinessEnvironment
 
+-- -------------------------------------------------------------------------------------------- 
 {- Subject System: -}
 -- Aggregate Member : Subject System
-SubjectSystem : ClassOfClassOfIndividual
-SubjectSystem = ClassOfIndividual
+SubjectSystem : ClassOfClassOfBoundedIndividual
+SubjectSystem = ClassOfBoundedIndividual
+
+
+
+--  SubjectSystem is subTypeOf SubjectResourceAgent
+st-4edf5f1f5fc590f0-2b6f5c4161bafdfd : SubjectSystem ⊏ₑ SubjectResourceAgent
+st-4edf5f1f5fc590f0-2b6f5c4161bafdfd = polySubTypeOf-identity
+
+--  SubjectSystem is subTypeOf BusinessSystem
+st-4edf5f1f5fc590f0-278675d65b252f4d : SubjectSystem ⊏ₑ BusinessSystem
+st-4edf5f1f5fc590f0-278675d65b252f4d = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSubjectSystem :  Linkage BusinessSystemEnvironmentSxcenario SubjectSystem
@@ -56,14 +70,27 @@ aggregationOfBusinessSystemSubjectSystem = make_Relation "BusinessSystem aggrega
 subjectSystem : Linkage BusinessSystemEnvironmentSxcenario BusinessSystem
 subjectSystem = membershipOfSubjectSystem  ∘  aggregationOfBusinessSystemSubjectSystem
 
-postulate -- subjectSystem is subTypeOf subjectResourceAgent
-  st-4edf5f1f5fc590f0-2b6f5c4161bafdfd  : subjectSystem   ⊏⋆ᵣ  subjectResourceAgent 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Partner System: -}
 -- Aggregate Member : Partner System
-PartnerSystem : ClassOfClassOfIndividual
-PartnerSystem = ClassOfIndividual
+PartnerSystem : ClassOfClassOfBoundedIndividual
+PartnerSystem = ClassOfBoundedIndividual
+
+
+
+--  PartnerSystem is subTypeOf ParticipantSystem
+st-4edf5f445fc591d8-4edf5fa95fc593f0 : PartnerSystem ⊏ₑ ParticipantSystem
+st-4edf5f445fc591d8-4edf5fa95fc593f0 = polySubTypeOf-identity
+
+--  PartnerSystem is subTypeOf PartnerResourceAgent
+st-4edf5f445fc591d8-2b6f35bc61baecc4 : PartnerSystem ⊏ₑ PartnerResourceAgent
+st-4edf5f445fc591d8-2b6f35bc61baecc4 = polySubTypeOf-identity
+
+--  PartnerSystem is subTypeOf BusinessSystem
+st-4edf5f445fc591d8-278675d65b252f4d : PartnerSystem ⊏ₑ BusinessSystem
+st-4edf5f445fc591d8-278675d65b252f4d = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfPartnerSystem :  Linkage BusinessSystemEnvironmentSxcenario PartnerSystem
@@ -81,16 +108,23 @@ aggregationOfBusinessSystemPartnerSystem = make_Relation "BusinessSystem aggrega
 partnerSystem : Linkage BusinessSystemEnvironmentSxcenario BusinessSystem
 partnerSystem = membershipOfPartnerSystem  ∘  aggregationOfBusinessSystemPartnerSystem
 
-postulate -- partnerSystem is subTypeOf participantSystem
-  st-4edf5f445fc591d8-4edf5fa95fc593f0  : partnerSystem   ⊏⋆ᵣ  participantSystem 
-postulate -- partnerSystem is subTypeOf partnerResourceAgent
-  st-4edf5f445fc591d8-2b6f35bc61baecc4  : partnerSystem   ⊏⋆ᵣ  partnerResourceAgent 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Participant System: -}
 -- Aggregate Member : Participant System
-ParticipantSystem : ClassOfClassOfIndividual
-ParticipantSystem = ClassOfIndividual
+ParticipantSystem : ClassOfClassOfBoundedIndividual
+ParticipantSystem = ClassOfBoundedIndividual
+
+
+
+--  ParticipantSystem is subTypeOf ParticipantEnterpriseAgent
+st-4edf5fa95fc593f0-2b6f3bf061baf60a : ParticipantSystem ⊏ₑ ParticipantEnterpriseAgent
+st-4edf5fa95fc593f0-2b6f3bf061baf60a = polySubTypeOf-identity
+
+--  ParticipantSystem is subTypeOf BusinessSystem
+st-4edf5fa95fc593f0-278675d65b252f4d : ParticipantSystem ⊏ₑ BusinessSystem
+st-4edf5fa95fc593f0-278675d65b252f4d = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfParticipantSystem :  Linkage BusinessSystemEnvironmentSxcenario ParticipantSystem
@@ -108,6 +142,4 @@ aggregationOfBusinessSystemParticipantSystem = make_Relation "BusinessSystem agg
 participantSystem : Linkage BusinessSystemEnvironmentSxcenario BusinessSystem
 participantSystem = membershipOfParticipantSystem  ∘  aggregationOfBusinessSystemParticipantSystem
 
-postulate -- participantSystem is subTypeOf participantEnterpriseAgent
-  st-4edf5fa95fc593f0-2b6f3bf061baf60a  : participantSystem   ⊏⋆ᵣ  participantEnterpriseAgent 
 

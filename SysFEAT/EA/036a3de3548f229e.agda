@@ -27,12 +27,15 @@ open import SysFEAT.EA.56ea5ff966047632 public -- Product
 EnterpriseInitiative : ClassOfBoundedIndividual
 EnterpriseInitiative = BoundedIndividual
 
+
 --  EnterpriseInitiative is subTypeOf Initiative
 st-036a3de3548f229e-0ffeec41600be08a : EnterpriseInitiative ⊏ₑ Initiative
 st-036a3de3548f229e-0ffeec41600be08a = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Enterprise Concept Map: 
 Top level concept map of the enterprise or of one its transformation stages.
 -}
@@ -40,6 +43,7 @@ enterpriseConceptMap :  Linkage EnterpriseInitiative ConceptDomainMap
 enterpriseConceptMap = make_Relation "Enterprise Concept Map" "Enterprise Concept Map"
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Enterprise IT Ecosystem: 
 Software System Environment of the enterprise or of one of its transformation stage.
 -}
@@ -47,6 +51,7 @@ enterpriseITEcosystem :  Linkage EnterpriseInitiative SOftwareSystemEnvironment
 enterpriseITEcosystem = make_Relation "Enterprise IT Ecosystem" "Enterprise IT Ecosystem"
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Enterprise Conceptual Environment: 
 Conceptual Environment of the enterprise or of one of its transformation stages.This Conceptual Environment defines the enterprise Conceptual Environments ()
 -}
@@ -54,20 +59,31 @@ enterpriseConceptualEnvironment :  Linkage EnterpriseInitiative ConceptualEnviro
 enterpriseConceptualEnvironment = make_Relation "Enterprise Conceptual Environment" "Enterprise Conceptual Environment"
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Enterprise Capability Map: -}
 enterpriseCapabilityMap :  Linkage EnterpriseInitiative BusinessCapabilityMap
 enterpriseCapabilityMap = make_instanceOf "Enterprise Capability Map" "Enterprise Capability Map"
 
 postulate -- enterpriseCapabilityMap is subTypeOf functionalScope
-  st-c189f8fd68ae5ba0-01f1214c689b6e0f  : enterpriseCapabilityMap   ⊏⋆ᵣ  functionalScope 
+  st-c189f8fd68ae5ba0-01f1214c689b6e0f  : enterpriseCapabilityMap  ⊏⋆ᵣ  functionalScope
 
+-- -------------------------------------------------------------------------------------------- 
 {- Enterprise Course of Action: 
 A plan recognized by an enterprise as being essential to achieving its goals - i.e. a strategic specification of what the enterprise does. In other words, a Course of Action channels efforts towards Desired Results.Business Capabilities might be required by an Enterprise to conduct its Courses of Action.
 -}
 -- Aggregate Member : Enterprise Course of Action
-EnterpriseCourseOfAction : ClassOfOrderedEntity (lsuc(lzero))
-EnterpriseCourseOfAction = AggregateMember (lsuc(lzero))
+EnterpriseCourseOfAction : AggregateHolonymyType
+EnterpriseCourseOfAction = AggregateHolonymy
 
+
+
+--  EnterpriseCourseOfAction is subTypeOf CourseOfAction
+st-dd2696c768a1d406-a56baa0c689c4e7a : EnterpriseCourseOfAction ⊏ₑ CourseOfAction
+st-dd2696c768a1d406-a56baa0c689c4e7a = polySubTypeOf-identity
+
+--  EnterpriseCourseOfAction is subTypeOf IndividualResourceBehavior
+st-dd2696c768a1d406-fe1c250d678803b6 : EnterpriseCourseOfAction ⊏ₑ IndividualResourceBehavior
+st-dd2696c768a1d406-fe1c250d678803b6 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfEnterpriseCourseOfAction :  Linkage EnterpriseInitiative EnterpriseCourseOfAction
@@ -85,14 +101,18 @@ aggregationOfIndividualResourceBehaviorEnterpriseCourseOfAction = make_Relation 
 enterpriseCourseOfAction : Linkage EnterpriseInitiative IndividualResourceBehavior
 enterpriseCourseOfAction = membershipOfEnterpriseCourseOfAction  ∘  aggregationOfIndividualResourceBehaviorEnterpriseCourseOfAction
 
-postulate -- enterpriseCourseOfAction is subTypeOf courseOfAction
-  st-dd2696c768a1d406-a56baa0c689c4e7a  : enterpriseCourseOfAction   ⊏⋆ᵣ  courseOfAction 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Enterprise Desired Result: -}
 -- Aggregate Member : Enterprise Desired Result
 EnterpriseDesiredResult : ClassOfClassOfIndividual
 EnterpriseDesiredResult = ClassOfIndividual
+
+
+--  EnterpriseDesiredResult is subTypeOf DesiredResult
+st-dd26979d68a1d56f-a56ba5d1689c4ba1 : EnterpriseDesiredResult ⊏⋆ₑ DesiredResult
+st-dd26979d68a1d56f-a56ba5d1689c4ba1 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfEnterpriseDesiredResult :  Linkage EnterpriseInitiative EnterpriseDesiredResult
@@ -110,14 +130,18 @@ aggregationOfValuePropositionEnterpriseDesiredResult = make_Relation "ValuePropo
 enterpriseDesiredResult : Linkage EnterpriseInitiative ValueProposition
 enterpriseDesiredResult = membershipOfEnterpriseDesiredResult  ∘  aggregationOfValuePropositionEnterpriseDesiredResult
 
-postulate -- enterpriseDesiredResult is subTypeOf desiredResult
-  st-dd26979d68a1d56f-a56ba5d1689c4ba1  : enterpriseDesiredResult   ⊏⋆ᵣ  desiredResult 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Product: -}
 -- Aggregate Member : Product
 Product : ClassOfClassOfIndividual
 Product = ClassOfIndividual
+
+
+--  Product withAspect InitiativeSubject
+st-dd269ae968a1db15-0f642fd06859b0d5 : Product ⊏ₐₑ (InitiativeSubject (lsuc(lzero)))
+st-dd269ae968a1db15-0f642fd06859b0d5 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfProduct :  Linkage EnterpriseInitiative Product
@@ -135,6 +159,4 @@ aggregationOfProductProduct = make_Relation "Product aggregation" "aggregated Pr
 product : Linkage EnterpriseInitiative Product
 product = membershipOfProduct  ∘  aggregationOfProductProduct
 
-postulate -- product is subTypeOf initiativeSubject
-  st-dd269ae968a1db15-0f642fd06859b0d5  : product   ⊏⋆ᵣ  initiativeSubject  {lzero}
 

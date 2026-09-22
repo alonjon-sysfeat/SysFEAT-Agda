@@ -24,4 +24,5 @@ BusinessLine = ClassOfBoundedIndividual
 st-ae7c99be60234bcf-f69620466a0f9c2f : BusinessLine ⊏ₐₑ (AssetCategory (lsuc(lzero)))
 st-ae7c99be60234bcf-f69620466a0f9c2f = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

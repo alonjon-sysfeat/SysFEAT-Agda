@@ -19,6 +19,6 @@ module SysFEAT.EA.42bb815662d2ff3c where -- ========== Mission
 open import Agda.Primitive
 
 Mission : PropertyType
-Mission = ClassOfProperty
+Mission = Property
 
 

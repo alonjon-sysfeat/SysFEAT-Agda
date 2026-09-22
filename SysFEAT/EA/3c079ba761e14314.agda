@@ -25,8 +25,10 @@ StoredProcedure = ClassOfBoundedIndividual
 st-3c079ba761e14314-7731894d62166495 : StoredProcedure ⊏⋆ₑ RelationalDatabLOCK
 st-3c079ba761e14314-7731894d62166495 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Referenced Entity: -}
 referencedEntity :  Linkage StoredProcedure RelationalEntity
 referencedEntity = make_classOfHolonymy "Referenced Entity" "Referenced Entity"

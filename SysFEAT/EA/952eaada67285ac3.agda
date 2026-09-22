@@ -24,4 +24,5 @@ PolicyFrameworkCategory = SecondOrderClass
 st-952eaada67285ac3-952ea6c467285821 : PolicyFrameworkCategory ⊏ₑ PolicyCategory
 st-952eaada67285ac3-952ea6c467285821 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

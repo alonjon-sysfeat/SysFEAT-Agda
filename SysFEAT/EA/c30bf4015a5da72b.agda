@@ -28,6 +28,7 @@ open import SysFEAT.EA.02f51209641c7ea4 public -- Computing Device
 ConcreteHardwareSystem : ClassOfClassOfBoundedIndividual
 ConcreteHardwareSystem = ClassOfBoundedIndividual
 
+
 --  ConcreteHardwareSystem is subTypeOf PhysicalBusinessAgent
 st-c30bf4015a5da72b-be94e82f655c90e7 : ConcreteHardwareSystem ⊏ₑ PhysicalBusinessAgent
 st-c30bf4015a5da72b-be94e82f655c90e7 = polySubTypeOf-identity
@@ -40,8 +41,10 @@ st-c30bf4015a5da72b-ffdf60af68608674 = polySubTypeOf-identity
 st-c30bf4015a5da72b-278675d65b252f4d : ConcreteHardwareSystem ⊏ₑ BusinessSystem
 st-c30bf4015a5da72b-278675d65b252f4d = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Required Hardware Technology: 
 Set of Hardware Technology(ies) on which a Concrete Hardware System is based.
 -}
@@ -49,10 +52,16 @@ requiredHardwareTechnology :  Linkage ConcreteHardwareSystem HardwareTechnology
 requiredHardwareTechnology = make_classOfHolonymy "Required Hardware Technology" "Required Hardware Technology"
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Physical Interaction Channel: -}
 -- Aggregate Member : Physical Interaction Channel
 PhysicalInteractionChannel : ClassOfClassOfIndividual
 PhysicalInteractionChannel = ClassOfIndividual
+
+
+--  PhysicalInteractionChannel is subTypeOf BusinessConnection
+st-a503bb286229006f-1f942587622764f8 : PhysicalInteractionChannel ⊏ₑ BusinessConnection
+st-a503bb286229006f-1f942587622764f8 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfPhysicalInteractionChannel :  Linkage ConcreteHardwareSystem PhysicalInteractionChannel
@@ -70,14 +79,19 @@ aggregationOfPhysicalOutcomeEventPhysicalInteractionChannel = make_Relation "Phy
 physicalInteractionChannel : Linkage ConcreteHardwareSystem PhysicalOutcomeEvent
 physicalInteractionChannel = membershipOfPhysicalInteractionChannel  ∘  aggregationOfPhysicalOutcomeEventPhysicalInteractionChannel
 
-postulate -- physicalInteractionChannel is subTypeOf businessConnection
-  st-a503bb286229006f-1f942587622764f8  : physicalInteractionChannel   ⊏⋆ᵣ  businessConnection 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Hosted Computing Device: -}
 -- Aggregate Member : Hosted Computing Device
-HostedComputingDevice : ClassOfClassOfIndividual
-HostedComputingDevice = ClassOfIndividual
+HostedComputingDevice : ClassOfClassOfBoundedIndividual
+HostedComputingDevice = ClassOfBoundedIndividual
+
+
+
+--  HostedComputingDevice is subTypeOf ComputingDevice
+st-26b83dd35eeaf258-02f51209641c7ea4 : HostedComputingDevice ⊏ₑ ComputingDevice
+st-26b83dd35eeaf258-02f51209641c7ea4 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfHostedComputingDevice :  Linkage ConcreteHardwareSystem HostedComputingDevice
@@ -97,10 +111,21 @@ hostedComputingDevice = membershipOfHostedComputingDevice  ∘  aggregationOfCom
 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Hardware Part: -}
 -- Aggregate Member : Hardware Part
-HardwarePart : ClassOfClassOfIndividual
-HardwarePart = ClassOfIndividual
+HardwarePart : ClassOfClassOfBoundedIndividual
+HardwarePart = ClassOfBoundedIndividual
+
+
+
+--  HardwarePart is subTypeOf ResourceAgentPart
+st-c334e3e75ecb964e-24034f6d5fc79c3f : HardwarePart ⊏ₑ ResourceAgentPart
+st-c334e3e75ecb964e-24034f6d5fc79c3f = polySubTypeOf-identity
+
+--  HardwarePart is subTypeOf ConcreteHardwareSystem
+st-c334e3e75ecb964e-c30bf4015a5da72b : HardwarePart ⊏ₑ ConcreteHardwareSystem
+st-c334e3e75ecb964e-c30bf4015a5da72b = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfHardwarePart :  Linkage ConcreteHardwareSystem HardwarePart
@@ -118,6 +143,4 @@ aggregationOfConcreteHardwareSystemHardwarePart = make_Relation "ConcreteHardwar
 hardwarePart : Linkage ConcreteHardwareSystem ConcreteHardwareSystem
 hardwarePart = membershipOfHardwarePart  ∘  aggregationOfConcreteHardwareSystemHardwarePart
 
-postulate -- hardwarePart is subTypeOf resourceAgentPart
-  st-c334e3e75ecb964e-24034f6d5fc79c3f  : hardwarePart   ⊏⋆ᵣ  resourceAgentPart 
 

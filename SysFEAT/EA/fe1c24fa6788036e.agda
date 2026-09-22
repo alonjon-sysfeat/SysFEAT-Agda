@@ -21,12 +21,15 @@ open import SysFEAT.EA.dd265414689f5987 public -- Resource Capability
 IndividualResourceAsset : ClassOfBoundedIndividual
 IndividualResourceAsset = BoundedIndividual
 
+
 --  IndividualResourceAsset is subTypeOf IndividualOperatingAsset
 st-fe1c24fa6788036e-9f61cf9166833fb7 : IndividualResourceAsset ⊏ₑ IndividualOperatingAsset
 st-fe1c24fa6788036e-9f61cf9166833fb7 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Exhibited Resource Capability: 
 Set of Resource Capabilitys that an Individual Resource Asset exhibits.
 -}
@@ -34,4 +37,4 @@ exhibitedResourceCapability :  Linkage IndividualResourceAsset ResourceCapabilit
 exhibitedResourceCapability = make_instanceOf "Exhibited Resource Capability" "Exhibited Resource Capability"
 
 postulate -- exhibitedResourceCapability is subTypeOf exhibitedCapability
-  st-e44105a768d5bf7a-e44104b768d586bb  : exhibitedResourceCapability   ⊏⋆ᵣ  exhibitedCapability 
+  st-e44105a768d5bf7a-e44104b768d586bb  : exhibitedResourceCapability  ⊏⋆ᵣ  exhibitedCapability

@@ -24,4 +24,5 @@ MicroResourceOperatingAsset = ClassOfBoundedIndividual
 st-61e3b04c679f13de-f8e61da0621db6fa : MicroResourceOperatingAsset ⊏ₑ ResourceOperatingAsset
 st-61e3b04c679f13de-f8e61da0621db6fa = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

@@ -24,6 +24,7 @@ open import SysFEAT.EA.137d21d35ee2c7f3 public -- Column Type
 RelationalEntity : ClassOfClassOfBoundedIndividual
 RelationalEntity = ClassOfBoundedIndividual
 
+
 --  RelationalEntity is subTypeOf PhysicalDataEntity
 st-362f3ca45b3b234b-762582bb5f6bd659 : RelationalEntity ⊏ₑ PhysicalDataEntity
 st-362f3ca45b3b234b-762582bb5f6bd659 = polySubTypeOf-identity
@@ -32,14 +33,30 @@ st-362f3ca45b3b234b-762582bb5f6bd659 = polySubTypeOf-identity
 st-362f3ca45b3b234b-7731894d62166495 : RelationalEntity ⊏⋆ₑ RelationalDatabLOCK
 st-362f3ca45b3b234b-7731894d62166495 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Column: 
 A Column is the basic component of a relational Relational Entity (Table or Table View). A Column is derived from the Attribute of a Logical Data Entity or an Association. It can be connected to the Index or the Key that it constitutes.
 -}
 -- Aggregate Member : Column
-Column : ClassOfClassOfIndividual
-Column = ClassOfIndividual
+Column : ClassOfClassOfBoundedIndividual
+Column = ClassOfBoundedIndividual
+
+
+
+--  Column is subTypeOf PhysicalDataSlot
+st-137d21e95ee2c954-e6f222845f771913 : Column ⊏ₑ PhysicalDataSlot
+st-137d21e95ee2c954-e6f222845f771913 = polySubTypeOf-identity
+
+--  Column is subTypeOf PhysicalRelationship
+st-137d21e95ee2c954-b6e3df8e5fbb724d : Column ⊏ₑ PhysicalRelationship
+st-137d21e95ee2c954-b6e3df8e5fbb724d = polySubTypeOf-identity
+
+--  Column is subTypeOf ColumnType
+st-137d21e95ee2c954-137d21d35ee2c7f3 : Column ⊏ₑ ColumnType
+st-137d21e95ee2c954-137d21d35ee2c7f3 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfColumn :  Linkage RelationalEntity Column
@@ -57,8 +74,4 @@ aggregationOfColumnTypeColumn = make_Relation "ColumnType aggregation" "aggregat
 column : Linkage RelationalEntity ColumnType
 column = membershipOfColumn  ∘  aggregationOfColumnTypeColumn
 
-postulate -- column is subTypeOf physicalDataSlot
-  st-137d21e95ee2c954-e6f222845f771913  : column   ⊏⋆ᵣ  physicalDataSlot 
-postulate -- column is subTypeOf physicalRelationship
-  st-137d21e95ee2c954-b6e3df8e5fbb724d  : column   ⊏⋆ᵣ  physicalRelationship 
 

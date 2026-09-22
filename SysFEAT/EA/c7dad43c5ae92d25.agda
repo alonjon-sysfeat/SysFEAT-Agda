@@ -24,8 +24,9 @@ open import SysFEAT.EA.66f8685a620b1440 public -- Individual Business Agent
 open import SysFEAT.EA.41b8e49f65ee66ec public -- Person Type
 open import SysFEAT.EA.dd26f17a68a0b08b public -- Skill
 
-Person : ClassOfBoundedIndividual
-Person = BoundedIndividual
+Person : AgentType
+Person = IndividualAgent
+
 
 --  Person is subTypeOf ResponsibleHumanEntity
 st-c7dad43c5ae92d25-c7dad03f5ae92ae9 : Person ⊏ₑ ResponsibleHumanEntity
@@ -35,14 +36,17 @@ st-c7dad43c5ae92d25-c7dad03f5ae92ae9 = polySubTypeOf-identity
 st-c7dad43c5ae92d25-66f8685a620b1440 : Person ⊏ₑ IndividualBusinessAgent
 st-c7dad43c5ae92d25-66f8685a620b1440 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Acquired Skill: 
 An ability that has been acquired by training.
 -}
 -- Aggregate Member : Acquired Skill
 AcquiredSkill : ClassOfClassOfIndividual
 AcquiredSkill = ClassOfIndividual
+
 
 -- Membership relation
 membershipOfAcquiredSkill :  Linkage Person AcquiredSkill

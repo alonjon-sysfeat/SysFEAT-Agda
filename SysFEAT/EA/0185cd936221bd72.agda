@@ -22,6 +22,7 @@ open import SysFEAT.EA.e2ef091962147ad7 public -- Resource Agent Type
 ResourceBehavior : ClassOfClassOfBoundedIndividual
 ResourceBehavior = ClassOfBoundedIndividual
 
+
 --  ResourceBehavior is subTypeOf ResourceOperatingAsset
 st-0185cd936221bd72-f8e61da0621db6fa : ResourceBehavior ⊏ₑ ResourceOperatingAsset
 st-0185cd936221bd72-f8e61da0621db6fa = polySubTypeOf-identity
@@ -30,23 +31,40 @@ st-0185cd936221bd72-f8e61da0621db6fa = polySubTypeOf-identity
 st-0185cd936221bd72-986cd4ec5ffca3ac : ResourceBehavior ⊏ₑ BehaviorType
 st-0185cd936221bd72-986cd4ec5ffca3ac = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Resource Behavior: -}
 specializedResourceBehavior :  Linkage ResourceBehavior ResourceBehavior
 specializedResourceBehavior = make_subTypeOf "Specialized Resource Behavior" "Specialized Resource Behavior"
 
 postulate -- specializedResourceBehavior is subTypeOf specializedBehavior
-  st-325a376866f343d3-2b5b452d66ed5855  : specializedResourceBehavior   ⊏⋆ᵣ  specializedBehavior 
+  st-325a376866f343d3-2b5b452d66ed5855  : specializedResourceBehavior  ⊏⋆ᵣ  specializedBehavior
 postulate -- specializedResourceBehavior is subTypeOf specializedResourceOperatingAsset
-  st-325a376866f343d3-82a9879766ec3a29  : specializedResourceBehavior   ⊏⋆ᵣ  specializedResourceOperatingAsset 
+  st-325a376866f343d3-82a9879766ec3a29  : specializedResourceBehavior  ⊏⋆ᵣ  specializedResourceOperatingAsset
 
+-- -------------------------------------------------------------------------------------------- 
 {- Resource Behavior Participant: 
 A Resource Behavior Participant is the participation of a Resource Agent Type in a Resource Behavior.
 -}
 -- Aggregate Member : Resource Behavior Participant
-ResourceBehaviorParticipant : ClassOfClassOfIndividual
-ResourceBehaviorParticipant = ClassOfIndividual
+ResourceBehaviorParticipant : ClassOfClassOfBoundedIndividual
+ResourceBehaviorParticipant = ClassOfBoundedIndividual
+
+
+
+--  ResourceBehaviorParticipant is subTypeOf BehaviorParticipant
+st-e0e874626578a341-e0e86fad65789c43 : ResourceBehaviorParticipant ⊏ₑ BehaviorParticipant
+st-e0e874626578a341-e0e86fad65789c43 = polySubTypeOf-identity
+
+--  ResourceBehaviorParticipant is subTypeOf ResourceOperatingAssetPart
+st-e0e874626578a341-b776bf0868b0fbb3 : ResourceBehaviorParticipant ⊏ₑ ResourceOperatingAssetPart
+st-e0e874626578a341-b776bf0868b0fbb3 = polySubTypeOf-identity
+
+--  ResourceBehaviorParticipant is subTypeOf ResourceAgentType
+st-e0e874626578a341-e2ef091962147ad7 : ResourceBehaviorParticipant ⊏ₑ ResourceAgentType
+st-e0e874626578a341-e2ef091962147ad7 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfResourceBehaviorParticipant :  Linkage ResourceBehavior ResourceBehaviorParticipant
@@ -64,8 +82,4 @@ aggregationOfResourceAgentTypeResourceBehaviorParticipant = make_Relation "Resou
 resourceBehaviorParticipant : Linkage ResourceBehavior ResourceAgentType
 resourceBehaviorParticipant = membershipOfResourceBehaviorParticipant  ∘  aggregationOfResourceAgentTypeResourceBehaviorParticipant
 
-postulate -- resourceBehaviorParticipant is subTypeOf behaviorParticipant
-  st-e0e874626578a341-e0e86fad65789c43  : resourceBehaviorParticipant   ⊏⋆ᵣ  behaviorParticipant 
-postulate -- resourceBehaviorParticipant is subTypeOf resourceOperatingAssetPart
-  st-e0e874626578a341-b776bf0868b0fbb3  : resourceBehaviorParticipant   ⊏⋆ᵣ  resourceOperatingAssetPart 
 

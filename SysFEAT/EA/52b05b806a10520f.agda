@@ -17,11 +17,13 @@ module SysFEAT.EA.52b05b806a10520f where -- ========== Resource Level
 open import Agda.Primitive
 open import SysFEAT.SOF.52b05a616a104fab public -- Conceptualization Level
 
-ResourceLevel : ∀ (u : Level) → MixedOrderMetaClass u
-ResourceLevel u = ClassOfMixedOrderEntity u
+ResourceLevel : ∀ (u : Level) → MixedOrderMetaClass u 
+ResourceLevel u  = ClassOfMixedOrderEntity u 
+
 
 --  ResourceLevel is subTypeOf ConceptualizationLevel
 st-52b05b806a10520f-52b05a616a104fab : ∀ {u v} → (ResourceLevel u) ⊏⋆ₑ (ConceptualizationLevel v)
 st-52b05b806a10520f-52b05a616a104fab = trivialPolySubTypeOfEntity
 
--- == Relationships =======================
+
+-- == Relations =======================

@@ -23,16 +23,37 @@ open import SysFEAT.EA.bcebd8e9549144db public -- Application
 ApplicationEnvironment : ClassOfClassOfBoundedIndividual
 ApplicationEnvironment = ClassOfBoundedIndividual
 
+
 --  ApplicationEnvironment is subTypeOf SOftwareSystemEnvironment
 st-c450d47c61de5dbc-25c0a25061e2fd5a : ApplicationEnvironment ⊏ₑ SOftwareSystemEnvironment
 st-c450d47c61de5dbc-25c0a25061e2fd5a = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Subject Application: -}
 -- Aggregate Member : Subject Application
-SubjectApplication : ClassOfClassOfIndividual
-SubjectApplication = ClassOfIndividual
+SubjectApplication : ClassOfClassOfBoundedIndividual
+SubjectApplication = ClassOfBoundedIndividual
+
+
+
+--  SubjectApplication is subTypeOf PerformedSOftwareSystemScenario
+st-c450d88061de6afe-25c1b2d361e22368 : SubjectApplication ⊏ₑ PerformedSOftwareSystemScenario
+st-c450d88061de6afe-25c1b2d361e22368 = polySubTypeOf-identity
+
+--  SubjectApplication is subTypeOf SubjectSOftwareSystem
+st-c450d88061de6afe-25c1a65861e2077a : SubjectApplication ⊏ₑ SubjectSOftwareSystem
+st-c450d88061de6afe-25c1a65861e2077a = polySubTypeOf-identity
+
+--  SubjectApplication is subTypeOf ParticipantSOftware
+st-c450d88061de6afe-25c1a63d61e206d7 : SubjectApplication ⊏ₑ ParticipantSOftware
+st-c450d88061de6afe-25c1a63d61e206d7 = polySubTypeOf-identity
+
+--  SubjectApplication is subTypeOf Application
+st-c450d88061de6afe-bcebd8e9549144db : SubjectApplication ⊏ₑ Application
+st-c450d88061de6afe-bcebd8e9549144db = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSubjectApplication :  Linkage ApplicationEnvironment SubjectApplication
@@ -50,18 +71,27 @@ aggregationOfApplicationSubjectApplication = make_Relation "Application aggregat
 subjectApplication : Linkage ApplicationEnvironment Application
 subjectApplication = membershipOfSubjectApplication  ∘  aggregationOfApplicationSubjectApplication
 
-postulate -- subjectApplication is subTypeOf performedSOftwareSystemScenario
-  st-c450d88061de6afe-25c1b2d361e22368  : subjectApplication   ⊏⋆ᵣ  performedSOftwareSystemScenario 
-postulate -- subjectApplication is subTypeOf subjectSOftwareSystem
-  st-c450d88061de6afe-25c1a65861e2077a  : subjectApplication   ⊏⋆ᵣ  subjectSOftwareSystem 
-postulate -- subjectApplication is subTypeOf participantSOftware
-  st-c450d88061de6afe-25c1a63d61e206d7  : subjectApplication   ⊏⋆ᵣ  participantSOftware 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Partner Application: -}
 -- Aggregate Member : Partner Application
-PartnerApplication : ClassOfClassOfIndividual
-PartnerApplication = ClassOfIndividual
+PartnerApplication : ClassOfClassOfBoundedIndividual
+PartnerApplication = ClassOfBoundedIndividual
+
+
+
+--  PartnerApplication is subTypeOf PartnerSOftwareSystem
+st-c450d8c761de6c03-25c1a6bc61e20826 : PartnerApplication ⊏ₑ PartnerSOftwareSystem
+st-c450d8c761de6c03-25c1a6bc61e20826 = polySubTypeOf-identity
+
+--  PartnerApplication is subTypeOf ParticipantSOftware
+st-c450d8c761de6c03-25c1a63d61e206d7 : PartnerApplication ⊏ₑ ParticipantSOftware
+st-c450d8c761de6c03-25c1a63d61e206d7 = polySubTypeOf-identity
+
+--  PartnerApplication is subTypeOf Application
+st-c450d8c761de6c03-bcebd8e9549144db : PartnerApplication ⊏ₑ Application
+st-c450d8c761de6c03-bcebd8e9549144db = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfPartnerApplication :  Linkage ApplicationEnvironment PartnerApplication
@@ -79,8 +109,4 @@ aggregationOfApplicationPartnerApplication = make_Relation "Application aggregat
 partnerApplication : Linkage ApplicationEnvironment Application
 partnerApplication = membershipOfPartnerApplication  ∘  aggregationOfApplicationPartnerApplication
 
-postulate -- partnerApplication is subTypeOf partnerSOftwareSystem
-  st-c450d8c761de6c03-25c1a6bc61e20826  : partnerApplication   ⊏⋆ᵣ  partnerSOftwareSystem 
-postulate -- partnerApplication is subTypeOf participantSOftware
-  st-c450d8c761de6c03-25c1a63d61e206d7  : partnerApplication   ⊏⋆ᵣ  participantSOftware 
 

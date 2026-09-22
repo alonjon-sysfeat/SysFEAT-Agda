@@ -24,27 +24,32 @@ open import SysFEAT.EA.bcebd8e9549144db public -- Application
 DeployablePackage : ClassOfClassOfBoundedIndividual
 DeployablePackage = ClassOfBoundedIndividual
 
+
 --  DeployablePackage is subTypeOf DeployableSOftwareSystem
 st-4c7883cd5fca4d5b-d5e6d8015c464b40 : DeployablePackage ⊏ₑ DeployableSOftwareSystem
 st-4c7883cd5fca4d5b-d5e6d8015c464b40 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Required Software Technology: -}
 requiredSOftwareTechnology :  Linkage DeployablePackage SOftwareTechnology
 requiredSOftwareTechnology = make_classOfHolonymy "Required Software Technology" "Required Software Technology"
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Package: -}
 specializedPackage :  Linkage DeployablePackage DeployablePackage
 specializedPackage = make_subTypeOf "Specialized Package" "Specialized Package"
 
 postulate -- specializedPackage is subTypeOf specializedDeployableSOftware
-  st-325a380c66f35025-325a39da66f35441  : specializedPackage   ⊏⋆ᵣ  specializedDeployableSOftware 
+  st-325a380c66f35025-325a39da66f35441  : specializedPackage  ⊏⋆ᵣ  specializedDeployableSOftware
 
+-- -------------------------------------------------------------------------------------------- 
 {- Packaged Application: -}
 packagedApplication :  Linkage DeployablePackage Application
 packagedApplication = make_subTypeOf "Packaged Application" "Packaged Application"
 
 postulate -- packagedApplication is subTypeOf deployableSOftwareSystem
-  st-ca58cc0c684f7487-ca58cad6684f737d  : packagedApplication   ⊏⋆ᵣ  deployableSOftwareSystem 
+  st-ca58cc0c684f7487-ca58cad6684f737d  : packagedApplication  ⊏⋆ᵣ  deployableSOftwareSystem

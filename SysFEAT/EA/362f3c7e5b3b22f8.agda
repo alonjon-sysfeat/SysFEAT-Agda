@@ -30,12 +30,24 @@ st-362f3c7e5b3b22f8-028f03ff5b4f55ee = polySubTypeOf-identity
 st-362f3c7e5b3b22f8-7731894d62166495 : RelationalSchema ⊏⋆ₑ RelationalDatabLOCK
 st-362f3c7e5b3b22f8-7731894d62166495 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Relation Store Part: -}
 -- Aggregate Member : Relation Store Part
-RelationStorePart : ClassOfClassOfIndividual
-RelationStorePart = ClassOfIndividual
+RelationStorePart : ClassOfClassOfBoundedIndividual
+RelationStorePart = ClassOfBoundedIndividual
+
+
+
+--  RelationStorePart is subTypeOf PhysicalDomainObject
+st-137d23d85ee2ced6-e6f223f55f771b8d : RelationStorePart ⊏ₑ PhysicalDomainObject
+st-137d23d85ee2ced6-e6f223f55f771b8d = polySubTypeOf-identity
+
+--  RelationStorePart is subTypeOf RelationalEntity
+st-137d23d85ee2ced6-362f3ca45b3b234b : RelationStorePart ⊏ₑ RelationalEntity
+st-137d23d85ee2ced6-362f3ca45b3b234b = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfRelationStorePart :  Linkage RelationalSchema RelationStorePart
@@ -53,14 +65,19 @@ aggregationOfRelationalEntityRelationStorePart = make_Relation "RelationalEntity
 relationStorePart : Linkage RelationalSchema RelationalEntity
 relationStorePart = membershipOfRelationStorePart  ∘  aggregationOfRelationalEntityRelationStorePart
 
-postulate -- relationStorePart is subTypeOf physicalDomainObject
-  st-137d23d85ee2ced6-e6f223f55f771b8d  : relationStorePart   ⊏⋆ᵣ  physicalDomainObject 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Sub Data Area: -}
 -- Aggregate Member : Sub Data Area
-SubDataArea : ClassOfClassOfIndividual
-SubDataArea = ClassOfIndividual
+SubDataArea : ClassOfClassOfBoundedIndividual
+SubDataArea = ClassOfBoundedIndividual
+
+
+
+--  SubDataArea is subTypeOf RelationalEntity
+st-f4be32dc5ee1b4ee-362f3ca45b3b234b : SubDataArea ⊏ₑ RelationalEntity
+st-f4be32dc5ee1b4ee-362f3ca45b3b234b = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSubDataArea :  Linkage RelationalSchema SubDataArea

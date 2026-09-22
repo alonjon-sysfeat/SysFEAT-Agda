@@ -21,6 +21,7 @@ open import SysFEAT.EA.230b35b461d8884d public -- Business Resource Interaction 
 BusinessSystemInteractionProcess : ClassOfClassOfBoundedIndividual
 BusinessSystemInteractionProcess = ClassOfBoundedIndividual
 
+
 --  BusinessSystemInteractionProcess is subTypeOf BusinessSystemAsset
 st-7a0a06c45ddf969e-6246927f61b81996 : BusinessSystemInteractionProcess ⊏ₑ BusinessSystemAsset
 st-7a0a06c45ddf969e-6246927f61b81996 = polySubTypeOf-identity
@@ -29,11 +30,13 @@ st-7a0a06c45ddf969e-6246927f61b81996 = polySubTypeOf-identity
 st-7a0a06c45ddf969e-230b35b461d8884d : BusinessSystemInteractionProcess ⊏ₑ BusinessResourceInteractionProcess
 st-7a0a06c45ddf969e-230b35b461d8884d = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Business System Scenario: -}
 specializedBusinessSystemScenario :  Linkage BusinessSystemInteractionProcess BusinessSystemInteractionProcess
 specializedBusinessSystemScenario = make_subTypeOf "Specialized Business System Scenario" "Specialized Business System Scenario"
 
 postulate -- specializedBusinessSystemScenario is subTypeOf specializedBusinessSystemAsset
-  st-325a377266f347ec-325a37b966f34e1e  : specializedBusinessSystemScenario   ⊏⋆ᵣ  specializedBusinessSystemAsset 
+  st-325a377266f347ec-325a37b966f34e1e  : specializedBusinessSystemScenario  ⊏⋆ᵣ  specializedBusinessSystemAsset

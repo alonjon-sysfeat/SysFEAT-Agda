@@ -24,4 +24,5 @@ DataGovernanceBlock = BoundedIndividual
 st-b90ac213600e39bb-6662916b68dd5f84 : DataGovernanceBlock ⊏ₐₑ (GovernanceInstrument lzero)
 st-b90ac213600e39bb-6662916b68dd5f84 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

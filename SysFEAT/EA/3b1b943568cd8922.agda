@@ -17,11 +17,13 @@ module SysFEAT.EA.3b1b943568cd8922 where -- ========== Individual Human Agent
 open import Agda.Primitive
 open import SysFEAT.EA.fe1c231267880201 public -- Individual Resource Agent
 
-IndividualHumanAgent : ClassOfBoundedIndividual
-IndividualHumanAgent = BoundedIndividual
+IndividualHumanAgent : AgentType
+IndividualHumanAgent = IndividualAgent
+
 
 --  IndividualHumanAgent is subTypeOf IndividualResourceAgent
 st-3b1b943568cd8922-fe1c231267880201 : IndividualHumanAgent ⊏ₑ IndividualResourceAgent
 st-3b1b943568cd8922-fe1c231267880201 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

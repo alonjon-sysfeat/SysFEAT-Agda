@@ -24,6 +24,7 @@ open import SysFEAT.EA.325c32165eb02a4a public -- Data Domain
 BusinessBehavior : ClassOfClassOfBoundedIndividual
 BusinessBehavior = ClassOfBoundedIndividual
 
+
 --  BusinessBehavior is subTypeOf BusinessOperatingAsset
 st-b4ebbf3e5ffdccdf-62466ea661b80d09 : BusinessBehavior ⊏ₑ BusinessOperatingAsset
 st-b4ebbf3e5ffdccdf-62466ea661b80d09 = polySubTypeOf-identity
@@ -32,28 +33,42 @@ st-b4ebbf3e5ffdccdf-62466ea661b80d09 = polySubTypeOf-identity
 st-b4ebbf3e5ffdccdf-0185cd936221bd72 : BusinessBehavior ⊏ₑ ResourceBehavior
 st-b4ebbf3e5ffdccdf-0185cd936221bd72 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Business Resource Behavior: -}
 specializedBusinessResourceBehavior :  Linkage BusinessBehavior BusinessBehavior
 specializedBusinessResourceBehavior = make_subTypeOf "Specialized Business Resource Behavior" "Specialized Business Resource Behavior"
 
 postulate -- specializedBusinessResourceBehavior is subTypeOf specializedResourceBehavior
-  st-325a37b666f34b83-325a376866f343d3  : specializedBusinessResourceBehavior   ⊏⋆ᵣ  specializedResourceBehavior 
+  st-325a37b666f34b83-325a376866f343d3  : specializedBusinessResourceBehavior  ⊏⋆ᵣ  specializedResourceBehavior
 postulate -- specializedBusinessResourceBehavior is subTypeOf specializedResourceAsset
-  st-325a37b666f34b83-325a380e66f351f6  : specializedBusinessResourceBehavior   ⊏⋆ᵣ  specializedResourceAsset 
+  st-325a37b666f34b83-325a380e66f351f6  : specializedBusinessResourceBehavior  ⊏⋆ᵣ  specializedResourceAsset
 
+-- -------------------------------------------------------------------------------------------- 
 {- Supported Process Family: -}
 supportedProcessFamily :  Linkage BusinessBehavior ProcessFamily
 supportedProcessFamily = make_instanceOf "Supported Process Family" "Supported Process Family"
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Resource Behavior Participant: 
 A Resource Behavior Participant refers to the participation of a Business Agent Type in a Business Behavior as an actor of the Business Behavior.
 -}
 -- Aggregate Member : Resource Behavior Participant
-ResourceBehaviorParticipant : ClassOfClassOfIndividual
-ResourceBehaviorParticipant = ClassOfIndividual
+ResourceBehaviorParticipant : ClassOfClassOfBoundedIndividual
+ResourceBehaviorParticipant = ClassOfBoundedIndividual
+
+
+
+--  ResourceBehaviorParticipant is subTypeOf ResourceBehaviorParticipant
+st-e0e87af46578a950-e0e874626578a341 : ResourceBehaviorParticipant ⊏ₑ ResourceBehaviorParticipant
+st-e0e87af46578a950-e0e874626578a341 = polySubTypeOf-identity
+
+--  ResourceBehaviorParticipant is subTypeOf BusinessAgentType
+st-e0e87af46578a950-bcebd31f5491302c : ResourceBehaviorParticipant ⊏ₑ BusinessAgentType
+st-e0e87af46578a950-bcebd31f5491302c = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfResourceBehaviorParticipant :  Linkage BusinessBehavior ResourceBehaviorParticipant
@@ -71,14 +86,23 @@ aggregationOfBusinessAgentTypeResourceBehaviorParticipant = make_Relation "Busin
 resourceBehaviorParticipant : Linkage BusinessBehavior BusinessAgentType
 resourceBehaviorParticipant = membershipOfResourceBehaviorParticipant  ∘  aggregationOfBusinessAgentTypeResourceBehaviorParticipant
 
-postulate -- resourceBehaviorParticipant is subTypeOf resourceBehaviorParticipant
-  st-e0e87af46578a950-e0e874626578a341  : resourceBehaviorParticipant   ⊏⋆ᵣ  resourceBehaviorParticipant 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Business Behavior Part: -}
 -- Aggregate Member : Business Behavior Part
-BusinessBehaviorPart : ClassOfClassOfIndividual
-BusinessBehaviorPart = ClassOfIndividual
+BusinessBehaviorPart : ClassOfClassOfBoundedIndividual
+BusinessBehaviorPart = ClassOfBoundedIndividual
+
+
+
+--  BusinessBehaviorPart is subTypeOf BusinessOperatingAssetPart
+st-b777c1de68b07336-b777c10368b071b8 : BusinessBehaviorPart ⊏ₑ BusinessOperatingAssetPart
+st-b777c1de68b07336-b777c10368b071b8 = polySubTypeOf-identity
+
+--  BusinessBehaviorPart is subTypeOf BusinessBehavior
+st-b777c1de68b07336-b4ebbf3e5ffdccdf : BusinessBehaviorPart ⊏ₑ BusinessBehavior
+st-b777c1de68b07336-b4ebbf3e5ffdccdf = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfBusinessBehaviorPart :  Linkage BusinessBehavior BusinessBehaviorPart
@@ -96,14 +120,22 @@ aggregationOfBusinessBehaviorBusinessBehaviorPart = make_Relation "BusinessBehav
 businessBehaviorPart : Linkage BusinessBehavior BusinessBehavior
 businessBehaviorPart = membershipOfBusinessBehaviorPart  ∘  aggregationOfBusinessBehaviorBusinessBehaviorPart
 
-postulate -- businessBehaviorPart is subTypeOf businessOperatingAssetPart
-  st-b777c1de68b07336-b777c10368b071b8  : businessBehaviorPart   ⊏⋆ᵣ  businessOperatingAssetPart 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Business Data Store: -}
 -- Aggregate Member : Business Data Store
 BusinessDataStore : ClassOfClassOfIndividual
 BusinessDataStore = ClassOfIndividual
+
+
+--  BusinessDataStore is subTypeOf OperatingProcessStore
+st-b4ebd0e45ffdef12-d69196306228f16e : BusinessDataStore ⊏ₑ OperatingProcessStore
+st-b4ebd0e45ffdef12-d69196306228f16e = polySubTypeOf-identity
+
+--  BusinessDataStore is subTypeOf DataDomain
+st-b4ebd0e45ffdef12-325c32165eb02a4a : BusinessDataStore ⊏ₑ DataDomain
+st-b4ebd0e45ffdef12-325c32165eb02a4a = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfBusinessDataStore :  Linkage BusinessBehavior BusinessDataStore
@@ -121,6 +153,4 @@ aggregationOfDataDomainBusinessDataStore = make_Relation "DataDomain aggregation
 businessDataStore : Linkage BusinessBehavior DataDomain
 businessDataStore = membershipOfBusinessDataStore  ∘  aggregationOfDataDomainBusinessDataStore
 
-postulate -- businessDataStore is subTypeOf operatingProcessStore
-  st-b4ebd0e45ffdef12-d69196306228f16e  : businessDataStore   ⊏⋆ᵣ  operatingProcessStore 
 

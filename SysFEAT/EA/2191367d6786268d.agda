@@ -21,15 +21,18 @@ open import SysFEAT.EA.df118f995d5f65f1 public -- Computer Device
 DeployedComputerDevice : ClassOfBoundedIndividual
 DeployedComputerDevice = BoundedIndividual
 
+
 --  DeployedComputerDevice is subTypeOf DeployedBusinessSystem
 st-2191367d6786268d-3642454f6007e80e : DeployedComputerDevice ⊏ₑ DeployedBusinessSystem
 st-2191367d6786268d-3642454f6007e80e = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Computer Type: -}
 computerType :  Linkage DeployedComputerDevice ComputerDevice
 computerType = make_instanceOf "Computer Type" "Computer Type"
 
 postulate -- computerType is subTypeOf businessSystemType
-  st-f603fd9467e47ae2-e2dc074666fd6d03  : computerType   ⊏⋆ᵣ  businessSystemType 
+  st-f603fd9467e47ae2-e2dc074666fd6d03  : computerType  ⊏⋆ᵣ  businessSystemType

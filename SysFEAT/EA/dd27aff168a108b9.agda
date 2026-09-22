@@ -17,11 +17,13 @@ module SysFEAT.EA.dd27aff168a108b9 where -- ========== Software Technology Capab
 open import Agda.Primitive
 open import SysFEAT.EA.dd27b08d68a10b12 public -- Technology Capability
 
-SOftwareTechnologyCapability : PropertyType
-SOftwareTechnologyCapability = ClassOfProperty
+SOftwareTechnologyCapability : AssetPropertyType
+SOftwareTechnologyCapability = AssetProperty
+
 
 --  SOftwareTechnologyCapability is subTypeOf TechnologyCapability
 st-dd27aff168a108b9-dd27b08d68a10b12 : SOftwareTechnologyCapability ⊏ₑ TechnologyCapability
 st-dd27aff168a108b9-dd27b08d68a10b12 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

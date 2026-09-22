@@ -27,4 +27,5 @@ PhysicalResourceAgent = ClassOfBoundedIndividual
 st-340f52dc686212f5-e2ef091962147ad7 : PhysicalResourceAgent ⊏ₑ ResourceAgentType
 st-340f52dc686212f5-e2ef091962147ad7 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

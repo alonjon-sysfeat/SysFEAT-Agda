@@ -25,12 +25,24 @@ BusinessInteractionProcess = ClassOfBoundedIndividual
 st-6f4b93a15fd3b6bf-230b35b461d8884d : BusinessInteractionProcess ⊏ₑ BusinessResourceInteractionProcess
 st-6f4b93a15fd3b6bf-230b35b461d8884d = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Participant Department: -}
 -- Aggregate Member : Participant Department
-ParticipantDepartment : ClassOfClassOfIndividual
-ParticipantDepartment = ClassOfIndividual
+ParticipantDepartment : ClassOfClassOfBoundedIndividual
+ParticipantDepartment = ClassOfBoundedIndividual
+
+
+
+--  ParticipantDepartment is subTypeOf ParticipantBusinessAgent
+st-6f4b94625fd3b99a-230b35ed61d88944 : ParticipantDepartment ⊏ₑ ParticipantBusinessAgent
+st-6f4b94625fd3b99a-230b35ed61d88944 = polySubTypeOf-identity
+
+--  ParticipantDepartment is subTypeOf OrgUnitType
+st-6f4b94625fd3b99a-076d15425a5e158c : ParticipantDepartment ⊏ₑ OrgUnitType
+st-6f4b94625fd3b99a-076d15425a5e158c = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfParticipantDepartment :  Linkage BusinessInteractionProcess ParticipantDepartment
@@ -48,6 +60,4 @@ aggregationOfOrgUnitTypeParticipantDepartment = make_Relation "OrgUnitType aggre
 participantDepartment : Linkage BusinessInteractionProcess OrgUnitType
 participantDepartment = membershipOfParticipantDepartment  ∘  aggregationOfOrgUnitTypeParticipantDepartment
 
-postulate -- participantDepartment is subTypeOf participantBusinessAgent
-  st-6f4b94625fd3b99a-230b35ed61d88944  : participantDepartment   ⊏⋆ᵣ  participantBusinessAgent 
 

@@ -17,11 +17,13 @@ module SysFEAT.EA.d160042562e08353 where -- ========== Network Interface
 open import Agda.Primitive
 open import SysFEAT.EA.26b8382f5eeae265 public -- Technology Interface
 
-NetworkInterface : ClassOfClassOfIndividual
-NetworkInterface = ClassOfIndividual
+NetworkInterface : ClassOfClassOfBoundedIndividual
+NetworkInterface = ClassOfBoundedIndividual
+
 
 --  NetworkInterface is subTypeOf TechnologyInterface
 st-d160042562e08353-26b8382f5eeae265 : NetworkInterface ⊏ₑ TechnologyInterface
 st-d160042562e08353-26b8382f5eeae265 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

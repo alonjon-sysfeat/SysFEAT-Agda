@@ -27,19 +27,27 @@ PhysicalDataLineage = ClassOfBoundedIndividual
 st-7d37cbc15fd06f60-23ab2e945da829b8 : PhysicalDataLineage ⊏ₑ DataLineage
 st-7d37cbc15fd06f60-23ab2e945da829b8 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Realized Business Lineage: -}
 realizedBusinessLineage :  Linkage PhysicalDataLineage ConceptLineage
 realizedBusinessLineage = make_subTypeOf "Realized Business Lineage" "Realized Business Lineage"
 
 postulate -- realizedBusinessLineage is subTypeOf realizedDataLineage
-  st-325a3a1066f357a9-325a3a1066f35805  : realizedBusinessLineage   ⊏⋆ᵣ  realizedDataLineage 
+  st-325a3a1066f357a9-325a3a1066f35805  : realizedBusinessLineage  ⊏⋆ᵣ  realizedDataLineage
 
+-- -------------------------------------------------------------------------------------------- 
 {- Physical Lineage Flow: -}
 -- Aggregate Member : Physical Lineage Flow
 PhysicalLineageFlow : ClassOfClassOfIndividual
 PhysicalLineageFlow = ClassOfIndividual
+
+
+--  PhysicalLineageFlow is subTypeOf DataLineageFlow
+st-8f6d923a68e36fb8-8f6d8ff668e36bd7 : PhysicalLineageFlow ⊏ₑ DataLineageFlow
+st-8f6d923a68e36fb8-8f6d8ff668e36bd7 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfPhysicalLineageFlow :  Linkage PhysicalDataLineage PhysicalLineageFlow
@@ -57,14 +65,23 @@ aggregationOfBehavioralEventPhysicalLineageFlow = make_Relation "BehavioralEvent
 physicalLineageFlow : Linkage PhysicalDataLineage BehavioralEvent
 physicalLineageFlow = membershipOfPhysicalLineageFlow  ∘  aggregationOfBehavioralEventPhysicalLineageFlow
 
-postulate -- physicalLineageFlow is subTypeOf dataLineageFlow
-  st-8f6d923a68e36fb8-8f6d8ff668e36bd7  : physicalLineageFlow   ⊏⋆ᵣ  dataLineageFlow 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Origin Physical Entity: -}
 -- Aggregate Member : Origin Physical Entity
-OriginPhysicalEntity : ClassOfClassOfIndividual
-OriginPhysicalEntity = ClassOfIndividual
+OriginPhysicalEntity : ClassOfClassOfBoundedIndividual
+OriginPhysicalEntity = ClassOfBoundedIndividual
+
+
+
+--  OriginPhysicalEntity is subTypeOf OriginEntity
+st-acb4c817624587c9-acb4af8462457ab3 : OriginPhysicalEntity ⊏ₑ OriginEntity
+st-acb4c817624587c9-acb4af8462457ab3 = polySubTypeOf-identity
+
+--  OriginPhysicalEntity is subTypeOf PhysicalDataEntity
+st-acb4c817624587c9-762582bb5f6bd659 : OriginPhysicalEntity ⊏ₑ PhysicalDataEntity
+st-acb4c817624587c9-762582bb5f6bd659 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfOriginPhysicalEntity :  Linkage PhysicalDataLineage OriginPhysicalEntity
@@ -82,14 +99,23 @@ aggregationOfPhysicalDataEntityOriginPhysicalEntity = make_Relation "PhysicalDat
 originPhysicalEntity : Linkage PhysicalDataLineage PhysicalDataEntity
 originPhysicalEntity = membershipOfOriginPhysicalEntity  ∘  aggregationOfPhysicalDataEntityOriginPhysicalEntity
 
-postulate -- originPhysicalEntity is subTypeOf originEntity
-  st-acb4c817624587c9-acb4af8462457ab3  : originPhysicalEntity   ⊏⋆ᵣ  originEntity 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Final Physical Entity: -}
 -- Aggregate Member : Final Physical Entity
-FinalPhysicalEntity : ClassOfClassOfIndividual
-FinalPhysicalEntity = ClassOfIndividual
+FinalPhysicalEntity : ClassOfClassOfBoundedIndividual
+FinalPhysicalEntity = ClassOfBoundedIndividual
+
+
+
+--  FinalPhysicalEntity is subTypeOf FinalEntity
+st-acb4c83f624588a3-acb4b3b562457c32 : FinalPhysicalEntity ⊏ₑ FinalEntity
+st-acb4c83f624588a3-acb4b3b562457c32 = polySubTypeOf-identity
+
+--  FinalPhysicalEntity is subTypeOf PhysicalDataEntity
+st-acb4c83f624588a3-762582bb5f6bd659 : FinalPhysicalEntity ⊏ₑ PhysicalDataEntity
+st-acb4c83f624588a3-762582bb5f6bd659 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfFinalPhysicalEntity :  Linkage PhysicalDataLineage FinalPhysicalEntity
@@ -107,14 +133,23 @@ aggregationOfPhysicalDataEntityFinalPhysicalEntity = make_Relation "PhysicalData
 finalPhysicalEntity : Linkage PhysicalDataLineage PhysicalDataEntity
 finalPhysicalEntity = membershipOfFinalPhysicalEntity  ∘  aggregationOfPhysicalDataEntityFinalPhysicalEntity
 
-postulate -- finalPhysicalEntity is subTypeOf finalEntity
-  st-acb4c83f624588a3-acb4b3b562457c32  : finalPhysicalEntity   ⊏⋆ᵣ  finalEntity 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Intermediate Store: -}
 -- Aggregate Member : Intermediate Store
-IntermediateStore : ClassOfClassOfIndividual
-IntermediateStore = ClassOfIndividual
+IntermediateStore : ClassOfClassOfBoundedIndividual
+IntermediateStore = ClassOfBoundedIndividual
+
+
+
+--  IntermediateStore is subTypeOf IntermediateEntity
+st-acb4c86d62458979-acb4b3f162457d1a : IntermediateStore ⊏ₑ IntermediateEntity
+st-acb4c86d62458979-acb4b3f162457d1a = polySubTypeOf-identity
+
+--  IntermediateStore is subTypeOf PhysicalDataEntity
+st-acb4c86d62458979-762582bb5f6bd659 : IntermediateStore ⊏ₑ PhysicalDataEntity
+st-acb4c86d62458979-762582bb5f6bd659 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfIntermediateStore :  Linkage PhysicalDataLineage IntermediateStore
@@ -132,6 +167,4 @@ aggregationOfPhysicalDataEntityIntermediateStore = make_Relation "PhysicalDataEn
 intermediateStore : Linkage PhysicalDataLineage PhysicalDataEntity
 intermediateStore = membershipOfIntermediateStore  ∘  aggregationOfPhysicalDataEntityIntermediateStore
 
-postulate -- intermediateStore is subTypeOf intermediateEntity
-  st-acb4c86d62458979-acb4b3f162457d1a  : intermediateStore   ⊏⋆ᵣ  intermediateEntity 
 

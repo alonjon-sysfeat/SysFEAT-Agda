@@ -19,8 +19,9 @@ open import SysFEAT.EA.fe1c231267880201 public -- Individual Resource Agent
 open import SysFEAT.EA.3b1bb56c68cd9bfa public -- Individual Physical Resource Agent
 open import SysFEAT.EA.861987db6372446e public -- Natural Resource Category
 
-IndividualNaturalResource : ClassOfBoundedIndividual
-IndividualNaturalResource = BoundedIndividual
+IndividualNaturalResource : AgentType
+IndividualNaturalResource = IndividualAgent
+
 
 --  IndividualNaturalResource is subTypeOf IndividualResourceAgent
 st-c80a3bc867858386-fe1c231267880201 : IndividualNaturalResource ⊏ₑ IndividualResourceAgent
@@ -30,4 +31,5 @@ st-c80a3bc867858386-fe1c231267880201 = polySubTypeOf-identity
 st-c80a3bc867858386-3b1bb56c68cd9bfa : IndividualNaturalResource ⊏ₑ IndividualPhysicalResourceAgent
 st-c80a3bc867858386-3b1bb56c68cd9bfa = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

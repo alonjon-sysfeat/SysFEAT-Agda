@@ -24,23 +24,37 @@ open import SysFEAT.EA.d5e6d7c65c464ae3 public -- Application Deployment Archite
 ApplicationSystemDeploymentArchitecture : ClassOfClassOfBoundedIndividual
 ApplicationSystemDeploymentArchitecture = ClassOfBoundedIndividual
 
+
 --  ApplicationSystemDeploymentArchitecture is subTypeOf SOftwareDeploymentArchitecture
 st-1084480e5fce4ccb-10844c325fce4e80 : ApplicationSystemDeploymentArchitecture ⊏ₑ SOftwareDeploymentArchitecture
 st-1084480e5fce4ccb-10844c325fce4e80 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Deployable Application System: -}
 deployableApplicationSystem :  Linkage ApplicationSystemDeploymentArchitecture ApplicationSystem
 deployableApplicationSystem = make_subTypeOf "Deployable Application System" "Deployable Application System"
 
 postulate -- deployableApplicationSystem is subTypeOf deployableSOftwareSystem
-  st-ca58cb69684f73f8-ca58cad6684f737d  : deployableApplicationSystem   ⊏⋆ᵣ  deployableSOftwareSystem 
+  st-ca58cb69684f73f8-ca58cad6684f737d  : deployableApplicationSystem  ⊏⋆ᵣ  deployableSOftwareSystem
 
+-- -------------------------------------------------------------------------------------------- 
 {- System Architecture Member: -}
 -- Aggregate Member : System Architecture Member
-SystemArchitectureMember : ClassOfClassOfIndividual
-SystemArchitectureMember = ClassOfIndividual
+SystemArchitectureMember : ClassOfClassOfBoundedIndividual
+SystemArchitectureMember = ClassOfBoundedIndividual
+
+
+
+--  SystemArchitectureMember is subTypeOf DeployableSOftwareMember
+st-10845e385fce6ce2-624e6cab5ed977a2 : SystemArchitectureMember ⊏ₑ DeployableSOftwareMember
+st-10845e385fce6ce2-624e6cab5ed977a2 = polySubTypeOf-identity
+
+--  SystemArchitectureMember is subTypeOf ApplicationDeploymentArchitecture
+st-10845e385fce6ce2-d5e6d7c65c464ae3 : SystemArchitectureMember ⊏ₑ ApplicationDeploymentArchitecture
+st-10845e385fce6ce2-d5e6d7c65c464ae3 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSystemArchitectureMember :  Linkage ApplicationSystemDeploymentArchitecture SystemArchitectureMember
@@ -58,14 +72,23 @@ aggregationOfApplicationDeploymentArchitectureSystemArchitectureMember = make_Re
 systemArchitectureMember : Linkage ApplicationSystemDeploymentArchitecture ApplicationDeploymentArchitecture
 systemArchitectureMember = membershipOfSystemArchitectureMember  ∘  aggregationOfApplicationDeploymentArchitectureSystemArchitectureMember
 
-postulate -- systemArchitectureMember is subTypeOf deployableSOftwareMember
-  st-10845e385fce6ce2-624e6cab5ed977a2  : systemArchitectureMember   ⊏⋆ᵣ  deployableSOftwareMember 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Application Deployment Member: -}
 -- Aggregate Member : Application Deployment Member
-ApplicationDeploymentMember : ClassOfClassOfIndividual
-ApplicationDeploymentMember = ClassOfIndividual
+ApplicationDeploymentMember : ClassOfClassOfBoundedIndividual
+ApplicationDeploymentMember = ClassOfBoundedIndividual
+
+
+
+--  ApplicationDeploymentMember is subTypeOf DeployableSOftwareMember
+st-37b77384602a0acc-624e6cab5ed977a2 : ApplicationDeploymentMember ⊏ₑ DeployableSOftwareMember
+st-37b77384602a0acc-624e6cab5ed977a2 = polySubTypeOf-identity
+
+--  ApplicationDeploymentMember is subTypeOf ApplicationDeploymentArchitecture
+st-37b77384602a0acc-d5e6d7c65c464ae3 : ApplicationDeploymentMember ⊏ₑ ApplicationDeploymentArchitecture
+st-37b77384602a0acc-d5e6d7c65c464ae3 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfApplicationDeploymentMember :  Linkage ApplicationSystemDeploymentArchitecture ApplicationDeploymentMember
@@ -83,6 +106,4 @@ aggregationOfApplicationDeploymentArchitectureApplicationDeploymentMember = make
 applicationDeploymentMember : Linkage ApplicationSystemDeploymentArchitecture ApplicationDeploymentArchitecture
 applicationDeploymentMember = membershipOfApplicationDeploymentMember  ∘  aggregationOfApplicationDeploymentArchitectureApplicationDeploymentMember
 
-postulate -- applicationDeploymentMember is subTypeOf deployableSOftwareMember
-  st-37b77384602a0acc-624e6cab5ed977a2  : applicationDeploymentMember   ⊏⋆ᵣ  deployableSOftwareMember 
 

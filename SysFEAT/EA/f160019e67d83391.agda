@@ -23,30 +23,36 @@ open import SysFEAT.EA.190c57d568976e60 public -- Regulation Article
 ComplianceSystem : ClassOfBoundedIndividual
 ComplianceSystem = BoundedIndividual
 
+
 --  ComplianceSystem is subTypeOf AssuranceSystem
 st-f160019e67d83391-07ca18d25dd85477 : ComplianceSystem ⊏ₑ AssuranceSystem
 st-f160019e67d83391-07ca18d25dd85477 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Controlled Regulatory Framework: -}
 controlledRegulatoryFramework : ∀ {u} →  Linkage ComplianceSystem (RegulatoryFramework u)
 controlledRegulatoryFramework = make_Relation "Controlled Regulatory Framework" "Controlled Regulatory Framework"
 
 postulate -- controlledRegulatoryFramework is subTypeOf enforcedPolicyFramework
-  st-4b9473e068a48c1c-4b945cc368a47e39  : controlledRegulatoryFramework  {lzero}  ⊏⋆ᵣ  enforcedPolicyFramework  {lzero}
+  st-4b9473e068a48c1c-4b945cc368a47e39  : controlledRegulatoryFramework  ⊏⋆ᵣ  enforcedPolicyFramework
 
+-- -------------------------------------------------------------------------------------------- 
 {- Owned Compliance Case: -}
 ownedComplianceCase :  Linkage ComplianceSystem ComplianceCase
 ownedComplianceCase = make_Relation "Owned Compliance Case" "Owned Compliance Case"
 
 postulate -- ownedComplianceCase is subTypeOf ownedAssuranceCase
-  st-f160024967d8349a-0b950f8868e54f9f  : ownedComplianceCase   ⊏⋆ᵣ  ownedAssuranceCase 
+  st-f160024967d8349a-0b950f8868e54f9f  : ownedComplianceCase  ⊏⋆ᵣ  ownedAssuranceCase
 
+-- -------------------------------------------------------------------------------------------- 
 {- Regulation in Scope: -}
 -- Aggregate Member : Regulation in Scope
 RegulationinScope : ClassOfClassOfIndividual
 RegulationinScope = ClassOfIndividual
+
 
 -- Membership relation
 membershipOfRegulationinScope :  Linkage ComplianceSystem RegulationinScope

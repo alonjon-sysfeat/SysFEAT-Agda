@@ -26,4 +26,5 @@ SOftwareDeploymentArchitecture = ClassOfBoundedIndividual
 st-10844c325fce4e80-d5e6d8015c464b40 : SOftwareDeploymentArchitecture ⊏ₑ DeployableSOftwareSystem
 st-10844c325fce4e80-d5e6d8015c464b40 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

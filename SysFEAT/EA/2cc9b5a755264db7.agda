@@ -23,12 +23,15 @@ open import SysFEAT.EA.bcebd0565491287e public -- Driver
 DriverAssessment : ClassOfBoundedIndividual
 DriverAssessment = BoundedIndividual
 
+
 --  DriverAssessment is subTypeOf Assessment
 st-2cc9b5a755264db7-3b539cbb551e4c2a : DriverAssessment ⊏ₑ Assessment
 st-2cc9b5a755264db7-3b539cbb551e4c2a = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- assessment motivation: 
 Driver .which motivates an Driver Assessment .
 -}

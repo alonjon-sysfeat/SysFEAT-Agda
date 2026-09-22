@@ -24,6 +24,7 @@ open import SysFEAT.EA.a41ab2d25b378b12 public -- Computer Network
 ITInfrastructure : ClassOfClassOfBoundedIndividual
 ITInfrastructure = ClassOfBoundedIndividual
 
+
 --  ITInfrastructure is subTypeOf ITInfrastructureSystem
 st-bcebd86d549143b4-a41ab3105b378b66 : ITInfrastructure ⊏ₑ ITInfrastructureSystem
 st-bcebd86d549143b4-a41ab3105b378b66 = polySubTypeOf-identity
@@ -32,12 +33,24 @@ st-bcebd86d549143b4-a41ab3105b378b66 = polySubTypeOf-identity
 st-bcebd86d549143b4-27a456b46407c665 : ITInfrastructure ⊏ₑ ConfiguredTechnologySystem
 st-bcebd86d549143b4-27a456b46407c665 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Network Part: -}
 -- Aggregate Member : Network Part
-NetworkPart : ClassOfClassOfIndividual
-NetworkPart = ClassOfIndividual
+NetworkPart : ClassOfClassOfBoundedIndividual
+NetworkPart = ClassOfBoundedIndividual
+
+
+
+--  NetworkPart is subTypeOf NetworkingPart
+st-3a0ec88263ce3a46-26b8386e5eeae4a4 : NetworkPart ⊏ₑ NetworkingPart
+st-3a0ec88263ce3a46-26b8386e5eeae4a4 = polySubTypeOf-identity
+
+--  NetworkPart is subTypeOf ComputerNetwork
+st-3a0ec88263ce3a46-a41ab2d25b378b12 : NetworkPart ⊏ₑ ComputerNetwork
+st-3a0ec88263ce3a46-a41ab2d25b378b12 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfNetworkPart :  Linkage ITInfrastructure NetworkPart
@@ -55,6 +68,4 @@ aggregationOfComputerNetworkNetworkPart = make_Relation "ComputerNetwork aggrega
 networkPart : Linkage ITInfrastructure ComputerNetwork
 networkPart = membershipOfNetworkPart  ∘  aggregationOfComputerNetworkNetworkPart
 
-postulate -- networkPart is subTypeOf networkingPart
-  st-3a0ec88263ce3a46-26b8386e5eeae4a4  : networkPart   ⊏⋆ᵣ  networkingPart 
 

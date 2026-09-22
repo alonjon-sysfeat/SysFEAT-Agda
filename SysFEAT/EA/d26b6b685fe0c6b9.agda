@@ -27,15 +27,22 @@ ProjectPortfolio = BoundedIndividual
 st-d26b6b685fe0c6b9-2b5887d05ef07b3b : ProjectPortfolio ⊏ₑ ProgramAsset
 st-d26b6b685fe0c6b9-2b5887d05ef07b3b = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Portfolio Line: 
 A Project Portfolio line is defined to enable the assessment of a Project in a given Portfolio.It is related to assessment criteria defined at the portfolio level, and its corresponding score.
 -}
 -- Aggregate Member : Portfolio Line
-PortfolioLine : ClassOfOrderedEntity (lsuc(lzero))
-PortfolioLine = AggregateMember (lsuc(lzero))
+PortfolioLine : ClassOfBoundedIndividual
+PortfolioLine = BoundedIndividual
 
+
+
+--  PortfolioLine is subTypeOf Project
+st-d26b6bcd5fe0c851-91be97ff54882d9f : PortfolioLine ⊏ₑ Project
+st-d26b6bcd5fe0c851-91be97ff54882d9f = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfPortfolioLine :  Linkage ProjectPortfolio PortfolioLine

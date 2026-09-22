@@ -24,4 +24,5 @@ MacroResourceOperatingAsset = ClassOfBoundedIndividual
 st-61e3ae8f679f0e2d-f8e61da0621db6fa : MacroResourceOperatingAsset ⊏ₑ ResourceOperatingAsset
 st-61e3ae8f679f0e2d-f8e61da0621db6fa = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

@@ -17,6 +17,6 @@ module SysFEAT.EA.affecbd45f607a8c where -- ========== Average Value
 open import Agda.Primitive
 
 AverageValue : PropertyType
-AverageValue = ClassOfProperty
+AverageValue = Property
 
 

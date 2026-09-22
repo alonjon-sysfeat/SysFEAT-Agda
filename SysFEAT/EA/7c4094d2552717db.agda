@@ -26,25 +26,39 @@ open import SysFEAT.EA.7c40987055271d04 public -- Conceptual Agent
 BusinessFunction : ClassOfClassOfBoundedIndividual
 BusinessFunction = ClassOfBoundedIndividual
 
+
 --  BusinessFunction is subTypeOf ConceptualAgent
 st-7c4094d2552717db-7c40987055271d04 : BusinessFunction ⊏ₑ ConceptualAgent
 st-7c4094d2552717db-7c40987055271d04 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Business Function: -}
 specializedBusinessFunction :  Linkage BusinessFunction BusinessFunction
 specializedBusinessFunction = make_subTypeOf "Specialized Business Function" "Specialized Business Function"
 
 postulate -- specializedBusinessFunction is subTypeOf specializedAgent
-  st-325a380c66f35081-2b5b440b66ed56d4  : specializedBusinessFunction   ⊏⋆ᵣ  specializedAgent 
+  st-325a380c66f35081-2b5b440b66ed56d4  : specializedBusinessFunction  ⊏⋆ᵣ  specializedAgent
 
+-- -------------------------------------------------------------------------------------------- 
 {- sub-business function: 
 A sub-business function represents the role of a Business Function within a parent Business Function. 
 -}
 -- Aggregate Member : sub-business function
-subbusinessfunction : ClassOfClassOfIndividual
-subbusinessfunction = ClassOfIndividual
+subbusinessfunction : ClassOfClassOfBoundedIndividual
+subbusinessfunction = ClassOfBoundedIndividual
+
+
+
+--  subbusinessfunction is subTypeOf ConceptualAgentPart
+st-4150b7705eccc24e-258c36965fd28288 : subbusinessfunction ⊏ₑ ConceptualAgentPart
+st-4150b7705eccc24e-258c36965fd28288 = polySubTypeOf-identity
+
+--  subbusinessfunction is subTypeOf BusinessFunction
+st-4150b7705eccc24e-7c4094d2552717db : subbusinessfunction ⊏ₑ BusinessFunction
+st-4150b7705eccc24e-7c4094d2552717db = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfsubbusinessfunction :  Linkage BusinessFunction subbusinessfunction
@@ -62,6 +76,4 @@ aggregationOfBusinessFunctionsubbusinessfunction = make_Relation "BusinessFuncti
 subbusinessfunction : Linkage BusinessFunction BusinessFunction
 subbusinessfunction = membershipOfsubbusinessfunction  ∘  aggregationOfBusinessFunctionsubbusinessfunction
 
-postulate -- subbusinessfunction is subTypeOf conceptualAgentPart
-  st-4150b7705eccc24e-258c36965fd28288  : subbusinessfunction   ⊏⋆ᵣ  conceptualAgentPart 
 

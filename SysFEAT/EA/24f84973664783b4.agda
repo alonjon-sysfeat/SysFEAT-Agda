@@ -25,4 +25,5 @@ HardwarePortfolioStage = StateConcept
 st-24f84973664783b4-24f8475766477e0a : HardwarePortfolioStage ⊏ₑ HardwareManagementInitiative
 st-24f84973664783b4-24f8475766477e0a = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

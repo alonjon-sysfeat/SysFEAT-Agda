@@ -24,4 +24,5 @@ HumanAgentCategory = ClassOfBoundedIndividual
 st-ffdf61506860875a-e2ef091962147ad7 : HumanAgentCategory ⊏ₑ ResourceAgentType
 st-ffdf61506860875a-e2ef091962147ad7 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

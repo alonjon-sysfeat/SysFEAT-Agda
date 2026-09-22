@@ -24,4 +24,5 @@ PrivacyBlock = BoundedIndividual
 st-7d3786425fd04ea2-44226d6561819b50 : PrivacyBlock ⊏ₑ DataAssuranceInstrument
 st-7d3786425fd04ea2-44226d6561819b50 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

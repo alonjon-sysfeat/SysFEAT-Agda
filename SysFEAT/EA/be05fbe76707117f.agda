@@ -26,11 +26,13 @@ CustomerSegment = SecondOrderClass
 st-be05fbe76707117f-f69620466a0f9c2f : CustomerSegment ⊏ₐₑ (AssetCategory (lsuc(lsuc(lzero))))
 st-be05fbe76707117f-f69620466a0f9c2f = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Parent Customer Segment: -}
 parentCustomerSegment :  Linkage CustomerSegment CustomerSegment
 parentCustomerSegment = make_subTypeOf "Parent Customer Segment" "Parent Customer Segment"
 
-postulate -- parentCustomerSegment is subTypeOf specializedCategory
-  st-be05fdb9670712db-24f72cf56a0f4ec7  : parentCustomerSegment   ⊏⋆ᵣ  specializedCategory {lsuc(lsuc(lzero))}
+postulate -- parentCustomerSegment is subTypeOf specializedAssetCategory
+  st-be05fdb9670712db-24f72cf56a0f4ec7  : parentCustomerSegment  ⊏⋆ᵣ  specializedAssetCategory

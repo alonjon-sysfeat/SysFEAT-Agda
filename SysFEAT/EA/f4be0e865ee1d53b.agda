@@ -25,8 +25,10 @@ open import SysFEAT.EA.f4be11b15ee1e0fa public -- System of Resources
 Facility : ClassOfClassOfBoundedIndividual
 Facility = ClassOfBoundedIndividual
 
+
 --  Facility is subTypeOf SystemOfResources
 st-f4be0e865ee1d53b-f4be11b15ee1e0fa : Facility ⊏ₑ SystemOfResources
 st-f4be0e865ee1d53b-f4be11b15ee1e0fa = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

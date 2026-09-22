@@ -25,8 +25,10 @@ PrivacyRepresentative = BoundedIndividual
 st-7d3786245fd04e18-7d3786425fd04ea2 : PrivacyRepresentative ⊏ₑ PrivacyBlock
 st-7d3786245fd04e18-7d3786425fd04ea2 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Person: -}
 person :  Linkage PrivacyRepresentative Person
 person = make_holonymyRelation "Person" "Person"

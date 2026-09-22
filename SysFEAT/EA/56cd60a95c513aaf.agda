@@ -22,20 +22,24 @@ open import SysFEAT.EA.bcebd8e9549144db public -- Application
 DeployedApplication : ClassOfBoundedIndividual
 DeployedApplication = BoundedIndividual
 
+
 --  DeployedApplication is subTypeOf IndividualBusinessSOftwareSystem
 st-56cd60a95c513aaf-66f870ce620b2d8c : DeployedApplication ⊏ₑ IndividualBusinessSOftwareSystem
 st-56cd60a95c513aaf-66f870ce620b2d8c = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Technology Installation Used: -}
 technologyInstallationUsed :  Linkage DeployedApplication DeployedSOftwareTechnology
 technologyInstallationUsed = make_holonymyRelation "Technology Installation Used" "Technology Installation Used"
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Application Type: -}
 applicationType :  Linkage DeployedApplication Application
 applicationType = make_instanceOf "Application Type" "Application Type"
 
 postulate -- applicationType is subTypeOf sOftwareSystemType
-  st-e2dc054b66fd4a63-e2dc060266fd4c0c  : applicationType   ⊏⋆ᵣ  sOftwareSystemType 
+  st-e2dc054b66fd4a63-e2dc060266fd4c0c  : applicationType  ⊏⋆ᵣ  sOftwareSystemType

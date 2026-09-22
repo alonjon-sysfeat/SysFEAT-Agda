@@ -27,7 +27,7 @@ open import SysFEAT.EA.4b945e8668a47f80 public -- Policy Framework Asset
 open import SysFEAT.EA.952eab2a67285b02 public -- Architecture Principle Category
 
 Architectureprinciple : PropertyType
-Architectureprinciple = ClassOfProperty
+Architectureprinciple = Property
 
 --  Architectureprinciple is subTypeOf Policy
 st-190c02a368976c94-190c7429689664b5 : Architectureprinciple ⊏ₑ Policy
@@ -37,8 +37,10 @@ st-190c02a368976c94-190c7429689664b5 = polySubTypeOf-identity
 st-190c02a368976c94-4b945e8668a47f80 : Architectureprinciple ⊏ₐₑ (PolicyFrameworkAsset (lsuc(lzero)))
 st-190c02a368976c94-4b945e8668a47f80 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Principle Category: -}
 principleCategory :  Linkage Architectureprinciple ArchitecturePrincipleCategory
 principleCategory = make_instanceOf "Principle Category" "Principle Category"

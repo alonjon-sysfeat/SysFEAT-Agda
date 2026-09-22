@@ -23,8 +23,10 @@ open import SysFEAT.EA.0463ea9a63fd8b6c public -- Software Technology System
 SOftwareTechnology : ClassOfClassOfBoundedIndividual
 SOftwareTechnology = ClassOfBoundedIndividual
 
+
 --  SOftwareTechnology is subTypeOf SOftwareTechnologySystem
 st-d5e6ddd05c46547c-0463ea9a63fd8b6c : SOftwareTechnology ⊏ₑ SOftwareTechnologySystem
 st-d5e6ddd05c46547c-0463ea9a63fd8b6c = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

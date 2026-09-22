@@ -30,14 +30,26 @@ st-254e4d265f7f857a-028f03ff5b4f55ee = polySubTypeOf-identity
 st-254e4d265f7f857a-77318c6c62167dd7 : MetaDataSchema ⊏⋆ₑ NoSQLDataAsset
 st-254e4d265f7f857a-77318c6c62167dd7 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Data Set: 
 NoSQL Dataset that is defined by a MetaData Schema.
 -}
 -- Aggregate Member : Data Set
-DataSet : ClassOfClassOfIndividual
-DataSet = ClassOfIndividual
+DataSet : ClassOfClassOfBoundedIndividual
+DataSet = ClassOfBoundedIndividual
+
+
+
+--  DataSet is subTypeOf PhysicalDomainObject
+st-ae242ff3603900b2-e6f223f55f771b8d : DataSet ⊏ₑ PhysicalDomainObject
+st-ae242ff3603900b2-e6f223f55f771b8d = polySubTypeOf-identity
+
+--  DataSet is subTypeOf NoSQLElement
+st-ae242ff3603900b2-8180baa3600110c8 : DataSet ⊏ₑ NoSQLElement
+st-ae242ff3603900b2-8180baa3600110c8 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfDataSet :  Linkage MetaDataSchema DataSet
@@ -55,6 +67,4 @@ aggregationOfNoSQLElementDataSet = make_Relation "NoSQLElement aggregation" "agg
 dataSet : Linkage MetaDataSchema NoSQLElement
 dataSet = membershipOfDataSet  ∘  aggregationOfNoSQLElementDataSet
 
-postulate -- dataSet is subTypeOf physicalDomainObject
-  st-ae242ff3603900b2-e6f223f55f771b8d  : dataSet   ⊏⋆ᵣ  physicalDomainObject 
 

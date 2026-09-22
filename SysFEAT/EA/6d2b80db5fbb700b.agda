@@ -30,14 +30,25 @@ st-6d2b80db5fbb700b-d6cd2d8e5ab98edc = polySubTypeOf-identity
 st-6d2b80db5fbb700b-8f1c937168ca8195 : DataMap ⊏ₐₑ (DataBlock (lsuc(lzero)))
 st-6d2b80db5fbb700b-8f1c937168ca8195 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Data Domain Member: 
 Data Domain that isa component of a Data Map.
 -}
 -- Aggregate Member : Data Domain Member
 DataDomainMember : ClassOfClassOfIndividual
 DataDomainMember = ClassOfIndividual
+
+
+--  DataDomainMember is subTypeOf InformationDomainMember
+st-6d2b81965fbb71ad-dfa4e2865ebb4e38 : DataDomainMember ⊏ₑ InformationDomainMember
+st-6d2b81965fbb71ad-dfa4e2865ebb4e38 = polySubTypeOf-identity
+
+--  DataDomainMember is subTypeOf DataDomain
+st-6d2b81965fbb71ad-325c32165eb02a4a : DataDomainMember ⊏ₑ DataDomain
+st-6d2b81965fbb71ad-325c32165eb02a4a = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfDataDomainMember :  Linkage DataMap DataDomainMember
@@ -55,14 +66,22 @@ aggregationOfDataDomainDataDomainMember = make_Relation "DataDomain aggregation"
 dataDomainMember : Linkage DataMap DataDomain
 dataDomainMember = membershipOfDataDomainMember  ∘  aggregationOfDataDomainDataDomainMember
 
-postulate -- dataDomainMember is subTypeOf informationDomainMember
-  st-6d2b81965fbb71ad-dfa4e2865ebb4e38  : dataDomainMember   ⊏⋆ᵣ  informationDomainMember 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- External Data Area: -}
 -- Aggregate Member : External Data Area
 ExternalDataArea : ClassOfClassOfIndividual
 ExternalDataArea = ClassOfIndividual
+
+
+--  ExternalDataArea is subTypeOf externalInformationArea
+st-fd1bf5b05fbc6c5a-dfa4e2b35ebb4ee8 : ExternalDataArea ⊏ₑ externalInformationArea
+st-fd1bf5b05fbc6c5a-dfa4e2b35ebb4ee8 = polySubTypeOf-identity
+
+--  ExternalDataArea is subTypeOf DataDomain
+st-fd1bf5b05fbc6c5a-325c32165eb02a4a : ExternalDataArea ⊏ₑ DataDomain
+st-fd1bf5b05fbc6c5a-325c32165eb02a4a = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfExternalDataArea :  Linkage DataMap ExternalDataArea
@@ -80,6 +99,4 @@ aggregationOfDataDomainExternalDataArea = make_Relation "DataDomain aggregation"
 externalDataArea : Linkage DataMap DataDomain
 externalDataArea = membershipOfExternalDataArea  ∘  aggregationOfDataDomainExternalDataArea
 
-postulate -- externalDataArea is subTypeOf externalInformationArea
-  st-fd1bf5b05fbc6c5a-dfa4e2b35ebb4ee8  : externalDataArea   ⊏⋆ᵣ  externalInformationArea 
 

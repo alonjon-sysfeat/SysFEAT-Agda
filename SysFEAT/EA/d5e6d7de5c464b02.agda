@@ -23,16 +23,25 @@ open import SysFEAT.EA.d5e6d7c65c464ae3 public -- Application Deployment Archite
 ApplicationDeploymentEnvironment : ClassOfClassOfBoundedIndividual
 ApplicationDeploymentEnvironment = ClassOfBoundedIndividual
 
+
 --  ApplicationDeploymentEnvironment is subTypeOf SOftwareDeploymentEnvironment
 st-d5e6d7de5c464b02-108442775fce4918 : ApplicationDeploymentEnvironment ⊏ₑ SOftwareDeploymentEnvironment
 st-d5e6d7de5c464b02-108442775fce4918 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Subject Application Deployment: -}
 -- Aggregate Member : Subject Application Deployment
-SubjectApplicationDeployment : ClassOfClassOfIndividual
-SubjectApplicationDeployment = ClassOfIndividual
+SubjectApplicationDeployment : ClassOfClassOfBoundedIndividual
+SubjectApplicationDeployment = ClassOfBoundedIndividual
+
+
+
+--  SubjectApplicationDeployment is subTypeOf ApplicationDeploymentArchitecture
+st-624e69095ed96e51-d5e6d7c65c464ae3 : SubjectApplicationDeployment ⊏ₑ ApplicationDeploymentArchitecture
+st-624e69095ed96e51-d5e6d7c65c464ae3 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSubjectApplicationDeployment :  Linkage ApplicationDeploymentEnvironment SubjectApplicationDeployment
@@ -52,10 +61,17 @@ subjectApplicationDeployment = membershipOfSubjectApplicationDeployment  ∘  ag
 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Partner Deployment Architecture: -}
 -- Aggregate Member : Partner Deployment Architecture
-PartnerDeploymentArchitecture : ClassOfClassOfIndividual
-PartnerDeploymentArchitecture = ClassOfIndividual
+PartnerDeploymentArchitecture : ClassOfClassOfBoundedIndividual
+PartnerDeploymentArchitecture = ClassOfBoundedIndividual
+
+
+
+--  PartnerDeploymentArchitecture is subTypeOf ApplicationDeploymentArchitecture
+st-624e69885ed96fb6-d5e6d7c65c464ae3 : PartnerDeploymentArchitecture ⊏ₑ ApplicationDeploymentArchitecture
+st-624e69885ed96fb6-d5e6d7c65c464ae3 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfPartnerDeploymentArchitecture :  Linkage ApplicationDeploymentEnvironment PartnerDeploymentArchitecture

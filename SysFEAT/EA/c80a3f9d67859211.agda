@@ -22,6 +22,7 @@ open import SysFEAT.EA.d1600c7062e093eb public -- Capability Configuration
 IndividualCapabilityConfiguration : ClassOfBoundedIndividual
 IndividualCapabilityConfiguration = BoundedIndividual
 
+
 --  IndividualCapabilityConfiguration is subTypeOf IndividualBusinessAgent
 st-c80a3f9d67859211-66f8685a620b1440 : IndividualCapabilityConfiguration ⊏ₑ IndividualBusinessAgent
 st-c80a3f9d67859211-66f8685a620b1440 = polySubTypeOf-identity
@@ -30,8 +31,10 @@ st-c80a3f9d67859211-66f8685a620b1440 = polySubTypeOf-identity
 st-c80a3f9d67859211-3b1b936468cd8851 : IndividualCapabilityConfiguration ⊏ₑ IndividualResourceAgentConfiguration
 st-c80a3f9d67859211-3b1b936468cd8851 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Configuration Type: -}
 configurationType :  Linkage IndividualCapabilityConfiguration CapabilityConfiguration
 configurationType = make_instanceOf "Configuration Type" "Configuration Type"

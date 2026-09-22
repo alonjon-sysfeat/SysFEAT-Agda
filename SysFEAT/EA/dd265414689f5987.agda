@@ -17,28 +17,38 @@ module SysFEAT.EA.dd265414689f5987 where -- ========== Resource Capability
 open import Agda.Primitive
 open import SysFEAT.SOF.515c13db68953887 public -- Capability
 
-ResourceCapability : PropertyType
-ResourceCapability = ClassOfProperty
+ResourceCapability : AssetPropertyType
+ResourceCapability = AssetProperty
+
 
 --  ResourceCapability is subTypeOf Capability
 st-dd265414689f5987-515c13db68953887 : ResourceCapability ⊏ₑ Capability
 st-dd265414689f5987-515c13db68953887 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Resource Capability: -}
 specializedResourceCapability :  Linkage ResourceCapability ResourceCapability
 specializedResourceCapability = make_subTypeOf "Specialized Resource Capability" "Specialized Resource Capability"
 
 postulate -- specializedResourceCapability is subTypeOf specializedCapability
-  st-dd262de168a05f19-01f11e77689b6b10  : specializedResourceCapability   ⊏⋆ᵣ  specializedCapability 
+  st-dd262de168a05f19-01f11e77689b6b10  : specializedResourceCapability  ⊏⋆ᵣ  specializedCapability
 
+-- -------------------------------------------------------------------------------------------- 
 {- Resource Capability Part: 
 Aggregate Composition of a Resource Capability.
 -}
 -- Aggregate Member : Resource Capability Part
-ResourceCapabilityPart : ClassOfClassOfIndividual
-ResourceCapabilityPart = ClassOfIndividual
+ResourceCapabilityPart : ClassOfClassOfAbstractEntity
+ResourceCapabilityPart = ClassOfAbstractEntity
+
+
+
+--  ResourceCapabilityPart is subTypeOf CapabilityPart
+st-dd262bf968a05e2c-01f11c59689b68fe : ResourceCapabilityPart ⊏⋆ₑ CapabilityPart
+st-dd262bf968a05e2c-01f11c59689b68fe = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfResourceCapabilityPart :  Linkage ResourceCapability ResourceCapabilityPart
@@ -56,6 +66,4 @@ aggregationOfResourceCapabilityResourceCapabilityPart = make_Relation "ResourceC
 resourceCapabilityPart : Linkage ResourceCapability ResourceCapability
 resourceCapabilityPart = membershipOfResourceCapabilityPart  ∘  aggregationOfResourceCapabilityResourceCapabilityPart
 
-postulate -- resourceCapabilityPart is subTypeOf capabilityPart
-  st-dd262bf968a05e2c-01f11c59689b68fe  : resourceCapabilityPart   ⊏⋆ᵣ  capabilityPart 
 

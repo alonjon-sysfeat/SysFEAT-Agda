@@ -21,18 +21,26 @@ open import SysFEAT.EA.d160042562e08353 public -- Network Interface
 NetworkingSystem : ClassOfClassOfBoundedIndividual
 NetworkingSystem = ClassOfBoundedIndividual
 
+
 --  NetworkingSystem is subTypeOf TechnologyOperatingAsset
 st-26b8384f5eeae33c-d16006d362e085f2 : NetworkingSystem ⊏ₑ TechnologyOperatingAsset
 st-26b8384f5eeae33c-d16006d362e085f2 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Network Connection: 
 A Network Connection is  a Communication channel that represent physical/virtual connections between Networking Systems.They connect Networking Systems through their Network Ports.They convey interactions between physical resources.
 -}
 -- Aggregate Member : Network Connection
 NetworkConnection : ClassOfClassOfIndividual
 NetworkConnection = ClassOfIndividual
+
+
+--  NetworkConnection is subTypeOf TechnologyConnection
+st-26b839785eeae7d2-d1600add62e090a8 : NetworkConnection ⊏ₑ TechnologyConnection
+st-26b839785eeae7d2-d1600add62e090a8 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfNetworkConnection :  Linkage NetworkingSystem NetworkConnection
@@ -50,14 +58,23 @@ aggregationOfNetworkInterfaceNetworkConnection = make_Relation "NetworkInterface
 networkConnection : Linkage NetworkingSystem NetworkInterface
 networkConnection = membershipOfNetworkConnection  ∘  aggregationOfNetworkInterfaceNetworkConnection
 
-postulate -- networkConnection is subTypeOf technologyConnection
-  st-26b839785eeae7d2-d1600add62e090a8  : networkConnection   ⊏⋆ᵣ  technologyConnection 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Networking Part: -}
 -- Aggregate Member : Networking Part
-NetworkingPart : ClassOfClassOfIndividual
-NetworkingPart = ClassOfIndividual
+NetworkingPart : ClassOfClassOfBoundedIndividual
+NetworkingPart = ClassOfBoundedIndividual
+
+
+
+--  NetworkingPart is subTypeOf TechnologySystemMember
+st-26b8386e5eeae4a4-d1600a8f62e08fb2 : NetworkingPart ⊏ₑ TechnologySystemMember
+st-26b8386e5eeae4a4-d1600a8f62e08fb2 = polySubTypeOf-identity
+
+--  NetworkingPart is subTypeOf NetworkingSystem
+st-26b8386e5eeae4a4-26b8384f5eeae33c : NetworkingPart ⊏ₑ NetworkingSystem
+st-26b8386e5eeae4a4-26b8384f5eeae33c = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfNetworkingPart :  Linkage NetworkingSystem NetworkingPart
@@ -75,6 +92,4 @@ aggregationOfNetworkingSystemNetworkingPart = make_Relation "NetworkingSystem ag
 networkingPart : Linkage NetworkingSystem NetworkingSystem
 networkingPart = membershipOfNetworkingPart  ∘  aggregationOfNetworkingSystemNetworkingPart
 
-postulate -- networkingPart is subTypeOf technologySystemMember
-  st-26b8386e5eeae4a4-d1600a8f62e08fb2  : networkingPart   ⊏⋆ᵣ  technologySystemMember 
 

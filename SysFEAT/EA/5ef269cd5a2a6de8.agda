@@ -25,8 +25,10 @@ PrivacyEndpoint = BoundedIndividual
 st-5ef269cd5a2a6de8-7d3786425fd04ea2 : PrivacyEndpoint ⊏ₑ PrivacyBlock
 st-5ef269cd5a2a6de8-7d3786425fd04ea2 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Location: -}
 location :  Linkage PrivacyEndpoint Location
 location = make_holonymyRelation "Location" "Location"

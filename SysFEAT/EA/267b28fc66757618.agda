@@ -24,4 +24,5 @@ ClassOfConceptualEntity = ClassOfBoundedIndividual
 st-267b28fc66757618-362fc8045b3c3e65 : ClassOfConceptualEntity ⊏ₑ ConceptualEntityAsset
 st-267b28fc66757618-362fc8045b3c3e65 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================
