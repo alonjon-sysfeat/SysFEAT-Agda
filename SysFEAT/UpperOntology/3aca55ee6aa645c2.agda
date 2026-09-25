@@ -4,7 +4,7 @@
    framework.sysfeat.com
 
 Class of Abstract Entity: 
-Class of Abstract Entity is the powertype of Abstract Entity.
+Class of Abstract Entity is the powertype of Abstract Entity.In other words, Abstract Entity is the base type, while Class of Abstract Entity is the type whose instances are subtypes of that base type.Example of instance of :Class of Abstract Entity.  Term 
 
 Documentation : https://framework.sysfeat.com/pages/3aca55ee6aa645c2.htm
 

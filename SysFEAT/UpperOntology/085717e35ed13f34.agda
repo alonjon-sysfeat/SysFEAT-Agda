@@ -15,8 +15,10 @@ Documentation : https://framework.sysfeat.com/pages/085717e35ed13f34.htm
 module SysFEAT.UpperOntology.085717e35ed13f34 where -- ========== Today
 
 open import Agda.Primitive
+open import SysFEAT.SOF.08570d835ed129a3 public -- Initiative Milestone
 
-Today : ∀ (u : Level) → ClassOfMixedOrderEntity u
-Today u = MixedOrderEntity u
+Today : InitiativeMilestone
+Today = Unknown
 
 
+-- == Relations =======================

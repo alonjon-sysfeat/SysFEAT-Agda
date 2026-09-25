@@ -17,14 +17,15 @@ External references:
 module SysFEAT.UpperOntology.87d3062666e33965 where -- ========== Property Type
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.608767a668de7fb6 public -- Class of Class of Individual
+open import SysFEAT.UpperOntology.3aca564b6aa646ce public -- Class of Class of Abstract Entity
+open import SysFEAT.UpperOntology.05e6065d6aa42f5f public -- Third Order Class
 
 PropertyType : ThirdOrderClass
-PropertyType = ClassOfClassOfIndividual
+PropertyType = ClassOfClassOfAbstractEntity
 
---  PropertyType is subTypeOf ClassOfClassOfIndividual
-st-87d3062666e33965-608767a668de7fb6 : PropertyType ⊏ₑ ClassOfClassOfIndividual
-st-87d3062666e33965-608767a668de7fb6 = polySubTypeOf-identity
+--  PropertyType is subTypeOf ClassOfClassOfAbstractEntity
+st-87d3062666e33965-3aca564b6aa646ce : PropertyType ⊏ₑ ClassOfClassOfAbstractEntity
+st-87d3062666e33965-3aca564b6aa646ce = polySubTypeOf-identity
 
 
 -- == Relations =======================
@@ -34,8 +35,8 @@ st-87d3062666e33965-608767a668de7fb6 = polySubTypeOf-identity
 specializedPropertyType :  Linkage PropertyType PropertyType
 specializedPropertyType = make_subTypeOf "Property Type Specialization" "Specialized Property Type"
 
-postulate -- specializedPropertyType is subTypeOf superClassOfClassOfIndividual
-  st-12b01dee66e92b43-60876c6168de81be  : specializedPropertyType  ⊏⋆ᵣ  superClassOfClassOfIndividual
+postulate -- specializedPropertyType is subTypeOf subTypeOfEntity
+  st-12b01dee66e92b43-8336837268e9448b  : specializedPropertyType  ⊏⋆ᵣ  subTypeOfEntity {lsuc(lzero)}
 
 -- -------------------------------------------------------------------------------------------- 
 {- Property Type Holonymy: -}

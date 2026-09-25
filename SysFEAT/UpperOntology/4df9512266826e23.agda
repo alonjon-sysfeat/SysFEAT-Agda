@@ -19,6 +19,7 @@ module SysFEAT.UpperOntology.4df9512266826e23 where -- ========== Individual
 
 open import Agda.Primitive
 open import SysFEAT.UpperOntology.5425a2df6aa225cf public -- First Order Entity
+open import SysFEAT.UpperOntology.746ac18368905aa2 public -- Property
 open import SysFEAT.UpperOntology.6aa8cbcb65b32971 public -- Class of Individual
 
 Individual : ClassOfIndividual
@@ -34,3 +35,13 @@ postulate -- ClassOfIndividual is ReflexivePowerType
   41906db96aaa41a6 : ClassOfIndividual ⊏ₘₑ Individual
 
 -- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
+{- Property of Individual: 
+An instance of Entity from a Bounded Individual to a Property that asserts the Bounded Individual  has  the Property.
+-}
+propertyOfIndividual :  Linkage Individual Property
+propertyOfIndividual = make_instanceOf "Individual Qualification" "Property of Individual"
+
+postulate -- propertyOfIndividual is subTypeOf instanceOfEntity
+  st-19763dbb68926a48-34a453a068f7a3ef  : propertyOfIndividual   ⊏⋆ᵣ  instanceOfEntity {lzero} {lsuc(lzero)}

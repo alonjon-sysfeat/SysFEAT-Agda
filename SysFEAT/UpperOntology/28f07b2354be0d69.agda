@@ -22,7 +22,6 @@ module SysFEAT.UpperOntology.28f07b2354be0d69 where -- ========== Bounded Indivi
 open import Agda.Primitive
 open import SysFEAT.UpperOntology.4df9512266826e23 public -- Individual
 open import SysFEAT.UpperOntology.8cfa941b6852781f public -- Bounded Aggregate
-open import SysFEAT.UpperOntology.746ac18368905aa2 public -- Property
 open import SysFEAT.UpperOntology.3492c53e619642ed public -- Class of Bounded Individual
 open import SysFEAT.UpperOntology.267b6a126675a0b9 public -- Temporal Bounding
 
@@ -55,16 +54,6 @@ postulate -- referenceHolonymy is subTypeOf holonymyRelation
   st-9653a95669701e02-c2f2c6ce66e90be7  : referenceHolonymy  ⊏⋆ᵣ  holonymyRelation
 postulate -- referenceHolonymy is subTypeOf referenceRelation
   st-9653a95669701e02-23d5398f68511bc1  : referenceHolonymy  ⊏⋆ᵣ  referenceRelation {lzero} {lzero}
-
--- -------------------------------------------------------------------------------------------- 
-{- Property of Individual: 
-An instance of Entity from a Bounded Individual to a Property that asserts the Bounded Individual  has  the Property.
--}
-propertyOfIndividual :  Linkage BoundedIndividual Property
-propertyOfIndividual = make_instanceOf "Individual Qualification" "Property of Individual"
-
-postulate -- propertyOfIndividual is subTypeOf instanceOfEntity
-  st-19763dbb68926a48-34a453a068f7a3ef  : propertyOfIndividual   ⊏⋆ᵣ  instanceOfEntity {lzero} {lsuc(lzero)}
 
 -- -------------------------------------------------------------------------------------------- 
 {- Aggregate Holonymy: 

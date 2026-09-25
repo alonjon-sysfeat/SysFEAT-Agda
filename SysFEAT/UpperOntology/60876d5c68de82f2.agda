@@ -25,3 +25,4 @@ st-60876d5c68de82f2-608767a668de7fb6 : ClassOfClassOfBoundedIndividual ⊏ₑ Cl
 st-60876d5c68de82f2-608767a668de7fb6 = polySubTypeOf-identity
 
 
+-- == Relations =======================
