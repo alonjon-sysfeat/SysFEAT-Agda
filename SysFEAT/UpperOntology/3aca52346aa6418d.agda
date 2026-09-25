@@ -4,7 +4,7 @@
    framework.sysfeat.com
 
 Abstract Entity: 
-A Abstract Entity is a First Order Entity that is used for syntactic purposes, such as packaging, annotation, vocabulary and designation.Unlike Individuals, Abstract Entitys do not represent a spatio-temporal extent.
+An Abstract Entity is a First Order Entity that does not represent a spatio-temporal extent, unlike Individuals, One specific use case is the definition of syntactic entities, such as in packaging and annotation. Another use case is to provide first-level support for terminology concepts, such as vocabulary and designation, without delving into changes in vocabulary over time.
 
 Documentation : https://framework.sysfeat.com/pages/3aca52346aa6418d.htm
 

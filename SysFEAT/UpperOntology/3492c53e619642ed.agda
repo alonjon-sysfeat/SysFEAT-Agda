@@ -21,8 +21,8 @@ open import Agda.Primitive
 open import SysFEAT.UpperOntology.6aa8cbcb65b32971 public -- Class of Individual
 open import SysFEAT.UpperOntology.8cfa941b6852781f public -- Bounded Aggregate
 open import SysFEAT.UpperOntology.60876d5c68de82f2 public -- Class of Class of Bounded Individual
-open import SysFEAT.UpperOntology.746ac18368905aa2 public -- Property
 open import SysFEAT.UpperOntology.9429979a66823f90 public -- Temporal Bounding Type
+open import SysFEAT.UpperOntology.746ac18368905aa2 public -- Property
 
 ClassOfBoundedIndividual : ClassOfClassOfBoundedIndividual
 ClassOfBoundedIndividual = ClassOfIndividual
@@ -49,16 +49,6 @@ specializedClassOfBoundedIndividual = make_subTypeOf "Class of Bounded Individua
 
 postulate -- specializedClassOfBoundedIndividual is subTypeOf specializedClassOfIndividual
   st-e53a627766e4b4cd-e429632e66ec72ab  : specializedClassOfBoundedIndividual  ⊏⋆ᵣ  specializedClassOfIndividual
-
--- -------------------------------------------------------------------------------------------- 
-{- Qualifying Property: 
-A SubTypeOfEntity from a Class of Bounded Individual to a Property that asserts all members of the Class of Bounded Individual  have  the Property.
--}
-qualifyingProperty :  Linkage ClassOfBoundedIndividual Property
-qualifyingProperty = make_subTypeOf "Qualification" "Qualifying Property"
-
-postulate -- qualifyingProperty is subTypeOf specializedClassOfIndividual
-  st-16621f9a689131e0-e429632e66ec72ab  : qualifyingProperty  ⊏⋆ᵣ  specializedClassOfIndividual
 
 -- -------------------------------------------------------------------------------------------- 
 {- Temporal Ordering Type: -}
@@ -123,8 +113,8 @@ aggregationOfPropertyAggregateQualification = make_Relation "Property aggregatio
 aggregateQualification : Linkage ClassOfBoundedIndividual Property
 aggregateQualification = membershipOfAggregateQualification  ∘  aggregationOfPropertyAggregateQualification
 
-postulate -- aggregateQualification is subTypeOf specializedClassOfIndividual
-  st-b83e30bc696f51e5-e429632e66ec72ab  : aggregateQualification  ⊏⋆ᵣ  specializedClassOfIndividual
+postulate -- aggregateQualification is subTypeOf subTypeOfEntity
+  st-b83e30bc696f51e5-8336837268e9448b  : aggregateQualification  ⊏⋆ᵣ  subTypeOfEntity {lsuc(lzero)}
 
 
 -- -------------------------------------------------------------------------------------------- 

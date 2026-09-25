@@ -18,9 +18,10 @@ module SysFEAT.UpperOntology.608767a668de7fb6 where -- ========== Class of Class
 
 open import Agda.Primitive
 open import SysFEAT.UpperOntology.a599a7e46aa370fb public -- Second Order Class
+open import SysFEAT.UpperOntology.05e6065d6aa42f5f public -- Third Order Class
 
 ClassOfClassOfIndividual : ThirdOrderClass
-ClassOfClassOfIndividual = MetaClass lzero
+ClassOfClassOfIndividual = SecondOrderClass
 
 --  ClassOfClassOfIndividual is subTypeOf SecondOrderClass
 st-608767a668de7fb6-a599a7e46aa370fb : ClassOfClassOfIndividual ⊏ₑ SecondOrderClass

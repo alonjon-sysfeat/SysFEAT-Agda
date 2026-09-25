@@ -21,17 +21,12 @@ External references:
 module SysFEAT.UpperOntology.746ac18368905aa2 where -- ========== Property
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.6aa8cbcb65b32971 public -- Class of Individual
 open import SysFEAT.UpperOntology.23d5a9ea68513ced public -- Building Block
 open import SysFEAT.UpperOntology.3aca55ee6aa645c2 public -- Class of Abstract Entity
 open import SysFEAT.UpperOntology.87d3062666e33965 public -- Property Type
 
 Property : PropertyType
-Property = ClassOfIndividual
-
---  Property is subTypeOf ClassOfIndividual
-st-746ac18368905aa2-6aa8cbcb65b32971 : Property ⊏ₑ ClassOfIndividual
-st-746ac18368905aa2-6aa8cbcb65b32971 = polySubTypeOf-identity
+Property = ClassOfAbstractEntity
 
 --  Property withAspect BuildingBlock
 st-746ac18368905aa2-23d5a9ea68513ced : Property ⊏ₐₑ (BuildingBlock (lsuc(lzero)))
@@ -65,5 +60,5 @@ Specialization relationship between Property(ies).
 specializedProperty :  Linkage Property Property
 specializedProperty = make_subTypeOf "Property Specialization" "Specialized Property"
 
-postulate -- specializedProperty is subTypeOf specializedClassOfIndividual
-  st-1662112a68925f90-e429632e66ec72ab  : specializedProperty  ⊏⋆ᵣ  specializedClassOfIndividual
+postulate -- specializedProperty is subTypeOf subTypeOfEntity
+  st-1662112a68925f90-8336837268e9448b  : specializedProperty  ⊏⋆ᵣ  subTypeOfEntity {lsuc(lzero)}
