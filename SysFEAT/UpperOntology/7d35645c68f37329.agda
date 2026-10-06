@@ -5,6 +5,14 @@
 
 Class of Ordered Entity: 
 Class of Ordered Entity is the Meta-Class (subtype of Class of Entity and instance of  Meta-Class) of all power-type based Class of Entitys that follow a strict ordering of metalevels.
+
+Documentation: https://www.framework.sysfeat.com/pages/7d35645c68f37329.htm
+
+External references:
+   CycProject- Instances of_instances modeled via higher-order-classes : https://www.framework.sysfeat.com/resources/external-references/CycProject-2005-Instances_of_instances_modeled_via_higher-order-classes.pdf
+    Multi-level conceptual modeling: Theory, language and application  : https://ris.utwente.nl/ws/portalfiles/portal/359288948/1-s2.0-S0169023X21000215-main.pdf
+    SysFEAT-TheoraticalFoundations-MultiLevelModeling.pdf              : https://www.framework.sysfeat.com/resources/framework/SysFEAT-TheoraticalFoundations-MultiLevelModeling.pdf
+
  - ============================== -}
 
 {-# OPTIONS --safe --cubical --guardedness #-}

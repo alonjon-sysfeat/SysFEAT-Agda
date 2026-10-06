@@ -14,6 +14,8 @@ Examples:
 3) Computer functions nesting their local variables or inner functions.
 4) Packages nesting their Building Blocks (packaging).
 
+Documentation: https://www.framework.sysfeat.com/pages/a39aaa7f685e5118.htm
+
  - ============================== -}
 
 {-# OPTIONS --safe --cubical --guardedness #-}

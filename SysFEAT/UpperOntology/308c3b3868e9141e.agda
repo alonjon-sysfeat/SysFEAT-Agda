@@ -4,7 +4,16 @@
    framework.sysfeat.com
 
 Class of Mixed-Order Entity: 
-A Class of Mixed-Order Entity is a Class of Entity which instances can belong to different meta-modeling order. This includes Class of Entitys that are instances of themselves, such as .
+A Class of Mixed-Order Entity is a Class of Entity which instances can belong to different meta-modeling order. 
+This includes Class of Entitys that are instances of themselves, such as MetaClass
+
+Documentation: https://www.framework.sysfeat.com/pages/7d35645c68f37329.htm
+
+External references:
+   CycProject- Instances of_instances modeled via higher-order-classes : https://www.framework.sysfeat.com/resources/external-references/CycProject-2005-Instances_of_instances_modeled_via_higher-order-classes.pdf
+    Multi-level conceptual modeling: Theory, language and application  : https://ris.utwente.nl/ws/portalfiles/portal/359288948/1-s2.0-S0169023X21000215-main.pdf
+    SysFEAT-TheoraticalFoundations-MultiLevelModeling.pdf              : https://www.framework.sysfeat.com/resources/framework/SysFEAT-TheoraticalFoundations-MultiLevelModeling.pdf
+
  - ============================== -}
 
 {-# OPTIONS --safe --cubical --guardedness #-}
