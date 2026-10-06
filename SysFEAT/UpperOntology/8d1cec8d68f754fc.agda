@@ -19,10 +19,17 @@ open import SysFEAT.UpperOntology.d9cce31f69371045 public -- Mixed-Order MetaCla
 -- ============================================================
 -- I. Root of the family of classes
 -- ============================================================ 
---FamilyOfClass : (u : Level) → Set (lsuc (lsuc u))
 FamilyOfClass : (u : Level) → MetaFamilyOfClass u
 FamilyOfClass u = ClassOfMixedOrderEntity u
 
 -- FamilyOfClass isSubTypeOf ClassOfMixedOrderEntity  [PROVED - was a postulate]
 8d1ceca968f75569 : ∀ {u} → (FamilyOfClass u) ⊏ₑ (ClassOfMixedOrderEntity u)
 8d1ceca968f75569 {u} = polySubTypeOf-identity
+
+
+-- ============================================================
+-- II. Relations
+-- ============================================================ 
+
+familyOf : ∀ {u v} → Linkage (ClassOfEntity u) (ClassOfEntity v)
+familyOf {u} {v} = make_Relation "Family Of" "Characterized Class"

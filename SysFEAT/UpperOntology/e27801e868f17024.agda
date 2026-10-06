@@ -10,6 +10,11 @@ Since Meta-Class is itself a sub-type of Class of Entity, Meta-Class is an insta
 
 Documentation: https://framework.sysfeat.com/pages/e27801e868f17024.htm
 
+External references:
+  CycProject- Instances of_instances modeled via higher-order-classes : https://www.framework.sysfeat.com/resources/external-references/CycProject-2005-Instances_of_instances_modeled_via_higher-order-classes.pdf
+  Stanford Encyclopedia of Philosophy - Non-wellfounded set theory    : https://plato.stanford.edu/entries/nonwellfounded-set-theory/#1
+
+
  - ============================== -}
 
 {-# OPTIONS --safe --cubical --guardedness #-}
