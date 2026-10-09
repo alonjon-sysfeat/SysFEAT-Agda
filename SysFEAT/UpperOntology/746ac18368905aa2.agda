@@ -4,7 +4,7 @@
    framework.sysfeat.com
 
 Property: 
-A Property is an abstract Class of Individual, which purpose is to qualify Bounded Individuals and their classes (Class of Bounded Individual).Because instances of Property are Property Values, they do not have proper instances: there are no instances of  red , but there are red Bounded Individuals.Example:- 10 degree celcius;- Ability to cook (a capability);- Red;- 12 kg;-  Top Secret (TS) confidentiality.- 7/7 availability
+A Property is a Class of Abstract Entity, which purpose is to qualify Bounded Individuals and their classes (Class of Bounded Individual).Because instances of Property are Property Values, they do not have proper instances: there are no instances of  red , but there are red Bounded Individuals.Example:- 10 degree celcius;- Ability to cook (a capability);- Red;- 12 kg;-  Top Secret (TS) confidentiality.- 7/7 availability
 
 Documentation : https://framework.sysfeat.com/pages/746ac18368905aa2.htm
 
@@ -38,8 +38,6 @@ st-746ac18368905aa2-3aca55ee6aa645c2 = polySubTypeOf-identity
 
 postulate -- Property is PowerInstanceOf Property Type
   f382366f6aac9352 : Property ∷ₚₑ PropertyType
-postulate -- PropertyType is ReflexivePowerType 
-  f4a39ad76aa78ee4 : PropertyType ⊏ₘₑ Property
 
 -- == Relations =======================
 
@@ -51,7 +49,7 @@ propertyClassification :  Linkage Property PropertyType
 propertyClassification = make_instanceOf "Property Classification" "Property Classification"
 
 postulate -- propertyClassification is subTypeOf instanceOfEntity
-  st-1976247d68925c3e-34a453a068f7a3ef  : propertyClassification  ⊏⋆ᵣ  instanceOfEntity {lzero} {lsuc(lzero)}
+  st-1976247d68925c3e-34a453a068f7a3ef  : propertyClassification  ⊏⋆ᵣ  instanceOfEntity {lzero} {lzero}
 
 -- -------------------------------------------------------------------------------------------- 
 {- Specialized Property: 
@@ -61,4 +59,4 @@ specializedProperty :  Linkage Property Property
 specializedProperty = make_subTypeOf "Property Specialization" "Specialized Property"
 
 postulate -- specializedProperty is subTypeOf subTypeOfEntity
-  st-1662112a68925f90-8336837268e9448b  : specializedProperty  ⊏⋆ᵣ  subTypeOfEntity {lsuc(lzero)}
+  st-1662112a68925f90-8336837268e9448b  : specializedProperty  ⊏⋆ᵣ  subTypeOfEntity {lzero}

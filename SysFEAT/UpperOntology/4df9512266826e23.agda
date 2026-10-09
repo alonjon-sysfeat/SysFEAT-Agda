@@ -31,8 +31,6 @@ st-4df9512266826e23-5425a2df6aa225cf = polySubTypeOf-identity
 
 postulate -- Individual is PowerInstanceOf Class of Individual
   87c18c5566e8638a : Individual ∷ₚₑ ClassOfIndividual
-postulate -- ClassOfIndividual is ReflexivePowerType 
-  41906db96aaa41a6 : ClassOfIndividual ⊏ₘₑ Individual
 
 -- == Relations =======================
 
@@ -44,4 +42,4 @@ propertyOfIndividual :  Linkage Individual Property
 propertyOfIndividual = make_instanceOf "Individual Qualification" "Property of Individual"
 
 postulate -- propertyOfIndividual is subTypeOf instanceOfEntity
-  st-19763dbb68926a48-34a453a068f7a3ef  : propertyOfIndividual   ⊏⋆ᵣ  instanceOfEntity {lzero} {lsuc(lzero)}
+  st-19763dbb68926a48-34a453a068f7a3ef  : propertyOfIndividual   ⊏⋆ᵣ  instanceOfEntity {lzero} {lzero}

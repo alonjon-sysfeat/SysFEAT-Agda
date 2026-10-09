@@ -37,4 +37,7 @@ open import SysFEAT.UpperOntology.608767a668de7fb6 public -- Class of Class of I
 open import SysFEAT.UpperOntology.60876d5c68de82f2 public -- Class of Class of Bounded Individual
 open import SysFEAT.UpperOntology.342f74b166156e02 public -- Whole Life Individual
 open import SysFEAT.UpperOntology.9429979a66823f90 public -- Temporal Bounding Type
+open import SysFEAT.UpperOntology.86b99dad6ac3265f public -- Elementary Property Type
+open import SysFEAT.UpperOntology.86b99fec6ac32863 public -- Composite Property Type
+open import SysFEAT.UpperOntology.f69619236a0f8dcd public -- Category
 open import SysFEAT.UpperOntology.6aa8cbcb65b32971 public -- Class of Individual

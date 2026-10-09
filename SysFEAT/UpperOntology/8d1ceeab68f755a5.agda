@@ -7,7 +7,7 @@ Class Partition:
 
  - ============================== -}
 
-{-# OPTIONS --safe --cubical --guardedness #-}
+{-# OPTIONS --cubical --guardedness #-}
 
 module SysFEAT.UpperOntology.8d1ceeab68f755a5 where -- ========== Class Partition
 
@@ -25,5 +25,16 @@ ClassPartition u = FamilyOfClass u
 -- ClassPartition isSubTypeOf FamilyOfClass
 8d1ceec668f7560c : ∀ {u} → (ClassPartition u) ⊏ₑ (FamilyOfClass u)
 8d1ceec668f7560c {u} = polySubTypeOf-identity
+
+
+-- ============================================================
+-- II. Relations
+-- ============================================================ 
+
+partitionedClass : ∀ {u v} → Linkage (ClassOfEntity (lsuc u)) (ClassOfEntity v)
+partitionedClass {u} {v} = make_Relation "Partitioning" "partitioned Class"
+
+postulate -- partitionedClass is subTypeOf familyOf
+  st-0eb946496854a02e-02a506a968540333  : ∀ {u v} → partitionedClass {u} {v}  ⊏⋆ᵣ  familyOf {u} {v}
 
 

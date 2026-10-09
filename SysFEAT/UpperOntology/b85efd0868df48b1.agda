@@ -19,8 +19,8 @@ open import SysFEAT.UpperOntology.3aca52346aa6418d public -- Abstract Entity
 open import SysFEAT.UpperOntology.23d5a9ea68513ced public -- Building Block
 open import SysFEAT.UpperOntology.746ac18368905aa2 public -- Property
 
-PropertyValue : PropertyType
-PropertyValue = Individual
+PropertyValue : Property
+PropertyValue = AbstractEntity
 
 --  PropertyValue is subTypeOf AbstractEntity
 st-b85efd0868df48b1-3aca52346aa6418d : PropertyValue ⊏ₑ AbstractEntity
@@ -30,5 +30,7 @@ st-b85efd0868df48b1-3aca52346aa6418d = polySubTypeOf-identity
 st-b85efd0868df48b1-23d5a9ea68513ced : PropertyValue ⊏ₐₑ (BuildingBlock lzero)
 st-b85efd0868df48b1-23d5a9ea68513ced = polySubTypeOf-identity
 
+postulate -- PropertyValue is PowerInstanceOf Property
+  0697253168e44995 : PropertyValue ∷ₚₑ Property
 
 -- == Relations =======================

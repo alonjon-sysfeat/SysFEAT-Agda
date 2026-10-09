@@ -15,16 +15,16 @@ Documentation : https://framework.sysfeat.com/pages/23d5aa4868513f43.htm
 module SysFEAT.UpperOntology.23d5aa4868513f43 where -- ========== Block Collection
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.6ef572f868f1366f public -- Mixed-Order Entity
+open import SysFEAT.UpperOntology.86b9b1d46ac32bda public -- Aspect of Entity
 open import SysFEAT.UpperOntology.23d5a9ea68513ced public -- Building Block
 
 BlockCollection : ∀ (u : Level) → ClassOfMixedOrderEntity u 
 BlockCollection u  = MixedOrderEntity u 
 
 
---  BlockCollection is subTypeOf MixedOrderEntity
-st-23d5aa4868513f43-6ef572f868f1366f : ∀ {u v} → (BlockCollection u) ⊏⋆ₑ (MixedOrderEntity v)
-st-23d5aa4868513f43-6ef572f868f1366f = trivialPolySubTypeOfEntity
+--  BlockCollection is subTypeOf AspectOfEntity
+st-23d5aa4868513f43-86b9b1d46ac32bda : ∀ {u v} → (BlockCollection u) ⊏⋆ₑ (AspectOfEntity v)
+st-23d5aa4868513f43-86b9b1d46ac32bda = trivialPolySubTypeOfEntity
 
 
 -- == Relations =======================

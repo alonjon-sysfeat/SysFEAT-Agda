@@ -32,7 +32,5 @@ st-267b6a126675a0b9-23d5eaba68515533 = polySubTypeOf-identity
 
 postulate -- TemporalBounding is PowerInstanceOf Temporal Bounding Type
   9429990f668240a4 : TemporalBounding ∷ₚₑ TemporalBoundingType
-postulate -- TemporalBoundingType is ReflexivePowerType 
-  f4a329426aa78da9 : TemporalBoundingType ⊏ₘₑ TemporalBounding
 
 -- == Relations =======================

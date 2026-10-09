@@ -32,8 +32,6 @@ st-6aa8cbcb65b32971-c463c6106aa23c35 = polySubTypeOf-identity
 
 postulate -- ClassOfIndividual is PowerInstanceOf Class of Class of Individual
   12fe19dc68ed0dfe : ClassOfIndividual ∷ₚₑ ClassOfClassOfIndividual
-postulate -- ClassOfClassOfIndividual is ReflexivePowerType 
-  4cc15a286aad48ac : ClassOfClassOfIndividual ⊏ₘₑ ClassOfIndividual
 
 -- == Relations =======================
 
@@ -45,7 +43,7 @@ specializedClassOfIndividual :  Linkage ClassOfIndividual ClassOfIndividual
 specializedClassOfIndividual = make_subTypeOf "Individual Class Specialization" "Specialized Class of Individual"
 
 postulate -- specializedClassOfIndividual is subTypeOf subTypeOfEntity
-  st-e429632e66ec72ab-8336837268e9448b  : specializedClassOfIndividual  ⊏⋆ᵣ  subTypeOfEntity {lsuc(lzero)}
+  st-e429632e66ec72ab-8336837268e9448b  : specializedClassOfIndividual  ⊏⋆ᵣ  subTypeOfEntity {lzero}
 
 -- -------------------------------------------------------------------------------------------- 
 {- Qualifying Property: 
@@ -63,4 +61,4 @@ categorization : ∀ {u} →  Linkage ClassOfIndividual (Category u)
 categorization = make_instanceOf "Categorization" "Categorization"
 
 postulate -- categorization is subTypeOf instanceOfEntity
-  st-f69619646a0f8e6c-34a453a068f7a3ef  : categorization  {lsuc(lsuc(lzero))}  ⊏⋆ᵣ  instanceOfEntity {lzero} {lsuc(lzero)}
+  st-f69619646a0f8e6c-34a453a068f7a3ef  : categorization  {lsuc(lsuc(lzero))}  ⊏⋆ᵣ  instanceOfEntity {lzero} {lzero}

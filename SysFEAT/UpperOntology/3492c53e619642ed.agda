@@ -37,8 +37,6 @@ st-3492c53e619642ed-8cfa941b6852781f = polySubTypeOf-identity
 
 postulate -- ClassOfBoundedIndividual is PowerInstanceOf Class of Class of Bounded Individual
   328b393a66e32434 : ClassOfBoundedIndividual ∷ₚₑ ClassOfClassOfBoundedIndividual
-postulate -- ClassOfClassOfBoundedIndividual is ReflexivePowerType 
-  9ba3baef6aaa6223 : ClassOfClassOfBoundedIndividual ⊏ₘₑ ClassOfBoundedIndividual
 
 -- == Relations =======================
 
@@ -114,7 +112,7 @@ aggregateQualification : Linkage ClassOfBoundedIndividual Property
 aggregateQualification = membershipOfAggregateQualification  ∘  aggregationOfPropertyAggregateQualification
 
 postulate -- aggregateQualification is subTypeOf subTypeOfEntity
-  st-b83e30bc696f51e5-8336837268e9448b  : aggregateQualification  ⊏⋆ᵣ  subTypeOfEntity {lsuc(lzero)}
+  st-b83e30bc696f51e5-8336837268e9448b  : aggregateQualification  ⊏⋆ᵣ  subTypeOfEntity {lzero}
 
 
 -- -------------------------------------------------------------------------------------------- 

@@ -17,8 +17,8 @@ module SysFEAT.UpperOntology.edc1f6b868f4546c where -- ========== Power Class
 open import Agda.Primitive
 open import SysFEAT.UpperOntology.308c3b3868e9141e public -- Class of Mixed-Order Entity
 
-PowerClass : ∀ (u : Level) → MixedOrderMetaClass u 
-PowerClass u  = ClassOfMixedOrderEntity u 
+PowerClass : ∀ (u : Level) → MetaClass u 
+PowerClass u  = ClassOfEntity u 
 
 
 --  PowerClass is subTypeOf ClassOfMixedOrderEntity
