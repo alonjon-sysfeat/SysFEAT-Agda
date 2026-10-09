@@ -7,7 +7,7 @@ Family of Class:
 
  - ============================== -}
 
-{-# OPTIONS --safe --cubical --guardedness #-}
+{-# OPTIONS --cubical --guardedness #-}
 
 module SysFEAT.UpperOntology.8d1cec8d68f754fc where -- ========== Family of Class
 
@@ -31,5 +31,11 @@ FamilyOfClass u = ClassOfMixedOrderEntity u
 -- II. Relations
 -- ============================================================ 
 
-familyOf : ∀ {u v} → Linkage (ClassOfEntity u) (ClassOfEntity v)
+familyOf : ∀ {u v} → Linkage (MetaFamilyOfClass u) (ClassOfEntity v)
 familyOf {u} {v} = make_Relation "Family Of" "Characterized Class"
+
+postulate -- familyOf is subTypeOf referenceRelation
+  e9fb42ff6ac732e7  : ∀ {u v}  → familyOf {u} {v} ⊏⋆ᵣ  referenceRelation {u} {v}
+
+postulate -- familyOf is subTypeOf existentialDependency
+  e9fb088a6ac53154  : ∀ {u v}  → familyOf {u} {v} ⊏⋆ᵣ  existentialDependency {u} {v}

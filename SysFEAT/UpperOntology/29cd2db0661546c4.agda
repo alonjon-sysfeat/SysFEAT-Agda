@@ -27,5 +27,7 @@ IndividualState = BoundedIndividual
 st-29cd2db0661546c4-28f07b2354be0d69 : IndividualState ⊏ₑ BoundedIndividual
 st-29cd2db0661546c4-28f07b2354be0d69 = polySubTypeOf-identity
 
+postulate -- IndividualState is PowerInstanceOf State Class
+  c2f2faae66ea7ef2 : IndividualState ∷ₚₑ StateClass
 
 -- == Relations =======================

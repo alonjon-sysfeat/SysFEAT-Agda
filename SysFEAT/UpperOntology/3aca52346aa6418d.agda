@@ -27,7 +27,5 @@ st-3aca52346aa6418d-5425a2df6aa225cf = polySubTypeOf-identity
 
 postulate -- AbstractEntity is PowerInstanceOf Class of Abstract Entity
   3aca56256aa6469a : AbstractEntity ∷ₚₑ ClassOfAbstractEntity
-postulate -- ClassOfAbstractEntity is ReflexivePowerType 
-  593465de6aae0c29 : ClassOfAbstractEntity ⊏ₘₑ AbstractEntity
 
 -- == Relations =======================

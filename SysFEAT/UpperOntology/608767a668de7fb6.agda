@@ -36,4 +36,4 @@ superClassOfClassOfIndividual :  Linkage ClassOfClassOfIndividual ClassOfClassOf
 superClassOfClassOfIndividual = make_subTypeOf "Super Class of Class of Individual" "Super Class of Class of Individual"
 
 postulate -- superClassOfClassOfIndividual is subTypeOf subTypeOfEntity
-  st-60876c6168de81be-8336837268e9448b  : superClassOfClassOfIndividual  ⊏⋆ᵣ  subTypeOfEntity {lsuc(lzero)}
+  st-60876c6168de81be-8336837268e9448b  : superClassOfClassOfIndividual  ⊏⋆ᵣ  subTypeOfEntity {lzero}

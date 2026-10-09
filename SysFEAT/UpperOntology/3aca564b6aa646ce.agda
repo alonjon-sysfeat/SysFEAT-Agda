@@ -21,6 +21,7 @@ open import SysFEAT.UpperOntology.05e6065d6aa42f5f public -- Third Order Class
 ClassOfClassOfAbstractEntity : ThirdOrderClass
 ClassOfClassOfAbstractEntity = SecondOrderClass
 
+
 --  ClassOfClassOfAbstractEntity is subTypeOf SecondOrderClass
 st-3aca564b6aa646ce-a599a7e46aa370fb : ClassOfClassOfAbstractEntity ⊏ₑ SecondOrderClass
 st-3aca564b6aa646ce-a599a7e46aa370fb = polySubTypeOf-identity

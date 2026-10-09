@@ -4,10 +4,12 @@
    framework.sysfeat.com
 
 Composite Property: 
-A Composite Property is a Property that is composed of other Propertys.
+A Composite Property is a Property that is composed of other Propertys. - Ability to cook (a capability) - 7/7 days a week.
 
 Documentation : https://framework.sysfeat.com/pages/3e525e406ab05b0d.htm
 
+External references:
+  ISO 15926 - MultidimensionalProperty: https://15926.blog/topics/data-model/index.htm#MultidimensionalProperty
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -17,10 +19,10 @@ module SysFEAT.UpperOntology.3e525e406ab05b0d where -- ========== Composite Prop
 open import Agda.Primitive
 open import SysFEAT.UpperOntology.746ac18368905aa2 public -- Property
 open import SysFEAT.UpperOntology.23d56d9868525869 public -- Aggregate Entity Block
+open import SysFEAT.UpperOntology.86b99fec6ac32863 public -- Composite Property Type
 
-CompositeProperty : PropertyType
+CompositeProperty : CompositePropertyType
 CompositeProperty = Property
-
 
 --  CompositeProperty is subTypeOf Property
 st-3e525e406ab05b0d-746ac18368905aa2 : CompositeProperty ⊏ₑ Property
@@ -30,6 +32,8 @@ st-3e525e406ab05b0d-746ac18368905aa2 = polySubTypeOf-identity
 st-3e525e406ab05b0d-23d56d9868525869 : CompositeProperty ⊏ₐₑ (AggregateEntityBlock (lsuc(lzero)))
 st-3e525e406ab05b0d-23d56d9868525869 = polySubTypeOf-identity
 
+postulate -- CompositeProperty is PowerInstanceOf Composite Property Type
+  86b9a0756ac3295e : CompositeProperty ∷ₚₑ CompositePropertyType
 
 -- == Relations =======================
 

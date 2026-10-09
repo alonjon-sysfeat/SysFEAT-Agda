@@ -38,8 +38,6 @@ st-28f07b2354be0d69-8cfa941b6852781f = polySubTypeOf-identity
 
 postulate -- BoundedIndividual is PowerInstanceOf Class of Bounded Individual
   96a19b6566e85713 : BoundedIndividual ∷ₚₑ ClassOfBoundedIndividual
-postulate -- ClassOfBoundedIndividual is ReflexivePowerType 
-  f4a3f54f6aa68175 : ClassOfBoundedIndividual ⊏ₘₑ BoundedIndividual
 
 -- == Relations =======================
 
@@ -60,8 +58,8 @@ postulate -- referenceHolonymy is subTypeOf referenceRelation
 Aggregate Holonymy is a reified Holonymy Relation where the composed Bounded Individual becomes a Bounded Member of the whole Bounded Individual.
 -}
 -- Aggregate Member : Aggregate Holonymy
-AggregateHolonymy : AggregateHolonymyType
-AggregateHolonymy = BoundedIndividual
+AggregateHolonymy : ClassOfIndividual
+AggregateHolonymy = Individual
 
 
 --  AggregateHolonymy withAspect BoundedMember

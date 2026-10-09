@@ -28,5 +28,7 @@ WholeLifeIndividual = BoundedIndividual
 st-342f74b166156e02-28f07b2354be0d69 : WholeLifeIndividual ⊏ₑ BoundedIndividual
 st-342f74b166156e02-28f07b2354be0d69 = polySubTypeOf-identity
 
+postulate -- WholeLifeIndividual is PowerInstanceOf Whole Life Class
+  12b0239266e931e9 : WholeLifeIndividual ∷ₚₑ WholeLifeClass
 
 -- == Relations =======================
