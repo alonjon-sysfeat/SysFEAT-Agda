@@ -19,6 +19,7 @@ External references:
 module SysFEAT.UpperOntology.sysfeat-domain-fb342c5665561f29 where -- ========== 4D Composite Knowledge Graph
 
 open import SysFEAT.UpperOntology.sysfeat-domain-f0fd779f65a18c5d public -- Packaging
+open import SysFEAT.UpperOntology.sysfeat-domain-3aca56b16aa64950 public -- Abstract Knowledge Graph
 open import SysFEAT.UpperOntology.sysfeat-domain-e278fa2568f06541 public -- Reflexive Knowledge Graph
 open import SysFEAT.UpperOntology.sysfeat-domain-36166b8c6157b6b4 public -- Compositionality
 
@@ -34,7 +35,7 @@ open import SysFEAT.UpperOntology.3e525e406ab05b0d public -- Composite Property
 open import SysFEAT.UpperOntology.00ae5d3b667038fc public -- Whole Life Class
 open import SysFEAT.UpperOntology.267b6a126675a0b9 public -- Temporal Bounding
 open import SysFEAT.UpperOntology.608767a668de7fb6 public -- Class of Class of Individual
-open import SysFEAT.UpperOntology.60876d5c68de82f2 public -- Class of Class of Bounded Individual
+open import SysFEAT.UpperOntology.60876d5c68de82f2 public -- Bounded Individual MetaClass
 open import SysFEAT.UpperOntology.342f74b166156e02 public -- Whole Life Individual
 open import SysFEAT.UpperOntology.9429979a66823f90 public -- Temporal Bounding Type
 open import SysFEAT.UpperOntology.86b99dad6ac3265f public -- Elementary Property Type

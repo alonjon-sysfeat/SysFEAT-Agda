@@ -4,7 +4,7 @@
    framework.sysfeat.com
 
 Property Value: 
-Property Value is the power instance of Property. All its subtypes are instances of Property such as: - 10 degree celcius;- Ability to cook (a capability);- Red;- 12 kg;-  Top Secret (TS) confidentiality.- 7/7 availability
+A Property Value is an Abstract Entity that is used to characterize Individuals through the Property of Individual relation.Property Value is the power instance of Property. All its subtypes are instances of Property such as: - 10 degree celcius;- Ability to cook (a capability);- Red;- 12 kg;-  Top Secret (TS) confidentiality.- 7/7 availability
 
 Documentation : https://framework.sysfeat.com/pages/b85efd0868df48b1.htm
 

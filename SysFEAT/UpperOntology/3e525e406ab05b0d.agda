@@ -39,10 +39,10 @@ postulate -- CompositeProperty is PowerInstanceOf Composite Property Type
 
 -- -------------------------------------------------------------------------------------------- 
 {- Property Part: 
-A Property Part is an aggregate composition (Class of Holonymy) of  a Property within a whole Composite Property.
+A Property Part is an aggregate holonymy (Class of Holonymy) of  a Property within a whole Composite Property.
 -}
 -- Aggregate Member : Property Part
-PropertyPart : ClassOfClassOfAbstractEntity
+PropertyPart : AbstractEntityMetaClass
 PropertyPart = ClassOfAbstractEntity
 
 
@@ -72,5 +72,5 @@ propertyPart : Linkage CompositeProperty Property
 propertyPart = membershipOfPropertyPart  ∘  aggregationOfPropertyPropertyPart
 
 postulate -- propertyPart is subTypeOf classOfHolonymy
-  st-3e5261066ab05e0f-d91704746a62320c  : propertyPart  ⊏⋆ᵣ  classOfHolonymy
+  st-3e5261066ab05e0f-f62600496ad57ec3  : propertyPart  ⊏⋆ᵣ  classOfHolonymy
 

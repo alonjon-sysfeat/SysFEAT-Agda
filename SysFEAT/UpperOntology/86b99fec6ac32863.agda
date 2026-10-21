@@ -16,6 +16,7 @@ module SysFEAT.UpperOntology.86b99fec6ac32863 where -- ========== Composite Prop
 
 open import Agda.Primitive
 open import SysFEAT.UpperOntology.87d3062666e33965 public -- Property Type
+open import SysFEAT.UpperOntology.23d56d9868525869 public -- Aggregate Entity Block
 
 CompositePropertyType : ThirdOrderClass
 CompositePropertyType = PropertyType
@@ -24,6 +25,10 @@ CompositePropertyType = PropertyType
 --  CompositePropertyType is subTypeOf PropertyType
 st-86b99fec6ac32863-87d3062666e33965 : CompositePropertyType ⊏ₑ PropertyType
 st-86b99fec6ac32863-87d3062666e33965 = polySubTypeOf-identity
+
+--  CompositePropertyType withAspect AggregateEntityBlock
+st-86b99fec6ac32863-23d56d9868525869 : CompositePropertyType ⊏ₐₑ (AggregateEntityBlock (lsuc(lsuc(lzero))))
+st-86b99fec6ac32863-23d56d9868525869 = polySubTypeOf-identity
 
 
 -- == Relations =======================

@@ -3,8 +3,8 @@
    This work is released under the MIT License.
    framework.sysfeat.com
 
-Class of Class of Abstract Entity: 
-Class of Class of Abstract Entity is the powertype of Class of Abstract Entity.
+Abstract Entity MetaClass: 
+Abstract Entity MetaClass is the powertype of Class of Abstract Entity.
 
 Documentation : https://framework.sysfeat.com/pages/3aca564b6aa646ce.htm
 
@@ -12,18 +12,18 @@ Documentation : https://framework.sysfeat.com/pages/3aca564b6aa646ce.htm
 
 {-# OPTIONS --cubical --guardedness #-}
 
-module SysFEAT.UpperOntology.3aca564b6aa646ce where -- ========== Class of Class of Abstract Entity
+module SysFEAT.UpperOntology.3aca564b6aa646ce where -- ========== Abstract Entity MetaClass
 
 open import Agda.Primitive
 open import SysFEAT.UpperOntology.a599a7e46aa370fb public -- Second Order Class
-open import SysFEAT.UpperOntology.432843766ad7639a public -- Third Order Class
+open import SysFEAT.UpperOntology.bab6c7346ad70999 public -- Third Order Class
 
-ClassOfClassOfAbstractEntity : ThirdOrderClass
-ClassOfClassOfAbstractEntity = SecondOrderClass
+AbstractEntityMetaClass : ThirdOrderClass
+AbstractEntityMetaClass = SecondOrderClass
 
 
---  ClassOfClassOfAbstractEntity is subTypeOf SecondOrderClass
-st-3aca564b6aa646ce-a599a7e46aa370fb : ClassOfClassOfAbstractEntity ⊏ₑ SecondOrderClass
+--  AbstractEntityMetaClass is subTypeOf SecondOrderClass
+st-3aca564b6aa646ce-a599a7e46aa370fb : AbstractEntityMetaClass ⊏ₑ SecondOrderClass
 st-3aca564b6aa646ce-a599a7e46aa370fb = polySubTypeOf-identity
 
 

@@ -39,7 +39,7 @@ postulate -- Individual is PowerInstanceOf Class of Individual
 An instance of Entity from a Bounded Individual to a Property that asserts the Bounded Individual  has  the Property.
 -}
 propertyOfIndividual :  Linkage Individual Property
-propertyOfIndividual = make_instanceOf "Individual Qualification" "Property of Individual"
+propertyOfIndividual = make_Relation "Individual Qualification" "Property of Individual"
 
 postulate -- propertyOfIndividual is subTypeOf instanceOfEntity
   st-19763dbb68926a48-34a453a068f7a3ef  : propertyOfIndividual   ⊏⋆ᵣ  instanceOfEntity {lzero} {lzero}

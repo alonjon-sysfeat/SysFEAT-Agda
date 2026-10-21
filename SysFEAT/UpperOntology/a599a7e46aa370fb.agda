@@ -27,7 +27,7 @@ open import Agda.Primitive
 open import SysFEAT.UpperOntology.e8b2f7c7673d36d1 public -- MetaClass and MetaRelation
 open import SysFEAT.UpperOntology.e27801e868f17024 public -- MetaClass and MetaRelation
 open import SysFEAT.UpperOntology.d9cce4e96937128c public -- Ordered MetaClass
-open import SysFEAT.UpperOntology.432843766ad7639a public -- Third Order Class
+open import SysFEAT.UpperOntology.bab6c7346ad70999 public -- Third Order Class
 
 -- ============================================================
 -- I. Second Order Class (M2 level)

@@ -46,7 +46,7 @@ postulate -- Property is PowerInstanceOf Property Type
 Property Classification is a classification of Propertys by Property Types.
 -}
 propertyClassification :  Linkage Property PropertyType
-propertyClassification = make_instanceOf "Property Classification" "Property Classification"
+propertyClassification = make_classOfRelation "Property Classification" "Property Classification"
 
 postulate -- propertyClassification is subTypeOf instanceOfEntity
   st-1976247d68925c3e-34a453a068f7a3ef  : propertyClassification  ⊏⋆ᵣ  instanceOfEntity {lzero} {lzero}

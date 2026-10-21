@@ -22,9 +22,11 @@ open import SysFEAT.UpperOntology.3492c53e619642ed public -- Class of Bounded In
 StateClass : ClassOfClassOfBoundedIndividual
 StateClass = ClassOfBoundedIndividual
 
---  StateClass is subTypeOf ClassOfBoundedIndividual
-st-342f43ae66156429-3492c53e619642ed : StateClass ⊏ₑ ClassOfBoundedIndividual
-st-342f43ae66156429-3492c53e619642ed = polySubTypeOf-identity
-
 
 -- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
+{- State of Class of Bounded Individual: -}
+stateOfClassOfBoundedIndividual :  Linkage StateClass ClassOfBoundedIndividual
+stateOfClassOfBoundedIndividual = make_classOfMeronymy "State of Class of Bounded Individual" "State of Class of Bounded Individual"
+
