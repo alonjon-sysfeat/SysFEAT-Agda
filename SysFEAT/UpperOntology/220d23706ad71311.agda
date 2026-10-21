@@ -10,7 +10,7 @@ Documentation : https://framework.sysfeat.com/pages/220d23706ad71311.htm
 
  - ============================== -}
 
-{-# OPTIONS --cubical --guardedness #-}
+{-# OPTIONS --safe --cubical --guardedness #-}
 
 module SysFEAT.UpperOntology.220d23706ad71311 where -- ========== Grouping MetaClass
 
@@ -18,7 +18,7 @@ open import Agda.Primitive
 open import SysFEAT.UpperOntology.0dc01ead6ad74e81 public -- Family MetaClass
 
 GroupingMetaClass : ∀ (u : Level) → Set (lsuc (lsuc (lsuc u)))
-GroupingMetaClass u = Category u
+GroupingMetaClass u = FamilyMetaClass u
 
 --  GroupingMetaClass is subTypeOf FamilyMetaClass
 st-220d23706ad71311-0dc01ead6ad74e81 : ∀ {u v} → (GroupingMetaClass u) ⊏⋆ₑ (FamilyMetaClass v)
