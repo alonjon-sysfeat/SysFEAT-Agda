@@ -260,39 +260,7 @@ ClassOfElement-isInstanceOf-itself : ∀ {u} → (ClassOfElement u) ∷ₘ (Clas
 ClassOfElement-isInstanceOf-itself = metaInstanceOf-fromCoercion (λ A → A)
 
 -- ============================================================
--- IV. ONTOLOGICAL PARTITION between classes that have a fixed universe level and
---     classes that can span accross universe level
--- ============================================================
-ClassOfMixedOrderElement : (u : Level) → Set (lsuc (lsuc u))
-ClassOfMixedOrderElement u = ClassOfElement u
-
-ClassOfOrderedElement : (u : Level) → Set (lsuc (lsuc u))
-ClassOfOrderedElement u = ClassOfElement u
-
--- Aspects are suptyping between a ClassOfOrderedElement and a ClassOfMixedOrderElement
-aspectOf : ∀ {u v} → Linkage (ClassOfOrderedElement u) (ClassOfMixedOrderElement v)
-aspectOf {u} {v} = make_Linkage (HomSubType {u} {v}) "Aspect Subtyping" "Super Aspect"
-
--- Mathematical predicate for aspectOf
-_⊏ₐ_ : ∀ {u v} → ClassOfOrderedElement u → ClassOfMixedOrderElement v → Set (lsuc (lsuc (u ⊔ v)))
-_⊏ₐ_ c1 c2 = c1 —⟨ aspectOf ⟩→ c2
-
--- Ordering laws for aspectOf : same HomSubType witnesses, same proofs.
-aspectOf-identity : ∀ {u} {c : ClassOfOrderedElement u} → c ⊏ₐ c
-aspectOf-identity = polySubTypeOf-identity
-
-aspectOf-transitive : ∀ {u v} {c d : ClassOfOrderedElement u} {f : ClassOfMixedOrderElement v}
-          → c ⊏ₐ d → d ⊏ₐ f → c ⊏ₐ f
-aspectOf-transitive = polySubTypeOf-transitive
-
-aspectOf-fromCoercion : ∀ {u} {c d : ClassOfElement u} → (c → d) → c ⊏ₐ d
-aspectOf-fromCoercion = subTypeOf-fromCoercion
-
-trivialAspectOf : ∀ {u v} {c : ClassOfOrderedElement u} {d : ClassOfMixedOrderElement v} → c ⊏ₐ d
-trivialAspectOf = trivialPolySubTypeOf
-
--- ============================================================
--- V. SUBTYPING AS AN ORDERED LINKAGE
+-- IV. SUBTYPING AS AN ORDERED LINKAGE
 -- ============================================================
 subTypeOrder : ∀ {u} → IsOrderLinkage (subTypeOf {u})
 subTypeOrder = record { ord-refl = subTypeOf-identity ; ord-trans = subTypeOf-transitive }

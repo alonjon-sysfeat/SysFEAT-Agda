@@ -24,9 +24,10 @@ Documentation: https://framework.sysfeat.com/pages/a599a7E46aa370fb.htm
 module SysFEAT.UpperOntology.a599a7e46aa370fb where -- ============================ Second Order Class
 
 open import Agda.Primitive
+open import SysFEAT.UpperOntology.e8b2f7c7673d36d1 public -- MetaClass and MetaRelation
 open import SysFEAT.UpperOntology.e27801e868f17024 public -- MetaClass and MetaRelation
 open import SysFEAT.UpperOntology.d9cce4e96937128c public -- Ordered MetaClass
-open import SysFEAT.UpperOntology.05e6065d6aa42f5f public -- Third Order Class
+open import SysFEAT.UpperOntology.bab6c7346ad70999 public -- Third Order Class
 
 -- ============================================================
 -- I. Second Order Class (M2 level)
@@ -37,6 +38,10 @@ SecondOrderClass = MetaClass lzero
 
 34a349a068f71f77 : SecondOrderClass ⊏ₑ (OrderedMetaClass lzero)
 34a349a068f71f77 = polySubTypeOf-identity
+
+-- SecondOrderClass isPowerInstanceOf ThirdOrderClass
+--664328444b6ad764b4 : ∀ {u v} → (SecondOrderClass u) ∷ₚₑ (ThirdOrderClass v)
+--4328444b6ad764b4 = trivialPowerInstanceOfEntity
 
 
 -- ============================================================

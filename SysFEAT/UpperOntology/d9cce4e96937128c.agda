@@ -17,12 +17,13 @@ module SysFEAT.UpperOntology.d9cce4e96937128c where -- =========================
 
 open import Agda.Primitive
 open import SysFEAT.UpperOntology.e27801e868f17024 public -- MetaClass and MetaRelation
-open import SysFEAT.UpperOntology.7d35645c68f37329 public -- Class of Ordered Entity
 
 -- ============================================================
 -- I. Ordered MetaClass is declared in the ClassOfOrderedEntity
 --    module to avoid circular dependencies
 -- ============================================================ 
+OrderedMetaClass : (u : Level) → Set (lsuc (lsuc (lsuc u)))
+OrderedMetaClass u = MetaClass u
 
 -- ============================================================
 -- II. Meta-Graph

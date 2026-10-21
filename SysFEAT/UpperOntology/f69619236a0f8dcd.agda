@@ -15,16 +15,16 @@ Documentation : https://framework.sysfeat.com/pages/f69619236a0f8dcd.htm
 module SysFEAT.UpperOntology.f69619236a0f8dcd where -- ========== Category
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.06710aeb68ed2d29 public -- Meta Family of Class
+open import SysFEAT.UpperOntology.0dc01ead6ad74e81 public -- Family MetaClass
 open import SysFEAT.UpperOntology.20702bc568e969f4 public -- Class of Entity
 open import SysFEAT.UpperOntology.23d5c5fc685142de public -- Elementary Block
 
 Category : (u : Level) → Set (lsuc (lsuc (lsuc u)))
 Category u = MetaClass u
 
---  Category is subTypeOf MetaFamilyOfClass
-st-f69619236a0f8dcd-06710aeb68ed2d29 : ∀ {u v} → (Category u) ⊏⋆ₑ (MetaFamilyOfClass v)
-st-f69619236a0f8dcd-06710aeb68ed2d29 = trivialPolySubTypeOfEntity
+--  Category is subTypeOf FamilyMetaClass
+st-f69619236a0f8dcd-0dc01ead6ad74e81 : ∀ {u v} → (Category u) ⊏⋆ₑ (FamilyMetaClass v)
+st-f69619236a0f8dcd-0dc01ead6ad74e81 = trivialPolySubTypeOfEntity
 
 --  Category is subTypeOf ClassOfEntity
 st-f69619236a0f8dcd-20702bc568e969f4 : ∀ {u v} → (Category u) ⊏⋆ₑ (ClassOfEntity v)

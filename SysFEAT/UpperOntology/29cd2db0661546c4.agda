@@ -17,17 +17,19 @@ External references:
 module SysFEAT.UpperOntology.29cd2db0661546c4 where -- ========== Individual State
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.28f07b2354be0d69 public -- Bounded Individual
 open import SysFEAT.UpperOntology.342f43ae66156429 public -- State Class
+open import SysFEAT.UpperOntology.28f07b2354be0d69 public -- Bounded Individual
 
 IndividualState : StateClass
 IndividualState = BoundedIndividual
-
---  IndividualState is subTypeOf BoundedIndividual
-st-29cd2db0661546c4-28f07b2354be0d69 : IndividualState ⊏ₑ BoundedIndividual
-st-29cd2db0661546c4-28f07b2354be0d69 = polySubTypeOf-identity
 
 postulate -- IndividualState is PowerInstanceOf State Class
   c2f2faae66ea7ef2 : IndividualState ∷ₚₑ StateClass
 
 -- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
+{- State of Bounded Individual: -}
+stateOfBoundedIndividual :  Linkage IndividualState BoundedIndividual
+stateOfBoundedIndividual = make_meronymyRelation "State of Bounded Individual" "State of Bounded Individual"
+

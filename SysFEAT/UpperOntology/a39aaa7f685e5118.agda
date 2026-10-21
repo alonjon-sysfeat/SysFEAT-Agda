@@ -24,19 +24,14 @@ module SysFEAT.UpperOntology.a39aaa7f685e5118 where  -- ============ Lexical Sco
 
 open import Agda.Primitive
 open import SysFEAT.UpperOntology.308c3b3868e9141e public -- Mixed-order Class
-open import SysFEAT.UpperOntology.6ef572f868f1366f public -- Mixed-Order Entity
-open import SysFEAT.UpperOntology.e8b2f7c7673d36d1 public -- Entity & Relationodule 
-open import SysFEAT.UpperOntology.7d35645c68f37329 public -- Class of Ordered Entity
+open import SysFEAT.UpperOntology.86b9b1d46ac32bda public -- Aspect of Entity
 
 -- ============================================================
 -- 1. The abstract entity class LexicalScope
 -- ============================================================
 
 -- ── I. LexicalScope ─────────────────────────────────────────────────
---postulate
---   LexicalScope : ∀ {u} → ClassOfMixedOrderEntity u
---postulate
---  LexicalScope : (u : Level) → ClassOfOrderedEntity u
+
 {- A  Lexical Scope is a kind of Mixed-Order Entity that defines the existence, visibility, and accessibility of the entities nested within it through a Nesting Relation.
 Nested Entitys have no independent identity or validity outside the lexical or structural scope in which they are defined - they exist only within and for the duration of their parent construct.
 Every Entity belongs to exactly one  Lexical Scope.
@@ -46,11 +41,12 @@ Examples:
 2) Social structures nesting their roles and functions.
 3) Computer functions nesting their local variables or inner functions
 4) Packages nesting their Building Blocks. -}
+
 LexicalScope : (u : Level) → ClassOfMixedOrderEntity u
-LexicalScope u = MixedOrderEntity u
+LexicalScope u = AspectOfEntity u
 
 -- LexicalScope is subTypeOf MixedOrderEntity 
-a39aaab8685e517d : ∀ {u} → (LexicalScope u) ⊏⋆ₑ (MixedOrderEntity u)
+a39aaab8685e517d : ∀ {u} → (LexicalScope u) ⊏⋆ₑ (AspectOfEntity u)
 a39aaab8685e517d {u} = polySubTypeOf-identity
 
 -- ── II. Nesting HomType ───────────────────────────────────────────

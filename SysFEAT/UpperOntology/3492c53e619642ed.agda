@@ -20,11 +20,11 @@ module SysFEAT.UpperOntology.3492c53e619642ed where -- ========== Class of Bound
 open import Agda.Primitive
 open import SysFEAT.UpperOntology.6aa8cbcb65b32971 public -- Class of Individual
 open import SysFEAT.UpperOntology.8cfa941b6852781f public -- Bounded Aggregate
-open import SysFEAT.UpperOntology.60876d5c68de82f2 public -- Class of Class of Bounded Individual
+open import SysFEAT.UpperOntology.60876d5c68de82f2 public -- Bounded Individual MetaClass
 open import SysFEAT.UpperOntology.9429979a66823f90 public -- Temporal Bounding Type
 open import SysFEAT.UpperOntology.746ac18368905aa2 public -- Property
 
-ClassOfBoundedIndividual : ClassOfClassOfBoundedIndividual
+ClassOfBoundedIndividual : BoundedIndividualMetaClass
 ClassOfBoundedIndividual = ClassOfIndividual
 
 --  ClassOfBoundedIndividual is subTypeOf ClassOfIndividual
@@ -35,8 +35,8 @@ st-3492c53e619642ed-6aa8cbcb65b32971 = polySubTypeOf-identity
 st-3492c53e619642ed-8cfa941b6852781f : ClassOfBoundedIndividual ⊏ₐₑ (BoundedAggregate (lsuc(lzero)))
 st-3492c53e619642ed-8cfa941b6852781f = polySubTypeOf-identity
 
-postulate -- ClassOfBoundedIndividual is PowerInstanceOf Class of Class of Bounded Individual
-  328b393a66e32434 : ClassOfBoundedIndividual ∷ₚₑ ClassOfClassOfBoundedIndividual
+postulate -- ClassOfBoundedIndividual is PowerInstanceOf Bounded Individual MetaClass
+  328b393a66e32434 : ClassOfBoundedIndividual ∷ₚₑ BoundedIndividualMetaClass
 
 -- == Relations =======================
 
@@ -82,7 +82,7 @@ temporalOrderingType = membershipOfTemporalOrderingType  ∘  aggregationOfTempo
 An Aggregate Qualification is a Qualifying Property that is refied as an Unbounded Member of a Class of Bounded Individual.Example:. The enforcement of a rule in a process (Rule Enforcement) is a refied Qualifying Property.
 -}
 -- Aggregate Member : Aggregate Qualification
-AggregateQualification : ClassOfClassOfAbstractEntity
+AggregateQualification : AbstractEntityMetaClass
 AggregateQualification = ClassOfAbstractEntity
 
 
@@ -124,13 +124,13 @@ AggregateHolonymyType : ClassOfClassOfIndividual
 AggregateHolonymyType = ClassOfIndividual
 
 
---  AggregateHolonymyType is subTypeOf ClassOfBoundedIndividual
-st-c2f2c83b66ea4d78-3492c53e619642ed : AggregateHolonymyType ⊏ₑ ClassOfBoundedIndividual
-st-c2f2c83b66ea4d78-3492c53e619642ed = polySubTypeOf-identity
-
 --  AggregateHolonymyType withAspect BoundedMember
 st-c2f2c83b66ea4d78-0eb999956855e070 : AggregateHolonymyType ⊏ₐₑ (BoundedMember (lsuc(lzero)))
 st-c2f2c83b66ea4d78-0eb999956855e070 = polySubTypeOf-identity
+
+--  AggregateHolonymyType is subTypeOf ClassOfBoundedIndividual
+st-c2f2c83b66ea4d78-3492c53e619642ed : AggregateHolonymyType ⊏ₑ ClassOfBoundedIndividual
+st-c2f2c83b66ea4d78-3492c53e619642ed = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfAggregateHolonymyType :  Linkage ClassOfBoundedIndividual AggregateHolonymyType
@@ -149,5 +149,5 @@ aggregateHolonymyType : Linkage ClassOfBoundedIndividual ClassOfBoundedIndividua
 aggregateHolonymyType = membershipOfAggregateHolonymyType  ∘  aggregationOfClassOfBoundedIndividualAggregateHolonymyType
 
 postulate -- aggregateHolonymyType is subTypeOf classOfHolonymy
-  st-c2f2c83b66ea4d78-d91704746a62320c  : aggregateHolonymyType  ⊏⋆ᵣ  classOfHolonymy
+  st-c2f2c83b66ea4d78-f62600496ad57ec3  : aggregateHolonymyType  ⊏⋆ᵣ  classOfHolonymy
 

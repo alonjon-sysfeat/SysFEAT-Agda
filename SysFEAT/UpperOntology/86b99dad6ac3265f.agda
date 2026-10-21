@@ -16,6 +16,7 @@ module SysFEAT.UpperOntology.86b99dad6ac3265f where -- ========== Elementary Pro
 
 open import Agda.Primitive
 open import SysFEAT.UpperOntology.87d3062666e33965 public -- Property Type
+open import SysFEAT.UpperOntology.23d5c5fc685142de public -- Elementary Block
 
 ElementaryPropertyType : ThirdOrderClass
 ElementaryPropertyType = PropertyType
@@ -24,6 +25,10 @@ ElementaryPropertyType = PropertyType
 --  ElementaryPropertyType is subTypeOf PropertyType
 st-86b99dad6ac3265f-87d3062666e33965 : ElementaryPropertyType ⊏ₑ PropertyType
 st-86b99dad6ac3265f-87d3062666e33965 = polySubTypeOf-identity
+
+--  ElementaryPropertyType withAspect ElementaryBlock
+st-86b99dad6ac3265f-23d5c5fc685142de : ElementaryPropertyType ⊏ₐₑ (ElementaryBlock (lsuc(lsuc(lzero))))
+st-86b99dad6ac3265f-23d5c5fc685142de = polySubTypeOf-identity
 
 
 -- == Relations =======================

@@ -20,4 +20,6 @@ module SysFEAT.UpperOntology.sysfeat-domain-ae26f9c25acd52d4 where -- ==========
 open import SysFEAT.UpperOntology.526b679569de63eb public -- Mixed-Order Element
 open import SysFEAT.UpperOntology.526b6bd869de64e4 public -- Ordered Element
 open import SysFEAT.UpperOntology.23d5249e68510ff9 public -- Element
+open import SysFEAT.UpperOntology.62a271056ace0f5c public -- Class of Mixed Order Element
+open import SysFEAT.UpperOntology.62a273946ace10c3 public -- Class of Ordered Element
 open import SysFEAT.UpperOntology.20702b2568e9694d public -- Class of Element

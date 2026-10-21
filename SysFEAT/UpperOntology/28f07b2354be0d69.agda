@@ -49,7 +49,7 @@ referenceHolonymy :  Linkage BoundedIndividual BoundedIndividual
 referenceHolonymy = make_holonymyRelation "Reference Holonymy" "Reference Holonymy"
 
 postulate -- referenceHolonymy is subTypeOf holonymyRelation
-  st-9653a95669701e02-c2f2c6ce66e90be7  : referenceHolonymy  ⊏⋆ᵣ  holonymyRelation
+  st-9653a95669701e02-f626f77b6ad475d4  : referenceHolonymy  ⊏⋆ᵣ  holonymyRelation
 postulate -- referenceHolonymy is subTypeOf referenceRelation
   st-9653a95669701e02-23d5398f68511bc1  : referenceHolonymy  ⊏⋆ᵣ  referenceRelation {lzero} {lzero}
 
@@ -86,8 +86,6 @@ aggregationOfBoundedIndividualAggregateHolonymy = make_Relation "BoundedIndividu
 aggregateHolonymy : Linkage BoundedIndividual BoundedIndividual
 aggregateHolonymy = membershipOfAggregateHolonymy  ∘  aggregationOfBoundedIndividualAggregateHolonymy
 
-postulate -- aggregateHolonymy is subTypeOf holonymyRelation
-  st-c2f2c9a166ea50e2-c2f2c6ce66e90be7  : aggregateHolonymy  ⊏⋆ᵣ  holonymyRelation
 
 
 -- -------------------------------------------------------------------------------------------- 
@@ -97,13 +95,13 @@ TemporalOrdering : ClassOfIndividual
 TemporalOrdering = Individual
 
 
---  TemporalOrdering is subTypeOf Individual
-st-255744cb6758a69e-4df9512266826e23 : TemporalOrdering ⊏ₑ Individual
-st-255744cb6758a69e-4df9512266826e23 = polySubTypeOf-identity
-
 --  TemporalOrdering withAspect OrderingConnector
 st-255744cb6758a69e-478a4a4468565425 : TemporalOrdering ⊏ₐₑ (OrderingConnector lzero)
 st-255744cb6758a69e-478a4a4468565425 = polySubTypeOf-identity
+
+--  TemporalOrdering is subTypeOf Individual
+st-255744cb6758a69e-4df9512266826e23 : TemporalOrdering ⊏ₑ Individual
+st-255744cb6758a69e-4df9512266826e23 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfTemporalOrdering :  Linkage BoundedIndividual TemporalOrdering

@@ -4,7 +4,7 @@
    framework.sysfeat.com
 
 Property Type: 
-A Property Type is a Class of Class of Abstract Entity that is used to classify Propertys.Example:- Temperature- Color- Weight- Confidentiality- Availability
+A Property Type is a Abstract Entity MetaClass that is used to classify Propertys.Example:- Temperature- Color- Weight- Confidentiality- Availability
 
 Documentation : https://framework.sysfeat.com/pages/87d3062666e33965.htm
 
@@ -17,14 +17,14 @@ External references:
 module SysFEAT.UpperOntology.87d3062666e33965 where -- ========== Property Type
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.3aca564b6aa646ce public -- Class of Class of Abstract Entity
-open import SysFEAT.UpperOntology.05e6065d6aa42f5f public -- Third Order Class
+open import SysFEAT.UpperOntology.3aca564b6aa646ce public -- Abstract Entity MetaClass
+open import SysFEAT.UpperOntology.bab6c7346ad70999 public -- Third Order Class
 
 PropertyType : ThirdOrderClass
 PropertyType = SecondOrderClass
 
---  PropertyType is subTypeOf ClassOfClassOfAbstractEntity
-st-87d3062666e33965-3aca564b6aa646ce : PropertyType ⊏ₑ ClassOfClassOfAbstractEntity
+--  PropertyType is subTypeOf AbstractEntityMetaClass
+st-87d3062666e33965-3aca564b6aa646ce : PropertyType ⊏ₑ AbstractEntityMetaClass
 st-87d3062666e33965-3aca564b6aa646ce = polySubTypeOf-identity
 
 
