@@ -15,5 +15,6 @@ module SysFEAT.UpperOntology.sysfeat-domain-3aca56b16aa64950 where -- ==========
 
 open import SysFEAT.UpperOntology.sysfeat-domain-e278fa2568f06541 public -- Reflexive Knowledge Graph
 
+open import SysFEAT.UpperOntology.3aca52346aa6418d public -- Abstract Entity
 open import SysFEAT.UpperOntology.3aca55ee6aa645c2 public -- Class of Abstract Entity
 open import SysFEAT.UpperOntology.3aca564b6aa646ce public -- Abstract Entity MetaClass
