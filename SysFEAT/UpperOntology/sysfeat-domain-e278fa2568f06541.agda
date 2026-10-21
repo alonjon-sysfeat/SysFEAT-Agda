@@ -32,6 +32,7 @@ open import SysFEAT.UpperOntology.0dc01ead6ad74e81 public -- Family MetaClass
 open import SysFEAT.UpperOntology.6ef572f868f1366f public -- Mixed-Order Entity
 open import SysFEAT.UpperOntology.bab678b06ad80eb5 public -- Class Partition
 open import SysFEAT.UpperOntology.7d35645c68f37329 public -- Class of Ordered Entity
+open import SysFEAT.UpperOntology.5425a2df6aa225cf public -- First Order Entity
 open import SysFEAT.UpperOntology.d9cce4e96937128c public -- Ordered Meta-Class
 open import SysFEAT.UpperOntology.0dd6b365690d316b public -- Ordered Entity
 open import SysFEAT.UpperOntology.6295b7f46ad720d6 public -- Family of Sub-Classes MetaClass
