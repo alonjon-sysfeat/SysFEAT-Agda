@@ -25,4 +25,5 @@ TechnologyPortfolioStage = StateConcept
 st-22ba264367643346-22ba23ea67643262 : TechnologyPortfolioStage ⊏ₑ TechnologyManagementInitiative
 st-22ba264367643346-22ba23ea67643262 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

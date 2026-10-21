@@ -22,6 +22,7 @@ open import SysFEAT.EA.bcebd31f5491302c public -- Business Agent Type
 BusinessEnvironmentScenario : ClassOfClassOfBoundedIndividual
 BusinessEnvironmentScenario = ClassOfBoundedIndividual
 
+
 --  BusinessEnvironmentScenario is subTypeOf BusinessResourceEcosystem
 st-2b6f337e61bae6d6-2b6f332061bae622 : BusinessEnvironmentScenario ⊏ₑ BusinessResourceEcosystem
 st-2b6f337e61bae6d6-2b6f332061bae622 = polySubTypeOf-identity
@@ -30,12 +31,28 @@ st-2b6f337e61bae6d6-2b6f332061bae622 = polySubTypeOf-identity
 st-2b6f337e61bae6d6-f8e68967621ff519 : BusinessEnvironmentScenario ⊏ₑ ResourceOperatingEnvironmentScenario
 st-2b6f337e61bae6d6-f8e68967621ff519 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Partner Resource Agent: -}
 -- Aggregate Member : Partner Resource Agent
-PartnerResourceAgent : ClassOfClassOfIndividual
-PartnerResourceAgent = ClassOfIndividual
+PartnerResourceAgent : ClassOfClassOfBoundedIndividual
+PartnerResourceAgent = ClassOfBoundedIndividual
+
+
+
+--  PartnerResourceAgent is subTypeOf ParticipantEnterpriseAgent
+st-2b6f35bc61baecc4-2b6f3bf061baf60a : PartnerResourceAgent ⊏ₑ ParticipantEnterpriseAgent
+st-2b6f35bc61baecc4-2b6f3bf061baf60a = polySubTypeOf-identity
+
+--  PartnerResourceAgent is subTypeOf PartnerResourceAgent
+st-2b6f35bc61baecc4-f8e6b685621ffb8a : PartnerResourceAgent ⊏ₑ PartnerResourceAgent
+st-2b6f35bc61baecc4-f8e6b685621ffb8a = polySubTypeOf-identity
+
+--  PartnerResourceAgent is subTypeOf BusinessAgentType
+st-2b6f35bc61baecc4-bcebd31f5491302c : PartnerResourceAgent ⊏ₑ BusinessAgentType
+st-2b6f35bc61baecc4-bcebd31f5491302c = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfPartnerResourceAgent :  Linkage BusinessEnvironmentScenario PartnerResourceAgent
@@ -53,16 +70,27 @@ aggregationOfBusinessAgentTypePartnerResourceAgent = make_Relation "BusinessAgen
 partnerResourceAgent : Linkage BusinessEnvironmentScenario BusinessAgentType
 partnerResourceAgent = membershipOfPartnerResourceAgent  ∘  aggregationOfBusinessAgentTypePartnerResourceAgent
 
-postulate -- partnerResourceAgent is subTypeOf participantEnterpriseAgent
-  st-2b6f35bc61baecc4-2b6f3bf061baf60a  : partnerResourceAgent   ⊏⋆ᵣ  participantEnterpriseAgent 
-postulate -- partnerResourceAgent is subTypeOf partnerResourceAgent
-  st-2b6f35bc61baecc4-f8e6b685621ffb8a  : partnerResourceAgent   ⊏⋆ᵣ  partnerResourceAgent 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Subject Resource Agent: -}
 -- Aggregate Member : Subject Resource Agent
-SubjectResourceAgent : ClassOfClassOfIndividual
-SubjectResourceAgent = ClassOfIndividual
+SubjectResourceAgent : ClassOfClassOfBoundedIndividual
+SubjectResourceAgent = ClassOfBoundedIndividual
+
+
+
+--  SubjectResourceAgent is subTypeOf ParticipantEnterpriseAgent
+st-2b6f5c4161bafdfd-2b6f3bf061baf60a : SubjectResourceAgent ⊏ₑ ParticipantEnterpriseAgent
+st-2b6f5c4161bafdfd-2b6f3bf061baf60a = polySubTypeOf-identity
+
+--  SubjectResourceAgent is subTypeOf SubjectResourceAgent
+st-2b6f5c4161bafdfd-f8e6b637621ffa9b : SubjectResourceAgent ⊏ₑ SubjectResourceAgent
+st-2b6f5c4161bafdfd-f8e6b637621ffa9b = polySubTypeOf-identity
+
+--  SubjectResourceAgent is subTypeOf BusinessAgentType
+st-2b6f5c4161bafdfd-bcebd31f5491302c : SubjectResourceAgent ⊏ₑ BusinessAgentType
+st-2b6f5c4161bafdfd-bcebd31f5491302c = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSubjectResourceAgent :  Linkage BusinessEnvironmentScenario SubjectResourceAgent
@@ -80,8 +108,4 @@ aggregationOfBusinessAgentTypeSubjectResourceAgent = make_Relation "BusinessAgen
 subjectResourceAgent : Linkage BusinessEnvironmentScenario BusinessAgentType
 subjectResourceAgent = membershipOfSubjectResourceAgent  ∘  aggregationOfBusinessAgentTypeSubjectResourceAgent
 
-postulate -- subjectResourceAgent is subTypeOf participantEnterpriseAgent
-  st-2b6f5c4161bafdfd-2b6f3bf061baf60a  : subjectResourceAgent   ⊏⋆ᵣ  participantEnterpriseAgent 
-postulate -- subjectResourceAgent is subTypeOf subjectResourceAgent
-  st-2b6f5c4161bafdfd-f8e6b637621ffa9b  : subjectResourceAgent   ⊏⋆ᵣ  subjectResourceAgent 
 

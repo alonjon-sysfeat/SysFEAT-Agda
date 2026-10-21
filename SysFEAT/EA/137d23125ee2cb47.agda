@@ -30,12 +30,23 @@ st-137d23125ee2cb47-f4be4bb95ee18b51 = polySubTypeOf-identity
 st-137d23125ee2cb47-7731894d62166495 : RelationalDataMap ⊏⋆ₑ RelationalDatabLOCK
 st-137d23125ee2cb47-7731894d62166495 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Sub-Relational Domain: -}
 -- Aggregate Member : Sub-Relational Domain
 SubRelationalDomain : ClassOfClassOfIndividual
 SubRelationalDomain = ClassOfIndividual
+
+
+--  SubRelationalDomain is subTypeOf PhysicalDomainMember
+st-137d232b5ee2ccee-f4be4c025ee18d1e : SubRelationalDomain ⊏ₑ PhysicalDomainMember
+st-137d232b5ee2ccee-f4be4c025ee18d1e = polySubTypeOf-identity
+
+--  SubRelationalDomain is subTypeOf RelationalSchema
+st-137d232b5ee2ccee-362f3c7e5b3b22f8 : SubRelationalDomain ⊏ₑ RelationalSchema
+st-137d232b5ee2ccee-362f3c7e5b3b22f8 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSubRelationalDomain :  Linkage RelationalDataMap SubRelationalDomain
@@ -53,14 +64,22 @@ aggregationOfRelationalSchemaSubRelationalDomain = make_Relation "RelationalSche
 subRelationalDomain : Linkage RelationalDataMap RelationalSchema
 subRelationalDomain = membershipOfSubRelationalDomain  ∘  aggregationOfRelationalSchemaSubRelationalDomain
 
-postulate -- subRelationalDomain is subTypeOf physicalDomainMember
-  st-137d232b5ee2ccee-f4be4c025ee18d1e  : subRelationalDomain   ⊏⋆ᵣ  physicalDomainMember 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- External Relational Domain: -}
 -- Aggregate Member : External Relational Domain
 ExternalRelationalDomain : ClassOfClassOfIndividual
 ExternalRelationalDomain = ClassOfIndividual
+
+
+--  ExternalRelationalDomain is subTypeOf ExternalPhysicalDomain
+st-1f235c605fbe93d7-4447473c5f4f6a69 : ExternalRelationalDomain ⊏ₑ ExternalPhysicalDomain
+st-1f235c605fbe93d7-4447473c5f4f6a69 = polySubTypeOf-identity
+
+--  ExternalRelationalDomain is subTypeOf RelationalSchema
+st-1f235c605fbe93d7-362f3c7e5b3b22f8 : ExternalRelationalDomain ⊏ₑ RelationalSchema
+st-1f235c605fbe93d7-362f3c7e5b3b22f8 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfExternalRelationalDomain :  Linkage RelationalDataMap ExternalRelationalDomain
@@ -78,6 +97,4 @@ aggregationOfRelationalSchemaExternalRelationalDomain = make_Relation "Relationa
 externalRelationalDomain : Linkage RelationalDataMap RelationalSchema
 externalRelationalDomain = membershipOfExternalRelationalDomain  ∘  aggregationOfRelationalSchemaExternalRelationalDomain
 
-postulate -- externalRelationalDomain is subTypeOf externalPhysicalDomain
-  st-1f235c605fbe93d7-4447473c5f4f6a69  : externalRelationalDomain   ⊏⋆ᵣ  externalPhysicalDomain 
 

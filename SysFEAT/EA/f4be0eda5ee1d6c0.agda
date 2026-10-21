@@ -21,16 +21,25 @@ open import SysFEAT.EA.24035cc65fc7ad7f public -- Concrete Software System
 ComputingSystem : ClassOfClassOfBoundedIndividual
 ComputingSystem = ClassOfBoundedIndividual
 
+
 --  ComputingSystem is subTypeOf TechnologyOperatingAsset
 st-f4be0eda5ee1d6c0-d16006d362e085f2 : ComputingSystem ⊏ₑ TechnologyOperatingAsset
 st-f4be0eda5ee1d6c0-d16006d362e085f2 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Hosted Software: -}
 -- Aggregate Member : Hosted Software
-HostedSOftware : ClassOfClassOfIndividual
-HostedSOftware = ClassOfIndividual
+HostedSOftware : ClassOfClassOfBoundedIndividual
+HostedSOftware = ClassOfBoundedIndividual
+
+
+
+--  HostedSOftware is subTypeOf ConcreteSOftwareSystem
+st-70ba9b2e64224962-24035cc65fc7ad7f : HostedSOftware ⊏ₑ ConcreteSOftwareSystem
+st-70ba9b2e64224962-24035cc65fc7ad7f = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfHostedSOftware :  Linkage ComputingSystem HostedSOftware

@@ -21,15 +21,18 @@ open import SysFEAT.EA.f4be14d25ee1eaff public -- Resource Configuration
 IndividualResourceConfiguration : ClassOfBoundedIndividual
 IndividualResourceConfiguration = BoundedIndividual
 
+
 --  IndividualResourceConfiguration is subTypeOf IndividualSystemOfResources
 st-c80a432b678596c7-c80a41b7678595bb : IndividualResourceConfiguration ⊏ₑ IndividualSystemOfResources
 st-c80a432b678596c7-c80a41b7678595bb = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Resource Configuration: -}
 resourceConfiguration :  Linkage IndividualResourceConfiguration ResourceConfiguration
 resourceConfiguration = make_instanceOf "Resource Configuration" "Resource Configuration"
 
 postulate -- resourceConfiguration is subTypeOf systemOfResourceType
-  st-c80a43566785973a-c80a436c67859774  : resourceConfiguration   ⊏⋆ᵣ  systemOfResourceType 
+  st-c80a43566785973a-c80a436c67859774  : resourceConfiguration  ⊏⋆ᵣ  systemOfResourceType

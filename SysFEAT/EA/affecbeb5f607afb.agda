@@ -17,6 +17,6 @@ module SysFEAT.EA.affecbeb5f607afb where -- ========== Median Value
 open import Agda.Primitive
 
 MedianValue : PropertyType
-MedianValue = ClassOfProperty
+MedianValue = Property
 
 

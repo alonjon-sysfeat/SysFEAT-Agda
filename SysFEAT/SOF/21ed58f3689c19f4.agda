@@ -18,18 +18,21 @@ open import Agda.Primitive
 open import SysFEAT.SOF.21ed231d689c0679 public -- Condition Property
 open import SysFEAT.SOF.e53af85b66e37f78 public -- Environmental Property Type
 
-EnvironmentalProperty : PropertyType
-EnvironmentalProperty = ClassOfProperty
+EnvironmentalProperty : AssetPropertyType
+EnvironmentalProperty = AssetProperty
+
 
 --  EnvironmentalProperty is subTypeOf ConditionProperty
 st-21ed58f3689c19f4-21ed231d689c0679 : EnvironmentalProperty ⊏ₑ ConditionProperty
 st-21ed58f3689c19f4-21ed231d689c0679 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Environmental Property Type: -}
 environmentalPropertyType :  Linkage EnvironmentalProperty EnvironmentalPropertyType
 environmentalPropertyType = make_instanceOf "Environmental Property Type" "Environmental Property Type"
 
 postulate -- environmentalPropertyType is subTypeOf conditionPropertyType
-  st-21ed5b67689c1c35-21ed5a16689c1a59  : environmentalPropertyType   ⊏⋆ᵣ  conditionPropertyType 
+  st-21ed5b67689c1c35-21ed5a16689c1a59  : environmentalPropertyType  ⊏⋆ᵣ  conditionPropertyType

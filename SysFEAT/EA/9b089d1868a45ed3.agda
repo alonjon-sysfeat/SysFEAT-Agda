@@ -17,26 +17,36 @@ module SysFEAT.EA.9b089d1868a45ed3 where -- ========== Physical Capability
 open import Agda.Primitive
 open import SysFEAT.EA.dd26288968a05d00 public -- Business Resource Capability
 
-PhysicalCapability : PropertyType
-PhysicalCapability = ClassOfProperty
+PhysicalCapability : AssetPropertyType
+PhysicalCapability = AssetProperty
+
 
 --  PhysicalCapability is subTypeOf BusinessResourceCapability
 st-9b089d1868a45ed3-dd26288968a05d00 : PhysicalCapability ⊏ₑ BusinessResourceCapability
 st-9b089d1868a45ed3-dd26288968a05d00 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Physical Capability: -}
 specializedPhysicalCapability :  Linkage PhysicalCapability PhysicalCapability
 specializedPhysicalCapability = make_subTypeOf "Specialized Physical Capability" "Specialized Physical Capability"
 
 postulate -- specializedPhysicalCapability is subTypeOf specializedBusinessResourceCapability
-  st-9b089da068a45f91-dd2683b668a1bbb3  : specializedPhysicalCapability   ⊏⋆ᵣ  specializedBusinessResourceCapability 
+  st-9b089da068a45f91-dd2683b668a1bbb3  : specializedPhysicalCapability  ⊏⋆ᵣ  specializedBusinessResourceCapability
 
+-- -------------------------------------------------------------------------------------------- 
 {- Physical Capability Part: -}
 -- Aggregate Member : Physical Capability Part
-PhysicalCapabilityPart : ClassOfClassOfIndividual
-PhysicalCapabilityPart = ClassOfIndividual
+PhysicalCapabilityPart : ClassOfClassOfAbstractEntity
+PhysicalCapabilityPart = ClassOfAbstractEntity
+
+
+
+--  PhysicalCapabilityPart is subTypeOf BusinessResourceCapabilityPart
+st-9b089de468a4607c-dd27af0168a10530 : PhysicalCapabilityPart ⊏⋆ₑ BusinessResourceCapabilityPart
+st-9b089de468a4607c-dd27af0168a10530 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfPhysicalCapabilityPart :  Linkage PhysicalCapability PhysicalCapabilityPart
@@ -54,6 +64,4 @@ aggregationOfPhysicalCapabilityPhysicalCapabilityPart = make_Relation "PhysicalC
 physicalCapabilityPart : Linkage PhysicalCapability PhysicalCapability
 physicalCapabilityPart = membershipOfPhysicalCapabilityPart  ∘  aggregationOfPhysicalCapabilityPhysicalCapabilityPart
 
-postulate -- physicalCapabilityPart is subTypeOf businessResourceCapabilityPart
-  st-9b089de468a4607c-dd27af0168a10530  : physicalCapabilityPart   ⊏⋆ᵣ  businessResourceCapabilityPart 
 

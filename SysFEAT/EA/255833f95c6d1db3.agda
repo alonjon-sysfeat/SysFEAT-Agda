@@ -22,8 +22,10 @@ open import SysFEAT.EA.2558338d5c6d1d1b public -- Logical Software System
 LogicalApplication : ClassOfClassOfBoundedIndividual
 LogicalApplication = ClassOfBoundedIndividual
 
+
 --  LogicalApplication is subTypeOf LogicalSOftwareSystem
 st-255833f95c6d1db3-2558338d5c6d1d1b : LogicalApplication ⊏ₑ LogicalSOftwareSystem
 st-255833f95c6d1db3-2558338d5c6d1d1b = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

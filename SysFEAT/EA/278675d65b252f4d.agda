@@ -30,6 +30,7 @@ open import SysFEAT.EA.46194939560d374f public -- System Process
 BusinessSystem : ClassOfClassOfBoundedIndividual
 BusinessSystem = ClassOfBoundedIndividual
 
+
 --  BusinessSystem is subTypeOf BusinessAgentType
 st-278675d65b252f4d-bcebd31f5491302c : BusinessSystem ⊏ₑ BusinessAgentType
 st-278675d65b252f4d-bcebd31f5491302c = polySubTypeOf-identity
@@ -38,26 +39,40 @@ st-278675d65b252f4d-bcebd31f5491302c = polySubTypeOf-identity
 st-278675d65b252f4d-6246927f61b81996 : BusinessSystem ⊏ₑ BusinessSystemAsset
 st-278675d65b252f4d-6246927f61b81996 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Enabler Technology System: -}
 enablerTechnologySystem :  Linkage BusinessSystem TechnologySystem
 enablerTechnologySystem = make_classOfHolonymy "Enabler Technology System" "Enabler Technology System"
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Business System: -}
 specializedBusinessSystem :  Linkage BusinessSystem BusinessSystem
 specializedBusinessSystem = make_subTypeOf "Specialized Business System" "Specialized Business System"
 
 postulate -- specializedBusinessSystem is subTypeOf specializedResourceAgent
-  st-325a375d66f34096-52c3540066f226f4  : specializedBusinessSystem   ⊏⋆ᵣ  specializedResourceAgent 
+  st-325a375d66f34096-52c3540066f226f4  : specializedBusinessSystem  ⊏⋆ᵣ  specializedResourceAgent
 postulate -- specializedBusinessSystem is subTypeOf specializedBusinessSystemAsset
-  st-325a375d66f34096-325a37b966f34e1e  : specializedBusinessSystem   ⊏⋆ᵣ  specializedBusinessSystemAsset 
+  st-325a375d66f34096-325a37b966f34e1e  : specializedBusinessSystem  ⊏⋆ᵣ  specializedBusinessSystemAsset
 
+-- -------------------------------------------------------------------------------------------- 
 {- Performed Business System Scenario: -}
 -- Aggregate Member : Performed Business System Scenario
-PerformedBusinessSystemScenario : ClassOfClassOfIndividual
-PerformedBusinessSystemScenario = ClassOfIndividual
+PerformedBusinessSystemScenario : ClassOfClassOfBoundedIndividual
+PerformedBusinessSystemScenario = ClassOfBoundedIndividual
+
+
+
+--  PerformedBusinessSystemScenario is subTypeOf PerformedResourceScenario
+st-24034ee25fc79b20-230b3f9061d8937b : PerformedBusinessSystemScenario ⊏ₑ PerformedResourceScenario
+st-24034ee25fc79b20-230b3f9061d8937b = polySubTypeOf-identity
+
+--  PerformedBusinessSystemScenario is subTypeOf BusinessSystemInteractionProcess
+st-24034ee25fc79b20-7a0a06c45ddf969e : PerformedBusinessSystemScenario ⊏ₑ BusinessSystemInteractionProcess
+st-24034ee25fc79b20-7a0a06c45ddf969e = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfPerformedBusinessSystemScenario :  Linkage BusinessSystem PerformedBusinessSystemScenario
@@ -75,16 +90,29 @@ aggregationOfBusinessSystemInteractionProcessPerformedBusinessSystemScenario = m
 performedBusinessSystemScenario : Linkage BusinessSystem BusinessSystemInteractionProcess
 performedBusinessSystemScenario = membershipOfPerformedBusinessSystemScenario  ∘  aggregationOfBusinessSystemInteractionProcessPerformedBusinessSystemScenario
 
-postulate -- performedBusinessSystemScenario is subTypeOf performedResourceScenario
-  st-24034ee25fc79b20-230b3f9061d8937b  : performedBusinessSystemScenario   ⊏⋆ᵣ  performedResourceScenario 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Performed System Process: 
 An application process performance establishes the relationship between an application and the some dynamic behaviors described as BPMN processes. 
 -}
 -- Aggregate Member : Performed System Process
-PerformedSystemProcess : ClassOfClassOfIndividual
-PerformedSystemProcess = ClassOfIndividual
+PerformedSystemProcess : ClassOfClassOfBoundedIndividual
+PerformedSystemProcess = ClassOfBoundedIndividual
+
+
+
+--  PerformedSystemProcess is subTypeOf BusinessSystemAssetPart
+st-b4ebc8825ffdddbf-9e0fedcf68be6cd9 : PerformedSystemProcess ⊏ₑ BusinessSystemAssetPart
+st-b4ebc8825ffdddbf-9e0fedcf68be6cd9 = polySubTypeOf-identity
+
+--  PerformedSystemProcess is subTypeOf PerformedBusinessResourceProcess
+st-b4ebc8825ffdddbf-240353b45fc7a13f : PerformedSystemProcess ⊏ₑ PerformedBusinessResourceProcess
+st-b4ebc8825ffdddbf-240353b45fc7a13f = polySubTypeOf-identity
+
+--  PerformedSystemProcess is subTypeOf SystemProcess
+st-b4ebc8825ffdddbf-46194939560d374f : PerformedSystemProcess ⊏ₑ SystemProcess
+st-b4ebc8825ffdddbf-46194939560d374f = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfPerformedSystemProcess :  Linkage BusinessSystem PerformedSystemProcess
@@ -102,8 +130,4 @@ aggregationOfSystemProcessPerformedSystemProcess = make_Relation "SystemProcess 
 performedSystemProcess : Linkage BusinessSystem SystemProcess
 performedSystemProcess = membershipOfPerformedSystemProcess  ∘  aggregationOfSystemProcessPerformedSystemProcess
 
-postulate -- performedSystemProcess is subTypeOf businessSystemAssetPart
-  st-b4ebc8825ffdddbf-9e0fedcf68be6cd9  : performedSystemProcess   ⊏⋆ᵣ  businessSystemAssetPart 
-postulate -- performedSystemProcess is subTypeOf performedBusinessResourceProcess
-  st-b4ebc8825ffdddbf-240353b45fc7a13f  : performedSystemProcess   ⊏⋆ᵣ  performedBusinessResourceProcess 
 

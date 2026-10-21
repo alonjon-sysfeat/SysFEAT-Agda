@@ -33,8 +33,10 @@ st-08d181af678a2d51-08d17cde678a2b47 = polySubTypeOf-identity
 st-08d181af678a2d51-bcebd31f5491302c : Customer ⊏ₑ BusinessAgentType
 st-08d181af678a2d51-bcebd31f5491302c = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Customer Segmentation: 
 A categorization of Customers by market segment.
 -}
@@ -42,4 +44,4 @@ customerSegmentation :  Linkage Customer CustomerSegment
 customerSegmentation = make_instanceOf "Customer Segmentation" "Customer Segmentation"
 
 postulate -- customerSegmentation is subTypeOf categoryOfArchitectureBlock
-  st-be05fd7567071281-f69620606a0f9c94  : customerSegmentation   ⊏⋆ᵣ  categoryOfArchitectureBlock  {lsuc(lsuc(lzero))}
+  st-be05fd7567071281-f69620606a0f9c94  : customerSegmentation  ⊏⋆ᵣ  categoryOfArchitectureBlock  {lsuc(lsuc(lzero))}

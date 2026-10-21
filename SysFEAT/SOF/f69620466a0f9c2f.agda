@@ -30,15 +30,18 @@ st-f69620466a0f9c2f-f69619236a0f8dcd = trivialPolySubTypeOfEntity
 st-f69620466a0f9c2f-0eb97aff6855cd23 : ∀ {u v} → (AssetCategory u) ⊏⋆ₑ (ModelPropertyBlock v)
 st-f69620466a0f9c2f-0eb97aff6855cd23 = trivialPolySubTypeOfEntity
 
--- == Relationships =======================
 
-{- Specialized Category: -}
-specializedCategory : ∀ {u v} →  Linkage (AssetCategory u) (AssetCategory v)
-specializedCategory = make_subTypeOf "Specialized Category" "Specialized Category"
+-- == Relations =======================
 
-postulate -- specializedCategory is subTypeOf specializedCategory
-  st-24f72cf56a0f4ec7-24f727b96a0f4281  : ∀ {u v} → specializedCategory {u} {v}  ⊏⋆ᵣ  specializedCategory {u} {v}
+-- -------------------------------------------------------------------------------------------- 
+{- Specialized Asset Category: -}
+specializedAssetCategory : ∀ {u v} →  Linkage (AssetCategory u) (AssetCategory v)
+specializedAssetCategory = make_subTypeOf "Specialized Asset Category" "Specialized Asset Category"
 
+postulate -- specializedAssetCategory is subTypeOf specializedCategory
+  st-24f72cf56a0f4ec7-24f727b96a0f4281  : ∀ {u v} → specializedAssetCategory {u} {v}  ⊏⋆ᵣ  specializedCategory {u} {v}
+
+-- -------------------------------------------------------------------------------------------- 
 {- Category Partition: -}
 categoryPartition : ∀ {u v} →  Linkage (AssetCategory u) (CategoryPartition v)
 categoryPartition = make_subTypeOf "Category Partition" "Category Partition"

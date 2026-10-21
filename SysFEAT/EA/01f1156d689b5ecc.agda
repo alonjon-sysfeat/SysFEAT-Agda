@@ -24,7 +24,7 @@ open import SysFEAT.EA.4b9477ae68a4926d public -- Control Asset
 open import SysFEAT.EA.190c57d568976e60 public -- Regulation Article
 
 ControlDirective : PropertyType
-ControlDirective = ClassOfProperty
+ControlDirective = Property
 
 --  ControlDirective is subTypeOf Policy
 st-01f1156d689b5ecc-190c7429689664b5 : ControlDirective ⊏ₑ Policy
@@ -34,8 +34,10 @@ st-01f1156d689b5ecc-190c7429689664b5 = polySubTypeOf-identity
 st-01f1156d689b5ecc-4b9477ae68a4926d : ControlDirective ⊏ₐₑ (ControlAsset (lsuc(lzero)))
 st-01f1156d689b5ecc-4b9477ae68a4926d = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Fulfilled Regulation: -}
 fulfilledRegulation :  Linkage ControlDirective RegulationArticle
 fulfilledRegulation = make_subTypeOf "Fulfilled Regulation" "Fulfilled Regulation"

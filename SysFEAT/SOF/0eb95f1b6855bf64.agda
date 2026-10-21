@@ -20,8 +20,9 @@ open import SysFEAT.SOF.0eb95dce6855be2e public -- Model Container
 open import SysFEAT.SOF.0eb960766855c180 public -- Architecture Block Collection
 open import SysFEAT.SOF.0eb95f356855bf94 public -- Asset Block
 
-ArchitectureContainer : ∀ (u : Level) → ClassOfMixedOrderEntity u
-ArchitectureContainer u = MixedOrderEntity u
+ArchitectureContainer : ∀ (u : Level) → ClassOfMixedOrderEntity u 
+ArchitectureContainer u  = MixedOrderEntity u 
+
 
 --  ArchitectureContainer is subTypeOf ArchitectureLexicalScope
 st-0eb95f1b6855bf64-0eb95d786855bbd9 : ∀ {u v} → (ArchitectureContainer u) ⊏⋆ₑ (ArchitectureLexicalScope v)
@@ -31,8 +32,10 @@ st-0eb95f1b6855bf64-0eb95d786855bbd9 = trivialPolySubTypeOfEntity
 st-0eb95f1b6855bf64-0eb95dce6855be2e : ∀ {u v} → (ArchitectureContainer u) ⊏⋆ₑ (ModelContainer v)
 st-0eb95f1b6855bf64-0eb95dce6855be2e = trivialPolySubTypeOfEntity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Included Architecture Dictionary: -}
 includedArchitectureDictionary : ∀ {u v} →  Linkage (ArchitectureContainer u) (ArchitectureContainer v)
 includedArchitectureDictionary = make_nestingRelation "Included Architecture Dictionary" "Included Architecture Dictionary"
@@ -40,6 +43,7 @@ includedArchitectureDictionary = make_nestingRelation "Included Architecture Dic
 postulate -- includedArchitectureDictionary is subTypeOf nestingRelation
   st-0f6416aa685987e1-02a506a968540333  : ∀ {u v} → includedArchitectureDictionary {u} {v}  ⊏⋆ᵣ  nestingRelation {u} {v}
 
+-- -------------------------------------------------------------------------------------------- 
 {- Packaged Block Collection: -}
 packagedBlockCollection : ∀ {u v} →  Linkage (ArchitectureContainer u) (ArchitectureBlockCollection v)
 packagedBlockCollection = make_nestingRelation "Packaged Block Collection" "Packaged Block Collection"
@@ -47,6 +51,7 @@ packagedBlockCollection = make_nestingRelation "Packaged Block Collection" "Pack
 postulate -- packagedBlockCollection is subTypeOf nestingRelation
   st-0eb966436855c46e-02a506a968540333  : ∀ {u v} → packagedBlockCollection {u} {v}  ⊏⋆ᵣ  nestingRelation {u} {v}
 
+-- -------------------------------------------------------------------------------------------- 
 {- Packaged Asset Block: 
 Packaging of Packaged Asset Blocks in Architecture Containers.
 -}
@@ -58,6 +63,7 @@ postulate -- packagedAssetBlock is subTypeOf packagedModelBlock
 postulate -- packagedAssetBlock is subTypeOf scopedArchitectureBlock
   st-9397bbda687781e0-0eb95f9a6855c081  : ∀ {u v} → packagedAssetBlock {u} {v}  ⊏⋆ᵣ  scopedArchitectureBlock {u} {v}
 
+-- -------------------------------------------------------------------------------------------- 
 {- Imported Architecture Container: 
 The Imported Architecture Container relationship extends the lexical scope of an Architecture Container to Asset Blocks of the imported Architecture Container.
 -}

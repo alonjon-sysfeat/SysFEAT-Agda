@@ -18,10 +18,11 @@ open import Agda.Primitive
 open import SysFEAT.EA.8f1c991068ca8a23 public -- Data Property
 
 CompositeDataProperty : PropertyType
-CompositeDataProperty = ClassOfProperty
+CompositeDataProperty = Property
 
 --  CompositeDataProperty is subTypeOf DataProperty
 st-5e3290aa69297591-8f1c991068ca8a23 : CompositeDataProperty ⊏ₑ DataProperty
 st-5e3290aa69297591-8f1c991068ca8a23 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

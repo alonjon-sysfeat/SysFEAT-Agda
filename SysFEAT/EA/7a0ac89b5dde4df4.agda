@@ -22,23 +22,28 @@ open import SysFEAT.SOF.190c7429689664b5 public -- Policy
 OperationalRiskManagementSystem : ClassOfBoundedIndividual
 OperationalRiskManagementSystem = BoundedIndividual
 
+
 --  OperationalRiskManagementSystem is subTypeOf AssuranceSystem
 st-7a0ac89b5dde4df4-07ca18d25dd85477 : OperationalRiskManagementSystem ⊏ₑ AssuranceSystem
 st-7a0ac89b5dde4df4-07ca18d25dd85477 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Controled Framework: -}
 controledFramework : ∀ {u} →  Linkage OperationalRiskManagementSystem (PolicyFramework u)
 controledFramework = make_Relation "Controled Framework" "Controled Framework"
 
 postulate -- controledFramework is subTypeOf enforcedPolicyFramework
-  st-4b94750068a48e57-4b945cc368a47e39  : controledFramework  {lzero}  ⊏⋆ᵣ  enforcedPolicyFramework  {lzero}
+  st-4b94750068a48e57-4b945cc368a47e39  : controledFramework  ⊏⋆ᵣ  enforcedPolicyFramework
 
+-- -------------------------------------------------------------------------------------------- 
 {- Operational Policy in Scope: -}
 -- Aggregate Member : Operational Policy in Scope
 OperationalPolicyinScope : ClassOfClassOfIndividual
 OperationalPolicyinScope = ClassOfIndividual
+
 
 -- Membership relation
 membershipOfOperationalPolicyinScope :  Linkage OperationalRiskManagementSystem OperationalPolicyinScope

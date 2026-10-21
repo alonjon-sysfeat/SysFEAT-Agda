@@ -23,51 +23,35 @@ open import Agda.Primitive
 open import SysFEAT.EA.dd26288968a05d00 public -- Business Resource Capability
 open import SysFEAT.EA.6d2b7c935fbb6270 public -- Data Asset
 
-Functionality : PropertyType
-Functionality = ClassOfProperty
+Functionality : AssetPropertyType
+Functionality = AssetProperty
+
 
 --  Functionality is subTypeOf BusinessResourceCapability
 st-dd26aa0568a1f939-dd26288968a05d00 : Functionality ⊏ₑ BusinessResourceCapability
 st-dd26aa0568a1f939-dd26288968a05d00 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Functionality: -}
 specializedFunctionality :  Linkage Functionality Functionality
 specializedFunctionality = make_subTypeOf "Specialized Functionality" "Specialized Functionality"
 
 postulate -- specializedFunctionality is subTypeOf specializedBusinessResourceCapability
-  st-dd26aafe68a1f9da-dd2683b668a1bbb3  : specializedFunctionality   ⊏⋆ᵣ  specializedBusinessResourceCapability 
+  st-dd26aafe68a1f9da-dd2683b668a1bbb3  : specializedFunctionality  ⊏⋆ᵣ  specializedBusinessResourceCapability
 
-{- Functionality Part: -}
--- Aggregate Member : Functionality Part
-FunctionalityPart : ClassOfClassOfIndividual
-FunctionalityPart = ClassOfIndividual
-
--- Membership relation
-membershipOfFunctionalityPart :  Linkage Functionality FunctionalityPart
-membershipOfFunctionalityPart = make_upwardNestingRelation "functionalityPart membership" "nested functionalityPart"
-
--- Aggregation relation
-aggregationOfFunctionalityFunctionalityPart :  Linkage FunctionalityPart Functionality
-aggregationOfFunctionalityFunctionalityPart = make_Relation "Functionality aggregation" "aggregated Functionality"
-
-{- functionalityPart : derived relation obtained by composing
-   membershipOfFunctionalityPart and aggregationOfFunctionalityFunctionalityPart
-   It directly links an Functionality to the final aggregated Functionality
-   hiding the reifying FunctionalityPart
--}
-functionalityPart : Linkage Functionality Functionality
-functionalityPart = membershipOfFunctionalityPart  ∘  aggregationOfFunctionalityFunctionalityPart
-
-postulate -- functionalityPart is subTypeOf businessResourceCapabilityPart
-  st-dd27aeb768a10434-dd27af0168a10530  : functionalityPart   ⊏⋆ᵣ  businessResourceCapabilityPart 
-
-
+-- -------------------------------------------------------------------------------------------- 
 {- Involved Data Element: -}
 -- Aggregate Member : Involved Data Element
 InvolvedDataElement : ClassOfClassOfIndividual
 InvolvedDataElement = ClassOfIndividual
+
+
+--  InvolvedDataElement is subTypeOf InvolvedInformation
+st-dd27dcd268a1297a-01f11a37689b6677 : InvolvedDataElement ⊏ₑ InvolvedInformation
+st-dd27dcd268a1297a-01f11a37689b6677 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfInvolvedDataElement :  Linkage Functionality InvolvedDataElement
@@ -85,6 +69,34 @@ aggregationOfDataAssetInvolvedDataElement = make_Relation "DataAsset aggregation
 involvedDataElement : Linkage Functionality DataAsset
 involvedDataElement = membershipOfInvolvedDataElement  ∘  aggregationOfDataAssetInvolvedDataElement
 
-postulate -- involvedDataElement is subTypeOf involvedInformation
-  st-dd27dcd268a1297a-01f11a37689b6677  : involvedDataElement   ⊏⋆ᵣ  involvedInformation 
+
+
+-- -------------------------------------------------------------------------------------------- 
+{- Functionality Part: -}
+-- Aggregate Member : Functionality Part
+FunctionalityPart : ClassOfClassOfAbstractEntity
+FunctionalityPart = ClassOfAbstractEntity
+
+
+
+--  FunctionalityPart is subTypeOf BusinessResourceCapabilityPart
+st-dd27aeb768a10434-dd27af0168a10530 : FunctionalityPart ⊏⋆ₑ BusinessResourceCapabilityPart
+st-dd27aeb768a10434-dd27af0168a10530 = polySubTypeOf-identity
+
+-- Membership relation
+membershipOfFunctionalityPart :  Linkage Functionality FunctionalityPart
+membershipOfFunctionalityPart = make_upwardNestingRelation "functionalityPart membership" "nested functionalityPart"
+
+-- Aggregation relation
+aggregationOfFunctionalityFunctionalityPart :  Linkage FunctionalityPart Functionality
+aggregationOfFunctionalityFunctionalityPart = make_Relation "Functionality aggregation" "aggregated Functionality"
+
+{- functionalityPart : derived relation obtained by composing
+   membershipOfFunctionalityPart and aggregationOfFunctionalityFunctionalityPart
+   It directly links an Functionality to the final aggregated Functionality
+   hiding the reifying FunctionalityPart
+-}
+functionalityPart : Linkage Functionality Functionality
+functionalityPart = membershipOfFunctionalityPart  ∘  aggregationOfFunctionalityFunctionalityPart
+
 

@@ -30,12 +30,23 @@ st-203b8fdb5a5f43dd-6bf190796859b4ff = polySubTypeOf-identity
 st-203b8fdb5a5f43dd-d6cd2d8e5ab98edc : ConceptDomainMap ⊏ₑ InformationMap
 st-203b8fdb5a5f43dd-d6cd2d8e5ab98edc = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Sub Activity Domain: -}
 -- Aggregate Member : Sub Activity Domain
 SubActivityDomain : ClassOfClassOfIndividual
 SubActivityDomain = ClassOfIndividual
+
+
+--  SubActivityDomain is subTypeOf InformationDomainMember
+st-dd25ddb95ebb089b-dfa4e2865ebb4e38 : SubActivityDomain ⊏ₑ InformationDomainMember
+st-dd25ddb95ebb089b-dfa4e2865ebb4e38 = polySubTypeOf-identity
+
+--  SubActivityDomain is subTypeOf ConceptDomain
+st-dd25ddb95ebb089b-203b8ff05a5f43fe : SubActivityDomain ⊏ₑ ConceptDomain
+st-dd25ddb95ebb089b-203b8ff05a5f43fe = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSubActivityDomain :  Linkage ConceptDomainMap SubActivityDomain
@@ -53,14 +64,22 @@ aggregationOfConceptDomainSubActivityDomain = make_Relation "ConceptDomain aggre
 subActivityDomain : Linkage ConceptDomainMap ConceptDomain
 subActivityDomain = membershipOfSubActivityDomain  ∘  aggregationOfConceptDomainSubActivityDomain
 
-postulate -- subActivityDomain is subTypeOf informationDomainMember
-  st-dd25ddb95ebb089b-dfa4e2865ebb4e38  : subActivityDomain   ⊏⋆ᵣ  informationDomainMember 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- External Concept Domain Member: -}
 -- Aggregate Member : External Concept Domain Member
 ExternalConceptDomainMember : ClassOfClassOfIndividual
 ExternalConceptDomainMember = ClassOfIndividual
+
+
+--  ExternalConceptDomainMember is subTypeOf externalInformationArea
+st-dd25de465ebb0b45-dfa4e2b35ebb4ee8 : ExternalConceptDomainMember ⊏ₑ externalInformationArea
+st-dd25de465ebb0b45-dfa4e2b35ebb4ee8 = polySubTypeOf-identity
+
+--  ExternalConceptDomainMember is subTypeOf ConceptDomain
+st-dd25de465ebb0b45-203b8ff05a5f43fe : ExternalConceptDomainMember ⊏ₑ ConceptDomain
+st-dd25de465ebb0b45-203b8ff05a5f43fe = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfExternalConceptDomainMember :  Linkage ConceptDomainMap ExternalConceptDomainMember
@@ -78,6 +97,4 @@ aggregationOfConceptDomainExternalConceptDomainMember = make_Relation "ConceptDo
 externalConceptDomainMember : Linkage ConceptDomainMap ConceptDomain
 externalConceptDomainMember = membershipOfExternalConceptDomainMember  ∘  aggregationOfConceptDomainExternalConceptDomainMember
 
-postulate -- externalConceptDomainMember is subTypeOf externalInformationArea
-  st-dd25de465ebb0b45-dfa4e2b35ebb4ee8  : externalConceptDomainMember   ⊏⋆ᵣ  externalInformationArea 
 

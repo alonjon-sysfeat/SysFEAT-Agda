@@ -21,16 +21,29 @@ open import SysFEAT.EA.255833cb5c6d1d64 public -- Logical Application System
 LogicalOperatingEnvironment : ClassOfClassOfBoundedIndividual
 LogicalOperatingEnvironment = ClassOfBoundedIndividual
 
+
 --  LogicalOperatingEnvironment is subTypeOf SOftwareSystemEnvironment
 st-25582c685c6d1c93-25c0a25061e2fd5a : LogicalOperatingEnvironment ⊏ₑ SOftwareSystemEnvironment
 st-25582c685c6d1c93-25c0a25061e2fd5a = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Partner Logical Part: -}
 -- Aggregate Member : Partner Logical Part
-PartnerLogicalPart : ClassOfClassOfIndividual
-PartnerLogicalPart = ClassOfIndividual
+PartnerLogicalPart : ClassOfClassOfBoundedIndividual
+PartnerLogicalPart = ClassOfBoundedIndividual
+
+
+
+--  PartnerLogicalPart is subTypeOf PartnerSOftwareSystem
+st-137d1fdb5ee2c266-25c1a6bc61e20826 : PartnerLogicalPart ⊏ₑ PartnerSOftwareSystem
+st-137d1fdb5ee2c266-25c1a6bc61e20826 = polySubTypeOf-identity
+
+--  PartnerLogicalPart is subTypeOf LogicalApplicationSystem
+st-137d1fdb5ee2c266-255833cb5c6d1d64 : PartnerLogicalPart ⊏ₑ LogicalApplicationSystem
+st-137d1fdb5ee2c266-255833cb5c6d1d64 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfPartnerLogicalPart :  Linkage LogicalOperatingEnvironment PartnerLogicalPart
@@ -48,14 +61,23 @@ aggregationOfLogicalApplicationSystemPartnerLogicalPart = make_Relation "Logical
 partnerLogicalPart : Linkage LogicalOperatingEnvironment LogicalApplicationSystem
 partnerLogicalPart = membershipOfPartnerLogicalPart  ∘  aggregationOfLogicalApplicationSystemPartnerLogicalPart
 
-postulate -- partnerLogicalPart is subTypeOf partnerSOftwareSystem
-  st-137d1fdb5ee2c266-25c1a6bc61e20826  : partnerLogicalPart   ⊏⋆ᵣ  partnerSOftwareSystem 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Subject Logical Member: -}
 -- Aggregate Member : Subject Logical Member
-SubjectLogicalMember : ClassOfClassOfIndividual
-SubjectLogicalMember = ClassOfIndividual
+SubjectLogicalMember : ClassOfClassOfBoundedIndividual
+SubjectLogicalMember = ClassOfBoundedIndividual
+
+
+
+--  SubjectLogicalMember is subTypeOf SubjectSOftwareSystem
+st-137d20165ee2c309-25c1a65861e2077a : SubjectLogicalMember ⊏ₑ SubjectSOftwareSystem
+st-137d20165ee2c309-25c1a65861e2077a = polySubTypeOf-identity
+
+--  SubjectLogicalMember is subTypeOf LogicalApplicationSystem
+st-137d20165ee2c309-255833cb5c6d1d64 : SubjectLogicalMember ⊏ₑ LogicalApplicationSystem
+st-137d20165ee2c309-255833cb5c6d1d64 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSubjectLogicalMember :  Linkage LogicalOperatingEnvironment SubjectLogicalMember
@@ -73,6 +95,4 @@ aggregationOfLogicalApplicationSystemSubjectLogicalMember = make_Relation "Logic
 subjectLogicalMember : Linkage LogicalOperatingEnvironment LogicalApplicationSystem
 subjectLogicalMember = membershipOfSubjectLogicalMember  ∘  aggregationOfLogicalApplicationSystemSubjectLogicalMember
 
-postulate -- subjectLogicalMember is subTypeOf subjectSOftwareSystem
-  st-137d20165ee2c309-25c1a65861e2077a  : subjectLogicalMember   ⊏⋆ᵣ  subjectSOftwareSystem 
 

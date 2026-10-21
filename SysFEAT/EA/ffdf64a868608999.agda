@@ -24,4 +24,5 @@ ResourceAgentConfiguration = ClassOfBoundedIndividual
 st-ffdf64a868608999-e2ef091962147ad7 : ResourceAgentConfiguration ⊏ₑ ResourceAgentType
 st-ffdf64a868608999-e2ef091962147ad7 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

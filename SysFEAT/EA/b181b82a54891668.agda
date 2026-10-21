@@ -36,6 +36,7 @@ open import SysFEAT.EA.21ed240a689c08df public -- Value Proposition
 Enterprise : ClassOfBoundedIndividual
 Enterprise = BoundedIndividual
 
+
 --  Enterprise is subTypeOf EnterpriseInitiative
 st-b181b82a54891668-036a3de3548f229e : Enterprise ⊏ₑ EnterpriseInitiative
 st-b181b82a54891668-036a3de3548f229e = polySubTypeOf-identity
@@ -48,20 +49,24 @@ st-b181b82a54891668-299e882b68488d2c = polySubTypeOf-identity
 st-b181b82a54891668-0eb95f1b6855bf64 : Enterprise ⊏ₐₑ (ArchitectureContainer lzero)
 st-b181b82a54891668-0eb95f1b6855bf64 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Owned Landscape: -}
 ownedLandscape :  Linkage Enterprise InfrastructureLandscape
 ownedLandscape = make_holonymyRelation "Owned Landscape" "Owned Landscape"
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Enterprise Roadmap: -}
 enterpriseRoadmap :  Linkage Enterprise EnterpriseInitiative
 enterpriseRoadmap = make_holonymyRelation "Enterprise Roadmap" "Enterprise Roadmap"
 
 postulate -- enterpriseRoadmap is subTypeOf roadmap
-  st-d770dd345ef4c14f-29df685860086c52  : enterpriseRoadmap   ⊏⋆ᵣ  roadmap 
+  st-d770dd345ef4c14f-29df685860086c52  : enterpriseRoadmap  ⊏⋆ᵣ  roadmap
 
+-- -------------------------------------------------------------------------------------------- 
 {- Coordinated Management System: 
 Management System coordinated at the enterprise scale.
 -}
@@ -69,20 +74,23 @@ coordinatedManagementSystem :  Linkage Enterprise ManagementSystem
 coordinatedManagementSystem = make_holonymyRelation "Coordinated Management System" "Coordinated Management System"
 
 postulate -- coordinatedManagementSystem is subTypeOf subInitiative
-  st-a67ddf8d5f8ecf44-5b7a0ecf61f5650a  : coordinatedManagementSystem   ⊏⋆ᵣ  subInitiative 
+  st-a67ddf8d5f8ecf44-5b7a0ecf61f5650a  : coordinatedManagementSystem  ⊏⋆ᵣ  subInitiative
 
+-- -------------------------------------------------------------------------------------------- 
 {- Enterprise Data Map: -}
 enterpriseDataMap :  Linkage Enterprise PhysicalDataMap
 enterpriseDataMap = make_Relation "Enterprise Data Map" "Enterprise Data Map"
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Enterprise IT System Map: -}
 enterpriseITSystemMap :  Linkage Enterprise ApplicationSystemEnvironment
 enterpriseITSystemMap = make_Relation "Enterprise IT System Map" "Enterprise IT System Map"
 
 postulate -- enterpriseITSystemMap is subTypeOf functionalScope
-  st-82af91565ee335ec-01f1214c689b6e0f  : enterpriseITSystemMap   ⊏⋆ᵣ  functionalScope 
+  st-82af91565ee335ec-01f1214c689b6e0f  : enterpriseITSystemMap  ⊏⋆ᵣ  functionalScope
 
+-- -------------------------------------------------------------------------------------------- 
 {- Enterprise Skill Map: 
 Family of Skill of an Enterprise.
 -}
@@ -90,11 +98,25 @@ enterpriseSkillMap :  Linkage Enterprise SkillMap
 enterpriseSkillMap = make_instanceOf "Enterprise Skill Map" "Enterprise Skill Map"
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Legal Structure: -}
 -- Aggregate Member : Legal Structure
-LegalStructure : ClassOfOrderedEntity (lsuc(lzero))
-LegalStructure = AggregateMember (lsuc(lzero))
+LegalStructure : AgentType
+LegalStructure = IndividualAgent
 
+
+
+--  LegalStructure withAspect BoundedMember
+st-a7ac82b45ff545ba-0eb999956855e070 : LegalStructure ⊏ₐₑ (BoundedMember lzero)
+st-a7ac82b45ff545ba-0eb999956855e070 = polySubTypeOf-identity
+
+--  LegalStructure withAspect SteeringAuthority
+st-a7ac82b45ff545ba-b2f2d64d5f47e364 : LegalStructure ⊏ₐₑ (SteeringAuthority lzero)
+st-a7ac82b45ff545ba-b2f2d64d5f47e364 = polySubTypeOf-identity
+
+--  LegalStructure is subTypeOf LegalEntity
+st-a7ac82b45ff545ba-e78cee446618815a : LegalStructure ⊏ₑ LegalEntity
+st-a7ac82b45ff545ba-e78cee446618815a = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfLegalStructure :  Linkage Enterprise LegalStructure
@@ -112,19 +134,25 @@ aggregationOfLegalEntityLegalStructure = make_Relation "LegalEntity aggregation"
 legalStructure : Linkage Enterprise LegalEntity
 legalStructure = membershipOfLegalStructure  ∘  aggregationOfLegalEntityLegalStructure
 
-postulate -- legalStructure is subTypeOf boundedMember
-  st-a7ac82b45ff545ba-0eb999956855e070  : legalStructure   ⊏⋆ᵣ  boundedMember {lzero} {lzero}
-postulate -- legalStructure is subTypeOf steeringAuthority
-  st-a7ac82b45ff545ba-b2f2d64d5f47e364  : legalStructure   ⊏⋆ᵣ  steeringAuthority 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Strategy: 
  A Strategy is one component of the plan for the Mission. A Strategy represents the essential Course of Action to achieve Ends (Goals in particular). A Strategy usually channels efforts towards those Goals.A Strategy is more than simply a resource, skill, or competency that the enterprise can call upon; rather, a Strategy is accepted by the enterprise as the right approach to achieve its Goals, given the environmental constraints and risks.(From BMM).
 -}
 -- Aggregate Member : Strategy
-Strategy : ClassOfOrderedEntity (lsuc(lzero))
-Strategy = AggregateMember (lsuc(lzero))
+Strategy : AggregateHolonymyType
+Strategy = AggregateHolonymy
 
+
+
+--  Strategy is subTypeOf EnterpriseCourseOfAction
+st-dd26e09968a0a0b7-dd2696c768a1d406 : Strategy ⊏ₑ EnterpriseCourseOfAction
+st-dd26e09968a0a0b7-dd2696c768a1d406 = polySubTypeOf-identity
+
+--  Strategy is subTypeOf IndividualResourceBehavior
+st-dd26e09968a0a0b7-fe1c250d678803b6 : Strategy ⊏ₑ IndividualResourceBehavior
+st-dd26e09968a0a0b7-fe1c250d678803b6 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfStrategy :  Linkage Enterprise Strategy
@@ -142,16 +170,20 @@ aggregationOfIndividualResourceBehaviorStrategy = make_Relation "IndividualResou
 strategy : Linkage Enterprise IndividualResourceBehavior
 strategy = membershipOfStrategy  ∘  aggregationOfIndividualResourceBehaviorStrategy
 
-postulate -- strategy is subTypeOf enterpriseCourseOfAction
-  st-dd26e09968a0a0b7-dd2696c768a1d406  : strategy   ⊏⋆ᵣ  enterpriseCourseOfAction 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Enterprise Goal: 
 An Enterprise Goal is an ideal target Value Proposition that tends to be longer term, and is defined qualitatively rather than quantitatively. It should be sufficiently  narrow-focused so that Objectives can be defined for it.
 -}
 -- Aggregate Member : Enterprise Goal
 EnterpriseGoal : ClassOfClassOfIndividual
 EnterpriseGoal = ClassOfIndividual
+
+
+--  EnterpriseGoal is subTypeOf Goal
+st-dd2685ea68a1c117-21eda43c689c2ab3 : EnterpriseGoal ⊏⋆ₑ Goal
+st-dd2685ea68a1c117-21eda43c689c2ab3 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfEnterpriseGoal :  Linkage Enterprise EnterpriseGoal
@@ -169,6 +201,4 @@ aggregationOfValuePropositionEnterpriseGoal = make_Relation "ValueProposition ag
 enterpriseGoal : Linkage Enterprise ValueProposition
 enterpriseGoal = membershipOfEnterpriseGoal  ∘  aggregationOfValuePropositionEnterpriseGoal
 
-postulate -- enterpriseGoal is subTypeOf goal
-  st-dd2685ea68a1c117-21eda43c689c2ab3  : enterpriseGoal   ⊏⋆ᵣ  goal 
 

@@ -20,6 +20,7 @@ open import SysFEAT.SOF.366c3ea8675c13e2 public -- Appraisal Type
 AssessmentType : ThirdOrderClass
 AssessmentType = SecondOrderClass
 
+
 --  AssessmentType is subTypeOf AppraisalType
 st-366c4033675c1636-366c3ea8675c13e2 : AssessmentType ⊏ₑ AppraisalType
 st-366c4033675c1636-366c3ea8675c13e2 = polySubTypeOf-identity

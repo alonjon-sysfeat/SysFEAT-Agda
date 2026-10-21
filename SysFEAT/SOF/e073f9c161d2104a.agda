@@ -24,22 +24,26 @@ open import SysFEAT.SOF.97e09afa68dd69f1 public -- Resolution Outcome
 Resolution : ClassOfBoundedIndividual
 Resolution = BoundedIndividual
 
+
 --  Resolution is subTypeOf Appraisal
 st-e073f9c161d2104a-bcdbc016617a55be : Resolution ⊏ₑ Appraisal
 st-e073f9c161d2104a-bcdbc016617a55be = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Concerned Asset: -}
 concernedAsset : ∀ {u} →  Linkage Resolution (AssetBlock u)
 concernedAsset = make_Relation "Concerned Asset" "Concerned Asset"
 
 postulate -- concernedAsset is subTypeOf appraisedAsset
-  st-0f642afd6859a59f-6bf17d4e68598487  : concernedAsset  {lzero}  ⊏⋆ᵣ  appraisedAsset  {lzero}
+  st-0f642afd6859a59f-6bf17d4e68598487  : concernedAsset  ⊏⋆ᵣ  appraisedAsset
 
+-- -------------------------------------------------------------------------------------------- 
 {- Selected Resolution Option: -}
 selectedResolutionOption :  Linkage Resolution ResolutionOutcome
 selectedResolutionOption = make_instanceOf "Selected Resolution Option" "Selected Resolution Option"
 
 postulate -- selectedResolutionOption is subTypeOf selectedAppraisalOption
-  st-97e09b4468dd6aca-6662932568dd6161  : selectedResolutionOption   ⊏⋆ᵣ  selectedAppraisalOption 
+  st-97e09b4468dd6aca-6662932568dd6161  : selectedResolutionOption  ⊏⋆ᵣ  selectedAppraisalOption

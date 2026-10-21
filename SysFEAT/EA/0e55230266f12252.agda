@@ -24,4 +24,5 @@ OperationalRiskType = SecondOrderClass
 st-0e55230266f12252-0e55206a66f11ec5 : OperationalRiskType ⊏ₑ RiskType
 st-0e55230266f12252-0e55206a66f11ec5 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

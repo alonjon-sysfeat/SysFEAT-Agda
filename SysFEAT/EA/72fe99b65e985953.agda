@@ -25,8 +25,10 @@ DataProcessor = ClassOfBoundedIndividual
 st-72fe99b65e985953-44226d6561819b50 : DataProcessor ⊏⋆ₑ DataAssuranceInstrument
 st-72fe99b65e985953-44226d6561819b50 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Data Processing Category: -}
 dataProcessingCategory :  Linkage DataProcessor DataProcessingCategory
 dataProcessingCategory = make_classOfHolonymy "Data Processing Category" "Data Processing Category"

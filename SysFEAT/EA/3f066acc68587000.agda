@@ -21,15 +21,18 @@ open import Agda.Primitive
 open import SysFEAT.SOF.0eb95db46855bdd5 public -- Model Lexical Scope
 open import SysFEAT.EA.3f066af36858706e public -- Vocabulary Block
 
-DictionaryVocabulary : ∀ (u : Level) → ClassOfMixedOrderEntity u
-DictionaryVocabulary u = MixedOrderEntity u
+DictionaryVocabulary : ∀ (u : Level) → ClassOfMixedOrderEntity u 
+DictionaryVocabulary u  = MixedOrderEntity u 
+
 
 --  DictionaryVocabulary is subTypeOf ModelLexicalScope
 st-3f066acc68587000-0eb95db46855bdd5 : ∀ {u v} → (DictionaryVocabulary u) ⊏⋆ₑ (ModelLexicalScope v)
 st-3f066acc68587000-0eb95db46855bdd5 = trivialPolySubTypeOfEntity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Packaged Vocabulary Block: -}
 packagedVocabularyBlock : ∀ {u v} →  Linkage (DictionaryVocabulary u) (VocabularyBlock v)
 packagedVocabularyBlock = make_nestingRelation "Packaged Vocabulary Block" "Packaged Vocabulary Block"

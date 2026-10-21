@@ -20,7 +20,8 @@ open import SysFEAT.SOF.6662916b68dd5f84 public -- Governance Instrument
 open import SysFEAT.SOF.83f8933a67407206 public -- Governance Property Type
 
 GovernanceProperty : PropertyType
-GovernanceProperty = ClassOfProperty
+GovernanceProperty = Property
+
 
 --  GovernanceProperty is subTypeOf Property
 st-66628bbe68dd5bef-746ac18368905aa2 : GovernanceProperty ⊏ₑ Property
@@ -30,11 +31,13 @@ st-66628bbe68dd5bef-746ac18368905aa2 = polySubTypeOf-identity
 st-66628bbe68dd5bef-6662916b68dd5f84 : GovernanceProperty ⊏ₐₑ (GovernanceInstrument (lsuc(lzero)))
 st-66628bbe68dd5bef-6662916b68dd5f84 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Governance Property Type: -}
 governancePropertyType :  Linkage GovernanceProperty GovernancePropertyType
 governancePropertyType = make_instanceOf "Governance Property Type" "Governance Property Type"
 
 postulate -- governancePropertyType is subTypeOf propertyClassification
-  st-666293d768dd6238-1976247d68925c3e  : governancePropertyType   ⊏⋆ᵣ  propertyClassification 
+  st-666293d768dd6238-1976247d68925c3e  : governancePropertyType  ⊏⋆ᵣ  propertyClassification

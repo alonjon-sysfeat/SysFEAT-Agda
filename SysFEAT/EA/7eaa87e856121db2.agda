@@ -18,15 +18,18 @@ open import Agda.Primitive
 open import SysFEAT.EA.67d376e36aa45056 public -- Data Dictionary
 open import SysFEAT.EA.fd1bf2a45fbc64fb public -- Logical Data Asset
 
-LogicalDataDictionary : ClassOfBoundedIndividual
-LogicalDataDictionary = BoundedIndividual
+LogicalDataDictionary : ClassOfAbstractEntity
+LogicalDataDictionary = AbstractEntity
+
 
 --  LogicalDataDictionary is subTypeOf DataDictionary
 st-7eaa87e856121db2-67d376e36aa45056 : LogicalDataDictionary ⊏ₑ DataDictionary
 st-7eaa87e856121db2-67d376e36aa45056 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Owned Logical  Data Block: -}
 ownedLogicalDataBlock :  Linkage LogicalDataDictionary LogicalDataAsset
 ownedLogicalDataBlock = make_Relation "Owned Logical  Data Block" "Owned Logical  Data Block"

@@ -18,19 +18,28 @@ open import Agda.Primitive
 open import SysFEAT.EA.9dcea2655ec768ee public -- Business Service Interface
 open import SysFEAT.EA.c334e2925ecb8db4 public -- Physical Outcome Event
 
-PhysicalServiceInterface : ClassOfClassOfIndividual
-PhysicalServiceInterface = ClassOfIndividual
+PhysicalServiceInterface : ClassOfClassOfBoundedIndividual
+PhysicalServiceInterface = ClassOfBoundedIndividual
+
 
 --  PhysicalServiceInterface is subTypeOf BusinessServiceInterface
 st-a502ba136229fe24-9dcea2655ec768ee : PhysicalServiceInterface ⊏ₑ BusinessServiceInterface
 st-a502ba136229fe24-9dcea2655ec768ee = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Choreographed Material Outcome: -}
 -- Aggregate Member : Choreographed Material Outcome
-ChoreographedMaterialOutcome : ClassOfClassOfIndividual
-ChoreographedMaterialOutcome = ClassOfIndividual
+ChoreographedMaterialOutcome : ClassOfClassOfBoundedIndividual
+ChoreographedMaterialOutcome = ClassOfBoundedIndividual
+
+
+
+--  ChoreographedMaterialOutcome is subTypeOf BusinessFlowConnection
+st-c561eaa0680f8632-c561d97c680f6e84 : ChoreographedMaterialOutcome ⊏ₑ BusinessFlowConnection
+st-c561eaa0680f8632-c561d97c680f6e84 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfChoreographedMaterialOutcome :  Linkage PhysicalServiceInterface ChoreographedMaterialOutcome
@@ -48,6 +57,4 @@ aggregationOfPhysicalOutcomeEventChoreographedMaterialOutcome = make_Relation "P
 choreographedMaterialOutcome : Linkage PhysicalServiceInterface PhysicalOutcomeEvent
 choreographedMaterialOutcome = membershipOfChoreographedMaterialOutcome  ∘  aggregationOfPhysicalOutcomeEventChoreographedMaterialOutcome
 
-postulate -- choreographedMaterialOutcome is subTypeOf businessFlowConnection
-  st-c561eaa0680f8632-c561d97c680f6e84  : choreographedMaterialOutcome   ⊏⋆ᵣ  businessFlowConnection 
 

@@ -27,6 +27,7 @@ open import SysFEAT.SOF.d6cd116d5ab97525 public -- Information Domain
 ResourceActionProcess : ClassOfClassOfBoundedIndividual
 ResourceActionProcess = ClassOfBoundedIndividual
 
+
 --  ResourceActionProcess is subTypeOf ResourceBehavior
 st-e2ef095b62147bf9-0185cd936221bd72 : ResourceActionProcess ⊏ₑ ResourceBehavior
 st-e2ef095b62147bf9-0185cd936221bd72 = polySubTypeOf-identity
@@ -35,28 +36,37 @@ st-e2ef095b62147bf9-0185cd936221bd72 = polySubTypeOf-identity
 st-e2ef095b62147bf9-d682ef5e56144e77 : ResourceActionProcess ⊏ₑ ActionProcessType
 st-e2ef095b62147bf9-d682ef5e56144e77 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Resource Process: -}
 specializedResourceProcess :  Linkage ResourceActionProcess ResourceActionProcess
 specializedResourceProcess = make_subTypeOf "Specialized Resource Process" "Specialized Resource Process"
 
 postulate -- specializedResourceProcess is subTypeOf specializedProcess
-  st-325a39d966f353be-325a376e66f345e2  : specializedResourceProcess   ⊏⋆ᵣ  specializedProcess 
+  st-325a39d966f353be-325a376e66f345e2  : specializedResourceProcess  ⊏⋆ᵣ  specializedProcess
 postulate -- specializedResourceProcess is subTypeOf specializedResourceBehavior
-  st-325a39d966f353be-325a376866f343d3  : specializedResourceProcess   ⊏⋆ᵣ  specializedResourceBehavior 
+  st-325a39d966f353be-325a376866f343d3  : specializedResourceProcess  ⊏⋆ᵣ  specializedResourceBehavior
 
+-- -------------------------------------------------------------------------------------------- 
 {- Realized Operating Process: -}
 realizedOperatingProcess :  Linkage ResourceActionProcess ResourceActionProcess
 realizedOperatingProcess = make_subTypeOf "Realized Operating Process" "Realized Operating Process"
 
 postulate -- realizedOperatingProcess is subTypeOf realizedProces
-  st-325a3a1666f35c35-325a3a1466f35b22  : realizedOperatingProcess   ⊏⋆ᵣ  realizedProces 
+  st-325a3a1666f35c35-325a3a1466f35b22  : realizedOperatingProcess  ⊏⋆ᵣ  realizedProces
 
+-- -------------------------------------------------------------------------------------------- 
 {- Sequence Flow: -}
 -- Aggregate Member : Sequence Flow
 SequenceFlow : ClassOfClassOfIndividual
 SequenceFlow = ClassOfIndividual
+
+
+--  SequenceFlow is subTypeOf SequenceFlow
+st-018518ea6222cfa8-40d5416b5ee36739 : SequenceFlow ⊏ₑ SequenceFlow
+st-018518ea6222cfa8-40d5416b5ee36739 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSequenceFlow :  Linkage ResourceActionProcess SequenceFlow
@@ -74,14 +84,18 @@ aggregationOfBusinessEventSequenceFlow = make_Relation "BusinessEvent aggregatio
 sequenceFlow : Linkage ResourceActionProcess BusinessEvent
 sequenceFlow = membershipOfSequenceFlow  ∘  aggregationOfBusinessEventSequenceFlow
 
-postulate -- sequenceFlow is subTypeOf sequenceFlow
-  st-018518ea6222cfa8-40d5416b5ee36739  : sequenceFlow   ⊏⋆ᵣ  sequenceFlow 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Resource Object Flow: -}
 -- Aggregate Member : Resource Object Flow
 ResourceObjectFlow : ClassOfClassOfIndividual
 ResourceObjectFlow = ClassOfIndividual
+
+
+--  ResourceObjectFlow is subTypeOf ObjectFlow
+st-0185194e6222d13a-e4c0fff75ed0ec45 : ResourceObjectFlow ⊏ₑ ObjectFlow
+st-0185194e6222d13a-e4c0fff75ed0ec45 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfResourceObjectFlow :  Linkage ResourceActionProcess ResourceObjectFlow
@@ -99,14 +113,27 @@ aggregationOfResourceOutcomeEventResourceObjectFlow = make_Relation "ResourceOut
 resourceObjectFlow : Linkage ResourceActionProcess ResourceOutcomeEvent
 resourceObjectFlow = membershipOfResourceObjectFlow  ∘  aggregationOfResourceOutcomeEventResourceObjectFlow
 
-postulate -- resourceObjectFlow is subTypeOf objectFlow
-  st-0185194e6222d13a-e4c0fff75ed0ec45  : resourceObjectFlow   ⊏⋆ᵣ  objectFlow 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Participant Resource Agent: -}
 -- Aggregate Member : Participant Resource Agent
-ParticipantResourceAgent : ClassOfClassOfIndividual
-ParticipantResourceAgent = ClassOfIndividual
+ParticipantResourceAgent : ClassOfClassOfBoundedIndividual
+ParticipantResourceAgent = ClassOfBoundedIndividual
+
+
+
+--  ParticipantResourceAgent is subTypeOf ResourceBehaviorParticipant
+st-f8e61ffd621dbebc-e0e874626578a341 : ParticipantResourceAgent ⊏ₑ ResourceBehaviorParticipant
+st-f8e61ffd621dbebc-e0e874626578a341 = polySubTypeOf-identity
+
+--  ParticipantResourceAgent is subTypeOf ActiveParticipant
+st-f8e61ffd621dbebc-004b041f5ebd1119 : ParticipantResourceAgent ⊏ₑ ActiveParticipant
+st-f8e61ffd621dbebc-004b041f5ebd1119 = polySubTypeOf-identity
+
+--  ParticipantResourceAgent is subTypeOf ResourceAgentType
+st-f8e61ffd621dbebc-e2ef091962147ad7 : ParticipantResourceAgent ⊏ₑ ResourceAgentType
+st-f8e61ffd621dbebc-e2ef091962147ad7 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfParticipantResourceAgent :  Linkage ResourceActionProcess ParticipantResourceAgent
@@ -124,16 +151,23 @@ aggregationOfResourceAgentTypeParticipantResourceAgent = make_Relation "Resource
 participantResourceAgent : Linkage ResourceActionProcess ResourceAgentType
 participantResourceAgent = membershipOfParticipantResourceAgent  ∘  aggregationOfResourceAgentTypeParticipantResourceAgent
 
-postulate -- participantResourceAgent is subTypeOf resourceBehaviorParticipant
-  st-f8e61ffd621dbebc-e0e874626578a341  : participantResourceAgent   ⊏⋆ᵣ  resourceBehaviorParticipant 
-postulate -- participantResourceAgent is subTypeOf activeParticipant
-  st-f8e61ffd621dbebc-004b041f5ebd1119  : participantResourceAgent   ⊏⋆ᵣ  activeParticipant 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Resource Process Step: -}
 -- Aggregate Member : Resource Process Step
-ResourceProcessStep : ClassOfClassOfIndividual
-ResourceProcessStep = ClassOfIndividual
+ResourceProcessStep : ClassOfClassOfBoundedIndividual
+ResourceProcessStep = ClassOfBoundedIndividual
+
+
+
+--  ResourceProcessStep is subTypeOf ProcessStep
+st-f8e62045621dbffb-8e1390925ebe3db7 : ResourceProcessStep ⊏ₑ ProcessStep
+st-f8e62045621dbffb-8e1390925ebe3db7 = polySubTypeOf-identity
+
+--  ResourceProcessStep is subTypeOf ResourceActionProcess
+st-f8e62045621dbffb-e2ef095b62147bf9 : ResourceProcessStep ⊏ₑ ResourceActionProcess
+st-f8e62045621dbffb-e2ef095b62147bf9 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfResourceProcessStep :  Linkage ResourceActionProcess ResourceProcessStep
@@ -151,14 +185,22 @@ aggregationOfResourceActionProcessResourceProcessStep = make_Relation "ResourceA
 resourceProcessStep : Linkage ResourceActionProcess ResourceActionProcess
 resourceProcessStep = membershipOfResourceProcessStep  ∘  aggregationOfResourceActionProcessResourceProcessStep
 
-postulate -- resourceProcessStep is subTypeOf processStep
-  st-f8e62045621dbffb-8e1390925ebe3db7  : resourceProcessStep   ⊏⋆ᵣ  processStep 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Operating Process Store: -}
 -- Aggregate Member : Operating Process Store
 OperatingProcessStore : ClassOfClassOfIndividual
 OperatingProcessStore = ClassOfIndividual
+
+
+--  OperatingProcessStore is subTypeOf ProcessStore
+st-d69196306228f16e-e4c003255ed1f037 : OperatingProcessStore ⊏ₑ ProcessStore
+st-d69196306228f16e-e4c003255ed1f037 = polySubTypeOf-identity
+
+--  OperatingProcessStore is subTypeOf InformationDomain
+st-d69196306228f16e-d6cd116d5ab97525 : OperatingProcessStore ⊏ₑ InformationDomain
+st-d69196306228f16e-d6cd116d5ab97525 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfOperatingProcessStore :  Linkage ResourceActionProcess OperatingProcessStore
@@ -176,6 +218,4 @@ aggregationOfInformationDomainOperatingProcessStore = make_Relation "Information
 operatingProcessStore : Linkage ResourceActionProcess InformationDomain
 operatingProcessStore = membershipOfOperatingProcessStore  ∘  aggregationOfInformationDomainOperatingProcessStore
 
-postulate -- operatingProcessStore is subTypeOf processStore
-  st-d69196306228f16e-e4c003255ed1f037  : operatingProcessStore   ⊏⋆ᵣ  processStore 
 

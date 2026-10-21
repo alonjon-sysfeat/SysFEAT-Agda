@@ -18,10 +18,11 @@ open import Agda.Primitive
 open import SysFEAT.SOF.190c74f868966584 public -- Behavioral Rule
 
 TechnologyRule : PropertyType
-TechnologyRule = ClassOfProperty
+TechnologyRule = Property
 
 --  TechnologyRule is subTypeOf BehavioralRule
 st-d265d82a68b13af0-190c74f868966584 : TechnologyRule ⊏ₑ BehavioralRule
 st-d265d82a68b13af0-190c74f868966584 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

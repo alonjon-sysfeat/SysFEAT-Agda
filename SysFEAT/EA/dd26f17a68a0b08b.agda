@@ -21,26 +21,36 @@ module SysFEAT.EA.dd26f17a68a0b08b where -- ========== Skill
 open import Agda.Primitive
 open import SysFEAT.EA.dd26288968a05d00 public -- Business Resource Capability
 
-Skill : PropertyType
-Skill = ClassOfProperty
+Skill : AssetPropertyType
+Skill = AssetProperty
+
 
 --  Skill is subTypeOf BusinessResourceCapability
 st-dd26f17a68a0b08b-dd26288968a05d00 : Skill ⊏ₑ BusinessResourceCapability
 st-dd26f17a68a0b08b-dd26288968a05d00 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Skill: -}
 specializedSkill :  Linkage Skill Skill
 specializedSkill = make_subTypeOf "Specialized Skill" "Specialized Skill"
 
 postulate -- specializedSkill is subTypeOf specializedBusinessResourceCapability
-  st-dd27d78968a12593-dd2683b668a1bbb3  : specializedSkill   ⊏⋆ᵣ  specializedBusinessResourceCapability 
+  st-dd27d78968a12593-dd2683b668a1bbb3  : specializedSkill  ⊏⋆ᵣ  specializedBusinessResourceCapability
 
+-- -------------------------------------------------------------------------------------------- 
 {- Skill Part: -}
 -- Aggregate Member : Skill Part
-SkillPart : ClassOfClassOfIndividual
-SkillPart = ClassOfIndividual
+SkillPart : ClassOfClassOfAbstractEntity
+SkillPart = ClassOfAbstractEntity
+
+
+
+--  SkillPart is subTypeOf BusinessResourceCapabilityPart
+st-dd26f40f68a0b32f-dd27af0168a10530 : SkillPart ⊏⋆ₑ BusinessResourceCapabilityPart
+st-dd26f40f68a0b32f-dd27af0168a10530 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSkillPart :  Linkage Skill SkillPart
@@ -58,6 +68,4 @@ aggregationOfSkillSkillPart = make_Relation "Skill aggregation" "aggregated Skil
 skillPart : Linkage Skill Skill
 skillPart = membershipOfSkillPart  ∘  aggregationOfSkillSkillPart
 
-postulate -- skillPart is subTypeOf businessResourceCapabilityPart
-  st-dd26f40f68a0b32f-dd27af0168a10530  : skillPart   ⊏⋆ᵣ  businessResourceCapabilityPart 
 

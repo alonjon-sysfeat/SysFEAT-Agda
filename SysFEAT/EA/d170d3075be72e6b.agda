@@ -17,11 +17,13 @@ module SysFEAT.EA.d170d3075be72e6b where -- ========== Customer Need
 open import Agda.Primitive
 open import SysFEAT.SOF.515c6a856893324e public -- Asset Property
 
-CustomerNeed : ClassOfClassOfBoundedIndividual
-CustomerNeed = ClassOfBoundedIndividual
+CustomerNeed : AssetPropertyType
+CustomerNeed = AssetProperty
+
 
 --  CustomerNeed is subTypeOf AssetProperty
 st-d170d3075be72e6b-515c6a856893324e : CustomerNeed ⊏ₑ AssetProperty
 st-d170d3075be72e6b-515c6a856893324e = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

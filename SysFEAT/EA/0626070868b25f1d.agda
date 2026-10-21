@@ -24,4 +24,5 @@ StateConcept = ClassOfBoundedIndividual
 st-0626070868b25f1d-229b34eb5b3f79d2 : StateConcept ⊏ₑ ConceptualEntity
 st-0626070868b25f1d-229b34eb5b3f79d2 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

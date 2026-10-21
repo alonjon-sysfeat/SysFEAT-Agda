@@ -30,8 +30,10 @@ st-6cfb6ef26a0f15e4-f69619236a0f8dcd = trivialPolySubTypeOfEntity
 st-6cfb6ef26a0f15e4-0eb97aff6855cd23 : ∀ {u v} → (ConditionCategory u) ⊏⋆ₑ (ModelPropertyBlock v)
 st-6cfb6ef26a0f15e4-0eb97aff6855cd23 = trivialPolySubTypeOfEntity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Family of Measurement: -}
 familyOfMeasurement : ∀ {u v} →  Linkage (ConditionCategory u) (FamilyOfMeasurement v)
 familyOfMeasurement = make_classOfRelation "Family of Measurement" "Family of Measurement"

@@ -25,23 +25,32 @@ open import SysFEAT.EA.d6cd02865ab966e8 public -- Business Software System
 SOftwareSystemEnvironmentScenario : ClassOfClassOfBoundedIndividual
 SOftwareSystemEnvironmentScenario = ClassOfBoundedIndividual
 
+
 --  SOftwareSystemEnvironmentScenario is subTypeOf BusinessSystemEnvironmentSxcenario
 st-25c0a10061e2fc12-4edf5eab5fc58ef3 : SOftwareSystemEnvironmentScenario ⊏ₑ BusinessSystemEnvironmentSxcenario
 st-25c0a10061e2fc12-4edf5eab5fc58ef3 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Scenarized Software System Environment: -}
 scenarizedSOftwareSystemEnvironment :  Linkage SOftwareSystemEnvironmentScenario SOftwareSystemEnvironment
 scenarizedSOftwareSystemEnvironment = make_classOfHolonymy "Scenarized Software System Environment" "Scenarized Software System Environment"
 
 postulate -- scenarizedSOftwareSystemEnvironment is subTypeOf scenarizedSystemEnvironment
-  st-25c1a3fc61e201e4-25c1a95361e21158  : scenarizedSOftwareSystemEnvironment   ⊏⋆ᵣ  scenarizedSystemEnvironment 
+  st-25c1a3fc61e201e4-25c1a95361e21158  : scenarizedSOftwareSystemEnvironment  ⊏⋆ᵣ  scenarizedSystemEnvironment
 
+-- -------------------------------------------------------------------------------------------- 
 {- Application Flow: -}
 -- Aggregate Member : Application Flow
 ApplicationFlow : ClassOfClassOfIndividual
 ApplicationFlow = ClassOfIndividual
+
+
+--  ApplicationFlow is subTypeOf ResourceObjectFlow
+st-4edf6e9f5fc5b0b1-2b6f41d961baf74b : ApplicationFlow ⊏ₑ ResourceObjectFlow
+st-4edf6e9f5fc5b0b1-2b6f41d961baf74b = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfApplicationFlow :  Linkage SOftwareSystemEnvironmentScenario ApplicationFlow
@@ -59,14 +68,19 @@ aggregationOfInformationOutcomeEventApplicationFlow = make_Relation "Information
 applicationFlow : Linkage SOftwareSystemEnvironmentScenario InformationOutcomeEvent
 applicationFlow = membershipOfApplicationFlow  ∘  aggregationOfInformationOutcomeEventApplicationFlow
 
-postulate -- applicationFlow is subTypeOf resourceObjectFlow
-  st-4edf6e9f5fc5b0b1-2b6f41d961baf74b  : applicationFlow   ⊏⋆ᵣ  resourceObjectFlow 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Participant Software: -}
 -- Aggregate Member : Participant Software
-ParticipantSOftware : ClassOfClassOfIndividual
-ParticipantSOftware = ClassOfIndividual
+ParticipantSOftware : ClassOfClassOfBoundedIndividual
+ParticipantSOftware = ClassOfBoundedIndividual
+
+
+
+--  ParticipantSOftware is subTypeOf BusinessSOftwareSystem
+st-25c1a32461e200b5-d6cd02865ab966e8 : ParticipantSOftware ⊏ₑ BusinessSOftwareSystem
+st-25c1a32461e200b5-d6cd02865ab966e8 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfParticipantSOftware :  Linkage SOftwareSystemEnvironmentScenario ParticipantSOftware
@@ -86,10 +100,29 @@ participantSOftware = membershipOfParticipantSOftware  ∘  aggregationOfBusines
 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Partner Software System: -}
 -- Aggregate Member : Partner Software System
-PartnerSOftwareSystem : ClassOfClassOfIndividual
-PartnerSOftwareSystem = ClassOfIndividual
+PartnerSOftwareSystem : ClassOfClassOfBoundedIndividual
+PartnerSOftwareSystem = ClassOfBoundedIndividual
+
+
+
+--  PartnerSOftwareSystem is subTypeOf PartnerSystem
+st-25c1a53f61e20355-4edf5f445fc591d8 : PartnerSOftwareSystem ⊏ₑ PartnerSystem
+st-25c1a53f61e20355-4edf5f445fc591d8 = polySubTypeOf-identity
+
+--  PartnerSOftwareSystem is subTypeOf ParticipantSystem
+st-25c1a53f61e20355-4edf5fa95fc593f0 : PartnerSOftwareSystem ⊏ₑ ParticipantSystem
+st-25c1a53f61e20355-4edf5fa95fc593f0 = polySubTypeOf-identity
+
+--  PartnerSOftwareSystem is subTypeOf ParticipantSOftware
+st-25c1a53f61e20355-25c1a32461e200b5 : PartnerSOftwareSystem ⊏ₑ ParticipantSOftware
+st-25c1a53f61e20355-25c1a32461e200b5 = polySubTypeOf-identity
+
+--  PartnerSOftwareSystem is subTypeOf BusinessSOftwareSystem
+st-25c1a53f61e20355-d6cd02865ab966e8 : PartnerSOftwareSystem ⊏ₑ BusinessSOftwareSystem
+st-25c1a53f61e20355-d6cd02865ab966e8 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfPartnerSOftwareSystem :  Linkage SOftwareSystemEnvironmentScenario PartnerSOftwareSystem
@@ -107,18 +140,27 @@ aggregationOfBusinessSOftwareSystemPartnerSOftwareSystem = make_Relation "Busine
 partnerSOftwareSystem : Linkage SOftwareSystemEnvironmentScenario BusinessSOftwareSystem
 partnerSOftwareSystem = membershipOfPartnerSOftwareSystem  ∘  aggregationOfBusinessSOftwareSystemPartnerSOftwareSystem
 
-postulate -- partnerSOftwareSystem is subTypeOf partnerSystem
-  st-25c1a53f61e20355-4edf5f445fc591d8  : partnerSOftwareSystem   ⊏⋆ᵣ  partnerSystem 
-postulate -- partnerSOftwareSystem is subTypeOf participantSystem
-  st-25c1a53f61e20355-4edf5fa95fc593f0  : partnerSOftwareSystem   ⊏⋆ᵣ  participantSystem 
-postulate -- partnerSOftwareSystem is subTypeOf participantSOftware
-  st-25c1a53f61e20355-25c1a32461e200b5  : partnerSOftwareSystem   ⊏⋆ᵣ  participantSOftware 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Subject Software System: -}
 -- Aggregate Member : Subject Software System
-SubjectSOftwareSystem : ClassOfClassOfIndividual
-SubjectSOftwareSystem = ClassOfIndividual
+SubjectSOftwareSystem : ClassOfClassOfBoundedIndividual
+SubjectSOftwareSystem = ClassOfBoundedIndividual
+
+
+
+--  SubjectSOftwareSystem is subTypeOf SubjectSystem
+st-25c1a55461e20430-4edf5f1f5fc590f0 : SubjectSOftwareSystem ⊏ₑ SubjectSystem
+st-25c1a55461e20430-4edf5f1f5fc590f0 = polySubTypeOf-identity
+
+--  SubjectSOftwareSystem is subTypeOf ParticipantSOftware
+st-25c1a55461e20430-25c1a32461e200b5 : SubjectSOftwareSystem ⊏ₑ ParticipantSOftware
+st-25c1a55461e20430-25c1a32461e200b5 = polySubTypeOf-identity
+
+--  SubjectSOftwareSystem is subTypeOf BusinessSOftwareSystem
+st-25c1a55461e20430-d6cd02865ab966e8 : SubjectSOftwareSystem ⊏ₑ BusinessSOftwareSystem
+st-25c1a55461e20430-d6cd02865ab966e8 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSubjectSOftwareSystem :  Linkage SOftwareSystemEnvironmentScenario SubjectSOftwareSystem
@@ -136,8 +178,4 @@ aggregationOfBusinessSOftwareSystemSubjectSOftwareSystem = make_Relation "Busine
 subjectSOftwareSystem : Linkage SOftwareSystemEnvironmentScenario BusinessSOftwareSystem
 subjectSOftwareSystem = membershipOfSubjectSOftwareSystem  ∘  aggregationOfBusinessSOftwareSystemSubjectSOftwareSystem
 
-postulate -- subjectSOftwareSystem is subTypeOf subjectSystem
-  st-25c1a55461e20430-4edf5f1f5fc590f0  : subjectSOftwareSystem   ⊏⋆ᵣ  subjectSystem 
-postulate -- subjectSOftwareSystem is subTypeOf participantSOftware
-  st-25c1a55461e20430-25c1a32461e200b5  : subjectSOftwareSystem   ⊏⋆ᵣ  participantSOftware 
 

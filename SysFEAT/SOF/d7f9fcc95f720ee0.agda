@@ -22,22 +22,26 @@ open import SysFEAT.SOF.97e09cde68dd6c0f public -- Decision Outcome
 Decision : ClassOfBoundedIndividual
 Decision = BoundedIndividual
 
+
 --  Decision is subTypeOf Resolution
 st-d7f9fcc95f720ee0-e073f9c161d2104a : Decision ⊏ₑ Resolution
 st-d7f9fcc95f720ee0-e073f9c161d2104a = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Decision Subject: -}
 decisionSubject : ∀ {u} →  Linkage Decision (AssetBlock u)
 decisionSubject = make_Relation "Decision Subject" "Decision Subject"
 
 postulate -- decisionSubject is subTypeOf concernedAsset
-  st-6bf18905685999a3-0f642afd6859a59f  : decisionSubject  {lzero}  ⊏⋆ᵣ  concernedAsset  {lzero}
+  st-6bf18905685999a3-0f642afd6859a59f  : decisionSubject  ⊏⋆ᵣ  concernedAsset
 
+-- -------------------------------------------------------------------------------------------- 
 {- Selected Decision Option: -}
 selectedDecisionOption :  Linkage Decision DecisionOutcome
 selectedDecisionOption = make_instanceOf "Selected Decision Option" "Selected Decision Option"
 
 postulate -- selectedDecisionOption is subTypeOf selectedResolutionOption
-  st-97e09d5368dd6d39-97e09b4468dd6aca  : selectedDecisionOption   ⊏⋆ᵣ  selectedResolutionOption 
+  st-97e09d5368dd6d39-97e09b4468dd6aca  : selectedDecisionOption  ⊏⋆ᵣ  selectedResolutionOption

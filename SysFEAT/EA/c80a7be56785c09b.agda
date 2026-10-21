@@ -21,15 +21,18 @@ open import SysFEAT.EA.c30bf4015a5da72b public -- Concrete Hardware System
 DeployedHardwareSystem : ClassOfBoundedIndividual
 DeployedHardwareSystem = BoundedIndividual
 
+
 --  DeployedHardwareSystem is subTypeOf DeployedBusinessSystem
 st-c80a7be56785c09b-3642454f6007e80e : DeployedHardwareSystem ⊏ₑ DeployedBusinessSystem
 st-c80a7be56785c09b-3642454f6007e80e = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Hardware Type: -}
 hardwareType :  Linkage DeployedHardwareSystem ConcreteHardwareSystem
 hardwareType = make_instanceOf "Hardware Type" "Hardware Type"
 
 postulate -- hardwareType is subTypeOf businessSystemType
-  st-c80a7d4f6785c18f-e2dc074666fd6d03  : hardwareType   ⊏⋆ᵣ  businessSystemType 
+  st-c80a7d4f6785c18f-e2dc074666fd6d03  : hardwareType  ⊏⋆ᵣ  businessSystemType

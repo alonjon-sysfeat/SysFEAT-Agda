@@ -26,12 +26,24 @@ BusinessObjectAssuranceCase = ClassOfBoundedIndividual
 st-fe6314c8618165e2-b90aeac8600e619f : BusinessObjectAssuranceCase ⊏ₑ DataAssuranceCase
 st-fe6314c8618165e2-b90aeac8600e619f = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Assured Business Object: -}
 -- Aggregate Member : Assured Business Object
-AssuredBusinessObject : ClassOfClassOfIndividual
-AssuredBusinessObject = ClassOfIndividual
+AssuredBusinessObject : ClassOfClassOfBoundedIndividual
+AssuredBusinessObject = ClassOfBoundedIndividual
+
+
+
+--  AssuredBusinessObject is subTypeOf ConcernedInformation
+st-fe631645618166c9-b90afa69600e715c : AssuredBusinessObject ⊏ₑ ConcernedInformation
+st-fe631645618166c9-b90afa69600e715c = polySubTypeOf-identity
+
+--  AssuredBusinessObject is subTypeOf ConceptualEntityAsset
+st-fe631645618166c9-362fc8045b3c3e65 : AssuredBusinessObject ⊏ₑ ConceptualEntityAsset
+st-fe631645618166c9-362fc8045b3c3e65 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfAssuredBusinessObject :  Linkage BusinessObjectAssuranceCase AssuredBusinessObject
@@ -49,14 +61,18 @@ aggregationOfConceptualEntityAssetAssuredBusinessObject = make_Relation "Concept
 assuredBusinessObject : Linkage BusinessObjectAssuranceCase ConceptualEntityAsset
 assuredBusinessObject = membershipOfAssuredBusinessObject  ∘  aggregationOfConceptualEntityAssetAssuredBusinessObject
 
-postulate -- assuredBusinessObject is subTypeOf concernedInformation
-  st-fe631645618166c9-b90afa69600e715c  : assuredBusinessObject   ⊏⋆ᵣ  concernedInformation 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Mitigated Quality Risk: -}
 -- Aggregate Member : Mitigated Quality Risk
 MitigatedQualityRisk : ThirdOrderClass
 MitigatedQualityRisk = SecondOrderClass
+
+
+--  MitigatedQualityRisk is subTypeOf MitigatedDataRisk
+st-582e7b2366f6b927-582e7e2266f6c278 : MitigatedQualityRisk ⊏⋆ₑ MitigatedDataRisk
+st-582e7b2366f6b927-582e7e2266f6c278 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfMitigatedQualityRisk :  Linkage BusinessObjectAssuranceCase MitigatedQualityRisk
@@ -74,6 +90,4 @@ aggregationOfDataQualityRiskTypeMitigatedQualityRisk = make_Relation "DataQualit
 mitigatedQualityRisk : Linkage BusinessObjectAssuranceCase DataQualityRiskType
 mitigatedQualityRisk = membershipOfMitigatedQualityRisk  ∘  aggregationOfDataQualityRiskTypeMitigatedQualityRisk
 
-postulate -- mitigatedQualityRisk is subTypeOf mitigatedDataRisk
-  st-582e7b2366f6b927-582e7e2266f6c278  : mitigatedQualityRisk   ⊏⋆ᵣ  mitigatedDataRisk 
 

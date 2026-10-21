@@ -20,8 +20,10 @@ open import SysFEAT..d059da695ef11294 public -- Incident
 OperationalIncident : ClassOfBoundedIndividual
 OperationalIncident = BoundedIndividual
 
+
 --  OperationalIncident is subTypeOf Incident
 st-0430341c6003d9c9-d059da695ef11294 : OperationalIncident ⊏ₑ Incident
 st-0430341c6003d9c9-d059da695ef11294 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

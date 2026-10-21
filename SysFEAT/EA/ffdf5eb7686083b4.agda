@@ -26,4 +26,5 @@ Artifact = ClassOfBoundedIndividual
 st-ffdf5eb7686083b4-e2ef091962147ad7 : Artifact ⊏ₑ ResourceAgentType
 st-ffdf5eb7686083b4-e2ef091962147ad7 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

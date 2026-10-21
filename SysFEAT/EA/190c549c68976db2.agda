@@ -21,14 +21,16 @@ open import SysFEAT.EA.4b945e8668a47f80 public -- Policy Framework Asset
 open import SysFEAT.EA.952ead2b67285cfd public -- Business Policy Category
 
 BusinessPolicy : PropertyType
-BusinessPolicy = ClassOfProperty
+BusinessPolicy = Property
 
 --  BusinessPolicy withAspect PolicyFrameworkAsset
 st-190c549c68976db2-4b945e8668a47f80 : BusinessPolicy ⊏ₐₑ (PolicyFrameworkAsset (lsuc(lzero)))
 st-190c549c68976db2-4b945e8668a47f80 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Business Policy Category: -}
 businessPolicyCategory :  Linkage BusinessPolicy BusinessPolicyCategory
 businessPolicyCategory = make_instanceOf "Business Policy Category" "Business Policy Category"

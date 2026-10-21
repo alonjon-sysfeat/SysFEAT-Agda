@@ -20,8 +20,10 @@ open import SysFEAT.EA.f4be0fba5ee1d935 public -- Network Device
 WifiHotspot : ClassOfClassOfBoundedIndividual
 WifiHotspot = ClassOfBoundedIndividual
 
+
 --  WifiHotspot is subTypeOf NetworkDevice
 st-e1a4fb1b64017ad6-f4be0fba5ee1d935 : WifiHotspot ⊏ₑ NetworkDevice
 st-e1a4fb1b64017ad6-f4be0fba5ee1d935 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

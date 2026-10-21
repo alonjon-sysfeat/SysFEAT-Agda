@@ -20,15 +20,18 @@ open import SysFEAT.SOF.0eb95e566855bed9 public -- Model Building Block
 open import SysFEAT.SOF.d745e6ea6aa386e5 public -- Annotation Block
 open import SysFEAT.SOF.d745e8936aa388e0 public -- Description Note
 
-ModelLexicalScope : ∀ (u : Level) → ClassOfMixedOrderEntity u
-ModelLexicalScope u = MixedOrderEntity u
+ModelLexicalScope : ∀ (u : Level) → ClassOfMixedOrderEntity u 
+ModelLexicalScope u  = MixedOrderEntity u 
+
 
 --  ModelLexicalScope is subTypeOf BlockLexicalScope
 st-0eb95db46855bdd5-23d5c494685141b5 : ∀ {u v} → (ModelLexicalScope u) ⊏⋆ₑ (BlockLexicalScope v)
 st-0eb95db46855bdd5-23d5c494685141b5 = trivialPolySubTypeOfEntity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Scoped Model Block: -}
 scopedModelBlock : ∀ {u v} →  Linkage (ModelLexicalScope u) (ModelBuildingBlock v)
 scopedModelBlock = make_nestingRelation "Scoped Model Block" "Scoped Model Block"
@@ -36,6 +39,7 @@ scopedModelBlock = make_nestingRelation "Scoped Model Block" "Scoped Model Block
 postulate -- scopedModelBlock is subTypeOf scopedBuildingBlock
   st-0eb96a306855c816-0eb946496854a02e  : ∀ {u v} → scopedModelBlock {u} {v}  ⊏⋆ᵣ  scopedBuildingBlock {u} {v}
 
+-- -------------------------------------------------------------------------------------------- 
 {- Scoped Annotation Block: 
 Nesting of Annotation Blocks within a Model Lexical Scope.
 -}
@@ -45,6 +49,7 @@ scopedAnnotationBlock = make_nestingRelation "Scoped Annotation Block" "Scoped A
 postulate -- scopedAnnotationBlock is subTypeOf scopedBuildingBlock
   st-0eb97bc46855ce52-0eb946496854a02e  : scopedAnnotationBlock {u}  ⊏⋆ᵣ  scopedBuildingBlock {u} {v}
 
+-- -------------------------------------------------------------------------------------------- 
 {- Nested Description Note: -}
 nestedDescriptionNote : ∀ {u} →  Linkage (ModelLexicalScope u) DescriptionNote
 nestedDescriptionNote = make_nestingRelation "Nested Description Note" "Nested Description Note"

@@ -17,8 +17,9 @@ module SysFEAT.SOF.5e32baad6929b4e4 where -- ========== Applicable
 open import Agda.Primitive
 open import SysFEAT.SOF.5e32ba416929b430 public -- Policity Decision Option
 
-Applicable : ClassOfProperty
-Applicable = Property
+Applicable : ClassOfIndividual
+Applicable = Individual
+
 
 --  Applicable is subTypeOf PolicityDecisionOption
 st-5e32baad6929b4e4-5e32ba416929b430 : Applicable ⊏ₑ PolicityDecisionOption

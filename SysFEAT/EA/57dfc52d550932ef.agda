@@ -28,35 +28,44 @@ open import Agda.Primitive
 open import SysFEAT.EA.7c40c3c85527466b public -- Business Resource Process
 open import SysFEAT.EA.9dcea4535ec76e6c public -- Business Outcome Event
 open import SysFEAT.EA.0185cc626221bb37 public -- Business Event
+open import SysFEAT.EA.c189cf1f68ae421a public -- Business Rule
+open import SysFEAT.EA.dd26aa0568a1f939 public -- Functionality
 open import SysFEAT.EA.325c32165eb02a4a public -- Data Domain
 open import SysFEAT.EA.bcebd8e9549144db public -- Application
 open import SysFEAT.EA.076d15425a5e158c public -- Org-Unit Type
 open import SysFEAT.EA.f160fb6267d72652 public -- Mezzo Business System
-open import SysFEAT.EA.c189cf1f68ae421a public -- Business Rule
-open import SysFEAT.EA.dd26aa0568a1f939 public -- Functionality
 
 BusinessProcess : ClassOfClassOfBoundedIndividual
 BusinessProcess = ClassOfBoundedIndividual
+
 
 --  BusinessProcess is subTypeOf BusinessResourceProcess
 st-57dfc52d550932ef-7c40c3c85527466b : BusinessProcess ⊏ₑ BusinessResourceProcess
 st-57dfc52d550932ef-7c40c3c85527466b = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Business Process: -}
 specializedBusinessProcess :  Linkage BusinessProcess BusinessProcess
 specializedBusinessProcess = make_subTypeOf "Specialized Business Process" "Specialized Business Process"
 
 postulate -- specializedBusinessProcess is subTypeOf specializedResourceProcess
-  st-325a37b866f34d47-325a376666f34350  : specializedBusinessProcess   ⊏⋆ᵣ  specializedResourceProcess 
+  st-325a37b866f34d47-325a376666f34350  : specializedBusinessProcess  ⊏⋆ᵣ  specializedResourceProcess
 
+-- -------------------------------------------------------------------------------------------- 
 {- Object Flow: 
 Information flow between process activities.
 -}
 -- Aggregate Member : Object Flow
 ObjectFlow : ClassOfClassOfIndividual
 ObjectFlow = ClassOfIndividual
+
+
+--  ObjectFlow is subTypeOf ResourceFlow
+st-302242b15ec9243a-4d120c1861b28997 : ObjectFlow ⊏ₑ ResourceFlow
+st-302242b15ec9243a-4d120c1861b28997 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfObjectFlow :  Linkage BusinessProcess ObjectFlow
@@ -74,16 +83,20 @@ aggregationOfBusinessOutcomeEventObjectFlow = make_Relation "BusinessOutcomeEven
 objectFlow : Linkage BusinessProcess BusinessOutcomeEvent
 objectFlow = membershipOfObjectFlow  ∘  aggregationOfBusinessOutcomeEventObjectFlow
 
-postulate -- objectFlow is subTypeOf resourceFlow
-  st-302242b15ec9243a-4d120c1861b28997  : objectFlow   ⊏⋆ᵣ  resourceFlow 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Operation Sequence: 
 An Operation Sequence is used to show the order in which steps of a process will be performed. Each Operation Sequence has only one source and only one target. 
 -}
 -- Aggregate Member : Operation Sequence
 OperationSequence : ClassOfClassOfIndividual
 OperationSequence = ClassOfIndividual
+
+
+--  OperationSequence is subTypeOf ResourceActivitySequence
+st-ca9de5ca5fcf4219-9d38a85a61c4245a : OperationSequence ⊏ₑ ResourceActivitySequence
+st-ca9de5ca5fcf4219-9d38a85a61c4245a = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfOperationSequence :  Linkage BusinessProcess OperationSequence
@@ -101,149 +114,19 @@ aggregationOfBusinessEventOperationSequence = make_Relation "BusinessEvent aggre
 operationSequence : Linkage BusinessProcess BusinessEvent
 operationSequence = membershipOfOperationSequence  ∘  aggregationOfBusinessEventOperationSequence
 
-postulate -- operationSequence is subTypeOf resourceActivitySequence
-  st-ca9de5ca5fcf4219-9d38a85a61c4245a  : operationSequence   ⊏⋆ᵣ  resourceActivitySequence 
 
 
-{- Business Object Store: 
-A Business Object Store is a source of information required during the course of a Business Process.
--}
--- Aggregate Member : Business Object Store
-BusinessObjectStore : ClassOfClassOfIndividual
-BusinessObjectStore = ClassOfIndividual
-
--- Membership relation
-membershipOfBusinessObjectStore :  Linkage BusinessProcess BusinessObjectStore
-membershipOfBusinessObjectStore = make_upwardNestingRelation "businessObjectStore membership" "nested businessObjectStore"
-
--- Aggregation relation
-aggregationOfDataDomainBusinessObjectStore :  Linkage BusinessObjectStore DataDomain
-aggregationOfDataDomainBusinessObjectStore = make_Relation "DataDomain aggregation" "aggregated DataDomain"
-
-{- businessObjectStore : derived relation obtained by composing
-   membershipOfBusinessObjectStore and aggregationOfDataDomainBusinessObjectStore
-   It directly links an Business Process to the final aggregated DataDomain
-   hiding the reifying BusinessObjectStore
--}
-businessObjectStore : Linkage BusinessProcess DataDomain
-businessObjectStore = membershipOfBusinessObjectStore  ∘  aggregationOfDataDomainBusinessObjectStore
-
-postulate -- businessObjectStore is subTypeOf businessDataStore
-  st-e4c0058d5ed1f424-b4ebd0e45ffdef12  : businessObjectStore   ⊏⋆ᵣ  businessDataStore 
-
-
-{- Automated Participant: 
-An Automated Participant is the role of an Application that acts as an active performer in a Business Process, 
--}
--- Aggregate Member : Automated Participant
-AutomatedParticipant : ClassOfClassOfIndividual
-AutomatedParticipant = ClassOfIndividual
-
--- Membership relation
-membershipOfAutomatedParticipant :  Linkage BusinessProcess AutomatedParticipant
-membershipOfAutomatedParticipant = make_upwardNestingRelation "automatedParticipant membership" "nested automatedParticipant"
-
--- Aggregation relation
-aggregationOfApplicationAutomatedParticipant :  Linkage AutomatedParticipant Application
-aggregationOfApplicationAutomatedParticipant = make_Relation "Application aggregation" "aggregated Application"
-
-{- automatedParticipant : derived relation obtained by composing
-   membershipOfAutomatedParticipant and aggregationOfApplicationAutomatedParticipant
-   It directly links an Business Process to the final aggregated Application
-   hiding the reifying AutomatedParticipant
--}
-automatedParticipant : Linkage BusinessProcess Application
-automatedParticipant = membershipOfAutomatedParticipant  ∘  aggregationOfApplicationAutomatedParticipant
-
-postulate -- automatedParticipant is subTypeOf participantBusinessAgent
-  st-0f92123f5ebc184e-b4ebbe325ffdca40  : automatedParticipant   ⊏⋆ᵣ  participantBusinessAgent 
-
-
-{- Human Resource Participant: 
-A Human Resource Participant is the role of an Org-Unit Type that acts as an active performer in a Business Process. 
--}
--- Aggregate Member : Human Resource Participant
-HumanResourceParticipant : ClassOfClassOfIndividual
-HumanResourceParticipant = ClassOfIndividual
-
--- Membership relation
-membershipOfHumanResourceParticipant :  Linkage BusinessProcess HumanResourceParticipant
-membershipOfHumanResourceParticipant = make_upwardNestingRelation "humanResourceParticipant membership" "nested humanResourceParticipant"
-
--- Aggregation relation
-aggregationOfOrgUnitTypeHumanResourceParticipant :  Linkage HumanResourceParticipant OrgUnitType
-aggregationOfOrgUnitTypeHumanResourceParticipant = make_Relation "OrgUnitType aggregation" "aggregated OrgUnitType"
-
-{- humanResourceParticipant : derived relation obtained by composing
-   membershipOfHumanResourceParticipant and aggregationOfOrgUnitTypeHumanResourceParticipant
-   It directly links an Business Process to the final aggregated OrgUnitType
-   hiding the reifying HumanResourceParticipant
--}
-humanResourceParticipant : Linkage BusinessProcess OrgUnitType
-humanResourceParticipant = membershipOfHumanResourceParticipant  ∘  aggregationOfOrgUnitTypeHumanResourceParticipant
-
-postulate -- humanResourceParticipant is subTypeOf participantBusinessAgent
-  st-0f9212805ebc1917-b4ebbe325ffdca40  : humanResourceParticipant   ⊏⋆ᵣ  participantBusinessAgent 
-
-
-{- Instrument: 
-An Instrument is a Business System used by a Human Resource Participant to perform an Activity in a Business Process. An Instrument can be an Application or a Hardware Equipment.
--}
--- Aggregate Member : Instrument
-Instrument : ClassOfClassOfIndividual
-Instrument = ClassOfIndividual
-
--- Membership relation
-membershipOfInstrument :  Linkage BusinessProcess Instrument
-membershipOfInstrument = make_upwardNestingRelation "instrument membership" "nested instrument"
-
--- Aggregation relation
-aggregationOfMezzoBusinessSystemInstrument :  Linkage Instrument MezzoBusinessSystem
-aggregationOfMezzoBusinessSystemInstrument = make_Relation "MezzoBusinessSystem aggregation" "aggregated MezzoBusinessSystem"
-
-{- instrument : derived relation obtained by composing
-   membershipOfInstrument and aggregationOfMezzoBusinessSystemInstrument
-   It directly links an Business Process to the final aggregated MezzoBusinessSystem
-   hiding the reifying Instrument
--}
-instrument : Linkage BusinessProcess MezzoBusinessSystem
-instrument = membershipOfInstrument  ∘  aggregationOfMezzoBusinessSystemInstrument
-
-postulate -- instrument is subTypeOf resourceBehaviorParticipant
-  st-0f9213345ebc1a67-e0e874626578a341  : instrument   ⊏⋆ᵣ  resourceBehaviorParticipant 
-
-
-{- Business-Process Step: 
-A Business-Process Step is a step in a Business Process executed by a participant of the proces (Human Resource Participant or Automated Participant).
--}
--- Aggregate Member : Business-Process Step
-BusinessProcessStep : ClassOfClassOfIndividual
-BusinessProcessStep = ClassOfIndividual
-
--- Membership relation
-membershipOfBusinessProcessStep :  Linkage BusinessProcess BusinessProcessStep
-membershipOfBusinessProcessStep = make_upwardNestingRelation "businessProcessStep membership" "nested businessProcessStep"
-
--- Aggregation relation
-aggregationOfBusinessProcessBusinessProcessStep :  Linkage BusinessProcessStep BusinessProcess
-aggregationOfBusinessProcessBusinessProcessStep = make_Relation "BusinessProcess aggregation" "aggregated BusinessProcess"
-
-{- businessProcessStep : derived relation obtained by composing
-   membershipOfBusinessProcessStep and aggregationOfBusinessProcessBusinessProcessStep
-   It directly links an Business Process to the final aggregated BusinessProcess
-   hiding the reifying BusinessProcessStep
--}
-businessProcessStep : Linkage BusinessProcess BusinessProcess
-businessProcessStep = membershipOfBusinessProcessStep  ∘  aggregationOfBusinessProcessBusinessProcessStep
-
-postulate -- businessProcessStep is subTypeOf businessResourceProcessStep
-  st-0f92150e5ebc1c50-b4ebbe6b5ffdcb19  : businessProcessStep   ⊏⋆ᵣ  businessResourceProcessStep 
-
-
+-- -------------------------------------------------------------------------------------------- 
 {- Business Rule Enforcement: -}
 -- Aggregate Member : Business Rule Enforcement
-BusinessRuleEnforcement : ClassOfClassOfIndividual
-BusinessRuleEnforcement = ClassOfIndividual
+BusinessRuleEnforcement : ClassOfClassOfAbstractEntity
+BusinessRuleEnforcement = ClassOfAbstractEntity
+
+
+
+--  BusinessRuleEnforcement is subTypeOf BusinessRuleEnforcement
+st-c189cfd768ae42d1-23bf9ad368ad2e64 : BusinessRuleEnforcement ⊏ₑ BusinessRuleEnforcement
+st-c189cfd768ae42d1-23bf9ad368ad2e64 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfBusinessRuleEnforcement :  Linkage BusinessProcess BusinessRuleEnforcement
@@ -261,16 +144,16 @@ aggregationOfBusinessRuleBusinessRuleEnforcement = make_Relation "BusinessRule a
 businessRuleEnforcement : Linkage BusinessProcess BusinessRule
 businessRuleEnforcement = membershipOfBusinessRuleEnforcement  ∘  aggregationOfBusinessRuleBusinessRuleEnforcement
 
-postulate -- businessRuleEnforcement is subTypeOf businessRuleEnforcement
-  st-c189cfd768ae42d1-23bf9ad368ad2e64  : businessRuleEnforcement   ⊏⋆ᵣ  businessRuleEnforcement 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Required functionality: 
 Functionality required during the course of a Business Process.
 -}
 -- Aggregate Member : Required functionality
 Requiredfunctionality : ClassOfClassOfIndividual
 Requiredfunctionality = ClassOfIndividual
+
 
 -- Membership relation
 membershipOfRequiredfunctionality :  Linkage BusinessProcess Requiredfunctionality
@@ -287,5 +170,184 @@ aggregationOfFunctionalityRequiredfunctionality = make_Relation "Functionality a
 -}
 requiredfunctionality : Linkage BusinessProcess Functionality
 requiredfunctionality = membershipOfRequiredfunctionality  ∘  aggregationOfFunctionalityRequiredfunctionality
+
+
+
+-- -------------------------------------------------------------------------------------------- 
+{- Business Object Store: 
+A Business Object Store is a source of information required during the course of a Business Process.
+-}
+-- Aggregate Member : Business Object Store
+BusinessObjectStore : ClassOfClassOfIndividual
+BusinessObjectStore = ClassOfIndividual
+
+
+--  BusinessObjectStore is subTypeOf BusinessDataStore
+st-e4c0058d5ed1f424-b4ebd0e45ffdef12 : BusinessObjectStore ⊏ₑ BusinessDataStore
+st-e4c0058d5ed1f424-b4ebd0e45ffdef12 = polySubTypeOf-identity
+
+--  BusinessObjectStore is subTypeOf DataDomain
+st-e4c0058d5ed1f424-325c32165eb02a4a : BusinessObjectStore ⊏ₑ DataDomain
+st-e4c0058d5ed1f424-325c32165eb02a4a = polySubTypeOf-identity
+
+-- Membership relation
+membershipOfBusinessObjectStore :  Linkage BusinessProcess BusinessObjectStore
+membershipOfBusinessObjectStore = make_upwardNestingRelation "businessObjectStore membership" "nested businessObjectStore"
+
+-- Aggregation relation
+aggregationOfDataDomainBusinessObjectStore :  Linkage BusinessObjectStore DataDomain
+aggregationOfDataDomainBusinessObjectStore = make_Relation "DataDomain aggregation" "aggregated DataDomain"
+
+{- businessObjectStore : derived relation obtained by composing
+   membershipOfBusinessObjectStore and aggregationOfDataDomainBusinessObjectStore
+   It directly links an Business Process to the final aggregated DataDomain
+   hiding the reifying BusinessObjectStore
+-}
+businessObjectStore : Linkage BusinessProcess DataDomain
+businessObjectStore = membershipOfBusinessObjectStore  ∘  aggregationOfDataDomainBusinessObjectStore
+
+
+
+-- -------------------------------------------------------------------------------------------- 
+{- Automated Participant: 
+An Automated Participant is the role of an Application that acts as an active performer in a Business Process, 
+-}
+-- Aggregate Member : Automated Participant
+AutomatedParticipant : ClassOfClassOfBoundedIndividual
+AutomatedParticipant = ClassOfBoundedIndividual
+
+
+
+--  AutomatedParticipant is subTypeOf ParticipantBusinessAgent
+st-0f92123f5ebc184e-b4ebbe325ffdca40 : AutomatedParticipant ⊏ₑ ParticipantBusinessAgent
+st-0f92123f5ebc184e-b4ebbe325ffdca40 = polySubTypeOf-identity
+
+--  AutomatedParticipant is subTypeOf Application
+st-0f92123f5ebc184e-bcebd8e9549144db : AutomatedParticipant ⊏ₑ Application
+st-0f92123f5ebc184e-bcebd8e9549144db = polySubTypeOf-identity
+
+-- Membership relation
+membershipOfAutomatedParticipant :  Linkage BusinessProcess AutomatedParticipant
+membershipOfAutomatedParticipant = make_upwardNestingRelation "automatedParticipant membership" "nested automatedParticipant"
+
+-- Aggregation relation
+aggregationOfApplicationAutomatedParticipant :  Linkage AutomatedParticipant Application
+aggregationOfApplicationAutomatedParticipant = make_Relation "Application aggregation" "aggregated Application"
+
+{- automatedParticipant : derived relation obtained by composing
+   membershipOfAutomatedParticipant and aggregationOfApplicationAutomatedParticipant
+   It directly links an Business Process to the final aggregated Application
+   hiding the reifying AutomatedParticipant
+-}
+automatedParticipant : Linkage BusinessProcess Application
+automatedParticipant = membershipOfAutomatedParticipant  ∘  aggregationOfApplicationAutomatedParticipant
+
+
+
+-- -------------------------------------------------------------------------------------------- 
+{- Human Resource Participant: 
+A Human Resource Participant is the role of an Org-Unit Type that acts as an active performer in a Business Process. 
+-}
+-- Aggregate Member : Human Resource Participant
+HumanResourceParticipant : ClassOfClassOfBoundedIndividual
+HumanResourceParticipant = ClassOfBoundedIndividual
+
+
+
+--  HumanResourceParticipant is subTypeOf ParticipantBusinessAgent
+st-0f9212805ebc1917-b4ebbe325ffdca40 : HumanResourceParticipant ⊏ₑ ParticipantBusinessAgent
+st-0f9212805ebc1917-b4ebbe325ffdca40 = polySubTypeOf-identity
+
+--  HumanResourceParticipant is subTypeOf OrgUnitType
+st-0f9212805ebc1917-076d15425a5e158c : HumanResourceParticipant ⊏ₑ OrgUnitType
+st-0f9212805ebc1917-076d15425a5e158c = polySubTypeOf-identity
+
+-- Membership relation
+membershipOfHumanResourceParticipant :  Linkage BusinessProcess HumanResourceParticipant
+membershipOfHumanResourceParticipant = make_upwardNestingRelation "humanResourceParticipant membership" "nested humanResourceParticipant"
+
+-- Aggregation relation
+aggregationOfOrgUnitTypeHumanResourceParticipant :  Linkage HumanResourceParticipant OrgUnitType
+aggregationOfOrgUnitTypeHumanResourceParticipant = make_Relation "OrgUnitType aggregation" "aggregated OrgUnitType"
+
+{- humanResourceParticipant : derived relation obtained by composing
+   membershipOfHumanResourceParticipant and aggregationOfOrgUnitTypeHumanResourceParticipant
+   It directly links an Business Process to the final aggregated OrgUnitType
+   hiding the reifying HumanResourceParticipant
+-}
+humanResourceParticipant : Linkage BusinessProcess OrgUnitType
+humanResourceParticipant = membershipOfHumanResourceParticipant  ∘  aggregationOfOrgUnitTypeHumanResourceParticipant
+
+
+
+-- -------------------------------------------------------------------------------------------- 
+{- Instrument: 
+An Instrument is a Business System used by a Human Resource Participant to perform an Activity in a Business Process. An Instrument can be an Application or a Hardware Equipment.
+-}
+-- Aggregate Member : Instrument
+Instrument : ClassOfClassOfBoundedIndividual
+Instrument = ClassOfBoundedIndividual
+
+
+
+--  Instrument is subTypeOf ResourceBehaviorParticipant
+st-0f9213345ebc1a67-e0e874626578a341 : Instrument ⊏ₑ ResourceBehaviorParticipant
+st-0f9213345ebc1a67-e0e874626578a341 = polySubTypeOf-identity
+
+--  Instrument is subTypeOf MezzoBusinessSystem
+st-0f9213345ebc1a67-f160fb6267d72652 : Instrument ⊏ₑ MezzoBusinessSystem
+st-0f9213345ebc1a67-f160fb6267d72652 = polySubTypeOf-identity
+
+-- Membership relation
+membershipOfInstrument :  Linkage BusinessProcess Instrument
+membershipOfInstrument = make_upwardNestingRelation "instrument membership" "nested instrument"
+
+-- Aggregation relation
+aggregationOfMezzoBusinessSystemInstrument :  Linkage Instrument MezzoBusinessSystem
+aggregationOfMezzoBusinessSystemInstrument = make_Relation "MezzoBusinessSystem aggregation" "aggregated MezzoBusinessSystem"
+
+{- instrument : derived relation obtained by composing
+   membershipOfInstrument and aggregationOfMezzoBusinessSystemInstrument
+   It directly links an Business Process to the final aggregated MezzoBusinessSystem
+   hiding the reifying Instrument
+-}
+instrument : Linkage BusinessProcess MezzoBusinessSystem
+instrument = membershipOfInstrument  ∘  aggregationOfMezzoBusinessSystemInstrument
+
+
+
+-- -------------------------------------------------------------------------------------------- 
+{- Business-Process Step: 
+A Business-Process Step is a step in a Business Process executed by a participant of the proces (Human Resource Participant or Automated Participant).
+-}
+-- Aggregate Member : Business-Process Step
+BusinessProcessStep : ClassOfClassOfBoundedIndividual
+BusinessProcessStep = ClassOfBoundedIndividual
+
+
+
+--  BusinessProcessStep is subTypeOf BusinessResourceProcessStep
+st-0f92150e5ebc1c50-b4ebbe6b5ffdcb19 : BusinessProcessStep ⊏ₑ BusinessResourceProcessStep
+st-0f92150e5ebc1c50-b4ebbe6b5ffdcb19 = polySubTypeOf-identity
+
+--  BusinessProcessStep is subTypeOf BusinessProcess
+st-0f92150e5ebc1c50-57dfc52d550932ef : BusinessProcessStep ⊏ₑ BusinessProcess
+st-0f92150e5ebc1c50-57dfc52d550932ef = polySubTypeOf-identity
+
+-- Membership relation
+membershipOfBusinessProcessStep :  Linkage BusinessProcess BusinessProcessStep
+membershipOfBusinessProcessStep = make_upwardNestingRelation "businessProcessStep membership" "nested businessProcessStep"
+
+-- Aggregation relation
+aggregationOfBusinessProcessBusinessProcessStep :  Linkage BusinessProcessStep BusinessProcess
+aggregationOfBusinessProcessBusinessProcessStep = make_Relation "BusinessProcess aggregation" "aggregated BusinessProcess"
+
+{- businessProcessStep : derived relation obtained by composing
+   membershipOfBusinessProcessStep and aggregationOfBusinessProcessBusinessProcessStep
+   It directly links an Business Process to the final aggregated BusinessProcess
+   hiding the reifying BusinessProcessStep
+-}
+businessProcessStep : Linkage BusinessProcess BusinessProcess
+businessProcessStep = membershipOfBusinessProcessStep  ∘  aggregationOfBusinessProcessBusinessProcessStep
 
 

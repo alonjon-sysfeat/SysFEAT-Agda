@@ -25,4 +25,5 @@ Vendor = StateConcept
 st-8d8d242467a32a6f-e78cee446618815a : Vendor ⊏ₑ LegalEntity
 st-8d8d242467a32a6f-e78cee446618815a = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

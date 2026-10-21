@@ -26,6 +26,7 @@ open import SysFEAT.EA.2b5887d05ef07b3b public -- Program Asset
 TransformationProgram : ClassOfBoundedIndividual
 TransformationProgram = BoundedIndividual
 
+
 --  TransformationProgram is subTypeOf ManagementInitiative
 st-24032c315fc6780a-05201b936647570a : TransformationProgram ⊏ₑ ManagementInitiative
 st-24032c315fc6780a-05201b936647570a = polySubTypeOf-identity
@@ -34,16 +35,19 @@ st-24032c315fc6780a-05201b936647570a = polySubTypeOf-identity
 st-24032c315fc6780a-84c799c1664d8b2f : TransformationProgram ⊏ₑ Epic
 st-24032c315fc6780a-84c799c1664d8b2f = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Roadmap: -}
 roadmap :  Linkage TransformationProgram TechnologyPortfolioStage
 roadmap = make_holonymyRelation "Roadmap" "Roadmap"
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Owned Program Block: -}
 ownedProgramBlock :  Linkage TransformationProgram ProgramAsset
 ownedProgramBlock = make_holonymyRelation "Owned Program Block" "Owned Program Block"
 
 postulate -- ownedProgramBlock is subTypeOf packagedInitiativeResource
-  st-2b5887fc5ef07c71-01ce058868597974  : ownedProgramBlock   ⊏⋆ᵣ  packagedInitiativeResource  {lzero}
+  st-2b5887fc5ef07c71-01ce058868597974  : ownedProgramBlock  ⊏⋆ᵣ  packagedInitiativeResource

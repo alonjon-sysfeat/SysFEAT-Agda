@@ -28,8 +28,9 @@ open import SysFEAT.EA.66f8685a620b1440 public -- Individual Business Agent
 open import SysFEAT.EA.076d15425a5e158c public -- Org-Unit Type
 open import SysFEAT.EA.c7dad43c5ae92d25 public -- Person
 
-Organization : ClassOfBoundedIndividual
-Organization = BoundedIndividual
+Organization : AgentType
+Organization = IndividualAgent
+
 
 --  Organization is subTypeOf ResponsibleHumanEntity
 st-910196ca550a2ec2-c7dad03f5ae92ae9 : Organization ⊏ₑ ResponsibleHumanEntity
@@ -39,13 +40,20 @@ st-910196ca550a2ec2-c7dad03f5ae92ae9 = polySubTypeOf-identity
 st-910196ca550a2ec2-66f8685a620b1440 : Organization ⊏ₑ IndividualBusinessAgent
 st-910196ca550a2ec2-66f8685a620b1440 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Sub Contractor: -}
 -- Aggregate Member : Sub Contractor
-SubContractor : ClassOfOrderedEntity (lsuc(lzero))
-SubContractor = AggregateMember (lsuc(lzero))
+SubContractor : AgentType
+SubContractor = IndividualAgent
 
+
+
+--  SubContractor is subTypeOf Organization
+st-302241f95ec91eed-910196ca550a2ec2 : SubContractor ⊏ₑ Organization
+st-302241f95ec91eed-910196ca550a2ec2 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSubContractor :  Linkage Organization SubContractor
@@ -65,11 +73,17 @@ subContractor = membershipOfSubContractor  ∘  aggregationOfOrganizationSubCont
 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Organizational Position: -}
 -- Aggregate Member : Organizational Position
-OrganizationalPosition : ClassOfOrderedEntity (lsuc(lzero))
-OrganizationalPosition = AggregateMember (lsuc(lzero))
+OrganizationalPosition : AgentType
+OrganizationalPosition = IndividualAgent
 
+
+
+--  OrganizationalPosition is subTypeOf Person
+st-c334e7de5ecba16d-c7dad43c5ae92d25 : OrganizationalPosition ⊏ₑ Person
+st-c334e7de5ecba16d-c7dad43c5ae92d25 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfOrganizationalPosition :  Linkage Organization OrganizationalPosition
@@ -89,11 +103,17 @@ organizationalPosition = membershipOfOrganizationalPosition  ∘  aggregationOfP
 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Organizational Reponsibility: -}
 -- Aggregate Member : Organizational Reponsibility
-OrganizationalReponsibility : ClassOfOrderedEntity (lsuc(lzero))
-OrganizationalReponsibility = AggregateMember (lsuc(lzero))
+OrganizationalReponsibility : AgentType
+OrganizationalReponsibility = IndividualAgent
 
+
+
+--  OrganizationalReponsibility is subTypeOf Person
+st-c334e8355ecba267-c7dad43c5ae92d25 : OrganizationalReponsibility ⊏ₑ Person
+st-c334e8355ecba267-c7dad43c5ae92d25 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfOrganizationalReponsibility :  Linkage Organization OrganizationalReponsibility
@@ -113,11 +133,17 @@ organizationalReponsibility = membershipOfOrganizationalReponsibility  ∘  aggr
 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Sub-Unit: -}
 -- Aggregate Member : Sub-Unit
-SubUnit : ClassOfOrderedEntity (lsuc(lzero))
-SubUnit = AggregateMember (lsuc(lzero))
+SubUnit : AgentType
+SubUnit = IndividualAgent
 
+
+
+--  SubUnit is subTypeOf Organization
+st-c334e93b5ecba369-910196ca550a2ec2 : SubUnit ⊏ₑ Organization
+st-c334e93b5ecba369-910196ca550a2ec2 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSubUnit :  Linkage Organization SubUnit

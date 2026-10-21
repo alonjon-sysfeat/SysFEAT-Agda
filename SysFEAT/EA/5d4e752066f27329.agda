@@ -20,15 +20,18 @@ open import SysFEAT.SOF.0e55206a66f11ec5 public -- Risk Type
 TechnologyRiskType : ThirdOrderClass
 TechnologyRiskType = SecondOrderClass
 
+
 --  TechnologyRiskType is subTypeOf RiskType
 st-5d4e752066f27329-0e55206a66f11ec5 : TechnologyRiskType ⊏ₑ RiskType
 st-5d4e752066f27329-0e55206a66f11ec5 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Technology Risk Type: -}
 technologyRiskType :  Linkage TechnologyRiskType TechnologyRiskType
 technologyRiskType = make_subTypeOf "Technology Risk Type" "Technology Risk Type"
 
 postulate -- technologyRiskType is subTypeOf parentRisk
-  st-5d4e765c66f27434-332c410066f1656d  : technologyRiskType   ⊏⋆ᵣ  parentRisk 
+  st-5d4e765c66f27434-332c410066f1656d  : technologyRiskType  ⊏⋆ᵣ  parentRisk

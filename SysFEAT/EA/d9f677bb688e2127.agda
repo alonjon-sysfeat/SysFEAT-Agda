@@ -24,4 +24,5 @@ ConceptualAsset = ClassOfBoundedIndividual
 st-d9f677bb688e2127-a4a5b3f855585ce1 : ConceptualAsset ⊏ₑ AssetType
 st-d9f677bb688e2127-a4a5b3f855585ce1 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

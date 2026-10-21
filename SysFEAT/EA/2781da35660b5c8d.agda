@@ -26,4 +26,5 @@ OperationsProcess = ClassOfBoundedIndividual
 st-2781da35660b5c8d-57dfc52d550932ef : OperationsProcess ⊏ₑ BusinessProcess
 st-2781da35660b5c8d-57dfc52d550932ef = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

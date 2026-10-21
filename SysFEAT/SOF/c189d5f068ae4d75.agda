@@ -22,7 +22,8 @@ open import SysFEAT.SOF.e6f250185f772ee1 public -- Information Asset
 open import SysFEAT.UpperOntology.746ac18368905aa2 public -- Property
 
 InformationProperty : PropertyType
-InformationProperty = ClassOfProperty
+InformationProperty = Property
+
 
 --  InformationProperty is subTypeOf InformationAsset
 st-c189d5f068ae4d75-e6f250185f772ee1 : InformationProperty ⊏ₑ InformationAsset
@@ -32,19 +33,28 @@ st-c189d5f068ae4d75-e6f250185f772ee1 = polySubTypeOf-identity
 st-c189d5f068ae4d75-746ac18368905aa2 : InformationProperty ⊏ₑ Property
 st-c189d5f068ae4d75-746ac18368905aa2 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Information Property: -}
 specializedInformationProperty :  Linkage InformationProperty InformationProperty
 specializedInformationProperty = make_subTypeOf "Specialized Information Property" "Specialized Information Property"
 
 postulate -- specializedInformationProperty is subTypeOf specializedInformationAsset
-  st-c189dcc568ae56ac-325a372e66f33bca  : specializedInformationProperty   ⊏⋆ᵣ  specializedInformationAsset 
+  st-c189dcc568ae56ac-325a372e66f33bca  : specializedInformationProperty  ⊏⋆ᵣ  specializedInformationAsset
 
+-- -------------------------------------------------------------------------------------------- 
 {- Sub Information Property: -}
 -- Aggregate Member : Sub Information Property
-SubInformationProperty : ClassOfClassOfIndividual
-SubInformationProperty = ClassOfIndividual
+SubInformationProperty : ClassOfClassOfBoundedIndividual
+SubInformationProperty = ClassOfBoundedIndividual
+
+
+
+--  SubInformationProperty is subTypeOf InformationAssetRelationship
+st-c189d78568ae4f12-18eb1f335fdb6e7f : SubInformationProperty ⊏ₑ InformationAssetRelationship
+st-c189d78568ae4f12-18eb1f335fdb6e7f = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSubInformationProperty :  Linkage InformationProperty SubInformationProperty
@@ -62,6 +72,4 @@ aggregationOfInformationPropertySubInformationProperty = make_Relation "Informat
 subInformationProperty : Linkage InformationProperty InformationProperty
 subInformationProperty = membershipOfSubInformationProperty  ∘  aggregationOfInformationPropertySubInformationProperty
 
-postulate -- subInformationProperty is subTypeOf informationAssetRelationship
-  st-c189d78568ae4f12-18eb1f335fdb6e7f  : subInformationProperty   ⊏⋆ᵣ  informationAssetRelationship 
 

@@ -24,11 +24,13 @@ RiskType = SecondOrderClass
 st-0e55206a66f11ec5-87d3062666e33965 : RiskType ⊏ₑ PropertyType
 st-0e55206a66f11ec5-87d3062666e33965 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Parent Risk: -}
 parentRisk :  Linkage RiskType RiskType
 parentRisk = make_subTypeOf "Parent Risk" "Parent Risk"
 
 postulate -- parentRisk is subTypeOf specializedPropertyType
-  st-332c410066f1656d-12b01dee66e92b43  : parentRisk   ⊏⋆ᵣ  specializedPropertyType 
+  st-332c410066f1656d-12b01dee66e92b43  : parentRisk  ⊏⋆ᵣ  specializedPropertyType

@@ -21,12 +21,15 @@ open import SysFEAT.EA.362fc4365b3c39b8 public -- Concept
 IndividualConcept : ClassOfBoundedIndividual
 IndividualConcept = BoundedIndividual
 
+
 --  IndividualConcept is subTypeOf ConceptualIndividual
 st-362ff6c05b3c47a3-346a3677655b5325 : IndividualConcept ⊏ₑ ConceptualIndividual
 st-362ff6c05b3c47a3-346a3677655b5325 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Individual Relationship: -}
 individualRelationship :  Linkage IndividualConcept IndividualConcept
 individualRelationship = make_holonymyRelation "Individual Relationship" "Individual Relationship"

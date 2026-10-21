@@ -17,34 +17,38 @@ External references:
 module SysFEAT.EA.67d36b2b6aa44146 where -- ========== Concept Designation
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.5425a2df6aa225cf public -- First Order Entity
+open import SysFEAT.UpperOntology.3aca52346aa6418d public -- Abstract Entity
 open import SysFEAT.EA.3f066af36858706e public -- Vocabulary Block
 open import SysFEAT.EA.67d36c2a6aa4424e public -- Language
 open import SysFEAT.EA.4aebd76d69641638 public -- Conceptual Element
 
-ConceptDesignation : ClassOfIndividual
-ConceptDesignation = Individual
+ConceptDesignation : ClassOfAbstractEntity
+ConceptDesignation = AbstractEntity
 
---  ConceptDesignation is subTypeOf FirstOrderEntity
-st-67d36b2b6aa44146-5425a2df6aa225cf : ConceptDesignation ⊏ₑ FirstOrderEntity
-st-67d36b2b6aa44146-5425a2df6aa225cf = polySubTypeOf-identity
+
+--  ConceptDesignation is subTypeOf AbstractEntity
+st-67d36b2b6aa44146-3aca52346aa6418d : ConceptDesignation ⊏ₑ AbstractEntity
+st-67d36b2b6aa44146-3aca52346aa6418d = polySubTypeOf-identity
 
 --  ConceptDesignation withAspect VocabularyBlock
 st-67d36b2b6aa44146-3f066af36858706e : ConceptDesignation ⊏ₐₑ (VocabularyBlock lzero)
 st-67d36b2b6aa44146-3f066af36858706e = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Designation Language: -}
 designationLanguage :  Linkage ConceptDesignation Language
 designationLanguage = make_Relation "Designation Language" "Designation Language"
 
 postulate -- designationLanguage is subTypeOf meronymyRelation
-  st-4aebda5d69641c8d-4aeab6186964fd66  : designationLanguage   ⊏⋆ᵣ  meronymyRelation 
+  st-4aebda5d69641c8d-4aeab6186964fd66  : designationLanguage  ⊏⋆ᵣ  meronymyRelation
 
+-- -------------------------------------------------------------------------------------------- 
 {- Designation: -}
 designation : ∀ {u} →  Linkage ConceptDesignation (ConceptualElement u)
 designation = make_Relation "Designation" "Designation"
 
 postulate -- designation is subTypeOf existentialDependency
-  st-4aebdcf669642033-cbfce7da685358e9  : designation  {lzero}  ⊏⋆ᵣ  existentialDependency {lzero} {lzero}
+  st-4aebdcf669642033-cbfce7da685358e9  : designation  ⊏⋆ᵣ  existentialDependency {lzero} {lzero}

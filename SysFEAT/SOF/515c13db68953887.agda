@@ -25,62 +25,47 @@ module SysFEAT.SOF.515c13db68953887 where -- ========== Capability
 
 open import Agda.Primitive
 open import SysFEAT.SOF.515c6a856893324e public -- Asset Property
+open import SysFEAT.UpperOntology.3e525e406ab05b0d public -- Composite Property
 open import SysFEAT.SOF.0eb95f356855bf94 public -- Asset Block
 open import SysFEAT.SOF.e6f250185f772ee1 public -- Information Asset
 
-Capability : PropertyType
-Capability = ClassOfProperty
+Capability : AssetPropertyType
+Capability = AssetProperty
+
 
 --  Capability is subTypeOf AssetProperty
 st-515c13db68953887-515c6a856893324e : Capability ⊏ₑ AssetProperty
 st-515c13db68953887-515c6a856893324e = polySubTypeOf-identity
 
+--  Capability is subTypeOf CompositeProperty
+st-515c13db68953887-3e525e406ab05b0d : Capability ⊏ₑ CompositeProperty
+st-515c13db68953887-3e525e406ab05b0d = polySubTypeOf-identity
+
 --  Capability withAspect AssetBlock
 st-515c13db68953887-0eb95f356855bf94 : Capability ⊏ₐₑ (AssetBlock (lsuc(lzero)))
 st-515c13db68953887-0eb95f356855bf94 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Capability: -}
 specializedCapability :  Linkage Capability Capability
 specializedCapability = make_subTypeOf "Specialized Capability" "Specialized Capability"
 
 postulate -- specializedCapability is subTypeOf specializedProperty
-  st-01f11e77689b6b10-1662112a68925f90  : specializedCapability   ⊏⋆ᵣ  specializedProperty 
+  st-01f11e77689b6b10-1662112a68925f90  : specializedCapability  ⊏⋆ᵣ  specializedProperty
 
-{- Capability Part: 
-Sub-Capability with a capability.Sub-Capabilities can have dependencies whereby a dependent capability needs the outcome of a required capability for one of its outcome to be delivered. 
--}
--- Aggregate Member : Capability Part
-CapabilityPart : ClassOfClassOfIndividual
-CapabilityPart = ClassOfIndividual
-
--- Membership relation
-membershipOfCapabilityPart :  Linkage Capability CapabilityPart
-membershipOfCapabilityPart = make_upwardNestingRelation "capabilityPart membership" "nested capabilityPart"
-
--- Aggregation relation
-aggregationOfCapabilityCapabilityPart :  Linkage CapabilityPart Capability
-aggregationOfCapabilityCapabilityPart = make_Relation "Capability aggregation" "aggregated Capability"
-
-{- capabilityPart : derived relation obtained by composing
-   membershipOfCapabilityPart and aggregationOfCapabilityCapabilityPart
-   It directly links an Capability to the final aggregated Capability
-   hiding the reifying CapabilityPart
--}
-capabilityPart : Linkage Capability Capability
-capabilityPart = membershipOfCapabilityPart  ∘  aggregationOfCapabilityCapabilityPart
-
-postulate -- capabilityPart is subTypeOf classOfHolonymy
-  st-01f11c59689b68fe-d91704746a62320c  : capabilityPart   ⊏⋆ᵣ  classOfHolonymy 
-postulate -- capabilityPart is subTypeOf unboundedMember
-  st-01f11c59689b68fe-8cfaf71a6852b042  : capabilityPart   ⊏⋆ᵣ  unboundedMember {lzero} {lzero}
-
-
+-- -------------------------------------------------------------------------------------------- 
 {- Involved Information: -}
 -- Aggregate Member : Involved Information
 InvolvedInformation : ClassOfClassOfIndividual
 InvolvedInformation = ClassOfIndividual
+
+
+--  InvolvedInformation withAspect UnboundedMember
+st-01f11a37689b6677-8cfaf71a6852b042 : InvolvedInformation ⊏ₐₑ (UnboundedMember (lsuc(lzero)))
+st-01f11a37689b6677-8cfaf71a6852b042 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfInvolvedInformation :  Linkage Capability InvolvedInformation
@@ -98,6 +83,40 @@ aggregationOfInformationAssetInvolvedInformation = make_Relation "InformationAss
 involvedInformation : Linkage Capability InformationAsset
 involvedInformation = membershipOfInvolvedInformation  ∘  aggregationOfInformationAssetInvolvedInformation
 
-postulate -- involvedInformation is subTypeOf unboundedMember
-  st-01f11a37689b6677-8cfaf71a6852b042  : involvedInformation   ⊏⋆ᵣ  unboundedMember {lzero} {lzero}
+
+
+-- -------------------------------------------------------------------------------------------- 
+{- Capability Part: 
+Sub-Capability with a capability.Sub-Capabilities can have dependencies whereby a dependent capability needs the outcome of a required capability for one of its outcome to be delivered. 
+-}
+-- Aggregate Member : Capability Part
+CapabilityPart : ClassOfClassOfAbstractEntity
+CapabilityPart = ClassOfAbstractEntity
+
+
+
+--  CapabilityPart is subTypeOf PropertyPart
+st-01f11c59689b68fe-3e5261066ab05e0f : CapabilityPart ⊏⋆ₑ PropertyPart
+st-01f11c59689b68fe-3e5261066ab05e0f = polySubTypeOf-identity
+
+--  CapabilityPart withAspect UnboundedMember
+st-01f11c59689b68fe-8cfaf71a6852b042 : CapabilityPart ⊏ₐₑ (UnboundedMember (lsuc(lzero)))
+st-01f11c59689b68fe-8cfaf71a6852b042 = polySubTypeOf-identity
+
+-- Membership relation
+membershipOfCapabilityPart :  Linkage Capability CapabilityPart
+membershipOfCapabilityPart = make_upwardNestingRelation "capabilityPart membership" "nested capabilityPart"
+
+-- Aggregation relation
+aggregationOfCapabilityCapabilityPart :  Linkage CapabilityPart Capability
+aggregationOfCapabilityCapabilityPart = make_Relation "Capability aggregation" "aggregated Capability"
+
+{- capabilityPart : derived relation obtained by composing
+   membershipOfCapabilityPart and aggregationOfCapabilityCapabilityPart
+   It directly links an Capability to the final aggregated Capability
+   hiding the reifying CapabilityPart
+-}
+capabilityPart : Linkage Capability Capability
+capabilityPart = membershipOfCapabilityPart  ∘  aggregationOfCapabilityCapabilityPart
+
 

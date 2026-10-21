@@ -21,6 +21,7 @@ open import SysFEAT.EA.7d37d08d5fd07aaa public -- Physical Data Asset
 PhysicalDataProperty : ClassOfClassOfBoundedIndividual
 PhysicalDataProperty = ClassOfBoundedIndividual
 
+
 --  PhysicalDataProperty is subTypeOf DataProperty
 st-e6f220d45f771837-8f1c991068ca8a23 : PhysicalDataProperty ⊏ₑ DataProperty
 st-e6f220d45f771837-8f1c991068ca8a23 = polySubTypeOf-identity
@@ -29,19 +30,36 @@ st-e6f220d45f771837-8f1c991068ca8a23 = polySubTypeOf-identity
 st-e6f220d45f771837-7d37d08d5fd07aaa : PhysicalDataProperty ⊏ₑ PhysicalDataAsset
 st-e6f220d45f771837-7d37d08d5fd07aaa = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Physical Value Object: -}
 specializedPhysicalValueObject :  Linkage PhysicalDataProperty PhysicalDataProperty
 specializedPhysicalValueObject = make_subTypeOf "Specialized Physical Value Object" "Specialized Physical Value Object"
 
 postulate -- specializedPhysicalValueObject is subTypeOf specializedPhysicalObject
-  st-325a376f66f3464b-325a375566f33e9b  : specializedPhysicalValueObject   ⊏⋆ᵣ  specializedPhysicalObject 
+  st-325a376f66f3464b-325a375566f33e9b  : specializedPhysicalValueObject  ⊏⋆ᵣ  specializedPhysicalObject
 
+-- -------------------------------------------------------------------------------------------- 
 {- Sub Physical Data Property: -}
 -- Aggregate Member : Sub Physical Data Property
-SubPhysicalDataProperty : ClassOfClassOfIndividual
-SubPhysicalDataProperty = ClassOfIndividual
+SubPhysicalDataProperty : ClassOfClassOfBoundedIndividual
+SubPhysicalDataProperty = ClassOfBoundedIndividual
+
+
+
+--  SubPhysicalDataProperty is subTypeOf PhysicalDataMember
+st-82c3bbbb5fdcc433-163c29e85fda678c : SubPhysicalDataProperty ⊏ₑ PhysicalDataMember
+st-82c3bbbb5fdcc433-163c29e85fda678c = polySubTypeOf-identity
+
+--  SubPhysicalDataProperty is subTypeOf SubDataProperty
+st-82c3bbbb5fdcc433-8f1c9c3268ca90a3 : SubPhysicalDataProperty ⊏⋆ₑ SubDataProperty
+st-82c3bbbb5fdcc433-8f1c9c3268ca90a3 = polySubTypeOf-identity
+
+--  SubPhysicalDataProperty is subTypeOf PhysicalDataProperty
+st-82c3bbbb5fdcc433-e6f220d45f771837 : SubPhysicalDataProperty ⊏ₑ PhysicalDataProperty
+st-82c3bbbb5fdcc433-e6f220d45f771837 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSubPhysicalDataProperty :  Linkage PhysicalDataProperty SubPhysicalDataProperty
@@ -59,8 +77,4 @@ aggregationOfPhysicalDataPropertySubPhysicalDataProperty = make_Relation "Physic
 subPhysicalDataProperty : Linkage PhysicalDataProperty PhysicalDataProperty
 subPhysicalDataProperty = membershipOfSubPhysicalDataProperty  ∘  aggregationOfPhysicalDataPropertySubPhysicalDataProperty
 
-postulate -- subPhysicalDataProperty is subTypeOf physicalDataMember
-  st-82c3bbbb5fdcc433-163c29e85fda678c  : subPhysicalDataProperty   ⊏⋆ᵣ  physicalDataMember 
-postulate -- subPhysicalDataProperty is subTypeOf subDataProperty
-  st-82c3bbbb5fdcc433-8f1c9c3268ca90a3  : subPhysicalDataProperty   ⊏⋆ᵣ  subDataProperty 
 

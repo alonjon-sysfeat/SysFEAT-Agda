@@ -24,4 +24,5 @@ EnvironmentalConditionType u = Category u
 st-6f9c78916a0f34e5-6cfb6ef26a0f15e4 : ∀ {u v} → (EnvironmentalConditionType u) ⊏⋆ₑ (ConditionCategory v)
 st-6f9c78916a0f34e5-6cfb6ef26a0f15e4 = trivialPolySubTypeOfEntity
 
--- == Relationships =======================
+
+-- == Relations =======================

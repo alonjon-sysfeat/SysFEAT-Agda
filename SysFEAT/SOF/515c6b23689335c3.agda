@@ -21,29 +21,26 @@ External references:
 module SysFEAT.SOF.515c6b23689335c3 where -- ========== Directive
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.8cfa942f68527849 public -- Unbounded Aggregate
 open import SysFEAT.SOF.9397c3d86877842f public -- Policy Asset
-open import SysFEAT.UpperOntology.746ac18368905aa2 public -- Property
+open import SysFEAT.UpperOntology.3e525e406ab05b0d public -- Composite Property
 open import SysFEAT.SOF.952ea6c467285821 public -- Policy Category
-open import SysFEAT.SOF.e6f250185f772ee1 public -- Information Asset
+open import SysFEAT.SOF.a4a5b3f855585ce1 public -- Asset Type
 
 Directive : PropertyType
-Directive = ClassOfProperty
-
---  Directive withAspect UnboundedAggregate
-st-515c6b23689335c3-8cfa942f68527849 : Directive ⊏ₐₑ (UnboundedAggregate (lsuc(lzero)))
-st-515c6b23689335c3-8cfa942f68527849 = polySubTypeOf-identity
+Directive = Property
 
 --  Directive withAspect PolicyAsset
 st-515c6b23689335c3-9397c3d86877842f : Directive ⊏ₐₑ (PolicyAsset (lsuc(lzero)))
 st-515c6b23689335c3-9397c3d86877842f = polySubTypeOf-identity
 
---  Directive is subTypeOf Property
-st-515c6b23689335c3-746ac18368905aa2 : Directive ⊏ₑ Property
-st-515c6b23689335c3-746ac18368905aa2 = polySubTypeOf-identity
+--  Directive is subTypeOf CompositeProperty
+st-515c6b23689335c3-3e525e406ab05b0d : Directive ⊏ₑ CompositeProperty
+st-515c6b23689335c3-3e525e406ab05b0d = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Policy Category: -}
 policyCategory :  Linkage Directive PolicyCategory
 policyCategory = make_instanceOf "Policy Category" "Policy Category"
@@ -51,41 +48,49 @@ policyCategory = make_instanceOf "Policy Category" "Policy Category"
 postulate -- policyCategory is subTypeOf categoryOfArchitectureBlock
   st-515c6b2b689335ef-f69620606a0f9c94  : policyCategory   ⊏⋆ᵣ  categoryOfArchitectureBlock  {lsuc(lsuc(lzero))}
 
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Directive: -}
 specializedDirective :  Linkage Directive Directive
 specializedDirective = make_subTypeOf "Specialized Directive" "Specialized Directive"
 
 postulate -- specializedDirective is subTypeOf specializedProperty
-  st-190c79c26896690d-1662112a68925f90  : specializedDirective   ⊏⋆ᵣ  specializedProperty 
+  st-190c79c26896690d-1662112a68925f90  : specializedDirective  ⊏⋆ᵣ  specializedProperty
 
+-- -------------------------------------------------------------------------------------------- 
 {- Realized Directive: -}
 realizedDirective :  Linkage Directive Directive
 realizedDirective = make_subTypeOf "Realized Directive" "Realized Directive"
 
 postulate -- realizedDirective is subTypeOf specializedProperty
-  st-190c7a7f6896696e-1662112a68925f90  : realizedDirective   ⊏⋆ᵣ  specializedProperty 
+  st-190c7a7f6896696e-1662112a68925f90  : realizedDirective  ⊏⋆ᵣ  specializedProperty
 
-{- Directive Subject: -}
+-- -------------------------------------------------------------------------------------------- 
+{- Directive Subject: 
+Any Asset Type that is the subject of a Directive.
+-}
 -- Aggregate Member : Directive Subject
 DirectiveSubject : ClassOfClassOfIndividual
 DirectiveSubject = ClassOfIndividual
+
+
+--  DirectiveSubject withAspect UnboundedMember
+st-190c75cc689666a9-8cfaf71a6852b042 : DirectiveSubject ⊏ₐₑ (UnboundedMember (lsuc(lzero)))
+st-190c75cc689666a9-8cfaf71a6852b042 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfDirectiveSubject :  Linkage Directive DirectiveSubject
 membershipOfDirectiveSubject = make_upwardNestingRelation "directiveSubject membership" "nested directiveSubject"
 
 -- Aggregation relation
-aggregationOfInformationAssetDirectiveSubject :  Linkage DirectiveSubject InformationAsset
-aggregationOfInformationAssetDirectiveSubject = make_Relation "InformationAsset aggregation" "aggregated InformationAsset"
+190C75CC689666B9 :  Linkage DirectiveSubject AssetType
+190C75CC689666B9 = make_Relation "AssetType aggregation" "aggregated AssetType"
 
 {- directiveSubject : derived relation obtained by composing
-   membershipOfDirectiveSubject and aggregationOfInformationAssetDirectiveSubject
-   It directly links an Directive to the final aggregated InformationAsset
+   membershipOfDirectiveSubject and 190C75CC689666B9
+   It directly links an Directive to the final aggregated AssetType
    hiding the reifying DirectiveSubject
 -}
-directiveSubject : Linkage Directive InformationAsset
-directiveSubject = membershipOfDirectiveSubject  ∘  aggregationOfInformationAssetDirectiveSubject
+directiveSubject : Linkage Directive AssetType
+directiveSubject = membershipOfDirectiveSubject  ∘  190C75CC689666B9
 
-postulate -- directiveSubject is subTypeOf unboundedMember
-  st-190c75cc689666a9-8cfaf71a6852b042  : directiveSubject   ⊏⋆ᵣ  unboundedMember {lzero} {lzero}
 

@@ -22,7 +22,7 @@ open import SysFEAT.UpperOntology.8cfa942f68527849 public -- Unbounded Aggregate
 open import SysFEAT.SOF.e53af87666e37fcd public -- Set of Environmental Condition Type
 
 SetOfConditionProperties : PropertyType
-SetOfConditionProperties = ClassOfProperty
+SetOfConditionProperties = Property
 
 --  SetOfConditionProperties is subTypeOf ConditionProperty
 st-21ed5bf7689c1ca3-21ed231d689c0679 : SetOfConditionProperties ⊏ₑ ConditionProperty
@@ -32,21 +32,29 @@ st-21ed5bf7689c1ca3-21ed231d689c0679 = polySubTypeOf-identity
 st-21ed5bf7689c1ca3-8cfa942f68527849 : SetOfConditionProperties ⊏ₐₑ (UnboundedAggregate (lsuc(lzero)))
 st-21ed5bf7689c1ca3-8cfa942f68527849 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Set of Environmental Condition Type: -}
 setOfEnvironmentalConditionType :  Linkage SetOfConditionProperties SetOfEnvironmentalConditionType
 setOfEnvironmentalConditionType = make_instanceOf "Set of Environmental Condition Type" "Set of Environmental Condition Type"
 
 postulate -- setOfEnvironmentalConditionType is subTypeOf conditionPropertyType
-  st-21ed5c28689c1d28-21ed5a16689c1a59  : setOfEnvironmentalConditionType   ⊏⋆ᵣ  conditionPropertyType 
+  st-21ed5c28689c1d28-21ed5a16689c1a59  : setOfEnvironmentalConditionType  ⊏⋆ᵣ  conditionPropertyType
 
+-- -------------------------------------------------------------------------------------------- 
 {- Combined Property: 
 And combination of a Condition Propertys.
 -}
 -- Aggregate Member : Combined Property
 CombinedProperty : ClassOfClassOfIndividual
 CombinedProperty = ClassOfIndividual
+
+
+--  CombinedProperty withAspect UnboundedMember
+st-dd26df9f689e4681-8cfaf71a6852b042 : CombinedProperty ⊏ₐₑ (UnboundedMember (lsuc(lzero)))
+st-dd26df9f689e4681-8cfaf71a6852b042 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfCombinedProperty :  Linkage SetOfConditionProperties CombinedProperty
@@ -64,6 +72,4 @@ aggregationOfConditionPropertyCombinedProperty = make_Relation "ConditionPropert
 combinedProperty : Linkage SetOfConditionProperties ConditionProperty
 combinedProperty = membershipOfCombinedProperty  ∘  aggregationOfConditionPropertyCombinedProperty
 
-postulate -- combinedProperty is subTypeOf unboundedMember
-  st-dd26df9f689e4681-8cfaf71a6852b042  : combinedProperty   ⊏⋆ᵣ  unboundedMember {lzero} {lzero}
 

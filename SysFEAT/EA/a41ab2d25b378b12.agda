@@ -25,6 +25,7 @@ open import SysFEAT.EA.f4be0fba5ee1d935 public -- Network Device
 ComputerNetwork : ClassOfClassOfBoundedIndividual
 ComputerNetwork = ClassOfBoundedIndividual
 
+
 --  ComputerNetwork is subTypeOf ITInfrastructureSystem
 st-a41ab2d25b378b12-a41ab3105b378b66 : ComputerNetwork ⊏ₑ ITInfrastructureSystem
 st-a41ab2d25b378b12-a41ab3105b378b66 = polySubTypeOf-identity
@@ -33,14 +34,26 @@ st-a41ab2d25b378b12-a41ab3105b378b66 = polySubTypeOf-identity
 st-a41ab2d25b378b12-070b0d5564011dbb : ComputerNetwork ⊏ₑ NetworkingSystem
 st-a41ab2d25b378b12-070b0d5564011dbb = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Network Node: 
 Role of a Network Device in a Computer Network.
 -}
 -- Aggregate Member : Network Node
-NetworkNode : ClassOfClassOfIndividual
-NetworkNode = ClassOfIndividual
+NetworkNode : ClassOfClassOfBoundedIndividual
+NetworkNode = ClassOfBoundedIndividual
+
+
+
+--  NetworkNode is subTypeOf NetworkingPart
+st-f4be0fd85ee1da9d-26b8386e5eeae4a4 : NetworkNode ⊏ₑ NetworkingPart
+st-f4be0fd85ee1da9d-26b8386e5eeae4a4 = polySubTypeOf-identity
+
+--  NetworkNode is subTypeOf NetworkDevice
+st-f4be0fd85ee1da9d-f4be0fba5ee1d935 : NetworkNode ⊏ₑ NetworkDevice
+st-f4be0fd85ee1da9d-f4be0fba5ee1d935 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfNetworkNode :  Linkage ComputerNetwork NetworkNode
@@ -58,6 +71,4 @@ aggregationOfNetworkDeviceNetworkNode = make_Relation "NetworkDevice aggregation
 networkNode : Linkage ComputerNetwork NetworkDevice
 networkNode = membershipOfNetworkNode  ∘  aggregationOfNetworkDeviceNetworkNode
 
-postulate -- networkNode is subTypeOf networkingPart
-  st-f4be0fd85ee1da9d-26b8386e5eeae4a4  : networkNode   ⊏⋆ᵣ  networkingPart 
 

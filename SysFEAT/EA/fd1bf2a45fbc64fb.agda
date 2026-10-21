@@ -24,4 +24,5 @@ LogicalDataAsset = ClassOfBoundedIndividual
 st-fd1bf2a45fbc64fb-8f1c937168ca8195 : LogicalDataAsset ⊏ₐₑ (DataBlock (lsuc(lzero)))
 st-fd1bf2a45fbc64fb-8f1c937168ca8195 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

@@ -26,12 +26,19 @@ BusinessEcosystem = ClassOfBoundedIndividual
 st-2b705f2661ba04de-2b6f332061bae622 : BusinessEcosystem ⊏ₑ BusinessResourceEcosystem
 st-2b705f2661ba04de-2b6f332061bae622 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Business Ecosystem Connection: -}
 -- Aggregate Member : Business Ecosystem Connection
 BusinessEcosystemConnection : ClassOfClassOfIndividual
 BusinessEcosystemConnection = ClassOfIndividual
+
+
+--  BusinessEcosystemConnection is subTypeOf BusinessEcosystemConnection
+st-a813ce0063567e9b-f8e7db56621f0cef : BusinessEcosystemConnection ⊏ₑ BusinessEcosystemConnection
+st-a813ce0063567e9b-f8e7db56621f0cef = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfBusinessEcosystemConnection :  Linkage BusinessEcosystem BusinessEcosystemConnection
@@ -49,14 +56,23 @@ aggregationOfOperatingConnectionBusinessEcosystemConnection = make_Relation "Ope
 businessEcosystemConnection : Linkage BusinessEcosystem OperatingConnection
 businessEcosystemConnection = membershipOfBusinessEcosystemConnection  ∘  aggregationOfOperatingConnectionBusinessEcosystemConnection
 
-postulate -- businessEcosystemConnection is subTypeOf businessEcosystemConnection
-  st-a813ce0063567e9b-f8e7db56621f0cef  : businessEcosystemConnection   ⊏⋆ᵣ  businessEcosystemConnection 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Business Ecosystem Part: -}
 -- Aggregate Member : Business Ecosystem Part
-BusinessEcosystemPart : ClassOfClassOfIndividual
-BusinessEcosystemPart = ClassOfIndividual
+BusinessEcosystemPart : ClassOfClassOfBoundedIndividual
+BusinessEcosystemPart = ClassOfBoundedIndividual
+
+
+
+--  BusinessEcosystemPart is subTypeOf ResourceEcosystemPart
+st-a813cb556356781f-95129626620b544c : BusinessEcosystemPart ⊏ₑ ResourceEcosystemPart
+st-a813cb556356781f-95129626620b544c = polySubTypeOf-identity
+
+--  BusinessEcosystemPart is subTypeOf OrgUnitType
+st-a813cb556356781f-076d15425a5e158c : BusinessEcosystemPart ⊏ₑ OrgUnitType
+st-a813cb556356781f-076d15425a5e158c = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfBusinessEcosystemPart :  Linkage BusinessEcosystem BusinessEcosystemPart
@@ -74,6 +90,4 @@ aggregationOfOrgUnitTypeBusinessEcosystemPart = make_Relation "OrgUnitType aggre
 businessEcosystemPart : Linkage BusinessEcosystem OrgUnitType
 businessEcosystemPart = membershipOfBusinessEcosystemPart  ∘  aggregationOfOrgUnitTypeBusinessEcosystemPart
 
-postulate -- businessEcosystemPart is subTypeOf resourceEcosystemPart
-  st-a813cb556356781f-95129626620b544c  : businessEcosystemPart   ⊏⋆ᵣ  resourceEcosystemPart 
 

@@ -26,13 +26,16 @@ DataControl = ClassOfBoundedIndividual
 st-9815a0dc5f682fa1-44226d6561819b50 : DataControl ⊏⋆ₑ DataAssuranceInstrument
 st-9815a0dc5f682fa1-44226d6561819b50 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Controled Data Policy: -}
 controledDataPolicy :  Linkage DataControl DataQualityPolicy
 controledDataPolicy = make_classOfHolonymy "Controled Data Policy" "Controled Data Policy"
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Implemented Measure: -}
 implementedMeasure :  Linkage DataControl DataQualityMeasure
 implementedMeasure = make_classOfHolonymy "Implemented Measure" "Implemented Measure"

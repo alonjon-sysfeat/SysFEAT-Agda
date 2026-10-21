@@ -21,15 +21,18 @@ open import SysFEAT.EA.c30bf4015a5da72b public -- Concrete Hardware System
 HardwareAssetAssessment : ClassOfBoundedIndividual
 HardwareAssetAssessment = BoundedIndividual
 
+
 --  HardwareAssetAssessment is subTypeOf Assessment
 st-abbdfa3262a91c73-3b539cbb551e4c2a : HardwareAssetAssessment ⊏ₑ Assessment
 st-abbdfa3262a91c73-3b539cbb551e4c2a = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Assessed Hardware Asset: -}
 assessedHardwareAsset :  Linkage HardwareAssetAssessment ConcreteHardwareSystem
 assessedHardwareAsset = make_Relation "Assessed Hardware Asset" "Assessed Hardware Asset"
 
 postulate -- assessedHardwareAsset is subTypeOf assessedAsset
-  st-abbdfaaf62a91d49-6bf1843a68599028  : assessedHardwareAsset   ⊏⋆ᵣ  assessedAsset  {lzero}
+  st-abbdfaaf62a91d49-6bf1843a68599028  : assessedHardwareAsset  ⊏⋆ᵣ  assessedAsset

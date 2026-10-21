@@ -18,8 +18,8 @@ open import Agda.Primitive
 open import SysFEAT.EA.0520133e66474954 public -- Asset Portfolio Stage
 open import SysFEAT.EA.24f82e8c66475e9c public -- Application Management Initiative
 
-ApplicationPortfolioStage : StateClass
-ApplicationPortfolioStage = StateConcept
+ApplicationPortfolioStage : ClassOfBoundedIndividual
+ApplicationPortfolioStage = BoundedIndividual
 
 
 --  ApplicationPortfolioStage is subTypeOf AssetPortfolioStage
@@ -30,4 +30,5 @@ st-052015c666474dfe-0520133e66474954 = polySubTypeOf-identity
 st-052015c666474dfe-24f82e8c66475e9c : ApplicationPortfolioStage ⊏ₑ ApplicationManagementInitiative
 st-052015c666474dfe-24f82e8c66475e9c = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

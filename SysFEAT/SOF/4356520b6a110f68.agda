@@ -24,4 +24,5 @@ DataCategory u = Category u
 st-4356520b6a110f68-f69620466a0f9c2f : ∀ {u v} → (DataCategory u) ⊏⋆ₑ (AssetCategory v)
 st-4356520b6a110f68-f69620466a0f9c2f = trivialPolySubTypeOfEntity
 
--- == Relationships =======================
+
+-- == Relations =======================

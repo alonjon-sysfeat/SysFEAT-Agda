@@ -28,4 +28,5 @@ ApplicationComponent = ClassOfBoundedIndividual
 st-46194ce9560d3ab8-c30bdac25a5d9eaf : ApplicationComponent ⊏ₑ SOftwareModule
 st-46194ce9560d3ab8-c30bdac25a5d9eaf = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

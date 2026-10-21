@@ -22,6 +22,7 @@ open import SysFEAT.EA.0cbd1fa663fe18ac public -- Technology System
 TechnologyBehavior : ClassOfClassOfBoundedIndividual
 TechnologyBehavior = ClassOfBoundedIndividual
 
+
 --  TechnologyBehavior is subTypeOf TechnologyOperatingAsset
 st-97f89a8865ae5279-d16006d362e085f2 : TechnologyBehavior ⊏ₑ TechnologyOperatingAsset
 st-97f89a8865ae5279-d16006d362e085f2 = polySubTypeOf-identity
@@ -30,12 +31,20 @@ st-97f89a8865ae5279-d16006d362e085f2 = polySubTypeOf-identity
 st-97f89a8865ae5279-0185cd936221bd72 : TechnologyBehavior ⊏ₑ ResourceBehavior
 st-97f89a8865ae5279-0185cd936221bd72 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Technology Participant: -}
 -- Aggregate Member : Technology Participant
-TechnologyParticipant : ClassOfClassOfIndividual
-TechnologyParticipant = ClassOfIndividual
+TechnologyParticipant : ClassOfClassOfBoundedIndividual
+TechnologyParticipant = ClassOfBoundedIndividual
+
+
+
+--  TechnologyParticipant is subTypeOf TechnologySystem
+st-97f89bb365ae570f-0cbd1fa663fe18ac : TechnologyParticipant ⊏ₑ TechnologySystem
+st-97f89bb365ae570f-0cbd1fa663fe18ac = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfTechnologyParticipant :  Linkage TechnologyBehavior TechnologyParticipant

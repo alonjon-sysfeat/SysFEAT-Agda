@@ -21,21 +21,39 @@ open import SysFEAT.EA.46194ca7560d3a45 public -- Application System
 ApplicationSystemEnvironment : ClassOfClassOfBoundedIndividual
 ApplicationSystemEnvironment = ClassOfBoundedIndividual
 
+
 --  ApplicationSystemEnvironment is subTypeOf SOftwareSystemEnvironment
 st-d6cd260b5ab9886c-25c0a25061e2fd5a : ApplicationSystemEnvironment ⊏ₑ SOftwareSystemEnvironment
 st-d6cd260b5ab9886c-25c0a25061e2fd5a = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized System Environment: -}
 specializedSystemEnvironment :  Linkage ApplicationSystemEnvironment ApplicationSystemEnvironment
 specializedSystemEnvironment = make_subTypeOf "Specialized System Environment" "Specialized System Environment"
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Subject System: -}
 -- Aggregate Member : Subject System
-SubjectSystem : ClassOfClassOfIndividual
-SubjectSystem = ClassOfIndividual
+SubjectSystem : ClassOfClassOfBoundedIndividual
+SubjectSystem = ClassOfBoundedIndividual
+
+
+
+--  SubjectSystem is subTypeOf ParticipantSOftware
+st-173f4a805eb8c14e-25c1a63d61e206d7 : SubjectSystem ⊏ₑ ParticipantSOftware
+st-173f4a805eb8c14e-25c1a63d61e206d7 = polySubTypeOf-identity
+
+--  SubjectSystem is subTypeOf SubjectSOftwareSystem
+st-173f4a805eb8c14e-25c1a65861e2077a : SubjectSystem ⊏ₑ SubjectSOftwareSystem
+st-173f4a805eb8c14e-25c1a65861e2077a = polySubTypeOf-identity
+
+--  SubjectSystem is subTypeOf ApplicationSystem
+st-173f4a805eb8c14e-46194ca7560d3a45 : SubjectSystem ⊏ₑ ApplicationSystem
+st-173f4a805eb8c14e-46194ca7560d3a45 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSubjectSystem :  Linkage ApplicationSystemEnvironment SubjectSystem
@@ -53,16 +71,27 @@ aggregationOfApplicationSystemSubjectSystem = make_Relation "ApplicationSystem a
 subjectSystem : Linkage ApplicationSystemEnvironment ApplicationSystem
 subjectSystem = membershipOfSubjectSystem  ∘  aggregationOfApplicationSystemSubjectSystem
 
-postulate -- subjectSystem is subTypeOf participantSOftware
-  st-173f4a805eb8c14e-25c1a63d61e206d7  : subjectSystem   ⊏⋆ᵣ  participantSOftware 
-postulate -- subjectSystem is subTypeOf subjectSOftwareSystem
-  st-173f4a805eb8c14e-25c1a65861e2077a  : subjectSystem   ⊏⋆ᵣ  subjectSOftwareSystem 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Partner System: -}
 -- Aggregate Member : Partner System
-PartnerSystem : ClassOfClassOfIndividual
-PartnerSystem = ClassOfIndividual
+PartnerSystem : ClassOfClassOfBoundedIndividual
+PartnerSystem = ClassOfBoundedIndividual
+
+
+
+--  PartnerSystem is subTypeOf ParticipantSOftware
+st-173f4ad15eb8c1f5-25c1a63d61e206d7 : PartnerSystem ⊏ₑ ParticipantSOftware
+st-173f4ad15eb8c1f5-25c1a63d61e206d7 = polySubTypeOf-identity
+
+--  PartnerSystem is subTypeOf PartnerSOftwareSystem
+st-173f4ad15eb8c1f5-25c1a6bc61e20826 : PartnerSystem ⊏ₑ PartnerSOftwareSystem
+st-173f4ad15eb8c1f5-25c1a6bc61e20826 = polySubTypeOf-identity
+
+--  PartnerSystem is subTypeOf ApplicationSystem
+st-173f4ad15eb8c1f5-46194ca7560d3a45 : PartnerSystem ⊏ₑ ApplicationSystem
+st-173f4ad15eb8c1f5-46194ca7560d3a45 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfPartnerSystem :  Linkage ApplicationSystemEnvironment PartnerSystem
@@ -80,8 +109,4 @@ aggregationOfApplicationSystemPartnerSystem = make_Relation "ApplicationSystem a
 partnerSystem : Linkage ApplicationSystemEnvironment ApplicationSystem
 partnerSystem = membershipOfPartnerSystem  ∘  aggregationOfApplicationSystemPartnerSystem
 
-postulate -- partnerSystem is subTypeOf participantSOftware
-  st-173f4ad15eb8c1f5-25c1a63d61e206d7  : partnerSystem   ⊏⋆ᵣ  participantSOftware 
-postulate -- partnerSystem is subTypeOf partnerSOftwareSystem
-  st-173f4ad15eb8c1f5-25c1a6bc61e20826  : partnerSystem   ⊏⋆ᵣ  partnerSOftwareSystem 
 

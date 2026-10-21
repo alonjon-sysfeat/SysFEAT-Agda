@@ -22,22 +22,26 @@ open import SysFEAT.EA.05b091f46006f913 public -- Management Initiative Committe
 ArchitectureGovernanceCommittee : ClassOfBoundedIndividual
 ArchitectureGovernanceCommittee = BoundedIndividual
 
+
 --  ArchitectureGovernanceCommittee is subTypeOf GoverningTeam
 st-ff0512935b254723-ff0501b65b253fdd : ArchitectureGovernanceCommittee ⊏ₑ GoverningTeam
 st-ff0512935b254723-ff0501b65b253fdd = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Governed Enterprise: -}
 governedEnterprise :  Linkage ArchitectureGovernanceCommittee Enterprise
 governedEnterprise = make_holonymyRelation "Governed Enterprise" "Governed Enterprise"
 
 postulate -- governedEnterprise is subTypeOf governedInitiative
-  st-c77f7ead5b275de9-18a81ed15eeb5d60  : governedEnterprise   ⊏⋆ᵣ  governedInitiative 
+  st-c77f7ead5b275de9-18a81ed15eeb5d60  : governedEnterprise  ⊏⋆ᵣ  governedInitiative
 
+-- -------------------------------------------------------------------------------------------- 
 {- Sub-Enterprise Team: -}
 subEnterpriseTeam :  Linkage ArchitectureGovernanceCommittee ManagementInitiativeCommittee
 subEnterpriseTeam = make_holonymyRelation "Sub-Enterprise Team" "Sub-Enterprise Team"
 
 postulate -- subEnterpriseTeam is subTypeOf subTeam
-  st-26b88ab85eea935e-ac98b16e60a38cbc  : subEnterpriseTeam   ⊏⋆ᵣ  subTeam 
+  st-26b88ab85eea935e-ac98b16e60a38cbc  : subEnterpriseTeam  ⊏⋆ᵣ  subTeam

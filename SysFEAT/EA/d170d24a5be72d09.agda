@@ -26,13 +26,16 @@ CustomerTask = ClassOfBoundedIndividual
 st-d170d24a5be72d09-8a5c926e5c0d632c : CustomerTask ⊏ₑ CustomerActivity
 st-d170d24a5be72d09-8a5c926e5c0d632c = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Expressed Need: -}
 expressedNeed :  Linkage CustomerTask CustomerNeed
 expressedNeed = make_classOfHolonymy "Expressed Need" "Expressed Need"
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- felt paint point: -}
 feltpaintpoint :  Linkage CustomerTask PainPointType
 feltpaintpoint = make_classOfHolonymy "felt paint point" "felt paint point"

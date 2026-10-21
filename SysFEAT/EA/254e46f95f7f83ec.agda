@@ -24,6 +24,7 @@ open import SysFEAT.EA.254e4dd45f7f8749 public -- NoSQL Field
 NoSQLDataset : ClassOfClassOfBoundedIndividual
 NoSQLDataset = ClassOfBoundedIndividual
 
+
 --  NoSQLDataset is subTypeOf PhysicalDataEntity
 st-254e46f95f7f83ec-762582bb5f6bd659 : NoSQLDataset ⊏ₑ PhysicalDataEntity
 st-254e46f95f7f83ec-762582bb5f6bd659 = polySubTypeOf-identity
@@ -32,14 +33,30 @@ st-254e46f95f7f83ec-762582bb5f6bd659 = polySubTypeOf-identity
 st-254e46f95f7f83ec-8180baa3600110c8 : NoSQLDataset ⊏ₑ NoSQLElement
 st-254e46f95f7f83ec-8180baa3600110c8 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Value MetaField: 
 A Value MetaField is a NoSQL Field used to store data in a NoSQL Dataset. Each Value MetaField has a unique name. Its associated NoSQL Field specifies the kind of data that can be stored in it. For instance, a  Customer  
 -}
 -- Aggregate Member : Value MetaField
-ValueMetaField : ClassOfClassOfIndividual
-ValueMetaField = ClassOfIndividual
+ValueMetaField : ClassOfClassOfBoundedIndividual
+ValueMetaField = ClassOfBoundedIndividual
+
+
+
+--  ValueMetaField is subTypeOf PhysicalDataSlot
+st-254e1b8d5f809015-e6f222845f771913 : ValueMetaField ⊏ₑ PhysicalDataSlot
+st-254e1b8d5f809015-e6f222845f771913 = polySubTypeOf-identity
+
+--  ValueMetaField is subTypeOf MetaDatasetMember
+st-254e1b8d5f809015-a80dfa5063d34f48 : ValueMetaField ⊏ₑ MetaDatasetMember
+st-254e1b8d5f809015-a80dfa5063d34f48 = polySubTypeOf-identity
+
+--  ValueMetaField is subTypeOf NoSQLField
+st-254e1b8d5f809015-254e4dd45f7f8749 : ValueMetaField ⊏ₑ NoSQLField
+st-254e1b8d5f809015-254e4dd45f7f8749 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfValueMetaField :  Linkage NoSQLDataset ValueMetaField
@@ -57,18 +74,29 @@ aggregationOfNoSQLFieldValueMetaField = make_Relation "NoSQLField aggregation" "
 valueMetaField : Linkage NoSQLDataset NoSQLField
 valueMetaField = membershipOfValueMetaField  ∘  aggregationOfNoSQLFieldValueMetaField
 
-postulate -- valueMetaField is subTypeOf physicalDataSlot
-  st-254e1b8d5f809015-e6f222845f771913  : valueMetaField   ⊏⋆ᵣ  physicalDataSlot 
-postulate -- valueMetaField is subTypeOf metaDatasetMember
-  st-254e1b8d5f809015-a80dfa5063d34f48  : valueMetaField   ⊏⋆ᵣ  metaDatasetMember 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Relationship MetaField: 
 A Relationship MetaField is a NoSQL Field used to establish a relationship with another NoSQL Dataset.
 -}
 -- Aggregate Member : Relationship MetaField
-RelationshipMetaField : ClassOfClassOfIndividual
-RelationshipMetaField = ClassOfIndividual
+RelationshipMetaField : ClassOfClassOfBoundedIndividual
+RelationshipMetaField = ClassOfBoundedIndividual
+
+
+
+--  RelationshipMetaField is subTypeOf PhysicalRelationship
+st-254e1c7e5f8090eb-b6e3df8e5fbb724d : RelationshipMetaField ⊏ₑ PhysicalRelationship
+st-254e1c7e5f8090eb-b6e3df8e5fbb724d = polySubTypeOf-identity
+
+--  RelationshipMetaField is subTypeOf MetaDatasetMember
+st-254e1c7e5f8090eb-a80dfa5063d34f48 : RelationshipMetaField ⊏ₑ MetaDatasetMember
+st-254e1c7e5f8090eb-a80dfa5063d34f48 = polySubTypeOf-identity
+
+--  RelationshipMetaField is subTypeOf NoSQLField
+st-254e1c7e5f8090eb-254e4dd45f7f8749 : RelationshipMetaField ⊏ₑ NoSQLField
+st-254e1c7e5f8090eb-254e4dd45f7f8749 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfRelationshipMetaField :  Linkage NoSQLDataset RelationshipMetaField
@@ -86,18 +114,25 @@ aggregationOfNoSQLFieldRelationshipMetaField = make_Relation "NoSQLField aggrega
 relationshipMetaField : Linkage NoSQLDataset NoSQLField
 relationshipMetaField = membershipOfRelationshipMetaField  ∘  aggregationOfNoSQLFieldRelationshipMetaField
 
-postulate -- relationshipMetaField is subTypeOf physicalRelationship
-  st-254e1c7e5f8090eb-b6e3df8e5fbb724d  : relationshipMetaField   ⊏⋆ᵣ  physicalRelationship 
-postulate -- relationshipMetaField is subTypeOf metaDatasetMember
-  st-254e1c7e5f8090eb-a80dfa5063d34f48  : relationshipMetaField   ⊏⋆ᵣ  metaDatasetMember 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Identification MetaField: 
 An Identification MetaField is a NoSQL Field that is is the identifier of a NoSQL Dataset.It is sometimes called the Primary Key of its NoSQL Dataset.A NoSQL Field can be the Identification MetaField of one and only one NoSQL Dataset.
 -}
 -- Aggregate Member : Identification MetaField
-IdentificationMetaField : ClassOfClassOfIndividual
-IdentificationMetaField = ClassOfIndividual
+IdentificationMetaField : ClassOfClassOfBoundedIndividual
+IdentificationMetaField = ClassOfBoundedIndividual
+
+
+
+--  IdentificationMetaField is subTypeOf MetaDatasetMember
+st-a80df86163d34c47-a80dfa5063d34f48 : IdentificationMetaField ⊏ₑ MetaDatasetMember
+st-a80df86163d34c47-a80dfa5063d34f48 = polySubTypeOf-identity
+
+--  IdentificationMetaField is subTypeOf NoSQLField
+st-a80df86163d34c47-254e4dd45f7f8749 : IdentificationMetaField ⊏ₑ NoSQLField
+st-a80df86163d34c47-254e4dd45f7f8749 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfIdentificationMetaField :  Linkage NoSQLDataset IdentificationMetaField
@@ -115,6 +150,4 @@ aggregationOfNoSQLFieldIdentificationMetaField = make_Relation "NoSQLField aggre
 identificationMetaField : Linkage NoSQLDataset NoSQLField
 identificationMetaField = membershipOfIdentificationMetaField  ∘  aggregationOfNoSQLFieldIdentificationMetaField
 
-postulate -- identificationMetaField is subTypeOf metaDatasetMember
-  st-a80df86163d34c47-a80dfa5063d34f48  : identificationMetaField   ⊏⋆ᵣ  metaDatasetMember 
 

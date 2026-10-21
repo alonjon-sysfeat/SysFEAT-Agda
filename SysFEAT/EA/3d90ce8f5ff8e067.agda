@@ -20,8 +20,10 @@ open import SysFEAT.EA.8a9f9fe55ee0a603 public -- Privacy Assessment
 PrivacyPreAssessment : ClassOfBoundedIndividual
 PrivacyPreAssessment = BoundedIndividual
 
+
 --  PrivacyPreAssessment is subTypeOf PrivacyAssessment
 st-3d90ce8f5ff8e067-8a9f9fe55ee0a603 : PrivacyPreAssessment ⊏ₑ PrivacyAssessment
 st-3d90ce8f5ff8e067-8a9f9fe55ee0a603 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

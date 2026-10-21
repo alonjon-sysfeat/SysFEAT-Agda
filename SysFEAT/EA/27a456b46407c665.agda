@@ -24,4 +24,5 @@ ConfiguredTechnologySystem = ClassOfBoundedIndividual
 st-27a456b46407c665-0cbd1fa663fe18ac : ConfiguredTechnologySystem ⊏ₑ TechnologySystem
 st-27a456b46407c665-0cbd1fa663fe18ac = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

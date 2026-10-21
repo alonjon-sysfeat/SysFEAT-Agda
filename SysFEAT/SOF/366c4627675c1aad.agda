@@ -24,4 +24,5 @@ ResolutionType = SecondOrderClass
 st-366c4627675c1aad-366c3ea8675c13e2 : ResolutionType ⊏ₑ AppraisalType
 st-366c4627675c1aad-366c3ea8675c13e2 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

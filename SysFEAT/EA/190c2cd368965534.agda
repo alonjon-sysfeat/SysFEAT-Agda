@@ -22,8 +22,9 @@ open import Agda.Primitive
 open import SysFEAT.EA.362fc8045b3c3e65 public -- Conceptual Entity Asset
 open import SysFEAT.SOF.c189d5f068ae4d75 public -- Information Property
 
-ConceptProperty : PropertyType
-ConceptProperty = ClassOfProperty
+ConceptProperty : ClassOfClassOfBoundedIndividual
+ConceptProperty = ClassOfBoundedIndividual
+
 
 --  ConceptProperty is subTypeOf ConceptualEntityAsset
 st-190c2cd368965534-362fc8045b3c3e65 : ConceptProperty ⊏ₑ ConceptualEntityAsset
@@ -33,11 +34,13 @@ st-190c2cd368965534-362fc8045b3c3e65 = polySubTypeOf-identity
 st-190c2cd368965534-c189d5f068ae4d75 : ConceptProperty ⊏ₑ InformationProperty
 st-190c2cd368965534-c189d5f068ae4d75 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Concept Property: -}
 specializedConceptProperty :  Linkage ConceptProperty ConceptProperty
 specializedConceptProperty = make_subTypeOf "Specialized Concept Property" "Specialized Concept Property"
 
 postulate -- specializedConceptProperty is subTypeOf specializedInformationProperty
-  st-d267030868b2576d-c189dcc568ae56ac  : specializedConceptProperty   ⊏⋆ᵣ  specializedInformationProperty 
+  st-d267030868b2576d-c189dcc568ae56ac  : specializedConceptProperty  ⊏⋆ᵣ  specializedInformationProperty

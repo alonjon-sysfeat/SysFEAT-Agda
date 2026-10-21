@@ -29,4 +29,5 @@ st-83f88fd567406e53-87d3062666e33965 = polySubTypeOf-identity
 st-83f88fd567406e53-0eb97aff6855cd23 : AssetPropertyType ⊏ₐₑ (ModelPropertyBlock (lsuc(lsuc(lzero))))
 st-83f88fd567406e53-0eb97aff6855cd23 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

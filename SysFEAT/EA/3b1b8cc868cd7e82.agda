@@ -18,8 +18,9 @@ open import Agda.Primitive
 open import SysFEAT.EA.3b1b91ea68cd8733 public -- Individual Artifact
 open import SysFEAT.EA.3b1bb56c68cd9bfa public -- Individual Physical Resource Agent
 
-IndividualHardwareSystem : ClassOfBoundedIndividual
-IndividualHardwareSystem = BoundedIndividual
+IndividualHardwareSystem : AgentType
+IndividualHardwareSystem = IndividualAgent
+
 
 --  IndividualHardwareSystem is subTypeOf IndividualArtifact
 st-3b1b8cc868cd7e82-3b1b91ea68cd8733 : IndividualHardwareSystem ⊏ₑ IndividualArtifact
@@ -29,4 +30,5 @@ st-3b1b8cc868cd7e82-3b1b91ea68cd8733 = polySubTypeOf-identity
 st-3b1b8cc868cd7e82-3b1bb56c68cd9bfa : IndividualHardwareSystem ⊏ₑ IndividualPhysicalResourceAgent
 st-3b1b8cc868cd7e82-3b1bb56c68cd9bfa = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

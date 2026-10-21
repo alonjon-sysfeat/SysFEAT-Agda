@@ -29,14 +29,22 @@ BusinessServiceInterface = ClassOfIndividual
 st-9dcea2655ec768ee-6a70c21067876cd8 : BusinessServiceInterface ⊏ₑ ResourceServiceInterface
 st-9dcea2655ec768ee-6a70c21067876cd8 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Business Flow Connection: 
 A Business Flow Connection is a Business Outcome Event that occurs between the participants of a Business Service Interface.
 -}
 -- Aggregate Member : Business Flow Connection
-BusinessFlowConnection : ClassOfClassOfIndividual
-BusinessFlowConnection = ClassOfIndividual
+BusinessFlowConnection : ClassOfClassOfBoundedIndividual
+BusinessFlowConnection = ClassOfBoundedIndividual
+
+
+
+--  BusinessFlowConnection is subTypeOf ResourceFlowConnection
+st-c561d97c680f6e84-c561e339680f761e : BusinessFlowConnection ⊏ₑ ResourceFlowConnection
+st-c561d97c680f6e84-c561e339680f761e = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfBusinessFlowConnection :  Linkage BusinessServiceInterface BusinessFlowConnection
@@ -54,6 +62,4 @@ aggregationOfBusinessOutcomeEventBusinessFlowConnection = make_Relation "Busines
 businessFlowConnection : Linkage BusinessServiceInterface BusinessOutcomeEvent
 businessFlowConnection = membershipOfBusinessFlowConnection  ∘  aggregationOfBusinessOutcomeEventBusinessFlowConnection
 
-postulate -- businessFlowConnection is subTypeOf resourceFlowConnection
-  st-c561d97c680f6e84-c561e339680f761e  : businessFlowConnection   ⊏⋆ᵣ  resourceFlowConnection 
 

@@ -20,8 +20,10 @@ open import SysFEAT.EA.f4be0fba5ee1d935 public -- Network Device
 Firewall : ClassOfClassOfBoundedIndividual
 Firewall = ClassOfBoundedIndividual
 
+
 --  Firewall is subTypeOf NetworkDevice
 st-f9d0444861aed37e-f4be0fba5ee1d935 : Firewall ⊏ₑ NetworkDevice
 st-f9d0444861aed37e-f4be0fba5ee1d935 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

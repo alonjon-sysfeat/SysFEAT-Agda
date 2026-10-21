@@ -29,4 +29,5 @@ st-83f8933a67407206-6662916b68dd5f84 = polySubTypeOf-identity
 st-83f8933a67407206-87d3062666e33965 : GovernancePropertyType ⊏ₑ PropertyType
 st-83f8933a67407206-87d3062666e33965 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

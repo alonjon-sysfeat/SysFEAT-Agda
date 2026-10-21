@@ -27,6 +27,7 @@ open import SysFEAT.EA.c30bdac25a5d9eaf public -- Software Module
 MicroService : ClassOfClassOfBoundedIndividual
 MicroService = ClassOfBoundedIndividual
 
+
 --  MicroService is subTypeOf DeployablePackage
 st-d6a956495a395d28-4c7883cd5fca4d5b : MicroService ⊏ₑ DeployablePackage
 st-d6a956495a395d28-4c7883cd5fca4d5b = polySubTypeOf-identity
@@ -35,4 +36,5 @@ st-d6a956495a395d28-4c7883cd5fca4d5b = polySubTypeOf-identity
 st-d6a956495a395d28-c30bdac25a5d9eaf : MicroService ⊏ₑ SOftwareModule
 st-d6a956495a395d28-c30bdac25a5d9eaf = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

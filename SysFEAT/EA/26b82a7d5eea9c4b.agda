@@ -23,16 +23,33 @@ open import SysFEAT.EA.46195775560d4ec0 public -- System of Systems
 SystemOfSystemEnvironment : ClassOfClassOfBoundedIndividual
 SystemOfSystemEnvironment = ClassOfBoundedIndividual
 
+
 --  SystemOfSystemEnvironment is subTypeOf BusinessAgentEnvironment
 st-26b82a7d5eea9c4b-2b6f33a561bae7ab : SystemOfSystemEnvironment ⊏ₑ BusinessAgentEnvironment
 st-26b82a7d5eea9c4b-2b6f33a561bae7ab = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Partner Resource Architecture: -}
 -- Aggregate Member : Partner Resource Architecture
-PartnerResourceArchitecture : ClassOfClassOfIndividual
-PartnerResourceArchitecture = ClassOfIndividual
+PartnerResourceArchitecture : ClassOfClassOfBoundedIndividual
+PartnerResourceArchitecture = ClassOfBoundedIndividual
+
+
+
+--  PartnerResourceArchitecture is subTypeOf PartnerResourceAgent
+st-26b8376c5eeae057-2b6f34c861bae941 : PartnerResourceArchitecture ⊏ₑ PartnerResourceAgent
+st-26b8376c5eeae057-2b6f34c861bae941 = polySubTypeOf-identity
+
+--  PartnerResourceArchitecture is subTypeOf ParticipantEnterpriseAgent
+st-26b8376c5eeae057-2b6f42fc61baf9b7 : PartnerResourceArchitecture ⊏ₑ ParticipantEnterpriseAgent
+st-26b8376c5eeae057-2b6f42fc61baf9b7 = polySubTypeOf-identity
+
+--  PartnerResourceArchitecture is subTypeOf SystemOfSystems
+st-26b8376c5eeae057-46195775560d4ec0 : PartnerResourceArchitecture ⊏ₑ SystemOfSystems
+st-26b8376c5eeae057-46195775560d4ec0 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfPartnerResourceArchitecture :  Linkage SystemOfSystemEnvironment PartnerResourceArchitecture
@@ -50,16 +67,27 @@ aggregationOfSystemOfSystemsPartnerResourceArchitecture = make_Relation "SystemO
 partnerResourceArchitecture : Linkage SystemOfSystemEnvironment SystemOfSystems
 partnerResourceArchitecture = membershipOfPartnerResourceArchitecture  ∘  aggregationOfSystemOfSystemsPartnerResourceArchitecture
 
-postulate -- partnerResourceArchitecture is subTypeOf partnerResourceAgent
-  st-26b8376c5eeae057-2b6f34c861bae941  : partnerResourceArchitecture   ⊏⋆ᵣ  partnerResourceAgent 
-postulate -- partnerResourceArchitecture is subTypeOf participantEnterpriseAgent
-  st-26b8376c5eeae057-2b6f42fc61baf9b7  : partnerResourceArchitecture   ⊏⋆ᵣ  participantEnterpriseAgent 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Subject Resource Architecture: -}
 -- Aggregate Member : Subject Resource Architecture
-SubjectResourceArchitecture : ClassOfClassOfIndividual
-SubjectResourceArchitecture = ClassOfIndividual
+SubjectResourceArchitecture : ClassOfClassOfBoundedIndividual
+SubjectResourceArchitecture = ClassOfBoundedIndividual
+
+
+
+--  SubjectResourceArchitecture is subTypeOf SubjectResourceAgent
+st-26b837865eeae115-2b6f350061baea62 : SubjectResourceArchitecture ⊏ₑ SubjectResourceAgent
+st-26b837865eeae115-2b6f350061baea62 = polySubTypeOf-identity
+
+--  SubjectResourceArchitecture is subTypeOf ParticipantEnterpriseAgent
+st-26b837865eeae115-2b6f42fc61baf9b7 : SubjectResourceArchitecture ⊏ₑ ParticipantEnterpriseAgent
+st-26b837865eeae115-2b6f42fc61baf9b7 = polySubTypeOf-identity
+
+--  SubjectResourceArchitecture is subTypeOf SystemOfSystems
+st-26b837865eeae115-46195775560d4ec0 : SubjectResourceArchitecture ⊏ₑ SystemOfSystems
+st-26b837865eeae115-46195775560d4ec0 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSubjectResourceArchitecture :  Linkage SystemOfSystemEnvironment SubjectResourceArchitecture
@@ -77,8 +105,4 @@ aggregationOfSystemOfSystemsSubjectResourceArchitecture = make_Relation "SystemO
 subjectResourceArchitecture : Linkage SystemOfSystemEnvironment SystemOfSystems
 subjectResourceArchitecture = membershipOfSubjectResourceArchitecture  ∘  aggregationOfSystemOfSystemsSubjectResourceArchitecture
 
-postulate -- subjectResourceArchitecture is subTypeOf subjectResourceAgent
-  st-26b837865eeae115-2b6f350061baea62  : subjectResourceArchitecture   ⊏⋆ᵣ  subjectResourceAgent 
-postulate -- subjectResourceArchitecture is subTypeOf participantEnterpriseAgent
-  st-26b837865eeae115-2b6f42fc61baf9b7  : subjectResourceArchitecture   ⊏⋆ᵣ  participantEnterpriseAgent 
 

@@ -25,8 +25,9 @@ open import SysFEAT.EA.0185cc626221bb37 public -- Business Event
 open import SysFEAT.EA.6a70c0b36787698c public -- Resource Outcome Event
 open import SysFEAT.EA.62466ea661b80d09 public -- Business Operating Asset
 
-BusinessOutcomeEvent : ClassOfClassOfIndividual
-BusinessOutcomeEvent = ClassOfIndividual
+BusinessOutcomeEvent : ClassOfClassOfBoundedIndividual
+BusinessOutcomeEvent = ClassOfBoundedIndividual
+
 
 --  BusinessOutcomeEvent is subTypeOf BusinessEvent
 st-9dcea4535ec76e6c-0185cc626221bb37 : BusinessOutcomeEvent ⊏ₑ BusinessEvent
@@ -36,14 +37,26 @@ st-9dcea4535ec76e6c-0185cc626221bb37 = polySubTypeOf-identity
 st-9dcea4535ec76e6c-6a70c0b36787698c : BusinessOutcomeEvent ⊏ₑ ResourceOutcomeEvent
 st-9dcea4535ec76e6c-6a70c0b36787698c = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Business Outcome: 
 A Business Outcome is a state of any Business Operating Asset (tangible or intanglible) that is the subject of a business transaction.As such, a Resource Functional Asset is created, enhanced or transformed through the Resource Behavior of a producer Resource Agent Type, resulting in an increase in value (Business Outcome) that benefits (value) to the Business Operating Behavior of a consumer Resource Agent Type.Examples:- A new process (Resource Behavior) that is the result of a refactoring activity done by a consulting organization (producer Agent) for the benefit of a business unit (user Agent).- A new application (Resource Agent Type) that is the result of the development and sales activitiies of a software company (producer Agent) for the benefit of an end user (user Agent).
 -}
 -- Aggregate Member : Business Outcome
-BusinessOutcome : ClassOfClassOfIndividual
-BusinessOutcome = ClassOfIndividual
+BusinessOutcome : ClassOfClassOfBoundedIndividual
+BusinessOutcome = ClassOfBoundedIndividual
+
+
+
+--  BusinessOutcome is subTypeOf ResourceOutcome
+st-be94e0c4655c85b4-6a70e2636787968e : BusinessOutcome ⊏ₑ ResourceOutcome
+st-be94e0c4655c85b4-6a70e2636787968e = polySubTypeOf-identity
+
+--  BusinessOutcome is subTypeOf BusinessOperatingAsset
+st-be94e0c4655c85b4-62466ea661b80d09 : BusinessOutcome ⊏ₑ BusinessOperatingAsset
+st-be94e0c4655c85b4-62466ea661b80d09 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfBusinessOutcome :  Linkage BusinessOutcomeEvent BusinessOutcome
@@ -61,6 +74,4 @@ aggregationOfBusinessOperatingAssetBusinessOutcome = make_Relation "BusinessOper
 businessOutcome : Linkage BusinessOutcomeEvent BusinessOperatingAsset
 businessOutcome = membershipOfBusinessOutcome  ∘  aggregationOfBusinessOperatingAssetBusinessOutcome
 
-postulate -- businessOutcome is subTypeOf resourceOutcome
-  st-be94e0c4655c85b4-6a70e2636787968e  : businessOutcome   ⊏⋆ᵣ  resourceOutcome 
 

@@ -29,4 +29,5 @@ st-24f72ea26a0f5029-f69619236a0f8dcd = trivialPolySubTypeOfEntity
 st-24f72ea26a0f5029-0eb97aff6855cd23 : ∀ {u v} → (FamilyOfCategory u) ⊏⋆ₑ (ModelPropertyBlock v)
 st-24f72ea26a0f5029-0eb97aff6855cd23 = trivialPolySubTypeOfEntity
 
--- == Relationships =======================
+
+-- == Relations =======================

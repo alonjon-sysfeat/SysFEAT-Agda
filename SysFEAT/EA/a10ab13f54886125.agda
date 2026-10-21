@@ -21,12 +21,15 @@ open import SysFEAT.EA.08d17cde678a2b47 public -- Business Partner
 BusinessDriver : ClassOfBoundedIndividual
 BusinessDriver = BoundedIndividual
 
+
 --  BusinessDriver is subTypeOf ExogenousDriver
 st-a10ab13f54886125-7a717ae75596283e : BusinessDriver ⊏ₑ ExogenousDriver
 st-a10ab13f54886125-7a717ae75596283e = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Subject Partner: 
 Partner Type which is the subject of a business need.
 -}
@@ -34,4 +37,4 @@ subjectPartner :  Linkage BusinessDriver BusinessPartner
 subjectPartner = make_Relation "Subject Partner" "Subject Partner"
 
 postulate -- subjectPartner is subTypeOf driverSubject
-  st-2cc9764f55263e70-4b945a6e68a47bdf  : subjectPartner   ⊏⋆ᵣ  driverSubject  {lzero}
+  st-2cc9764f55263e70-4b945a6e68a47bdf  : subjectPartner  ⊏⋆ᵣ  driverSubject

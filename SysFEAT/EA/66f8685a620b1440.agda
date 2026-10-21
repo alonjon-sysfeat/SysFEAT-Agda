@@ -22,6 +22,7 @@ open import SysFEAT.EA.bcebd31f5491302c public -- Business Agent Type
 IndividualBusinessAgent : ClassOfBoundedIndividual
 IndividualBusinessAgent = BoundedIndividual
 
+
 --  IndividualBusinessAgent is subTypeOf IndividualBusinessAsset
 st-66f8685a620b1440-62ff75f363765899 : IndividualBusinessAgent ⊏ₑ IndividualBusinessAsset
 st-66f8685a620b1440-62ff75f363765899 = polySubTypeOf-identity
@@ -30,13 +31,24 @@ st-66f8685a620b1440-62ff75f363765899 = polySubTypeOf-identity
 st-66f8685a620b1440-fe1c231267880201 : IndividualBusinessAgent ⊏ₑ IndividualResourceAgent
 st-66f8685a620b1440-fe1c231267880201 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Deployed Business Agent Part: -}
 -- Aggregate Member : Deployed Business Agent Part
-DeployedBusinessAgentPart : ClassOfOrderedEntity (lsuc(lzero))
-DeployedBusinessAgentPart = AggregateMember (lsuc(lzero))
+DeployedBusinessAgentPart : AgentType
+DeployedBusinessAgentPart = IndividualAgent
 
+
+
+--  DeployedBusinessAgentPart is subTypeOf IndividualResourceAgentPart
+st-66f868de620b14e6-fe1c2ae667880c06 : DeployedBusinessAgentPart ⊏ₑ IndividualResourceAgentPart
+st-66f868de620b14e6-fe1c2ae667880c06 = polySubTypeOf-identity
+
+--  DeployedBusinessAgentPart is subTypeOf IndividualBusinessAgent
+st-66f868de620b14e6-66f8685a620b1440 : DeployedBusinessAgentPart ⊏ₑ IndividualBusinessAgent
+st-66f868de620b14e6-66f8685a620b1440 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfDeployedBusinessAgentPart :  Linkage IndividualBusinessAgent DeployedBusinessAgentPart
@@ -54,6 +66,4 @@ aggregationOfIndividualBusinessAgentDeployedBusinessAgentPart = make_Relation "I
 deployedBusinessAgentPart : Linkage IndividualBusinessAgent IndividualBusinessAgent
 deployedBusinessAgentPart = membershipOfDeployedBusinessAgentPart  ∘  aggregationOfIndividualBusinessAgentDeployedBusinessAgentPart
 
-postulate -- deployedBusinessAgentPart is subTypeOf individualResourceAgentPart
-  st-66f868de620b14e6-fe1c2ae667880c06  : deployedBusinessAgentPart   ⊏⋆ᵣ  individualResourceAgentPart 
 

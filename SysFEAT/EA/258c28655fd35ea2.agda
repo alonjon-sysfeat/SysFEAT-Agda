@@ -24,4 +24,5 @@ ProcessingSensitivity = ClassOfBoundedIndividual
 st-258c28655fd35ea2-f69620466a0f9c2f : ProcessingSensitivity ⊏ₐₑ (AssetCategory (lsuc(lzero)))
 st-258c28655fd35ea2-f69620466a0f9c2f = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

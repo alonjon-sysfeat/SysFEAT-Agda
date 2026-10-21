@@ -20,15 +20,18 @@ open import Agda.Primitive
 open import SysFEAT.SOF.3aca50c46aa63f3b public -- Reference Dictionary
 open import SysFEAT.SOF.9397c3d86877842f public -- Policy Asset
 
-PolicyFramework : ∀ (u : Level) → ClassOfMixedOrderEntity u
-PolicyFramework u = MixedOrderEntity u
+PolicyFramework : ∀ (u : Level) → ClassOfMixedOrderEntity u 
+PolicyFramework u  = MixedOrderEntity u 
+
 
 --  PolicyFramework is subTypeOf ReferenceDictionary
 st-4b94594b68a478f2-3aca50c46aa63f3b : ∀ {u} → (PolicyFramework u) ⊏ₘₑ ReferenceDictionary
 st-4b94594b68a478f2-3aca50c46aa63f3b = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Packaged Policy Asset: -}
 packagedPolicyAsset : ∀ {u v} →  Linkage (PolicyFramework u) (PolicyAsset v)
 packagedPolicyAsset = make_nestingRelation "Packaged Policy Asset" "Packaged Policy Asset"

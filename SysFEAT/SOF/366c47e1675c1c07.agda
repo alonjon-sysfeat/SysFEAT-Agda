@@ -24,4 +24,5 @@ DecisionType = SecondOrderClass
 st-366c47e1675c1c07-366c4627675c1aad : DecisionType ⊏ₑ ResolutionType
 st-366c47e1675c1c07-366c4627675c1aad = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

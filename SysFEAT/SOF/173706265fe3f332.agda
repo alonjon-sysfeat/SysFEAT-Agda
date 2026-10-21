@@ -23,6 +23,7 @@ open import SysFEAT.UpperOntology.28f07b2354be0d69 public -- Bounded Individual
 MeasurementInstrument : ClassOfBoundedIndividual
 MeasurementInstrument = BoundedIndividual
 
+
 --  MeasurementInstrument withAspect GovernanceInstrument
 st-173706265fe3f332-6662916b68dd5f84 : MeasurementInstrument ⊏ₐₑ (GovernanceInstrument lzero)
 st-173706265fe3f332-6662916b68dd5f84 = polySubTypeOf-identity
@@ -31,4 +32,5 @@ st-173706265fe3f332-6662916b68dd5f84 = polySubTypeOf-identity
 st-173706265fe3f332-28f07b2354be0d69 : MeasurementInstrument ⊏ₑ BoundedIndividual
 st-173706265fe3f332-28f07b2354be0d69 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

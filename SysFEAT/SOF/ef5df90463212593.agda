@@ -23,8 +23,10 @@ open import SysFEAT.UpperOntology.3492c53e619642ed public -- Class of Bounded In
 LocationType : ClassOfClassOfBoundedIndividual
 LocationType = ClassOfBoundedIndividual
 
+
 --  LocationType is subTypeOf ClassOfBoundedIndividual
 st-ef5df90463212593-3492c53e619642ed : LocationType ⊏ₑ ClassOfBoundedIndividual
 st-ef5df90463212593-3492c53e619642ed = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

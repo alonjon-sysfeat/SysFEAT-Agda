@@ -24,4 +24,5 @@ ResourceAsset = ClassOfBoundedIndividual
 st-d9f4dcc5688d5969-a4a5b3f855585ce1 : ResourceAsset ⊏ₑ AssetType
 st-d9f4dcc5688d5969-a4a5b3f855585ce1 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

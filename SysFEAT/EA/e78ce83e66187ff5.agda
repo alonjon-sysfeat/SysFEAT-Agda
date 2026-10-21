@@ -22,11 +22,13 @@ open import Agda.Primitive
 open import SysFEAT.EA.910196ca550a2ec2 public -- Organization
 open import SysFEAT.EA.7c408aa155270eea public -- Department Type
 
-Department : ClassOfBoundedIndividual
-Department = BoundedIndividual
+Department : AgentType
+Department = IndividualAgent
+
 
 --  Department is subTypeOf Organization
 st-e78ce83e66187ff5-910196ca550a2ec2 : Department ⊏ₑ Organization
 st-e78ce83e66187ff5-910196ca550a2ec2 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

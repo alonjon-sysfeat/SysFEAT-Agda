@@ -20,8 +20,10 @@ open import SysFEAT.EA.267b28fc66757618 public -- Class of Conceptual Entity
 StateConceptType : ClassOfClassOfBoundedIndividual
 StateConceptType = ClassOfBoundedIndividual
 
+
 --  StateConceptType is subTypeOf ClassOfConceptualEntity
 st-267b2ba866757a82-267b28fc66757618 : StateConceptType ⊏ₑ ClassOfConceptualEntity
 st-267b2ba866757a82-267b28fc66757618 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

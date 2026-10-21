@@ -21,22 +21,37 @@ open import Agda.Primitive
 open import SysFEAT.SOF.9f61cf9166833fb7 public -- Individual Operating Asset
 open import SysFEAT.SOF.79368381561716a6 public -- Agent Type
 
-IndividualAgent : ClassOfBoundedIndividual
+IndividualAgent : AgentType
 IndividualAgent = BoundedIndividual
 
 --  IndividualAgent is subTypeOf IndividualOperatingAsset
 st-9e3837e46192fcad-9f61cf9166833fb7 : IndividualAgent ⊏ₑ IndividualOperatingAsset
 st-9e3837e46192fcad-9f61cf9166833fb7 = polySubTypeOf-identity
 
--- == Relationships =======================
+postulate -- IndividualAgent is PowerInstanceOf Agent Type
+  64ad81da68ce5cb9 : IndividualAgent ∷ₚₑ AgentType
+postulate -- AgentType is ReflexivePowerType 
+  41909af76aaa453d : AgentType ⊏ₘₑ IndividualAgent
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Agent Part: 
 An Agent Part is the Aggregate Holonymy of an Individual Agent in a parent Individual Agent.
 -}
 -- Aggregate Member : Agent Part
-AgentPart : ClassOfOrderedEntity (lsuc(lzero))
-AgentPart = AggregateMember (lsuc(lzero))
+AgentPart : AgentType
+AgentPart = IndividualAgent
 
+
+
+--  AgentPart is subTypeOf IndividualOperatingPart
+st-9d389f6761c4127d-d8ee780d68d224c2 : AgentPart ⊏ₑ IndividualOperatingPart
+st-9d389f6761c4127d-d8ee780d68d224c2 = polySubTypeOf-identity
+
+--  AgentPart is subTypeOf IndividualAgent
+st-9d389f6761c4127d-9e3837e46192fcad : AgentPart ⊏ₑ IndividualAgent
+st-9d389f6761c4127d-9e3837e46192fcad = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfAgentPart :  Linkage IndividualAgent AgentPart
@@ -54,6 +69,4 @@ aggregationOfIndividualAgentAgentPart = make_Relation "IndividualAgent aggregati
 agentPart : Linkage IndividualAgent IndividualAgent
 agentPart = membershipOfAgentPart  ∘  aggregationOfIndividualAgentAgentPart
 
-postulate -- agentPart is subTypeOf individualOperatingPart
-  st-9d389f6761c4127d-d8ee780d68d224c2  : agentPart   ⊏⋆ᵣ  individualOperatingPart 
 

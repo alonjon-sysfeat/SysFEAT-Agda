@@ -19,4 +19,5 @@ open import Agda.Primitive
 ConceptualOperatingConnection : ClassOfClassOfIndividual
 ConceptualOperatingConnection = ClassOfIndividual
 
--- == Relationships =======================
+
+-- == Relations =======================

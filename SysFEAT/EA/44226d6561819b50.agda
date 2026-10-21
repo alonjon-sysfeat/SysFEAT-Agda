@@ -24,4 +24,5 @@ DataAssuranceInstrument = BoundedIndividual
 st-44226d6561819b50-7d3786ff5fd052e7 : DataAssuranceInstrument ⊏ₑ AssuranceInstrument
 st-44226d6561819b50-7d3786ff5fd052e7 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

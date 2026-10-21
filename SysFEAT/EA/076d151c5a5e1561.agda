@@ -30,21 +30,30 @@ OrganizationalPosition = ClassOfBoundedIndividual
 st-076d151c5a5e1561-076d15425a5e158c : OrganizationalPosition ⊏ₑ OrgUnitType
 st-076d151c5a5e1561-076d15425a5e158c = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Position Type: -}
 specializedPositionType :  Linkage OrganizationalPosition OrganizationalPosition
 specializedPositionType = make_subTypeOf "Specialized Position Type" "Specialized Position Type"
 
 postulate -- specializedPositionType is subTypeOf specializedResourceAgent
-  st-820fb37566f27d0c-52c3540066f226f4  : specializedPositionType   ⊏⋆ᵣ  specializedResourceAgent 
+  st-820fb37566f27d0c-52c3540066f226f4  : specializedPositionType  ⊏⋆ᵣ  specializedResourceAgent
 
+-- -------------------------------------------------------------------------------------------- 
 {- Equipment: 
 An Equipment is a Business System made available to an Organizational Position for the purpose of accomplishing his/her work.For example, numerous companies equip their employees with smartphones to facilitate coordination of their activities.
 -}
 -- Aggregate Member : Equipment
-Equipment : ClassOfClassOfIndividual
-Equipment = ClassOfIndividual
+Equipment : ClassOfClassOfBoundedIndividual
+Equipment = ClassOfBoundedIndividual
+
+
+
+--  Equipment is subTypeOf BusinessSystem
+st-986cd24c5ffc9d7c-278675d65b252f4d : Equipment ⊏ₑ BusinessSystem
+st-986cd24c5ffc9d7c-278675d65b252f4d = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfEquipment :  Linkage OrganizationalPosition Equipment

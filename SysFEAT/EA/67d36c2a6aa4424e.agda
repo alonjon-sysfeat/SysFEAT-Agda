@@ -18,13 +18,14 @@ External references:
 module SysFEAT.EA.67d36c2a6aa4424e where -- ========== Language
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.5425a2df6aa225cf public -- First Order Entity
+open import SysFEAT.UpperOntology.3aca52346aa6418d public -- Abstract Entity
 
-Language : ClassOfIndividual
-Language = Individual
+Language : ClassOfAbstractEntity
+Language = AbstractEntity
 
---  Language is subTypeOf FirstOrderEntity
-st-67d36c2a6aa4424e-5425a2df6aa225cf : Language ⊏ₑ FirstOrderEntity
-st-67d36c2a6aa4424e-5425a2df6aa225cf = polySubTypeOf-identity
+
+--  Language is subTypeOf AbstractEntity
+st-67d36c2a6aa4424e-3aca52346aa6418d : Language ⊏ₑ AbstractEntity
+st-67d36c2a6aa4424e-3aca52346aa6418d = polySubTypeOf-identity
 
 

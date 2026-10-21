@@ -21,16 +21,29 @@ open import SysFEAT.EA.d5e6ddd05c46547c public -- Software Technology
 SOftwareTechnologyConfiguration : ClassOfClassOfBoundedIndividual
 SOftwareTechnologyConfiguration = ClassOfBoundedIndividual
 
+
 --  SOftwareTechnologyConfiguration is subTypeOf SOftwareTechnologySystem
 st-f82ba59a60420db1-0463ea9a63fd8b6c : SOftwareTechnologyConfiguration ⊏ₑ SOftwareTechnologySystem
 st-f82ba59a60420db1-0463ea9a63fd8b6c = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Software Technology Part: -}
 -- Aggregate Member : Software Technology Part
-SOftwareTechnologyPart : ClassOfClassOfIndividual
-SOftwareTechnologyPart = ClassOfIndividual
+SOftwareTechnologyPart : ClassOfClassOfBoundedIndividual
+SOftwareTechnologyPart = ClassOfBoundedIndividual
+
+
+
+--  SOftwareTechnologyPart is subTypeOf SOftwareSystemPart
+st-f82ba64460420f69-24035e705fc7afb1 : SOftwareTechnologyPart ⊏ₑ SOftwareSystemPart
+st-f82ba64460420f69-24035e705fc7afb1 = polySubTypeOf-identity
+
+--  SOftwareTechnologyPart is subTypeOf SOftwareTechnology
+st-f82ba64460420f69-d5e6ddd05c46547c : SOftwareTechnologyPart ⊏ₑ SOftwareTechnology
+st-f82ba64460420f69-d5e6ddd05c46547c = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSOftwareTechnologyPart :  Linkage SOftwareTechnologyConfiguration SOftwareTechnologyPart
@@ -48,6 +61,4 @@ aggregationOfSOftwareTechnologySOftwareTechnologyPart = make_Relation "SOftwareT
 sOftwareTechnologyPart : Linkage SOftwareTechnologyConfiguration SOftwareTechnology
 sOftwareTechnologyPart = membershipOfSOftwareTechnologyPart  ∘  aggregationOfSOftwareTechnologySOftwareTechnologyPart
 
-postulate -- sOftwareTechnologyPart is subTypeOf sOftwareSystemPart
-  st-f82ba64460420f69-24035e705fc7afb1  : sOftwareTechnologyPart   ⊏⋆ᵣ  sOftwareSystemPart 
 

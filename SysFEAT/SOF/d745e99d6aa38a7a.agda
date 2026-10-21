@@ -19,8 +19,9 @@ open import SysFEAT.SOF.d745e6ea6aa386e5 public -- Annotation Block
 open import SysFEAT.UpperOntology.23d5c5fc685142de public -- Elementary Block
 open import SysFEAT.UpperOntology.e8b2f7c7673d36d1 public -- Entity
 
-Tag : ClassOfIndividual
-Tag = Individual
+Tag : ClassOfAbstractEntity
+Tag = AbstractEntity
+
 
 --  Tag is subTypeOf AnnotationBlock
 st-d745e99d6aa38a7a-d745e6ea6aa386e5 : Tag ⊏ₑ AnnotationBlock
@@ -30,11 +31,13 @@ st-d745e99d6aa38a7a-d745e6ea6aa386e5 = polySubTypeOf-identity
 st-d745e99d6aa38a7a-23d5c5fc685142de : Tag ⊏ₐₑ (ElementaryBlock lzero)
 st-d745e99d6aa38a7a-23d5c5fc685142de = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Tagged Element: -}
 taggedElement : ∀ {u} →  Linkage Tag (Entity u)
 taggedElement = make_Relation "Tagged Element" "Tagged Element"
 
 postulate -- taggedElement is subTypeOf annotedElement
-  st-3346c41a6878530e-3346b23668784855  : taggedElement  {lzero}  ⊏⋆ᵣ  annotedElement  {lzero}
+  st-3346c41a6878530e-3346b23668784855  : taggedElement  ⊏⋆ᵣ  annotedElement

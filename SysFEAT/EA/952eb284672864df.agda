@@ -29,4 +29,5 @@ st-952eb284672864df-952ea6c467285821 = polySubTypeOf-identity
 st-952eb284672864df-4b947d2068a49dbb : Regulationsection ⊏ₐₑ (RegulatoryAsset (lsuc(lsuc(lzero))))
 st-952eb284672864df-4b947d2068a49dbb = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

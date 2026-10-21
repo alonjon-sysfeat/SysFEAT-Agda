@@ -20,7 +20,7 @@ open import SysFEAT.UpperOntology.8cfa942f68527849 public -- Unbounded Aggregate
 open import SysFEAT.SOF.515c13db68953887 public -- Capability
 
 CapabilityMap : PropertyType
-CapabilityMap = ClassOfProperty
+CapabilityMap = Property
 
 --  CapabilityMap withAspect MetaFamilyOfClass
 st-01f12127689b6de2-06710aeb68ed2d29 : CapabilityMap ⊏ₐₑ (MetaFamilyOfClass (lsuc(lzero)))
@@ -30,14 +30,21 @@ st-01f12127689b6de2-06710aeb68ed2d29 = polySubTypeOf-identity
 st-01f12127689b6de2-8cfa942f68527849 : CapabilityMap ⊏ₐₑ (UnboundedAggregate (lsuc(lzero)))
 st-01f12127689b6de2-8cfa942f68527849 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Capability Member: 
 Aggregate Composition of a Capability.
 -}
 -- Aggregate Member : Capability Member
 CapabilityMember : ClassOfClassOfIndividual
 CapabilityMember = ClassOfIndividual
+
+
+--  CapabilityMember withAspect UnboundedMember
+st-01f12228689b6efa-8cfaf71a6852b042 : CapabilityMember ⊏ₐₑ (UnboundedMember (lsuc(lzero)))
+st-01f12228689b6efa-8cfaf71a6852b042 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfCapabilityMember :  Linkage CapabilityMap CapabilityMember
@@ -55,6 +62,4 @@ aggregationOfCapabilityCapabilityMember = make_Relation "Capability aggregation"
 capabilityMember : Linkage CapabilityMap Capability
 capabilityMember = membershipOfCapabilityMember  ∘  aggregationOfCapabilityCapabilityMember
 
-postulate -- capabilityMember is subTypeOf unboundedMember
-  st-01f12228689b6efa-8cfaf71a6852b042  : capabilityMember   ⊏⋆ᵣ  unboundedMember {lzero} {lzero}
 

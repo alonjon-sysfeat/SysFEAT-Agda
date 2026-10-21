@@ -19,8 +19,8 @@ open import SysFEAT.UpperOntology.29cd2db0661546c4 public -- Individual State
 open import SysFEAT.SOF.0ffeec41600be08a public -- Initiative
 open import SysFEAT.SOF.515c6a856893324e public -- Asset Property
 
-InitiativeStage : StateClass
-InitiativeStage = StateConcept
+InitiativeStage : ClassOfBoundedIndividual
+InitiativeStage = BoundedIndividual
 
 
 --  InitiativeStage is subTypeOf IndividualState
@@ -31,12 +31,23 @@ st-e78c5eb0661989f9-29cd2db0661546c4 = polySubTypeOf-identity
 st-e78c5eb0661989f9-0ffeec41600be08a : InitiativeStage ⊏ₑ Initiative
 st-e78c5eb0661989f9-0ffeec41600be08a = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Desired Result: -}
 -- Aggregate Member : Desired Result
 DesiredResult : ClassOfClassOfIndividual
 DesiredResult = ClassOfIndividual
+
+
+--  DesiredResult withAspect AggregateMember
+st-a56ba5d1689c4ba1-23d5ddef68514dba : DesiredResult ⊏ₐₑ (AggregateMember (lsuc(lzero)))
+st-a56ba5d1689c4ba1-23d5ddef68514dba = polySubTypeOf-identity
+
+--  DesiredResult withAspect PropertyOfIndividual
+st-a56ba5d1689c4ba1-19763dbb68926a48 : DesiredResult ⊏ₐₑ (PropertyOfIndividual (lsuc(lzero)))
+st-a56ba5d1689c4ba1-19763dbb68926a48 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfDesiredResult :  Linkage InitiativeStage DesiredResult
@@ -54,18 +65,20 @@ aggregationOfAssetPropertyDesiredResult = make_Relation "AssetProperty aggregati
 desiredResult : Linkage InitiativeStage AssetProperty
 desiredResult = membershipOfDesiredResult  ∘  aggregationOfAssetPropertyDesiredResult
 
-postulate -- desiredResult is subTypeOf aggregateMember
-  st-a56ba5d1689c4ba1-23d5ddef68514dba  : desiredResult   ⊏⋆ᵣ  aggregateMember {lzero} {lzero}
-postulate -- desiredResult is subTypeOf propertyOfIndividual
-  st-a56ba5d1689c4ba1-19763dbb68926a48  : desiredResult   ⊏⋆ᵣ  propertyOfIndividual 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Stage Objective: 
 A Desired Result is a statement about a state or condition of Initiative Subjects of an Initiative Stage that can be obtained within this specified stage.
 -}
 -- Aggregate Member : Stage Objective
 StageObjective : ClassOfClassOfIndividual
 StageObjective = ClassOfIndividual
+
+
+--  StageObjective is subTypeOf DesiredResult
+st-a56ba723689c4c95-a56ba5d1689c4ba1 : StageObjective ⊏ₑ DesiredResult
+st-a56ba723689c4c95-a56ba5d1689c4ba1 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfStageObjective :  Linkage InitiativeStage StageObjective
@@ -83,6 +96,4 @@ aggregationOfAssetPropertyStageObjective = make_Relation "AssetProperty aggregat
 stageObjective : Linkage InitiativeStage AssetProperty
 stageObjective = membershipOfStageObjective  ∘  aggregationOfAssetPropertyStageObjective
 
-postulate -- stageObjective is subTypeOf desiredResult
-  st-a56ba723689c4c95-a56ba5d1689c4ba1  : stageObjective   ⊏⋆ᵣ  desiredResult 
 

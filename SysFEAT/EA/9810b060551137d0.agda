@@ -25,12 +25,15 @@ open import SysFEAT.EA.7c4094d2552717db public -- Business Function
 OperatingDomain : ClassOfClassOfBoundedIndividual
 OperatingDomain = ClassOfBoundedIndividual
 
+
 --  OperatingDomain is subTypeOf ConceptualAgent
 st-9810b060551137d0-7c40987055271d04 : OperatingDomain ⊏ₑ ConceptualAgent
 st-9810b060551137d0-7c40987055271d04 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Business Domain: 
 Composition of a sub Business Function Architecture in a parent Business Function Architecture .
 -}
@@ -38,14 +41,25 @@ specializedBusinessDomain :  Linkage OperatingDomain OperatingDomain
 specializedBusinessDomain = make_subTypeOf "Specialized Business Domain" "Specialized Business Domain"
 
 postulate -- specializedBusinessDomain is subTypeOf specializedAgent
-  st-325a37b366f349dd-2b5b440b66ed56d4  : specializedBusinessDomain   ⊏⋆ᵣ  specializedAgent 
+  st-325a37b366f349dd-2b5b440b66ed56d4  : specializedBusinessDomain  ⊏⋆ᵣ  specializedAgent
 
+-- -------------------------------------------------------------------------------------------- 
 {- sub-business function: 
 A sub-business function represents the role of a business function as part of a parent Operating Domain.
 -}
 -- Aggregate Member : sub-business function
-subbusinessfunction : ClassOfClassOfIndividual
-subbusinessfunction = ClassOfIndividual
+subbusinessfunction : ClassOfClassOfBoundedIndividual
+subbusinessfunction = ClassOfBoundedIndividual
+
+
+
+--  subbusinessfunction is subTypeOf ConceptualAgentPart
+st-e8bfed085ebb8227-258c36965fd28288 : subbusinessfunction ⊏ₑ ConceptualAgentPart
+st-e8bfed085ebb8227-258c36965fd28288 = polySubTypeOf-identity
+
+--  subbusinessfunction is subTypeOf BusinessFunction
+st-e8bfed085ebb8227-7c4094d2552717db : subbusinessfunction ⊏ₑ BusinessFunction
+st-e8bfed085ebb8227-7c4094d2552717db = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfsubbusinessfunction :  Linkage OperatingDomain subbusinessfunction
@@ -63,16 +77,25 @@ aggregationOfBusinessFunctionsubbusinessfunction = make_Relation "BusinessFuncti
 subbusinessfunction : Linkage OperatingDomain BusinessFunction
 subbusinessfunction = membershipOfsubbusinessfunction  ∘  aggregationOfBusinessFunctionsubbusinessfunction
 
-postulate -- subbusinessfunction is subTypeOf conceptualAgentPart
-  st-e8bfed085ebb8227-258c36965fd28288  : subbusinessfunction   ⊏⋆ᵣ  conceptualAgentPart 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Sub Activity Domain: 
 Usage of a Business Functional Area which is internal to the considered environment.
 -}
 -- Aggregate Member : Sub Activity Domain
-SubActivityDomain : ClassOfClassOfIndividual
-SubActivityDomain = ClassOfIndividual
+SubActivityDomain : ClassOfClassOfBoundedIndividual
+SubActivityDomain = ClassOfBoundedIndividual
+
+
+
+--  SubActivityDomain is subTypeOf ConceptualAgentPart
+st-e8bfed275ebb82ac-258c36965fd28288 : SubActivityDomain ⊏ₑ ConceptualAgentPart
+st-e8bfed275ebb82ac-258c36965fd28288 = polySubTypeOf-identity
+
+--  SubActivityDomain is subTypeOf OperatingDomain
+st-e8bfed275ebb82ac-9810b060551137d0 : SubActivityDomain ⊏ₑ OperatingDomain
+st-e8bfed275ebb82ac-9810b060551137d0 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSubActivityDomain :  Linkage OperatingDomain SubActivityDomain
@@ -90,6 +113,4 @@ aggregationOfOperatingDomainSubActivityDomain = make_Relation "OperatingDomain a
 subActivityDomain : Linkage OperatingDomain OperatingDomain
 subActivityDomain = membershipOfSubActivityDomain  ∘  aggregationOfOperatingDomainSubActivityDomain
 
-postulate -- subActivityDomain is subTypeOf conceptualAgentPart
-  st-e8bfed275ebb82ac-258c36965fd28288  : subActivityDomain   ⊏⋆ᵣ  conceptualAgentPart 
 

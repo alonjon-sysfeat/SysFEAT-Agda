@@ -21,35 +21,22 @@ module SysFEAT.EA.bcebd0565491287e where -- ========== Driver
 
 open import Agda.Primitive
 open import SysFEAT.SOF.1737b50b5fe27cba public -- Governance Event
+open import SysFEAT.SOF.0eb95f356855bf94 public -- Asset Block
 open import SysFEAT.SOF.8d5e986f552e28d5 public -- Location
 open import SysFEAT.SOF.bcebd0175491272a public -- Stakeholder
-open import SysFEAT.SOF.0eb95f356855bf94 public -- Asset Block
 
 Driver : ClassOfBoundedIndividual
 Driver = BoundedIndividual
+
 
 --  Driver is subTypeOf GovernanceEvent
 st-bcebd0565491287e-1737b50b5fe27cba : Driver ⊏ₑ GovernanceEvent
 st-bcebd0565491287e-1737b50b5fe27cba = polySubTypeOf-identity
 
--- == Relationships =======================
 
-{- Relevant Location: 
-Potential geopolitical location where the concern is relevant.
--}
-relevantLocation :  Linkage Driver Location
-relevantLocation = make_holonymyRelation "Relevant Location" "Relevant Location"
+-- == Relations =======================
 
-
-{- concerned stakeholder: 
-Set of Stakeholders having an interest or concern in the state of the enterprise.
--}
-concernedstakeholder :  Linkage Driver Stakeholder
-concernedstakeholder = make_holonymyRelation "concerned stakeholder" "concerned stakeholder"
-
-postulate -- concernedstakeholder is subTypeOf referenceHolonymy
-  st-2cc9b802552653f2-9653a95669701e02  : concernedstakeholder   ⊏⋆ᵣ  referenceHolonymy 
-
+-- -------------------------------------------------------------------------------------------- 
 {- Driver Subject: 
 Asset Block that is the subject of a Driver.
 -}
@@ -57,4 +44,22 @@ driverSubject : ∀ {u} →  Linkage Driver (AssetBlock u)
 driverSubject = make_Relation "Driver Subject" "Driver Subject"
 
 postulate -- driverSubject is subTypeOf eventSubject
-  st-4b945a6e68a47bdf-0f642d4d6859ad70  : driverSubject  {lzero}  ⊏⋆ᵣ  eventSubject  {lzero}
+  st-4b945a6e68a47bdf-0f642d4d6859ad70  : driverSubject  ⊏⋆ᵣ  eventSubject
+
+-- -------------------------------------------------------------------------------------------- 
+{- Relevant Location: 
+Potential geopolitical location where the concern is relevant.
+-}
+relevantLocation :  Linkage Driver Location
+relevantLocation = make_holonymyRelation "Relevant Location" "Relevant Location"
+
+
+-- -------------------------------------------------------------------------------------------- 
+{- concerned stakeholder: 
+Set of Stakeholders having an interest or concern in the state of the enterprise.
+-}
+concernedstakeholder :  Linkage Driver Stakeholder
+concernedstakeholder = make_holonymyRelation "concerned stakeholder" "concerned stakeholder"
+
+postulate -- concernedstakeholder is subTypeOf referenceHolonymy
+  st-2cc9b802552653f2-9653a95669701e02  : concernedstakeholder  ⊏⋆ᵣ  referenceHolonymy

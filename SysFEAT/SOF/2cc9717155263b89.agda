@@ -21,17 +21,29 @@ open import SysFEAT.SOF.2cc9718655263c44 public -- Individual Stakeholder
 GovernanceCommittee : ClassOfBoundedIndividual
 GovernanceCommittee = BoundedIndividual
 
+
 --  GovernanceCommittee is subTypeOf Stakeholder
 st-2cc9717155263b89-bcebd0175491272a : GovernanceCommittee ⊏ₑ Stakeholder
 st-2cc9717155263b89-bcebd0175491272a = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Sub-Committee: -}
 -- Aggregate Member : Sub-Committee
-SubCommittee : ClassOfOrderedEntity (lsuc(lzero))
-SubCommittee = AggregateMember (lsuc(lzero))
+SubCommittee : AggregateHolonymyType
+SubCommittee = AggregateHolonymy
 
+
+
+--  SubCommittee is subTypeOf AggregateHolonymy
+st-18a826a35eeb6934-c2f2c9a166ea50e2 : SubCommittee ⊏ₑ AggregateHolonymy
+st-18a826a35eeb6934-c2f2c9a166ea50e2 = polySubTypeOf-identity
+
+--  SubCommittee is subTypeOf GovernanceCommittee
+st-18a826a35eeb6934-2cc9717155263b89 : SubCommittee ⊏ₑ GovernanceCommittee
+st-18a826a35eeb6934-2cc9717155263b89 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfSubCommittee :  Linkage GovernanceCommittee SubCommittee
@@ -49,17 +61,25 @@ aggregationOfGovernanceCommitteeSubCommittee = make_Relation "GovernanceCommitte
 subCommittee : Linkage GovernanceCommittee GovernanceCommittee
 subCommittee = membershipOfSubCommittee  ∘  aggregationOfGovernanceCommitteeSubCommittee
 
-postulate -- subCommittee is subTypeOf aggregateHolonymy
-  st-18a826a35eeb6934-c2f2c9a166ea50e2  : subCommittee   ⊏⋆ᵣ  aggregateHolonymy 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Committee member: 
 Role of a person in a Governance Committee.
 -}
 -- Aggregate Member : Committee member
-Committeemember : ClassOfOrderedEntity (lsuc(lzero))
-Committeemember = AggregateMember (lsuc(lzero))
+Committeemember : AggregateHolonymyType
+Committeemember = AggregateHolonymy
 
+
+
+--  Committeemember is subTypeOf AggregateHolonymy
+st-24ae430d5ed1f6aa-c2f2c9a166ea50e2 : Committeemember ⊏ₑ AggregateHolonymy
+st-24ae430d5ed1f6aa-c2f2c9a166ea50e2 = polySubTypeOf-identity
+
+--  Committeemember is subTypeOf IndividualStakeholder
+st-24ae430d5ed1f6aa-2cc9718655263c44 : Committeemember ⊏ₑ IndividualStakeholder
+st-24ae430d5ed1f6aa-2cc9718655263c44 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfCommitteemember :  Linkage GovernanceCommittee Committeemember
@@ -77,6 +97,4 @@ aggregationOfIndividualStakeholderCommitteemember = make_Relation "IndividualSta
 committeemember : Linkage GovernanceCommittee IndividualStakeholder
 committeemember = membershipOfCommitteemember  ∘  aggregationOfIndividualStakeholderCommitteemember
 
-postulate -- committeemember is subTypeOf aggregateHolonymy
-  st-24ae430d5ed1f6aa-c2f2c9a166ea50e2  : committeemember   ⊏⋆ᵣ  aggregateHolonymy 
 

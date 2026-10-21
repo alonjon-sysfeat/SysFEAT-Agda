@@ -17,11 +17,13 @@ module SysFEAT.SOF.34bd440b61f104cb where -- ========== Waiver End
 open import Agda.Primitive
 open import SysFEAT.UpperOntology.267b6a126675a0b9 public -- Temporal Bounding
 
-WaiverEnd : ClassOfIndividual
-WaiverEnd = Individual
+WaiverEnd : TemporalBoundingType
+WaiverEnd = TemporalBounding
+
 
 --  WaiverEnd is subTypeOf TemporalBounding
 st-34bd440b61f104cb-267b6a126675a0b9 : WaiverEnd ⊏ₑ TemporalBounding
 st-34bd440b61f104cb-267b6a126675a0b9 = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

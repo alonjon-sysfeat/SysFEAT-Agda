@@ -19,17 +19,20 @@ open import SysFEAT.SOF.97e09cde68dd6c0f public -- Decision Outcome
 open import SysFEAT.SOF.97e0a09268dd70b6 public -- Policy Decision Type
 
 PolicyapplicabilityStatus : PropertyType
-PolicyapplicabilityStatus = ClassOfProperty
+PolicyapplicabilityStatus = Property
+
 
 --  PolicyapplicabilityStatus is subTypeOf DecisionOutcome
 st-97e0a19a68dd71de-97e09cde68dd6c0f : PolicyapplicabilityStatus ⊏ₑ DecisionOutcome
 st-97e0a19a68dd71de-97e09cde68dd6c0f = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Policy Decision Type: -}
 policyDecisionType :  Linkage PolicyapplicabilityStatus PolicyDecisionType
 policyDecisionType = make_instanceOf "Policy Decision Type" "Policy Decision Type"
 
 postulate -- policyDecisionType is subTypeOf decisionType
-  st-97e0a1e168dd7342-97e09d2068dd6cd0  : policyDecisionType   ⊏⋆ᵣ  decisionType 
+  st-97e0a1e168dd7342-97e09d2068dd6cd0  : policyDecisionType  ⊏⋆ᵣ  decisionType

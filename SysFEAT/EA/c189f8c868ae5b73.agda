@@ -19,18 +19,25 @@ open import SysFEAT.SOF.01f12127689b6de2 public -- Capability Map
 open import SysFEAT.EA.dd268f2868a08150 public -- Business Capability
 
 BusinessCapabilityMap : PropertyType
-BusinessCapabilityMap = ClassOfProperty
+BusinessCapabilityMap = Property
 
 --  BusinessCapabilityMap is subTypeOf CapabilityMap
 st-c189f8c868ae5b73-01f12127689b6de2 : BusinessCapabilityMap ⊏ₑ CapabilityMap
 st-c189f8c868ae5b73-01f12127689b6de2 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Member Business Capability: -}
 -- Aggregate Member : Member Business Capability
 MemberBusinessCapability : ClassOfClassOfIndividual
 MemberBusinessCapability = ClassOfIndividual
+
+
+--  MemberBusinessCapability is subTypeOf CapabilityMember
+st-c189fcfa68ae5fa0-01f12228689b6efa : MemberBusinessCapability ⊏⋆ₑ CapabilityMember
+st-c189fcfa68ae5fa0-01f12228689b6efa = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfMemberBusinessCapability :  Linkage BusinessCapabilityMap MemberBusinessCapability
@@ -48,6 +55,4 @@ aggregationOfBusinessCapabilityMemberBusinessCapability = make_Relation "Busines
 memberBusinessCapability : Linkage BusinessCapabilityMap BusinessCapability
 memberBusinessCapability = membershipOfMemberBusinessCapability  ∘  aggregationOfBusinessCapabilityMemberBusinessCapability
 
-postulate -- memberBusinessCapability is subTypeOf capabilityMember
-  st-c189fcfa68ae5fa0-01f12228689b6efa  : memberBusinessCapability   ⊏⋆ᵣ  capabilityMember 
 

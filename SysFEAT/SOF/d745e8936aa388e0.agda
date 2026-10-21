@@ -21,8 +21,9 @@ open import SysFEAT.SOF.d745e6ea6aa386e5 public -- Annotation Block
 open import SysFEAT.UpperOntology.23d5c5fc685142de public -- Elementary Block
 open import SysFEAT.UpperOntology.e8b2f7c7673d36d1 public -- Entity
 
-DescriptionNote : ClassOfIndividual
-DescriptionNote = Individual
+DescriptionNote : ClassOfAbstractEntity
+DescriptionNote = AbstractEntity
+
 
 --  DescriptionNote is subTypeOf AnnotationBlock
 st-d745e8936aa388e0-d745e6ea6aa386e5 : DescriptionNote ⊏ₑ AnnotationBlock
@@ -32,11 +33,13 @@ st-d745e8936aa388e0-d745e6ea6aa386e5 = polySubTypeOf-identity
 st-d745e8936aa388e0-23d5c5fc685142de : DescriptionNote ⊏ₐₑ (ElementaryBlock lzero)
 st-d745e8936aa388e0-23d5c5fc685142de = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Described Element: -}
 describedElement : ∀ {u} →  Linkage DescriptionNote (Entity u)
 describedElement = make_Relation "Described Element" "Described Element"
 
 postulate -- describedElement is subTypeOf annotedElement
-  st-3346bfad68785033-3346b23668784855  : describedElement  {lzero}  ⊏⋆ᵣ  annotedElement  {lzero}
+  st-3346bfad68785033-3346b23668784855  : describedElement  ⊏⋆ᵣ  annotedElement

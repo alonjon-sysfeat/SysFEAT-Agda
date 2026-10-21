@@ -21,15 +21,18 @@ open import SysFEAT.EA.f4be0e865ee1d53b public -- Facility
 IndividualFacility : ClassOfBoundedIndividual
 IndividualFacility = BoundedIndividual
 
+
 --  IndividualFacility is subTypeOf IndividualSystemOfResources
 st-c80a413e678594ec-c80a41b7678595bb : IndividualFacility ⊏ₑ IndividualSystemOfResources
 st-c80a413e678594ec-c80a41b7678595bb = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Facility Type: -}
 facilityType :  Linkage IndividualFacility Facility
 facilityType = make_instanceOf "Facility Type" "Facility Type"
 
 postulate -- facilityType is subTypeOf systemOfResourceType
-  st-c80a415e67859561-c80a436c67859774  : facilityType   ⊏⋆ᵣ  systemOfResourceType 
+  st-c80a415e67859561-c80a436c67859774  : facilityType  ⊏⋆ᵣ  systemOfResourceType

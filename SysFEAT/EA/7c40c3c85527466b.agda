@@ -28,6 +28,7 @@ open import SysFEAT.EA.bcebd31f5491302c public -- Business Agent Type
 BusinessResourceProcess : ClassOfClassOfBoundedIndividual
 BusinessResourceProcess = ClassOfBoundedIndividual
 
+
 --  BusinessResourceProcess is subTypeOf BusinessBehavior
 st-7c40c3c85527466b-b4ebbf3e5ffdccdf : BusinessResourceProcess ⊏ₑ BusinessBehavior
 st-7c40c3c85527466b-b4ebbf3e5ffdccdf = polySubTypeOf-identity
@@ -36,30 +37,39 @@ st-7c40c3c85527466b-b4ebbf3e5ffdccdf = polySubTypeOf-identity
 st-7c40c3c85527466b-e2ef095b62147bf9 : BusinessResourceProcess ⊏ₑ ResourceActionProcess
 st-7c40c3c85527466b-e2ef095b62147bf9 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Resource Process: -}
 specializedResourceProcess :  Linkage BusinessResourceProcess BusinessResourceProcess
 specializedResourceProcess = make_subTypeOf "Specialized Resource Process" "Specialized Resource Process"
 
 postulate -- specializedResourceProcess is subTypeOf specializedBusinessResourceBehavior
-  st-325a376666f34350-325a37b666f34b83  : specializedResourceProcess   ⊏⋆ᵣ  specializedBusinessResourceBehavior 
+  st-325a376666f34350-325a37b666f34b83  : specializedResourceProcess  ⊏⋆ᵣ  specializedBusinessResourceBehavior
 postulate -- specializedResourceProcess is subTypeOf specializedResourceProcess
-  st-325a376666f34350-325a39d966f353be  : specializedResourceProcess   ⊏⋆ᵣ  specializedResourceProcess 
+  st-325a376666f34350-325a39d966f353be  : specializedResourceProcess  ⊏⋆ᵣ  specializedResourceProcess
 
+-- -------------------------------------------------------------------------------------------- 
 {- Realized Value Stream: -}
 realizedValueStream :  Linkage BusinessResourceProcess ValueStream
 realizedValueStream = make_subTypeOf "Realized Value Stream" "Realized Value Stream"
 
 postulate -- realizedValueStream is subTypeOf realizedLogicalOperatingAsset
-  st-332c473666f17994-332c47ab66f17a2e  : realizedValueStream   ⊏⋆ᵣ  realizedLogicalOperatingAsset 
+  st-332c473666f17994-332c47ab66f17a2e  : realizedValueStream  ⊏⋆ᵣ  realizedLogicalOperatingAsset
 postulate -- realizedValueStream is subTypeOf realizedOperatingProcess
-  st-332c473666f17994-325a3a1666f35c35  : realizedValueStream   ⊏⋆ᵣ  realizedOperatingProcess 
+  st-332c473666f17994-325a3a1666f35c35  : realizedValueStream  ⊏⋆ᵣ  realizedOperatingProcess
 
+-- -------------------------------------------------------------------------------------------- 
 {- Resource Flow: -}
 -- Aggregate Member : Resource Flow
 ResourceFlow : ClassOfClassOfIndividual
 ResourceFlow = ClassOfIndividual
+
+
+--  ResourceFlow is subTypeOf ResourceObjectFlow
+st-4d120c1861b28997-0185194e6222d13a : ResourceFlow ⊏ₑ ResourceObjectFlow
+st-4d120c1861b28997-0185194e6222d13a = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfResourceFlow :  Linkage BusinessResourceProcess ResourceFlow
@@ -77,14 +87,18 @@ aggregationOfBusinessOutcomeEventResourceFlow = make_Relation "BusinessOutcomeEv
 resourceFlow : Linkage BusinessResourceProcess BusinessOutcomeEvent
 resourceFlow = membershipOfResourceFlow  ∘  aggregationOfBusinessOutcomeEventResourceFlow
 
-postulate -- resourceFlow is subTypeOf resourceObjectFlow
-  st-4d120c1861b28997-0185194e6222d13a  : resourceFlow   ⊏⋆ᵣ  resourceObjectFlow 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Resource Activity Sequence: -}
 -- Aggregate Member : Resource Activity Sequence
 ResourceActivitySequence : ClassOfClassOfIndividual
 ResourceActivitySequence = ClassOfIndividual
+
+
+--  ResourceActivitySequence is subTypeOf SequenceFlow
+st-9d38a85a61c4245a-018518ea6222cfa8 : ResourceActivitySequence ⊏ₑ SequenceFlow
+st-9d38a85a61c4245a-018518ea6222cfa8 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfResourceActivitySequence :  Linkage BusinessResourceProcess ResourceActivitySequence
@@ -102,16 +116,29 @@ aggregationOfBehavioralEventResourceActivitySequence = make_Relation "Behavioral
 resourceActivitySequence : Linkage BusinessResourceProcess BehavioralEvent
 resourceActivitySequence = membershipOfResourceActivitySequence  ∘  aggregationOfBehavioralEventResourceActivitySequence
 
-postulate -- resourceActivitySequence is subTypeOf sequenceFlow
-  st-9d38a85a61c4245a-018518ea6222cfa8  : resourceActivitySequence   ⊏⋆ᵣ  sequenceFlow 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Participant Business Agent: 
 A Participant Business Agent is a Resource Behavior Participant indicating the role of an Agent actively engaged as a Business Agent Type within a Business Resource Process!
 -}
 -- Aggregate Member : Participant Business Agent
-ParticipantBusinessAgent : ClassOfClassOfIndividual
-ParticipantBusinessAgent = ClassOfIndividual
+ParticipantBusinessAgent : ClassOfClassOfBoundedIndividual
+ParticipantBusinessAgent = ClassOfBoundedIndividual
+
+
+
+--  ParticipantBusinessAgent is subTypeOf ResourceBehaviorParticipant
+st-b4ebbe325ffdca40-e0e87af46578a950 : ParticipantBusinessAgent ⊏ₑ ResourceBehaviorParticipant
+st-b4ebbe325ffdca40-e0e87af46578a950 = polySubTypeOf-identity
+
+--  ParticipantBusinessAgent is subTypeOf ParticipantResourceAgent
+st-b4ebbe325ffdca40-f8e61ffd621dbebc : ParticipantBusinessAgent ⊏ₑ ParticipantResourceAgent
+st-b4ebbe325ffdca40-f8e61ffd621dbebc = polySubTypeOf-identity
+
+--  ParticipantBusinessAgent is subTypeOf BusinessAgentType
+st-b4ebbe325ffdca40-bcebd31f5491302c : ParticipantBusinessAgent ⊏ₑ BusinessAgentType
+st-b4ebbe325ffdca40-bcebd31f5491302c = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfParticipantBusinessAgent :  Linkage BusinessResourceProcess ParticipantBusinessAgent
@@ -129,16 +156,27 @@ aggregationOfBusinessAgentTypeParticipantBusinessAgent = make_Relation "Business
 participantBusinessAgent : Linkage BusinessResourceProcess BusinessAgentType
 participantBusinessAgent = membershipOfParticipantBusinessAgent  ∘  aggregationOfBusinessAgentTypeParticipantBusinessAgent
 
-postulate -- participantBusinessAgent is subTypeOf resourceBehaviorParticipant
-  st-b4ebbe325ffdca40-e0e87af46578a950  : participantBusinessAgent   ⊏⋆ᵣ  resourceBehaviorParticipant 
-postulate -- participantBusinessAgent is subTypeOf participantResourceAgent
-  st-b4ebbe325ffdca40-f8e61ffd621dbebc  : participantBusinessAgent   ⊏⋆ᵣ  participantResourceAgent 
 
 
+-- -------------------------------------------------------------------------------------------- 
 {- Business Resource Process Step: -}
 -- Aggregate Member : Business Resource Process Step
-BusinessResourceProcessStep : ClassOfClassOfIndividual
-BusinessResourceProcessStep = ClassOfIndividual
+BusinessResourceProcessStep : ClassOfClassOfBoundedIndividual
+BusinessResourceProcessStep = ClassOfBoundedIndividual
+
+
+
+--  BusinessResourceProcessStep is subTypeOf ResourceProcessStep
+st-b4ebbe6b5ffdcb19-f8e62045621dbffb : BusinessResourceProcessStep ⊏ₑ ResourceProcessStep
+st-b4ebbe6b5ffdcb19-f8e62045621dbffb = polySubTypeOf-identity
+
+--  BusinessResourceProcessStep is subTypeOf BusinessBehaviorPart
+st-b4ebbe6b5ffdcb19-b777c1de68b07336 : BusinessResourceProcessStep ⊏ₑ BusinessBehaviorPart
+st-b4ebbe6b5ffdcb19-b777c1de68b07336 = polySubTypeOf-identity
+
+--  BusinessResourceProcessStep is subTypeOf BusinessResourceProcess
+st-b4ebbe6b5ffdcb19-7c40c3c85527466b : BusinessResourceProcessStep ⊏ₑ BusinessResourceProcess
+st-b4ebbe6b5ffdcb19-7c40c3c85527466b = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfBusinessResourceProcessStep :  Linkage BusinessResourceProcess BusinessResourceProcessStep
@@ -156,8 +194,4 @@ aggregationOfBusinessResourceProcessBusinessResourceProcessStep = make_Relation 
 businessResourceProcessStep : Linkage BusinessResourceProcess BusinessResourceProcess
 businessResourceProcessStep = membershipOfBusinessResourceProcessStep  ∘  aggregationOfBusinessResourceProcessBusinessResourceProcessStep
 
-postulate -- businessResourceProcessStep is subTypeOf resourceProcessStep
-  st-b4ebbe6b5ffdcb19-f8e62045621dbffb  : businessResourceProcessStep   ⊏⋆ᵣ  resourceProcessStep 
-postulate -- businessResourceProcessStep is subTypeOf businessBehaviorPart
-  st-b4ebbe6b5ffdcb19-b777c1de68b07336  : businessResourceProcessStep   ⊏⋆ᵣ  businessBehaviorPart 
 

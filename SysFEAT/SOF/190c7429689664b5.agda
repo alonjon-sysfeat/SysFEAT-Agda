@@ -21,24 +21,28 @@ open import Agda.Primitive
 open import SysFEAT.SOF.515c6b23689335c3 public -- Directive
 
 Policy : PropertyType
-Policy = ClassOfProperty
+Policy = Property
+
 
 --  Policy is subTypeOf Directive
 st-190c7429689664b5-515c6b23689335c3 : Policy ⊏ₑ Directive
 st-190c7429689664b5-515c6b23689335c3 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Realized Policy: -}
 realizedPolicy :  Linkage Policy Policy
 realizedPolicy = make_subTypeOf "Realized Policy" "Realized Policy"
 
 postulate -- realizedPolicy is subTypeOf realizedDirective
-  st-01f10d3b689b501e-190c7a7f6896696e  : realizedPolicy   ⊏⋆ᵣ  realizedDirective 
+  st-01f10d3b689b501e-190c7a7f6896696e  : realizedPolicy  ⊏⋆ᵣ  realizedDirective
 
+-- -------------------------------------------------------------------------------------------- 
 {- Specialized Policy: -}
 specializedPolicy :  Linkage Policy Policy
 specializedPolicy = make_subTypeOf "Specialized Policy" "Specialized Policy"
 
 postulate -- specializedPolicy is subTypeOf specializedDirective
-  st-01f10d80689b50a2-190c79c26896690d  : specializedPolicy   ⊏⋆ᵣ  specializedDirective 
+  st-01f10d80689b50a2-190c79c26896690d  : specializedPolicy  ⊏⋆ᵣ  specializedDirective

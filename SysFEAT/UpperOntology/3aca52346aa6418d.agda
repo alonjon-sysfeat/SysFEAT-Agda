@@ -15,15 +15,10 @@ Documentation : https://framework.sysfeat.com/pages/3aca52346aa6418d.htm
 module SysFEAT.UpperOntology.3aca52346aa6418d where -- ========== Abstract Entity
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.5425a2df6aa225cf public -- First Order Entity
 open import SysFEAT.UpperOntology.3aca55ee6aa645c2 public -- Class of Abstract Entity
 
 AbstractEntity : ClassOfAbstractEntity
-AbstractEntity = FirstOrderEntity
-
---  AbstractEntity is subTypeOf FirstOrderEntity
-st-3aca52346aa6418d-5425a2df6aa225cf : AbstractEntity ⊏ₑ FirstOrderEntity
-st-3aca52346aa6418d-5425a2df6aa225cf = polySubTypeOf-identity
+AbstractEntity = Unknown
 
 postulate -- AbstractEntity is PowerInstanceOf Class of Abstract Entity
   3aca56256aa6469a : AbstractEntity ∷ₚₑ ClassOfAbstractEntity

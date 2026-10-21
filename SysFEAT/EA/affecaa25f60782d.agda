@@ -17,6 +17,6 @@ module SysFEAT.EA.affecaa25f60782d where -- ========== Information Entity Compon
 open import Agda.Primitive
 
 InformationEntityComponentDataType : PropertyType
-InformationEntityComponentDataType = ClassOfProperty
+InformationEntityComponentDataType = Property
 
 

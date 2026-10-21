@@ -24,15 +24,18 @@ open import SysFEAT.SOF.ef5df90463212593 public -- Location Type
 Location : ClassOfBoundedIndividual
 Location = BoundedIndividual
 
+
 --  Location is subTypeOf BoundedIndividual
 st-8d5e986f552e28d5-28f07b2354be0d69 : Location ⊏ₑ BoundedIndividual
 st-8d5e986f552e28d5-28f07b2354be0d69 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Sub-Site: -}
 subSite :  Linkage Location Location
 subSite = make_holonymyRelation "Sub-Site" "Sub-Site"
 
 postulate -- subSite is subTypeOf meronymyRelation
-  st-d308d7165a2f67e3-4aeab6186964fd66  : subSite   ⊏⋆ᵣ  meronymyRelation 
+  st-d308d7165a2f67e3-4aeab6186964fd66  : subSite  ⊏⋆ᵣ  meronymyRelation

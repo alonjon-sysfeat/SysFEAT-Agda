@@ -29,4 +29,5 @@ st-08d180d4678a2c8f-08d17cde678a2b47 = polySubTypeOf-identity
 st-08d180d4678a2c8f-bcebd31f5491302c : Supplier ⊏ₑ BusinessAgentType
 st-08d180d4678a2c8f-bcebd31f5491302c = polySubTypeOf-identity
 
--- == Relationships =======================
+
+-- == Relations =======================

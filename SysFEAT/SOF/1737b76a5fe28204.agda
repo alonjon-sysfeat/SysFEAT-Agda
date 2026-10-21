@@ -21,6 +21,7 @@ open import SysFEAT.UpperOntology.342f74b166156e02 public -- Whole Life Individu
 GovernanceActivity : ClassOfBoundedIndividual
 GovernanceActivity = BoundedIndividual
 
+
 --  GovernanceActivity withAspect GovernanceInstrument
 st-1737b76a5fe28204-6662916b68dd5f84 : GovernanceActivity ⊏ₐₑ (GovernanceInstrument lzero)
 st-1737b76a5fe28204-6662916b68dd5f84 = polySubTypeOf-identity
@@ -29,13 +30,24 @@ st-1737b76a5fe28204-6662916b68dd5f84 = polySubTypeOf-identity
 st-1737b76a5fe28204-342f74b166156e02 : GovernanceActivity ⊏ₑ WholeLifeIndividual
 st-1737b76a5fe28204-342f74b166156e02 = polySubTypeOf-identity
 
--- == Relationships =======================
 
+-- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
 {- Governance Activity Part: -}
 -- Aggregate Member : Governance Activity Part
-GovernanceActivityPart : ClassOfOrderedEntity (lsuc(lzero))
-GovernanceActivityPart = AggregateMember (lsuc(lzero))
+GovernanceActivityPart : AggregateHolonymyType
+GovernanceActivityPart = AggregateHolonymy
 
+
+
+--  GovernanceActivityPart is subTypeOf AggregateHolonymy
+st-fee30a85695d0bb0-c2f2c9a166ea50e2 : GovernanceActivityPart ⊏ₑ AggregateHolonymy
+st-fee30a85695d0bb0-c2f2c9a166ea50e2 = polySubTypeOf-identity
+
+--  GovernanceActivityPart is subTypeOf GovernanceActivity
+st-fee30a85695d0bb0-1737b76a5fe28204 : GovernanceActivityPart ⊏ₑ GovernanceActivity
+st-fee30a85695d0bb0-1737b76a5fe28204 = polySubTypeOf-identity
 
 -- Membership relation
 fEE30A85695D0C0E :  Linkage GovernanceActivity GovernanceActivityPart
@@ -53,6 +65,4 @@ aggregationOfGovernanceActivityGovernanceActivityPart = make_Relation "Governanc
 governanceActivityPart : Linkage GovernanceActivity GovernanceActivity
 governanceActivityPart = fEE30A85695D0C0E  ∘  aggregationOfGovernanceActivityGovernanceActivityPart
 
-postulate -- governanceActivityPart is subTypeOf aggregateHolonymy
-  st-fee30a85695d0bb0-c2f2c9a166ea50e2  : governanceActivityPart   ⊏⋆ᵣ  aggregateHolonymy 
 
