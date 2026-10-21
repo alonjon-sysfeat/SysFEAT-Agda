@@ -7,13 +7,13 @@ Third Order Class:
 Third Order Class is the Meta-Class that is the powertype of  Second Order Class. 
 Each instance of Third Order Class is a direct of indirect subtype of Second Order Class. 
 
-Documentation : https://framework.sysfeat.com/pages/05e6065d6aa42f5f.htm
+Documentation : https://framework.sysfeat.com/pages/432843766ad7639a.htm
 
  - ============================== -}
 
 {-# OPTIONS --safe --cubical --guardedness #-}
 
-module SysFEAT.UpperOntology.05e6065d6aa42f5f where -- ============================ Third Order Class
+module SysFEAT.UpperOntology.432843766ad7639a where -- ============================ Third Order Class
 
 open import Agda.Primitive
 open import SysFEAT.UpperOntology.e27801e868f17024 public -- MetaClass and MetaRelation

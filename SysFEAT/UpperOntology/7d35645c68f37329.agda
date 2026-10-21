@@ -22,14 +22,11 @@ module SysFEAT.UpperOntology.7d35645c68f37329 where -- ============== Class of O
 open import Agda.Primitive
 open import SysFEAT.UpperOntology.e8b2f7c7673d36d1 public -- Entity and Relation
 open import SysFEAT.UpperOntology.308c3b3868e9141e public -- Class of Mixed Order Entity
+open import SysFEAT.UpperOntology.d9cce4e96937128c public -- Ordered Meta-Class
 
 -- ============================================================
 -- I. ClassOfOrderedEntity declaration
---    OrderedMetaClass is declared in this module to avoid circular dependencies
 -- ============================================================
-OrderedMetaClass : (u : Level) → Set (lsuc (lsuc (lsuc u)))
-OrderedMetaClass u = MetaClass u
-
 ClassOfOrderedEntity : (u : Level) → OrderedMetaClass u
 ClassOfOrderedEntity u = ClassOfEntity u
 
@@ -37,15 +34,9 @@ ClassOfOrderedEntity u = ClassOfEntity u
 7d35649168f3739b : ∀ {u} → (ClassOfOrderedEntity u) ⊏ₑ (ClassOfEntity u)
 7d35649168f3739b {u} = polySubTypeOf-identity
 
--- ClassOfOrderedEntity isPowerInstanceOf OrderedMetaClass 
-d9cce64E6937133b : ∀ {u} → (ClassOfOrderedEntity u) ∷ₚₑ (OrderedMetaClass u)
-d9cce64E6937133b {u} = powerInstanceOfEntity-fromCoercion (λ A → Lift _ A)
-
--- ============================================================
--- II. OrderedMetaclass is declared as a metaSubType of ClassOfOrderedEntity
---     which makes it a reflexive metaclass
--- ============================================================
--- OrderedMetaclass isSubTypeOf ClassOfOrderedEntity
+-- ClassOfOrderedEntity isInstanceOf OrderedMetaClass 
+d9cce64E6937133b : ∀ {u} → (ClassOfOrderedEntity u) ∷ₑ (OrderedMetaClass u)
+d9cce64E6937133b {u} = instanceOfEntity-fromCoercion (λ A → Lift _ A)
 
 -- ============================================================
 -- III. Aspect of Entity

@@ -18,7 +18,7 @@ module SysFEAT.UpperOntology.87d3062666e33965 where -- ========== Property Type
 
 open import Agda.Primitive
 open import SysFEAT.UpperOntology.3aca564b6aa646ce public -- Class of Class of Abstract Entity
-open import SysFEAT.UpperOntology.05e6065d6aa42f5f public -- Third Order Class
+open import SysFEAT.UpperOntology.432843766ad7639a public -- Third Order Class
 
 PropertyType : ThirdOrderClass
 PropertyType = SecondOrderClass

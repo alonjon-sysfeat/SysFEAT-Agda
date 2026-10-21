@@ -15,4 +15,6 @@ MAlonzo/
 # Other build directories
 build/
 dist/
-.build/
+*.agdai
+*.agdai
+*.agdai

@@ -34,7 +34,7 @@ ClassOfMixedOrderEntity u = ClassOfEntity u
 12fe2cf368ED1674 : ∀ {u v} → (ClassOfMixedOrderEntity u) ⊏⋆ₑ (ClassOfEntity v)
 12fe2cf368ED1674 = trivialPolySubTypeOfEntity
 
---postulate -- ClassOfMixedOrderEntity isPowerInstanceOf MixedOrderMetaClass
+-- ClassOfMixedOrderEntity isPowerInstanceOf MixedOrderMetaClass
 d9cce43b693711e2 : ∀ {u v} → (ClassOfMixedOrderEntity u) ∷ₚₑ (MixedOrderMetaClass v)
 d9cce43b693711e2 = trivialPowerInstanceOfEntity
 

@@ -4,21 +4,24 @@
    framework.sysfeat.com
 
 Meta-Class Partition: 
+The MetaClass of Class Partition.
+
+Documentation : https://framework.sysfeat.com/pages/8d1cf23968f75847.htm
 
  - ============================== -}
 
-{-# OPTIONS --safe --cubical --guardedness #-}
+{-# OPTIONS --cubical --guardedness #-}
 
-module SysFEAT.UpperOntology.8d1cf23968f75847 where -- ========== Meta-Class Partition
+module SysFEAT.UpperOntology.8d1cf23968f75847 where -- ========== Partition Meta-Class
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.06710aeb68ed2d29 public -- Meta-Family of Class
+open import SysFEAT.UpperOntology.6295b7f46ad720d6 public -- Family of Sub-Classes MetaClass
 
-MetaClassPartition : (u : Level) → Set (lsuc (lsuc (lsuc u)))
-MetaClassPartition u = MetaFamilyOfClass u
+PartitionMetaClass : (u : Level) → Set (lsuc (lsuc (lsuc u)))
+PartitionMetaClass u = FamilyOfSubClassesMetaClass u
 
--- MetaClassPartition isSubTypeOf MetaFamilyOfClass
-8d1cd27468f758a5 : ∀ {u} → (MetaClassPartition u) ⊏ₘₑ (MetaFamilyOfClass u)
+-- PartitionMetaClass isSubTypeOf MetaFamilyOfClass
+8d1cd27468f758a5 : ∀ {u} → (PartitionMetaClass u) ⊏ₘₑ (FamilyOfSubClassesMetaClass u)
 8d1cd27468f758a5 {u} = polySubTypeOf-identity
 
 

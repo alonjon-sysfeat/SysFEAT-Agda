@@ -16,7 +16,7 @@ module SysFEAT.UpperOntology.3aca564b6aa646ce where -- ========== Class of Class
 
 open import Agda.Primitive
 open import SysFEAT.UpperOntology.a599a7e46aa370fb public -- Second Order Class
-open import SysFEAT.UpperOntology.05e6065d6aa42f5f public -- Third Order Class
+open import SysFEAT.UpperOntology.432843766ad7639a public -- Third Order Class
 
 ClassOfClassOfAbstractEntity : ThirdOrderClass
 ClassOfClassOfAbstractEntity = SecondOrderClass
