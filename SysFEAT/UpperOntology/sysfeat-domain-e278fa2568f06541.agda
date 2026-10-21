@@ -30,7 +30,7 @@ open import SysFEAT.UpperOntology.dc9c0cbb6acd4ee9 public -- N-Plus Order Entity
 open import SysFEAT.UpperOntology.c463c6106aa23c35 public -- First Order Class
 open import SysFEAT.UpperOntology.0dc01ead6ad74e81 public -- Family MetaClass
 open import SysFEAT.UpperOntology.6ef572f868f1366f public -- Mixed-Order Entity
-open import SysFEAT.UpperOntology.bab678b06ad80eb5 public -- Class Partition
+open import SysFEAT.UpperOntology.a881f78e6ad8484d public -- Class Partition
 open import SysFEAT.UpperOntology.7d35645c68f37329 public -- Class of Ordered Entity
 open import SysFEAT.UpperOntology.5425a2df6aa225cf public -- First Order Entity
 open import SysFEAT.UpperOntology.d9cce4e96937128c public -- Ordered Meta-Class

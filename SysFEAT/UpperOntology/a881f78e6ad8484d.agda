@@ -6,7 +6,7 @@
 Class Partition: 
 A Class Partition is a Family of Sub-Classes that is a partition of the Family Of Class of Entity it references.
 
-Documentation : https://framework.sysfeat.com/pages/bab678b06ad80eb5.htm
+Documentation : https://framework.sysfeat.com/pages/a881f78e6ad8484d.htm
 
 External references:
   Wikipedia - Partition of a set : https://en.wikipedia.org/wiki/Partition_of_a_set
@@ -15,8 +15,8 @@ External references:
 
 {-# OPTIONS --cubical --guardedness #-}
 
-
-module SysFEAT.UpperOntology.bab678b06ad80eb5 where -- ========== Class Partition
+module SysFEAT.UpperOntology.a881f78e6ad8484d where -- ========== Class Partition
+-- module SysFEAT.UpperOntology.bab678b06ad80eb5 where -- ========== Class Partition
 
 open import Agda.Primitive
 open import SysFEAT.UpperOntology.62956b676ad71d70 public -- Family of Sub-Classes
