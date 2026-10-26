@@ -62,13 +62,13 @@ AggregateHolonymy : ClassOfIndividual
 AggregateHolonymy = Individual
 
 
---  AggregateHolonymy withAspect BoundedMember
-st-c2f2c9a166ea50e2-0eb999956855e070 : AggregateHolonymy ⊏ₐₑ (BoundedMember lzero)
-st-c2f2c9a166ea50e2-0eb999956855e070 = polySubTypeOf-identity
-
 --  AggregateHolonymy is subTypeOf BoundedIndividual
 st-c2f2c9a166ea50e2-28f07b2354be0d69 : AggregateHolonymy ⊏ₑ BoundedIndividual
 st-c2f2c9a166ea50e2-28f07b2354be0d69 = polySubTypeOf-identity
+
+--  AggregateHolonymy withAspect BoundedMember
+st-c2f2c9a166ea50e2-0eb999956855e070 : AggregateHolonymy ⊏ₐₑ (BoundedMember lzero)
+st-c2f2c9a166ea50e2-0eb999956855e070 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfAggregateHolonymy :  Linkage BoundedIndividual AggregateHolonymy

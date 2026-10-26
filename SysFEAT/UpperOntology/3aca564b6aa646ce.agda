@@ -10,7 +10,7 @@ Documentation : https://framework.sysfeat.com/pages/3aca564b6aa646ce.htm
 
  - ============================== -}
 
-{-# OPTIONS --safe --cubical --guardedness #-}
+{-# OPTIONS --cubical --guardedness #-}
 
 module SysFEAT.UpperOntology.3aca564b6aa646ce where -- ========== Abstract Entity MetaClass
 

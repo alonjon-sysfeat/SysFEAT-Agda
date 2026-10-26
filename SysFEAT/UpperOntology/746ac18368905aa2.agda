@@ -42,16 +42,6 @@ postulate -- Property is PowerInstanceOf Property Type
 -- == Relations =======================
 
 -- -------------------------------------------------------------------------------------------- 
-{- Property Classification: 
-Property Classification is a classification of Propertys by Property Types.
--}
-propertyClassification :  Linkage Property PropertyType
-propertyClassification = make_classOfRelation "Property Classification" "Property Classification"
-
-postulate -- propertyClassification is subTypeOf instanceOfEntity
-  st-1976247d68925c3e-34a453a068f7a3ef  : propertyClassification  ⊏⋆ᵣ  instanceOfEntity {lzero} {lzero}
-
--- -------------------------------------------------------------------------------------------- 
 {- Specialized Property: 
 Specialization relationship between Property(ies).
 -}
@@ -60,3 +50,13 @@ specializedProperty = make_subTypeOf "Property Specialization" "Specialized Prop
 
 postulate -- specializedProperty is subTypeOf subTypeOfEntity
   st-1662112a68925f90-8336837268e9448b  : specializedProperty  ⊏⋆ᵣ  subTypeOfEntity {lzero}
+
+-- -------------------------------------------------------------------------------------------- 
+{- Property Classification: 
+Property Classification is a classification of Propertys by Property Types.
+-}
+propertyClassification :  Linkage Property PropertyType
+propertyClassification = make_classOfRelation "Property Classification" "Property Classification"
+
+postulate -- propertyClassification is subTypeOf instanceOfEntity
+  st-1976247d68925c3e-34a453a068f7a3ef  : propertyClassification  ⊏⋆ᵣ  instanceOfEntity {lzero} {lzero}
