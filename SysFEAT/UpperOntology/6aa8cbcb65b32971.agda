@@ -36,14 +36,6 @@ postulate -- ClassOfIndividual is PowerInstanceOf Class of Class of Individual
 -- == Relations =======================
 
 -- -------------------------------------------------------------------------------------------- 
-{- Categorization: -}
-categorization : ∀ {u} →  Linkage ClassOfIndividual (Category u)
-categorization = make_classOfRelation "Categorization" "Categorization"
-
-postulate -- categorization is subTypeOf instanceOfEntity
-  st-f69619646a0f8e6c-34a453a068f7a3ef  : categorization  {lsuc(lsuc(lzero))}  ⊏⋆ᵣ  instanceOfEntity {lzero} {lzero}
-
--- -------------------------------------------------------------------------------------------- 
 {- Specialized Class of Individual: 
 Specialization relationship between Class of Individual.
 -}
@@ -52,6 +44,14 @@ specializedClassOfIndividual = make_subTypeOf "Individual Class Specialization" 
 
 postulate -- specializedClassOfIndividual is subTypeOf subTypeOfEntity
   st-e429632e66ec72ab-8336837268e9448b  : specializedClassOfIndividual  ⊏⋆ᵣ  subTypeOfEntity {lzero}
+
+-- -------------------------------------------------------------------------------------------- 
+{- Categorization: -}
+categorization : ∀ {u} →  Linkage ClassOfIndividual (Category u)
+categorization = make_classOfRelation "Categorization" "Categorization"
+
+postulate -- categorization is subTypeOf instanceOfEntity
+  st-f69619646a0f8e6c-34a453a068f7a3ef  : categorization  {lsuc(lsuc(lzero))}  ⊏⋆ᵣ  instanceOfEntity {lzero} {lzero}
 
 -- -------------------------------------------------------------------------------------------- 
 {- Qualifying Property: 

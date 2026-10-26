@@ -26,11 +26,12 @@ module SysFEAT.UpperOntology.sysfeat-domain-e278fa2568f06541 where -- ==========
 open import SysFEAT.UpperOntology.sysfeat-domain-ae26f9c25acd52d4 public -- Predication Substrate
 
 open import SysFEAT.UpperOntology.e27801e868f17024 public -- Meta-Class
+open import SysFEAT.UpperOntology.a881f78e6ad8484d public -- Partition Meta-Class
 open import SysFEAT.UpperOntology.dc9c0cbb6acd4ee9 public -- N-Plus Order Entity
 open import SysFEAT.UpperOntology.c463c6106aa23c35 public -- First Order Class
 open import SysFEAT.UpperOntology.0dc01ead6ad74e81 public -- Family MetaClass
 open import SysFEAT.UpperOntology.6ef572f868f1366f public -- Mixed-Order Entity
-open import SysFEAT.UpperOntology.a881f78e6ad8484d public -- Class Partition
+open import SysFEAT.UpperOntology.bab678b06ad80eb5 public -- Class Partition
 open import SysFEAT.UpperOntology.7d35645c68f37329 public -- Class of Ordered Entity
 open import SysFEAT.UpperOntology.5425a2df6aa225cf public -- First Order Entity
 open import SysFEAT.UpperOntology.d9cce4e96937128c public -- Ordered Meta-Class
@@ -42,7 +43,6 @@ open import SysFEAT.UpperOntology.629565166ad71b60 public -- Grouping Family
 open import SysFEAT.UpperOntology.a599a7e46aa370fb public -- Second Order Class
 open import SysFEAT.UpperOntology.bab6c7346ad70999 public -- Third Order Class
 open import SysFEAT.UpperOntology.d9cce31f69371045 public -- Mixed-Order MetaClass
-open import SysFEAT.UpperOntology.8d1cf23968f75847 public -- Partition Meta-Class
 open import SysFEAT.UpperOntology.a39aaa7f685e5118 public -- Lexical Scope
 open import SysFEAT.UpperOntology.e8b2f7c7673d36d1 public -- Entity
 open import SysFEAT.UpperOntology.20702bc568e969f4 public -- Class of Entity

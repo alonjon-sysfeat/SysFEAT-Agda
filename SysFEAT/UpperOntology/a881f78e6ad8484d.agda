@@ -3,36 +3,26 @@
    This work is released under the MIT License.
    framework.sysfeat.com
 
-Class Partition: 
-A Class Partition is a Family of Sub-Classes that is a partition of the Family Of Class of Entity it references.
+Partition Meta-Class: 
+
 
 Documentation : https://framework.sysfeat.com/pages/a881f78e6ad8484d.htm
-
-External references:
-  Wikipedia - Partition of a set : https://en.wikipedia.org/wiki/Partition_of_a_set
 
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
 
-module SysFEAT.UpperOntology.a881f78e6ad8484d where -- ========== Class Partition
--- module SysFEAT.UpperOntology.bab678b06ad80eb5 where -- ========== Class Partition
+module SysFEAT.UpperOntology.a881f78e6ad8484d where -- ========== Partition Meta-Class
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.62956b676ad71d70 public -- Family of Sub-Classes
-open import SysFEAT.UpperOntology.8d1cf23968f75847 public -- Partition Meta-Class
+open import SysFEAT.UpperOntology.6295b7f46ad720d6 public -- Family of Sub-Classes MetaClass
 
--- ============================================================
--- I. Class Declaration (The root of partitioning)
--- ============================================================
-ClassPartition : (u : Level) → PartitionMetaClass u
-ClassPartition u = FamilyOfSubClasses u
+PartitionMetaClass : ∀ (u : Level) → Set (lsuc (lsuc (lsuc u)))
+PartitionMetaClass u = Category u
 
--- ClassPartition isSubTypeOf FamilyOfClass
-bab67a236ad81058 : ∀ {u} → (ClassPartition u) ⊏ₑ (FamilyOfSubClasses u)
-bab67a236ad81058 {u} = polySubTypeOf-identity
+--  PartitionMetaClass is subTypeOf FamilyOfSubClassesMetaClass
+st-a881f78e6ad8484d-6295b7f46ad720d6 : ∀ {u v} → (PartitionMetaClass u) ⊏⋆ₑ (FamilyOfSubClassesMetaClass v)
+st-a881f78e6ad8484d-6295b7f46ad720d6 = trivialPolySubTypeOfEntity
 
 
-
-
-
+-- == Relations =======================

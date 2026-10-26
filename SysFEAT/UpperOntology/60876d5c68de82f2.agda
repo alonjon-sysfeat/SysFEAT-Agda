@@ -26,3 +26,11 @@ st-60876d5c68de82f2-608767a668de7fb6 = polySubTypeOf-identity
 
 
 -- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
+{- Holonymy MetaClass: -}
+holonymyMetaClass :  Linkage BoundedIndividualMetaClass BoundedIndividualMetaClass
+holonymyMetaClass = make_classOfHolonymy "Holonymy MetaClass" "Holonymy MetaClass"
+
+postulate -- holonymyMetaClass is subTypeOf metaHolonymy
+  st-f6a8f7306ade1d06-59345d466aae06af  : holonymyMetaClass  ⊏⋆ᵣ  metaHolonymy

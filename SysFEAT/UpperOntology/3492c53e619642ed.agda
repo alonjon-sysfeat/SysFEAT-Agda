@@ -21,8 +21,8 @@ open import Agda.Primitive
 open import SysFEAT.UpperOntology.6aa8cbcb65b32971 public -- Class of Individual
 open import SysFEAT.UpperOntology.8cfa941b6852781f public -- Bounded Aggregate
 open import SysFEAT.UpperOntology.60876d5c68de82f2 public -- Bounded Individual MetaClass
-open import SysFEAT.UpperOntology.9429979a66823f90 public -- Temporal Bounding Type
 open import SysFEAT.UpperOntology.746ac18368905aa2 public -- Property
+open import SysFEAT.UpperOntology.9429979a66823f90 public -- Temporal Bounding Type
 
 ClassOfBoundedIndividual : BoundedIndividualMetaClass
 ClassOfBoundedIndividual = ClassOfIndividual
@@ -47,35 +47,6 @@ specializedClassOfBoundedIndividual = make_subTypeOf "Class of Bounded Individua
 
 postulate -- specializedClassOfBoundedIndividual is subTypeOf specializedClassOfIndividual
   st-e53a627766e4b4cd-e429632e66ec72ab  : specializedClassOfBoundedIndividual  ⊏⋆ᵣ  specializedClassOfIndividual
-
--- -------------------------------------------------------------------------------------------- 
-{- Temporal Ordering Type: -}
--- Aggregate Member : Temporal Ordering Type
-TemporalOrderingType : ClassOfClassOfIndividual
-TemporalOrderingType = ClassOfIndividual
-
-
---  TemporalOrderingType withAspect OrderingConnector
-st-2557481f6758a91a-478a4a4468565425 : TemporalOrderingType ⊏ₐₑ (OrderingConnector (lsuc(lzero)))
-st-2557481f6758a91a-478a4a4468565425 = polySubTypeOf-identity
-
--- Membership relation
-membershipOfTemporalOrderingType :  Linkage ClassOfBoundedIndividual TemporalOrderingType
-membershipOfTemporalOrderingType = make_upwardNestingRelation "temporalOrderingType membership" "nested temporalOrderingType"
-
--- Aggregation relation
-aggregationOfTemporalBoundingTypeTemporalOrderingType :  Linkage TemporalOrderingType TemporalBoundingType
-aggregationOfTemporalBoundingTypeTemporalOrderingType = make_Relation "TemporalBoundingType aggregation" "aggregated TemporalBoundingType"
-
-{- temporalOrderingType : derived relation obtained by composing
-   membershipOfTemporalOrderingType and aggregationOfTemporalBoundingTypeTemporalOrderingType
-   It directly links an Class of Bounded Individual to the final aggregated TemporalBoundingType
-   hiding the reifying TemporalOrderingType
--}
-temporalOrderingType : Linkage ClassOfBoundedIndividual TemporalBoundingType
-temporalOrderingType = membershipOfTemporalOrderingType  ∘  aggregationOfTemporalBoundingTypeTemporalOrderingType
-
-
 
 -- -------------------------------------------------------------------------------------------- 
 {- Aggregate Qualification: 
@@ -116,6 +87,35 @@ postulate -- aggregateQualification is subTypeOf subTypeOfEntity
 
 
 -- -------------------------------------------------------------------------------------------- 
+{- Temporal Ordering Type: -}
+-- Aggregate Member : Temporal Ordering Type
+TemporalOrderingType : ClassOfClassOfIndividual
+TemporalOrderingType = ClassOfIndividual
+
+
+--  TemporalOrderingType withAspect OrderingConnector
+st-2557481f6758a91a-478a4a4468565425 : TemporalOrderingType ⊏ₐₑ (OrderingConnector (lsuc(lzero)))
+st-2557481f6758a91a-478a4a4468565425 = polySubTypeOf-identity
+
+-- Membership relation
+membershipOfTemporalOrderingType :  Linkage ClassOfBoundedIndividual TemporalOrderingType
+membershipOfTemporalOrderingType = make_upwardNestingRelation "temporalOrderingType membership" "nested temporalOrderingType"
+
+-- Aggregation relation
+aggregationOfTemporalBoundingTypeTemporalOrderingType :  Linkage TemporalOrderingType TemporalBoundingType
+aggregationOfTemporalBoundingTypeTemporalOrderingType = make_Relation "TemporalBoundingType aggregation" "aggregated TemporalBoundingType"
+
+{- temporalOrderingType : derived relation obtained by composing
+   membershipOfTemporalOrderingType and aggregationOfTemporalBoundingTypeTemporalOrderingType
+   It directly links an Class of Bounded Individual to the final aggregated TemporalBoundingType
+   hiding the reifying TemporalOrderingType
+-}
+temporalOrderingType : Linkage ClassOfBoundedIndividual TemporalBoundingType
+temporalOrderingType = membershipOfTemporalOrderingType  ∘  aggregationOfTemporalBoundingTypeTemporalOrderingType
+
+
+
+-- -------------------------------------------------------------------------------------------- 
 {- Aggregate Holonymy Type: 
 An Aggregate Holonymy Type is a reified flavor of Poly Class of Holonymy whereby the referenced Class of Individual is aggregated in its parent (whole) Class of Bounded Individual.Example:1) A Process Step is the reification of the composition of a child process in a parent process.2) 
 -}
@@ -127,10 +127,6 @@ AggregateHolonymyType = ClassOfIndividual
 --  AggregateHolonymyType withAspect BoundedMember
 st-c2f2c83b66ea4d78-0eb999956855e070 : AggregateHolonymyType ⊏ₐₑ (BoundedMember (lsuc(lzero)))
 st-c2f2c83b66ea4d78-0eb999956855e070 = polySubTypeOf-identity
-
---  AggregateHolonymyType is subTypeOf ClassOfBoundedIndividual
-st-c2f2c83b66ea4d78-3492c53e619642ed : AggregateHolonymyType ⊏ₑ ClassOfBoundedIndividual
-st-c2f2c83b66ea4d78-3492c53e619642ed = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfAggregateHolonymyType :  Linkage ClassOfBoundedIndividual AggregateHolonymyType

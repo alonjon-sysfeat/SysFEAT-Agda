@@ -43,13 +43,14 @@ SecondOrderClass = MetaClass lzero
 --664328444b6ad764b4 : ∀ {u v} → (SecondOrderClass u) ∷ₚₑ (ThirdOrderClass v)
 --4328444b6ad764b4 = trivialPowerInstanceOfEntity
 
-
 -- ============================================================
--- II. Relations between Second Order Classes
+-- II. Mereological Governance (Meta level M2)
 -- ============================================================ 
+metaHolonymy : Linkage SecondOrderClass SecondOrderClass
+metaHolonymy = make_metaRelation "Universal Holonymy Meta Relation between MetaClasses" "Part MetaClass"
 
-SecondOrderClassRelation : Linkage SecondOrderClass SecondOrderClass
-SecondOrderClassRelation = make_classOfRelation "Root class second order relation" "Related Second Order Class"
+metaMeronymy : Linkage SecondOrderClass SecondOrderClass
+metaMeronymy = make_metaRelation "Universal Meronymy Meta Relation between MetaClasses" "Whole MetaClass"
 
--- SecondOrderClassRelation isSubTypeOf classOfOrderedRelation  
+-- metaHolonymy isSubTypeOf classOfOrderedRelation  
 

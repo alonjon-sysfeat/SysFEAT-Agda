@@ -64,14 +64,6 @@ classOfMeronymy = polyClassOfMeronymy
 526b3ea169df6b26 : classOfMeronymy ⊏⋆ᵣ FirstOrderClassRelation
 526b3ea169df6b26  =
   polySubTypeOfRel-fromExtensionMap {subRel = classOfMeronymy} {superRel = FirstOrderClassRelation} (λ w → w)
--- ============================================================
--- IV. Mereological Governance (Meta level M2)
--- ============================================================ 
-metaHolonymy : ∀ {u v} → Linkage (MetaClass u) (MetaClass v)
-metaHolonymy = make_metaRelation "Universal Holonymy Meta Relation between MetaClasses" "Part MetaClass"
-
-metaMeronymy : ∀ {u v} → Linkage (MetaClass u) (MetaClass v)
-metaMeronymy = make_metaRelation "Universal Meronymy Meta Relation between MetaClasses" "Whole MetaClass"
 
 -- ============================================================
 -- V. Mereological principles at M1
