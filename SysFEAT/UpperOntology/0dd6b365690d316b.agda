@@ -9,6 +9,13 @@ It is the power instance of Class of Ordered Entity.Examples:- First Order Entit
 
 Documentation : https://framework.sysfeat.com/pages/0dd6b365690d316b.htm
 
+External references:
+  Survey of Classification Modeling in Software & Systems Modeling  : https://doi.org/10.1007/s10270-016-0521-5
+  BORO Research - Unification of Types and Multi-Level Modeling     : https://research.borosolutions.net/kcl-2024-unification-types-multi-level-modeling-introduction/
+  CycProject 2005 - At Least Nth-Order Class                        : https://framework.sysfeat.com/resources/external-references/CycProject-2005-Instances_of_instances_modeled_via_higher-order-classes.pdf#page=7
+  Open Caesar - Concept-LR                                          : https://opencaesar.io/oml/#Concept-LR 
+  SysFEAT - TheoraticalFoundations- Multilevel Modeling             : https://framework.sysfeat.com/resources/framework/SysFEAT-TheoraticalFoundations-MultiLevelModeling.pdf
+
  - ============================== -}
 
 {-# OPTIONS --safe --cubical --guardedness #-}

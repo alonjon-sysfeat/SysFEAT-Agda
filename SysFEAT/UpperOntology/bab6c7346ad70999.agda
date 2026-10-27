@@ -8,6 +8,13 @@ Third Order Class is the Ordered Meta-Class that is the powertype of  Second Ord
 
 Documentation : https://framework.sysfeat.com/pages/bab6c7346ad70999.htm
 
+External references:
+  Multi-level conceptual modeling: Theory, language and application : https://ris.utwente.nl/ws/portalfiles/portal/359288948/1-s2.0-S0169023X21000215-main.pdf
+  BORO Research - Unification of Types and Multi-Level Modeling     : https://research.borosolutions.net/kcl-2024-unification-types-multi-level-modeling-introduction/
+  CycProject 2005 - Third-Order Class                               : https://framework.sysfeat.com/resources/external-references/CycProject-2005-Instances_of_instances_modeled_via_higher-order-classes.pdf#page=5
+  Survey of Classification Modeling in Software & Systems Modeling  : https://doi.org/10.1007/s10270-016-0521-5
+  SysFEAT - TheoraticalFoundations- Multilevel Modeling             : https://framework.sysfeat.com/resources/framework/SysFEAT-TheoraticalFoundations-MultiLevelModeling.pdf
+
  - ============================== -}
 
 {-# OPTIONS --safe --cubical --guardedness #-}

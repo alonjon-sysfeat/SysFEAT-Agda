@@ -11,11 +11,15 @@ Examples:
 1) Car-Brand (with instances such as VolkswagenCar and HondaCar), 
 2) AnimalSpecies (with instancessuch as GreyWolf and Dodo), Occupation, and USArmyRank. 
 
-External references:
-  Multi-level conceptual modeling: Theory, language and application: https://ris.utwente.nl/ws/portalfiles/portal/359288948/1-s2.0-S0169023X21000215-main.pdf
-  CycProject- Instances of_instances modeled via higher-order-classes: ../resources/external-references/CycProject-2005-Instances_of_instances_modeled_via_higher-order-classes.pdf
-
 Documentation: https://framework.sysfeat.com/pages/a599a7E46aa370fb.htm
+
+External references:
+  Multi-level conceptual modeling: Theory, language and application : https://ris.utwente.nl/ws/portalfiles/portal/359288948/1-s2.0-S0169023X21000215-main.pdf
+  CycProject 2005 - Second-Order Class                              : https://framework.sysfeat.com/resources/external-references/CycProject-2005-Instances_of_instances_modeled_via_higher-order-classes.pdf#page=5
+  Survey of Classification Modeling in Software & Systems Modeling  : https://doi.org/10.1007/s10270-016-0521-5
+  BORO Research - Unification of Types and Multi-Level Modeling     : https://research.borosolutions.net/kcl-2024-unification-types-multi-level-modeling-introduction/
+  SysFEAT - TheoraticalFoundations- Multilevel Modeling             : https://framework.sysfeat.com/resources/framework/SysFEAT-TheoraticalFoundations-MultiLevelModeling.pdf
+
 
  - ============================== -}
 

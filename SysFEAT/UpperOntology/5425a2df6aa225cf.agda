@@ -8,6 +8,7 @@ A First Order Entity is a kind of Ordered Entity that is not itself a class (Cla
 The First Order Entity class is the powerinstance of First Order Class.  
 First Order Entitys are the most common type of entities.The word  Individual  is sometimes used to designate particulars. 
 In SysFEAT, the term Individual is reserved for particulars that have a spatio-temporal extent.
+
 Examples:
   . The set of numbers {1,2,3,4}.
   . The mathematical constant ð (pi).. The English word  Tree  (as a specific string of characters in a specific language). 
@@ -15,6 +16,14 @@ Examples:
   . Mount Vesuvius eruption (Aug. 24-25, A.D. 79).
 
 Documentation : https://framework.sysfeat.com/pages/5425a2df6aa225cf.htm
+
+External references:
+  ISO-15926 - PossibleIndividual                                    : https://15926.blog/topics/data-model/index.htm#PossibleIndividual
+  CycProject 2005 - Individual                                      : https://framework.sysfeat.com/resources/external-references/CycProject-2005-Instances_of_instances_modeled_via_higher-order-classes.pdf#page=2
+  Multi-level conceptual modeling: Theory, language and application : https://ris.utwente.nl/ws/portalfiles/portal/359288948/1-s2.0-S0169023X21000215-main.pdf
+  BORO Research - Unification of Types and Multi-Level Modeling     : https://research.borosolutions.net/kcl-2024-unification-types-multi-level-modeling-introduction/
+  SysFEAT - TheoraticalFoundations- Multilevel Modeling             : https://framework.sysfeat.com/resources/framework/SysFEAT-TheoraticalFoundations-MultiLevelModeling.pdf
+
 
 - ============================== -}
 

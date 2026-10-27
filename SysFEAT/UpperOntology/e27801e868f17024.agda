@@ -11,8 +11,12 @@ Since Meta-Class is itself a sub-type of Class of Entity, Meta-Class is an insta
 Documentation: https://framework.sysfeat.com/pages/e27801e868f17024.htm
 
 External references:
-  CycProject- Instances of_instances modeled via higher-order-classes : https://www.framework.sysfeat.com/resources/external-references/CycProject-2005-Instances_of_instances_modeled_via_higher-order-classes.pdf
-  Stanford Encyclopedia of Philosophy - Non-wellfounded set theory    : https://plato.stanford.edu/entries/nonwellfounded-set-theory/#1
+  CycProject 2005 - At Least Nth-Order Class                       : https://framework.sysfeat.com/resources/external-references/CycProject-2005-Instances_of_instances_modeled_via_higher-order-classes.pdf#page=7
+  Stanford Encyclopedia of Philosophy - Non-wellfounded set theory : https://plato.stanford.edu/entries/nonwellfounded-set-theory/#1
+  Survey of Classification Modeling in Software & Systems Modeling : https://doi.org/10.1007/s10270-016-0521-5
+  BORO Research - Unification of Types and Multi-Level Modeling    : https://research.borosolutions.net/kcl-2024-unification-types-multi-level-modeling-introduction/
+  SysFEAT - TheoraticalFoundations- Multilevel Modeling            : https://framework.sysfeat.com/resources/framework/SysFEAT-TheoraticalFoundations-MultiLevelModeling.pdf
+
 
 
  - ============================== -}
