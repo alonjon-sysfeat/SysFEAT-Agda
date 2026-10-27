@@ -13,6 +13,13 @@ true or false, but a type that collects its instances as inhabitants.
 
 Documentation: https://framework.sysfeat.com/pages/20702b2568e9694d.htm
 
+External references:
+  Survey of Classification Modeling in Software & Systems Modeling : https://doi.org/10.1007/s10270-016-0521-5
+  BORO Research - Unification of Types and Multi-Level Modeling    : https://research.borosolutions.net/kcl-2024-unification-types-multi-level-modeling-introduction/
+  SysFEAT - TheoraticalFoundations- Locality Principle.pdf         : https://framework.sysfeat.com/resources/framework/SysFEAT-TheoraticalFoundations-LocalityPrinciple.pdf
+  SysFEAT - TheoraticalFoundations- Multilevel Modeling            : https://framework.sysfeat.com/resources/framework/SysFEAT-TheoraticalFoundations-MultiLevelModeling.pdf
+
+
  - ============================== -}
 
 {-# OPTIONS --safe --cubical --guardedness #-}

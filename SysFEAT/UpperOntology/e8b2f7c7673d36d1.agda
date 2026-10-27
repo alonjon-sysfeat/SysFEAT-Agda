@@ -10,6 +10,16 @@ The Entity class is the powerinstance of Class of Entity: all subtypes of Entity
 
 Documentation : https://framework.sysfeat.com/pages/e8b2f7c7673d36d1.htm
 
+External references:
+  Multi-level conceptual modeling: Theory, language and application: https://ris.utwente.nl/ws/portalfiles/portal/359288948/1-s2.0-S0169023X21000215-main.pdf
+  BORO Research - Unification of Types and Multi-Level Modeling    : https://research.borosolutions.net/kcl-2024-unification-types-multi-level-modeling-introduction/
+  OMG - KerML - Element                                            : https://www.omg.org/spec/KerML/1.0/PDF#page=133
+  DDD - Glossary - Entity                                          : https://www.dddcommunity.org/resources/ddd_terms?[entity]
+  SysFEAT - TheoraticalFoundations- Locality Principle.pdf         : https://framework.sysfeat.com/resources/framework/SysFEAT-TheoraticalFoundations-LocalityPrinciple.pdf
+  SysFEAT - TheoraticalFoundations- Multilevel Modeling            : https://framework.sysfeat.com/resources/framework/SysFEAT-TheoraticalFoundations-MultiLevelModeling.pdf
+
+
+
  - ============================== -}
 
 {-# OPTIONS --safe --cubical --guardedness #-}

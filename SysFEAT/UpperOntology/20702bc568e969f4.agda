@@ -11,6 +11,24 @@ Note:
 
 Documentation : https://framework.sysfeat.com/pages/20702bc568e969f4.htm
 
+External references:
+	 ISO 15926 - Class                                                 : https://15926.blog/topics/data-model/index.htm#Class
+   Stanford Encyclopedia of Philosophy - Non-wellfounded set theory  : https://plato.stanford.edu/entries/nonwellfounded-set-theory/#1
+   Matthew West - Ontology meets Business - Non well founded sets    : https://framework.sysfeat.com/resources/external-references/Matthew-West-2009_Ontology-meets-business.pdf#page=26
+   Multi-level conceptual modeling: Theory, language and application : https://ris.utwente.nl/ws/portalfiles/portal/359288948/1-s2.0-S0169023X21000215-main.pdf
+   Survey of Classification Modeling in Software & Systems Modeling  : https://doi.org/10.1007/s10270-016-0521-5
+   BORO Research - Unification of Types and Multi-Level Modeling     : https://research.borosolutions.net/kcl-2024-unification-types-multi-level-modeling-introduction/
+   CycProject 2005 - At Least Nth-Order Class                        : https://framework.sysfeat.com/resources/external-references/CycProject-2005-Instances_of_instances_modeled_via_higher-order-classes.pdf#page=7
+   W3C - RDF Schema - Class                                          : https://www.w3.org/TR/rdf-schema/#ch_class
+   Wikipedia - Class (knowledge representation)                      : https://en.wikipedia.org/wiki/Class_(knowledge_representation)
+   Wikipedia - Class (set theory)                                    : https://en.wikipedia.org/wiki/Class_(set_theory)
+   WordNet - Class                                                   : https://en-word.net/ili/i79319
+   OMG - KerML - Type                                                : https://www.omg.org/spec/KerML/1.0/PDF#page=52
+   OMG - SBVR - Concept                                              : https://www.omg.org/spec/SBVR/1.5/PDF#page=38
+   OMG - UML - Type                                                  : https://www.omg.org/spec/UML/2.5.1/PDF#page=75
+   SysFEAT - TheoraticalFoundations- Locality Principle.pdf          : https://framework.sysfeat.com/resources/framework/SysFEAT-TheoraticalFoundations-LocalityPrinciple.pdf
+   SysFEAT - TheoraticalFoundations- Multilevel Modeling             : https://framework.sysfeat.com/resources/framework/SysFEAT-TheoraticalFoundations-MultiLevelModeling.pdf
+
  - ============================== -}
 
 {-# OPTIONS --safe --cubical --guardedness #-}

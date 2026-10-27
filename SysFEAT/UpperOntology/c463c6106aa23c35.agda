@@ -5,6 +5,16 @@
 
 First Order Class: 
 First Order Class is the Meta-Class of all subclasses of First Order Entity. Each instance of First Order Class is a Class of Entity, each of whose instances is necessarily a First Order Entity. 
+
+Documentation: https://framework.sysfeat.com/pages/c463c6106aa23c35.htm
+
+External references:
+  CycProject 2005 - First-Order Class                               : https://framework.sysfeat.com/resources/external-references/CycProject-2005-Instances_of_instances_modeled_via_higher-order-classes.pdf#page=4
+  Survey of Classification Modeling in Software & Systems Modeling  : https://doi.org/10.1007/s10270-016-0521-5
+  BORO Research - Unification of Types and Multi-Level Modeling     : https://research.borosolutions.net/kcl-2024-unification-types-multi-level-modeling-introduction/
+  SysFEAT - TheoraticalFoundations- Multilevel Modeling             : https://framework.sysfeat.com/resources/framework/SysFEAT-TheoraticalFoundations-MultiLevelModeling.pdf
+
+
  - ============================== -}
 
 {-# OPTIONS --safe --cubical --guardedness #-}

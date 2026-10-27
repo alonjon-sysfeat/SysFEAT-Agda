@@ -11,6 +11,14 @@ Every concept in SysFEAT is an Element at some universe level; what distinguishe
 
 Documentation: https://framework.sysfeat.com/pages/23d5249e68510ff9.htm
 
+External references:
+  ISO 15926 - Thing                                                : https://15926.blog/topics/data-model/index.htm#Thing
+  Multi-level conceptual modeling: Theory, language and application: https://ris.utwente.nl/ws/portalfiles/portal/359288948/1-s2.0-S0169023X21000215-main.pdf
+  Survey of Classification Modeling in Software & Systems Modeling : https://doi.org/10.1007/s10270-016-0521-5
+  BORO Research - Unification of Types and Multi-Level Modeling    : https://research.borosolutions.net/kcl-2024-unification-types-multi-level-modeling-introduction/
+  SysFEAT - TheoraticalFoundations- Locality Principle.pdf         : https://framework.sysfeat.com/resources/framework/SysFEAT-TheoraticalFoundations-LocalityPrinciple.pdf
+  SysFEAT - TheoraticalFoundations- Multilevel Modeling            : https://framework.sysfeat.com/resources/framework/SysFEAT-TheoraticalFoundations-MultiLevelModeling.pdf
+
  - ============================== -}
 
 {-# OPTIONS --safe --cubical --guardedness #-}
