@@ -40,5 +40,5 @@ open import SysFEAT.UpperOntology.342f74b166156e02 public -- Whole Life Individu
 open import SysFEAT.UpperOntology.9429979a66823f90 public -- Temporal Bounding Type
 open import SysFEAT.UpperOntology.86b99dad6ac3265f public -- Elementary Property Type
 open import SysFEAT.UpperOntology.86b99fec6ac32863 public -- Composite Property Type
-open import SysFEAT.UpperOntology.f69619236a0f8dcd public -- Category
+open import SysFEAT.UpperOntology.f69619236a0f8dcd public -- Individual Category
 open import SysFEAT.UpperOntology.6aa8cbcb65b32971 public -- Class of Individual

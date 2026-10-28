@@ -19,16 +19,14 @@ External references:
   BORO Research - Unification of Types and Multi-Level Modeling     : https://research.borosolutions.net/kcl-2024-unification-types-multi-level-modeling-introduction/
   SysFEAT - TheoraticalFoundations- Multilevel Modeling             : https://framework.sysfeat.com/resources/framework/SysFEAT-TheoraticalFoundations-MultiLevelModeling.pdf
 
-
-
  - ============================== -}
 
 {-# OPTIONS --safe --cubical --guardedness #-}
 
-module SysFEAT.UpperOntology.86b9b1d46ac32bda where -- ========== Aspect of Entity
+module SysFEAT.UpperOntology.86b9b1d46ac32bda where -- ========== AspectOfEntity
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.6ef572f868f1366f public -- Mixed-Order Entity
+open import SysFEAT.UpperOntology.6ef572f868f1366f public -- MixedOrderEntity
 
 AspectOfEntity : ∀ (u : Level) → ClassOfMixedOrderEntity u 
 AspectOfEntity u  = MixedOrderEntity u 

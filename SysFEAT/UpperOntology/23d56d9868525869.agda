@@ -5,11 +5,23 @@
 
 Aggregate Entity Block: 
 An Aggregate Entity Block is a self-contained and independant Aggregate Block that is not an Ordering Connection.Examples:- Operating Eco-System;- Action Process Type;- Directive;- Agent Type.
+
+Documentation : https://framework.sysfeat.com/pages/23d56d9868525869.htm
+
+External references:
+  OMG - UML - StructuredClassifier                      : https://www.omg.org/spec/UML/2.5.1/PDF#page=225
+  OMG - KerML - Type                                    : https://www.omg.org/spec/KerML/1.0/PDF#page=52
+  DDD-Aggretate                                         : https://www.dddcommunity.org/library/vernon_2011
+  Martin Fowler - Aggregate                             : https://martinfowler.com/bliki/DDD_Aggregate.html
+  Stanford Encyclopedia of Philosophy - Compositionality: https://plato.stanford.edu/entries/compositionality/
+  SysFEAT - Modularity                                  : https://framework.sysfeat.com/resources/framework/SysFEAT-ModelingFramework-01-Modularity.pdf
+  SysFEAT - SysFEAT-ModelingFramework-Visualization.pdf : https://framework.sysfeat.com/resources/framework/SysFEAT-ModelingFramework-Visualization.pdf
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
 
-module SysFEAT.UpperOntology.23d56d9868525869 where -- ========== Aggregate Entity Block
+module SysFEAT.UpperOntology.23d56d9868525869 where -- ========== AggregateEntityBlock
 
 open import Agda.Primitive
 open import SysFEAT.UpperOntology.23d5c5ce68514283 public -- Aggregate Block

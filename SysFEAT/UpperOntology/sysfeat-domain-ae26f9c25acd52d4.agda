@@ -10,6 +10,8 @@ Documentation : https://framework.sysfeat.com/pages/ae26f9c25acd52d4.htm
 
 External references:
   Wikipedia - Upper ontology: https://en.wikipedia.org/wiki/Upper_ontology
+  BORO Research - Unification of Types and Multi-Level Modeling: https://research.borosolutions.net/kcl-2024-unification-types-multi-level-modeling-introduction/
+  Survey of Classification Modeling in Software & Systems Modeling: https://doi.org/10.1007/s10270-016-0521-5
   OMG - KerML - Root: https://www.omg.org/spec/KerML/1.0/PDF#page=39
   SysFEAT-TheoraticalFoundations-LocalityPrinciple.pdf: ../resources/framework/SysFEAT-TheoraticalFoundations-LocalityPrinciple.pdf
  - ============================== -}

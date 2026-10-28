@@ -12,10 +12,10 @@ Documentation : https://framework.sysfeat.com/pages/60876d5c68de82f2.htm
 
 {-# OPTIONS --cubical --guardedness #-}
 
-module SysFEAT.UpperOntology.60876d5c68de82f2 where -- ========== Bounded Individual MetaClass
+module SysFEAT.UpperOntology.60876d5c68de82f2 where -- ========== BoundedIndividualMetaClass
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.608767a668de7fb6 public -- Class of Class of Individual
+open import SysFEAT.UpperOntology.608767a668de7fb6 public -- ClassOfClassOfIndividual
 
 BoundedIndividualMetaClass : ThirdOrderClass
 BoundedIndividualMetaClass = ClassOfClassOfIndividual

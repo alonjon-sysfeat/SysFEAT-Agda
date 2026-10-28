@@ -13,15 +13,21 @@ Example:
 
 Documentation : https://framework.sysfeat.com/pages/6ef572f868f1366f.htm
 
+External references:
+  Survey of Classification Modeling in Software & Systems Modeling : https://doi.org/10.1007/s10270-016-0521-5
+  BORO Research - Unification of Types and Multi-Level Modeling    : https://research.borosolutions.net/kcl-2024-unification-types-multi-level-modeling-introduction/
+  Multi-level conceptual modeling: Theory, language and application : https://ris.utwente.nl/ws/portalfiles/portal/359288948/1-s2.0-S0169023X21000215-main.pdf
+  SysFEAT - TheoraticalFoundations- Multilevel Modeling            : https://framework.sysfeat.com/resources/framework/SysFEAT-TheoraticalFoundations-MultiLevelModeling.pdf
+
  - ============================== -}
 
 {-# OPTIONS --safe --cubical --guardedness #-}
 
-module SysFEAT.UpperOntology.6ef572f868f1366f where -- =============== Mixed-Order Entity
+module SysFEAT.UpperOntology.6ef572f868f1366f where -- =============== MixedOrderEntity
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.e8b2f7c7673d36d1 public -- Entity and Relation
-open import SysFEAT.UpperOntology.308c3b3868e9141e public -- Mixed-Order Class
+open import SysFEAT.UpperOntology.e8b2f7c7673d36d1 public -- Entity & Relation
+open import SysFEAT.UpperOntology.308c3b3868e9141e public -- MixedOrderClass
 
 -- ============================================================
 -- I. MixedOrder Entity (Univers of transversal Entities)

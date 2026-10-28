@@ -14,10 +14,10 @@ External references:
 
 {-# OPTIONS --cubical --guardedness #-}
 
-module SysFEAT.UpperOntology.342f43ae66156429 where -- ========== State Class
+module SysFEAT.UpperOntology.342f43ae66156429 where -- ========== StateClass
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.3492c53e619642ed public -- Class of Bounded Individual
+open import SysFEAT.UpperOntology.3492c53e619642ed public -- ClassOfBoundedIndividual
 
 StateClass : ClassOfClassOfBoundedIndividual
 StateClass = ClassOfBoundedIndividual

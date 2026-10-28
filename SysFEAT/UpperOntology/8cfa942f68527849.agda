@@ -12,10 +12,10 @@ Documentation : https://framework.sysfeat.com/pages/8cfa942f68527849.htm
 
 {-# OPTIONS --cubical --guardedness #-}
 
-module SysFEAT.UpperOntology.8cfa942f68527849 where -- ========== Unbounded Aggregate
+module SysFEAT.UpperOntology.8cfa942f68527849 where -- ========== UnboundedAggregate
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.23d56d9868525869 public -- Aggregate Entity Block
+open import SysFEAT.UpperOntology.23d56d9868525869 public -- AggregateEntityBlock
 
 UnboundedAggregate : ∀ (u : Level) → ClassOfMixedOrderEntity u
 UnboundedAggregate u = MixedOrderEntity u

@@ -12,11 +12,11 @@ Documentation : https://framework.sysfeat.com/pages/86b99fec6ac32863.htm
 
 {-# OPTIONS --cubical --guardedness #-}
 
-module SysFEAT.UpperOntology.86b99fec6ac32863 where -- ========== Composite Property Type
+module SysFEAT.UpperOntology.86b99fec6ac32863 where -- ========== CompositePropertyType
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.87d3062666e33965 public -- Property Type
-open import SysFEAT.UpperOntology.23d56d9868525869 public -- Aggregate Entity Block
+open import SysFEAT.UpperOntology.87d3062666e33965 public -- PropertyType
+open import SysFEAT.UpperOntology.23d56d9868525869 public -- AggregateEntityBlock
 
 CompositePropertyType : ThirdOrderClass
 CompositePropertyType = PropertyType

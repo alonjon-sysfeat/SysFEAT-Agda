@@ -12,10 +12,10 @@ Documentation : https://framework.sysfeat.com/pages/542599db6aa21e06.htm
 
 {-# OPTIONS --cubical --guardedness #-}
 
-module SysFEAT.UpperOntology.542599db6aa21e06 where -- ========== Container Package
+module SysFEAT.UpperOntology.542599db6aa21e06 where -- ========== ContainerPackage
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.3aca52346aa6418d public -- Abstract Entity
+open import SysFEAT.UpperOntology.3aca52346aa6418d public -- AbstractEntity
 open import SysFEAT.UpperOntology.0eb93b4268549a66 public -- Container
 
 ContainerPackage : ClassOfAbstractEntity

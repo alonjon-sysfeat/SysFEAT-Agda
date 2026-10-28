@@ -12,11 +12,11 @@ Documentation : https://framework.sysfeat.com/pages/23d5aa4868513f43.htm
 
 {-# OPTIONS --cubical --guardedness #-}
 
-module SysFEAT.UpperOntology.23d5aa4868513f43 where -- ========== Block Collection
+module SysFEAT.UpperOntology.23d5aa4868513f43 where -- ========== BlockCollection
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.86b9b1d46ac32bda public -- Aspect of Entity
-open import SysFEAT.UpperOntology.23d5a9ea68513ced public -- Building Block
+open import SysFEAT.UpperOntology.86b9b1d46ac32bda public -- AspectOfEntity
+open import SysFEAT.UpperOntology.23d5a9ea68513ced public -- BuildingBlock
 
 BlockCollection : ∀ (u : Level) → ClassOfMixedOrderEntity u 
 BlockCollection u  = MixedOrderEntity u 

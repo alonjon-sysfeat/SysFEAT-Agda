@@ -12,11 +12,11 @@ Documentation : https://framework.sysfeat.com/pages/b85efd0868df48b1.htm
 
 {-# OPTIONS --cubical --guardedness #-}
 
-module SysFEAT.UpperOntology.b85efd0868df48b1 where -- ========== Property Value
+module SysFEAT.UpperOntology.b85efd0868df48b1 where -- ========== PropertyValue
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.3aca52346aa6418d public -- Abstract Entity
-open import SysFEAT.UpperOntology.23d5a9ea68513ced public -- Building Block
+open import SysFEAT.UpperOntology.3aca52346aa6418d public -- AbstractEntity
+open import SysFEAT.UpperOntology.23d5a9ea68513ced public -- BuildingBlock
 open import SysFEAT.UpperOntology.746ac18368905aa2 public -- Property
 
 PropertyValue : Property
@@ -31,6 +31,6 @@ st-b85efd0868df48b1-23d5a9ea68513ced : PropertyValue ⊏ₐₑ (BuildingBlock lz
 st-b85efd0868df48b1-23d5a9ea68513ced = polySubTypeOf-identity
 
 postulate -- PropertyValue is PowerInstanceOf Property
-  0697253168e44995 : PropertyValue ∷ₚₑ Property
+  pi-0697253168e44995 : PropertyValue ∷ₚₑ Property
 
 -- == Relations =======================

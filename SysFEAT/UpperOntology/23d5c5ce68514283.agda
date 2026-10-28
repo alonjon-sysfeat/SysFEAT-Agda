@@ -22,12 +22,12 @@ External references:
 
 {-# OPTIONS --cubical --guardedness #-}
 
-module SysFEAT.UpperOntology.23d5c5ce68514283 where -- ==================== Aggregate Block
+module SysFEAT.UpperOntology.23d5c5ce68514283 where -- ==================== AggregateBlock
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.20702bc568e969f4 public -- Class of Entity and Relation
-open import SysFEAT.UpperOntology.23d5c494685141b5 public -- Block Lexical Scope
-open import SysFEAT.UpperOntology.23d5a9ea68513ced public -- Building Block
+open import SysFEAT.UpperOntology.20702bc568e969f4 public -- ClassOfBoundedIndividualEntity and Relation
+open import SysFEAT.UpperOntology.23d5c494685141b5 public -- BlockLexicalScope
+open import SysFEAT.UpperOntology.23d5a9ea68513ced public -- BuildingBlock
 
 -- ============================================================
 -- I. CONTEXTUAL NESTING (Two-Way Nesting)

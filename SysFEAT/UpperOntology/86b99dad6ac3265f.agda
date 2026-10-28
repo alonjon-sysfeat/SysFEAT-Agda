@@ -12,11 +12,11 @@ Documentation : https://framework.sysfeat.com/pages/86b99dad6ac3265f.htm
 
 {-# OPTIONS --cubical --guardedness #-}
 
-module SysFEAT.UpperOntology.86b99dad6ac3265f where -- ========== Elementary Property Type
+module SysFEAT.UpperOntology.86b99dad6ac3265f where -- ========== ElementaryPropertyType
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.87d3062666e33965 public -- Property Type
-open import SysFEAT.UpperOntology.23d5c5fc685142de public -- Elementary Block
+open import SysFEAT.UpperOntology.87d3062666e33965 public -- PropertyType
+open import SysFEAT.UpperOntology.23d5c5fc685142de public -- ElementaryBlock
 
 ElementaryPropertyType : ThirdOrderClass
 ElementaryPropertyType = PropertyType

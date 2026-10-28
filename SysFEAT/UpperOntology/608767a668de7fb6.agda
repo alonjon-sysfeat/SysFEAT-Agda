@@ -14,11 +14,11 @@ External references:
 
 {-# OPTIONS --cubical --guardedness #-}
 
-module SysFEAT.UpperOntology.608767a668de7fb6 where -- ========== Class of Class of Individual
+module SysFEAT.UpperOntology.608767a668de7fb6 where -- ========== ClassOfClassOfIndividual
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.a599a7e46aa370fb public -- Second Order Class
-open import SysFEAT.UpperOntology.bab6c7346ad70999 public -- Third Order Class
+open import SysFEAT.UpperOntology.a599a7e46aa370fb public -- SecondOrderClass
+open import SysFEAT.UpperOntology.bab6c7346ad70999 public -- ThirdOrderClass
 
 ClassOfClassOfIndividual : ThirdOrderClass
 ClassOfClassOfIndividual = SecondOrderClass

@@ -15,13 +15,13 @@ External references:
 
 {-# OPTIONS --cubical --guardedness #-}
 
-module SysFEAT.UpperOntology.6aa8cbcb65b32971 where -- ========== Class of Individual
+module SysFEAT.UpperOntology.6aa8cbcb65b32971 where -- ========== ClassOfIndividual
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.c463c6106aa23c35 public -- First Order Class
-open import SysFEAT.UpperOntology.608767a668de7fb6 public -- Class of Class of Individual
-open import SysFEAT.UpperOntology.f69619236a0f8dcd public -- Category
+open import SysFEAT.UpperOntology.c463c6106aa23c35 public -- FirstOrderClass
+open import SysFEAT.UpperOntology.608767a668de7fb6 public -- ClassOfClassOfIndividual
 open import SysFEAT.UpperOntology.746ac18368905aa2 public -- Property
+open import SysFEAT.UpperOntology.f69619236a0f8dcd public -- IndividualCategory
 
 ClassOfIndividual : ClassOfClassOfIndividual
 ClassOfIndividual = FirstOrderClass
@@ -31,9 +31,19 @@ st-6aa8cbcb65b32971-c463c6106aa23c35 : ClassOfIndividual ⊏ₑ FirstOrderClass
 st-6aa8cbcb65b32971-c463c6106aa23c35 = polySubTypeOf-identity
 
 postulate -- ClassOfIndividual is PowerInstanceOf Class of Class of Individual
-  12fe19dc68ed0dfe : ClassOfIndividual ∷ₚₑ ClassOfClassOfIndividual
+  pi-12fe19dc68ed0dfe : ClassOfIndividual ∷ₚₑ ClassOfClassOfIndividual
 
 -- == Relations =======================
+
+-- -------------------------------------------------------------------------------------------- 
+{- Qualifying Property: 
+A SubTypeOfEntity from a Class of Bounded Individual to a Property that asserts all members of the Class of Bounded Individual  have  the Property.
+-}
+qualifyingProperty :  Linkage ClassOfIndividual Property
+qualifyingProperty = make_subTypeOf "Qualification" "Qualifying Property"
+
+postulate -- qualifyingProperty is subTypeOf subTypeOfEntity
+  st-16621f9a689131e0-8336837268e9448b  : qualifyingProperty  ⊏⋆ᵣ  subTypeOfEntity {lzero}
 
 -- -------------------------------------------------------------------------------------------- 
 {- Specialized Class of Individual: 
@@ -47,18 +57,8 @@ postulate -- specializedClassOfIndividual is subTypeOf subTypeOfEntity
 
 -- -------------------------------------------------------------------------------------------- 
 {- Categorization: -}
-categorization : ∀ {u} →  Linkage ClassOfIndividual (Category u)
-categorization = make_classOfRelation "Categorization" "Categorization"
+categorization : ∀ {u} →  Linkage ClassOfIndividual (IndividualCategory u)
+categorization = make_subTypeOf "Categorization" "Categorization"
 
-postulate -- categorization is subTypeOf instanceOfEntity
-  st-f69619646a0f8e6c-34a453a068f7a3ef  : categorization  {lsuc(lsuc(lzero))}  ⊏⋆ᵣ  instanceOfEntity {lzero} {lzero}
-
--- -------------------------------------------------------------------------------------------- 
-{- Qualifying Property: 
-A SubTypeOfEntity from a Class of Bounded Individual to a Property that asserts all members of the Class of Bounded Individual  have  the Property.
--}
-qualifyingProperty :  Linkage ClassOfIndividual Property
-qualifyingProperty = make_subTypeOf "Qualification" "Qualifying Property"
-
-postulate -- qualifyingProperty is subTypeOf specializedClassOfIndividual
-  st-16621f9a689131e0-e429632e66ec72ab  : qualifyingProperty  ⊏⋆ᵣ  specializedClassOfIndividual
+postulate -- categorization is subTypeOf subTypeOfEntity
+  st-f69619646a0f8e6c-8336837268e9448b  : categorization  {lsuc(lsuc(lzero))}  ⊏⋆ᵣ  subTypeOfEntity {lzero}

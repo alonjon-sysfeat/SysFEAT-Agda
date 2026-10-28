@@ -21,9 +21,9 @@ External references:
 module SysFEAT.UpperOntology.746ac18368905aa2 where -- ========== Property
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.23d5a9ea68513ced public -- Building Block
-open import SysFEAT.UpperOntology.3aca55ee6aa645c2 public -- Class of Abstract Entity
-open import SysFEAT.UpperOntology.87d3062666e33965 public -- Property Type
+open import SysFEAT.UpperOntology.23d5a9ea68513ced public -- BuildingBlock
+open import SysFEAT.UpperOntology.3aca55ee6aa645c2 public -- ClassOfAbstractEntity
+open import SysFEAT.UpperOntology.87d3062666e33965 public -- PropertyType
 
 Property : PropertyType
 Property = ClassOfAbstractEntity
@@ -37,19 +37,9 @@ st-746ac18368905aa2-3aca55ee6aa645c2 : Property ⊏ₑ ClassOfAbstractEntity
 st-746ac18368905aa2-3aca55ee6aa645c2 = polySubTypeOf-identity
 
 postulate -- Property is PowerInstanceOf Property Type
-  f382366f6aac9352 : Property ∷ₚₑ PropertyType
+  pi-f382366f6aac9352 : Property ∷ₚₑ PropertyType
 
 -- == Relations =======================
-
--- -------------------------------------------------------------------------------------------- 
-{- Specialized Property: 
-Specialization relationship between Property(ies).
--}
-specializedProperty :  Linkage Property Property
-specializedProperty = make_subTypeOf "Property Specialization" "Specialized Property"
-
-postulate -- specializedProperty is subTypeOf subTypeOfEntity
-  st-1662112a68925f90-8336837268e9448b  : specializedProperty  ⊏⋆ᵣ  subTypeOfEntity {lzero}
 
 -- -------------------------------------------------------------------------------------------- 
 {- Property Classification: 
@@ -60,3 +50,13 @@ propertyClassification = make_classOfRelation "Property Classification" "Propert
 
 postulate -- propertyClassification is subTypeOf instanceOfEntity
   st-1976247d68925c3e-34a453a068f7a3ef  : propertyClassification  ⊏⋆ᵣ  instanceOfEntity {lzero} {lzero}
+
+-- -------------------------------------------------------------------------------------------- 
+{- Specialized Property: 
+Specialization relationship between Property(ies).
+-}
+specializedProperty :  Linkage Property Property
+specializedProperty = make_subTypeOf "Property Specialization" "Specialized Property"
+
+postulate -- specializedProperty is subTypeOf subTypeOfEntity
+  st-1662112a68925f90-8336837268e9448b  : specializedProperty  ⊏⋆ᵣ  subTypeOfEntity {lzero}

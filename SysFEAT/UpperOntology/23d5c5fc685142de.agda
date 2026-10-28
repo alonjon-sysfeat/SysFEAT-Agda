@@ -12,10 +12,10 @@ Documentation : https://framework.sysfeat.com/pages/23d5c5fc685142de.htm
 
 {-# OPTIONS --cubical --guardedness #-}
 
-module SysFEAT.UpperOntology.23d5c5fc685142de where -- ========== Elementary Block
+module SysFEAT.UpperOntology.23d5c5fc685142de where -- ========== ElementaryBlock
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.23d5a9ea68513ced public -- Building Block
+open import SysFEAT.UpperOntology.23d5a9ea68513ced public -- BuildingBlock
 
 ElementaryBlock : ∀ (u : Level) → ClassOfMixedOrderEntity u 
 ElementaryBlock u  = MixedOrderEntity u 

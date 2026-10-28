@@ -14,12 +14,12 @@ External references:
 
 {-# OPTIONS --cubical --guardedness #-}
 
-module SysFEAT.UpperOntology.23d5c494685141b5 where -- ========== Block Lexical Scope
+module SysFEAT.UpperOntology.23d5c494685141b5 where -- ========== BlockLexicalScope
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.23d5aa4868513f43 public -- Block Collection
-open import SysFEAT.UpperOntology.a39aaa7f685e5118 public -- Lexical Scope
-open import SysFEAT.UpperOntology.23d5a9ea68513ced public -- Building Block
+open import SysFEAT.UpperOntology.23d5aa4868513f43 public -- BlockCollection
+open import SysFEAT.UpperOntology.a39aaa7f685e5118 public -- LexicalScope
+open import SysFEAT.UpperOntology.23d5a9ea68513ced public -- BuildingBlock
 
 BlockLexicalScope : ∀ (u : Level) → ClassOfMixedOrderEntity u 
 BlockLexicalScope u  = MixedOrderEntity u 

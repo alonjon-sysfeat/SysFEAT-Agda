@@ -14,17 +14,17 @@ External references:
 
 {-# OPTIONS --cubical --guardedness #-}
 
-module SysFEAT.UpperOntology.29cd2db0661546c4 where -- ========== Individual State
+module SysFEAT.UpperOntology.29cd2db0661546c4 where -- ========== IndividualState
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.342f43ae66156429 public -- State Class
-open import SysFEAT.UpperOntology.28f07b2354be0d69 public -- Bounded Individual
+open import SysFEAT.UpperOntology.342f43ae66156429 public -- StateClass
+open import SysFEAT.UpperOntology.28f07b2354be0d69 public -- BoundedIndividual
 
 IndividualState : StateClass
 IndividualState = BoundedIndividual
 
 postulate -- IndividualState is PowerInstanceOf State Class
-  c2f2faae66ea7ef2 : IndividualState ∷ₚₑ StateClass
+  pi-c2f2faae66ea7ef2 : IndividualState ∷ₚₑ StateClass
 
 -- == Relations =======================
 

@@ -10,20 +10,23 @@ Documentation : https://framework.sysfeat.com/pages/28f07b2354be0d69.htm
 
 External references:
   ISO 15926 - ArrangedIndividual: https://15926.blog/topics/data-model/index.htm#ArrangedIndividual
+  DDD - Aggregate: https://www.dddcommunity.org/library/vernon_2011
+  OMG - UML - EncapsulatedClassifier: https://www.omg.org/spec/UML/2.5.1/PDF#page=231
   SysFEAT -Semantic.pdf: ../resources/framework/SysFEAT-ModelingFramework-02-Semantic.pdf
+  Martin Fowler - Aggregate: https://martinfowler.com/bliki/DDD_Aggregate.html
   W3C - OWL - Individual: https://www.w3.org/TR/owl-ref/#Individual
   OMG - KerML - Occurrence: https://www.omg.org/spec/KerML/1.0/PDF#page=316
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
 
-module SysFEAT.UpperOntology.28f07b2354be0d69 where -- ========== Bounded Individual
+module SysFEAT.UpperOntology.28f07b2354be0d69 where -- ========== BoundedIndividual
 
 open import Agda.Primitive
 open import SysFEAT.UpperOntology.4df9512266826e23 public -- Individual
-open import SysFEAT.UpperOntology.8cfa941b6852781f public -- Bounded Aggregate
-open import SysFEAT.UpperOntology.3492c53e619642ed public -- Class of Bounded Individual
-open import SysFEAT.UpperOntology.267b6a126675a0b9 public -- Temporal Bounding
+open import SysFEAT.UpperOntology.8cfa941b6852781f public -- BoundedAggregate
+open import SysFEAT.UpperOntology.3492c53e619642ed public -- ClassOfBoundedIndividual
+open import SysFEAT.UpperOntology.267b6a126675a0b9 public -- TemporalBounding
 
 BoundedIndividual : ClassOfBoundedIndividual
 BoundedIndividual = Individual
@@ -37,7 +40,7 @@ st-28f07b2354be0d69-8cfa941b6852781f : BoundedIndividual ⊏ₐₑ (BoundedAggre
 st-28f07b2354be0d69-8cfa941b6852781f = polySubTypeOf-identity
 
 postulate -- BoundedIndividual is PowerInstanceOf Class of Bounded Individual
-  96a19b6566e85713 : BoundedIndividual ∷ₚₑ ClassOfBoundedIndividual
+  pi-96a19b6566e85713 : BoundedIndividual ∷ₚₑ ClassOfBoundedIndividual
 
 -- == Relations =======================
 
@@ -62,13 +65,13 @@ AggregateHolonymy : ClassOfIndividual
 AggregateHolonymy = Individual
 
 
---  AggregateHolonymy is subTypeOf BoundedIndividual
-st-c2f2c9a166ea50e2-28f07b2354be0d69 : AggregateHolonymy ⊏ₑ BoundedIndividual
-st-c2f2c9a166ea50e2-28f07b2354be0d69 = polySubTypeOf-identity
-
 --  AggregateHolonymy withAspect BoundedMember
 st-c2f2c9a166ea50e2-0eb999956855e070 : AggregateHolonymy ⊏ₐₑ (BoundedMember lzero)
 st-c2f2c9a166ea50e2-0eb999956855e070 = polySubTypeOf-identity
+
+--  AggregateHolonymy is subTypeOf BoundedIndividual
+st-c2f2c9a166ea50e2-28f07b2354be0d69 : AggregateHolonymy ⊏ₑ BoundedIndividual
+st-c2f2c9a166ea50e2-28f07b2354be0d69 = polySubTypeOf-identity
 
 -- Membership relation
 membershipOfAggregateHolonymy :  Linkage BoundedIndividual AggregateHolonymy

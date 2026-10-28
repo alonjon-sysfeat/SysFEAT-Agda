@@ -15,11 +15,11 @@ External references:
 
 {-# OPTIONS --cubical --guardedness #-}
 
-module SysFEAT.UpperOntology.342f74b166156e02 where -- ========== Whole Life Individual
+module SysFEAT.UpperOntology.342f74b166156e02 where -- ========== WholeLifeIndividual
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.28f07b2354be0d69 public -- Bounded Individual
-open import SysFEAT.UpperOntology.00ae5d3b667038fc public -- Whole Life Class
+open import SysFEAT.UpperOntology.28f07b2354be0d69 public -- BoundedIndividual
+open import SysFEAT.UpperOntology.00ae5d3b667038fc public -- WholeLifeClass
 
 WholeLifeIndividual : WholeLifeClass
 WholeLifeIndividual = BoundedIndividual
@@ -29,6 +29,6 @@ st-342f74b166156e02-28f07b2354be0d69 : WholeLifeIndividual ⊏ₑ BoundedIndivid
 st-342f74b166156e02-28f07b2354be0d69 = polySubTypeOf-identity
 
 postulate -- WholeLifeIndividual is PowerInstanceOf Whole Life Class
-  12b0239266e931e9 : WholeLifeIndividual ∷ₚₑ WholeLifeClass
+  pi-12b0239266e931e9 : WholeLifeIndividual ∷ₚₑ WholeLifeClass
 
 -- == Relations =======================

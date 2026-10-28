@@ -12,12 +12,15 @@ External references:
   OpenGroup - ArchiMate - Top Level Language Structure: https://pubs.opengroup.org/architecture/archimate32-doc/ch-Language-Structure.html#sec-Top-Level-Language-Structure
   Matthew West - Ontology meets Business - Non well founded sets: ../resources/external-references/Matthew-West-2009_Ontology-meets-business.pdf#page=26
   BORO Research - Unification of Types and Multi-Level Modeling: https://research.borosolutions.net/kcl-2024-unification-types-multi-level-modeling-introduction/
+  Survey of Classification Modeling in Software & Systems Modeling: https://doi.org/10.1007/s10270-016-0521-5
   Multi-level conceptual modeling: Theory, language and application: https://ris.utwente.nl/ws/portalfiles/portal/359288948/1-s2.0-S0169023X21000215-main.pdf
   SysFEAT-TheoraticalFoundations-MultiLevelModeling.pdf: ../resources/framework/SysFEAT-TheoraticalFoundations-MultiLevelModeling.pdf
   Wordnet - Semantics: https://en-word.net/ili/i67948
   WordNet - Abstraction: https://en-word.net/ili/i67636
   Stanford Encyclopedia of Philosophy - Non-wellfounded set theory: https://plato.stanford.edu/entries/nonwellfounded-set-theory/#1
+  CycProject 2005 - Instances of instances modeled via higher-order-classes: ../resources/external-references/CycProject-2005-Instances_of_instances_modeled_via_higher-order-classes.pdf#page=1
   WordNet - Typology: https://en-word.net/ili/i40713
+  SysFEAT-TheoraticalFoundations-LocalityPrinciple.pdf: ../resources/framework/SysFEAT-TheoraticalFoundations-LocalityPrinciple.pdf
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
@@ -26,21 +29,18 @@ module SysFEAT.UpperOntology.sysfeat-domain-e278fa2568f06541 where -- ==========
 open import SysFEAT.UpperOntology.sysfeat-domain-ae26f9c25acd52d4 public -- Predication Substrate
 
 open import SysFEAT.UpperOntology.e27801e868f17024 public -- Meta-Class
-open import SysFEAT.UpperOntology.a881f78e6ad8484d public -- Partition Meta-Class
+open import SysFEAT.UpperOntology.003302806ae27b7c public -- Fourth Order Class
 open import SysFEAT.UpperOntology.dc9c0cbb6acd4ee9 public -- N-Plus Order Entity
 open import SysFEAT.UpperOntology.c463c6106aa23c35 public -- First Order Class
-open import SysFEAT.UpperOntology.0dc01ead6ad74e81 public -- Family MetaClass
 open import SysFEAT.UpperOntology.6ef572f868f1366f public -- Mixed-Order Entity
-open import SysFEAT.UpperOntology.bab678b06ad80eb5 public -- Class Partition
 open import SysFEAT.UpperOntology.7d35645c68f37329 public -- Class of Ordered Entity
 open import SysFEAT.UpperOntology.5425a2df6aa225cf public -- First Order Entity
 open import SysFEAT.UpperOntology.d9cce4e96937128c public -- Ordered Meta-Class
 open import SysFEAT.UpperOntology.0dd6b365690d316b public -- Ordered Entity
-open import SysFEAT.UpperOntology.6295b7f46ad720d6 public -- Family of Sub-Classes MetaClass
-open import SysFEAT.UpperOntology.220d23706ad71311 public -- Grouping MetaClass
-open import SysFEAT.UpperOntology.62956b676ad71d70 public -- Family of Sub-Classes
-open import SysFEAT.UpperOntology.629565166ad71b60 public -- Grouping Family
+open import SysFEAT.UpperOntology.220d23706ad71311 public -- Categorization Family
+open import SysFEAT.UpperOntology.629565166ad71b60 public -- Category of Entity
 open import SysFEAT.UpperOntology.a599a7e46aa370fb public -- Second Order Class
+open import SysFEAT.UpperOntology.ad05c1986ae142c1 public -- Enumerated Family
 open import SysFEAT.UpperOntology.bab6c7346ad70999 public -- Third Order Class
 open import SysFEAT.UpperOntology.d9cce31f69371045 public -- Mixed-Order MetaClass
 open import SysFEAT.UpperOntology.a39aaa7f685e5118 public -- Lexical Scope

@@ -33,7 +33,7 @@ External references:
 
 {-# OPTIONS --safe --cubical --guardedness #-}
 
-module SysFEAT.UpperOntology.20702bc568e969f4 where -- ============ Class of Entity & Class of Relation
+module SysFEAT.UpperOntology.20702bc568e969f4 where -- ============ ClassOfEntity & classOfRelation
 
 open import SysFEAT.UpperOntology.20702b2568e9694d public -- Class of Element
 
