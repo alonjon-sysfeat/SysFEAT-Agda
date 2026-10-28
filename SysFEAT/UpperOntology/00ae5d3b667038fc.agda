@@ -12,10 +12,10 @@ Documentation : https://framework.sysfeat.com/pages/00ae5d3b667038fc.htm
 
 {-# OPTIONS --cubical --guardedness #-}
 
-module SysFEAT.UpperOntology.00ae5d3b667038fc where -- ========== Whole Life Class
+module SysFEAT.UpperOntology.00ae5d3b667038fc where -- ========== WholeLifeClass
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.3492c53e619642ed public -- Class of Bounded Individual
+open import SysFEAT.UpperOntology.3492c53e619642ed public -- ClassOfBoundedIndividual
 
 WholeLifeClass : ClassOfClassOfBoundedIndividual
 WholeLifeClass = ClassOfBoundedIndividual

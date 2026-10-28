@@ -19,7 +19,7 @@ External references:
 
 {-# OPTIONS --safe --cubical --guardedness #-}
 
-module SysFEAT.UpperOntology.308c3b3868e9141e where -- ================= Class of Mixed-Order Entity
+module SysFEAT.UpperOntology.308c3b3868e9141e where -- ================= ClassOfMixedOrderEntity
 
 open import Agda.Primitive
 open import SysFEAT.UpperOntology.e8b2f7c7673d36d1 public -- Entity and Relation

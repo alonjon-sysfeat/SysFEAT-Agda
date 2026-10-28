@@ -8,15 +8,17 @@ An Abstract Entity is a First Order Entity that does not represent a spatio-temp
 
 Documentation : https://framework.sysfeat.com/pages/3aca52346aa6418d.htm
 
+External references:
+  WordNet - Abstract Entity: https://en-word.net/ili/i35547
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
 
-module SysFEAT.UpperOntology.3aca52346aa6418d where -- ========== Abstract Entity
+module SysFEAT.UpperOntology.3aca52346aa6418d where -- ========== AbstractEntity
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.5425a2df6aa225cf public -- First Order Entity
-open import SysFEAT.UpperOntology.3aca55ee6aa645c2 public -- Class of Abstract Entity
+open import SysFEAT.UpperOntology.5425a2df6aa225cf public -- FirstOrderEntity
+open import SysFEAT.UpperOntology.3aca55ee6aa645c2 public -- ClassOfAbstractEntity
 
 AbstractEntity : ClassOfAbstractEntity
 AbstractEntity = FirstOrderEntity
@@ -26,6 +28,6 @@ st-3aca52346aa6418d-5425a2df6aa225cf : AbstractEntity ⊏ₑ FirstOrderEntity
 st-3aca52346aa6418d-5425a2df6aa225cf = polySubTypeOf-identity
 
 postulate -- AbstractEntity is PowerInstanceOf Class of Abstract Entity
-  3aca56256aa6469a : AbstractEntity ∷ₚₑ ClassOfAbstractEntity
+  pi-3aca56256aa6469a : AbstractEntity ∷ₚₑ ClassOfAbstractEntity
 
 -- == Relations =======================

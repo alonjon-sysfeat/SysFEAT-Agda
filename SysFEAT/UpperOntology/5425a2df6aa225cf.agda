@@ -29,12 +29,12 @@ External references:
 
 {-# OPTIONS --safe --cubical --guardedness #-}
 
-module SysFEAT.UpperOntology.5425a2df6aa225cf where -- ======================== First Order Entity (Level 1)
+module SysFEAT.UpperOntology.5425a2df6aa225cf where -- ======================== FirstOrderEntity (Level 1)
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.20702bc568e969f4 public -- Class of Entity & Class of Relation
-open import SysFEAT.UpperOntology.0dd6b365690d316b public -- Ordered Entity
-open import SysFEAT.UpperOntology.c463c6106aa23c35 public -- First Order Class (M1) - brings the Mereology Kit (Entity module)
+open import SysFEAT.UpperOntology.20702bc568e969f4 public -- ClassOfEntity & classOfRelation
+open import SysFEAT.UpperOntology.0dd6b365690d316b public -- OrderedEntity
+open import SysFEAT.UpperOntology.c463c6106aa23c35 public -- FirstOrderClass (M1) - brings the Mereology Kit (Entity module)
 
 -- ============================================================
 -- I. First Order Entity  (M1 level)

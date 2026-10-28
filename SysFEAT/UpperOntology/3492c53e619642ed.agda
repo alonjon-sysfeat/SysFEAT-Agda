@@ -9,20 +9,24 @@ A Class of Bounded Individual is a Class of Individual which denotes Bounded Ind
 Documentation : https://framework.sysfeat.com/pages/3492c53e619642ed.htm
 
 External references:
+  OMG - UML - EncapsulatedClassifier: https://www.omg.org/spec/UML/2.5.1/PDF#page=231
+  SysFEAT -Semantic.pdf: ../resources/framework/SysFEAT-ModelingFramework-02-Semantic.pdf
+  Martin Fowler - Aggregate: https://martinfowler.com/bliki/DDD_Aggregate.html
   OMG - KerML - Class: https://www.omg.org/spec/KerML/1.0/PDF#page=67
+  OMG - KerML - Structure: https://www.omg.org/spec/KerML/1.0/PDF#page=68
   ISO 15926 - ClassOfArrangedIndividual: https://15926.blog/topics/data-model/index.htm#ClassOfArrangedIndividual
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
 
-module SysFEAT.UpperOntology.3492c53e619642ed where -- ========== Class of Bounded Individual
+module SysFEAT.UpperOntology.3492c53e619642ed where -- ========== ClassOfBoundedIndividual
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.6aa8cbcb65b32971 public -- Class of Individual
-open import SysFEAT.UpperOntology.8cfa941b6852781f public -- Bounded Aggregate
-open import SysFEAT.UpperOntology.60876d5c68de82f2 public -- Bounded Individual MetaClass
+open import SysFEAT.UpperOntology.6aa8cbcb65b32971 public -- ClassOfIndividual
+open import SysFEAT.UpperOntology.8cfa941b6852781f public -- BoundedAggregate
+open import SysFEAT.UpperOntology.60876d5c68de82f2 public -- BoundedIndividualMetaClass
 open import SysFEAT.UpperOntology.746ac18368905aa2 public -- Property
-open import SysFEAT.UpperOntology.9429979a66823f90 public -- Temporal Bounding Type
+open import SysFEAT.UpperOntology.9429979a66823f90 public -- TemporalBoundingType
 
 ClassOfBoundedIndividual : BoundedIndividualMetaClass
 ClassOfBoundedIndividual = ClassOfIndividual
@@ -36,7 +40,7 @@ st-3492c53e619642ed-8cfa941b6852781f : ClassOfBoundedIndividual ⊏ₐₑ (Bound
 st-3492c53e619642ed-8cfa941b6852781f = polySubTypeOf-identity
 
 postulate -- ClassOfBoundedIndividual is PowerInstanceOf Bounded Individual MetaClass
-  328b393a66e32434 : ClassOfBoundedIndividual ∷ₚₑ BoundedIndividualMetaClass
+  pi-328b393a66e32434 : ClassOfBoundedIndividual ∷ₚₑ BoundedIndividualMetaClass
 
 -- == Relations =======================
 
@@ -87,35 +91,6 @@ postulate -- aggregateQualification is subTypeOf subTypeOfEntity
 
 
 -- -------------------------------------------------------------------------------------------- 
-{- Temporal Ordering Type: -}
--- Aggregate Member : Temporal Ordering Type
-TemporalOrderingType : ClassOfClassOfIndividual
-TemporalOrderingType = ClassOfIndividual
-
-
---  TemporalOrderingType withAspect OrderingConnector
-st-2557481f6758a91a-478a4a4468565425 : TemporalOrderingType ⊏ₐₑ (OrderingConnector (lsuc(lzero)))
-st-2557481f6758a91a-478a4a4468565425 = polySubTypeOf-identity
-
--- Membership relation
-membershipOfTemporalOrderingType :  Linkage ClassOfBoundedIndividual TemporalOrderingType
-membershipOfTemporalOrderingType = make_upwardNestingRelation "temporalOrderingType membership" "nested temporalOrderingType"
-
--- Aggregation relation
-aggregationOfTemporalBoundingTypeTemporalOrderingType :  Linkage TemporalOrderingType TemporalBoundingType
-aggregationOfTemporalBoundingTypeTemporalOrderingType = make_Relation "TemporalBoundingType aggregation" "aggregated TemporalBoundingType"
-
-{- temporalOrderingType : derived relation obtained by composing
-   membershipOfTemporalOrderingType and aggregationOfTemporalBoundingTypeTemporalOrderingType
-   It directly links an Class of Bounded Individual to the final aggregated TemporalBoundingType
-   hiding the reifying TemporalOrderingType
--}
-temporalOrderingType : Linkage ClassOfBoundedIndividual TemporalBoundingType
-temporalOrderingType = membershipOfTemporalOrderingType  ∘  aggregationOfTemporalBoundingTypeTemporalOrderingType
-
-
-
--- -------------------------------------------------------------------------------------------- 
 {- Aggregate Holonymy Type: 
 An Aggregate Holonymy Type is a reified flavor of Poly Class of Holonymy whereby the referenced Class of Individual is aggregated in its parent (whole) Class of Bounded Individual.Example:1) A Process Step is the reification of the composition of a child process in a parent process.2) 
 -}
@@ -146,4 +121,33 @@ aggregateHolonymyType = membershipOfAggregateHolonymyType  ∘  aggregationOfCla
 
 postulate -- aggregateHolonymyType is subTypeOf classOfHolonymy
   st-c2f2c83b66ea4d78-f62600496ad57ec3  : aggregateHolonymyType  ⊏⋆ᵣ  classOfHolonymy
+
+
+-- -------------------------------------------------------------------------------------------- 
+{- Temporal Ordering Type: -}
+-- Aggregate Member : Temporal Ordering Type
+TemporalOrderingType : ClassOfClassOfIndividual
+TemporalOrderingType = ClassOfIndividual
+
+
+--  TemporalOrderingType withAspect OrderingConnector
+st-2557481f6758a91a-478a4a4468565425 : TemporalOrderingType ⊏ₐₑ (OrderingConnector (lsuc(lzero)))
+st-2557481f6758a91a-478a4a4468565425 = polySubTypeOf-identity
+
+-- Membership relation
+membershipOfTemporalOrderingType :  Linkage ClassOfBoundedIndividual TemporalOrderingType
+membershipOfTemporalOrderingType = make_upwardNestingRelation "temporalOrderingType membership" "nested temporalOrderingType"
+
+-- Aggregation relation
+aggregationOfTemporalBoundingTypeTemporalOrderingType :  Linkage TemporalOrderingType TemporalBoundingType
+aggregationOfTemporalBoundingTypeTemporalOrderingType = make_Relation "TemporalBoundingType aggregation" "aggregated TemporalBoundingType"
+
+{- temporalOrderingType : derived relation obtained by composing
+   membershipOfTemporalOrderingType and aggregationOfTemporalBoundingTypeTemporalOrderingType
+   It directly links an Class of Bounded Individual to the final aggregated TemporalBoundingType
+   hiding the reifying TemporalOrderingType
+-}
+temporalOrderingType : Linkage ClassOfBoundedIndividual TemporalBoundingType
+temporalOrderingType = membershipOfTemporalOrderingType  ∘  aggregationOfTemporalBoundingTypeTemporalOrderingType
+
 

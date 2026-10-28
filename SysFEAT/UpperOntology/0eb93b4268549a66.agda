@@ -20,8 +20,8 @@ External references:
 module SysFEAT.UpperOntology.0eb93b4268549a66 where -- ========== Container
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.23d5c494685141b5 public -- Block Lexical Scope
-open import SysFEAT.UpperOntology.23d5a9ea68513ced public -- Building Block
+open import SysFEAT.UpperOntology.23d5c494685141b5 public -- BlockLexicalScope
+open import SysFEAT.UpperOntology.23d5a9ea68513ced public -- BuildingBlock
 
 Container : ∀ (u : Level) → ClassOfMixedOrderEntity u 
 Container u  = MixedOrderEntity u 

@@ -12,12 +12,12 @@ Documentation : https://framework.sysfeat.com/pages/267b6a126675a0b9.htm
 
 {-# OPTIONS --cubical --guardedness #-}
 
-module SysFEAT.UpperOntology.267b6a126675a0b9 where -- ========== Temporal Bounding
+module SysFEAT.UpperOntology.267b6a126675a0b9 where -- ========== TemporalBounding
 
 open import Agda.Primitive
 open import SysFEAT.UpperOntology.4df9512266826e23 public -- Individual
-open import SysFEAT.UpperOntology.23d5eaba68515533 public -- Ordering Connection
-open import SysFEAT.UpperOntology.9429979a66823f90 public -- Temporal Bounding Type
+open import SysFEAT.UpperOntology.23d5eaba68515533 public -- OrderingConnection
+open import SysFEAT.UpperOntology.9429979a66823f90 public -- TemporalBoundingType
 
 TemporalBounding : TemporalBoundingType
 TemporalBounding = Individual
@@ -31,6 +31,6 @@ st-267b6a126675a0b9-23d5eaba68515533 : TemporalBounding ⊏ₐₑ (OrderingConne
 st-267b6a126675a0b9-23d5eaba68515533 = polySubTypeOf-identity
 
 postulate -- TemporalBounding is PowerInstanceOf Temporal Bounding Type
-  9429990f668240a4 : TemporalBounding ∷ₚₑ TemporalBoundingType
+  pi-9429990f668240a4 : TemporalBounding ∷ₚₑ TemporalBoundingType
 
 -- == Relations =======================

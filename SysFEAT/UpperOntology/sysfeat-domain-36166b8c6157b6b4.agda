@@ -16,6 +16,8 @@ External references:
   OpenGroup - OAA - Modularity: https://pubs.opengroup.org/architecture/o-aa-standard/definitions.html#_modularity
   OpenGroup - TOGAF - Definition - Building Block: https://pubs.opengroup.org/togaf-standard/introduction/chap04.html#sec-04_26
   DDD - Aggregate: https://www.dddcommunity.org/library/vernon_2011
+  BORO Research - Unification of Types and Multi-Level Modeling: https://research.borosolutions.net/kcl-2024-unification-types-multi-level-modeling-introduction/
+  Survey of Classification Modeling in Software & Systems Modeling: https://doi.org/10.1007/s10270-016-0521-5
   SysFEAT - Modularity.pdf: ../resources/framework/SysFEAT-ModelingFramework-01-Modularity.pdf
   Stanford Encyclopedia of Philosophy - Compositionality: https://plato.stanford.edu/entries/compositionality
   SysFEAT-ModelingFramework-Visualization.pdf: ../resources/framework/SysFEAT-ModelingFramework-Visualization.pdf

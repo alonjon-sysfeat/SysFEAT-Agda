@@ -14,12 +14,12 @@ External references:
 
 {-# OPTIONS --cubical --guardedness #-}
 
-module SysFEAT.UpperOntology.3e525f966ab05bd8 where -- ========== Elementary Property
+module SysFEAT.UpperOntology.3e525f966ab05bd8 where -- ========== ElementaryProperty
 
 open import Agda.Primitive
 open import SysFEAT.UpperOntology.746ac18368905aa2 public -- Property
-open import SysFEAT.UpperOntology.23d5c5fc685142de public -- Elementary Block
-open import SysFEAT.UpperOntology.86b99dad6ac3265f public -- Elementary Property Type
+open import SysFEAT.UpperOntology.23d5c5fc685142de public -- ElementaryBlock
+open import SysFEAT.UpperOntology.86b99dad6ac3265f public -- ElementaryPropertyType
 
 ElementaryProperty : ElementaryPropertyType
 ElementaryProperty = Property
@@ -33,6 +33,6 @@ st-3e525f966ab05bd8-23d5c5fc685142de : ElementaryProperty ⊏ₐₑ (ElementaryB
 st-3e525f966ab05bd8-23d5c5fc685142de = polySubTypeOf-identity
 
 postulate -- ElementaryProperty is PowerInstanceOf Elementary Property Type
-  86b99e936ac3274e : ElementaryProperty ∷ₚₑ ElementaryPropertyType
+  pi-86b99e936ac3274e : ElementaryProperty ∷ₚₑ ElementaryPropertyType
 
 -- == Relations =======================

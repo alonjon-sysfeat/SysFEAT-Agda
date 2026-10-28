@@ -14,12 +14,12 @@ External references:
 
 {-# OPTIONS --cubical --guardedness #-}
 
-module SysFEAT.UpperOntology.3e525e406ab05b0d where -- ========== Composite Property
+module SysFEAT.UpperOntology.3e525e406ab05b0d where -- ========== CompositeProperty
 
 open import Agda.Primitive
 open import SysFEAT.UpperOntology.746ac18368905aa2 public -- Property
-open import SysFEAT.UpperOntology.23d56d9868525869 public -- Aggregate Entity Block
-open import SysFEAT.UpperOntology.86b99fec6ac32863 public -- Composite Property Type
+open import SysFEAT.UpperOntology.23d56d9868525869 public -- AggregateEntityBlock
+open import SysFEAT.UpperOntology.86b99fec6ac32863 public -- CompositePropertyType
 
 CompositeProperty : CompositePropertyType
 CompositeProperty = Property
@@ -33,7 +33,7 @@ st-3e525e406ab05b0d-23d56d9868525869 : CompositeProperty ⊏ₐₑ (AggregateEnt
 st-3e525e406ab05b0d-23d56d9868525869 = polySubTypeOf-identity
 
 postulate -- CompositeProperty is PowerInstanceOf Composite Property Type
-  86b9a0756ac3295e : CompositeProperty ∷ₚₑ CompositePropertyType
+  pi-86b9a0756ac3295e : CompositeProperty ∷ₚₑ CompositePropertyType
 
 -- == Relations =======================
 

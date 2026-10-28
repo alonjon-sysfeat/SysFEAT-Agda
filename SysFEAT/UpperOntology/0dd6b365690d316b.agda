@@ -20,14 +20,14 @@ External references:
 
 {-# OPTIONS --safe --cubical --guardedness #-}
 
-module SysFEAT.UpperOntology.0dd6b365690d316b where -- =============== Ordered Entity
+module SysFEAT.UpperOntology.0dd6b365690d316b where -- =============== OrderedEntity
 
 open import Agda.Primitive
 open import SysFEAT.UpperOntology.e8b2f7c7673d36d1 public -- Entity and Relation
-open import SysFEAT.UpperOntology.7d35645c68f37329 public -- Class of Ordered Entity
+open import SysFEAT.UpperOntology.7d35645c68f37329 public -- ClassOfOrderedEntity
 
 -- ============================================================
--- I. Ordered Entity (L'Univers des Instances Ancrées)
+-- I. Ordered Entity (Universe of anchrored instances)
 -- ============================================================ 
 OrderedEntity : (u : Level) → ClassOfOrderedEntity u
 OrderedEntity u = Entity u

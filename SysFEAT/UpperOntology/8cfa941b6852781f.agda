@@ -5,15 +5,28 @@
 
 Bounded Aggregate: 
 A Bounded Aggregate is an Aggregate Entity Block which hides its internal structure to the outside world by means of formal Borders.The only way to access a Bounded Aggregate is through its formal Borders, which ensures the aggregates internal consistency.The Borders of a Bounded Aggregate is determined by the Ordering Connections it can participate to.Within a Bounded Aggregate structure, Bounded Members can be linked together through Ordering Connectors.The nature of Ordering Connectors is given by their associated Ordering Connection.Examples:- Action Process Typees are bounded by their start and end events (see Behavioral Event).- Applications are bounded by their APIs borders (API Service Point and API Request Point).
+
+Documentation : https://framework.sysfeat.com/pages/8cfa941b6852781f.htm
+
+Extennal references: 
+  DDD-Aggretate                                         : https://www.dddcommunity.org/library/vernon_2011
+  OMG - KerML - Classifier                              : https://www.omg.org/spec/KerML/1.0/PDF#page=57
+  OMG - UML - EncapsulatedClassifier                    : https://www.omg.org/spec/UML/2.5.1/PDF#page=231
+  Martin Fowler - Aggregate                             : https://martinfowler.com/bliki/DDD_Aggregate.html
+  Stanford Encyclopedia of Philosophy - Compositionality: https://plato.stanford.edu/entries/compositionality/
+  SysFEAT - Modularity                                  : https://framework.sysfeat.com/resources/framework/SysFEAT-ModelingFramework-01-Modularity.pdf
+  SysFEAT - SysFEAT-ModelingFramework-Visualization.pdf : https://framework.sysfeat.com/resources/framework/SysFEAT-ModelingFramework-Visualization.pdf
+
+
  - ============================== -}
 
 {-# OPTIONS --cubical --guardedness #-}
 
-module SysFEAT.UpperOntology.8cfa941b6852781f where -- ========== Bounded Aggregate
+module SysFEAT.UpperOntology.8cfa941b6852781f where -- ========== BoundedAggregate
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.23d56d9868525869 public -- Aggregate Entity Block
-open import SysFEAT.UpperOntology.23d5eaba68515533 public -- Ordering Connection
+open import SysFEAT.UpperOntology.23d56d9868525869 public -- AggregateEntityBlock
+open import SysFEAT.UpperOntology.23d5eaba68515533 public -- OrderingConnection
 
 BoundedAggregate : ∀ (u : Level) → ClassOfMixedOrderEntity u
 BoundedAggregate u = AggregateEntityBlock u

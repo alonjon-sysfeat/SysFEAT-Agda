@@ -19,19 +19,24 @@ External references:
 
 {-# OPTIONS --safe --cubical --guardedness #-}
 
-module SysFEAT.UpperOntology.bab6c7346ad70999 where -- ========== Third Order Class
+module SysFEAT.UpperOntology.bab6c7346ad70999 where -- ========== ThirdOrderClass
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.d9cce4e96937128c public -- Ordered Meta-Class
-open import SysFEAT.UpperOntology.0dd6b365690d316b public -- Ordered Entity
+open import SysFEAT.UpperOntology.003302806ae27b7c public -- FourthOrderClass
+
+-- ============================================================
+-- I. Concept declaration
+-- ============================================================
 
 ThirdOrderClass : Set (lsuc (lsuc (lsuc (lsuc lzero))))
 ThirdOrderClass = MetaClass (lsuc(lzero))
 
 --  ThirdOrderClass withAspect OrderedMetaClass
-st-bab6c7346ad70999-d9cce4e96937128c : ThirdOrderClass ⊏ₐₑ (OrderedMetaClass (lsuc(lsuc(lzero))))
-st-bab6c7346ad70999-d9cce4e96937128c  = trivialPolySubTypeOf
+bab6C7446ad709fb : ThirdOrderClass ⊏ₐₑ (OrderedMetaClass (lsuc(lsuc(lsuc(lzero)))))
+bab6C7446ad709fb  = trivialPolySubTypeOf
 
-
+-- ThirdOrderClass isPowerInstanceOf FourthClass
+--003302946ae27bde : ∀ {u v} → (ThirdOrderClass u) ∷ₚₑ (FourthOrderClass v)
+--003302946ae27bde = trivialPowerInstanceOfEntity
 
 

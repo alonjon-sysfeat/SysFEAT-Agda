@@ -12,11 +12,11 @@ Documentation : https://framework.sysfeat.com/pages/9429979a66823f90.htm
 
 {-# OPTIONS --cubical --guardedness #-}
 
-module SysFEAT.UpperOntology.9429979a66823f90 where -- ========== Temporal Bounding Type
+module SysFEAT.UpperOntology.9429979a66823f90 where -- ========== TemporalBoundingType
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.6aa8cbcb65b32971 public -- Class of Individual
-open import SysFEAT.UpperOntology.23d5eaba68515533 public -- Ordering Connection
+open import SysFEAT.UpperOntology.6aa8cbcb65b32971 public -- ClassOfIndividual
+open import SysFEAT.UpperOntology.23d5eaba68515533 public -- OrderingConnection
 
 TemporalBoundingType : ClassOfClassOfIndividual
 TemporalBoundingType = ClassOfIndividual

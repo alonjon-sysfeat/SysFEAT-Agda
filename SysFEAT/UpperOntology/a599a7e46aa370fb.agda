@@ -20,18 +20,17 @@ External references:
   BORO Research - Unification of Types and Multi-Level Modeling     : https://research.borosolutions.net/kcl-2024-unification-types-multi-level-modeling-introduction/
   SysFEAT - TheoraticalFoundations- Multilevel Modeling             : https://framework.sysfeat.com/resources/framework/SysFEAT-TheoraticalFoundations-MultiLevelModeling.pdf
 
-
  - ============================== -}
 
 {-# OPTIONS --safe --cubical --guardedness #-}
 
-module SysFEAT.UpperOntology.a599a7e46aa370fb where -- ============================ Second Order Class
+module SysFEAT.UpperOntology.a599a7e46aa370fb where -- ============================ SecondOrderClass
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.e8b2f7c7673d36d1 public -- MetaClass and MetaRelation
-open import SysFEAT.UpperOntology.e27801e868f17024 public -- MetaClass and MetaRelation
-open import SysFEAT.UpperOntology.d9cce4e96937128c public -- Ordered MetaClass
-open import SysFEAT.UpperOntology.bab6c7346ad70999 public -- Third Order Class
+open import SysFEAT.UpperOntology.e8b2f7c7673d36d1 public -- Entity
+open import SysFEAT.UpperOntology.e27801e868f17024 public -- MetaClass
+open import SysFEAT.UpperOntology.d9cce4e96937128c public -- OrderedMetaClass
+open import SysFEAT.UpperOntology.bab6c7346ad70999 public -- ThirdOrderClass
 
 -- ============================================================
 -- I. Second Order Class (M2 level)
@@ -45,7 +44,7 @@ SecondOrderClass = MetaClass lzero
 
 -- SecondOrderClass isPowerInstanceOf ThirdOrderClass
 --664328444b6ad764b4 : ∀ {u v} → (SecondOrderClass u) ∷ₚₑ (ThirdOrderClass v)
---4328444b6ad764b4 = trivialPowerInstanceOfEntity
+--664328444b6ad764b4 = trivialPowerInstanceOfEntity
 
 -- ============================================================
 -- II. Mereological Governance (Meta level M2)

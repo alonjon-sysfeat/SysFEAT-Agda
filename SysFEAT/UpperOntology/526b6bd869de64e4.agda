@@ -9,9 +9,9 @@ An Ordered Element is an Element that can belong to only to a single metamodelin
 
 {-# OPTIONS --safe --cubical --guardedness #-}
 
-module SysFEAT.UpperOntology.526b6bd869de64e4 where -- ===================== Ordered Element
+module SysFEAT.UpperOntology.526b6bd869de64e4 where -- ===================== OrderedElement
 
-open import SysFEAT.UpperOntology.20702b2568e9694d public -- Class of Element
+open import SysFEAT.UpperOntology.20702b2568e9694d public -- ClassOfElement
 
 -- ============================================================
 -- Definition

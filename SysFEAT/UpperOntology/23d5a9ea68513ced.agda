@@ -17,10 +17,10 @@ External references:
 
 {-# OPTIONS --cubical --guardedness #-}
 
-module SysFEAT.UpperOntology.23d5a9ea68513ced where -- ========== Building Block
+module SysFEAT.UpperOntology.23d5a9ea68513ced where -- ========== BuildingBlock
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.86b9b1d46ac32bda public -- Aspect of Entity
+open import SysFEAT.UpperOntology.86b9b1d46ac32bda public -- AspectOfEntity
 
 BuildingBlock : ∀ (u : Level) → ClassOfMixedOrderEntity u 
 BuildingBlock u  = MixedOrderEntity u 

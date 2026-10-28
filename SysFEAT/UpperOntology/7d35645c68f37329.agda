@@ -18,12 +18,12 @@ External references:
 
 {-# OPTIONS --safe --cubical --guardedness #-}
 
-module SysFEAT.UpperOntology.7d35645c68f37329 where -- ============== Class of Ordered Entity
+module SysFEAT.UpperOntology.7d35645c68f37329 where -- ============== ClassOfOrderedEntity
 
 open import Agda.Primitive
 open import SysFEAT.UpperOntology.e8b2f7c7673d36d1 public -- Entity and Relation
-open import SysFEAT.UpperOntology.308c3b3868e9141e public -- Class of Mixed Order Entity
-open import SysFEAT.UpperOntology.d9cce4e96937128c public -- Ordered Meta-Class
+open import SysFEAT.UpperOntology.308c3b3868e9141e public -- ClassOfMixedOrderEntity
+open import SysFEAT.UpperOntology.d9cce4e96937128c public -- OrderedMetaClass
 
 -- ============================================================
 -- I. ClassOfOrderedEntity declaration

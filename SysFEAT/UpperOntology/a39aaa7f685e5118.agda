@@ -20,11 +20,11 @@ Documentation: https://www.framework.sysfeat.com/pages/a39aaa7f685e5118.htm
 
 {-# OPTIONS --safe --cubical --guardedness #-}
 
-module SysFEAT.UpperOntology.a39aaa7f685e5118 where  -- ============ Lexical Scope
+module SysFEAT.UpperOntology.a39aaa7f685e5118 where  -- ============ LexicalScope
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.308c3b3868e9141e public -- Mixed-order Class
-open import SysFEAT.UpperOntology.86b9b1d46ac32bda public -- Aspect of Entity
+open import SysFEAT.UpperOntology.308c3b3868e9141e public -- MixedOrderClass
+open import SysFEAT.UpperOntology.86b9b1d46ac32bda public -- AspectOfEntity
 
 -- ============================================================
 -- 1. The abstract entity class LexicalScope

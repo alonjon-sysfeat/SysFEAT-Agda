@@ -17,8 +17,6 @@ External references:
   BORO Research - Unification of Types and Multi-Level Modeling    : https://research.borosolutions.net/kcl-2024-unification-types-multi-level-modeling-introduction/
   SysFEAT - TheoraticalFoundations- Multilevel Modeling            : https://framework.sysfeat.com/resources/framework/SysFEAT-TheoraticalFoundations-MultiLevelModeling.pdf
 
-
-
  - ============================== -}
 
 {-# OPTIONS --safe --cubical --guardedness #-}

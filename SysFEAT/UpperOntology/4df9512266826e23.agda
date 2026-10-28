@@ -18,9 +18,9 @@ External references:
 module SysFEAT.UpperOntology.4df9512266826e23 where -- ========== Individual
 
 open import Agda.Primitive
-open import SysFEAT.UpperOntology.5425a2df6aa225cf public -- First Order Entity
+open import SysFEAT.UpperOntology.5425a2df6aa225cf public -- FirstOrderEntity
+open import SysFEAT.UpperOntology.6aa8cbcb65b32971 public -- ClassOfIndividual
 open import SysFEAT.UpperOntology.746ac18368905aa2 public -- Property
-open import SysFEAT.UpperOntology.6aa8cbcb65b32971 public -- Class of Individual
 
 Individual : ClassOfIndividual
 Individual = FirstOrderEntity
@@ -30,7 +30,7 @@ st-4df9512266826e23-5425a2df6aa225cf : Individual ⊏ₑ FirstOrderEntity
 st-4df9512266826e23-5425a2df6aa225cf = polySubTypeOf-identity
 
 postulate -- Individual is PowerInstanceOf Class of Individual
-  87c18c5566e8638a : Individual ∷ₚₑ ClassOfIndividual
+  pi-87c18c5566e8638a : Individual ∷ₚₑ ClassOfIndividual
 
 -- == Relations =======================
 
